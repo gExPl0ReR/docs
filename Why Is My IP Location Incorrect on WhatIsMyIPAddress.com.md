@@ -1,6 +1,6 @@
-### Suggested Title:
-**Why Is My IP Location Incorrect on WhatIsMyIPAddress.com? Common Causes and Solutions**
-
+---
+title: 'Why Is My IP Location Incorrect on WhatIsMyIPAddress.com? Common Causes and Solutions'
+description: 'Why Is My IP Location Incorrect on WhatIsMyIPAddress.com? Common Causes and Solutions'
 ---
 
 ### **IP Address Geolocation Data Displayed Incorrectly on WhatIsMyIPAddress.com**
