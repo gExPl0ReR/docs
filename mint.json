@@ -50,60 +50,44 @@
   ],
   "navigation": [
     {
-      "group": "Everything VPS",
-      "pages": [
-        "indroduction",
-        "everything-vps/features",
-        "everything-vps/why-vps",
-        "everything-vps/choosing-vps"
-      ]
-    },
-    {
       "group": "Getting Started",
       "pages": [
-        "getting-started/check-your-inbox",
-        "getting-started/no-email-received",
-        "getting-started/linux-setup-ssh",
-        "getting-started/windows-remote-desktop",
-        "getting-started/backups",
-        "getting-started/acceptable-use-policy",
-        "getting-started/security-hardening-guide"
+        "introduction",
+        "quickstart",
+        "development",
+        "check-your-inbox",
+        "test/test"
       ]
     },
     {
-      "group": "VPS Management",
+      "group": "New article",
       "pages": [
-        "vps-management/api-management-ordering",
-        "vps-management/management-portal",
-        "vps-management/reinstall-vps",
-        "vps-management/cloud-setup",
-        "vps-management/power-cycle-reboot",
-        "vps-management/forgot-root-password",
-        "vps-management/mount-iso-image",
-        "vps-management/post-install-scripts",
-        "vps-management/custom-iso",
-        "vps-management/enable-vnc-server",
-        "vps-management/ip-settings",
-        "vps-management/ipv6-configuration",
-        "vps-management/ipv6-troubleshooting",
-        "vps-management/manual-ip-changes",
-        "vps-management/change-ip-windows",
-        "vps-management/support-pin"
+        "Article/Article"
       ]
     },
     {
-      "group": "FAQ",
+      "group": "VPS Hosting",
       "pages": [
-        "faq/what-is-vps",
-        "faq/free-trials-available",
-        "faq/ports",
-        "faq/windows-rdp",
-        "faq/hourly-plans",
-        "faq/ip-addresses",
-        "faq/server-locations",
-        "faq/billing-lifecycle",
-        "faq/traffic-bandwidth",
-        "faq/upgrades-downgrades"
+        "essentials/markdown",
+        "essentials/code",
+        "essentials/images",
+        "essentials/settings",
+        "essentials/navigation",
+        "essentials/reusable-snippets"
+      ]
+    },
+    {
+      "group": "API Documentation",
+      "pages": [
+        "api-reference/introduction"
+      ]
+    },
+    {
+      "group": "Endpoint Examples",
+      "pages": [
+        "api-reference/endpoint/get",
+        "api-reference/endpoint/create",
+        "api-reference/endpoint/delete"
       ]
     }
   ],
