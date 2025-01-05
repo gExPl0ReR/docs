@@ -52,7 +52,7 @@
     {
       "group": "Everything VPS",
       "pages": [
-        "everything-vps/introduction",
+        "indroduction",
         "everything-vps/features",
         "everything-vps/why-vps",
         "everything-vps/choosing-vps"
