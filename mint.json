@@ -55,7 +55,8 @@
         "introduction",
         "quickstart",
         "development",
-        "check-your-inbox"
+        "check-your-inbox",
+        "test/test"
       ]
     },
     {
