@@ -58,6 +58,12 @@
       ]
     },
     {
+      "group": "New article",
+      "pages": [
+        "Article/Article",
+      ]
+    },
+    {
       "group": "VPS Hosting",
       "pages": [
         "essentials/markdown",
