@@ -1,0 +1,40 @@
+---
+title: IP address cannot be reached from my country
+description: If your IP address can not be reached from your country, EDIS offers a free IP address change within 24 hours of purchase.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Mon Sep 11 2023 14:54:22 GMT+0000 (Coordinated Universal Time)
+updatedAt: Thu Oct 24 2024 20:12:25 GMT+0000 (Coordinated Universal Time)
+---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+## How to figure out if IP is blocked in your country
+
+You ordered a new VPS, just received login credentials and figured out that your server's IP address does not seem to be reachable from your country.
+
+You can test whether your IP address can be reached from other countries. We recommend the <a href="https://tools.keycdn.com/ping" target="_blank">KeyCDN pingtool</a> for this particular purpose.
+
+If the IP address assigned to your server works from other countries, but can not be reached from your ISP/network/country, EDIS offers the possibility of a free IP address change within 24 hours from the time of purchase.
+
+<CtaButton label='IP Address Change' link='./change-ip-address' />
+
+<Note>
+  Some countries (Turkmenistan, China, Iran, Vietnam, Russia, ...) detect and
+  block VPN after 1 or 2 hours of usage. Use "stealth mode" (openvpn + stunnel)
+  or consider using v2ray (ideally behind an nginx reverse proxy) to avoid
+  getting blocked.
+</Note>
+
+<CtaButton
+  label='OpenVPN + stunnel'
+  link='https://www.perfect-privacy.com/en/manuals/linux_openvpn_stealth_stunnel'
+  openInNewTab={true}
+/>
+
+<CtaButton label='v2ray' link='https://www.v2ray.com' openInNewTab={true} />
+
+<CtaButton
+  label='nginx reverse proxy'
+  link='https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/'
+  openInNewTab={true}
+/>

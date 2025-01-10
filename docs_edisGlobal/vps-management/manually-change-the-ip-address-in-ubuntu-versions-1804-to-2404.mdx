@@ -1,0 +1,130 @@
+---
+title: Manually Change IP Address in Ubuntu (Versions 18.04 to 24.04)
+description: Update your IP address without server reinstallation. Follow these step-by-step instructions to manually configure the network settings in Ubuntu.
+createdAt: Tue Nov 05 2024 10:21:44 GMT+0000 (Coordinated Universal Time)
+updatedAt: Wed Nov 06 2024 14:53:44 GMT+0000 (Coordinated Universal Time)
+---
+
+## **Manual IP Change Instructions**
+
+Easily update your IP address without server reinstallation. Follow these step-by-step instructions to manually configure the network settings in Ubuntu.
+
+### Access Portal and Launch VNC
+
+<Steps>
+  <Step title='Log in to your'>
+    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
+  </Step>
+  <Step title='Enable your VNC server' >
+   Follow the instructions [here](https://docs.edisglobal.com/enable-vnc-server)
+  </Step>
+  <Step title='Open VNC' >
+   - Enter your username and password on the Ubuntu login page.
+   - It will look like the image below:
+
+    ![](/assets/1sSq3fI0sZJj8Zc4RoSr4-IHXwJtgkL6gRgpkRc_Zr5-20241106-134742.png)
+
+  </Step>
+</Steps>
+
+---
+
+### Identify Your Network Interface
+
+1. **Open Terminal** in the VNC session.
+2. **Run the command** to find your network interface name:
+
+```bash
+ip a
+```
+
+![](../../assets/1sSq3fI0sZJj8Zc4RoSr4-ReshjXd-8lmIVKifToQ0M-20241106-134551.png)
+
+or
+
+```bash
+ip link
+```
+
+![](../../assets/1sSq3fI0sZJj8Zc4RoSr4-kRjVlbM0BZZUbByalaeJ8-20241106-134849.png)
+
+Take note of the name of the interface you wish to configure, such as ens3 or eth0.
+
+---
+
+### Edit the Netplan Configuration File
+
+**Navigate to the Netplan directory**:
+
+```bash
+cd /etc/netplan/
+```
+
+**Open the configuration file** (e.g., `50-cloud-init.yaml`):
+
+```bash
+nano /etc/netplan/50-cloud-init.yaml
+```
+
+![](../../assets/1sSq3fI0sZJj8Zc4RoSr4-E9BdohFiajf-v7_GDh5FM-20241106-134922.png)
+
+Note: The filename `50-cloud-init.yaml` may differ across servers; for example, it could be `01-network-manager-all.yaml`. Ensure you edit the correct file accordingly.
+
+---
+
+### Change the IP Address
+
+1. **Locate the line with the old IP address** and change it to your new IP address (e.g., `172.16.30.15`).
+2. **Update the Gateway address** in the routes section to the new gateway IP.
+
+---
+
+### Configure Multiple IPs (Optional)
+
+**To add multiple IP addresses**, format them like this:
+
+```bash
+addresses:
+        - 172.30.1.16/24
+        - 172.30.1.17/24
+        - 172.30.1.18/24
+```
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-GAWaDZQs40EA2dwmpDgoQ-20241106-134952.png)
+
+**Ensure proper indentation** in the YAML file.
+
+---
+
+### SAVE CONFIGURATION
+
+1. **Press** `CTRL + X` to save the file.
+2. **Press** `Y` to confirm changes and then **hit** `Enter` to exit.
+
+---
+
+### Apply Changes
+
+1. **Run the following command** to apply the new configuration:
+
+```bash
+sudo netplan apply
+```
+
+---
+
+### Verify Changes
+
+**Check if the new IP is set** by running:
+
+```bash
+ip a
+```
+
+**Alternatively, check the specific interface**:
+
+```bash
+ip addr show dev ens3
+```
+
+(Replace `ens3` with your network interface name).

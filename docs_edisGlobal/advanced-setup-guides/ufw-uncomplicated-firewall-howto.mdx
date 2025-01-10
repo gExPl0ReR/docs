@@ -1,0 +1,42 @@
+---
+title: UFW (Uncomplicated Firewall)
+description: This doc provides a brief guide on how to use ufw (Uncomplicated Firewall) on Linux-based systems to manage firewall rules.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Tue Sep 12 2023 19:06:07 GMT+0000 (Coordinated Universal Time)
+updatedAt: Mon Aug 26 2024 11:25:38 GMT+0000 (Coordinated Universal Time)
+---
+
+How to use ufw (uncomplicated Firewall)
+
+Here's a brief guide on how to use **ufw** (Uncomplicated Firewall) on Linux to manage your firewall.
+
+<Note>
+  Before enabling ufw, be sure to add appropriate rules to allow remote access
+  to necessary services such as SSH, HTTP/S, and any other required service.
+</Note>
+
+ufw, or Uncomplicated Firewall, is a user-friendly command-line tool for managing firewall rules on Linux-based systems. It is designed to simplify the management of firewall rules without sacrificing its powerful features and capabilities.
+
+With ufw, you can configure default policies for incoming and outgoing traffic, add or delete specific rules, and view the current status of the firewall. It also offers predefined rules for common services such as SSH, HTTP/S, and FTP, which can simplify the process of setting up firewall rules for these services.
+
+The benefits of using ufw include ease-of-use, flexibility, and security. It can enable system administrators to configure firewall rules quickly and efficiently, even for users without much experience in managing firewall settings. This can help minimize the risk of unauthorized access, malware and other network-based threats to your system.
+
+Overall, ufw is a great tool for managing firewalls on a Linux-based system, providing a simple yet powerful way to secure your network and keep your system safe.
+
+## Installation and simple ufw commands
+
+1. Install ufw (if it's not already installed): `sudo apt-get install ufw`
+2. Enable ufw: `sudo ufw enable`
+3. Configure default policies: By default, ufw allows all outgoing traffic and denies all incoming traffic. You can change these policies by typing:
+   - `sudo ufw default allow outgoing` to allow all outgoing traffic.
+   - `sudo ufw default deny incoming` to deny all incoming traffic.
+4. Add rules for incoming traffic:
+   - `sudo ufw allow <port>` to allow incoming traffic on a specific port, for example: `sudo ufw allow 80/tcp` to allow incoming HTTP traffic.
+   - `sudo ufw allow from <IP address>` to allow incoming traffic from a specific IP address.
+   - `sudo ufw allow from <IP address> to any port <port>` to allow incoming traffic from a specific IP address on a specific port.
+5. Delete rules:
+   - `sudo ufw delete <rule>` to delete a specific rule. For example, sudo ufw delete allow 80/tcp to delete a rule that allows incoming HTTP traffic.
+6. See the status of ufw:
+   - `sudo ufw status` to see the firewall status and enabled rules.
+7. Disable ufw:
+   - `sudo ufw disable` to disable the firewall.

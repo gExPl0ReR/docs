@@ -1,0 +1,63 @@
+---
+title: Understanding reverse DNS location vs VPS location
+description: The essence of reverse PTR records, and the negligible difference between Reverse DNS Nameserver location and VPS location with EDIS Global's anycast DNS system.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Fri Oct 27 2023 11:43:47 GMT+0000 (Coordinated Universal Time)
+updatedAt: Thu Jan 18 2024 10:35:51 GMT+0000 (Coordinated Universal Time)
+---
+
+## Understanding Test Sites for VPS
+
+Some websites (VPS- and IP test sites) indicate "DNS locations". This just means they're telling you where the DNS servers (responsible for linking an IP address to a hostname) they queried your IP address for are located. A "mismatch" might be puzzling for some users. It's crucial to understand that the indicated "DNS location" isn't a measure of service quality.&#x20;
+
+At EDIS Global, we use a smart DNS system called Anycast DNS. Think of it like a GPS that always guides you to the closest grocery store.
+
+1. When you or anyone else tries to find out the hostname linked to a VPS' IP address, our system ensures they're pointed to the closest of 50+ special DNS servers.
+2. But here's a key point: Which special DNS servers are used, depends on the test sites location. Anycast routes queries to the closest DNS servers.
+3. VPS and rDNS locations will only show the same country if both your VPS and the website you're testing from are in the same country.
+
+## What are Reverse PTR Records?
+
+A PTR (Pointer) record is a vital DNS record type, linking an IP address back to a hostname. Unlike typical DNS records, such as A records which guide domain names to IP addresses, a reverse PTR record directs an IP address to a domain name.
+
+### Why are PTR Records crucial?
+
+1. **Email Deliverability:** PTR records protect the integrity of your emails. Without them, many email servers might disregard incoming mails, associating them with spammers who often employ invalid IPs.
+2. **Trustworthiness:** A PTR record boosts the credibility of an IP address, linking it to a known domain.
+3. **Troubleshooting:** PTR records are invaluable for diagnostics and network troubleshooting, offering a quick and efficient way to spot issues tied to particular hostnames and their linked IP addresses.
+
+---
+
+## EDIS Global's Anycast DNS System
+
+Employing the power of Anycast DNS to resolve reverse pointers (PTR records), EDIS Global stands out with its expansive network. We operate a global network with 51 nameservers spanning two distinct clouds.
+
+### How it Operates:
+
+1. **Multiple Points of Presence (PoPs):** We boast 51 nameservers (PoPs) scattered across two cloud platforms. Every PoP announces the same nameserver IP address to the broader internet using the anycast internet-protocol.
+2. **Routing:** For every DNS query, network routers identify the nearest PoP based on the shortest pathway, assuring rapid response times.
+3. **Redundancy:** Our robust network ensures uninterrupted service. If a PoP is temporarily out of order, traffic flows to the nearest active PoP seamlessly.
+
+### DNS Locations:
+
+- **Cloud 1:** Amsterdam // Atlanta // Chicago // Dallas // Dublin // Frankfurt // Hongkong // Johannesburg // London //] Los Angeles  // Madrid // Melbourne // Miami  // Moscow // Mumbai // New York // Paris  // Reykjavik // Rheintal // Salzburg // Sao Paulo // Seattle // Singapore  // Stockholm // Tokyo // Warsaw  // Vienna // Zurich
+- **Cloud 2:** Amsterdam // Athens // Chicago // Dallas // Dubai // Frankfurt // Geneva // Hong Kong // Johannesburg // Ljubljana // London // Miami // Reston // San Jose // Sao Paulo // Seattle // Seoul // Sydney // Tampere // Tokyo // Toronto // Vienna
+
+### Benefits of our Anycast DNS System:
+
+1. **Low Latency:** Our vast network promises swift response times.
+2. **High Availability:** With two separate clouds, we assure continuous service even in the face of potential cloud outages.
+3. **Resilience Against DDoS:** Our system disperses DDoS traffic, protecting against potential attacks.
+4. **Automatic Failover:** Our network reroutes traffic autonomously in case of PoP issues.
+5. **Scalability:** We're equipped to expand our network according to your needs.
+6. **Consistent Experience:** Every user enjoys a uniformly efficient experience, thanks to our globally dispersed network.
+
+---
+
+## Reverse PTR locations vs VPS location
+
+The DNS location is dynamic, depending on the user's (including test server's) location. For instance, a UK-based user will receive rDNS queries from UK nameservers, while a USA-based user will get results from USA nameservers. A China based test-script will indicate an Asian DNS location, independent of the VPS location itself.
+
+**Important Takeaway:** The location of the reverse DNS is not indicative of the VPS location. While your VPS itself (the installed OS) might use Google- or Cloudflare DNS, the reverse PTR delegation for your IP addresses harnesses EDIS Global's ANYCAST DNS.
+
+Essentially, there is always a (negligible) difference between the reverse DNS name server location and the VPS location. Rest assured that with EDIS Global your operations are optimized for speed, reliability and efficiency.

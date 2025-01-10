@@ -1,0 +1,112 @@
+---
+title: FTP on WINDOWS SERVER
+slug: setup-ftp-windows-server
+description: Learn how to set up an FTP server on Windows Server. This step-by-step guide shows you how to easily upload and download files using IIS FTP features.
+createdAt: Mon Dec 09 2024 07:53:08 GMT+0000 (Coordinated Universal Time)
+updatedAt: Wed Dec 11 2024 17:22:35 GMT+0000 (Coordinated Universal Time)
+---
+
+## Install FTP for Easy File Uploads and Downloads
+
+Setting up an FTP (File Transfer Protocol) server on Windows Server allows you to easily upload and download your files from your server. This guide will walk you through the steps to enable and configure an FTP server using the built-in IIS (Internet Information Services) feature on Windows Server.
+
+## Prerequisites:
+
+- Windows Server version (2012, 2016, 2019, or later).
+- Administrative privileges.
+
+## Installation of FTP Server
+
+To begin, you'll need to install the FTP server role and components through the **Server Manager**.
+
+**Open Server Manager** from the Start menu.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-m-ID3_harpNieumj71xmR-20241209-083126.png)
+
+In the **Manage** menu, click **Add Roles and Features**.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-6mHJyfqCzvFI0yOBJdmyu-20241209-084138.png)
+
+Navigate to the **Role-based or feature-based installation** and select your server.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-uiUJgyJqRDGDPhdr3tTDY-20241209-084956.png)
+
+In the **Roles** section, find and expand **Web Server (IIS)**.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-4HyuYNwuMPqXwcUn9qVth-20241209-090055.png)
+
+In the **Web server role (IIS)** section and **Role Services**, ensure **FTP Service** and **FTP Extensibility** are selected.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-YZB3ulx9lnGsRMi7-saJu-20241209-090552.png)
+
+Click **Next** and then **Install**.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-vHh-XD-87HTkWvP90NhqK-20241209-091536.png)
+
+## Configuration of FTP server
+
+Open **Internet Information Services (IIS) Manager** by typing "IIS" in the Start menu.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-Zs2ISlwaroBQ_gHIGfLJ3-20241209-091930.png)
+
+In the left panel, expand the server node, and right-click on **Sites**. Select **Add FTP Site**.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-khc5jlI0EOQcl_9RO9bls-20241209-092134.png)
+
+In the **FTP site name** field, provide a name for your FTP site.
+
+For the **Physical path**, select the folder where you want to store your files. You may create a dedicated folder for FTP.
+
+Click **Next**.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-Noz_blB9uMvjz5ZQZ0ezD-20241209-092426.png)
+
+Next, configure how users will connect to your FTP server.
+
+Under **IP address**, choose the server's IP address or select **All Unassigned**.
+
+For **Port**, use the default FTP port (21). If you want to use a secure connection (FTPS), you can opt for port 990, but you need to configure SSL certificates.
+
+Under **SSL**, you can choose between:&#x20;
+
+- **No SSL**: Standard FTP (not secure).
+- **Allow SSL**: Optionally use SSL if available.
+- **Require SSL**: Force all connections to use SSL encryption (recommended for security).
+
+Click **Next**.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-GqdYcitDC8Je7umct7NEO-20241209-092655.png)
+
+Now, you’ll configure the authentication and access control for the FTP server.
+
+In the **Authentication** section, select **Basic Authentication**. This requires users to enter a username and password to access the FTP site.
+
+Under **Authorization**, select who can access the FTP server. You can allow access to:&#x20;
+
+- **All users**: Anyone can connect.
+- **Specified users**: Only specific users can access.
+- **Anonymous users**: No authentication required, which is not recommended for sensitive data.
+
+Choose **Read** or **Read/Write** permissions, depending on whether you want users to upload files or only download them.
+
+Click **Finish**.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-gR4yjMr_7PO4_io99XWrp-20241209-093015.png)
+
+**To ensure the server is set up correctly, test it by accessing the FTP server using an FTP client or File Explorer.**
+
+1. Open File Explorer and enter the FTP address in the format ftp\://\<server-ip> or ftp\://\<hostname>.
+2. Enter your FTP credentials (if required) and check if you can connect and view files.
+
+**If you are accessing the FTP server remotely, ensure that the necessary firewall ports (21 for FTP and 20 for data transfer) are open.**
+
+1. Go to **Control Panel** > **Windows Defender Firewall** > **Advanced Settings**.
+2. Select **Inbound Rules** and click **New Rule**.
+3. Choose **Port**, enter port 21 for FTP, and follow the prompts to allow inbound traffic.
+4. If using FTPS (SSL), ensure port 990 or the range of passive ports is opened.
+
+**If your FTP server will be accessed over the internet, you may need to enable Passive Mode for better connectivity through firewalls.**
+
+1. In **IIS Manager**, select your FTP site and click on **FTP Firewall Support**.
+2. Enable **Passive Mode** and specify the range of ports to use for data transfer (for example, 1025-65535).
+3. Ensure these ports are open on your firewall.

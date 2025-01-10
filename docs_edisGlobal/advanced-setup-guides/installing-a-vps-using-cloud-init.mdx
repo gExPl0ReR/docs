@@ -1,0 +1,55 @@
+---
+title: Cloud-Init OS Installation
+description: This is a quick guide how to deploy a cloud-init .qcow2 file to a VPS, using Oracle Linux 8 as an example.
+createdAt: Thu Aug 08 2024 10:51:38 GMT+0000 (Coordinated Universal Time)
+updatedAt: Thu Aug 08 2024 15:37:44 GMT+0000 (Coordinated Universal Time)
+---
+
+### Step-by-step guide for deploying an OS using Cloud-Init.
+
+In this example, we show you how to install an **Oracle Linux 8** from a .qcow2 cloud image via the KVM management panel. This guide covers the initial setup, including accessing the KVM portal, selecting the appropriate .qcow2 image, and configuring the virtual machine settings.&#x20;
+
+<Note>
+  Make sure that your VPS plan has sufficient space to fit the cloud image.
+</Note>
+
+### Installing Oracle Linux 8 using Cloud-Init
+
+1. Open the KVM management portal and navigate to the <a href="https://docs.edisglobal.com/autoinstall-reinstall-install-vps-linux-windows" target="_blank">Reinstall</a> section.
+2. Download <a href="https://yum.oracle.com/templates/OracleLinux/OL8/u10/x86_64/OL8U10_x86_64-kvm-b237.qcow2" target="_blank">Oracle Linux .qcow2 </a>Cloud Image from the official <a href="https://yum.oracle.com/oracle-linux-templates.html" target="_blank">template page</a> to your computer.
+3. Open the KVM management portal select **Autoinstall OS** -> select **Custom Cloud-Init Images** (third tab).
+
+:::
+
+![](/assets/y9B0AGVAxYeSyeZVyaDis-dAQWcYTrB4QhauH4Qy2B9-20240808-121621.png)
+
+1. Upload the .qcow2 image to your VPS, click to button "Browse"&#x20;
+2. Select the previously downloaded .qcow2 file from your computer
+3. Indicate a secure password
+4. Tag checkbox that "Uploading a qcow2 file erases all data on your VPS!"
+
+<Warning>
+  It is important to understand that **all data on your VPS will be wiped during
+  this process!**
+</Warning>
+
+![](/assets/y9B0AGVAxYeSyeZVyaDis-CuF_QvIFjt7M_5iCgQ_O8-20240808-122136.png)
+
+1. Click the "**Proceed**" button and wait until the file is fully uploaded.&#x20;
+   Cloud-Init deployment will kick-in right after the upload has finished.
+   Installation takes roughly 5-10 minutes.
+
+   After the deployment is complete, you will be able to connect to the server using the password you specified during the installation process.
+
+2. Connect to the server via SSH using default port 22&#x20;
+
+```shell
+ssh root@IP_address_VPS
+```
+
+```shell
+#To check Oracle version use:
+cat /etc/oracle-release
+```
+
+Congratulations. You installed Oracle Linux with Cloud-init. Well done

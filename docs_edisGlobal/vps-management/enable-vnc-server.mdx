@@ -1,0 +1,37 @@
+---
+title: Enable VNC server
+slug: enable-vnc-server
+description: VNC can be enabled for each VPS individually through the KVM management portal, which allows remote control through a graphical interface using either noVNC or a desktop VNC client.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Tue Sep 12 2023 09:46:35 GMT+0000 (Coordinated Universal Time)
+updatedAt: Fri Oct 04 2024 20:35:33 GMT+0000 (Coordinated Universal Time)
+---
+
+## VNC, remotely control a VPS through a graphical interface
+
+### Understanding VNC
+
+Imagine if you could sit in front of a remote computer from anywhere in the world and use it as if you're right there. That's VNC. It lets you see and interact with your VPS even if the normal ways of connecting (like SSH or RDP) are broken.
+
+### Understanding noVNC
+
+noVNC provides a convenient way to access VNC servers from any device with a modern web browser, eliminating the need for dedicated client software.
+
+### How to activate VNC in the control panel
+
+Through the KVM management portal, you can enable VNC for each VPS individually. Once VNC is turned on, **noVNC** or a **desktop VNC client** can be used to connect.
+
+<Steps>
+  <Step title='Log in to your'>
+    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
+  </Step>
+  <Step title='Locate your VPS in the Services tab' />
+  <Step title='Click "Enable VNC"' />
+</Steps>
+
+<Note>
+  **Note down the password** to authorize a desktop VNC session! The password is
+  ***not required*** for the noVNC web client
+</Note>
+
+![](/assets/Rzf78n2gLy9hzvi0IZA8l_edis-vnc-novnc.gif)

@@ -1,0 +1,267 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Docs",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#F96002",
+    "light": "#F96002",
+    "dark": "#d55200",
+    "anchors": {
+      "from": "#F96002",
+      "to": "#1E1E1E"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Blog",
+      "url": "https://www.edisglobal.com/blog"
+    },
+    {
+      "name": "Support",
+      "url": "https://www.edisglobal.com/contact"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://manage.edisglobal.com/clientarea.php"
+  },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "openapi": "/openapi.json",
+      "url": "api-reference"
+    },
+    {
+      "name": "API Reference2",
+      "openapi": "/management-openapi.json",
+      "url": "api-reference2"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Documentation",
+      "icon": "book-open-cover",
+      "url": "https://mintlify.com/docs"
+    },
+    {
+      "name": "Community",
+      "icon": "slack",
+      "url": "https://mintlify.com/community"
+    },
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://mintlify.com/blog"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "docs_edisGlobal/getting-started/check-your-inbox",
+        "docs_edisGlobal/getting-started/no-email-received",
+        "docs_edisGlobal/getting-started/statuspage-subscribe",
+        "docs_edisGlobal/getting-started/how-our-support-team-helps-you",
+        "docs_edisGlobal/getting-started/linux-secure-shell-ssh",
+        "docs_edisGlobal/getting-started/windows-remote-desktop",
+        "docs_edisGlobal/getting-started/backups",
+        "docs_edisGlobal/getting-started/acceptable-use-policy",
+        "docs_edisGlobal/getting-started/ssh-security-hardening-guide"
+      ]
+    },
+    {
+      "group": "VPS Management",
+      "pages": [
+        "docs_edisGlobal/vps-management/api-for-management-and-ordering",
+        "docs_edisGlobal/vps-management/vps-management-portal",
+        "docs_edisGlobal/vps-management/autoinstall-reinstall-install-vps-linux-windows",
+        "docs_edisGlobal/vps-management/edis-cloud-init-vps-installation",
+        "docs_edisGlobal/vps-management/power-cycle-or-reboot-a-vps",
+        "docs_edisGlobal/vps-management/forgot-root-password-set-pwd-in-single-user-mode",
+        "docs_edisGlobal/vps-management/mount-iso-image",
+        "docs_edisGlobal/vps-management/post-install-scripts",
+        "docs_edisGlobal/vps-management/bring-your-own-iso",
+        "docs_edisGlobal/vps-management/enable-vnc-server",
+        "docs_edisGlobal/vps-management/ip-address-information",
+        "docs_edisGlobal/vps-management/ipv6-configuration",
+        "docs_edisGlobal/vps-management/basic-ipv6-troubleshooting",
+        "docs_edisGlobal/vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404",
+        "docs_edisGlobal/vps-management/how-to-change-ip-address-in-windows-server",
+        "docs_edisGlobal/vps-management/your-support-pin"
+      ]
+    },
+    {
+      "group": "FAQ",
+      "pages": [
+        "docs_edisGlobal/faq/what-is-a-virtual-private-server",
+        "docs_edisGlobal/faq/what-is-a-kvm-vps",
+        "docs_edisGlobal/faq/free-trials-available",
+        "docs_edisGlobal/faq/is-port-25-open",
+        "docs_edisGlobal/faq/windows-rdp-service-available",
+        "docs_edisGlobal/faq/hourly-plans-available",
+        {
+          "group": "IP Addresses",
+          "pages": [
+            "docs_edisGlobal/faq/ip-addresses/ping-test-ip",
+            "docs_edisGlobal/faq/ip-addresses/change-ip-address",
+            "docs_edisGlobal/faq/ip-addresses/order-additional-ip-address",
+            "docs_edisGlobal/faq/ip-addresses/configuring-additional-ip-address-linux",
+            "docs_edisGlobal/faq/ip-addresses/setting-up-reverse-pointers",
+            "docs_edisGlobal/faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall",
+            "docs_edisGlobal/faq/ip-addresses/ip-can-not-be-reached-from-my-country",
+            "docs_edisGlobal/faq/ip-addresses/geolocation-geoip-databases",
+            "docs_edisGlobal/faq/ip-addresses/ip-location-incorrect-on-whatismyipaddresscom",
+            "docs_edisGlobal/faq/ip-addresses/understanding-ip-address-location",
+            "docs_edisGlobal/faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location",
+            "docs_edisGlobal/faq/ip-addresses/static-ip-addresses",
+            "docs_edisGlobal/faq/ip-addresses/announcing-third-party-ip-prefixes",
+            "docs_edisGlobal/faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance",
+            "docs_edisGlobal/faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows"
+          ]
+        },
+        {
+          "group": "Server Loactions",
+          "pages": [
+            "docs_edisGlobal/faq/server-locations/list-of-edis-global-server-locations-by-continent-region",
+            "docs_edisGlobal/faq/server-locations/change-server-location"
+          ]
+        },
+        {
+          "group": "Billing & Lifecycle",
+          "pages": [
+            "docs_edisGlobal/faq/billing-&-lifecycle/accidental-renewal-convert-payment-to-credit",
+            "docs_edisGlobal/faq/billing-&-lifecycle/accepted-payment-methods",
+            "docs_edisGlobal/faq/billing-&-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global",
+            "docs_edisGlobal/faq/billing-&-lifecycle/how-fast-instant-delivery",
+            "docs_edisGlobal/faq/billing-&-lifecycle/cancel-a-service",
+            "docs_edisGlobal/faq/billing-&-lifecycle/cancellation-and-refund-policy",
+            "docs_edisGlobal/faq/billing-&-lifecycle/can-i-get-a-refund",
+            "docs_edisGlobal/faq/billing-&-lifecycle/automated-vps-billing-workflow",
+            "docs_edisGlobal/faq/billing-&-lifecycle/how-to-receive-monthly-consolidated-invoice",
+            "docs_edisGlobal/faq/billing-&-lifecycle/eu-vat-explained-if-and-how-much",
+            "docs_edisGlobal/faq/billing-&-lifecycle/can-i-pay-with-iban",
+            "docs_edisGlobal/faq/billing-&-lifecycle/btc-payment-arrived-after-the-payment-window",
+            "docs_edisGlobal/faq/billing-&-lifecycle/how-to-pay-paypal-use-different-currency",
+            "docs_edisGlobal/faq/billing-&-lifecycle/no-upfront-deposits-required",
+            "docs_edisGlobal/faq/billing-&-lifecycle/top-up-credit-balance-by-bank-transfer",
+            "docs_edisGlobal/faq/billing-&-lifecycle/add-contact-receive-invoices-different-email",
+            "docs_edisGlobal/faq/billing-&-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account",
+            "docs_edisGlobal/faq/billing-&-lifecycle/handling-locked-cryptocurrency-payments-cryptomus"
+          ]
+        },
+        {
+          "group": "Traffic (bandwidth)",
+          "pages": [
+            "docs_edisGlobal/faq/traffic-bandwidth/traffic-vs-bandwidth",
+            "docs_edisGlobal/faq/traffic-bandwidth/traffic-stats-refill-explained",
+            "docs_edisGlobal/faq/traffic-bandwidth/traffic-pool-global-and-premium-traffic-zone",
+            "docs_edisGlobal/faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global",
+            {
+              "group": "DOS Attacks",
+              "pages": [
+                "docs_edisGlobal/faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview",
+                "docs_edisGlobal/faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients"
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Upgrades, Downgrades",
+          "pages": [
+            "docs_edisGlobal/faq/upgrades-downgrades/upgrading-a-vps-to-a-higher-tier",
+            "docs_edisGlobal/faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade",
+            "docs_edisGlobal/faq/upgrades-downgrades/is-it-possible-to-downgrade",
+            "docs_edisGlobal/faq/upgrades-downgrades/backup-restore-data-linux",
+            "docs_edisGlobal/faq/upgrades-downgrades/obtain-secondary-network-interface-edis-vps",
+            {
+              "group": "CPU Cores vs. CPU Sockets in VPS Environments",
+              "pages": [
+                "docs_edisGlobal/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps",
+                "docs_edisGlobal/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-linux-vps",
+                "docs_edisGlobal/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Join Our Team",
+      "pages": [
+        "docs_edisGlobal/join-our-team/join-our-team",
+        "docs_edisGlobal/join-our-team/jobs-edisglobal-support-agent-non-voice",
+        "docs_edisGlobal/join-our-team/technical-procurement-and-server-operations-coordinator",
+        "docs_edisGlobal/join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert"
+      ]
+    },
+    {
+      "group": "Advanced Setup Guides",
+      "pages": [
+        {
+          "group": "File Transfer Methods for Linux and Windows",
+          "pages": [
+            "docs_edisGlobal/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods",
+            "docs_edisGlobal/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows",
+            "docs_edisGlobal/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux",
+            "docs_edisGlobal/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux",
+            "docs_edisGlobal/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows",
+            "docs_edisGlobal/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server"
+          ]
+        },
+        "docs_edisGlobal/advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox",
+        "docs_edisGlobal/advanced-setup-guides/installing-a-vps-using-cloud-init",
+        "docs_edisGlobal/advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems",
+        "docs_edisGlobal/advanced-setup-guides/extend-hard-drive-windows-guide",
+        {
+          "group": "Security Advisories",
+          "pages": [
+            "docs_edisGlobal/advanced-setup-guides/security-advisories/regresshion-openssh-vulnerability",
+            "docs_edisGlobal/advanced-setup-guides/security-advisories/update-sshd-debian-ubuntu-redhat"
+          ]
+        },
+        "docs_edisGlobal/advanced-setup-guides/registering-and-assigning-a-domain-to-your-vps",
+        "docs_edisGlobal/advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps",
+        "docs_edisGlobal/advanced-setup-guides/openvpn-over-stunnel",
+        "docs_edisGlobal/advanced-setup-guides/l2tp-ipsec-and-ikev2-vpn",
+        {
+          "group": "Install AmneziaWG on Ubuntu 22.04",
+          "pages": [
+            "docs_edisGlobal/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204",
+            "docs_edisGlobal/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router",
+            "docs_edisGlobal/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg",
+            "docs_edisGlobal/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows"
+          ]
+        },
+        "docs_edisGlobal/advanced-setup-guides/how-to-install-google-chrome-on-windows-server",
+        "docs_edisGlobal/advanced-setup-guides/reset-forgotten-lost-administrator-password-on-windows-server",
+        "docs_edisGlobal/advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps",
+        "docs_edisGlobal/advanced-setup-guides/gui-versions-of-ubuntu-debian",
+        "docs_edisGlobal/advanced-setup-guides/install-jitsi-on-your-vps",
+        "docs_edisGlobal/advanced-setup-guides/how-to-setup-wireguard-vpn",
+        "docs_edisGlobal/advanced-setup-guides/install-mikrotik-routeros-on-edis-vps",
+        "docs_edisGlobal/advanced-setup-guides/installing-openvpn-with-turnkey",
+        "docs_edisGlobal/advanced-setup-guides/ufw-uncomplicated-firewall-howto"
+      ]
+    },
+    {
+      "group": "Misc",
+      "pages": [
+        "docs_edisGlobal/misc/extending-180-day-trial-version-of-windows",
+        "docs_edisGlobal/misc/edis-global-vps-reselling-and-discount-structure",
+        "docs_edisGlobal/misc/reporting-abuse",
+        "docs_edisGlobal/misc/fix-for-realvnc-closing-connection",
+        "docs_edisGlobal/misc/manual-windows-server-intallation-on-kvm",
+        "docs_edisGlobal/misc/rnir-fix-remote-desktop-credssp-encryption-oracle-remediation-error"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "x": "https://x.com/mintlify",
+    "github": "https://github.com/mintlify",
+    "linkedin": "https://linkedin.com/company/mintlify"
+  }
+}

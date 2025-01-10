@@ -1,0 +1,71 @@
+---
+title: Traffic explained
+description: This doc explains how to access and interpret traffic information for a VPS through the management portal.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Tue Sep 12 2023 08:29:23 GMT+0000 (Coordinated Universal Time)
+updatedAt: Thu May 30 2024 11:37:29 GMT+0000 (Coordinated Universal Time)
+---
+
+## Everything about VPS Traffic
+
+This document explains how to access and interpret traffic information for a VPS through the management portal. It includes details on total traffic used, available (remaining) traffic, and monthly reset/refills, as well as a chart showing cumulative traffic and days remaining until the next refill. Users can also view daily traffic data for every VPS.
+
+### Access your VPS' traffic information
+
+To access your VPS traffic information
+
+<Steps>
+  <Step title='Log in to your'>
+    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
+  </Step>
+  <Step title='Pick any VPS from the Services tab' />
+</Steps>
+
+![VPS Traffic information window](/assets/cNp-aoYzm2d52KmDABp4u_traffic-info-edis-global.png)
+
+### Total traffic used
+
+The total amount of traffic (GB and percentage) consumed since the beginning of the current monthly service timeframe.
+
+### Total traffic available
+
+The total amount of traffic included in your plan for a 1-month period.
+
+### Monthly Traffic Reset/Refill&#x20;
+
+Days remaining for monthly VPS traffic reset. Countdown to when your VPS traffic metrics will be reset and the traffic allocation for your plan is replenished (refill).
+
+### How we Meter Traffic&#x20;
+
+EDIS Global monitors traffic counters directly from the Ethernet interfaces of your virtual private servers in real-time. The total traffic usage is determined by summing the ingress (incoming) and egress (outgoing) traffic.
+
+$$Total Traffic = \sum (\text{IN} + \text{OUT})$$
+
+### What happens when you used used all traffic?
+
+Warnings are being sent out at 80%, 90%, and at 100% traffic usage levels.&#x20;
+When all traffic is used, your ethernet interface is throttled to about 64kbit/s.&#x20;
+We apply a 5% grace amount, so the throttling only happens at roughly 105% usage.
+There's no overage charge, ensuring your server remains online even if all traffic has been used. There are several options for (instant) [restoration](https://docs.edisglobal.com/traffic-pool-global-and-premium-traffic-zone).
+
+![](/assets/-n9f9xXjqDwmY3XgFkQUn_daily-traffic-432a39609a.png)
+
+###
+
+### Exponential Traffic Chart
+
+We have a chart showing the **total (cumulated) traffic** since the last refill. VPS traffic is reset and refilled monthly, based on your product's key date.
+
+There is a small indicator (see the red arrow below) showing how many days to go until you receive your next monthly traffic refill.&#x20;
+
+This indicator is helpful to understand if you make it until the next monthly refill, if you should "hydrate" your KVM with traffic from your <a href="https://docs.edisglobal.com/traffic-pool-global-and-premium-traffic-zone" target="_blank">traffic pool</a>, or upgrade to a higher tier.
+
+The red line represents the total amount of traffic available to your KVM. It usually shows the amount of traffic included in your plan, the line moves higher if you hydrated your VPS with traffic from the traffic pool.&#x20;
+
+![](/assets/lHUScqmop6d5_TFXKZlHt_cumulative-traffic-bc46ac6118.png)
+
+<Note>
+  In the panel, hover the mouse over a particular day to get more insights from
+  the readings. Please note that the diagram is rendered exponentially and not
+  linear.
+</Note>

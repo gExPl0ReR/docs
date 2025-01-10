@@ -1,0 +1,91 @@
+---
+title: Configure additional IP on a Linux VPS
+description: How to configure an additional IPv4 on different Linux distributions, with examples for Debian Linux and Ubuntu
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Sun Sep 17 2023 19:27:50 GMT+0000 (Coordinated Universal Time)
+updatedAt: Thu Jan 18 2024 10:35:08 GMT+0000 (Coordinated Universal Time)
+---
+
+## Configure a secondary IP in Linux
+
+When you order an additional IP address for your VPS, it will not be added to your server's network settings automatically. You have to manually configure the IP address in your operating system's network configuration or make a clean reinstall to get your IP address configured automatically (all data on your KVM will be erased during reinstall).
+
+Below are instructions on how to add a secondary IPv4 address to your VPS. Let's break down how to add an additional IP to the major Linux distributions:
+
+## Debian/Ubuntu:
+
+Debian and Ubuntu use the same network configuration method.
+
+### 1. Edit the Network Configuration File:
+
+- Open the terminal.
+- Edit the network interfaces file using the nano editor (or any other editor you prefer):
+
+```shell
+sudo nano /etc/network/interfaces
+```
+
+- Locate the entry for your network interface. It typically starts with `iface`, for instance: `iface eth0 inet static`.
+- To add an additional IP, add the following line just below your existing configuration:
+
+```shell
+up ip addr add [YOUR-SECOND-IP]/24 dev eth0
+
+# NOTE: Replace [YOUR-SECOND-IP] with your additional IP address.
+```
+
+- Save the file and exit (for nano, it's `CTRL + X`, press `Y` and then `Enter`).
+
+### 2. Restart the Networking Service:
+
+```shell
+sudo systemctl restart networking
+```
+
+##
+
+##
+
+## CentOS:
+
+### 1. Navigate to Network Scripts Directory:
+
+```shell
+cd /etc/sysconfig/network-scripts/
+```
+
+### 2. Create a Clone File for Your Interface:
+
+If your main interface is `eth0`, the clone would be named `eth0:0`.
+
+```shell
+sudo cp ifcfg-eth0 ifcfg-eth0:0
+```
+
+### 3. Edit the Clone Configuration:
+
+- Open the new configuration file in an editor:
+
+```shell
+sudo nano ifcfg-eth0:0
+```
+
+- Change the `DEVICE` line to:
+
+```shell
+DEVICE=eth0:0
+```
+
+- Update the `IPADDR` line with your new IP address.
+- Make sure you remove or comment out the `UUID` line.
+- Save and exit.
+
+### 4. Restart the Network Service:
+
+```shell
+sudo systemctl restart network
+```
+
+---
+
+**Note**: Always ensure you have permission to make these changes, and make backups of configuration files before editing them. It's also advisable to notify any affected parties before making changes, as there might be a short downtime while you restart network services.

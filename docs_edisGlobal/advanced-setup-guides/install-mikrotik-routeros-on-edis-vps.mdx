@@ -1,0 +1,191 @@
+---
+title: Mikrotik RouterOS on EDIS KVM
+description: The doc provides instructions and settings on how to install Mikrotik on an EDIS Virtual Server using KVM. This involves changing hardware settings such as the disk driver and network driver
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Tue Sep 12 2023 10:00:54 GMT+0000 (Coordinated Universal Time)
+updatedAt: Sat Nov 16 2024 16:46:23 GMT+0000 (Coordinated Universal Time)
+---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+## NEW: Script-based MikroTik CHR installation&#x20;
+
+&#x20; \_\_ \_\_ \_\_\_ \_ \_\_\_\_\_\_ \_\_\_ \_\_\_\_\_ \_\_\_ \_ \_\_
+
+&#x20;\| \\/ |\_ \_| |/ / \_ \ / \_ \\\_ \_|\_ \_| |/ /
+
+&#x20;\| |\\/| || || ' /| |\_) | | | || | | || ' /&#x20;
+
+&#x20;\| | | || || . \\| \_ \<| |\_| || | | || . \\&#x20;
+
+&#x20;|\_| |\_|\_\_\_|\_|\\\_\\\_| \\\_\\\\\_\_\_/ |\_| |\_\_\_|\_|\\\_\\&#x20;
+
+<CtaButton
+  label='Mikrotik CHR installation script'
+  link='../advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox'
+/>
+
+##
+
+... or continue below for the **classic, manual installation:**
+
+## How to install Mikrotik on your VPS
+
+To install Mikrotik on an EDIS Global VPS, you’ll need to adjust a few hardware settings first, after which the installation will run smoothly.
+
+<Steps>
+  <Step title='Log in to your'>
+    [KVM Management Portal](https://manage.edisglobal.com/clientarea.php)
+  </Step>
+  <Step title='Locate your VPS in the Services tab' />
+  <Step title='Head to KVM Settings (button)' />
+  <Step title='Change Disk driver to IDE' />
+  <Step title='Change Network Driver to E100' />
+  <Step title='Cold-Boot your VPS'>
+    ![](/assets/jDLpjJyd8hP0rApHKW4JK_install-mikrotik-on-edis-kvm-a4a31602ce.png)
+  </Step>
+</Steps>
+
+## Implications on Mikrotik Upgrades from v6 to v7
+
+We learned from clients that the upgrade procedure from Mikrotik v6 to v7 seems to be broken. Clients were left with instances not being able to boot after the version upgrade from Mikrotik 6.x to Mikrotik 7.x and error messages like
+
+```powershell VNC
+Press ESC from boot menu.
+
+Booting from Hard Disk ...
+Load system
+
+ERROR: could not mount disk!
+Please attach it somewhere else
+
+```
+
+So far, the only known workaround is a fresh Mikrotik v7.x intallation.&#x20;
+
+## Mikrotik CHR (Cloud Hosted Router)
+
+If you want to give Mikrotik CHR a try, you can download images from the official <a href="https://mikrotik.com/download" target="_blank">Mikrotik download page</a>. To make life easy for you, we converted a couple of <a href="https://files.edisglobal.com/index.php/s/Jph4RkS7Cgw0ryY" target="_blank">cloud images</a> downloaded from the Mikrotik website, which can be used with our Cloud-Init installer 😎
+
+<Steps>
+  <Step title='Log in to your'>
+    [KVM Management Portal](https://manage.edisglobal.com/clientarea.php)
+  </Step>
+  <Step title='Locate your VPS in the Services tab' />
+  <Step title='Head to KVM Settings (button)' />
+  <Step title='Change Disk driver to IDE' />
+  <Step title='Change Network Driver to E100' />
+  <Step title='Click on Autoinstall OS (button)' />
+  <Step title='Proceed to Custom Cloud-Init Images (tab)' />
+  <Step title='Upload the .qcow2 file and proceed with the installation (pick any password)'>
+    you will see: Server Status: AUTOINSTALL IN PROGRESS
+    it will change to: Server Status: RUNNING, **AUTOINSTALL IN PROGRESS**
+
+    **The installation will take a couple of minutes!**
+
+  </Step>
+  <Step title='Once the installer is done (Server Status: RUNNING)'>
+    start a VNC session, start noVNC, click into the noVNC window (set focus)
+    and finish the installation.
+
+    Mikrotik username: admin
+
+    Mikrotik password: no password, leave field empty, just press Enter
+
+  </Step>
+</Steps>
+
+![](/assets/09LZQI22gA6fwQ5vkQmgu_mikrotik-chr-installer-in-novnc.png)
+
+## Configure Static IPv4 in MikroTik
+
+Log into MikroTik Router:
+
+- Use a **VNC session** to connect to your MikroTik router.
+- Log in with your credentials (by default, the username is `admin`, and there is no password unless you changed it).
+
+### Set Static IPv4 Address:
+
+After logging into MikroTik, use the **Terminal** window and enter the following commands to configure the static IP:
+
+**Assign Static IP Address**:
+Use this command to set a static IP on the interface you want (e.g., `ether1`):
+
+```bash
+ip/address/add address=192.168.1.100/24 interface=ether1
+```
+
+- Replace `192.168.1.100/24` with your VPS static IP and subnet mask.
+- Replace `ether1` with the correct interface if it's different.
+
+**Set Gateway (Default Route)**:
+To configure a default gateway, use the following command:
+
+```bash
+ip/route/add gateway=192.168.1.1
+```
+
+- Replace `192.168.1.1` with your VPS default gateway IP address
+
+**Set DNS Servers**:
+To configure DNS servers (for example, using Google DNS), use:
+
+```bash
+ip/dns/set servers=8.8.8.8,8.8.4.4
+```
+
+- You can use any DNS servers, such as `1.1.1.1` and `1.0.0.1` for Cloudflare’s public DNS resolvers.
+
+### Verify Your Configuration:
+
+Please reboot the server with the following command to apply the changes and set up the network:
+
+```bash
+system/reboot
+```
+
+- After the server has rebooted, you can connect to the server via **Winbox**, the **web interface**, or **SSH** using the IP address you configured.
+
+## Configure IPv6 address in MikroTik
+
+To configure the imaginary IPv6 address **2a03\:f80:22:4198::1** on a **MikroTik CHR** device, follow these steps\:Always refer to your VPS dashboard for the correct I/64 Pv6 address assignment-.
+
+### **Assign the IPv6 Address**
+
+1. **Open your MikroTik terminal** or connect via **Winbox**.
+
+2. **Add the IPv6 address** to the desired interface (e.g., ether1).
+
+```bash
+/ipv6 address add address=2a03:f80:22:4198::1/48 interface=ether1
+```
+
+• Replace ether1 with the actual interface you are using. Replace `2a03:f80:22:4198::` with your own VPS IPv6 range.
+
+Remember that the **subnet mask is configured as /48** while the size of your allocation remains /64.
+
+### Configure the IPv6 Default Route
+
+1. **Add the default route** for IPv6 to allow external communication.
+
+```bash
+/ipv6 route add dst-address=::/0 gateway=2a03:f80:22::1
+```
+
+• **Note**: This example uses 2a03\:f80:22::1 as the gateway. Your gateway consists of the first three segments of your IP address and ::1
+
+### **Verify the Configuration**
+
+1. **Check the assigned IPv6 address**:
+
+```bash
+/ipv6 address print
+```
+
+2. **Check the default route**:
+
+```bash
+/ipv6 route print
+```
+
+This configuration will allow your MikroTik CHR to use the imaginary IPv6 address **2a03\:f80:22:4198::1** and establish external connectivity via the default gateway. Remember that the **subnet mask is configured as /48**, not /64.

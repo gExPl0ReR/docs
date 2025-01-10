@@ -1,0 +1,181 @@
+---
+title: Post-Install Scripts
+slug: post-install-scripts-on-edis-vps
+description: Explore how Post-Install Scripts in the Auto-Installer of EDIS VPS Hosting can streamline your server setup. Paste or upload your script, and it will run automatically post-installation.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Wed Nov 01 2023 16:03:35 GMT+0000 (Coordinated Universal Time)
+updatedAt: Thu Jan 18 2024 10:33:11 GMT+0000 (Coordinated Universal Time)
+---
+
+## Automate your VPS deployment
+
+
+Discover a feature that can significantly ease your server setup process on EDIS Global VPS Hosting - Post-Install Scripts. This feature can be found in the auto-installer options within your KVM panel. It's a boon for those installing multiple servers with a specific setup or "recipe". All you need to do is paste your recipe/script or upload it directly into the tool, and it will be executed automatically right after the installation completes.
+
+### Example Scripts
+
+Below are three example scripts tailored for different operating systems:
+
+### **For Debian-based OS (Debian/Ubuntu)**
+
+The following script was successfully tested on Debian 12.&#x20;
+This script performs the following operations on a Debian-based OS (Debian, Ubuntu, Linux Mint, Kali Linux, Raspbian, Pop!\_OS, MX Linux, Deepin):&#x20;
+
+1. Disables password authentication for the root user, allowing only SSH key authentication.
+2. Changes the default SSH port from 22 to 10022 and restarts the SSH daemon to apply the changes.
+3. Updates the system packages, upgrades existing packages, and installs the components of a LAMP stack (Linux, Apache, MySQL, and PHP).
+4. Sends a notification through Pushover (a notification service) indicating that the post-installation script has completed, along with the server's IP address.
+
+```shell
+#!/bin/bash
+
+# Disable root password access, restrict to SSH key authentication only
+sed -i '/#PermitRootLogin prohibit-password/c\PermitRootLogin prohibit-password' /etc/ssh/sshd_config
+
+# Change default SSH port from 22 to 10022
+sed -i '/#Port 22/c\Port 10022' /etc/ssh/sshd_config
+systemctl restart sshd
+
+# Start LAMP installer
+apt-get update
+apt-get upgrade -y
+apt-get install -y apache2
+apt-get install -y curl wget unzip
+apt-get install -y mariadb-server
+apt-get install -y php libapache2-mod-php php-mysql
+
+# Send Pushover notification (optional)
+token="token=your-pushover-token-goes-here"
+user="user=your-pushover-username-goes-here"
+IP=`hostname -I | awk '{print $1}'`
+curl -s --form-string $token --form-string $user --form-string 'message=Post installation script finished on server with IP: $IP. Have fun' https://api.pushover.net/1/messages.json
+```
+
+This below example post install script performs the installation oft a simple firewall.
+This script does three main things:
+
+1. It installs a firewall tool called UFW (uncomplicated firewall)
+2. It sets up rules in the firewall to allow incoming connections for SSH on port 22, web traffic on port 80, and secure web traffic on port 443.
+3. It turns the firewall on with these rules in place.
+
+
+```shell
+#!/bin/bash
+
+# Install UFW
+apt-get install -y ufw
+
+# Allow SSH and HTTP/HTTPS traffic
+ufw allow 22/tcp # Remember the SSH port was changed to 10022
+ufw allow 80/tcp
+ufw allow 443/tcp
+
+# Enable the firewall
+ufw enable
+
+```
+
+The length of our Post Install Scripts is unrestricted. You can combine and tailor them to create intricate setup processes and streamline your deployment.
+
+###
+
+### **For RPM-based OS (CentOS, Rocky Linux, ...)**
+
+The following script performs several actions on a RPM-based OS (RHEL, Fedora, CentOS, openSUSE, SLES, Oracle Linux, Rocky Linux, AlmaLinux)
+
+1. **SSH Configuration**
+
+   It restricts root login to SSH key authentication only, disabling password access. It then restarts the SSH daemon to apply these changes.
+2. **LAMP Stack Installation**:
+   Updates the system packages.
+   Installs necessary utilities: curl, wget, and unzip.
+   Installs and starts the Apache web server, and ensures it starts on boot.
+   Installs and starts the MariaDB server, and ensures it starts on boot.
+   Installs PHP along with some additional modules.
+3. **Notification (optional)**
+
+   Sends a notification via the Pushover service, indicating that the post-installation script has completed and providing the IP address of the server.
+
+```shell
+#!/bin/bash
+
+# Disable root password access, restrict to SSH key authentication only
+sed -i '/#PermitRootLogin prohibit-password/c\PermitRootLogin prohibit-password' /etc/ssh/sshd_config
+systemctl restart sshd
+
+# Start LAMP installer
+dnf -y update
+dnf -y install curl wget unzip
+dnf -y install httpd
+systemctl start httpd
+systemctl enable httpd
+dnf -y install mariadb-server
+systemctl start mariadb
+systemctl enable mariadb
+dnf -y install php php-cli php-common php-gd php-mysqlnd php-pdo
+
+# Send Pushover notification (optional)
+token="token=your-pushover-token-goes-here"
+user="user=your-pushover-username-goes-here"
+IP=`hostname -I | awk '{print $1}'`
+curl -s --form-string $token --form-string $user --form-string 'message=Post installation script finished on server with IP: $IP. Have fun' https://api.pushover.net/1/messages.json
+```
+
+
+
+### Use cases for Post install scripts
+
+The above scripts serve as illustrative examples, showcasing how you can leverage the Post Install Script feature. The potential applications are boundless.
+
+Here are some more examples of tasks you can automate with post-install scripts:
+
+**User and Security Configuration**:
+
+- Creating user accounts and setting permissions.
+- Configuring firewalls and security groups.
+- Setting up SSH keys and disabling root login.
+- Installing and configuring security software like Fail2Ban.
+
+**Networking Configuration**:
+
+- Configuring routing rules and network interfaces.
+- Setting up VPNs or other networking services.
+
+**Software Installation and Configuration**:
+
+- Installing and configuring web servers like Nginx or Apache.
+- Setting up databases like MySQL, PostgreSQL, or MongoDB.
+- Installing and configuring caching servers like Redis or Memcached.
+- Deploying your application and its dependencies.
+
+**Monitoring and Logging**:
+
+- Installing and configuring monitoring solutions like Zabbix, Prometheus, or Nagios.
+- Setting up logging solutions like ELK stack (Elasticsearch, Logstash, Kibana).
+- Configuring notifications for monitoring and logging alerts.
+
+**Backup and Recovery**:
+
+- Setting up automated backups for your system and databases.
+- Configuring replication for databases.
+- Setting up disaster recovery solutions.
+
+**Custom Scripting**:
+
+- Running custom scripts to meet your particular needs.
+- Automating routine maintenance tasks.
+- Running data processing or analysis scripts.
+
+**Cloud Services Integration**:
+
+- Configuring integration with cloud services like AWS, GCP, or Azure.
+- Setting up cloud-based storage solutions.
+- Configuring cloud-based monitoring and logging solutions.
+
+**Container Orchestration**:
+
+- Installing and configuring Docker.
+- Setting up Kubernetes or other container orchestration systems.
+- Deploying containers and managing containerized applications.
+
+These examples illustrate a spectrum of automated tasks you can accomplish with EDIS Globals post-install scripts, making server setup and management more efficient and error-free. By crafting tailored scripts, you can significantly streamline your deployment processes and operational workflows on our VPS Hosting.

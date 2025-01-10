@@ -1,0 +1,97 @@
+---
+title: How to setup Wireguard VPN
+description: This guide will help you set up a Wireguard VPN server with Adguard, Unbound, and DNSCrypt-Proxy on your VPS using a simple script.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Tue Sep 12 2023 12:53:57 GMT+0000 (Coordinated Universal Time)
+updatedAt: Wed Apr 03 2024 21:30:24 GMT+0000 (Coordinated Universal Time)
+---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+<Note>
+  **Disclaimer:** EDIS Global does not and will not provide any support for this
+  setup. However we have tested it and it works 100% of the times assuming you
+  follow the steps in this guide. For support, follow the maintainer of this
+  auto installer on [Github](https://github.com/notthebee/ansible-easy-vpn)
+</Note>
+
+## Automated Wireguard VPN Setup
+
+This article will guide you to use a simple interactive script that sets up a <a href="https://www.wireguard.com/" target="_blank">Wireguard</a> VPN server with <a href="https://adguard.com/en/adguard-home/overview.html" target="_blank">Adguard</a>, <a href="https://www.nlnetlabs.nl/projects/unbound/about/" target="_blank">Unbound</a> and <a href="https://github.com/DNSCrypt/dnscrypt-proxy" target="_blank">DNSCrypt-Proxy</a> on your VPS of choice, and lets you manage the config files using a simple WebUI protected by two-factor-authentication.
+
+### Features:
+
+- Wireguard WebUI (via wg-easy)
+- Two-factor authentication for the WebUI (Authelia)
+- Hardened web server (Bunkerweb)
+- Encrypted DNS resolution with optional ad-blocking functionality (Adguard Home, DNSCrypt and Unbound)
+- UFW and Fail2Ban
+- Automated and unattended upgrades
+- SSH hardening and public key pair generation (optional, you can also use your own keys)
+- E-mail notifications (using an external SMTP server, e.g. GMail)
+
+### Requirements:
+
+- A KVM-based VPS with a dedicated IPv4 address.
+- One of the supported Linux distros:
+- Ubuntu Server 22.04
+- Ubuntu Server 20.04
+- Debian 11
+
+### Getting started:
+
+Now that you have your new EDIS Global VPS server up and running, lets connect to it by typing in the terminal of your preference (If on Windows OS you can use <a href="https://www.putty.org/" target="_blank">Putty</a> for example) and type:
+
+```shell
+ssh root@server-ipv4
+```
+
+Once connected to our remote VPS we need to call out the script that will automatically install everything for us.
+
+```shell
+wget https://notthebe.ee/vpn -O bootstrap.sh && bash bootstrap.sh
+```
+
+The script will start to update the system, install required packages and when it's done it will pause at the following screen:
+
+![ansible_easy_vpn_edis](/assets/Z-xvoERDaEUtwAP1ayvDE_ansible-easy-vpn-edis-54d820382d.png)
+
+After following the on screen questions like SSH key, DNS, etc. It will ask you to run the playbook and we say **YES:**
+
+![ansible_easy_vpn_edis](/assets/DJOz_HY-G_zuhXBkpY7N2_ansible-easy-vpn-edis2-5659f34969.png)
+
+After everything has been set up it will ask you and guide you to remote login via `ssh` to the server using your provided or generated `ssh key`. After a successful login press `ENTER` to finish the setup.
+
+<Note>
+  The script generates SSL certificates and a subdomain for the Web UI. If the
+  provided domain was `mydomain.com `our web ui will be
+  `https://wg.mydomain.com` to manage Wireguard users
+</Note>
+
+When login to the web ui, remember to use the new user and password provided in the set up. If optional email was not set up the, while logging in the web UI we need to get a code by typing in our vps terminal:
+
+```shell
+show_2fa
+```
+
+This will generate a link for us to be able to set up 2FA and will look like this:
+
+![show_2fa_edis](/assets/DfopD2czwjdM6lqUhThzV_show-2fa-edis-ea5db02ec9.png)
+
+It will present us with a QR code we can scan and add to our 2FA application. After a successful login in we will presented with a web UI where we are able to add users to our new Wireguard VPN server.
+
+![wireguard_qr_edis](/assets/rKeawEBjQ91scs-STUMKk_wireguard-qr-edis-051d563f48.png "Wireguard QR")
+
+![wireguard_edis](/assets/SrE6obzYWUaYHZS2jJsfM_wireguard-edis-b0e1db99e0.png)
+
+Now you are able to add users and share the credentials.
+
+Enjoy your new VPS server!
+
+Remember to visit the script author for any support!
+
+<CtaButton
+  label='Blog Post: Wireguard Protocol'
+  link='https://www.edisglobal.com/blog/wireguard'
+  openInNewTab={true}
+/>

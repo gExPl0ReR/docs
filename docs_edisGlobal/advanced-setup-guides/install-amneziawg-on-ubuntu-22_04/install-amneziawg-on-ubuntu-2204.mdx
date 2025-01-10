@@ -1,0 +1,192 @@
+---
+title: Install AmneziaWG on Ubuntu 22.04
+description: The complete step-by-step guide on how to install Amnezia WireGuard VPN on Ubuntu 22.04, ensuring privacy, bypassing Deep Packet Inspection (DPI), and enabling access to restricted content.
+createdAt: Fri Sep 20 2024 11:43:39 GMT+0000 (Coordinated Universal Time)
+updatedAt: Fri Sep 20 2024 19:15:59 GMT+0000 (Coordinated Universal Time)
+---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+## What is Amnezia VPN
+
+Amnezia VPN is a project developed by Russian internet activists, focused on finding solutions to combat state censorship. It is a free, open-source application that allows users to setup personal VPNs on their own servers using protocols like WireGuard, OpenVPN, and Shadowsocks. Created with the goal of bypassing censorship, Amnezia effectively **undermines Deep Packet Inspection (DPI)** by obfuscating traffic, making it harder for DPI systems to detect or block VPN usage. Amnezia is effective even in heavily restricted countries such as Russia, China and Iran.
+
+**Amnezia WG VPN** (AmneziaWG) is particularly designed to function in the harshest internet climates, where conventional VPNs, may struggle.
+
+## What is AmneziaWG VPN?
+
+**AmneziaWG VPN** specifically refers to the **WireGuard protocol** implementation in Amnezia. Amnezia introduced **AmneziaWG**, an enhanced version of WireGuard designed for use in the most restrictive internet environments. **AmneziaWG** is optimized for environments with extreme censorship and can bypass sophisticated blocking mechanisms better than a standard WireGuard installation.
+
+How to install AmneziaWG VPN on a VPS
+
+1. Install Ubuntu 22.04 on your EDIS Global VPS
+
+   [VPS in Estonia](https://www.edisglobal.com/vps-hosting/estonia-tallinn) work great in Russia, [VPS in Amsterdam](https://www.edisglobal.com/vps-hosting/netherlands-amsterdam) work well in Iran
+
+2. Connect to the VPS server using SSH protocol:
+
+```shell
+ssh root@VPS_IP_address
+Enter root password:
+```
+
+1. Change sources.list, execute the following commands:
+
+```shell
+cp -f /etc/apt/sources.list /etc/apt/sources.list.backup
+
+sed "s/# deb-src/deb-src/" /etc/apt/sources.list.backup > /etc/apt/sources.list
+
+apt update -y && apt upgrade -y
+```
+
+1. Allowing traffic routing for the AWG driver:
+
+```shell
+echo "net.ipv4.ip_forward = 1" > /etc/sysctl.d/00-amnezia.conf
+```
+
+1. Reboot your system:
+
+```shell
+reboot
+```
+
+1. Create a new directory
+
+```shell
+mkdir -p ~/awg && cd ~/awg
+```
+
+1. Install AmneziaWG packages:
+
+```shell
+add-apt-repository -y ppa:amnezia/ppa
+
+apt install -y amneziawg
+```
+
+1. Check the availability of all necessary drivers in the system:
+
+```shell
+root@user:~/awg# lsmod | grep amnezia
+amneziawg              98304  0
+curve25519_x86_64      36864  2 amneziawg,wireguard
+libchacha20poly1305    16384  2 amneziawg,wireguard
+libcurve25519_generic  49152  3 amneziawg,curve25519_x86_64,wireguard
+ip6_udp_tunnel         16384  2 amneziawg,wireguard
+udp_tunnel             20480  2 amneziawg,wireguard
+```
+
+1. If the last command does not work and doesn’t show anything try to use this command:
+
+```shell
+modprobe amneziawg && lsmod | grep amnezia
+```
+
+1. Install new utilities:
+
+```shell
+apt install curl wget python3 python3-pip
+```
+
+```shell
+pip3 install qrcode
+```
+
+1. Download script in folder awg:
+
+```shell
+cd ~/awg
+wget -O awgcfg.py https://gist.githubusercontent.com/remittor/8c3d9ff293b2ba4b13c367cc1a69f9eb/raw/awgcfg.py
+```
+
+1. Generating the main AWG config:
+
+```shell
+#Change the subnet=10.9.9.1 and UDP port=49666 if you need to.
+python3 awgcfg.py --make /etc/amnezia/amneziawg/awg0.conf -i 10.10.8.1/24 -p 42666
+```
+
+1. Generate a config template that will be used to create client configs and QR codes:
+
+```shell
+python3 awgcfg.py --create
+```
+
+1. Add new clients in the main config:
+
+```shell
+#For first client
+python3 awgcfg.py -a "my_amneziawg_client1"
+
+#For second client
+python3 awgcfg.py -a "my_amneziawg_client2"
+```
+
+1. Generate client configs:
+
+```shell
+python3 awgcfg.py -c -q
+```
+
+1. UP the AWG tunnel interface:
+
+```shell
+#Add amneziawg to autorun:
+systemctl enable --now awg-quick@awg0
+#Restart of service:
+systemctl restart awg-quick@awg0.service
+#Check status of service:
+systemctl status awg-quick@awg0.service
+
+#If everything work correctly you get this:
+vps systemd[1]: awg-quick@awg0.service: Deactivated successfully.
+vps systemd[1]: Stopped WireGuard via wg-quick(8) for awg0.
+vps systemd[1]: Starting WireGuard via wg-quick(8) for awg0...
+vps awg-quick[8284]: [#] ip link add awg0 type amneziawg
+vps awg-quick[8284]: [#] awg setconf awg0 /dev/fd/63
+vps awg-quick[8284]: [#] ip -4 address add 10.10.8.1/24 dev awg0
+vps awg-quick[8284]: [#] ip link set mtu 1420 up dev awg0
+vps awg-quick[8284]: [#] iptables -A INPUT -p udp --dport 42666 -m con>
+vps systemd[1]: Finished WireGuard via wg-quick(8) for awg0.
+```
+
+1. Check status AWG:
+
+```shell
+awg show
+```
+
+You can copy these awg configs (my_amneziawg_client1, my_amneziawg_client2) to your client machine and connect to amnesia wg:
+
+<div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+  <CtaButton
+    label='Install amneziawg client on Keenetic router'
+    link='./install-amneziawg-on-keenetic-router'
+    openInNewTab={true}
+  />
+  <CtaButton
+    label='Install on Ubuntu'
+    link='./install-amneziawg-on-ubuntu-2204'
+    openInNewTab={true}
+  />
+  <CtaButton
+    label='Install amneziawg client on Windows'
+    link='./install-amneziawg-client-on-windows'
+    openInNewTab={true}
+  />
+</div>
+
+Links:
+
+- [https://docs.amnezia.org/documentation/amnezia-wg/](https://docs.amnezia.org/documentation/amnezia-wg/)
+- [https://docs.amnezia.org/documentation/instructions/keenetic-os-awg/](https://docs.amnezia.org/documentation/instructions/keenetic-os-awg/)
+- [https://github.com/openwrt-xiaomi/awg-openwrt/wiki/AmneziaWG-installing](https://github.com/openwrt-xiaomi/awg-openwrt/wiki/AmneziaWG-installing)
+
+Ameziawg guides:
+
+- [For Android](https://github.com/amnezia-vpn/awg-android)
+- [For Windows](https://github.com/amnezia-vpn/awg-windows)
+- [For MacOS and IOS](https://github.com/amnezia-vpn/awg-apple)
+- [For WireGuard](https://github.com/amnezia-vpn/amnezia-wg-tools)

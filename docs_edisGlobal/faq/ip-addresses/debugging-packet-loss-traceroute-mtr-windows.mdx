@@ -1,0 +1,32 @@
+---
+title: Debugging Packet Loss
+description: Experience connectivity issues with your VPS? Learn how to generate a detailed MTR or TRACEROUTE report on Windows to identify packet loss and speed up the resolution process
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Mon Sep 25 2023 19:09:31 GMT+0000 (Coordinated Universal Time)
+updatedAt: Fri Sep 20 2024 08:53:45 GMT+0000 (Coordinated Universal Time)
+---
+
+## Traceroute and MTR on Windows
+
+If you're experiencing packet loss or a slow connection between your home internet and your VPS, we would appreciate if you could provide us with an MTR or TRACEROUTE report. This will give us a detailed view of the network path between your home connection and your VPS, highlighting where the packet loss might be occurring.
+
+**For Windows Users**:
+Windows does not come with MTR by default, but you can run a TRACEROUTE easily.
+
+1. **TRACEROUTE**:
+   - Press `Windows + R` to open the Run dialog.
+   - Type `cmd` and press Enter to open the Command Prompt.
+   - In the Command Prompt window, type: `tracert [Your VPS IP Address]`
+   - Wait for it to complete. This can take a few minutes.
+   - Once complete, right-click inside the Command Prompt window, select `Mark`, then highlight the entire result, and press `Enter` to copy.
+   - Paste the results in your reply to us.
+2. **MTR**:
+   - If you specifically want an MTR report, you would need a third-party tool like WinMTR.
+   - Download WinMTR from <a href="https://winmtr.net" target="_blank">here</a>.
+   - Install and open WinMTR.
+   - In the "Host" box, type your VPS IP address.
+   - Click "Start" and let it run for at least 5-10 minutes to gather sufficient data.
+   - After it's done, click on "Export TEXT" and save the report.
+   - Attach the saved report in your reply to us.
+
+Please share the results with us, and we'll promptly investigate where the issue might lie and work towards a resolution.

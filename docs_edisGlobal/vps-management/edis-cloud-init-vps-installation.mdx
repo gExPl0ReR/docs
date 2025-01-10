@@ -1,0 +1,112 @@
+---
+title: Cloud-Init based VPS Installations
+description: Discover how EDIS Global's shift to Cloud-Init and .qcow2 based installations revolutionizes VPS management. Learn the benefits of Cloud-Init over traditional .iso setups, understand cloudinit_user_data configurations, and experience enhanced efficiency,
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Wed Nov 29 2023 08:19:12 GMT+0000 (Coordinated Universal Time)
+updatedAt: Thu Jan 18 2024 10:32:31 GMT+0000 (Coordinated Universal Time)
+---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+### Transition to Cloud-Init based VPS Installations
+
+---
+
+**Introduction**
+
+EDIS Global has recently transitioned from traditional .iso-based operating system installations to .qcow2 based installations using Cloud-Init for its Virtual Private Servers (VPS). This change affects most recent distributions supporting Cloud-Init. This article aims to explain what Cloud-Init is, the benefits of using Cloud-Init over .iso based installations, and how to utilize `cloudinit_user_data` for effective VPS management.
+
+---
+
+### What is Cloud-Init?
+
+Cloud-Init is an industry standard for automated cloud instance initialization. It is used to configure a cloud instance (like a VPS) during its first boot while it is being created. Cloud-Init can perform tasks such as setting the hostname, adding users, and installing packages. It works by reading user data provided during the instance creation process and executing the specified configurations.
+
+---
+
+### Benefits of Cloud-Init vs .ISO Based OS Installations
+
+1. **Automated Configuration**: Cloud-Init automates the process of setting up a new VPS, reducing the need for manual configuration.
+2. **Speed and Efficiency**: Instances boot and become operational faster compared to .iso installations, enhancing efficiency.
+3. **Customization**: Allows for greater customization of the instance on its first boot, tailored to specific needs.
+4. **Scalability**: Easier to scale and manage multiple instances, as each can be configured identically or differently based on the provided user data.
+5. **Cross-platform Compatibility**: Supports a variety of operating systems, making it versatile for different environments.
+
+---
+
+### Understanding `cloudinit_user_data`
+
+`cloudinit_user_data` is a powerful feature of Cloud-Init that allows users to provide custom configurations and scripts that the system will execute upon initialization. This data is in the format of `#cloud-config`, which is a YAML-based configuration file.
+
+**Example Configuration Explanation:**
+
+```yaml
+#cloud-config
+set_hostname: YOUR_HOSTNAME
+user: root
+password: YOUR_ROOT_PASSWORD
+disable_root: false
+disable_root_opts: ""
+ssh_pwauth: True
+manage_etc_hosts: true
+expire: False
+runcmd:
+  - chage -d 19000 root
+  - [
+      /usr/bin/sed,
+      -i,
+      -E,
+      "s/disable_root:.*true/disable_root: false/i",
+      /etc/cloud/cloud.cfg,
+    ]
+  - [
+      /usr/bin/sed,
+      -i,
+      -E,
+      "s/#PermitRootLogin.*/PermitRootLogin yes/i",
+      /etc/ssh/sshd_config,
+    ]
+users:
+  - default
+power_state:
+  delay: now
+  mode: reboot
+  message: Bye Bye
+  timeout: 30
+  condition: True
+package_upgrade: true
+```
+
+**set_hostname**: Sets the hostname of the VPS.
+
+**user** and **password**: Configures the default user and password.
+
+**disable_root**: Determines whether the root account should be disabled
+
+**ssh_pwauth**: Enables SSH password authentication.
+
+**manage_etc_hosts**: Allows Cloud-Init to manage the `/etc/hosts` file.
+
+**runcmd**: Executes specified commands on first boot. In this example, it modifies root password expiry and SSH configurations.
+
+**users**: Defines additional users.
+
+**power_state**: Controls the power state of the instance after initialization, here set to reboot.
+
+**package_upgrade**: Ensures that all packages are upgraded on first boot.
+
+---
+
+### Summary
+
+The shift to Cloud-Init and .qcow2 based installations marks a significant advancement in the way EDIS Global manages its VPS offerings. By leveraging Cloud-Init, users can enjoy faster deployment, increased automation, and more customized configurations, enhancing the overall user experience and efficiency.
+
+---
+
+External reference:
+
+<CtaButton
+  label='Official Cloud-Init Documentation'
+  link='https://cloudinit.readthedocs.io/en/latest/'
+  openInNewTab={true}
+/>

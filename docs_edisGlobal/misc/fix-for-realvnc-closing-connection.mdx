@@ -1,0 +1,21 @@
+---
+title: VNC Viewer (RealVNC) closes after connecting to VNC server
+description: RealVNC's ColorLevel pal8 is not supported by most VNC servers. Easy guide how to fix RealVNC settings and connect.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Tue Sep 12 2023 10:41:06 GMT+0000 (Coordinated Universal Time)
+updatedAt: Thu Jan 18 2024 10:46:12 GMT+0000 (Coordinated Universal Time)
+---
+
+## Fix for RealVNC closing connection after connection
+
+VNC Viewer from RealVNC uses "ColorLevel" pal8, which is not supported by most VNC servers.
+
+Please follow these steps in order to connect successfully:
+
+<Steps>
+  <Step title='Open the RealVNC options menu' />
+  <Step title='Click "Advanced Options" near the bottom left corner of your app.' />
+  <Step title='Click on "Expert" tab and change "ColorLevel" value from its default setting to full, rgb332 or rgb565' />
+</Steps>
+
+You should be able to successfully connect now.

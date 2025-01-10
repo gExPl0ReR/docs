@@ -1,0 +1,53 @@
+---
+title: IPv6 Troubleshooting
+description: When troubleshooting IPv6, it is crucial to avoid typos in IP addresses, subnet masks, and default routes or gateways due to the length and complexity of IPv6 addresses.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Tue Sep 12 2023 10:24:31 GMT+0000 (Coordinated Universal Time)
+updatedAt: Thu Jan 18 2024 10:33:44 GMT+0000 (Coordinated Universal Time)
+---
+
+## Basic IPv6 troubleshooting
+
+When **troubleshooting in the IPv6 area,** it is particularly important to double-check the IP address, subnet mask, and the default route or default gateway for typos. Due to the nature (length and complexity) of IPv6 addresses, it is easily possible to miss or accidentally add a digit.
+
+In Debian Linux you can work with the following commands:
+
+`ip -6 addr show` - display configured IPv6 address
+
+`ip -6 route show` - display configured default route
+
+### Examples
+
+Examples based on an IP address configured in Austria, at the interface eth0
+
+```shell
+ip -6 addr show
+
+eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 state UP qlen 1000 inet6 2a03:f80:ed15:435a::1/48 scope global
+
+```
+
+<Note>
+  Please pay attention to use the correct subnet (_2a03\:f80\:xx\:xxxx::1_) and
+  netmask /48
+</Note>
+
+```shell
+ip -6 route show
+
+default via 2a03:f80:ed15::1 dev eth0
+
+```
+
+<Note>
+  Please pay attention to use the correct default gateway (2a03\:f80\:xxx::1)
+  Every server locations has its own unique gateway address!
+</Note>
+
+If the configuration seems correct and IPv6 is still not working properly, this could be a general network issue. A test with **mtr** or **ping** provides more insights.
+
+Use an address that you can assume will work with a high degree of probability, such as ipv6.google.com:
+
+`mtr -6 -r ipv6.google.com`
+
+`ping -6 ipv6.google.com`

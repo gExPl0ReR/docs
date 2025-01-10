@@ -1,0 +1,104 @@
+---
+title: How to Change IP Address in Windows Server
+description: Step-by-step guide on how to Change the IP Address in your Windows Server operating system.
+createdAt: Tue Nov 05 2024 10:50:51 GMT+0000 (Coordinated Universal Time)
+updatedAt: Sat Dec 28 2024 20:38:53 GMT+0000 (Coordinated Universal Time)
+---
+
+## Quick Guide on How to Change IP Address on Windows Server via VNC
+
+Here’s a revised guide on how to change the IP address on Windows Server, specifically tailored for users who are connected via VNC.
+
+## Change IP Address on Windows Server
+
+Enable your VNC server: Follow the instructions <a href="https://docs.edisglobal.com/enable-vnc-server" target="_blank">here</a>.
+
+### **Step 1: Connect to Your Windows Server via VNC**
+
+<Steps>
+  <Step title='Log in to your'>
+    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
+  </Step>
+  <Step title='Enable your VNC server'>
+    Follow the instructions
+    [here](https://docs.edisglobal.com/enable-vnc-server)
+  </Step>
+  <Step title='Open VNC'>
+    - Press `Ctrl + Alt + Delete` to open the Windows login page. Also you can
+    Use the top key.(send CtrlAltDelete)&#x20; - Enter your username and
+    password.
+  </Step>
+</Steps>
+
+---
+
+### **Step 2: Open Network Connections**
+
+1. Once connected, right-click on the **Start** button and select **Run**.
+2. Type `ncpa.cpl` and press **Enter**. This will open the **Network Connections** window.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-9mrOC1yNl1bI3VFtxq2NR-20241106-143431.png)
+
+---
+
+### **Step 3: Access Properties of the Network Adapter;**
+
+1. In the Network Connections window, find the network adapter you wish to configure (e.g., Ethernet).
+2. Right-click on the adapter and select **Properties** from the context menu.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-DMYYt30jBazsPxUj7AJlB-20241106-143450.png)
+
+---
+
+### **Step 4: Select Internet Protocol Version**
+
+1. In the Properties window, locate and select **Internet Protocol Version 4 (TCP/IPv4)**.
+2. Click the **Properties** button.
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-aKYYiaZFGWrDXcuNvHt2Q-20241106-143634.png)
+
+---
+
+### **Step 5: Change the IP Address**
+
+1. In the TCP/IPv4 Properties window, select **Use the following IP address**.
+2. Enter your desired **IP address**, **Subnet mask**, and **Default gateway**. For example:
+   - **IP address**: `192.168.1.100`
+   - **Subnet mask**: `255.255.255.0`
+   - **Default gateway**: `192.168.1.1`
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-7e4qsQlMtqcneRYQoPZQp-20241106-143711.png)
+
+---
+
+### **Step 6: Configure DNS Servers (Optional)**
+
+1. If needed, select **Use the following DNS server addresses**.
+2. Enter your preferred **DNS server** (e.g., `8.8.8.8` for Google DNS) and an **alternate DNS server** (e.g., `8.8.4.4`).
+
+![](/assets/1sSq3fI0sZJj8Zc4RoSr4-4BhxXEhIHXelTu7FLG9lc-20241106-143733.png)
+
+---
+
+### **Step 7: Save Changes**
+
+1. Click **OK** to close the TCP/IPv4 Properties window.;
+2. Click **Close** in the Network Adapter Properties window.
+
+---
+
+### **Step 8: Verify the Changes**
+
+1. Open **Command Prompt** or **PowerShell** by right-clicking the Start button and selecting it from the menu.
+2. Type the following command and press **Enter**:
+
+   `ipconfig`
+
+3. Check the output to confirm that your new IP address is correctly set for the network adapter.
+
+---
+
+### Important Notes
+
+- **Admin Privileges**: Changing network settings requires administrative privileges. Ensure you have the necessary permissions.
+- **Backup Settings**: Always note your previous network settings before making changes, in case you need to revert back.

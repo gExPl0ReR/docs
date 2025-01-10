@@ -1,0 +1,140 @@
+---
+title: Install WireGuard Client on Ubuntu 22.04 and Connecting to the server using AmneziaWG
+createdAt: Fri Sep 20 2024 11:57:22 GMT+0000 (Coordinated Universal Time)
+updatedAt: Fri Sep 20 2024 18:36:52 GMT+0000 (Coordinated Universal Time)
+---
+
+To connect to a Wideguard VPN from your local machine to a remote server using the amneziawg configuration file you previously received from the configured server, follow these steps. This guide assumes you are using Ubuntu 22.04. You’ll need to install the WireGuard software, configure it, and initiate the VPN connection. Here's how to do it:
+
+### 1. Install WireGuard
+
+Open a terminal and update your package lists:
+
+```shell
+sudo apt update
+```
+
+Then install WireGuard.
+For Debian-based systems (like Ubuntu), use:
+
+```shell
+sudo apt update && sudo apt install wireguard
+```
+
+For Red Hat-based systems (like CentOS or Fedora), use:
+
+```shell
+sudo dnf install wireguard-tools
+```
+
+### 2. Copy amneziawg config on Linux(Ubuntu):
+
+Include the command:
+
+```shell
+scp [username]@[server-ip-address]:/root/awg/wg-client1.conf /etc/wireguard/
+```
+
+Where:
+
+- username - the username of the server
+- server-ip-address - the IP address of the server
+- /root/awg/ - directory where located a wireguard config files
+- wg-client1.conf - wireguard config file
+- /etc/wireguard/ - the local directory on your Linux machine
+
+### 2. Get Your WireGuard Configuration
+
+The Amnezia wireguard configuration file must be downloaded from VPS. The `.conf` file, is usually in the following format:
+
+```shell
+[Interface]
+PrivateKey = kHcPwRvI3FRc4qcE+Fgrln1K1qxQNM3jl4CpPzaYx4o=
+#_PublicKey = 7vzU3tVk39Dj+XvjpX3e9yZzDZhfbTZUde2Elju3nRM=
+Address = 10.10.8.2/32
+DNS = 8.8.8.8
+Jc = 120
+Jmin = 60
+Jmax = 1266
+S1 = 11
+S2 = 54
+H1 = 563549684
+H2 = 1544213701
+H3 = 529241130
+H4 = 981267317
+
+[Peer]
+AllowedIPs = 0.0.0.0/5, 8.0.0.0/7, 11.0.0.0/8, 12.0.0.0/6, 16.0.0.0/4, 32.0.0.0/3, 64.0.0.0/2, 128.0.0.0/3, 160.0.0.0/5, 168.0.0.0/6, 172.0.0.0/12, 172.32.0.0/11, 172.64.0.0/10, 172.128.0.0/9, 173.0.0.0/8, 174.0.0.0/7, 176.0.0.0/4, 192.0.0.0/9, 192.128.0.0/11, 192.160.0.0/13, 192.169.0.0/16, 192.170.0.0/15, 192.172.0.0/14, 192.176.0.0/12, 192.192.0.0/10, 193.0.0.0/8, 194.0.0.0/7, 196.0.0.0/6, 200.0.0.0/5, 208.0.0.0/4, 8.8.8.8/32
+Endpoint = VPS_REMOTE_IP:54666
+PersistentKeepalive = 60
+PublicKey = 7gExcFjYZ6rR5nU7F3xzrDQchtGu4OCxEwGjSlRGwnE=
+```
+
+Save this file with a `.conf` extension, e.g., `wg0.conf`.
+
+### 3. Move Configuration to WireGuard Directory
+
+Move your configuration file to WireGuard’s directory, where wg0.conf this is a client config that was previously downloaded from the server:
+
+```shell
+sudo mv wg0.conf /etc/wireguard/
+```
+
+Ensure the file permissions are restricted to prevent unauthorized access:
+
+```shell
+sudo chmod 600 /etc/wireguard/wg0.conf
+```
+
+### 4. Start the WireGuard VPN Connection
+
+To start the VPN connection using the configuration file, run the following command:
+
+```shell
+sudo wg-quick up wg0
+```
+
+If everything is configured properly, you'll be connected to the WireGuard VPN.
+
+### 5. Verify the Connection
+
+To check if the connection is active, use:
+
+```shell
+sudo wg
+```
+
+This command shows details about the active WireGuard connection, such as the interface name, peer details, and data transfer statistics.
+
+### 6. Disconnect from the VPN
+
+To stop the VPN connection, use:
+
+```shell
+sudo wg-quick down wg0
+```
+
+### 7. Optionally Enable WireGuard on Boot
+
+If you want the VPN to start automatically on boot, you can enable it with:
+
+```shell
+sudo systemctl enable wg-quick@wg0
+```
+
+To disable it from starting on boot, use:
+
+```shell
+sudo systemctl disable wg-quick@wg0
+```
+
+### Troubleshooting Tips:
+
+- Ensure that your private key, public key, and endpoint details in the configuration are correct.
+- If you face any connection issues, check the system logs for more detailed error messages:
+
+```shell
+sudo journalctl -xe
+```
+
+Following these steps, you should be able to connect to amneziawg on Ubuntu.

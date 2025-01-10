@@ -1,0 +1,63 @@
+---
+title: SCP Linux <> Linux
+createdAt: Wed Dec 11 2024 11:03:34 GMT+0000 (Coordinated Universal Time)
+updatedAt: Sat Dec 28 2024 20:27:50 GMT+0000 (Coordinated Universal Time)
+---
+
+## Secure Copy Files Between Linux and Linux Servers
+
+SCP (Secure Copy Protocol) is a simple and secure way to transfer files between your Linux machine and a Linux server. This article explains how to use the `scp` command in the Linux terminal to copy files to and from a Linux server.
+
+---
+
+## Step 1: Ensure SSH is Enabled on the Linux Server
+
+Make sure the SSH service is installed and running on your Linux server. Use the following command:
+
+```bash
+sudo apt-get install openssh-server
+```
+
+---
+
+## Step 2: Use the `scp` Command to Transfer Files
+
+### Copy a File from Local to Remote Server
+
+To upload a file from your local machine to the Linux server:
+
+```bash
+scp /path/to/local/file username@hostname_or_ip:/path/to/remote/directory
+```
+
+- Replace `/path/to/local/file` with the full path to the file on your local machine.
+- Replace `username` with your Linux server username.
+- Replace `hostname_or_ip` with your server’s IP address or domain name.
+- Replace `/path/to/remote/directory` with the target directory on the server.
+
+### Copy a File from Remote Server to Local Machine
+
+To download a file from the Linux server to your local machine:
+
+```bash
+scp username@hostname_or_ip:/path/to/remote/file /path/to/local/directory
+```
+
+- Replace `/path/to/remote/file` with the file’s path on the server.
+- Replace `/path/to/local/directory` with the target directory on your local machine.
+
+---
+
+## Example Commands
+
+### Upload Example
+
+```bash
+scp ~/Documents/example.txt user@192.168.1.10:/home/user/uploads
+```
+
+### Download Example
+
+```bash
+scp user@192.168.1.10:/home/user/uploads/example.txt ~/Downloads
+```

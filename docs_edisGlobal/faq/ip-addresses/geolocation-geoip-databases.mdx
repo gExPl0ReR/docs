@@ -1,0 +1,120 @@
+---
+title: Geolocation & GEO IP databases
+description: EDIS prioritizes precise GEO localization of its VPS services, which are hosted exactly at the indicated server location and connected to the Internet via international upstream providers and local Internet Exchanges.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Tue Sep 12 2023 10:47:42 GMT+0000 (Coordinated Universal Time)
+updatedAt: Thu Oct 24 2024 20:35:08 GMT+0000 (Coordinated Universal Time)
+---
+
+## **EDIS prioritizes precise GEO localization of its services.**
+
+We prioritize precise GEO localization of our services. Our <a href="https://www.edisglobal.com/" target="_blank">VPS hosting</a> services are hosted exactly at the indicated server location and are connected to the Internet through several international upstream providers and local Internet Exchanges.
+
+## Where is the GEO IP information stored?
+
+The information at which geographic location an IP address is hosted, is primarily provided by the network coordination centres which assign IP addresses. For Europe, the Middle East and parts of Central Asia, RIPE NCC (Réseaux IP Européens Network Coordination Centre) is responsible for the corresponding database entries.
+
+In addition, there are the following bodies with responsibility for the regions given in brackets: AFRINIC (Africa), ARIN (North America/USA), APNIC (Asia Pacific) and LACNIC (Latin America and Caribbean).
+
+## **WHOIS databases**
+
+So-called WHOIS databases are operated by the above network coordination centers, in which the owners of an IP address range (service operators), contacts in the event of misuse, as well as corresponding GEO information - where an IP address range is announced, at which address, longitude and latitude - are stored.
+
+this could look like this:
+
+```shell WHOIS
+inetnum: 158.255.208.0 - 158.255.208.255
+netname: EDIS-HK-NET
+descr: EDIS Infrastructure in Hong Kong
+remarks: Central, Hong Kong
+country: HK
+geoloc: 22.2793278 114.1628131
+geofeed: https://www.edis.at/geofeed.txt
+language: EN
+language: ZH
+```
+
+## **What is Geolocation?**
+
+Geolocation refers to **any kind of data that allows for determining, with reasonable precision, the location of a person or a device on planet Earth**.
+For a quick Geo-IP overview, we like to use meta-lookup services like [https://www.iplocation.net](https://www.iplocation.net/ip-lookup/158.255.208.0), which allows users to enter any IP address to discover where it is located geographically. It queries several databases like MaxMind, DB-IP, and IP2Location to give you a decent overview if all databases are in sync.
+
+## **Ever more, ever faster - ever more accurate?**
+
+Due to the need for more and more accurate data and even faster query options for a subscriber's GEO data using APIs, there has been a proliferation of Geolocation lookup providers. Some of them obtain their data (at least the basic material) from the reference databases of the network coordination centers RIPE, ARIN, APNIC, LACNIC and AFRINIC. Some of them let end users make changes to GeoIP address assignments. The latter leads to chaotic quality of the material in their databases.
+
+## **Commercial Lookup Providers**
+
+Most query/lookup providers do have commercial interest. Request-limits are used to persuade users to buy enterprise subscriptions. Some providers allow **free access to (older) databases** in order to persuade potential leads to purchase enterprise material with recent, but more importantly accurate data. **Some website-operators are not aware** that they are **checking their subscribers against old GEOIP database material**. Some service providers **find and use old GEO databases somewhere on the web** and use this data for production environments with the same effect.
+
+## **EDIS GEOIP data feeds**
+
+As mentioned at the beginning of this document, **EDIS** **places a high value on correctly GEO located IPv4 and IPv6 addresses, respectively correctly geolocated services.** For that reason, EDIS IPv4 and IPv6 GEOIP data-feeds have been made available to numerous lookup providers, so that they can obtain first-hand information regarding potential amendments.
+
+EDIS works with the following renowned services and provides them with GEOIP data-feeds.
+
+<a href='https://google.com/' target='_blank'>
+  https://google.com
+</a>
+
+<a href='https://ipapi.com/' target='_blank'>
+  https://ipapi.com
+</a>
+
+<a href='https://ipapi.co/' target='_blank'>
+  https://ipapi.co
+</a>
+
+<a href='https://ipdata.co/' target='_blank'>
+  https://ipdata.co
+</a>
+
+<a href='https://ipinfo.io/' target='_blank'>
+  https://ipinfo.io
+</a>
+
+<a href='https://ip2location.com/' target='_blank'>
+  https://ip2location.com
+</a>
+
+<a href='https://www.ipqualityscore.com/' target='_blank'>
+  https://www.ipqualityscore.com
+</a>
+
+<a href='https://www.maxmind.com/en/geoip-demo' target='_blank'>
+  https://www.maxmind.com/en/geoip-demo
+</a>
+
+<a href='https://extreme-ip-lookup.com/' target='_blank'>
+  https://extreme-ip-lookup.com/
+</a>
+
+<a href='https://ipgeolocation.io/' target='_blank'>
+  https://ipgeolocation.io
+</a>
+
+<a href='https://db-ip.com/' target='_blank'>
+  https://db-ip.com
+</a>
+
+<a
+  href='https://www.home.neustar/resources/tools/ip-geolocation-lookup-tool'
+  target='_blank'
+>
+  https://www\.home.neustar/resources/tools/ip-geolocation-lookup-tool
+</a>
+
+<a href='https://ipregistry.co/' target='_blank'>
+  https://ipregistry.co
+</a>
+
+<a
+  href='https://www.digitalelement.com/solutions/ip-location-targeting/'
+  target='_blank'
+>
+  https://www.digitalelement.com/solutions/ip-location-targeting/
+</a>
+
+<a href='https://www.bigdatacloud.com/' target='_blank'>
+  https://www.bigdatacloud.com
+</a>

@@ -1,0 +1,79 @@
+---
+title: How to Update SSHD on Debian, Ubuntu, and Red Hat Linux
+description: How to update SSHD (OpenSSH Server) on Debian, Ubuntu, and Red Hat Linux with simple step-by-step instructions. Ensure your server remains secure and up-to-date.
+createdAt: Tue Jul 02 2024 07:45:55 GMT+0000 (Coordinated Universal Time)
+updatedAt: Tue Jul 02 2024 07:56:36 GMT+0000 (Coordinated Universal Time)
+---
+
+### How to Update SSHD on Debian, Ubuntu, and Red Hat Linux
+
+Keeping your SSHD (OpenSSH Server) updated is crucial for maintaining the security and stability of your servers. Follow these simple steps to update SSHD on Debian, Ubuntu, and Red Hat Linux systems.
+
+### Updating SSHD on Debian
+
+**Update Package Lists**:
+Run the following command to ensure your package lists are up-to-date:
+
+```sh
+sudo apt-get update
+```
+
+**Upgrade OpenSSH**:
+Upgrade the OpenSSH server package to the latest version:
+
+```sh
+sudo apt-get install --only-upgrade openssh-server
+```
+
+**Restart SSH Service**:
+Restart the SSH service to apply the updates:
+
+```sh
+sudo systemctl restart ssh
+```
+
+### Updating SSHD on Ubuntu
+
+**Update Package Lists**:
+Refresh your package lists with the latest updates:
+
+```sh
+sudo apt-get update
+```
+
+**Upgrade OpenSSH**:
+Upgrade to the latest version of the OpenSSH server:
+
+```sh
+sudo apt-get install --only-upgrade openssh-server
+```
+
+**Restart SSH Service**:
+Restart the SSH service to implement the updates:
+
+```sh
+sudo systemctl restart ssh
+```
+
+### Updating SSHD on Red Hat
+
+**Update Package Lists**:
+Check for available updates:
+
+```sh
+sudo yum check-update
+```
+
+**Upgrade OpenSSH**:
+Update the OpenSSH server to the latest version:
+
+```sh
+sudo yum update openssh-server
+```
+
+**Restart SSH Service**:
+Restart the SSH service to ensure the updates take effect:
+
+```sh
+sudo systemctl restart sshd
+```

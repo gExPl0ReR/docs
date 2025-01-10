@@ -1,0 +1,366 @@
+---
+title: L2TP/IPsec and IKEv2 VPN
+slug: l2tp-ipsec-and-ikev2-vpn
+createdAt: Fri Sep 13 2024 09:19:29 GMT+0000 (Coordinated Universal Time)
+updatedAt: Fri Sep 13 2024 09:26:29 GMT+0000 (Coordinated Universal Time)
+---
+
+# Setting Up L2TP/IPsec and IKEv2 VPN Server on Ubuntu 22.04
+
+## Introduction
+
+This guide provides detailed instructions for setting up a VPN server on Ubuntu 22.04 that supports both L2TP/IPsec and IKEv2 protocols. Using the [hwdsl2/setup-ipsec-vpn](https://github.com/hwdsl2/setup-ipsec-vpn) scripts, you can quickly deploy a secure VPN server. This setup allows clients to connect securely using either L2TP/IPsec or IKEv2, providing flexibility and strong encryption for your VPN connections.
+
+## Prerequisites
+
+- **VPS Server:**
+  - An <a href="https://www.edisglobal.com" target="_blank">EDIS Global VPS</a> running Ubuntu 22.04.
+  - Root or sudo access.
+- **Client Machine:**
+  - A computer running Ubuntu or any Linux distribution compatible with L2TP/IPsec and IKEv2.
+  - Root or sudo access.
+
+## Overview
+
+We will perform the following high-level steps:
+
+1. **On the VPS Server:**
+   - Update system packages.
+   - Install necessary dependencies.
+   - Run the VPN setup script to configure L2TP/IPsec and IKEv2 VPN server.
+   - Manage VPN users (add or remove).
+2. **On the Client Machine:**
+   - Install VPN client software.
+   - Configure and establish a VPN connection using L2TP/IPsec or IKEv2.
+
+***
+
+## Steps on the VPS Server
+
+### 1. Update and Upgrade System Packages
+
+Ensure your server is up to date.
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+**Explanation:** Updates the package lists and upgrades installed packages to their latest versions, ensuring your system is secure and up to date.
+
+### 2. Install Required Packages
+
+Install `curl` and `wget`, which are necessary for downloading scripts and files.
+
+```bash
+sudo apt install curl wget -y
+```
+
+### 3. Download and Run the VPN Setup Script
+
+Use the setup script from [hwdsl2/setup-ipsec-vpn](https://github.com/hwdsl2/setup-ipsec-vpn) to configure the VPN server.
+
+```bash
+wget https://get.vpnsetup.net -O vpn.sh
+```
+
+Run the VPN setup script with custom DNS servers (optional).
+
+```bash
+sudo VPN_DNS_SRV1=1.1.1.1 VPN_DNS_SRV2=1.0.0.1 sh vpn.sh
+```
+
+**Explanation:**
+
+- `VPN_DNS_SRV1` and `VPN_DNS_SRV2` set the DNS servers for VPN clients.
+- The script will prompt you to enter VPN credentials (IPsec PSK, username, password). If not, it will generate them automatically.
+
+**Script Output Example:**
+
+```plaintext
+===============================================
+
+IPsec VPN server is now ready for use!
+
+Connect to your new VPN with these details:
+
+Server IP: x.x.x.x
+IPsec PSK: Your_IPsec_PSK
+Username: vpnuser
+Password: Your_VPN_Password
+
+Write these down. You'll need them to connect!
+
+VPN client setup: https://vpnsetup.net/clients
+
+===============================================
+
+===============================================
+
+IKEv2 setup successful. Details for IKEv2 mode:
+
+VPN server address: x.x.x.x
+VPN client name: vpnclient
+
+Client configuration is available at:
+/root/vpnclient.p12 (for Windows & Linux)
+/root/vpnclient.sswan (for Android)
+/root/vpnclient.mobileconfig (for iOS & macOS)
+
+Next steps: Configure IKEv2 clients. See:
+https://vpnsetup.net/clients
+
+===============================================
+```
+
+**Note:** Replace `x.x.x.x` with your server's public IP address. The script outputs important VPN credentials—keep them secure.
+
+### 4. Managing VPN Users
+
+### Adding a New VPN User
+
+Download the user management script and add a new user.
+
+```bash
+sudo wget https://get.vpnsetup.net/adduser -O /opt/src/addvpnuser.sh
+sudo chmod +x /opt/src/addvpnuser.sh
+sudo ln -s /opt/src/addvpnuser.sh /usr/bin/addvpnuser.sh
+
+sudo addvpnuser.sh 'newusername' 'newpassword'
+```
+
+**Explanation:**
+
+- The script `addvpnuser.sh` allows you to add new VPN users with specified usernames and passwords.
+- Replace `'newusername'` and `'newpassword'` with the desired credentials.
+
+### Removing a VPN User
+
+Download the user removal script and remove an existing user.
+
+```bash
+sudo wget https://get.vpnsetup.net/deluser -O /opt/src/delvpnuser.sh
+sudo chmod +x /opt/src/delvpnuser.sh
+sudo ln -s /opt/src/delvpnuser.sh /usr/bin/delvpnuser.sh
+
+sudo delvpnuser.sh 'username_to_remove'
+```
+
+**Explanation:**
+
+- The script `delvpnuser.sh` allows you to remove VPN users by specifying their username.
+- Replace `'username_to_remove'` with the username you wish to delete.
+
+***
+
+## Steps on the Client Machine
+
+### Option 1: Connect Using L2TP/IPsec
+
+### 1. Install L2TP VPN Client
+
+Install the Network Manager L2TP plugin.
+
+```bash
+sudo apt install network-manager-l2tp-gnome -y
+```
+
+**Explanation:** Installs the necessary packages to enable L2TP/IPsec VPN connections via the GNOME Network Manager.
+
+### 2. Configure the VPN Connection
+
+Follow these steps to set up the VPN connection:
+
+1. **Access VPN Settings:**
+   - Go to **Settings** > **Network** > **VPN**.
+   - Click the **+** button to add a new VPN connection.
+2. **Select VPN Type:**
+   - Choose **Layer 2 Tunneling Protocol (L2TP)**.
+3. **General Configuration:**
+   - **Name:** Enter a name for your VPN connection (e.g., `My L2TP VPN`).
+   - **Gateway:** Enter your VPN server's IP address (`Your VPN Server IP`).
+   - **User name:** Enter your VPN username (`Your VPN Username`).
+   - **Password:** Click the **icon** next to the password field and select **Store the password only for this user**. Then enter your VPN password (`Your VPN Password`).
+   - **NT Domain:** Leave this field blank.
+4. **Configure IPsec Settings:**
+   - Click on **IPsec Settings...**.
+   - **Enable IPsec tunnel to L2TP host:** Check this box.
+   - **Pre-shared key:** Enter your IPsec PSK (`Your VPN IPsec PSK`).
+   - **Advanced Settings:**
+     - Expand the **Advanced** section.
+     - **Phase1 Algorithms:** Enter `aes128-sha1-modp2048`.
+     - **Phase2 Algorithms:** Enter `aes128-sha1`.
+5. **Save and Connect:**
+   - Click **OK** to close the IPsec settings.
+   - Click **Add** to save the VPN connection.
+   - In the VPN settings, toggle the **VPN** switch to **ON** to connect.
+
+**Explanation:**
+
+- **Phase1 and Phase2 Algorithms:** These settings ensure compatibility with the VPN server configuration.
+
+### 3. Verify the VPN Connection
+
+After connecting, verify your IP address to confirm that the VPN is working.
+
+```bash
+curl ifconfig.me
+```
+
+**Explanation:** This command displays your public IP address, which should now be the VPN server's IP if the connection is successful.
+
+### Option 2: Connect Using IKEv2
+
+### 1. Install StrongSwan Network Manager Plugin
+
+```bash
+sudo apt install network-manager-strongswan -y
+```
+
+**Explanation:** Installs the StrongSwan plugin, enabling IKEv2 VPN connections via the Network Manager.
+
+### 2. Obtain VPN Client Configuration Files
+
+You need the following files from your VPN server:
+
+- `vpnclient.p12`: Contains the client certificate and private key.
+- `vpnclient.mobileconfig`: Configuration profile for macOS/iOS (not needed for Linux).
+- `vpnclient.sswan`: StrongSwan configuration file (optional).
+
+**Securely copy these files to your client machine:**
+
+```bash
+scp root@Your_VPN_Server_IP:/root/vpnclient.p12 ~/
+```
+
+**Explanation:** Replace `Your_VPN_Server_IP` with your VPN server's IP address.
+
+### 3. Extract Certificates and Private Key
+
+Create a directory to store the certificates and extract them from the `.p12` file.
+
+```bash
+mkdir ~/ikev2-vpn
+cd ~/ikev2-vpn
+
+openssl pkcs12 -in ~/vpnclient.p12 -cacerts -nokeys -out ca.cer
+openssl pkcs12 -in ~/vpnclient.p12 -clcerts -nokeys -out client.cer
+openssl pkcs12 -in ~/vpnclient.p12 -nocerts -nodes -out client.key
+
+rm ~/vpnclient.p12
+```
+
+**Explanation:**
+
+- `ca.cer`: The CA certificate.
+- `client.cer`: Your client certificate.
+- `client.key`: Your private key.
+
+**Note:** If prompted for a password during extraction, simply press **Enter**.
+
+### 4. Secure the Certificate and Key Files
+
+It's important to protect these sensitive files.
+
+```bash
+sudo chown root:root ca.cer client.cer client.key
+sudo chmod 600 ca.cer client.cer client.key
+```
+
+**Explanation:** Changes ownership to root and restricts permissions to prevent unauthorized access.
+
+### 5. Install Network Manager Plugins (If Not Already Installed)
+
+Depending on your Linux distribution, install the necessary packages:
+
+```bash
+# Ubuntu and Debian
+sudo apt update
+sudo apt install network-manager-strongswan -y
+
+# Arch Linux
+sudo pacman -Syu  # Update package lists
+sudo pacman -S networkmanager-strongswan
+
+# Fedora
+sudo dnf install NetworkManager-strongswan-gnome
+
+# CentOS
+sudo yum install epel-release
+sudo yum --enablerepo=epel install NetworkManager-strongswan-gnome
+```
+
+### 6. Configure the VPN Connection
+
+Follow these steps to set up the IKEv2 VPN connection:
+
+1. **Access VPN Settings:**
+   - Go to **Settings** > **Network** > **VPN**.
+   - Click the **+** button to add a new VPN connection.
+2. **Select VPN Type:**
+   - Choose **IPsec/IKEv2 (strongSwan)**.
+3. **General Configuration:**
+   - **Name:** Enter a name for your VPN connection (e.g., `My IKEv2 VPN`).
+4. **Gateway Configuration:**
+   - **Address:** Enter your VPN server's IP address or domain name (`Your VPN Server IP`).
+   - **Certificate:** Select the `ca.cer` file you extracted earlier.
+5. **Client Authentication:**
+   - **Authentication:** Choose **Certificate (/private key)**.
+   - **Certificate (file):** Select the `client.cer` file.
+   - **Private key:** Select the `client.key` file.
+6. **Options Configuration:**
+   - **Request an inner IP address:** Check this box.
+7. **Cipher Proposals (Algorithms):**
+   - **Enable custom proposals:** Check this box.
+   - **IKE:** Leave this field blank.
+   - **ESP:** Enter `aes128gcm16`.
+8. **Save and Connect:**
+   - Click **Add** to save the VPN connection.
+   - In the VPN settings, toggle the **VPN** switch to **ON** to connect.
+
+**Explanation:**
+
+- **Certificates and Keys:** The client certificate and private key authenticate your device to the VPN server.
+- **Cipher Proposals:** Setting custom proposals ensures that the encryption algorithms match those expected by the VPN server.
+
+### 7. Verify the VPN Connection
+
+Check your public IP address to confirm that you are connected through the VPN.
+
+```bash
+curl ifconfig.me
+```
+
+***
+
+## Troubleshooting
+
+- **Failed to Establish VPN Connection:**
+  - Ensure that your server's firewall allows necessary VPN ports (e.g., UDP ports 500 and 4500 for IPsec).
+  - Verify that VPN services are running on the server.
+- **Authentication Errors:**
+  - Double-check the VPN credentials (IPsec PSK, username, password).
+  - Ensure that the certificates and keys are correctly installed and permissions are properly set.
+- **DNS Issues:**
+  - If you cannot resolve domain names after connecting, specify DNS servers in your VPN client settings or update the VPN server configuration to push DNS settings to clients.
+- **StrongSwan Configuration Errors:**
+  - Check logs for errors: `/var/log/syslog` or use `journalctl -xe`.
+  - Ensure that the IKEv2 configuration matches between the client and server.
+
+***
+
+## Conclusion
+
+By following this guide, you've successfully set up a VPN server on Ubuntu 22.04 that supports both L2TP/IPsec and IKEv2 protocols. This configuration enhances your network security by encrypting your internet traffic and providing flexible connection options for various clients.
+
+***
+
+## References
+
+- [hwdsl2/setup-ipsec-vpn GitHub Repository](https://github.com/hwdsl2/setup-ipsec-vpn)
+- [Managing VPN Users](https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/manage-users.md)
+- [Linux VPN Clients](https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients.md#linux)
+- [IKEv2 VPN Setup](https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/ikev2-howto.md#linux)
+
+***
+
+**Note:** Always ensure your use of VPNs complies with local laws and regulations. Keep your VPN credentials and certificates secure to prevent unauthorized access.

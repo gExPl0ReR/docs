@@ -1,0 +1,137 @@
+---
+title: Automatic Installation of MikroTik Router OS (MikroTik CHR)
+description: Learn how to install MikroTik Router OS (CHR) on your VPS with an automated script. Step-by-step instructions for setup, configuration, and connecting via Winbox.
+createdAt: Tue Nov 12 2024 09:06:02 GMT+0000 (Coordinated Universal Time)
+updatedAt: Sat Dec 28 2024 20:35:52 GMT+0000 (Coordinated Universal Time)
+---
+
+## Introduction
+
+This guide simplifies the process of installing MikroTik Router OS on a VPS. By automating the installation with a script, there’s no need to manually enter commands in the MikroTik CLI console. Once complete, you’ll have a fully operational VPS running MikroTik Router OS.
+
+## Getting Started: Prerequisites and VPS Preparation
+
+1. <a
+     href='https://docs.edisglobal.com/autoinstall-reinstall-install-vps-linux-windows'
+     target='_blank'
+   >
+     Install Ubuntu 22.04 on VPS
+   </a>
+2. Once installed, <a href="https://docs.edisglobal.com/power-cycle-or-reboot-a-vps" target="_blank">turn off the VPS</a>.&#x20;
+3. Access the **KVM Settings** in the server management interface:
+
+   • Change the **Disk Driver** to **IDE**.
+
+   • Set the **Network Driver** to **E100**.
+
+4. **Apply** the changes and restart the VPS.
+
+5. ![](../../assets/HBuvnsEfBThxg38W0vgJY_image.png "Note: Changes to KVM settings require a shutdown and power cycle to take effect.")
+
+## Running the Installation Script
+
+### **Create the Script File&#xA;**
+
+<a href='https://docs.edisglobal.com/linux-secure-shell-ssh' target='_blank'>
+  Connect to the server via SSH
+</a>
+
+Open a terminal and create a script file:
+
+```bash
+nano mikrotik.sh
+```
+
+Copy and paste the following script into the file
+
+```bash
+#!/bin/bash
+export PATH=$PATH:/usr/bin:/bin
+
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get -y install gzip
+
+# Retrieve the latest version dynamically
+latest_version=$(curl -s https://mikrotik.com/download | grep -oP 'chr-\K[0-9]+\.[0-9]+\.[0-9]+(?=\.img\.zip)' | sort -V | tail -n 1)
+
+# Construct the download URL for the latest version
+download_url="https://download.mikrotik.com/routeros/$latest_version/chr-$latest_version.img.zip"
+
+# Download and extract the image file
+wget "$download_url" -O chr.img.zip
+gunzip -c chr.img.zip > chr.img && \
+
+kpartx -av chr.img
+mount /dev/mapper/loop3p2 /mnt/ && \
+
+# Find the primary network interface with an IP address
+interface=$(ip -o -4 addr show up primary scope global | awk '{print $2}' | head -n 1)
+
+# Retrieve network information
+ADDRESS=$(ip addr show $interface | grep global | cut -d' ' -f 6 | head -n 1)
+GATEWAY=$(ip route list | grep default | cut -d' ' -f 3)
+
+# Create autorun script
+echo "/ip address add address=$ADDRESS interface=[/interface ethernet find where name=ether1]
+/ip route add gateway=$GATEWAY
+/ip service disable telnet" > /mnt/rw/autorun.scr && \
+
+# Unmount and clean up
+sudo umount /mnt/ && \
+
+# Sync and write image to disk
+echo u > /proc/sysrq-trigger && \
+sudo dd if=chr.img bs=1024 of=/dev/sda && \
+echo "sync disk" && \
+echo s > /proc/sysrq-trigger && \
+echo "Waiting 5 seconds..." && \
+#Waiting
+end_time=$((SECONDS + 5))
+while [ $SECONDS -lt $end_time ]; do
+    :
+done && \
+
+echo "Reboot OS" && \
+echo b > /proc/sysrq-trigger
+```
+
+Press `CTRL+O` to save your changes, then exit by pressing `CTRL+X`.
+
+### **Set Script Permissions**
+
+Set the script execution rights:
+
+```bash
+chmod +x mikrotik.sh
+chmod 755 mikrotik.sh
+```
+
+### **Run the Script**
+
+```bash
+./mikrotik.sh
+```
+
+The VPS will reboot automatically once the installation completes.
+
+### Connecting to Server Using Winbox
+
+After the VPS reboots, connect to MikroTik Router OS using Winbox:
+
+1. **Download and Install** Winbox from the [MikroTik website](https://mikrotik.com/download).
+
+2. Open Winbox and create a new connection:
+
+   • Enter your VPS **IP address**.
+
+   • Use admin for the **Login** field and leave the **Password** field blank.
+
+   • Click **Connect**.
+
+   ![](/assets/y9B0AGVAxYeSyeZVyaDis-CxSq9rYIoBmHYZ9f10ljp-20241112-101352.png)
+
+3. During the first login, you’ll be prompted to set a new password for added security.
+
+![](/assets/y9B0AGVAxYeSyeZVyaDis-5QY8EKzVD1DhazfKvT1H8-20241112-102055.png)
+
+Congratulations! MikroTik Router OS is now successfully installed and operational on your VPS. With the automated script, accessing and managing Mikrotik CHR via Winbox is quick and efficient. After securing your credentials and testing the setup, your infrastructure setup is ready for seamless network management.

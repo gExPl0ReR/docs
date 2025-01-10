@@ -1,0 +1,45 @@
+---
+title: IPv6 Configuration
+slug: ipv6-configuration
+description: Each VPS is automatically assigned its own /64 IPv6 subnet with an IPv6 address statically preconfigured on the interface. To change the IPv6 address or add more addresses, manual configuration is required depending on the operating system in use.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Tue Sep 12 2023 08:59:04 GMT+0000 (Coordinated Universal Time)
+updatedAt: Fri Oct 04 2024 20:35:51 GMT+0000 (Coordinated Universal Time)
+---
+
+## IPv6 address, subnet mask
+
+Each VPS is automatically assigned its own /64 IPv6 subnet by EDIS. An IPv6 address from the assigned subnet is statically preconfigured on the interface.
+
+To change the IPv6 address or add more addresses from the /64 assigned to your KVM, you'll need to use a manual configuration. The network setup is dependent on the operating system in use.
+
+In Debian Linux you can work with the `ip` command.
+
+<Note>
+  Keep in mind that the **subnet mask must be configured as /48** and not /64.
+</Note>
+
+Configure an IPv6 address at runtime:
+
+`ip -6 addr add 2a03:f80:ed15:435a::1/48 dev eth0`
+
+Display configured IPv6 addresses
+
+`ip -6 addr show`
+
+## **IPv6 default route (IPv6 default gateway)**
+
+To enable external IPv6 communication, a default route or default gateway must be configured.
+
+Configure an IPv6 default route
+
+`ip -6 route add default via 2a03:f80:ed15::1`
+
+<Note>
+  Every server location has its own IPv6 default route! Only use the address
+  valid for your server location!
+</Note>
+
+Display configured IPv6 default route:
+
+`ip -6 route show`

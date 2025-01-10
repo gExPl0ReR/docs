@@ -1,0 +1,108 @@
+---
+title: Manual Windows Server installation on EDIS KVM
+description: This document is a rough guide for manually installing Windows Server on EDIS KVM using VNC. The purpose of this doc is to showcase the process. Please use our Auto-Installers!
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Tue Sep 12 2023 12:22:59 GMT+0000 (Coordinated Universal Time)
+updatedAt: Wed Apr 03 2024 21:46:18 GMT+0000 (Coordinated Universal Time)
+---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+## **For illustration purposes only!**
+
+**Manual** Installation of Windows Server on EDIS KVM using VNC.
+This guide was created to document the process. You _can_ do it this way if you are interested to experiment. If you want to quickly install Windows or Linux, please use provided auto-installers.
+
+EDIS offers 1-click installation of Windows 2016, 2019, and 2022 Server as well as for Windows 10 - There is no need to manually install Windows!
+
+<CtaButton
+  label='Auto-Install Linux/Windows'
+  link='../VPS Management/Reinstalling Your VPS_ Choose Linux or Windows.mdx'
+/>
+
+This manual was created to guide you through a \***manual\* installation** of Windows Server editions 2016, 2012 / R2, 2012, 2008, 2008 / R2. This guide **does not work** if you have a **Windows Desktop .iso** file.
+
+<Note>
+**Minimal system requirements:**
+
+A KVM VPS with 20GB disk space (KVM Starter and up)
+
+A Windows license (2016, 2012 R2, 2012, 2008, 2008 R2) for activation
+
+A VNC client or a noVNC session from the KVM panel
+
+</Note>
+
+This manual guides you through a manual installation of host-provided Windows .iso images that come with your EDIS KVM VPS.
+
+## Installation
+
+<Steps>
+  <Step title='Log in to your'>
+    [KVM Management Portal](https://manage.edisglobal.com/clientarea.php)
+  </Step>
+  <Step title='Mount the Windows .ISO file of your choice' />
+  <Step title='Enable VNC' />
+  <Step title='KVM Settings >> Disk driver >> set to Virtio (default value)' />
+  <Step title='KVM Settings >> Network driver >> set to Virtio (default value)' />
+  <Step title='Start a noVNC session and' />
+</Steps>
+
+![manual_windows_installation](/assets/wmFZZS9lrK-cn-pukWMnI_manual-windows-server-installation-73d4035424.png)
+
+<Steps>
+  <Step title='Send CtrlAltDel (top right corner of your noVNC window)' />
+  <Step title='Send F12 immediately after step 1) or press `Esc` to bring up the Boot menu' />
+  <Step title='Press `3` to boot from mounted .iso (DVD/CD)' />
+</Steps>
+
+![Manual_Windows_Server_installation](/assets/1X9oVnZ2JgRsk_cQIY3iK_manual-windows-server-installation-2-6d3974af2a.png)
+
+Continue with the installation till you reach the empty **"Where do you want to install Windows?"** screen
+
+<Check>Everything is good. ;-)</Check>
+
+Now you need to load disk- and network- drivers EDIS provides on drive E:
+
+![load_driver](/assets/Oua5O2cnO-l2geiD9lpRU_manual-windows-server-installation-3-29a2db7fd3.png)
+
+Load the "client Virtio drivers".
+
+This is important to be able to access the disk and network.
+
+Click "**Load driver**" and "**Browse"**
+
+Navigate to the driver CD (usually mounted on drive E:\\)
+
+![browse_driver](/assets/6oW-8dqGMMyn6Rg0SFyI-_manual-windows-server-installation-4-e7954e59a1.png)
+
+Now select the correct driver directory, according to your Windows version and architecture (x64 = AMD64, x86 = X86)
+
+- For **Windows 2016** select the **2k16** folder
+- For **Windows 2012 / R2** select the **2k12** or **2k12R2** folder
+- For **Windows 2008 / R2** select the **2k8** or **2k8R2** folder
+
+**For Windows 2012 and newer, only 64-bit drivers are available.**
+Pick the AMD64 sub-folder.
+
+Confirm your selection and click "**Next**"
+
+![select_driver_to_install](/assets/WOSth5cRKQN6a-PS6dtnh_manual-windows-server-installation-5-3c500ef3e7.png)
+
+Repeat the process in the "**viostor**" folder.
+
+![viostor_folder](/assets/78a2aEUvvGM8IEgURYjjs_manual-windows-server-installation-6-18cba245f1.png)
+
+Click "**Next**"
+
+![](/assets/-iOJMjSbldw1HKGyhc1A7_manual-windows-server-installation-7-506d75da29.png)
+
+You can now see your disk partition and you are able to resume the installation.
+
+Once the installation is finished you will need to set your IP address manually.
+
+IP addresses, subnet mask, gateway address, and nameservers are displayed in your VPS panel.
+
+No further driver installations should be required.
+
+Your Windows Server is now ready to use.

@@ -1,0 +1,45 @@
+---
+title: Extending 180 day trial version of Windows
+description: Solution to extent the validity of a Windows trial version using this simple command in PowerShell
+createdAt: Fri Apr 05 2024 13:48:56 GMT+0000 (Coordinated Universal Time)
+updatedAt: Mon Apr 08 2024 05:56:14 GMT+0000 (Coordinated Universal Time)
+---
+
+## How to extend the 180 day Windows trial timeframe?
+
+To extend the trial period on a Windows Server, you could try the following steps:
+
+Open PowerShell with administrative privileges.
+Run the following command **to view the current licensing status**:
+
+```powershell
+slmgr -dlv
+```
+
+As the trial period approaches its end, execute the following command to extend it by an additional 180 days:
+
+```powershell
+slmgr -rearm
+```
+
+Restart your computer to apply the changes.
+
+Is it legal to extend a trial version of Windows?
+
+Using the **slmgr -rearm** command to extend the trial period of Windows Server is a feature provided by Microsoft for specific editions of its software, primarily for evaluation purposes. This command resets the activation timer and can be used a limited number of times to extend the trial period, typically to allow users more time to evaluate the product before purchasing a license.
+
+However, the legality and ethical use of this feature depend on the terms set forth in the Microsoft Software License Agreement (SLA) you agreed to when you first installed or used the software. The SLA for Windows Server editions that offer this feature generally allows for a limited number of resets of the trial period, specifically to support testing and evaluation scenarios.
+
+While it is technically possible to use **slmgr -rearm** to extend the trial, it is essential to:
+
+1. **Use it within the limits**
+
+   &#x20;specified by Microsoft, which is typically up to two times, extending the trial to a maximum of an additional 180 days.
+
+2. **Understand it is intended for evaluation purposes**
+
+   &#x20;and not as a way to permanently avoid purchasing the necessary licenses for long-term use.
+
+If you are using the software in a commercial environment or for any purpose other than evaluation, it is recommended to purchase a valid license to stay compliant with Microsoft's licensing terms and avoid any legal issues.
+
+Always refer to the specific SLA for your version of Windows Server and consider consulting with a legal professional or Microsoft's licensing experts for advice tailored to your situation.

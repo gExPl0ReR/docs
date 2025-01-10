@@ -1,0 +1,50 @@
+---
+title: SFTP Windows <> Linux Server
+createdAt: Wed Dec 11 2024 17:03:48 GMT+0000 (Coordinated Universal Time)
+updatedAt: Sat Dec 28 2024 20:32:56 GMT+0000 (Coordinated Universal Time)
+---
+
+## Secure File Transfer Between Windows and Linux Servers
+
+SFTP (Secure File Transfer Protocol) is a secure way to transfer files between your Windows machine and a Linux server. This article explains how to use **WinSCP**, a popular tool for Windows users, to securely transfer files to and from a Linux server using SFTP.
+
+---
+
+## Step 1: Enable SSH on your Linux Server
+
+Ensure that the SSH service is installed and running on your Linux server. Use the following command on the Linux server:
+
+```bash Bash
+sudo apt install openssh-server
+```
+
+---
+
+## Step 2: Install and Set Up WinSCP on Windows
+
+1. Download WinSCP from [winscp.net](https://winscp.net/).
+2. Follow the installation instructions to set up the application.
+3. Launch WinSCP after installation.
+
+---
+
+## Step 3: Connect to the Linux Server Using SFTP
+
+1. In WinSCP, create a new connection:
+   - **File Protocol**: Choose `SFTP`.
+   - **Hostname**: Enter the IP address or domain name of your Linux server.
+   - **Port Number**: Default is `22`.
+   - **Username**: Enter the username for your Linux account.
+   - **Password**: Provide your password or configure a private key for authentication.
+2. Click **Login** to connect to your server.
+
+---
+
+## Step 4: Transfer Files
+
+Once connected, use the graphical interface to:
+
+- Drag and drop files from your Windows machine to the Linux server.
+- Drag files from the Linux server to your local Windows machine.
+
+WinSCP makes it easy to securely manage and transfer files using SFTP.

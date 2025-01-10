@@ -1,0 +1,27 @@
+---
+title: Mount an ISO image
+description: The doc provides instructions for mounting an ISO image on an EDIS VPS through the VPS Management Portal.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Tue Sep 12 2023 08:56:12 GMT+0000 (Coordinated Universal Time)
+updatedAt: Fri Oct 04 2024 20:35:08 GMT+0000 (Coordinated Universal Time)
+---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+## Mouting an ISO image on your VPS
+
+<Steps>
+  <Step title='Log in to your'>
+    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
+  </Step>
+  <Step title='Locate your VPS in the Services tab' />
+  <Step title='and then click "Mount ISO"...' />
+</Steps>
+
+To select and attach (mount) an .iso file, either pick an .iso offered in the EDIS Global .iso library, or upload a personalized .iso using the provided Custom ISO feature. Once done, choose the boot device within a noVNC session and proceed with the installation.
+
+<CtaButton label='VNC, noVNC' link='./enable-vnc-server' />
+
+<CtaButton label='Custom ISO' link='./provide-a-custom-iso-image' />
+
+![kvm-mount-iso](/assets/N2DipmB8Wg86X_7OhkqhX_kvm-mount-iso.png "KVM Mount iso")

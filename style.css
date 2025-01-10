@@ -1,0 +1,32 @@
+:root {
+    --brand-primary: #000;
+    --brand-secondary: #5e5f6e;
+    --brand-accent: #f96002;
+    --brand-accent-dark: #d55200;
+    --brand-accent-light: #ffd7bf;
+    --brand-emphasis: #fafafa;
+    --brand-border: #e9e9e9;
+    --brand-error: #f73826;
+    --brand-error--light: #ffc3bd;
+    --brand-success: #089c05;
+    --brand-success-light: #bcf6bb;
+    --brand-disabled: #aaa8a8;
+    --brand-gradient: linear-gradient(to bottom, #fa8837, #f96103);
+    --brand-gradient-reverse: linear-gradient(to top, #fa8837, #f96103);
+}
+
+.custom-cta-button {
+    background-color: var(--brand-accent);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.custom-cta-button:hover {
+    background-color: var(--brand-accent-dark);
+}
+
+.custom-cta-button a {
+    text-decoration: none;
+    color: white;
+    border: none
+}

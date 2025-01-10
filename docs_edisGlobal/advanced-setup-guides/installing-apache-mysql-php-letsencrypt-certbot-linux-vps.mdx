@@ -1,0 +1,117 @@
+---
+title: Installing Apache, MySQL, PHP, and SSL on Linux VPS
+description: Step-by-step guide on setting up Apache, MySQL, and PHP for `mydomain.com`, secured with Let's Encrypt SSL on a Linux VPS, with configurations for ports 80 and 443.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Wed Nov 01 2023 10:46:02 GMT+0000 (Coordinated Universal Time)
+updatedAt: Thu Jan 18 2024 10:44:30 GMT+0000 (Coordinated Universal Time)
+---
+
+Detailed guide on setting up Apache, MySQL, and PHP for `mydomain.com`, secured with Let's Encrypt SSL on a Linux VPS, with configurations for HTTP (port 80) and HTTPS ( port 443).&#x20;
+
+**Prerequisites**:
+
+- An EDIS Global Linux VPS (Ubuntu 20.04 recommended)
+- SSH root access to the VPS
+- A registered domain name pointing to your VPS' IP address
+
+**Update your VPS**
+
+```shell
+sudo apt update && sudo apt upgrade -y
+```
+
+**Install Apache Web Server**
+
+```shell
+sudo apt install apache2 -y
+```
+
+**Configure Apache for mydomain.com**
+Create a virtual host configuration for your domain:
+
+```shell
+sudo nano /etc/apache2/sites-available/mydomain.com.conf
+```
+
+Add the following:
+
+```powershell
+<VirtualHost *:80>
+    ServerName mydomain.com
+    ServerAlias www.mydomain.com
+    DocumentRoot /var/wwpw/mydomain.com/public_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+Save and exit the editor.
+
+Enable the configuration and restart Apache:
+
+```shell
+sudo a2ensite mydomain.com.conf
+sudo systemctl restart apache2
+```
+
+**Install MySQL Database Server**
+
+```shell
+sudo apt install mysql-server -y
+```
+
+**Secure MySQL Installation**
+Run the security script:
+
+```shell
+sudo mysql_secure_installation
+```
+
+**Install PHP**
+
+```shell
+sudo apt install php libapache2-mod-php php-mysql -y
+```
+
+**Install Certbot for SSL**
+
+```shell
+sudo apt install certbot python3-certbot-apache -y
+```
+
+**Obtain Let's Encrypt SSL Certificate for mydomain.com**
+
+```shell
+sudo certbot --apache -d mydomain.com -d www.mydomain.com
+```
+
+Certbot will automatically configure the Apache virtual host for SSL (port 443).
+
+**Confirm Port 443 Configuration**
+
+Your configuration should have been updated to include a `<VirtualHost _:443>` block for SSL. Confirm by:
+
+```shell
+cat /etc/apache2/sites-available/mydomain.com-le-ssl.conf
+```
+
+**Automatic Certificate Renewal**
+
+```shell
+sudo systemctl enable certbot.timer
+sudo systemctl start certbot.timer
+```
+
+Test renewal:
+
+```shell
+sudo certbot renew --dry-run
+```
+
+**Finalize Configuration & Restart Apache**
+
+```shell
+sudo systemctl restart apache2
+```
+
+Your domain `mydomain.com` is now configured on Apache with MySQL and PHP, utilizing ports 80 (HTTP) and 443 (HTTPS/SSL) with a secure SSL certificate from Let's Encrypt.

@@ -1,0 +1,39 @@
+---
+title: Exceeding Monthly Traffic Limit
+description: Discover what happens when you exceed your monthly traffic limit on EDIS Global and the steps you can take to restore full ethernet speed.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Wed Sep 27 2023 07:34:24 GMT+0000 (Coordinated Universal Time)
+updatedAt: Sat Jun 22 2024 20:12:48 GMT+0000 (Coordinated Universal Time)
+---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+## What happens if I go beyond my traffic allowance?
+
+### **Speed Limitation**
+
+Your virtual private server's ethernet interface speed will be throttled down to approximately 64kbit/s. We apply a 5% grace, so the throttling will only kick in at roughly 105% usage. However, rest assured that your machine will continue to remain online, ensuring there's no complete disruption.
+
+### **Options for Restoration**
+
+**Plan Upgrade**: You can choose to upgrade to a higher tier/package. This is usually the most cost-effective solution to add more traffic to your current plan.
+
+<CtaButton
+  label='Upgrade a VPS'
+  link='../upgrades-downgrades/upgrading-a-vps-to-a-higher-tier'
+/>
+
+**Traffic Pool Top-Up**: If you don’t want to permanently upgrade, you have the option to augment your traffic quota by topping up your traffic pool and by assigning traffic to your service from that pool. An option for automatic refills ("auto-hydration") is available too. Auto-hydration automatically adds 100GB pool traffic to your VPS at 99% traffic usage level.
+
+<CtaButton
+  label='Traffic Pool'
+  link='./traffic-pool-global-and-premium-traffic-zone'
+/>
+
+**Wait it Out**: If neither of the above options is feasible or desired, you can simply wait. Your traffic will automatically reset and refill to its original limit on the server's monthly due date.
+
+<CtaButton label='Traffic explained' link='./traffic-stats-refill-explained' />
+
+### **Instant Restoration**
+
+Whether you choose to upgrade your plan or to top-up your traffic pool and assign traffic to your service, the imposed 64kbit/s speed limitation will be removed immediately, restoring your server's ethernet port to its original speed instantaneously.&#x20;

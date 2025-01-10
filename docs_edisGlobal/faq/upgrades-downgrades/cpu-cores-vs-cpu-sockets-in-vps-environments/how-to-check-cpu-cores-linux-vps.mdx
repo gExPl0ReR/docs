@@ -1,0 +1,94 @@
+---
+title: How to Check CPU Cores on a Linux VPS
+description: Multiple methods to check the number of CPU cores on a Linux VPS. From simple command-line utilities to detailed hardware info tools, get a comprehensive guide to optimize and understand your server's performance capabilities
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Mon Oct 23 2023 05:47:09 GMT+0000 (Coordinated Universal Time)
+updatedAt: Tue Aug 06 2024 11:31:22 GMT+0000 (Coordinated Universal Time)
+---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+## Verifying the Number of Cores Available to Linux
+
+When managing a Virtual Private Server (VPS) running Linux, it's crucial to understand its resources to optimize performance. One such resource is the number of CPU cores. The more cores you have, the more tasks your VPS can handle simultaneously. Here's a guide on how to check the number of CPU cores on a Linux VPS.
+
+### The `/proc/cpuinfo` File
+
+One of the simplest methods to determine the number of CPU cores is by reading the `/proc/cpuinfo` file.
+
+**Command:**
+
+```shell Shell
+cat /proc/cpuinfo | grep "processor"
+```
+
+Each "processor" line represents a CPU core. Count the number of such lines to determine the total cores.
+
+### The `lscpu` Command
+
+The `lscpu` command provides detailed information about the CPU architecture.
+
+**Command:**
+
+```shell Shell
+lscpu
+```
+
+Look for the "CPU(s)" line. This will display the total number of cores. If you want to differentiate between physical cores and threads (in case of hyper-threading), look for "Core(s) per socket" and "Thread(s) per core".
+
+### The `nproc` Command
+
+For a straightforward count of available processing units, use `nproc`.
+
+**Command:**
+
+```shell Shell
+nproc
+```
+
+This will return a single number representing the number of CPU cores.
+
+### The `top` and `htop` Commands
+
+Both `top` and `htop` are interactive process viewers that display the system's current state.
+
+**Using top**:
+
+**Command:**
+
+```shell Shell
+top
+```
+
+Once top is open, observe the Cpu(s) section. It'll show the usage statistics for each core.
+
+**Using htop**:
+
+**Command:**
+
+```shell Shell
+htop
+```
+
+In `htop`, you will directly see a visual representation of the usage of each core at the top of the interface.
+
+### The `hwinfo` Command
+
+`hwinfo` provides detailed hardware information, including about the CPU.
+
+**Command (to specifically get CPU info):**
+
+```shell Shell
+hwinfo --cpu
+```
+
+Look for "Number of processors" for the count of CPU cores.
+
+### Conclusion
+
+Regularly checking and understanding the number of CPU cores and their utilization can help in optimizing the performance and load distribution of tasks on your Linux VPS. Use the methods above as needed and based on the tools you have installed on your system.
+
+<CtaButton
+  label='CPU Cores vs. CPU Sockets'
+  link='./understanding-cpu-cores-vs-sockets-in-vps'
+/>

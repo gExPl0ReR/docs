@@ -1,0 +1,927 @@
+openapi: 3.0.0
+info:
+  title: KVM ORDER API
+  description: >-
+    # Welcome to EDIS Global ORDER API 🚀
+
+
+    The **EDIS Global ORDER API** allows seamless integration with our
+    infrastructure to automate the entire product lifecycle (ordering and
+    cancellations).
+
+
+    Whether you’re integrating into your billing system or automating your
+    service orders, our ORDER API makes managing the product lifecylce of EDIS
+    Global services simple and effective. Below is a quick overview to help you
+    get started.
+
+
+    ## 🚀 Get Started Here
+
+
+    Follow these steps to begin using the **EDIS Global ORDER API**:
+
+
+    1. **Authentication**: Ensure you are authenticated (WHMCS username and
+    password)
+
+    2. **Explore the Endpoints**: Use the endpoints below to order and cancel
+    VPS services in any of our worldwide server locations.
+
+
+    For KVM VPS management, see our [KVM Management
+    API](https://docs.management-api.edisglobal.com)
+
+
+    ---
+
+
+    ## Available API Endpoints:
+
+
+    ### Payment Methods
+
+
+    **POST** `get payment methods`
+
+    Retrieve the available payment methods for your order.
+
+
+    ### Billing Cycles
+
+
+    **POST** `get billingcycles`
+
+    Get available billing cycles for different products.
+
+
+    ### Locations
+
+
+    **POST** `get locations`
+
+    Fetch all available VPS locations across the globe.
+
+
+    ### Products
+
+
+    **POST** `get products`
+
+    List the available VPS products and configurations.
+
+
+    ### Place an Order
+
+
+    **POST** `add order`
+
+    Add a new VPS order to the EDIS Global infrastructure.
+
+
+    ### Cancel a Product
+
+
+    **POST** `cancel product`
+
+    Cancel a specific product or VPS service.
+
+
+    ---
+
+
+    For more details on the **EDIS Global ORDER API**, please refer to the full
+    documentation, and feel free to reach out if you have any questions or need
+    assistance.
+
+
+    Happy Coding!
+
+    **The EDIS Global Team**
+  version: 1.0.0
+servers:
+  - url: https://order.edisglobal.com
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+paths:
+  /kvm/v2/get/paymentmethods:
+    post:
+      tags:
+        - default
+      summary: get payment methods
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: your whmcs credentials
+                  example: 'your email '
+                pw:
+                  type: string
+                  description: your whmcs credentials
+                  example: password
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                {"paymentmethods":["paypal","alipay","creditcard","cryptomus"],"status":"success"}
+  /kvm/v2/get/billingcycles:
+    post:
+      tags:
+        - default
+      summary: get billingcycles
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: your whmcs credentials
+                  example: 'your email '
+                pw:
+                  type: string
+                  description: your whmcs credentials
+                  example: password
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                {"billingcycle":["monthly","quarterly","semiannually","annually"],"status":"success"}
+  /kvm/v2/get/serviceid:
+    post:
+      tags:
+        - default
+      summary: get serviceid
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: your whmcs credentials
+                  example: 'your email '
+                pw:
+                  type: string
+                  description: your whmcs credentials
+                  example: password
+                kvmid:
+                  type: string
+                  example: kvm_xxxxxx_yyyyyyyy
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                {"status":"success","kvmid":"kvm_xxxx_yyyyy","serviceid":"xxxxxx"}
+  /kvm/v2/get/kvmid:
+    post:
+      tags:
+        - default
+      summary: get kvmid
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: your whmcs credentials
+                  example: 'your email '
+                pw:
+                  type: string
+                  description: your whmcs credentials
+                  example: password
+                serviceid:
+                  type: string
+                  example: xxxxxxxxx
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                {"status":"success","kvmid":"kvm_xxxxx_yyyyyy","serviceid":"xxxx"}
+  /kvm/v2/get/locations:
+    post:
+      tags:
+        - default
+      summary: get locations
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: your whmcs credentials
+                  example: 'your email '
+                pw:
+                  type: string
+                  description: your whmcs credentials
+                  example: password
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                {"locations":{"KVM Hong Kong":{"id":22,"headline":null},"KVM
+                Iceland":{"id":24,"headline":null},"KVM Russia, St.
+                Petersburg":{"id":31,"headline":""},"KVM
+                Slovenia":{"id":36,"headline":null},"KVM
+                Hungary":{"id":46,"headline":null},"KVM
+                Bulgaria":{"id":51,"headline":null},"KVM Italy, Sicily,
+                Palermo":{"id":52,"headline":null},"KVM
+                Canada":{"id":57,"headline":"Montreal, Canada"},"KVM
+                Japan":{"id":62,"headline":null},"KVM
+                Singapore":{"id":67,"headline":null},"KVM
+                Israel":{"id":72,"headline":null},"KVM
+                Chile":{"id":77,"headline":null},"KVM
+                Moldova":{"id":78,"headline":null},"KVM Czech
+                Republic":{"id":83,"headline":"KVM Czech Republic"},"KVM
+                Serbia":{"id":88,"headline":""},"KVM
+                USA":{"id":93,"headline":"New York Metropolitan Area"},"KVM
+                Greece":{"id":94,"headline":""},"KVM
+                Australia":{"id":100,"headline":""},"KVM
+                Belgium":{"id":102,"headline":"KVM vps in Brussels,
+                Belgium"},"KVM Austria, Graz":{"id":107,"headline":"KVM vps in
+                Graz, Austria"},"KVM Switzerland":{"id":117,"headline":"KVM vps
+                in Zurich, Switzerland"},"KVM Germany":{"id":122,"headline":"KVM
+                vps in Frankfurt, Germany"},"KVM United
+                Kingdom":{"id":127,"headline":"KVM VPS in the City of
+                London"},"KVM Sweden":{"id":132,"headline":"KVM vps in
+                Stockholm, Sweden"},"KVM France":{"id":137,"headline":"KVM vps
+                in Paris, France"},"KVM Poland":{"id":142,"headline":"KVM vps in
+                Warsaw, Poland"},"KVM Spain":{"id":147,"headline":"KVM vps in
+                Seville, Spain"},"KVM Italy, Milan":{"id":152,"headline":"KVM
+                vps in Milan, Italy"},"KVM
+                Netherlands":{"id":157,"headline":"KVM vps in Schiphol-Rijk
+                (Amsterdam), Netherlands"},"KVM
+                Romania":{"id":162,"headline":"KVM vps in Bucharest,
+                Romania"},"KVM Denmark":{"id":167,"headline":"Copenhagen,
+                Denmark"},"KVM Norway":{"id":172,"headline":"KVM vps in Oslo,
+                Norway"},"KVM United Arab Emirates":{"id":177,"headline":"KVM
+                vps in Dubai, United Arab Emirates"},"KVM Russia,
+                Moscow":{"id":182,"headline":"KVM vps in Moscow, Russia"},"KVM
+                Austria, Vienna":{"id":192,"headline":"KVM VPS\/VDS in Vienna,
+                Austria"},"KVM Lithuania":{"id":197,"headline":"KVM vps in
+                Vilnius, Lithuania"},"KVM Latvia":{"id":202,"headline":"KVM vps
+                in Riga, Latvia"},"KVM Croatia":{"id":207,"headline":"KVM vps in
+                Zagreb, Croatia"},"KVM North
+                Macedonia":{"id":208,"headline":"KVM vps in Skopje, North
+                Macedonia"},"KVM USA, Miami ":{"id":211,"headline":""},"KVM
+                United Kingdom, London Docklands":{"id":212,"headline":"NEW!
+                London, Canary Wharf"},"KVM Austria, Vienna
+                Danube":{"id":215,"headline":"KVM VPS @ Vienna Interxion"},"KVM
+                Colombia":{"id":217,"headline":"KVM vps in Bogot\u00e1,
+                Colombia"},"KVM USA, Los Angeles":{"id":219,"headline":""},"KVM
+                Cyprus":{"id":221,"headline":""}},"status":"success"}
+  /kvm/v2/get/products:
+    post:
+      tags:
+        - default
+      summary: get products
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: your whmcs credentials
+                  example: 'your email '
+                pw:
+                  type: string
+                  description: your whmcs credentials
+                  example: password
+                location_id:
+                  type: string
+                  description: from "get locations" call
+                  example: location_id
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                {"data":false,"products":{"KVM
+                SMART":{"id":1702,"description":"1024 MB RAM\r\n15 GB SSD\r\n1
+                IPv4 + \/64 IPv6\r\n1 TB Traffic\r\nKVM based<br
+                \/>\r\nPost-Install-Scripts\r\nTUN\/TAP - Ideal for VPN\r\nNoVNC
+                \"remote access\"","addons":{"operating
+                system":{"88":{"id":88,"description":"Ubuntu LTS 20.04
+                64Bit"},"92":{"id":92,"description":"alternative \/ manual
+                installation via VNC"},"150":{"id":150,"description":"Centos
+                Stream 9 64bit"},"208":{"id":208,"description":"Debian 12
+                (Bookworm) 64Bit"},"331":{"id":331,"description":"Ubuntu LTS
+                22.04 64Bit"},"346":{"id":346,"description":"Debian 9 (Stretch)
+                64Bit"},"472":{"id":472,"description":"Ubuntu LTS 18.04
+                64Bit"},"568":{"id":568,"description":"Debian 10 (Buster)
+                64Bit"},"584":{"id":584,"description":"Debian 11 (Bullseye)
+                64Bit"},"593":{"id":593,"description":"Windows 2016 Server (180
+                days trial)"},"594":{"id":594,"description":"Windows 2019 Server
+                (180 days trial)"},"595":{"id":595,"description":"Windows 2022
+                Server (180 days trial)"},"608":{"id":608,"description":"Centos
+                Stream 8 64bit"},"613":{"id":613,"description":"Rocky 9
+                64Bit"}},"additional
+                ram":{"396":{"id":396,"description":"+1GB"},"401":{"id":401,"description":"+2GB"},"406":{"id":406,"description":"+3GB"},"411":{"id":411,"description":"+4GB"},"416":{"id":416,"description":"no"},"462":{"id":462,"description":"+5GB"},"467":{"id":467,"description":"+6GB"},"543":{"id":543,"description":"+7GB"},"549":{"id":549,"description":"+8GB"},"556":{"id":556,"description":"+9GB"},"562":{"id":562,"description":"+10GB"},"585":{"id":585,"description":"+24GB"},"586":{"id":586,"description":"+16GB"}},"additional
+                vcpu":{"437":{"id":437,"description":"no"},"442":{"id":442,"description":"+4
+                cores\/sockets"},"447":{"id":447,"description":"+3
+                cores\/sockets"},"452":{"id":452,"description":"+1
+                core\/socket"},"457":{"id":457,"description":"+2
+                cores\/sockets"},"572":{"id":572,"description":"+5
+                cores\/sockets"},"577":{"id":577,"description":"+6
+                cores\/sockets"}},"additional ip":{"8":{"id":8,"description":"no
+                additional IPs"},"9":{"id":9,"description":"1
+                IP"},"10":{"id":10,"description":"2
+                IPs"},"11":{"id":11,"description":"3
+                IPs"},"187":{"id":187,"description":"8
+                IPs"},"421":{"id":421,"description":"4
+                IPs"},"426":{"id":426,"description":"5
+                IPs"},"431":{"id":431,"description":"6
+                IPs"},"436":{"id":436,"description":"7
+                IPs"},"477":{"id":477,"description":"9
+                IPs"},"482":{"id":482,"description":"10 IPs"}}}},"KVM
+                STARTER":{"id":1707,"description":"2048 MB RAM\r\n20 GB SSD\r\n1
+                IPv4 + \/64 IPv6\r\n2 TB Traffic\r\nKVM based<br
+                \/>\r\nPost-Install-Scripts\r\nTUN\/TAP - Ideal for VPN\r\nNoVNC
+                \"remote access\"","addons":{"operating
+                system":{"88":{"id":88,"description":"Ubuntu LTS 20.04
+                64Bit"},"92":{"id":92,"description":"alternative \/ manual
+                installation via VNC"},"150":{"id":150,"description":"Centos
+                Stream 9 64bit"},"208":{"id":208,"description":"Debian 12
+                (Bookworm) 64Bit"},"331":{"id":331,"description":"Ubuntu LTS
+                22.04 64Bit"},"346":{"id":346,"description":"Debian 9 (Stretch)
+                64Bit"},"472":{"id":472,"description":"Ubuntu LTS 18.04
+                64Bit"},"568":{"id":568,"description":"Debian 10 (Buster)
+                64Bit"},"584":{"id":584,"description":"Debian 11 (Bullseye)
+                64Bit"},"593":{"id":593,"description":"Windows 2016 Server (180
+                days trial)"},"594":{"id":594,"description":"Windows 2019 Server
+                (180 days trial)"},"595":{"id":595,"description":"Windows 2022
+                Server (180 days trial)"},"608":{"id":608,"description":"Centos
+                Stream 8 64bit"},"613":{"id":613,"description":"Rocky 9
+                64Bit"}},"additional
+                ram":{"396":{"id":396,"description":"+1GB"},"401":{"id":401,"description":"+2GB"},"406":{"id":406,"description":"+3GB"},"411":{"id":411,"description":"+4GB"},"416":{"id":416,"description":"no"},"462":{"id":462,"description":"+5GB"},"467":{"id":467,"description":"+6GB"},"543":{"id":543,"description":"+7GB"},"549":{"id":549,"description":"+8GB"},"556":{"id":556,"description":"+9GB"},"562":{"id":562,"description":"+10GB"},"585":{"id":585,"description":"+24GB"},"586":{"id":586,"description":"+16GB"}},"additional
+                vcpu":{"437":{"id":437,"description":"no"},"442":{"id":442,"description":"+4
+                cores\/sockets"},"447":{"id":447,"description":"+3
+                cores\/sockets"},"452":{"id":452,"description":"+1
+                core\/socket"},"457":{"id":457,"description":"+2
+                cores\/sockets"},"572":{"id":572,"description":"+5
+                cores\/sockets"},"577":{"id":577,"description":"+6
+                cores\/sockets"}},"additional ip":{"8":{"id":8,"description":"no
+                additional IPs"},"9":{"id":9,"description":"1
+                IP"},"10":{"id":10,"description":"2
+                IPs"},"11":{"id":11,"description":"3
+                IPs"},"187":{"id":187,"description":"8
+                IPs"},"421":{"id":421,"description":"4
+                IPs"},"426":{"id":426,"description":"5
+                IPs"},"431":{"id":431,"description":"6
+                IPs"},"436":{"id":436,"description":"7
+                IPs"},"477":{"id":477,"description":"9
+                IPs"},"482":{"id":482,"description":"10 IPs"}}}},"KVM
+                BASIC":{"id":1712,"description":"4096 MB RAM\r\n45 GB SSD\r\n1
+                IPv4 + \/64 IPv6\r\n4 TB Traffic\r\nKVM based<br
+                \/>\r\nPost-Install-Scripts\r\nTUN\/TAP - Ideal for VPN\r\nNoVNC
+                \"remote access\"<br \/>\r\n<strong>100+ free and ready-to-use
+                Turnkey system-images <\/strong>","addons":{"operating
+                system":{"88":{"id":88,"description":"Ubuntu LTS 20.04
+                64Bit"},"92":{"id":92,"description":"alternative \/ manual
+                installation via VNC"},"150":{"id":150,"description":"Centos
+                Stream 9 64bit"},"208":{"id":208,"description":"Debian 12
+                (Bookworm) 64Bit"},"331":{"id":331,"description":"Ubuntu LTS
+                22.04 64Bit"},"346":{"id":346,"description":"Debian 9 (Stretch)
+                64Bit"},"472":{"id":472,"description":"Ubuntu LTS 18.04
+                64Bit"},"568":{"id":568,"description":"Debian 10 (Buster)
+                64Bit"},"584":{"id":584,"description":"Debian 11 (Bullseye)
+                64Bit"},"593":{"id":593,"description":"Windows 2016 Server (180
+                days trial)"},"594":{"id":594,"description":"Windows 2019 Server
+                (180 days trial)"},"595":{"id":595,"description":"Windows 2022
+                Server (180 days trial)"},"608":{"id":608,"description":"Centos
+                Stream 8 64bit"},"613":{"id":613,"description":"Rocky 9
+                64Bit"}},"additional
+                ram":{"396":{"id":396,"description":"+1GB"},"401":{"id":401,"description":"+2GB"},"406":{"id":406,"description":"+3GB"},"411":{"id":411,"description":"+4GB"},"416":{"id":416,"description":"no"},"462":{"id":462,"description":"+5GB"},"467":{"id":467,"description":"+6GB"},"543":{"id":543,"description":"+7GB"},"549":{"id":549,"description":"+8GB"},"556":{"id":556,"description":"+9GB"},"562":{"id":562,"description":"+10GB"},"585":{"id":585,"description":"+24GB"},"586":{"id":586,"description":"+16GB"}},"additional
+                vcpu":{"437":{"id":437,"description":"no"},"442":{"id":442,"description":"+4
+                cores\/sockets"},"447":{"id":447,"description":"+3
+                cores\/sockets"},"452":{"id":452,"description":"+1
+                core\/socket"},"457":{"id":457,"description":"+2
+                cores\/sockets"},"572":{"id":572,"description":"+5
+                cores\/sockets"},"577":{"id":577,"description":"+6
+                cores\/sockets"}},"additional ip":{"8":{"id":8,"description":"no
+                additional IPs"},"9":{"id":9,"description":"1
+                IP"},"10":{"id":10,"description":"2
+                IPs"},"11":{"id":11,"description":"3
+                IPs"},"187":{"id":187,"description":"8
+                IPs"},"421":{"id":421,"description":"4
+                IPs"},"426":{"id":426,"description":"5
+                IPs"},"431":{"id":431,"description":"6
+                IPs"},"436":{"id":436,"description":"7
+                IPs"},"477":{"id":477,"description":"9
+                IPs"},"482":{"id":482,"description":"10 IPs"}}}},"KVM BASIC
+                PLUS":{"id":1717,"description":"4096 MB RAM\r\n<strong>2 CPU
+                Cores<\/strong>\r\n45 GB SSD\r\n1 IPv4 + \/64 IPv6\r\n4 TB
+                Traffic\r\nKVM based<br \/>\r\nPost-Install-Scripts\r\nTUN\/TAP
+                - Ideal for VPN\r\nNoVNC \"remote access\"<br
+                \/>\r\n<strong>100+ free and ready-to-use Turnkey system-images
+                <\/strong>","addons":{"operating
+                system":{"88":{"id":88,"description":"Ubuntu LTS 20.04
+                64Bit"},"92":{"id":92,"description":"alternative \/ manual
+                installation via VNC"},"150":{"id":150,"description":"Centos
+                Stream 9 64bit"},"208":{"id":208,"description":"Debian 12
+                (Bookworm) 64Bit"},"331":{"id":331,"description":"Ubuntu LTS
+                22.04 64Bit"},"346":{"id":346,"description":"Debian 9 (Stretch)
+                64Bit"},"472":{"id":472,"description":"Ubuntu LTS 18.04
+                64Bit"},"568":{"id":568,"description":"Debian 10 (Buster)
+                64Bit"},"584":{"id":584,"description":"Debian 11 (Bullseye)
+                64Bit"},"593":{"id":593,"description":"Windows 2016 Server (180
+                days trial)"},"594":{"id":594,"description":"Windows 2019 Server
+                (180 days trial)"},"595":{"id":595,"description":"Windows 2022
+                Server (180 days trial)"},"608":{"id":608,"description":"Centos
+                Stream 8 64bit"},"613":{"id":613,"description":"Rocky 9
+                64Bit"}},"additional
+                ram":{"396":{"id":396,"description":"+1GB"},"401":{"id":401,"description":"+2GB"},"406":{"id":406,"description":"+3GB"},"411":{"id":411,"description":"+4GB"},"416":{"id":416,"description":"no"},"462":{"id":462,"description":"+5GB"},"467":{"id":467,"description":"+6GB"},"543":{"id":543,"description":"+7GB"},"549":{"id":549,"description":"+8GB"},"556":{"id":556,"description":"+9GB"},"562":{"id":562,"description":"+10GB"},"585":{"id":585,"description":"+24GB"},"586":{"id":586,"description":"+16GB"}},"additional
+                vcpu":{"437":{"id":437,"description":"no"},"442":{"id":442,"description":"+4
+                cores\/sockets"},"447":{"id":447,"description":"+3
+                cores\/sockets"},"452":{"id":452,"description":"+1
+                core\/socket"},"457":{"id":457,"description":"+2
+                cores\/sockets"},"572":{"id":572,"description":"+5
+                cores\/sockets"},"577":{"id":577,"description":"+6
+                cores\/sockets"}},"additional ip":{"8":{"id":8,"description":"no
+                additional IPs"},"9":{"id":9,"description":"1
+                IP"},"10":{"id":10,"description":"2
+                IPs"},"11":{"id":11,"description":"3
+                IPs"},"187":{"id":187,"description":"8
+                IPs"},"421":{"id":421,"description":"4
+                IPs"},"426":{"id":426,"description":"5
+                IPs"},"431":{"id":431,"description":"6
+                IPs"},"436":{"id":436,"description":"7
+                IPs"},"477":{"id":477,"description":"9
+                IPs"},"482":{"id":482,"description":"10 IPs"}}}},"KVM
+                ADVANCED":{"id":1722,"description":"6144 MB RAM\r\n75 GB
+                SSD\r\n1 IPv4 + \/64 IPv6\r\n6 TB Traffic\r\nKVM based<br
+                \/>\r\nPost-Install-Scripts\r\nTUN\/TAP - Ideal for VPN\r\nNoVNC
+                \"remote access\"<br \/>\r\n<strong>100+ free and ready-to-use
+                Turnkey system-images <\/strong>","addons":{"operating
+                system":{"88":{"id":88,"description":"Ubuntu LTS 20.04
+                64Bit"},"92":{"id":92,"description":"alternative \/ manual
+                installation via VNC"},"150":{"id":150,"description":"Centos
+                Stream 9 64bit"},"208":{"id":208,"description":"Debian 12
+                (Bookworm) 64Bit"},"331":{"id":331,"description":"Ubuntu LTS
+                22.04 64Bit"},"346":{"id":346,"description":"Debian 9 (Stretch)
+                64Bit"},"472":{"id":472,"description":"Ubuntu LTS 18.04
+                64Bit"},"568":{"id":568,"description":"Debian 10 (Buster)
+                64Bit"},"584":{"id":584,"description":"Debian 11 (Bullseye)
+                64Bit"},"593":{"id":593,"description":"Windows 2016 Server (180
+                days trial)"},"594":{"id":594,"description":"Windows 2019 Server
+                (180 days trial)"},"595":{"id":595,"description":"Windows 2022
+                Server (180 days trial)"},"608":{"id":608,"description":"Centos
+                Stream 8 64bit"},"613":{"id":613,"description":"Rocky 9
+                64Bit"}},"additional
+                ram":{"396":{"id":396,"description":"+1GB"},"401":{"id":401,"description":"+2GB"},"406":{"id":406,"description":"+3GB"},"411":{"id":411,"description":"+4GB"},"416":{"id":416,"description":"no"},"462":{"id":462,"description":"+5GB"},"467":{"id":467,"description":"+6GB"},"543":{"id":543,"description":"+7GB"},"549":{"id":549,"description":"+8GB"},"556":{"id":556,"description":"+9GB"},"562":{"id":562,"description":"+10GB"},"585":{"id":585,"description":"+24GB"},"586":{"id":586,"description":"+16GB"}},"additional
+                vcpu":{"437":{"id":437,"description":"no"},"442":{"id":442,"description":"+4
+                cores\/sockets"},"447":{"id":447,"description":"+3
+                cores\/sockets"},"452":{"id":452,"description":"+1
+                core\/socket"},"457":{"id":457,"description":"+2
+                cores\/sockets"},"572":{"id":572,"description":"+5
+                cores\/sockets"},"577":{"id":577,"description":"+6
+                cores\/sockets"}},"additional ip":{"8":{"id":8,"description":"no
+                additional IPs"},"9":{"id":9,"description":"1
+                IP"},"10":{"id":10,"description":"2
+                IPs"},"11":{"id":11,"description":"3
+                IPs"},"187":{"id":187,"description":"8
+                IPs"},"421":{"id":421,"description":"4
+                IPs"},"426":{"id":426,"description":"5
+                IPs"},"431":{"id":431,"description":"6
+                IPs"},"436":{"id":436,"description":"7
+                IPs"},"477":{"id":477,"description":"9
+                IPs"},"482":{"id":482,"description":"10 IPs"}}}},"KVM ADVANCED
+                PLUS":{"id":1727,"description":"6144 MB RAM\r\n<strong>2 CPU
+                cores<\/strong>\r\n75 GB SSD\r\n1 IPv4 + \/64 IPv6\r\n6 TB
+                Traffic\r\nKVM based<br \/>\r\nPost-Install-Scripts\r\nTUN\/TAP
+                - Ideal for VPN\r\nNoVNC \"remote access\"<br
+                \/>\r\n<strong>100+ free and ready-to-use Turnkey system-images
+                <\/strong>","addons":{"operating
+                system":{"88":{"id":88,"description":"Ubuntu LTS 20.04
+                64Bit"},"92":{"id":92,"description":"alternative \/ manual
+                installation via VNC"},"150":{"id":150,"description":"Centos
+                Stream 9 64bit"},"208":{"id":208,"description":"Debian 12
+                (Bookworm) 64Bit"},"331":{"id":331,"description":"Ubuntu LTS
+                22.04 64Bit"},"346":{"id":346,"description":"Debian 9 (Stretch)
+                64Bit"},"472":{"id":472,"description":"Ubuntu LTS 18.04
+                64Bit"},"568":{"id":568,"description":"Debian 10 (Buster)
+                64Bit"},"584":{"id":584,"description":"Debian 11 (Bullseye)
+                64Bit"},"593":{"id":593,"description":"Windows 2016 Server (180
+                days trial)"},"594":{"id":594,"description":"Windows 2019 Server
+                (180 days trial)"},"595":{"id":595,"description":"Windows 2022
+                Server (180 days trial)"},"608":{"id":608,"description":"Centos
+                Stream 8 64bit"},"613":{"id":613,"description":"Rocky 9
+                64Bit"}},"additional
+                ram":{"396":{"id":396,"description":"+1GB"},"401":{"id":401,"description":"+2GB"},"406":{"id":406,"description":"+3GB"},"411":{"id":411,"description":"+4GB"},"416":{"id":416,"description":"no"},"462":{"id":462,"description":"+5GB"},"467":{"id":467,"description":"+6GB"},"543":{"id":543,"description":"+7GB"},"549":{"id":549,"description":"+8GB"},"556":{"id":556,"description":"+9GB"},"562":{"id":562,"description":"+10GB"},"585":{"id":585,"description":"+24GB"},"586":{"id":586,"description":"+16GB"}},"additional
+                vcpu":{"437":{"id":437,"description":"no"},"442":{"id":442,"description":"+4
+                cores\/sockets"},"447":{"id":447,"description":"+3
+                cores\/sockets"},"452":{"id":452,"description":"+1
+                core\/socket"},"457":{"id":457,"description":"+2
+                cores\/sockets"},"572":{"id":572,"description":"+5
+                cores\/sockets"},"577":{"id":577,"description":"+6
+                cores\/sockets"}},"additional ip":{"8":{"id":8,"description":"no
+                additional IPs"},"9":{"id":9,"description":"1
+                IP"},"10":{"id":10,"description":"2
+                IPs"},"11":{"id":11,"description":"3
+                IPs"},"187":{"id":187,"description":"8
+                IPs"},"421":{"id":421,"description":"4
+                IPs"},"426":{"id":426,"description":"5
+                IPs"},"431":{"id":431,"description":"6
+                IPs"},"436":{"id":436,"description":"7
+                IPs"},"477":{"id":477,"description":"9
+                IPs"},"482":{"id":482,"description":"10 IPs"}}}},"KVM
+                PREMIUM":{"id":1732,"description":"8192 MB RAM\r\n100 GB
+                SSD\r\n1 IPv4 + \/64 IPv6\r\n10 TB Traffic\r\nKVM based<br
+                \/>\r\nPost-Install-Scripts\r\nTUN\/TAP - Ideal for VPN\r\nNoVNC
+                \"remote access\"<br \/>\r\n<strong>100+ free and ready-to-use
+                Turnkey system-images <\/strong>","addons":{"operating
+                system":{"88":{"id":88,"description":"Ubuntu LTS 20.04
+                64Bit"},"92":{"id":92,"description":"alternative \/ manual
+                installation via VNC"},"150":{"id":150,"description":"Centos
+                Stream 9 64bit"},"208":{"id":208,"description":"Debian 12
+                (Bookworm) 64Bit"},"331":{"id":331,"description":"Ubuntu LTS
+                22.04 64Bit"},"346":{"id":346,"description":"Debian 9 (Stretch)
+                64Bit"},"472":{"id":472,"description":"Ubuntu LTS 18.04
+                64Bit"},"568":{"id":568,"description":"Debian 10 (Buster)
+                64Bit"},"584":{"id":584,"description":"Debian 11 (Bullseye)
+                64Bit"},"593":{"id":593,"description":"Windows 2016 Server (180
+                days trial)"},"594":{"id":594,"description":"Windows 2019 Server
+                (180 days trial)"},"595":{"id":595,"description":"Windows 2022
+                Server (180 days trial)"},"608":{"id":608,"description":"Centos
+                Stream 8 64bit"},"613":{"id":613,"description":"Rocky 9
+                64Bit"}},"additional
+                ram":{"396":{"id":396,"description":"+1GB"},"401":{"id":401,"description":"+2GB"},"406":{"id":406,"description":"+3GB"},"411":{"id":411,"description":"+4GB"},"416":{"id":416,"description":"no"},"462":{"id":462,"description":"+5GB"},"467":{"id":467,"description":"+6GB"},"543":{"id":543,"description":"+7GB"},"549":{"id":549,"description":"+8GB"},"556":{"id":556,"description":"+9GB"},"562":{"id":562,"description":"+10GB"},"585":{"id":585,"description":"+24GB"},"586":{"id":586,"description":"+16GB"}},"additional
+                vcpu":{"437":{"id":437,"description":"no"},"442":{"id":442,"description":"+4
+                cores\/sockets"},"447":{"id":447,"description":"+3
+                cores\/sockets"},"452":{"id":452,"description":"+1
+                core\/socket"},"457":{"id":457,"description":"+2
+                cores\/sockets"},"572":{"id":572,"description":"+5
+                cores\/sockets"},"577":{"id":577,"description":"+6
+                cores\/sockets"}},"additional ip":{"8":{"id":8,"description":"no
+                additional IPs"},"9":{"id":9,"description":"1
+                IP"},"10":{"id":10,"description":"2
+                IPs"},"11":{"id":11,"description":"3
+                IPs"},"187":{"id":187,"description":"8
+                IPs"},"421":{"id":421,"description":"4
+                IPs"},"426":{"id":426,"description":"5
+                IPs"},"431":{"id":431,"description":"6
+                IPs"},"436":{"id":436,"description":"7
+                IPs"},"477":{"id":477,"description":"9
+                IPs"},"482":{"id":482,"description":"10 IPs"}}}},"KVM PREMIUM
+                PLUS":{"id":1737,"description":"8192 MB RAM\r\n<strong>2 CPU
+                cores<\/strong>\r\n100 GB SSD\r\n1 IPv4 + \/64 IPv6\r\n10 TB
+                Traffic\r\nKVM based<br \/>\r\nPost-Install-Scripts\r\nTUN\/TAP
+                - Ideal for VPN\r\nNoVNC \"remote access\"<br
+                \/>\r\n<strong>100+ free and ready-to-use Turnkey system-images
+                <\/strong>","addons":{"operating
+                system":{"88":{"id":88,"description":"Ubuntu LTS 20.04
+                64Bit"},"92":{"id":92,"description":"alternative \/ manual
+                installation via VNC"},"150":{"id":150,"description":"Centos
+                Stream 9 64bit"},"208":{"id":208,"description":"Debian 12
+                (Bookworm) 64Bit"},"331":{"id":331,"description":"Ubuntu LTS
+                22.04 64Bit"},"346":{"id":346,"description":"Debian 9 (Stretch)
+                64Bit"},"472":{"id":472,"description":"Ubuntu LTS 18.04
+                64Bit"},"568":{"id":568,"description":"Debian 10 (Buster)
+                64Bit"},"584":{"id":584,"description":"Debian 11 (Bullseye)
+                64Bit"},"593":{"id":593,"description":"Windows 2016 Server (180
+                days trial)"},"594":{"id":594,"description":"Windows 2019 Server
+                (180 days trial)"},"595":{"id":595,"description":"Windows 2022
+                Server (180 days trial)"},"608":{"id":608,"description":"Centos
+                Stream 8 64bit"},"613":{"id":613,"description":"Rocky 9
+                64Bit"}},"additional
+                ram":{"396":{"id":396,"description":"+1GB"},"401":{"id":401,"description":"+2GB"},"406":{"id":406,"description":"+3GB"},"411":{"id":411,"description":"+4GB"},"416":{"id":416,"description":"no"},"462":{"id":462,"description":"+5GB"},"467":{"id":467,"description":"+6GB"},"543":{"id":543,"description":"+7GB"},"549":{"id":549,"description":"+8GB"},"556":{"id":556,"description":"+9GB"},"562":{"id":562,"description":"+10GB"},"585":{"id":585,"description":"+24GB"},"586":{"id":586,"description":"+16GB"}},"additional
+                vcpu":{"437":{"id":437,"description":"no"},"442":{"id":442,"description":"+4
+                cores\/sockets"},"447":{"id":447,"description":"+3
+                cores\/sockets"},"452":{"id":452,"description":"+1
+                core\/socket"},"457":{"id":457,"description":"+2
+                cores\/sockets"},"572":{"id":572,"description":"+5
+                cores\/sockets"},"577":{"id":577,"description":"+6
+                cores\/sockets"}},"additional ip":{"8":{"id":8,"description":"no
+                additional IPs"},"9":{"id":9,"description":"1
+                IP"},"10":{"id":10,"description":"2
+                IPs"},"11":{"id":11,"description":"3
+                IPs"},"187":{"id":187,"description":"8
+                IPs"},"421":{"id":421,"description":"4
+                IPs"},"426":{"id":426,"description":"5
+                IPs"},"431":{"id":431,"description":"6
+                IPs"},"436":{"id":436,"description":"7
+                IPs"},"477":{"id":477,"description":"9
+                IPs"},"482":{"id":482,"description":"10 IPs"}}}},"KVM DIAMOND
+                PLUS":{"id":1961,"description":"8192 MB RAM\r\n<strong>2 CPU
+                cores<\/strong>\r\n100 GB SSD\r\n1 IPv4 + \/64
+                IPv6\r\n<strong>30 TB Traffic<\/strong>\r\nKVM based<br
+                \/>\r\nPost-Install-Scripts\r\nTUN\/TAP - Ideal for VPN\r\nNoVNC
+                \"remote access\"<br \/>\r\n<strong>100+ free and ready-to-use
+                Turnkey system-images <\/strong>","addons":{"operating
+                system":{"88":{"id":88,"description":"Ubuntu LTS 20.04
+                64Bit"},"92":{"id":92,"description":"alternative \/ manual
+                installation via VNC"},"150":{"id":150,"description":"Centos
+                Stream 9 64bit"},"208":{"id":208,"description":"Debian 12
+                (Bookworm) 64Bit"},"331":{"id":331,"description":"Ubuntu LTS
+                22.04 64Bit"},"346":{"id":346,"description":"Debian 9 (Stretch)
+                64Bit"},"472":{"id":472,"description":"Ubuntu LTS 18.04
+                64Bit"},"568":{"id":568,"description":"Debian 10 (Buster)
+                64Bit"},"584":{"id":584,"description":"Debian 11 (Bullseye)
+                64Bit"},"593":{"id":593,"description":"Windows 2016 Server (180
+                days trial)"},"594":{"id":594,"description":"Windows 2019 Server
+                (180 days trial)"},"595":{"id":595,"description":"Windows 2022
+                Server (180 days trial)"},"608":{"id":608,"description":"Centos
+                Stream 8 64bit"},"613":{"id":613,"description":"Rocky 9
+                64Bit"}},"additional
+                ram":{"396":{"id":396,"description":"+1GB"},"401":{"id":401,"description":"+2GB"},"406":{"id":406,"description":"+3GB"},"411":{"id":411,"description":"+4GB"},"416":{"id":416,"description":"no"},"462":{"id":462,"description":"+5GB"},"467":{"id":467,"description":"+6GB"},"543":{"id":543,"description":"+7GB"},"549":{"id":549,"description":"+8GB"},"556":{"id":556,"description":"+9GB"},"562":{"id":562,"description":"+10GB"},"585":{"id":585,"description":"+24GB"},"586":{"id":586,"description":"+16GB"}},"additional
+                vcpu":{"437":{"id":437,"description":"no"},"442":{"id":442,"description":"+4
+                cores\/sockets"},"447":{"id":447,"description":"+3
+                cores\/sockets"},"452":{"id":452,"description":"+1
+                core\/socket"},"457":{"id":457,"description":"+2
+                cores\/sockets"},"572":{"id":572,"description":"+5
+                cores\/sockets"},"577":{"id":577,"description":"+6
+                cores\/sockets"}},"additional ip":{"8":{"id":8,"description":"no
+                additional IPs"},"9":{"id":9,"description":"1
+                IP"},"10":{"id":10,"description":"2
+                IPs"},"11":{"id":11,"description":"3
+                IPs"},"187":{"id":187,"description":"8
+                IPs"},"421":{"id":421,"description":"4
+                IPs"},"426":{"id":426,"description":"5
+                IPs"},"431":{"id":431,"description":"6
+                IPs"},"436":{"id":436,"description":"7
+                IPs"},"477":{"id":477,"description":"9
+                IPs"},"482":{"id":482,"description":"10 IPs"}}}},"KVM
+                DIAMOND":{"id":1962,"description":"8192 MB RAM\r\n1 CPU
+                core\r\n100 GB SSD\r\n1 IPv4 + \/64 IPv6\r\n<strong>30 TB
+                Traffic<\/strong>\r\nKVM based<br
+                \/>\r\nPost-Install-Scripts\r\nTUN\/TAP - Ideal for VPN\r\nNoVNC
+                \"remote access\"<br \/>\r\n<strong>100+ free and ready-to-use
+                Turnkey system-images <\/strong>","addons":{"operating
+                system":{"88":{"id":88,"description":"Ubuntu LTS 20.04
+                64Bit"},"92":{"id":92,"description":"alternative \/ manual
+                installation via VNC"},"150":{"id":150,"description":"Centos
+                Stream 9 64bit"},"208":{"id":208,"description":"Debian 12
+                (Bookworm) 64Bit"},"331":{"id":331,"description":"Ubuntu LTS
+                22.04 64Bit"},"346":{"id":346,"description":"Debian 9 (Stretch)
+                64Bit"},"472":{"id":472,"description":"Ubuntu LTS 18.04
+                64Bit"},"568":{"id":568,"description":"Debian 10 (Buster)
+                64Bit"},"584":{"id":584,"description":"Debian 11 (Bullseye)
+                64Bit"},"593":{"id":593,"description":"Windows 2016 Server (180
+                days trial)"},"594":{"id":594,"description":"Windows 2019 Server
+                (180 days trial)"},"595":{"id":595,"description":"Windows 2022
+                Server (180 days trial)"},"608":{"id":608,"description":"Centos
+                Stream 8 64bit"},"613":{"id":613,"description":"Rocky 9
+                64Bit"}},"additional
+                ram":{"396":{"id":396,"description":"+1GB"},"401":{"id":401,"description":"+2GB"},"406":{"id":406,"description":"+3GB"},"411":{"id":411,"description":"+4GB"},"416":{"id":416,"description":"no"},"462":{"id":462,"description":"+5GB"},"467":{"id":467,"description":"+6GB"},"543":{"id":543,"description":"+7GB"},"549":{"id":549,"description":"+8GB"},"556":{"id":556,"description":"+9GB"},"562":{"id":562,"description":"+10GB"},"585":{"id":585,"description":"+24GB"},"586":{"id":586,"description":"+16GB"}},"additional
+                vcpu":{"437":{"id":437,"description":"no"},"442":{"id":442,"description":"+4
+                cores\/sockets"},"447":{"id":447,"description":"+3
+                cores\/sockets"},"452":{"id":452,"description":"+1
+                core\/socket"},"457":{"id":457,"description":"+2
+                cores\/sockets"},"572":{"id":572,"description":"+5
+                cores\/sockets"},"577":{"id":577,"description":"+6
+                cores\/sockets"}},"additional ip":{"8":{"id":8,"description":"no
+                additional IPs"},"9":{"id":9,"description":"1
+                IP"},"10":{"id":10,"description":"2
+                IPs"},"11":{"id":11,"description":"3
+                IPs"},"187":{"id":187,"description":"8
+                IPs"},"421":{"id":421,"description":"4
+                IPs"},"426":{"id":426,"description":"5
+                IPs"},"431":{"id":431,"description":"6
+                IPs"},"436":{"id":436,"description":"7
+                IPs"},"477":{"id":477,"description":"9
+                IPs"},"482":{"id":482,"description":"10 IPs"}}}},"KVM RUBY
+                PLUS":{"id":1963,"description":"8192 MB RAM\r\n<strong>2 CPU
+                cores<\/strong>\r\n100 GB SSD\r\n1 IPv4 + \/64
+                IPv6\r\n<strong>20 TB Traffic<\/strong>\r\nKVM based<br
+                \/>\r\nPost-Install-Scripts\r\nTUN\/TAP - Ideal for VPN\r\nNoVNC
+                \"remote access\"<br \/>\r\n<strong>100+ free and ready-to-use
+                Turnkey system-images <\/strong>","addons":{"operating
+                system":{"88":{"id":88,"description":"Ubuntu LTS 20.04
+                64Bit"},"92":{"id":92,"description":"alternative \/ manual
+                installation via VNC"},"150":{"id":150,"description":"Centos
+                Stream 9 64bit"},"208":{"id":208,"description":"Debian 12
+                (Bookworm) 64Bit"},"331":{"id":331,"description":"Ubuntu LTS
+                22.04 64Bit"},"346":{"id":346,"description":"Debian 9 (Stretch)
+                64Bit"},"472":{"id":472,"description":"Ubuntu LTS 18.04
+                64Bit"},"568":{"id":568,"description":"Debian 10 (Buster)
+                64Bit"},"584":{"id":584,"description":"Debian 11 (Bullseye)
+                64Bit"},"593":{"id":593,"description":"Windows 2016 Server (180
+                days trial)"},"594":{"id":594,"description":"Windows 2019 Server
+                (180 days trial)"},"595":{"id":595,"description":"Windows 2022
+                Server (180 days trial)"},"608":{"id":608,"description":"Centos
+                Stream 8 64bit"},"613":{"id":613,"description":"Rocky 9
+                64Bit"}},"additional
+                ram":{"396":{"id":396,"description":"+1GB"},"401":{"id":401,"description":"+2GB"},"406":{"id":406,"description":"+3GB"},"411":{"id":411,"description":"+4GB"},"416":{"id":416,"description":"no"},"462":{"id":462,"description":"+5GB"},"467":{"id":467,"description":"+6GB"},"543":{"id":543,"description":"+7GB"},"549":{"id":549,"description":"+8GB"},"556":{"id":556,"description":"+9GB"},"562":{"id":562,"description":"+10GB"},"585":{"id":585,"description":"+24GB"},"586":{"id":586,"description":"+16GB"}},"additional
+                vcpu":{"437":{"id":437,"description":"no"},"442":{"id":442,"description":"+4
+                cores\/sockets"},"447":{"id":447,"description":"+3
+                cores\/sockets"},"452":{"id":452,"description":"+1
+                core\/socket"},"457":{"id":457,"description":"+2
+                cores\/sockets"},"572":{"id":572,"description":"+5
+                cores\/sockets"},"577":{"id":577,"description":"+6
+                cores\/sockets"}},"additional ip":{"8":{"id":8,"description":"no
+                additional IPs"},"9":{"id":9,"description":"1
+                IP"},"10":{"id":10,"description":"2
+                IPs"},"11":{"id":11,"description":"3
+                IPs"},"187":{"id":187,"description":"8
+                IPs"},"421":{"id":421,"description":"4
+                IPs"},"426":{"id":426,"description":"5
+                IPs"},"431":{"id":431,"description":"6
+                IPs"},"436":{"id":436,"description":"7
+                IPs"},"477":{"id":477,"description":"9
+                IPs"},"482":{"id":482,"description":"10 IPs"}}}},"KVM
+                RUBY":{"id":1964,"description":"8192 MB RAM\r\n1 CPU core\r\n100
+                GB SSD\r\n1 IPv4 + \/64 IPv6\r\n<strong>20 TB
+                Traffic<\/strong>\r\nKVM based<br
+                \/>\r\nPost-Install-Scripts\r\nTUN\/TAP - Ideal for VPN\r\nNoVNC
+                \"remote access\"<br \/>\r\n<strong>100+ free and ready-to-use
+                Turnkey system-images <\/strong>","addons":{"operating
+                system":{"88":{"id":88,"description":"Ubuntu LTS 20.04
+                64Bit"},"92":{"id":92,"description":"alternative \/ manual
+                installation via VNC"},"150":{"id":150,"description":"Centos
+                Stream 9 64bit"},"208":{"id":208,"description":"Debian 12
+                (Bookworm) 64Bit"},"331":{"id":331,"description":"Ubuntu LTS
+                22.04 64Bit"},"346":{"id":346,"description":"Debian 9 (Stretch)
+                64Bit"},"472":{"id":472,"description":"Ubuntu LTS 18.04
+                64Bit"},"568":{"id":568,"description":"Debian 10 (Buster)
+                64Bit"},"584":{"id":584,"description":"Debian 11 (Bullseye)
+                64Bit"},"593":{"id":593,"description":"Windows 2016 Server (180
+                days trial)"},"594":{"id":594,"description":"Windows 2019 Server
+                (180 days trial)"},"595":{"id":595,"description":"Windows 2022
+                Server (180 days trial)"},"608":{"id":608,"description":"Centos
+                Stream 8 64bit"},"613":{"id":613,"description":"Rocky 9
+                64Bit"}},"additional
+                ram":{"396":{"id":396,"description":"+1GB"},"401":{"id":401,"description":"+2GB"},"406":{"id":406,"description":"+3GB"},"411":{"id":411,"description":"+4GB"},"416":{"id":416,"description":"no"},"462":{"id":462,"description":"+5GB"},"467":{"id":467,"description":"+6GB"},"543":{"id":543,"description":"+7GB"},"549":{"id":549,"description":"+8GB"},"556":{"id":556,"description":"+9GB"},"562":{"id":562,"description":"+10GB"},"585":{"id":585,"description":"+24GB"},"586":{"id":586,"description":"+16GB"}},"additional
+                vcpu":{"437":{"id":437,"description":"no"},"442":{"id":442,"description":"+4
+                cores\/sockets"},"447":{"id":447,"description":"+3
+                cores\/sockets"},"452":{"id":452,"description":"+1
+                core\/socket"},"457":{"id":457,"description":"+2
+                cores\/sockets"},"572":{"id":572,"description":"+5
+                cores\/sockets"},"577":{"id":577,"description":"+6
+                cores\/sockets"}},"additional ip":{"8":{"id":8,"description":"no
+                additional IPs"},"9":{"id":9,"description":"1
+                IP"},"10":{"id":10,"description":"2
+                IPs"},"11":{"id":11,"description":"3
+                IPs"},"187":{"id":187,"description":"8
+                IPs"},"421":{"id":421,"description":"4
+                IPs"},"426":{"id":426,"description":"5
+                IPs"},"431":{"id":431,"description":"6
+                IPs"},"436":{"id":436,"description":"7
+                IPs"},"477":{"id":477,"description":"9
+                IPs"},"482":{"id":482,"description":"10 IPs"}}}},"global
+                products":{"traffic pool":{"TOP UP TRAFFIC POOL 10
+                TB":{"id":1868,"description":"<br>EDIS has two traffic
+                zones\r\n\r\n<strong>Global traffic zone<\/strong> EUR 5,-- per
+                1 TB, \r\n<strong>Premium traffic zone<\/strong>* EUR 10,-- per
+                1 TB\r\n\r\n*Dubai, Australia, Chile, Colombia\r\n\r\nTraffic in
+                your pool has <strong>NO EXPIRY DATE<\/strong>. Use it whenever
+                you need it. It stays there, it is yours. On the contrary,
+                traffic you added to a KVM plan will expire, when a KVM receives
+                a traffic reset\/refill on its due date."},"TOP UP TRAFFIC POOL
+                100 TB":{"id":1869,"description":"<br>EDIS has two traffic
+                zones\r\n\r\n<strong>Global traffic zone<\/strong> EUR 4,75 per
+                1 TB, \r\n<strong>Premium traffic zone<\/strong>* EUR 9,50 per 1
+                TB\r\n\r\n*Dubai, Australia, Chile, Colombia\r\n\r\nTraffic in
+                your pool has <strong>NO EXPIRY DATE<\/strong>. Use it whenever
+                you need it. It stays there, it is yours. On the contrary,
+                traffic you added to a KVM plan will expire, when a KVM receives
+                a traffic reset\/refill on its due date."},"TOP UP TRAFFIC POOL
+                1000 TB (1 PB)":{"id":1870,"description":"<br>EDIS has two
+                traffic zones\r\n\r\n<strong>Global traffic zone<\/strong> EUR
+                4,59 per 1 TB, \r\n<strong>Premium traffic zone<\/strong>* EUR
+                9,18 per 1 TB\r\n\r\n*Dubai, Australia, Chile,
+                Colombia\r\n\r\nTraffic in your pool has <strong>NO EXPIRY
+                DATE<\/strong>. Use it whenever you need it. It stays there, it
+                is yours. On the contrary, traffic you added to a KVM plan will
+                expire, when a KVM receives a traffic reset\/refill on its due
+                date."},"TOP UP TRAFFIC POOL 10000 TB (10
+                PB)":{"id":1871,"description":"<br>EDIS has two traffic
+                zones\r\n\r\n<strong>Global traffic zone<\/strong> EUR 4,49 per
+                1 TB, \r\n<strong>Premium traffic zone<\/strong>* EUR 8,98 per 1
+                TB\r\n\r\n*Dubai, Australia, Chile, Colombia\r\n\r\nTraffic in
+                your pool has <strong>NO EXPIRY DATE<\/strong>. Use it whenever
+                you need it. It stays there, it is yours. On the contrary,
+                traffic you added to a KVM plan will expire, when a KVM receives
+                a traffic reset\/refill on its due date."},"TOP UP TRAFFIC POOL
+                1 TB":{"id":1872,"description":"<br>EDIS has two traffic
+                zones\r\n\r\n<strong>Global traffic zone<\/strong> EUR 6,-- per
+                1 TB, \r\n<strong>Premium traffic zone<\/strong>* EUR 12,-- per
+                1 TB\r\n\r\n*Dubai, Australia, Chile, Colombia\r\n\r\nTraffic in
+                your pool has <strong>NO EXPIRY DATE<\/strong>. Use it whenever
+                you need it. It stays there, it is yours. On the contrary,
+                traffic you added to a KVM plan will expire, when a KVM receives
+                a traffic reset\/refill on its due date."}},"vlan":{"VLAN
+                Lithuania":{"id":1774,"description":"One Freely configurable
+                private VLAN within the selected server location.\r\nMultiple
+                VLANs per server location possible. Web interface to assign your
+                KVMs to one VLAN.\r\n"}}}},"status":"success"}
+  /kvm/v2/add/order:
+    post:
+      tags:
+        - default
+      summary: add order
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: your whmcs credentials
+                  example: 'your email '
+                pw:
+                  type: string
+                  description: your whmcs credentials
+                  example: password
+                order:
+                  type: string
+                  description: json encoded
+                  example: >-
+                    {"billingcycle":"monthly","paymentmethod":"paypal","item":[{"pid":1814,"os":92,"hostname":"kvmtest","additional_ram":467,"additional_vcpu":467,"additional_ip":467,"additional_diskboost":615},{"pid":1814,"os":88,"hostname":"kvmtest2","additional_ram":"","additional_vcpu":"","additional_ip":"","additional_driveboost":""}]}
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                {"orderid":"2....8","serviceids":"2...0,....","invoiceid":"1...0","status":"success"}
+  /kvm/v2/cancel/product:
+    post:
+      tags:
+        - default
+      summary: cancel product
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: your whmcs credentials
+                  example: 'your email '
+                pw:
+                  type: string
+                  description: your whmcs credentials
+                  example: password
+                kvmid:
+                  type: string
+                  description: kvmid to cancel if serviceid unknown
+                  example: kvm_xxxxx_yyyyy
+                serviceid:
+                  type: integer
+                  description: serviceid to cancel if kvmid unknown
+                  example: '1234'
+                type:
+                  type: string
+                  description: >-
+                    The type of cancellation. ‘Immediate’ or ‘End of Billing
+                    Period’
+                  example: End of Billing Period
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                {"orderid":"2....8","serviceids":"2...0,....","invoiceid":"1...0","status":"success"}

@@ -1,0 +1,26 @@
+---
+title: Is it possible to downgrade?
+description: We don't allow downgrades on our KVM plans as reducing partitions in size is not possible without data loss.
+image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
+createdAt: Mon Sep 11 2023 15:01:41 GMT+0000 (Coordinated Universal Time)
+updatedAt: Thu Jan 18 2024 10:43:48 GMT+0000 (Coordinated Universal Time)
+---
+
+## We only support upgrades on our VPS plans
+
+Due to the nature of virtual drives, it is always possible to enlarge a partition. Reducing partitions in size is not possible without complete data loss. For that reason, EDIS does not offer any downgrade options on its KVM plans.&#x20;
+
+If you want to downgrade to a smaller plan, do the following:
+
+1. Order a (smaller) product of your liking
+
+2. Migrate data and applications to the new server
+
+3. Cancel the other product.
+
+<Note>
+  EDIS Global does not work with context based VPS which usually use
+  disk-quotas. EDIS Global provides fully virtualized KVM servers with virtual
+  disks (like real harddrives/SSD drives). Reducing a drive in size immediately
+  removes random parts of your drive where your valuable data is stored.
+</Note>
