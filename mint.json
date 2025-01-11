@@ -61,7 +61,6 @@
   "navigation": [
     {
       "group": "Getting Started",
-       "icon": "rocket",
       "pages": [
         "getting-started/check-your-inbox",
         "getting-started/no-email-received",
@@ -106,7 +105,6 @@
         "faq/hourly-plans-available",
         {
           "group": "IP Addresses",
-          "description": "Everything about IPs: setup, configuration, and troubleshooting.",
           "pages": [
             "faq/ip-addresses/ping-test-ip",
             "faq/ip-addresses/change-ip-address",
