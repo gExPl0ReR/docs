@@ -29,7 +29,18 @@
     "name": "Dashboard",
     "url": "https://manage.edisglobal.com/clientarea.php"
   },
-  
+  "tabs": [
+   {
+     "name": "API Reference",
+     "openapi": "/openapi.json",
+     "url": "api-reference"
+   },
+   {
+     "name": "API Reference2",
+     "openapi": "/management-openapi.json",
+     "url": "api-reference2"
+   }
+ ],
   "anchors": [
     {
       "name": "Documentation",
@@ -50,7 +61,7 @@
   "navigation": [
     {
       "group": "Getting Started",
-       "icon": "newspaper",
+       "icon": "rocket",
       "pages": [
         "getting-started/check-your-inbox",
         "getting-started/no-email-received",
