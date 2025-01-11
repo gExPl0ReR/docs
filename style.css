@@ -31,6 +31,10 @@
     border: none
 }
 
+#navigation-items ul>li {
+    margin-left: 15px;
+}
+
 #navigation-items ul>li>div.group {
     font-weight: 700;
 }

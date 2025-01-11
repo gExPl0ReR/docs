@@ -61,7 +61,6 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "icon": "rocket",
       "pages": [
         "getting-started/check-your-inbox",
         "getting-started/no-email-received",
