@@ -105,6 +105,7 @@
         "faq/hourly-plans-available",
         {
           "group": "IP Addresses",
+          "description": "Everything about IPs: setup, configuration, and troubleshooting.",
           "pages": [
             "faq/ip-addresses/ping-test-ip",
             "faq/ip-addresses/change-ip-address",
