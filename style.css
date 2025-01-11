@@ -30,3 +30,7 @@
     color: white;
     border: none
 }
+
+#navigation-items ul>li>div.group {
+    font-weight: 700;
+}
