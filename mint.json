@@ -105,7 +105,6 @@
         "faq/hourly-plans-available",
         {
           "group": "IP Addresses",
-          "description": "Everything about IPs: setup, configuration, and troubleshooting.",
           "pages": [
             "faq/ip-addresses/ping-test-ip",
             "faq/ip-addresses/change-ip-address",
@@ -125,7 +124,7 @@
           ]
         },
         {
-          "group": "Server Loactions",
+          "group": "Server Locations",
           "pages": [
             "faq/server-locations/list-of-edis-global-server-locations-by-continent-region",
             "faq/server-locations/change-server-location"
