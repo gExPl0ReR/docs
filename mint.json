@@ -44,6 +44,7 @@
     {
       "group": "Getting Started",
       "pages": [
+        "getting-started/everything-vps",
         "getting-started/check-your-inbox",
         "getting-started/no-email-received",
         "getting-started/statuspage-subscribe",
@@ -175,7 +176,6 @@
     {
       "group": "Join Our Team",
       "pages": [
-        "join-our-team/join-our-team",
         "join-our-team/jobs-edisglobal-support-agent-non-voice",
         "join-our-team/technical-procurement-and-server-operations-coordinator",
         "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert"
@@ -243,6 +243,10 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/everything-vps",
+      "destination": "/getting-started/everything-vps"
+    },
     {
       "source": "/linux-secure-shell-ssh",
       "destination": "/getting-started/linux-secure-shell-ssh"
