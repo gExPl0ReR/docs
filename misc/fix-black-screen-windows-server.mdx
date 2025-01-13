@@ -27,12 +27,13 @@ Adjusting a specific registry setting can resolve the black screen issue.
 
    * Type `cmd` and press **Enter** to launch the Command Prompt.
 
-2. **Run the Registry Command**:
-   Copy and paste the following command into the Command Prompt and press **Enter**:```cmd
-   reg add "HKLM\SOFTWARE\Microsoft\Terminal Server Client" /v "UseURCP" /t REG_DWORD /d 0 /f
-   ```
+2. **Run the Registry Command**:Copy and paste the following command into the Command Prompt and press **Enter**:
 
-3. **Restart Windows Server**
+````powershell
+reg add "HKLM\SOFTWARE\Microsoft\Terminal Server Client" /v "UseURCP" /t REG\_DWORD /d 0 /f```
+````
+
+1. **Restart Windows Server**
 
 Once the command has executed, restart your machine.&#x20;
 After the restart, try to connect again using RDP to see if the black screen issue is resolved.
