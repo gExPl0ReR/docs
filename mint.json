@@ -123,6 +123,7 @@
         {
           "group": "Billing & Lifecycle",
           "pages": [
+            "faq/billing-lifecycle/moving-services-to-different-client-account",
             "faq/billing-lifecycle/accidental-renewal-convert-payment-to-credit",
             "faq/billing-lifecycle/accepted-payment-methods",
             "faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global",
