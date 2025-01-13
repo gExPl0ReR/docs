@@ -1,0 +1,61 @@
+---
+title: Fix Black Screen Issue When Connecting to Windows Server
+description: Learn how to resolve the black screen issue when connecting to a Windows Server using Remote Desktop. Modify the Windows Registry or use alternative RDP clients like MobaXterm and mRemoteNG to regain access.
+---
+
+# Fix Black Screen Issue When Connecting to Windows Server
+
+Encountering a black screen without a cursor when connecting to a Windows Server using Remote Desktop (RDP) can be frustrating. This guide provides two potential solutions: modifying the Windows Registry and trying alternative RDP clients.
+
+***
+
+## **Issue**: Black Screen After Connecting via Remote Desktop (RDP)
+
+When connecting to your Windows Server using RDP, you may experience a black screen with no visible cursor or mouse. This issue is commonly caused by a configuration mismatch in the RDP client or the server.
+
+***
+
+## **Solution 1**: Modify the Windows Registry
+
+Adjusting a specific registry setting can resolve the black screen issue.
+
+### Steps to Modify the Registry:
+
+1. **Open Command Prompt**:
+
+   * Press `Win + R` to open the **Run** dialog box.
+
+   * Type `cmd` and press **Enter** to launch the Command Prompt.
+
+
+2. **Run the Registry Command**:
+   Copy and paste the following command into the Command Prompt and press **Enter**:
+   ```cmd
+   reg add "HKLM\SOFTWARE\Microsoft\Terminal Server Client" /v "UseURCP" /t REG_DWORD /d 0 /f
+
+
+
+**Restart your PC**:
+   
+Once the command has executed successfully, restart your computer.&#x20;
+After the restart, try to connect again using RDP to see if the black screen issue is resolved.
+
+### Step 2: Try Alternative RDP Clients
+
+If the above fix didn’t work, consider using alternative remote desktop clients to connect to your Windows Server. These alternative tools might bypass the issue you’re facing with the native RDP client.
+
+1. &#x20;**MobaXterm**:
+   Download Link: [MobaXterm Home Edition](https://mobaxterm.mobatek.net/download-home-edition.html)
+   MobaXterm is a versatile terminal client for Windows with X11 server, tabbed SSH client, network tools, and more.
+
+2. **Parallel RAS**:
+   Download Link: [Parallels RAS
+   ](https://www.parallels.com/products/ras/download/links)Parallels RAS is a comprehensive virtual application and desktop delivery solution that allows employees to access and use applications and data from any device.
+
+3. **mRemoteNG**:
+   Download Link: [mRemoteNG
+   ](https://mremoteng.org/download)mRemoteNG is an open-source, multi-protocol, tabbed remote connections manager. It allows you to view all of your remote connections in a simple yet powerful tabbed interface.
+
+***
+
+After downloading and installing one of these programs, try to connect to your Windows Server using the chosen client. This might help you bypass the black screen issue that you’re experiencing with the standard RDP client. If the problem persists even after trying these solutions, it might be worth checking with your server administrator or IT department to ensure there aren’t any server-side issues causing the problem.
