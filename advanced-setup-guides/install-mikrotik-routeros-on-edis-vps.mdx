@@ -1,6 +1,6 @@
 ---
 title: Mikrotik RouterOS on EDIS KVM
-description: The doc provides instructions and settings on how to install Mikrotik on an EDIS Virtual Server using KVM. This involves changing hardware settings such as the disk driver and network driver
+og:description: The doc provides instructions and settings on how to install Mikrotik on an EDIS Virtual Server using KVM. This involves changing hardware settings such as the disk driver and network driver
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
@@ -8,21 +8,12 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 ## NEW: Script-based MikroTik CHR installation&#x20;
 
 &#x20; \_\_ \_\_ \_\_\_ \_ \_\_\_\_\_\_ \_\_\_ \_\_\_\_\_ \_\_\_ \_ \_\_
-
-&#x20;\| \\/ |\_ \_| |/ / \_ \ / \_ \\\_ \_|\_ \_| |/ /
-
+\| \\/ |\_ \_| |/ / \_ \ / \_ \\\_ \_|\_ \_| |/&#x20;
 &#x20;\| |\\/| || || ' /| |\_) | | | || | | || ' /&#x20;
-
 &#x20;\| | | || || . \\| \_ \<| |\_| || | | || . \\&#x20;
-
 &#x20;|\_| |\_|\_\_\_|\_|\\\_\\\_| \\\_\\\\\_\_\_/ |\_| |\_\_\_|\_|\\\_\\&#x20;
 
-<CtaButton
-  label='Mikrotik CHR installation script'
-  link='../advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox'
-/>
-
-##
+<CtaButton label="Mikrotik CHR installation script" link="../advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox" />
 
 ... or continue below for the **classic, manual installation:**
 
@@ -31,14 +22,19 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 To install Mikrotik on an EDIS Global VPS, you’ll need to adjust a few hardware settings first, after which the installation will run smoothly.
 
 <Steps>
-  <Step title='Log in to your'>
+  <Step title="Log in to your">
     [KVM Management Portal](https://manage.edisglobal.com/clientarea.php)
   </Step>
-  <Step title='Locate your VPS in the Services tab' />
-  <Step title='Head to KVM Settings (button)' />
-  <Step title='Change Disk driver to IDE' />
-  <Step title='Change Network Driver to E100' />
-  <Step title='Cold-Boot your VPS'>
+
+  <Step title="Locate your VPS in the Services tab" />
+
+  <Step title="Head to KVM Settings (button)" />
+
+  <Step title="Change Disk driver to IDE" />
+
+  <Step title="Change Network Driver to E100" />
+
+  <Step title="Cold-Boot your VPS">
     ![](/assets/jDLpjJyd8hP0rApHKW4JK_install-mikrotik-on-edis-kvm-a4a31602ce.png)
   </Step>
 </Steps>
@@ -65,30 +61,36 @@ So far, the only known workaround is a fresh Mikrotik v7.x intallation.&#x20;
 If you want to give Mikrotik CHR a try, you can download images from the official <a href="https://mikrotik.com/download" target="_blank">Mikrotik download page</a>. To make life easy for you, we converted a couple of <a href="https://files.edisglobal.com/index.php/s/Jph4RkS7Cgw0ryY" target="_blank">cloud images</a> downloaded from the Mikrotik website, which can be used with our Cloud-Init installer 😎
 
 <Steps>
-  <Step title='Log in to your'>
+  <Step title="Log in to your">
     [KVM Management Portal](https://manage.edisglobal.com/clientarea.php)
   </Step>
-  <Step title='Locate your VPS in the Services tab' />
-  <Step title='Head to KVM Settings (button)' />
-  <Step title='Change Disk driver to IDE' />
-  <Step title='Change Network Driver to E100' />
-  <Step title='Click on Autoinstall OS (button)' />
-  <Step title='Proceed to Custom Cloud-Init Images (tab)' />
-  <Step title='Upload the .qcow2 file and proceed with the installation (pick any password)'>
+
+  <Step title="Locate your VPS in the Services tab" />
+
+  <Step title="Head to KVM Settings (button)" />
+
+  <Step title="Change Disk driver to IDE" />
+
+  <Step title="Change Network Driver to E100" />
+
+  <Step title="Click on Autoinstall OS (button)" />
+
+  <Step title="Proceed to Custom Cloud-Init Images (tab)" />
+
+  <Step title="Upload the .qcow2 file and proceed with the installation (pick any password)">
     you will see: Server Status: AUTOINSTALL IN PROGRESS
     it will change to: Server Status: RUNNING, **AUTOINSTALL IN PROGRESS**
 
     **The installation will take a couple of minutes!**
-
   </Step>
-  <Step title='Once the installer is done (Server Status: RUNNING)'>
+
+  <Step title="Once the installer is done (Server Status: RUNNING)">
     start a VNC session, start noVNC, click into the noVNC window (set focus)
     and finish the installation.
 
     Mikrotik username: admin
 
     Mikrotik password: no password, leave field empty, just press Enter
-
   </Step>
 </Steps>
 
@@ -98,8 +100,9 @@ If you want to give Mikrotik CHR a try, you can download images from the officia
 
 Log into MikroTik Router:
 
-- Use a **VNC session** to connect to your MikroTik router.
-- Log in with your credentials (by default, the username is `admin`, and there is no password unless you changed it).
+* Use a **VNC session** to connect to your MikroTik router.
+
+* Log in with your credentials (by default, the username is `admin`, and there is no password unless you changed it).
 
 ### Set Static IPv4 Address:
 
@@ -112,8 +115,9 @@ Use this command to set a static IP on the interface you want (e.g., `ether1`):
 ip/address/add address=192.168.1.100/24 interface=ether1
 ```
 
-- Replace `192.168.1.100/24` with your VPS static IP and subnet mask.
-- Replace `ether1` with the correct interface if it's different.
+* Replace `192.168.1.100/24` with your VPS static IP and subnet mask.
+
+* Replace `ether1` with the correct interface if it's different.
 
 **Set Gateway (Default Route)**:
 To configure a default gateway, use the following command:
@@ -122,7 +126,7 @@ To configure a default gateway, use the following command:
 ip/route/add gateway=192.168.1.1
 ```
 
-- Replace `192.168.1.1` with your VPS default gateway IP address
+* Replace `192.168.1.1` with your VPS default gateway IP address
 
 **Set DNS Servers**:
 To configure DNS servers (for example, using Google DNS), use:
@@ -131,7 +135,7 @@ To configure DNS servers (for example, using Google DNS), use:
 ip/dns/set servers=8.8.8.8,8.8.4.4
 ```
 
-- You can use any DNS servers, such as `1.1.1.1` and `1.0.0.1` for Cloudflare’s public DNS resolvers.
+* You can use any DNS servers, such as `1.1.1.1` and `1.0.0.1` for Cloudflare’s public DNS resolvers.
 
 ### Verify Your Configuration:
 
@@ -141,11 +145,11 @@ Please reboot the server with the following command to apply the changes and set
 system/reboot
 ```
 
-- After the server has rebooted, you can connect to the server via **Winbox**, the **web interface**, or **SSH** using the IP address you configured.
+* After the server has rebooted, you can connect to the server via **Winbox**, the **web interface**, or **SSH** using the IP address you configured.
 
 ## Configure IPv6 address in MikroTik
 
-To configure the imaginary IPv6 address **2a03\:f80:22:4198::1** on a **MikroTik CHR** device, follow these steps\:Always refer to your VPS dashboard for the correct I/64 Pv6 address assignment-.
+To configure the imaginary IPv6 address **2a03:f80:22:4198::1** on a **MikroTik CHR** device, follow these steps:Always refer to your VPS dashboard for the correct I/64 Pv6 address assignment-.
 
 ### **Assign the IPv6 Address**
 
@@ -169,7 +173,7 @@ Remember that the **subnet mask is configured as /48** while the size of your al
 /ipv6 route add dst-address=::/0 gateway=2a03:f80:22::1
 ```
 
-• **Note**: This example uses 2a03\:f80:22::1 as the gateway. Your gateway consists of the first three segments of your IP address and ::1
+• **Note**: This example uses 2a03:f80:22::1 as the gateway. Your gateway consists of the first three segments of your IP address and ::1
 
 ### **Verify the Configuration**
 
@@ -179,10 +183,10 @@ Remember that the **subnet mask is configured as /48** while the size of your al
 /ipv6 address print
 ```
 
-2. **Check the default route**:
+1. **Check the default route**:
 
 ```bash
 /ipv6 route print
 ```
 
-This configuration will allow your MikroTik CHR to use the imaginary IPv6 address **2a03\:f80:22:4198::1** and establish external connectivity via the default gateway. Remember that the **subnet mask is configured as /48**, not /64.
+This configuration will allow your MikroTik CHR to use the imaginary IPv6 address **2a03:f80:22:4198::1** and establish external connectivity via the default gateway. Remember that the **subnet mask is configured as /48**, not /64.
