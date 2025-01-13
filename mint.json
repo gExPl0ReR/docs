@@ -236,6 +236,7 @@
         "misc/extending-180-day-trial-version-of-windows",
         "misc/edis-global-vps-reselling-and-discount-structure",
         "misc/reporting-abuse",
+        "misc/fix-black-screen-windows-server",
         "misc/fix-for-realvnc-closing-connection",
         "misc/manual-windows-server-installation-on-kvm",
         "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error"
