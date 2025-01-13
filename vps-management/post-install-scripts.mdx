@@ -1,14 +1,11 @@
 ---
 title: Post-Install Scripts
-slug: post-install-scripts-on-edis-vps
 description: Explore how Post-Install Scripts in the Auto-Installer of EDIS VPS Hosting can streamline your server setup. Paste or upload your script, and it will run automatically post-installation.
-image: https://glorious-snazzy-hot.media.strapiapp.com/Edis_Logo_432da83b15.jpg
 createdAt: Wed Nov 01 2023 16:03:35 GMT+0000 (Coordinated Universal Time)
 updatedAt: Thu Jan 18 2024 10:33:11 GMT+0000 (Coordinated Universal Time)
 ---
 
 ## Automate your VPS deployment
-
 
 Discover a feature that can significantly ease your server setup process on EDIS Global VPS Hosting - Post-Install Scripts. This feature can be found in the auto-installer options within your KVM panel. It's a boon for those installing multiple servers with a specific setup or "recipe". All you need to do is paste your recipe/script or upload it directly into the tool, and it will be executed automatically right after the installation completes.
 
@@ -58,7 +55,6 @@ This script does three main things:
 2. It sets up rules in the firewall to allow incoming connections for SSH on port 22, web traffic on port 80, and secure web traffic on port 443.
 3. It turns the firewall on with these rules in place.
 
-
 ```shell
 #!/bin/bash
 
@@ -86,6 +82,7 @@ The following script performs several actions on a RPM-based OS (RHEL, Fedora, C
 1. **SSH Configuration**
 
    It restricts root login to SSH key authentication only, disabling password access. It then restarts the SSH daemon to apply these changes.
+
 2. **LAMP Stack Installation**:
    Updates the system packages.
    Installs necessary utilities: curl, wget, and unzip.
@@ -120,8 +117,6 @@ user="user=your-pushover-username-goes-here"
 IP=`hostname -I | awk '{print $1}'`
 curl -s --form-string $token --form-string $user --form-string 'message=Post installation script finished on server with IP: $IP. Have fun' https://api.pushover.net/1/messages.json
 ```
-
-
 
 ### Use cases for Post install scripts
 

@@ -1,6 +1,5 @@
 ---
 title: L2TP/IPsec and IKEv2 VPN
-slug: l2tp-ipsec-and-ikev2-vpn
 createdAt: Fri Sep 13 2024 09:19:29 GMT+0000 (Coordinated Universal Time)
 updatedAt: Fri Sep 13 2024 09:26:29 GMT+0000 (Coordinated Universal Time)
 ---
@@ -33,7 +32,7 @@ We will perform the following high-level steps:
    - Install VPN client software.
    - Configure and establish a VPN connection using L2TP/IPsec or IKEv2.
 
-***
+---
 
 ## Steps on the VPS Server
 
@@ -150,7 +149,7 @@ sudo delvpnuser.sh 'username_to_remove'
 - The script `delvpnuser.sh` allows you to remove VPN users by specifying their username.
 - Replace `'username_to_remove'` with the username you wish to delete.
 
-***
+---
 
 ## Steps on the Client Machine
 
@@ -330,7 +329,7 @@ Check your public IP address to confirm that you are connected through the VPN.
 curl ifconfig.me
 ```
 
-***
+---
 
 ## Troubleshooting
 
@@ -346,13 +345,13 @@ curl ifconfig.me
   - Check logs for errors: `/var/log/syslog` or use `journalctl -xe`.
   - Ensure that the IKEv2 configuration matches between the client and server.
 
-***
+---
 
 ## Conclusion
 
 By following this guide, you've successfully set up a VPN server on Ubuntu 22.04 that supports both L2TP/IPsec and IKEv2 protocols. This configuration enhances your network security by encrypting your internet traffic and providing flexible connection options for various clients.
 
-***
+---
 
 ## References
 
@@ -361,6 +360,6 @@ By following this guide, you've successfully set up a VPN server on Ubuntu 22.04
 - [Linux VPN Clients](https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients.md#linux)
 - [IKEv2 VPN Setup](https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/ikev2-howto.md#linux)
 
-***
+---
 
 **Note:** Always ensure your use of VPNs complies with local laws and regulations. Keep your VPN credentials and certificates secure to prevent unauthorized access.
