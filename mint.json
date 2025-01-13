@@ -16,7 +16,7 @@
     }
   },
   "metadata": {
-    "og:image": "https://cdn.sanity.io/images/zo1bnlq1/production/121731970c65bd91a20e36307ea56b043f8fbd60-1200x630.png"
+    "og:image": "https://cdn.sanity.io/images/zo1bnlq1/production/549da926b1dfcc6d77a0af02b21fc398514b8b17-1200x630.png"
   },
   "topbarLinks": [
     {
@@ -44,7 +44,6 @@
     {
       "group": "Getting Started",
       "pages": [
-        "getting-started/everything-vps",
         "getting-started/check-your-inbox",
         "getting-started/no-email-received",
         "getting-started/statuspage-subscribe",
@@ -176,6 +175,7 @@
     {
       "group": "Join Our Team",
       "pages": [
+        "join-our-team/join-our-team",
         "join-our-team/jobs-edisglobal-support-agent-non-voice",
         "join-our-team/technical-procurement-and-server-operations-coordinator",
         "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert"
@@ -243,10 +243,6 @@
     }
   ],
   "redirects": [
-    {
-      "source": "/everything-vps",
-      "destination": "/getting-started/everything-vps"
-    },
     {
       "source": "/linux-secure-shell-ssh",
       "destination": "/getting-started/linux-secure-shell-ssh"
@@ -705,7 +701,7 @@
     },
     {
       "source": "/manual-windows-server-intallation-on-kvm",
-      "destination": "/misc/manual-windows-server-intallation-on-kvm"
+      "destination": "/misc/manual-windows-server-installation-on-kvm"
     },
     {
       "source": "/rnir-fix-remote-desktop-credssp-encryption-oracle-remediation-error",
