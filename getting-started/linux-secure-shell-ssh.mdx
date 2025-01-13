@@ -1,6 +1,6 @@
 ---
 title: Linux Secure Shell (SSH)
-description: What is Secure Shell (SSH) and how to use SSH to connect to your remote VPS
+og:description: What is Secure Shell (SSH) and how to use SSH to connect to your remote VPS
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
@@ -17,13 +17,13 @@ To use SSH to connect to your remote VPS, follow these steps: Open a terminal or
 ssh username@remote-host
 ```
 
-Replace **"username"** with your VPS username (*generally root and emailed to you after a VPS purchase*) and **"remote-host"** with the public IPv4 address of your VPS.&#x20;
+Replace **"username"** with your VPS username (_generally root and emailed to you after a VPS purchase_) and **"remote-host"** with the public IPv4 address of your VPS.&#x20;
 
 If this is the first time you are connecting, you will be prompted to accept the remote server's public key. Type "yes" and press Enter, then enter your VPS password when prompted.
 
 If the connection is successful, you'll see a welcome message from the remote server, and you'll be presented with a command prompt in the remote server's shell. You can then run remote commands and upload/download files as needed using the SSH connection.
 
-*Make sure you have SSH access enabled and have the correct user credentials to log in to the VPS.*
+_Make sure you have SSH access enabled and have the correct user credentials to log in to the VPS._
 
 After you are finish with any tasks with the remote server you can simply type:
 
@@ -33,4 +33,7 @@ exit
 
 You will be logged out.
 
-<CtaButton label="Blog Post: Are SSH Connections Truly Secure?" link="https://www.edisglobal.com/blog/are-ssh-connections-secure" />
+<CtaButton
+  label='Blog Post: Are SSH Connections Truly Secure?'
+  link='https://www.edisglobal.com/blog/are-ssh-connections-secure'
+/>
