@@ -1,18 +1,19 @@
 ---
-title: Install AmneziaWG client on Windows
+title: "Install AmneziaWG client on Windows"
+description: "Learn how to install and configure AmneziaWG, a user-friendly WireGuard client, on Windows. Follow this step-by-step guide to securely transfer your configuration file from Linux to Windows and set up your VPN connection with ease."
 ---
 
 WireGuard is a streamlined and efficient VPN protocol that is becoming increasingly popular due to its ease of use and strong security features. If you're looking to set up a Windows client to connect to a WireGuard VPN server running on Linux, AmnesiaWG provides a simplified and user-friendly approach. This guide will walk you through the process of transferring a prepared WireGuard client configuration from your Linux server to your Windows client using AmnesiaWG.
 
 ### Prerequisites
 
-- A Linux server with WireGuard installed and a client configuration ready.
+* A Linux server with WireGuard installed and a client configuration ready.
 
-- A Windows client machine.
+* A Windows client machine.
 
-- Administrative access on both the server and the client.
+* Administrative access on both the server and the client.
 
-- SSH access is configured on the server.
+* SSH access is configured on the server.
 
 ### Step 1: Installing AmnesiaWG on Windows
 
@@ -20,11 +21,11 @@ Before transferring the configuration file, you need to install AmnesiaWG on you
 
 1. **Download AmnesiaWG:**
 
-   - Visit the official [AmnesiaWG website](https://amnezia.org/en/downloads) and download the latest version of the software suitable for Windows.
+   * Visit the official [AmnesiaWG website](https://amnezia.org/en/downloads) and download the latest version of the software suitable for Windows.
 
 2. **Install AmnesiaWG:**
 
-   - Run the downloaded installer and follow the on-screen instructions to complete the installation.
+   * Run the downloaded installer and follow the on-screen instructions to complete the installation.
 
 ### Step 2: Securely Copying the Configuration File to the Windows Client
 
@@ -32,15 +33,15 @@ To transfer the client configuration securely from your Linux server to your Win
 
 1. **Install WinSCP:**
 
-   - Download WinSCP from [here](https://winscp.net/) and install it on your Windows machine.
+   * Download WinSCP from [here](https://winscp.net/) and install it on your Windows machine.
 
 2. **Transfer the Configuration File:**
 
-   - Open WinSCP and start a new session entering your Linux server's IP address and your SSH credentials.
+   * Open WinSCP and start a new session entering your Linux server's IP address and your SSH credentials.
 
-   - Navigate to the directory containing the WireGuard configuration file on the server.
+   * Navigate to the directory containing the WireGuard configuration file on the server.
 
-   - Drag and drop the `.conf` file to a suitable directory on your Windows machine, such as `C:\\WireGuard\\Configs`.
+   * Drag and drop the `.conf` file to a suitable directory on your Windows machine, such as `C:\\WireGuard\\Configs`.
 
 ### Step 3: Importing the Configuration into AmnesiaWG
 
@@ -48,19 +49,19 @@ With AmnesiaWG installed and the configuration file on your Windows client, you'
 
 1. **Launch AmnesiaWG:**
 
-   - Open AmnesiaWG. You might need to run it as an administrator depending on your system settings.
+   * Open AmnesiaWG. You might need to run it as an administrator depending on your system settings.
 
 2. **Import the Configuration File:**
 
-   - In AmnesiaWG, click on "Import Configuration" and browse to the location where you saved the `.conf` file.
+   * In AmnesiaWG, click on "Import Configuration" and browse to the location where you saved the `.conf` file.
 
-   - Select the file and import it. AmnesiaWG will automatically parse and add the configuration.
+   * Select the file and import it. AmnesiaWG will automatically parse and add the configuration.
 
 ### Step 4: Connecting to the WireGuard Server
 
 1. **Connect via AmnesiaWG:**
 
-   - With the configuration file loaded, you'll see your new tunnel listed in AmnesiaWG. Click "Connect" to initiate the VPN connection.
+   * With the configuration file loaded, you'll see your new tunnel listed in AmnesiaWG. Click "Connect" to initiate the VPN connection.
 
 ### Step 5: Verifying the Connection
 
@@ -68,9 +69,9 @@ After connecting, it's essential to ensure everything is functioning correctly:
 
 1. **Check Connection Status:**
 
-   - AmnesiaWG will display the connection status. Ensure it indicates that the tunnel is active.
+   * AmnesiaWG will display the connection status. Ensure it indicates that the tunnel is active.
 
-   - Optionally, visit a site like [ipleak.net](https://ipleak.net/) to check your IP address and DNS, confirming that your traffic is routed through the VPN.
+   * Optionally, visit a site like [ipleak.net](https://ipleak.net/) to check your IP address and DNS, confirming that your traffic is routed through the VPN.
 
 ### Conclusion
 

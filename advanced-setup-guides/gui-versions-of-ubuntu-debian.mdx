@@ -1,6 +1,6 @@
 ---
-title: GUI versions of Ubuntu or Debian
-description: EDIS does not offer a dedicated Debian or Ubuntu images with the a desktop enabled, but users can install Ubuntu 22.04 and enable the GUI via a few shell commands.
+title: "GUI versions of Ubuntu or Debian"
+description: "EDIS does not offer a dedicated Debian or Ubuntu images with the a desktop enabled, but users can install Ubuntu 22.04 and enable the GUI via a few shell commands."
 ---
 
 ## OS images with Graphical Desktop enabled
@@ -13,32 +13,24 @@ Do you provide GUI version for Ubuntu or Debian?
 
 Although EDIS does not offer a dedicated Debian or Ubuntu image with GUI enabled, **you can** install Ubuntu 22.04 and **add the GUI via a few small shell commands.**
 
-1. Update the apt package index and install the `tasksel` tool.
-
-   ```shell
+1. Update the apt package index and install the `tasksel` tool.```shell
    $ sudo apt update
    $ sudo apt install tasksel
    ```
 
-2. Execute the following `tasksel` command to install the Ubuntu desktop environment "Kubuntu".
-
-   ```shell
+2. Execute the following `tasksel` command to install the Ubuntu desktop environment "Kubuntu".```shell
    $ sudo tasksel install kubuntu-desktop
    ```
 
-3. Reboot your system
-
-   ```shell
+3. Reboot your system```shell
    $ reboot
    ```
 
-4. The graphical user interface (GUI) should now start. Depending on your system, you may need to select your desired desktop environment on the login page before logging in. If the GUI isn't starting at all, ensure that your system is set to boot into the graphical target. To do so, run:
-
-   ```shell
+4. The graphical user interface (GUI) should now start. Depending on your system, you may need to select your desired desktop environment on the login page before logging in. If the GUI isn't starting at all, ensure that your system is set to boot into the graphical target. To do so, run:```shell
    $ sudo systemctl set-default graphical.target
    ```
 
-**Advanced option for point 2**: If you only run `tasksel` **without **specifying the parameter `install kubuntu-desktop`, you can pick what you would like to install from a dialog.
+**Advanced option for point 2**: If you only run `tasksel` \*\*without \*\*specifying the parameter `install kubuntu-desktop`, you can pick what you would like to install from a dialog.
 
 ```shell
 $ sudo tasksel
