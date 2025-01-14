@@ -1,12 +1,13 @@
 ---
-title: SFTP Linux <> Linux Server
+title: "SFTP Linux <> Linux Server"
+description: "Learn how to securely transfer files between Linux servers using SFTP. This guide provides step-by-step instructions on enabling SSH and using SFTP commands for seamless file transfers."
 ---
 
 ## Secure File Transfer Between Linux and Linux Servers
 
 SFTP (Secure File Transfer Protocol) is a secure way to transfer files between your Linux machine and a Linux server. This article explains how to use the `sftp` command in the Linux terminal to copy files securely.
 
----
+***
 
 ## Step 1: Ensure SSH is Enabled on your Linux Server
 
@@ -16,7 +17,7 @@ Make sure the SSH service is installed and running on your Linux server. Use the
 sudo apt-get install openssh-server
 ```
 
----
+***
 
 ## Step 2: Use the `sftp` Command to Transfer Files
 
@@ -28,20 +29,25 @@ To start an SFTP session, use the following command:
 sftp username@hostname_or_ip
 ```
 
-- Replace `username` with your Linux server username.
-- Replace `hostname_or_ip` with your server’s IP address or domain name.
+* Replace `username` with your Linux server username.
+
+* Replace `hostname_or_ip` with your server’s IP address or domain name.
 
 ### Transfer Files Using SFTP Commands
 
 Once connected, you can use the following commands to transfer files:
 
-- **Download a file from the server**:
-- **Upload a file to the server**:
-- **List files in the remote directory**:
-- **Change the remote directory**:
-- **Exit the SFTP session**:
+* **Download a file from the server**:
 
----
+* **Upload a file to the server**:
+
+* **List files in the remote directory**:
+
+* **Change the remote directory**:
+
+* **Exit the SFTP session**:
+
+***
 
 ## Example Commands
 
@@ -57,4 +63,4 @@ put ~/Documents/example.txt /home/user/uploads
 get /home/user/uploads/example.txt ~/Downloads
 ```
 
----
+***

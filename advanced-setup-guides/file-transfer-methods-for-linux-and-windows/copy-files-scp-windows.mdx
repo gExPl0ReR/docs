@@ -1,12 +1,13 @@
 ---
-title: SCP Windows <> Linux
+title: "SCP Windows <> Linux"
+description: "Learn how to securely transfer files between Windows and Linux servers using SCP and WinSCP. This guide simplifies file transfers with step-by-step instructions for both platforms."
 ---
 
 ## Secure Copy Files Between Windows and Linux Servers
 
 SCP (Secure Copy Protocol) is a secure way to transfer files between your Windows machine and a Linux server. This article explains how to use **WinSCP**, a popular and user-friendly tool for Windows users, to copy files to and from a Linux server.
 
----
+***
 
 ## Step 1: Enable SSH on the Linux Server
 
@@ -16,33 +17,42 @@ Before transferring files, ensure the SSH service is installed and running on yo
 sudo apt install openssh-server
 ```
 
----
+***
 
 ## Step 2: Install and Set Up WinSCP on Windows
 
 1. Download WinSCP from [winscp.net](https://winscp.net/).
+
 2. Install WinSCP by following the on-screen instructions.
+
 3. Launch WinSCP after installation.
 
----
+***
 
 ## Step 3: Connect to the Linux Server
 
 1. In WinSCP, create a new connection:
-   - **File Protocol**: Choose `SCP`.
-   - **Hostname**: Enter the IP address or domain name of your Linux server.
-   - **Port Number**: Default is `22`.
-   - **Username**: Enter the username for your Linux account.
-   - **Password**: Provide your password or configure a private key.
+
+   * **File Protocol**: Choose `SCP`.
+
+   * **Hostname**: Enter the IP address or domain name of your Linux server.
+
+   * **Port Number**: Default is `22`.
+
+   * **Username**: Enter the username for your Linux account.
+
+   * **Password**: Provide your password or configure a private key.
+
 2. Click **Login** to connect to your server.
 
----
+***
 
 ## Step 4: Transfer Files
 
 Once connected, use the graphical interface to:
 
-- Drag and drop files from your Windows machine to the Linux server.
-- Drag files from the Linux server to your local Windows machine.
+* Drag and drop files from your Windows machine to the Linux server.
+
+* Drag files from the Linux server to your local Windows machine.
 
 WinSCP provides a simple interface to manage your files securely.
