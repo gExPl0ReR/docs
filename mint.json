@@ -10,18 +10,15 @@
     "primary": "#F96002",
     "light": "#F96002",
     "dark": "#d55200",
-"background": {
-    "light": "#F96002",
-    "dark": "#d55200",
     "anchors": {
-      "from": "#F96002",
+      "from": "#989fe2",
       "to": "#1E1E1E"
     }
   },
-   "feedback": {
-   "thumbsRating": true
-   "suggestEdit": true,
-   "raiseIssue": true
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true,
+    "raiseIssue": true
   },
   "metadata": {
     "og:image": "https://cdn.sanity.io/images/zo1bnlq1/production/121731970c65bd91a20e36307ea56b043f8fbd60-1200x630.png"
@@ -361,7 +358,10 @@
       "source": "/what-is-a-virtual-private-server",
       "destination": "/faq/what-is-a-virtual-private-server"
     },
-    { "source": "/what-is-a-kvm-vps", "destination": "/faq/what-is-a-kvm-vps" },
+    {
+      "source": "/what-is-a-kvm-vps",
+      "destination": "/faq/what-is-a-kvm-vps"
+    },
     {
       "source": "/free-trials-available",
       "destination": "/faq/free-trials-available"
