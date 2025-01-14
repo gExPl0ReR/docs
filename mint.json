@@ -261,6 +261,10 @@
       "destination": "/getting-started/no-email-received"
     },
     {
+      "source": "/email-with-password-not-received-solution",
+      "destination": "/getting-started/no-email-received"
+    },
+    {
       "source": "/statuspage-subscribe",
       "destination": "/getting-started/statuspage-subscribe"
     },
