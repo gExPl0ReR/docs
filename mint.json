@@ -41,16 +41,7 @@
     "url": "https://manage.edisglobal.com/clientarea.php"
   },
   "tabs": [
-      {
-        "name": "Order API Reference",
-        "openapi": "/order-api.json",
-        "url": "order-api-reference"
-      },
-      {
-        "name": "Management API Reference",
-        "openapi": "/order-api.json",
-        "url": "management-api-reference"
-      }],
+  ],
   "anchors": [
     {
       "name": "Explore VPS Hosting",
