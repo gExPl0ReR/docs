@@ -5,33 +5,37 @@ description: Discover how EDIS Global's shift to Cloud-Init and .qcow2 based ins
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
-### Transition to Cloud-Init based VPS Installations
+# VPS Installation with Cloud-Init
 
----
+***
 
 **Introduction**
 
 EDIS Global has recently transitioned from traditional .iso-based operating system installations to .qcow2 based installations using Cloud-Init for its Virtual Private Servers (VPS). This change affects most recent distributions supporting Cloud-Init. This article aims to explain what Cloud-Init is, the benefits of using Cloud-Init over .iso based installations, and how to utilize `cloudinit_user_data` for effective VPS management.
 
----
+***
 
-### What is Cloud-Init?
+## What is Cloud-Init?
 
 Cloud-Init is an industry standard for automated cloud instance initialization. It is used to configure a cloud instance (like a VPS) during its first boot while it is being created. Cloud-Init can perform tasks such as setting the hostname, adding users, and installing packages. It works by reading user data provided during the instance creation process and executing the specified configurations.
 
----
+***
 
-### Benefits of Cloud-Init vs .ISO Based OS Installations
+## Benefits of Cloud-Init vs .ISO Based OS Installations
 
 1. **Automated Configuration**: Cloud-Init automates the process of setting up a new VPS, reducing the need for manual configuration.
+
 2. **Speed and Efficiency**: Instances boot and become operational faster compared to .iso installations, enhancing efficiency.
+
 3. **Customization**: Allows for greater customization of the instance on its first boot, tailored to specific needs.
+
 4. **Scalability**: Easier to scale and manage multiple instances, as each can be configured identically or differently based on the provided user data.
+
 5. **Cross-platform Compatibility**: Supports a variety of operating systems, making it versatile for different environments.
 
----
+***
 
-### Understanding `cloudinit_user_data`
+## Understanding `cloudinit_user_data`
 
 `cloudinit_user_data` is a powerful feature of Cloud-Init that allows users to provide custom configurations and scripts that the system will execute upon initialization. This data is in the format of `#cloud-config`, which is a YAML-based configuration file.
 
@@ -74,36 +78,32 @@ power_state:
 package_upgrade: true
 ```
 
-**set_hostname**: Sets the hostname of the VPS.
+**set\_hostname**: Sets the hostname of the VPS.
 
 **user** and **password**: Configures the default user and password.
 
-**disable_root**: Determines whether the root account should be disabled
+**disable\_root**: Determines whether the root account should be disabled
 
-**ssh_pwauth**: Enables SSH password authentication.
+**ssh\_pwauth**: Enables SSH password authentication.
 
-**manage_etc_hosts**: Allows Cloud-Init to manage the `/etc/hosts` file.
+**manage\_etc\_hosts**: Allows Cloud-Init to manage the `/etc/hosts` file.
 
 **runcmd**: Executes specified commands on first boot. In this example, it modifies root password expiry and SSH configurations.
 
 **users**: Defines additional users.
 
-**power_state**: Controls the power state of the instance after initialization, here set to reboot.
+**power\_state**: Controls the power state of the instance after initialization, here set to reboot.
 
-**package_upgrade**: Ensures that all packages are upgraded on first boot.
+**package\_upgrade**: Ensures that all packages are upgraded on first boot.
 
----
+***
 
-### Summary
+**Summary**
 
 The shift to Cloud-Init and .qcow2 based installations marks a significant advancement in the way EDIS Global manages its VPS offerings. By leveraging Cloud-Init, users can enjoy faster deployment, increased automation, and more customized configurations, enhancing the overall user experience and efficiency.
 
----
+***
 
 External reference:
 
-<CtaButton
-  label='Official Cloud-Init Documentation'
-  link='https://cloudinit.readthedocs.io/en/latest/'
-  openInNewTab={true}
-/>
+<CtaButton label="Official Cloud-Init Documentation" link="https://cloudinit.readthedocs.io/en/latest/" openInNewTab={true} />
