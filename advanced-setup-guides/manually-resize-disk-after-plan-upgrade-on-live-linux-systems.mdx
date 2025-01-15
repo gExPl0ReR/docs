@@ -16,7 +16,7 @@ To resize disk space and unallocated space on your disk, use SystemRescueCD. The
 Remember, modifying disk partitions and file systems can be risky and may result in data loss, especially if there's a power interruption or if the operations are performed incorrectly. Always back up important data before proceeding.
 Here’s a general guide on how to resize disk space manually:
 
-### Access the VPS Management Portal
+## Access the VPS Management Portal
 
 After the Upgrade was confirmed ...
 
@@ -26,7 +26,7 @@ After the Upgrade was confirmed ...
 
 * After confirming the upgrade, <a href="https://docs.edisglobal.com/power-cycle-or-reboot-a-vps" target="_blank">Initiate shutdown</a> (power-off) and turn on the VPS again. It is important to fully power off.
 
-### Mount System Rescue CD and Boot
+## Mount System Rescue CD and Boot
 
 * Click <a href="https://docs.edisglobal.com/mount-iso-image" target="_blank">Mount ISO</a>
 
@@ -42,7 +42,7 @@ After the Upgrade was confirmed ...
 
 ![](/assets/Ijip8O_qmSgr6LR-nJvf5_sysrescuecd1.png)
 
-### Launch noVNC
+## Launch noVNC
 
 1. Click "**Launch noVNC**" to see console output
 
@@ -54,7 +54,7 @@ After the Upgrade was confirmed ...
 
 ![](/assets/vg4lijwNdjgyOUDN05SQD_sysrescuecd2.png)
 
-### Resize partitions
+## Resize partition
 
 * **Start the Graphical Interface**: If SystemRescueCD boots into a command line, you can start the graphical interface by typing: `startx`.
 
@@ -78,7 +78,7 @@ In the GParted window that opens, you will see several partitions. It will vda1 
 
 2. **Exit and Reboot**: After completing the partitioning and checks, exit GParted and the graphical interface, then reboot your system.
 
-### Identify the New Swap Partition
+## Identify the New Swap Partition
 
 1. **Log into Your VPS:** Login to with root of the system.
 
@@ -111,6 +111,6 @@ In the GParted window that opens, you will see several partitions. It will vda1 
      **Disable VNC access**
    </a>
 
-### Congrats!
+**Congrats!**
 
 Congratulations on completing the manual disk resizing process using the SystemRescueCD! Navigating the complexities of SystemRescueCD and ensuring the safety of your data throughout this delicate procedure is no small feat. Well done on achieving this significant milestone in system management! 🌟 Well done on enhancing your system's capabilities! 🎉👍
