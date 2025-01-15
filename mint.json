@@ -40,13 +40,7 @@
     "name": "Dashboard",
     "url": "https://manage.edisglobal.com/clientarea.php"
   },
-  "tabs": [],
-  "anchors": [
-    {
-      "name": "Explore VPS Hosting",
-      "icon": "cloud",
-      "url": "https://www.edisglobal.com/#start-now"
-    },
+  "tabs": [
       {
         "name": "Order API Reference",
         "openapi": "/order-api.json",
@@ -56,7 +50,13 @@
         "name": "Management API Reference",
         "openapi": "/order-api.json",
         "url": "management-api-reference"
-      }
+      }],
+  "anchors": [
+    {
+      "name": "Explore VPS Hosting",
+      "icon": "cloud",
+      "url": "https://www.edisglobal.com/#start-now"
+    }
     ],
   "navigation": [
     {
