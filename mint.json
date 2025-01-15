@@ -36,7 +36,17 @@
       "url": "https://www.edisglobal.com/contact"
     }
   ],
-      "tabs": [
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://manage.edisglobal.com/clientarea.php"
+  },
+  "tabs": [],
+  "anchors": [
+    {
+      "name": "Explore VPS Hosting",
+      "icon": "cloud",
+      "url": "https://www.edisglobal.com/#start-now"
+    },
       {
         "name": "Order API Reference",
         "openapi": "/order-api.json",
@@ -48,18 +58,6 @@
         "url": "management-api-reference"
       }
     ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://manage.edisglobal.com/clientarea.php"
-  },
-  "tabs": [],
-  "anchors": [
-    {
-      "name": "Explore VPS Hosting",
-      "icon": "cloud",
-      "url": "https://www.edisglobal.com/#start-now"
-    }
-  ],
   "navigation": [
     {
       "group": "Getting Started",
