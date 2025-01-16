@@ -1,6 +1,10 @@
-export const CtaButton = ({ label, link, openInNewTab }) => (
+export const CtaButton = ({ label, link, openInNewTab, download }) => (
   <button className='custom-cta-button'>
-    <a href={link} target={openInNewTab ? "_blank" : "_self"}>
+    <a
+      href={link}
+      target={openInNewTab ? "_blank" : "_self"}
+      download={download ? true : false}
+    >
       {label}
     </a>
   </button>
