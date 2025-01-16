@@ -1,30 +1,36 @@
 ---
 title: SSH Security Hardening Guide
+sidebarTitle: SSH Hardening
 description: Learn essential SSH security hardening practices to safeguard your server. Explore key steps like changing default ports, enabling 2FA, restricting access, and monitoring logs.
 ---
 
 # SSH Security Hardening Guide
 
-## Introduction: Strengthening SSH Security
+## Strengthening SSH Security
 
 Secure Shell (SSH) is a fundamental tool for server management, providing encrypted communication for remote access. However, it’s also a common target for cyberattacks. Implementing basic SSH security measures is essential to protect your server from unauthorized access and brute-force attacks.
 
 This guide begins with foundational security practices and progresses to advanced techniques for a comprehensive approach to hardening your SSH setup. Whether you’re a beginner or an experienced administrator, this guide will help you secure your server effectively.
 
-### Basic SSH Security Measures
+## Basic SSH Security Measures
 
 For those just starting, here are a few simple yet crucial steps to secure your SSH connection:
 
-1. **Change the Default SSH Port**:
-   - By default, SSH listens on port 22, a known target for attackers. Changing it to a non-standard port reduces the likelihood of brute-force attacks.
-2. **Disable Root Login**:
-   - Direct root access is a significant risk. Use a regular user account with sudoprivileges instead.
-3. **Enable SSH Key Authentication**:
-   - Replace password-based logins with SSH keys for enhanced security. This method ensures only users with the private key can access the server.
-4. **Limit Failed Login Attempts**:
-   - Install tools like Fail2Ban to block IP addresses after a set number of unsuccessful login attempts.
-5. **Keep Your System Updated**:
-   - Regularly update your server and SSH software to patch vulnerabilities and improve overall security.
+**Change the Default SSH Port**:
+
+* By default, SSH listens on port 22, a known target for attackers. Changing it to a non-standard port reduces the likelihood of brute-force attacks.
+  **Disable Root Login**:
+
+* Direct root access is a significant risk. Use a regular user account with sudoprivileges instead.
+  **Enable SSH Key Authentication**:
+
+* Replace password-based logins with SSH keys for enhanced security. This method ensures only users with the private key can access the server.
+  **Limit Failed Login Attempts**:
+
+* Install tools like Fail2Ban to block IP addresses after a set number of unsuccessful login attempts.
+  **Keep Your System Updated**:
+
+* Regularly update your server and SSH software to patch vulnerabilities and improve overall security.
 
 By starting with these basic practices, you’ll lay a strong foundation for SSH security. The following sections will build on these principles with advanced strategies to further harden your server against sophisticated threats.
 
@@ -32,7 +38,7 @@ By starting with these basic practices, you’ll lay a strong foundation for SSH
 
 The default SSH port (port 22) is one of the primary targets for brute-force attacks. Changing the port can be the first step to improving security.
 
-### Steps:
+Steps:
 
 **Edit the SSH configuration file:**
 
@@ -57,7 +63,7 @@ sudo ufw enable
 
 SSH key authentication is much more secure than using passwords, as it prevents brute-force attacks.
 
-### Steps:
+Steps:
 
 **Generate an SSH key pair (if you don't already have one):**
 
@@ -83,7 +89,7 @@ SSH key authentication is much more secure than using passwords, as it prevents 
 
 **Fail2Ban** is a tool that detects brute-force attacks and blocks suspicious IP addresses.
 
-### Steps:
+Steps:
 
 **Install Fail2Ban:**
 
@@ -91,11 +97,11 @@ SSH key authentication is much more secure than using passwords, as it prevents 
 
 **Configure Fail2Ban for SSH:**
 
-- Edit the jail.local file:
+* Edit the jail.local file:
 
 `sudo nano /etc/fail2ban/jail.local`
 
-- Add or edit the \[sshd] section as follows:
+* Add or edit the \[sshd] section as follows:
 
 ```bash
 [sshd]
@@ -107,7 +113,7 @@ maxretry = 3
 bantime = 600
 ```
 
-- Set the correct port for SSH (e.g., 2222).
+* Set the correct port for SSH (e.g., 2222).
 
 **Restart Fail2Ban:**
 
@@ -121,7 +127,7 @@ bantime = 600
 
 Allowing root login via SSH is a security risk. It's better to disable root login and use a regular user account with sudo privileges.
 
-### Steps:
+Steps:
 
 **Edit the SSH config file:**
 
@@ -139,9 +145,9 @@ Allowing root login via SSH is a security risk. It's better to disable root logi
 
 Adding two-factor authentication (2FA) to SSH adds an extra layer of security. Even if an attacker guesses your password, they will need an additional code to log in.
 
-### Steps:
+Steps:
 
-**Install pam_google_authenticator:**
+**Install pam\_google\_authenticator:**
 
 ` sudo apt-get install libpam-google-authenticator`
 
@@ -173,7 +179,7 @@ Adding two-factor authentication (2FA) to SSH adds an extra layer of security. E
 
 Limiting SSH access to specific IP addresses greatly improves security.
 
-### Steps:
+Steps:
 
 **Use iptables to allow SSH access only from a specific IP address:**
 
@@ -190,7 +196,7 @@ sudo iptables -A INPUT -p tcp --dport 2222 -j DROP
 
 Regularly checking SSH logs and monitoring the status can help you detect any suspicious activity.
 
-### Steps:
+Steps:
 
 **Check SSH logs:**
 
@@ -207,7 +213,7 @@ sudo logwatch --detail High --service sshd --range today
 
 Tools like **Lynis** and **RKHunter** can help detect security vulnerabilities and threats.
 
-### Steps:
+Steps:
 
 **Install Lynis:**
 
@@ -223,13 +229,13 @@ sudo apt-get install rkhunter
 sudo rkhunter --check
 ```
 
-## 9. Limit SSH Authentication Tries
+## 9. Limit SSH Authentication Retries
 
 Limiting the number of failed SSH login attempts can prevent brute-force attacks.
 
-### Steps:
+Steps:
 
-**Edit the sshd_config file:**
+**Edit the sshd\_config file:**
 
 ` sudo nano /etc/ssh/sshd_config`
 
@@ -245,7 +251,7 @@ Limiting the number of failed SSH login attempts can prevent brute-force attacks
 
 To avoid repeatedly entering passwords or SSH keys when connecting, you can use **SSH Key Agent**, which automatically loads your SSH keys.
 
-### Steps:
+Steps:
 
 **Add your SSH keys to the agent:**
 
