@@ -59,10 +59,10 @@
         "getting-started/statuspage-subscribe",
         "getting-started/how-our-support-team-helps-you",
         "getting-started/linux-secure-shell-ssh",
+        "getting-started/ssh-security-hardening-guide",
         "getting-started/windows-remote-desktop",
         "getting-started/backups",
-        "getting-started/acceptable-use-policy",
-        "getting-started/ssh-security-hardening-guide"
+        "getting-started/acceptable-use-policy"
       ]
     },
     {
