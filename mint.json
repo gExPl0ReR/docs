@@ -195,7 +195,7 @@
       "group": "Advanced Setup Guides",
       "pages": [
         {
-          "group": "File Transfer Methods for Linux and Windows",
+          "group": "File Transfer Methods",
           "pages": [
             "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods",
             "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows",
