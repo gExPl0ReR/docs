@@ -1,43 +1,41 @@
 ---
-title: File Transfer Methods for Linux and Windows
+title: "File Transfer Methods for Linux and Windows"
 sidebarTitle: "File Transfers: Linux & Windows"
-description: Step-by-step guides for securely transferring files between Linux servers and Windows or Linux machines using SFTP, SCP, or FTP. Perfect for starting projects, downloading data, or managing server files efficiently.
+description: "Step-by-step guides for securely exchanging files between Linux and Windows using SFTP, SCP, or downloading files from your Windows Server using FTP. Perfect for starting projects, downloading data, or managing server files efficiently."
 ---
 
 ## Getting Started with File Transfers
 
-Need to transfer files to or from a server? Whether you're starting a project, downloading data, or exchanging files between your computer and a server, we have simple guides to help. These step-by-step instructions cover different tools and scenarios to make file transfers quick and secure.
-
 ***
 
-## You Have a Windows Server and Want to Download Your Data
+## Have a Windows Server and Want to Download Data
 
-<Card title="FTP Server on Windows Server to download your data" icon="bolt" horizontal href="./setup-ftp-windows-server">
-  **Example**: You’ve completed a project on your Windows server and want to download reports, logs, or other data to your local machine. This guide helps you set up an FTP server for easy file transfers, enabling seamless downloads from the server to your desktop.
+<Card title="FTP Server on Windows Server to Download Data" icon="windows" color="orange" horizontal={true} href="./setup-ftp-windows-server">
+
+
+  **Example**: You’ve completed a project on your Windows server and want to download reports, logs, or other data to your machine. This guide helps you set up an FTP server on your RDP for easy file transfers, enabling seamless downloads from the server to your local machine.
 </Card>
 
 ***
 
-## You Have a Linux Server and Want to Exchange Files
-
-
+## Have a Linux Server and Want to Exchange Files
 
 ### Windows Client connects to Linux Server
 
-<Card title="SFTP on Windows. Connect to a Linux Server" icon="bolt" href="./transfer-files-sftp-windows">
-  **Example**: You are starting a project on a Linux server and want to upload application files, images, or databases from your Windows machine. This guide shows you how to use WinSCP to securely exchange files with your Linux server using SFTP.
+<Card title="SFTP on Windows. Windows Connects to a Linux Server" icon="windows" color="orange" horizontal="yes" href="./transfer-files-sftp-windows">
+  **Example**: You are starting a project on a Linux server and you want to upload application files, images, or databases from your local Windows desktop. This guide shows you how to use WinSCP to securely exchange files with your Linux server using SFTP.
 </Card>
 
-<Card title="SCP on Windows. Connect to a Linux Server" icon="bolt" href="./copy-files-scp-windows">
-  **Example**: You are finishing up a web project hosted on a Linux server and want to download the project files to your Windows computer. This guide helps you use WinSCP and SCP protocol for secure file copying.
+<Card title="SCP on Windows. Windows Connects to a Linux Server" icon="windows" color="orange" horizontal="yes" href="./copy-files-scp-windows">
+  **Example**: You are finishing up a web project hosted on a Linux server and you want to download the project files to your local Windows computer. This guide helps you use WinSCP and SCP protocol for secure file copying.
 </Card>
 
 ### Linux Client connects to Linux Server
 
-<Card title="SFTP on Linux. Connect to a Linux Server" icon="bolt" href="./transfer-files-sftp-linux">
-  **Example**: You’re working on a Linux machine and need to upload source code or download logs from your Linux server. This guide explains how to use the `sftp` command for secure and efficient file transfers.
+<Card title="SFTP on Linux. Linux Connects to a Linux Server" icon="linux" color="orange" horizontal="yes" href="./transfer-files-sftp-linux">
+  **Example**: You’re working on a Linux machine and you need to upload source code or download logs from your Linux server. This guide explains how to use the `sftp` command for secure and efficient file transfers between two linux machines.
 </Card>
 
-<Card title="[SCP on Linux. Connect to a Linux Server" icon="bolt" href="./copy-files-scp-linux">
-   **Example**: You’re deploying an application on a Linux server and need to upload the application files from your local Linux machine. This guide explains how to use the `scp` command to copy files directly and securely.
+<Card title="SCP on Linux. Linux Connects to a Linux Server" icon="linux" color="orange" horizontal="yes" href="./copy-files-scp-linux">
+  **Example**: You’re deploying an application on a Linux server and need to upload the application files from your local Linux client. This guide explains how to use the `scp` command to copy files directly and securely between two Linux machines.
 </Card>
