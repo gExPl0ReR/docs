@@ -47,3 +47,47 @@ Add the following parameters to the QEMU command line for your VM:
 **Ensure Compatibility**
 
 Guest systems with Linux kernels as old as version `2.6.32` can automatically use the VirtIO entropy source after a reboot. For older kernels or other OS types, ensure the VirtIO RNG driver is supported and enabled.
+
+For older kernels or other OS types, ensure the VirtIO RNG driver is supported and enabled.
+
+***
+
+### 2. Install a PRNG on the Guest (Optional)
+
+If adding the VirtIO RNG interface is not feasible, install a pseudo-random number generator (PRNG) on the guest:
+
+```
+sudo apt update
+sudo apt install haveged
+```
+
+Start and enable the service:
+
+```
+sudo systemctl start haveged
+sudo systemctl enable haveged
+```
+
+***
+
+## Benefits of Using VirtIO RNG
+
+* Provides consistent and fast entropy from the host.
+
+* Avoids significant delays for guest services dependent on random number generation.
+
+* Rate limiting ensures host CPU resources are not overused.
+
+***
+
+## Considerations
+
+* Ensure the host has sufficient entropy available to meet the demands of all connected VMs.
+
+* For high-security use cases, evaluate whether entropy sourced from `/dev/urandom` meets your requirements.
+
+***
+
+## Conclusion
+
+By configuring the VirtIO RNG or using a PRNG like `haveged`, you can significantly reduce startup delays for services on your guest VM and improve overall system performance.
