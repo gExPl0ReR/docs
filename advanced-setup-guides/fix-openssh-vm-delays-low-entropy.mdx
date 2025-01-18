@@ -1,0 +1,49 @@
+---
+title: 'Fix OpenSSH Delays on VMs Caused by Low Entropy'
+SidebarTitle: Fix OpenSSH Delays (Entropy)
+description: 'Learn how to resolve OpenSSH startup delays on virtual machines by feeding entropy from the host system using VirtIO RNG or other methods. Improve VM performance easily!'
+---
+
+# How to Feed a Guest VM with Sufficient Entropy from /dev/urandom
+
+## Problem: OpenSSH delays System Startup
+
+Guest virtual machines (VMs) can experience delays when starting services like `OpenSSHd` due to insufficient entropy. This is particularly noticeable during boot when services block while waiting for entropy from `/dev/[u]random` or `getrandom()` (in newer Linux releases). The lack of entropy results in delays, potentially extending boot time by up to a minute.
+
+## Solution Overview
+
+You can provide entropy to guest VMs directly from the host machine by using QEMU's ability to pass an entropy source, such as `/dev/urandom`, to the guest. This method ensures a consistent supply of entropy without overloading the host system.
+
+## What is Entropy?
+
+In the context of computing, entropy refers to the **randomness** collected by an operating system to perform cryptographic or other operations that require random data. Sources of entropy include hardware events such as mouse movements, keyboard inputs, or system interrupts.
+
+Entropy is crucial for ensuring the security and unpredictability of cryptographic keys, secure communications, and random number generation. In virtualized environments, where physical input events are limited, the available entropy may be insufficient, leading to delays in operations that rely on it.
+
+By providing additional entropy sources, such as through VirtIO RNG or other methods, guest virtual machines can overcome these limitations and ensure smooth performance of services that depend on randomness.
+
+***
+
+## Implementation Steps
+
+### 1. Use VirtIO RNG (Random Number Generator)
+
+VirtIO provides an efficient way to supply entropy to a guest VM. Follow these steps to enable it:
+
+**Edit the QEMU Command Line**
+Add the following parameters to the QEMU command line for your VM:
+
+```
+-object rng-random,id=rng0,filename=/dev/urandom \
+-device virtio-rng-pci,bus=pci.0,addr=0x1e,max-bytes=1024,period=1000
+```
+
+*rng-random:* Specifies the entropy source (`/dev/urandom`) from the host.
+
+*virtio-rng-pci:* Passes the entropy source to the guest using the VirtIO interface.
+
+*max-bytes* and *period*: Apply rate-limiting to prevent excessive CPU consumption by the entropy provider.
+
+**Ensure Compatibility**
+
+Guest systems with Linux kernels as old as version `2.6.32` can automatically use the VirtIO entropy source after a reboot. For older kernels or other OS types, ensure the VirtIO RNG driver is supported and enabled.
