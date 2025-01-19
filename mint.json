@@ -196,11 +196,11 @@
           "group": "File Transfer Methods",
           "pages": [
             "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods",
+            "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server",
             "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows",
-            "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux",
-            "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux",
             "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows",
-            "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server"
+            "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux",
+            "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux"
           ]
         },
         "advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox",
