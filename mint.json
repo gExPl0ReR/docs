@@ -230,7 +230,6 @@
           ]
         },
         "advanced-setup-guides/how-to-install-google-chrome-on-windows-server",
-        "advanced-setup-guides/fix-openssh-vm-delays-low-entropy",     
         "advanced-setup-guides/reset-forgotten-lost-administrator-password-on-windows-server",
         "advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps",
         "advanced-setup-guides/gui-versions-of-ubuntu-debian",
@@ -245,6 +244,7 @@
       "group": "Misc",
       "pages": [
         "misc/extending-180-day-trial-version-of-windows",
+        "misc/fix-openssh-vm-delays-low-entropy",
         "misc/edis-global-vps-reselling-and-discount-structure",
         "misc/reporting-abuse",
         "misc/fix-black-screen-windows-server",
