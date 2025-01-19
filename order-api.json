@@ -21,6 +21,12 @@
       "post": {
         "summary": "Hello Mehdi Retrieve the available payment methods for your order.",
         "description": "This endpoint allows you to fetch the available payment methods by providing your WHMCS credentials.\n",
+        "servers": [
+          {
+            "url": "https://order.edisglobal.com",
+            "description": "Specific endpoint for retrieving payment methods"
+          }
+        ],
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
