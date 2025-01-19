@@ -340,6 +340,7 @@
             ],
             "items": {
               "type": "string"
+              "description": "A list of available payment methods."
             }
           }
         }
