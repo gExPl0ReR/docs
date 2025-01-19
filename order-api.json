@@ -333,6 +333,7 @@
         "properties": {
           "methods": {
             "type": "array",
+            "description": "A list of available payment methods.",
             "example": [
               "Credit Card",
               "PayPal",
@@ -340,7 +341,6 @@
             ],
             "items": {
               "type": "string"
-              "description": "A list of available payment methods."
             }
           }
         }
