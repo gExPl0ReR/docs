@@ -22,7 +22,7 @@
   "paths": {
     "/kvm/v2/get/paymentmethods": {
       "post": {
-        "summary": "Retrieve the available payment methods for your order.",
+        "summary": "Hello Mehdi Retrieve the available payment methods for your order.",
         "description": "This endpoint allows you to fetch the available payment methods by providing your WHMCS credentials.\n",
         "requestBody": {
           "content": {
