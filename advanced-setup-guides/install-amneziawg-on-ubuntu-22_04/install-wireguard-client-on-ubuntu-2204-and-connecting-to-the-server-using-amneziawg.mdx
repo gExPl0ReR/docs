@@ -69,13 +69,13 @@ deb-src http://security.ubuntu.com/ubuntu jammy-security multiverse
 
 **Save and Exit**.
 
-### 2. Make upgrade system:
+### 2. Upgrade the System
 
 ```bash
 apt update && apt upgrade && apt-get full-upgrade && apt install resolvconf
 ```
 
-### 3. Install AmneziaWG on Ubuntu 22.04:
+### 3. Install AmneziaWG on Ubuntu 22.04
 
 ```bash
 apt install -y software-properties-common python3-launchpadlib gnupg2 linux-headers-$(uname -r)
@@ -97,7 +97,7 @@ If the command doesn't show any outputs execute this command:
 modprobe amneziawg && lsmod | grep amnezia
 ```
 
-### 4. Copy AmneziaWG client config on Linux(Ubuntu):
+### 4. Copy AmneziaWG client config to Linux (Ubuntu)
 
 Include the command:
 
