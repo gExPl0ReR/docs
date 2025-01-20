@@ -46,9 +46,9 @@
       "icon": "cloud",
       "url": "https://www.edisglobal.com/#start-now"
     }
-    ],
-    "tabs": [
-      {
+  ],
+  "tabs": [
+    {
       "name": "Order API Endpoints",
       "url": "order-api-reference",
       "pages": [
@@ -61,9 +61,9 @@
         "order-api-reference/get-service-id",
         "order-api-reference/get-kvm-id",
         "order-api-reference/cancel-vps"
-        ]
-        }
-    ],
+      ]
+    }
+  ],
   "navigation": [
     {
       "group": "Getting Started",
@@ -77,7 +77,8 @@
         "getting-started/ssh-security-hardening-guide",
         "getting-started/windows-remote-desktop",
         "getting-started/backups",
-        "getting-started/acceptable-use-policy"
+        "getting-started/acceptable-use-policy",
+        "getting-started/check-your-inbox"
       ]
     },
     {
@@ -98,7 +99,8 @@
         "vps-management/basic-ipv6-troubleshooting",
         "vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404",
         "vps-management/how-to-change-ip-address-in-windows-server",
-        "vps-management/your-support-pin"
+        "vps-management/your-support-pin",
+        "vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404"
       ]
     },
     {
@@ -175,7 +177,8 @@
                 "faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview",
                 "faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients"
               ]
-            }
+            },
+            "faq/traffic-bandwidth/traffic-stats-refill-explained"
           ]
         },
         {
@@ -217,7 +220,8 @@
             "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows",
             "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows",
             "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux",
-            "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux"
+            "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux",
+            "advanced-setup-guides/basic-ufw-debian-ubuntu"
           ]
         },
         "advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox",
@@ -268,9 +272,9 @@
         "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error"
       ]
     },
-  {
-    "group": "Order-API",
-    "pages": [
+    {
+      "group": "Order-API",
+      "pages": [
         "order-api-reference/order-api-welcome",
         "order-api-reference/order-vps",
         "order-api-reference/get-vps-plans",
@@ -280,9 +284,9 @@
         "order-api-reference/get-service-id",
         "order-api-reference/get-kvm-id",
         "order-api-reference/cancel-vps"
-    ]
-  }
-],
+      ]
+    }
+  ],
   "redirects": [
     {
       "source": "/everything-vps",
@@ -316,7 +320,10 @@
       "source": "/windows-remote-desktop",
       "destination": "/getting-started/windows-remote-desktop"
     },
-    { "source": "/backups", "destination": "/getting-started/backups" },
+    {
+      "source": "/backups",
+      "destination": "/getting-started/backups"
+    },
     {
       "source": "/acceptable-use-policy",
       "destination": "/getting-started/acceptable-use-policy"
@@ -401,7 +408,10 @@
       "source": "/free-trials-available",
       "destination": "/faq/free-trials-available"
     },
-    { "source": "/is-port-25-open", "destination": "/faq/is-port-25-open" },
+    {
+      "source": "/is-port-25-open",
+      "destination": "/faq/is-port-25-open"
+    },
     {
       "source": "/windows-rdp-service-available",
       "destination": "/faq/windows-rdp-service-available"
@@ -742,7 +752,10 @@
       "source": "/edis-global-vps-reselling-and-discount-structure",
       "destination": "/misc/edis-global-vps-reselling-and-discount-structure"
     },
-    { "source": "/reporting-abuse", "destination": "/misc/reporting-abuse" },
+    {
+      "source": "/reporting-abuse",
+      "destination": "/misc/reporting-abuse"
+    },
     {
       "source": "/fix-for-realvnc-closing-connection",
       "destination": "/misc/fix-for-realvnc-closing-connection"
