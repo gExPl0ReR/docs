@@ -30,7 +30,7 @@ Follow these steps to begin using the **EDIS Global ORDER API**:
 
 - **POST** `/kvm/v2/add/order`
   Places a new VPS order by specifying billing cycle, payment method, and product configurations in JSON format.
-  [Learn more](order-api-reference/order-vps)
+  [Learn more](https://docs.edisglobal.com/order-api-reference/order-vps)
 
   **Usage:** Include product configurations such as RAM, CPU, and OS, along with your WHMCS credentials.
 
@@ -38,7 +38,7 @@ Follow these steps to begin using the **EDIS Global ORDER API**:
 
 - **POST** `/kvm/v2/get/products`
   Fetches the available VPS plans and their configurations for a given location.
-  [Learn more](order-api-reference/get-vps-plans)
+  [Learn more](https://docs.edisglobal.com/order-api-reference/get-vps-plans)
 
   **Usage:** Use the location ID from `/get/locations` and authenticate.
 
@@ -46,7 +46,7 @@ Follow these steps to begin using the **EDIS Global ORDER API**:
 
 - **POST** `/kvm/v2/get/locations`
   Lists all available VPS locations across the globe.
-  [Learn more](order-api-reference/get-vps-locations)
+  [Learn more](https://docs.edisglobal.com/order-api-reference/get-vps-locations)
 
   **Usage:** Provide your WHMCS email and password to get location details.
 
@@ -54,7 +54,7 @@ Follow these steps to begin using the **EDIS Global ORDER API**:
 
 - **POST** `/kvm/v2/get/billingcycles`
   Fetches all available billing cycles for different VPS products.
-  [Learn more](order-api-reference/get-billing-cycles)
+  [Learn more](https://docs.edisglobal.com/order-api-reference/get-billing-cycles)
 
   **Usage:** Authenticate with your WHMCS credentials.
 
@@ -62,7 +62,7 @@ Follow these steps to begin using the **EDIS Global ORDER API**:
 
 - **POST** `/kvm/v2/get/paymentmethods`
   Retrieves a list of available payment methods for placing orders.
-  [Learn more](order-api-reference/get-payment-options)
+  [Learn more](https://docs.edisglobal.com/order-api-reference/get-payment-options)
 
   **Usage:** Provide your WHMCS email and password for authentication.
 
@@ -70,7 +70,7 @@ Follow these steps to begin using the **EDIS Global ORDER API**:
 
 - **POST** `/kvm/v2/get/serviceid`
   Retrieves the service ID linked to a specific KVM instance.
-  [Learn more](order-api-reference/get-service-id)
+  [Learn more](https://docs.edisglobal.com/order-api-reference/get-service-id)
 
   **Usage:** Provide WHMCS credentials and the KVM ID.
 
@@ -78,7 +78,7 @@ Follow these steps to begin using the **EDIS Global ORDER API**:
 
 - **POST** `/kvm/v2/get/kvmid`
   Retrieves the KVM ID for a specific service.
-  [Learn more](order-api-reference/get-kvm-id)
+  [Learn more](https://docs.edisglobal.com/order-api-reference/get-kvm-id)
 
   **Usage:** Provide your WHMCS email, password, and service ID.
 
@@ -86,7 +86,7 @@ Follow these steps to begin using the **EDIS Global ORDER API**:
 
 - **POST** `/kvm/v2/cancel/product`
   Cancels a specific product or VPS service.
-  [Learn more](order-api-reference/cancel-vps)
+  [Learn more](https://docs.edisglobal.com/order-api-reference/cancel-vps)
 
   **Usage:** Provide either the KVM ID or service ID with the cancellation type (Immediate or End of Billing Period).
 
