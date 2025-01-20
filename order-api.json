@@ -6,7 +6,10 @@
     "version": "1.0.0"
   },
   "servers": [
-
+    {
+      "url": "https://virtserver.swaggerhub.com/GERHARDKLEEWEIN/New-order-docs/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    },
     {
       "url": "https://api.orders.edisglobal.com/v1",
       "description": "Production Server"
@@ -19,14 +22,8 @@
   "paths": {
     "/kvm/v2/get/paymentmethods": {
       "post": {
-        "summary": "Hello Mehdi Retrieve the available payment methods for your order.",
-        "description": "This endpoint allows you to fetch the available payment methods by providing your WHMCS credentials.\n",
-        "servers": [
-          {
-            "url": "https://order.edisglobal.com",
-            "description": "Specific endpoint for retrieving payment methods"
-          }
-        ],
+        "summary": "Get Payment Options.",
+        "description": "Get payment methods by providing WHMCS account details.\n",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -49,18 +46,38 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters or missing fields."
+            "description": "Bad Request - Invalid parameters or missing fields.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized - Invalid WHMCS credentials."
+            "description": "Unauthorized - Invalid WHMCS credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
           }
-        }
+        },
+        "servers": [
+          {
+            "url": "https://order.edisglobal.com",
+            "description": "Specific endpoint for retrieving payment methods"
+          }
+        ]
       }
     },
     "/kvm/v2/get/billingcycles": {
       "post": {
-        "summary": "Get available billing cycles for different products.",
-        "description": "This endpoint retrieves the available billing cycles for various products by providing your WHMCS credentials.\n",
+        "summary": "Get Billing cycles.",
+        "description": "Get the available billing cycles for a variety of products by authenticating with your WHMCS account.\n",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -83,18 +100,38 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters or missing fields."
+            "description": "Bad Request - Invalid parameters or missing fields.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_1"
+                }
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized - Invalid WHMCS credentials."
+            "description": "Unauthorized - Invalid WHMCS credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_1"
+                }
+              }
+            }
           }
-        }
+        },
+        "servers": [
+          {
+            "url": "https://order.edisglobal.com",
+            "description": "Specific endpoint for retrieving billing cycles"
+          }
+        ]
       }
     },
     "/kvm/v2/get/serviceid": {
       "post": {
-        "summary": "Retrieve the service ID for a specific KVM instance.",
-        "description": "This endpoint allows you to fetch the service ID for a given KVM instance by providing your WHMCS credentials and the KVM ID.\n",
+        "summary": "Get Service-ID.",
+        "description": "Identify the service ID linked to a KVM instance by supplying your WHMCS credentials and KVM ID.\n",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -117,21 +154,48 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters or missing fields."
+            "description": "Bad Request - Invalid parameters or missing fields.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_2"
+                }
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized - Invalid WHMCS credentials."
+            "description": "Unauthorized - Invalid WHMCS credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_2"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found - The specified KVM instance does not exist."
+            "description": "Not Found - The specified KVM instance does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_404"
+                }
+              }
+            }
           }
-        }
+        },
+        "servers": [
+          {
+            "url": "https://order.edisglobal.com",
+            "description": "Specific endpoint for retrieving service ID"
+          }
+        ]
       }
     },
     "/kvm/v2/get/kvmid": {
       "post": {
-        "summary": "Retrieve the KVM ID for a specific service.",
-        "description": "This endpoint allows you to fetch the KVM ID for a given service by providing your WHMCS credentials and the service ID.\n",
+        "summary": "Get KVM-ID.",
+        "description": "Get the KVM ID for a specific service by providing your WHMCS login details and service ID.\n",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -154,21 +218,48 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters or missing fields."
+            "description": "Bad Request - Invalid parameters or missing fields.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_2"
+                }
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized - Invalid WHMCS credentials."
+            "description": "Unauthorized - Invalid WHMCS credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_2"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found - The specified service ID does not exist."
+            "description": "Not Found - The specified service ID does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_404_1"
+                }
+              }
+            }
           }
-        }
+        },
+        "servers": [
+          {
+            "url": "https://order.edisglobal.com",
+            "description": "Specific endpoint for retrieving KVM ID"
+          }
+        ]
       }
     },
     "/kvm/v2/get/locations": {
       "post": {
-        "summary": "Fetch all available VPS locations across the globe.",
-        "description": "This endpoint retrieves all the available VPS locations by providing your WHMCS credentials.\n",
+        "summary": "GEt VPS-Locations.",
+        "description": "Get details of available VPS locations using your WHMCS account credentials.\n",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -191,18 +282,38 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters or missing fields."
+            "description": "Bad Request - Invalid parameters or missing fields.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_3"
+                }
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized - Invalid WHMCS credentials."
+            "description": "Unauthorized - Invalid WHMCS credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_3"
+                }
+              }
+            }
           }
-        }
+        },
+        "servers": [
+          {
+            "url": "https://order.edisglobal.com",
+            "description": "Specific endpoint for retrieving VPS locations"
+          }
+        ]
       }
     },
     "/kvm/v2/get/products": {
       "post": {
-        "summary": "List the available VPS products and configurations.",
-        "description": "This endpoint allows you to retrieve a list of available VPS products and their configurations based on a specific location. You need to provide your WHMCS credentials and the location ID obtained from the `get locations` endpoint.\n",
+        "summary": "Get VPS-Plans.",
+        "description": "Get available VPS plans and their configurations for a given location using your WHMCS credentials and the location ID retrieved from the get locations endpoint.\n",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -220,26 +331,121 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/inline_response_200_5"
+                },
+                "example": {
+                  "data": false,
+                  "products": {
+                    "KVM SMART": {
+                      "id": 1382,
+                      "description": "1024 MB RAM\r\n15 GB SSD\r\n1 IPv4 + /64 IPv6\r\n1 TB Traffic\r\nKVM based",
+                      "addons": {
+                        "operating system": {
+                          "88": {
+                            "id": 88,
+                            "description": "Ubuntu LTS 20.04 64Bit"
+                          },
+                          "92": {
+                            "id": 92,
+                            "description": "alternative / manual installation via VNC"
+                          }
+                        },
+                        "additional ram": {
+                          "396": {
+                            "id": 396,
+                            "description": "+1GB"
+                          },
+                          "416": {
+                            "id": 416,
+                            "description": "no"
+                          }
+                        },
+                        "additional ip": {
+                          "8": {
+                            "id": 8,
+                            "description": "no additional IPs"
+                          },
+                          "9": {
+                            "id": 9,
+                            "description": "1 IP"
+                          }
+                        }
+                      }
+                    },
+                    "KVM STARTER": {
+                      "id": 1387,
+                      "description": "2048 MB RAM\r\n20 GB SSD\r\n1 IPv4 + /64 IPv6\r\n2 TB Traffic\r\nKVM based",
+                      "addons": {
+                        "operating system": {
+                          "208": {
+                            "id": 208,
+                            "description": "Debian 12 (Bookworm) 64Bit"
+                          }
+                        },
+                        "additional drive boost": {
+                          "605": {
+                            "id": 605,
+                            "description": "100GB"
+                          }
+                        }
+                      }
+                    },
+                    "global products": {
+                      "traffic pool": {
+                        "TOP UP TRAFFIC POOL 1 TB": {
+                          "id": 1872,
+                          "description": "EDIS has two traffic zones: Global traffic zone EUR 6,-- per 1 TB"
+                        }
+                      }
+                    }
+                  },
+                  "status": "success"
                 }
               }
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters or missing fields."
+            "description": "Bad Request - Invalid parameters or missing fields.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_4"
+                }
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized - Invalid WHMCS credentials."
+            "description": "Unauthorized - Invalid WHMCS credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_4"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found - The specified location ID does not exist."
+            "description": "Not Found - The specified location ID does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_404_2"
+                }
+              }
+            }
           }
-        }
+        },
+        "servers": [
+          {
+            "url": "https://order.edisglobal.com",
+            "description": "Specific endpoint for retrieving VPS products"
+          }
+        ]
       }
     },
     "/kvm/v2/add/order": {
       "post": {
-        "summary": "Add a new VPS order to the EDIS Global infrastructure.",
-        "description": "This endpoint allows you to place a new VPS order by providing your WHMCS credentials and order details in JSON format.\n",
+        "summary": "Order-VPS.",
+        "description": "Place a new VPS order by authenticating with your WHMCS credentials and specifying the order details in JSON format.\n\n### JSON Parameters:\n- **billingcycle**: Specifies the billing cycle, e.g., 'monthly' or 'yearly'.\n- **paymentmethod**: Specifies the payment method, e.g., 'paypal'.\n- **item**: An array of product configurations:\n  - **pid**: Product ID.\n  - **os**: Operating System ID.\n  - **hostname**: Hostname for the VPS.\n  - **additional_ram**: Additional RAM requested (optional).\n  - **additional_vcpu**: Additional vCPU requested (optional).\n  - **additional_ip**: Additional IPs requested (optional).\n  - **additional_diskboost**: Additional disk boost requested (optional).\n  - **ssh_pubkey**: Public SSH key for access.\n\n**Example JSON:**\n```json\n{\n  \"billingcycle\": \"monthly\",\n  \"paymentmethod\": \"paypal\",\n  \"item\": [\n    {\n      \"pid\": 1814,\n      \"os\": 92,\n      \"hostname\": \"kvmtest\",\n      \"additional_ram\": 467,\n      \"additional_vcpu\": 467,\n      \"additional_ip\": 467,\n      \"additional_diskboost\": 615,\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    },\n    {\n      \"pid\": 1814,\n      \"os\": 88,\n      \"hostname\": \"kvmtest2\",\n      \"additional_ram\": \"\",\n      \"additional_vcpu\": \"\",\n      \"additional_ip\": \"\",\n      \"additional_driveboost\": \"\",\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    }\n  ]\n}\n```\n",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -262,21 +468,48 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters or JSON format."
+            "description": "Bad Request - Invalid parameters or JSON format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_5"
+                }
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized - Invalid WHMCS credentials."
+            "description": "Unauthorized - Invalid WHMCS credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_5"
+                }
+              }
+            }
           },
           "500": {
-            "description": "Internal Server Error - Unable to process the order."
+            "description": "Internal Server Error - Unable to process the order.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
           }
-        }
+        },
+        "servers": [
+          {
+            "url": "https://order.edisglobal.com",
+            "description": "Specific endpoint for retrieving new VPS order"
+          }
+        ]
       }
     },
     "/kvm/v2/cancel/product": {
       "post": {
-        "summary": "Cancel a specific product or VPS service.",
-        "description": "This endpoint allows you to cancel a specific VPS product by providing either the KVM ID or the service ID along with the cancellation type.\n",
+        "summary": "Cancel-VPS.",
+        "description": "To cancel a VPS product, provide either the KVM ID or service ID, along with the type of cancellation you wish to proceed with.\n",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -299,15 +532,42 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters or missing fields."
+            "description": "Bad Request - Invalid parameters or missing fields.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_6"
+                }
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized - Invalid WHMCS credentials."
+            "description": "Unauthorized - Invalid WHMCS credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_6"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found - The specified KVM ID or service ID does not exist."
+            "description": "Not Found - The specified KVM ID or service ID does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_404_3"
+                }
+              }
+            }
           }
-        }
+        },
+        "servers": [
+          {
+            "url": "https://order.edisglobal.com",
+            "description": "Specific endpoint for retrieving cancel a VPS"
+          }
+        ]
       }
     }
   },
@@ -331,17 +591,40 @@
       "inline_response_200": {
         "type": "object",
         "properties": {
-          "methods": {
+          "paymentmethods": {
             "type": "array",
             "description": "A list of available payment methods.",
             "example": [
-              "Credit Card",
-              "PayPal",
-              "Bank Transfer"
+              "paypal",
+              "alipay",
+              "creditcard",
+              "cryptomus"
             ],
             "items": {
               "type": "string"
             }
+          },
+          "status": {
+            "type": "string",
+            "example": "success"
+          }
+        }
+      },
+      "inline_response_400": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Invalid parameters or missing fields."
+          }
+        }
+      },
+      "inline_response_401": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Invalid WHMCS credentials."
           }
         }
       },
@@ -363,16 +646,47 @@
       "inline_response_200_1": {
         "type": "object",
         "properties": {
-          "billing_cycles": {
+          "billingcycle": {
             "type": "array",
             "example": [
-              "Monthly",
-              "Quarterly",
-              "Yearly"
+              "monthly",
+              "quarterly",
+              "semiannually",
+              "annually"
             ],
             "items": {
               "type": "string"
             }
+          },
+          "status": {
+            "type": "string",
+            "example": "success"
+          }
+        }
+      },
+      "inline_response_400_1": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Invalid parameters or missing fields."
+          },
+          "status": {
+            "type": "string",
+            "example": "error"
+          }
+        }
+      },
+      "inline_response_401_1": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Invalid WHMCS credentials."
+          },
+          "status": {
+            "type": "string",
+            "example": "error"
           }
         }
       },
@@ -399,9 +713,56 @@
       "inline_response_200_2": {
         "type": "object",
         "properties": {
-          "service_id": {
+          "status": {
             "type": "string",
-            "example": "12345"
+            "example": "success"
+          },
+          "kvmid": {
+            "type": "string",
+            "example": "kvm_123456_789012"
+          },
+          "serviceid": {
+            "type": "integer",
+            "example": 987654
+          }
+        }
+      },
+      "inline_response_400_2": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid parameters or missing fields."
+          }
+        }
+      },
+      "inline_response_401_2": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid WHMCS credentials."
+          }
+        }
+      },
+      "inline_response_404": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "The specified KVM instance does not exist."
           }
         }
       },
@@ -428,9 +789,30 @@
       "inline_response_200_3": {
         "type": "object",
         "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
           "kvmid": {
             "type": "string",
-            "example": "kvm_xxxxxx_yyyyyyyy"
+            "example": "kvm_123456_789012"
+          },
+          "serviceid": {
+            "type": "string",
+            "example": "987654"
+          }
+        }
+      },
+      "inline_response_404_1": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "The specified service ID does not exist."
           }
         }
       },
@@ -453,15 +835,226 @@
         "type": "object",
         "properties": {
           "locations": {
+            "type": "object",
+            "example": {
+              "KVM Hong Kong": {
+                "id": 22
+              },
+              "KVM Iceland": {
+                "id": 24
+              },
+              "KVM Russia, St. Petersburg": {
+                "id": 31,
+                "headline": ""
+              },
+              "KVM Slovenia": {
+                "id": 36
+              },
+              "KVM Hungary": {
+                "id": 46
+              },
+              "KVM Bulgaria": {
+                "id": 51
+              },
+              "KVM Italy, Sicily, Palermo": {
+                "id": 52
+              },
+              "KVM Canada": {
+                "id": 57,
+                "headline": "Montreal, Canada"
+              },
+              "KVM Japan": {
+                "id": 62
+              },
+              "KVM Singapore": {
+                "id": 67
+              },
+              "KVM Israel": {
+                "id": 72
+              },
+              "KVM Chile": {
+                "id": 77
+              },
+              "KVM Moldova": {
+                "id": 78
+              },
+              "KVM Czech Republic": {
+                "id": 83,
+                "headline": "KVM Czech Republic"
+              },
+              "KVM Serbia": {
+                "id": 88,
+                "headline": ""
+              },
+              "KVM USA": {
+                "id": 93,
+                "headline": "New York Metropolitan Area"
+              },
+              "KVM Greece": {
+                "id": 94,
+                "headline": ""
+              },
+              "KVM Australia": {
+                "id": 100,
+                "headline": ""
+              },
+              "KVM Belgium": {
+                "id": 102,
+                "headline": "KVM vps in Brussels, Belgium"
+              },
+              "KVM Austria, Graz": {
+                "id": 107,
+                "headline": "KVM vps in Graz, Austria"
+              },
+              "KVM Germany": {
+                "id": 122,
+                "headline": "KVM vps in Frankfurt, Germany"
+              },
+              "KVM United Kingdom": {
+                "id": 127,
+                "headline": "KVM VPS in the City of London"
+              },
+              "KVM Sweden": {
+                "id": 132,
+                "headline": "KVM vps in Stockholm, Sweden"
+              },
+              "KVM France": {
+                "id": 137,
+                "headline": "KVM vps in Paris, France"
+              },
+              "KVM Poland": {
+                "id": 142,
+                "headline": "KVM vps in Warsaw, Poland"
+              },
+              "KVM Spain": {
+                "id": 147,
+                "headline": "KVM vps in Seville, Spain"
+              },
+              "KVM Italy, Milan": {
+                "id": 152,
+                "headline": "KVM vps in Milan, Italy"
+              },
+              "KVM Netherlands": {
+                "id": 157,
+                "headline": "KVM vps in Schiphol-Rijk (Amsterdam), Netherlands"
+              },
+              "KVM Romania": {
+                "id": 162,
+                "headline": "KVM vps in Bucharest, Romania"
+              },
+              "KVM Denmark": {
+                "id": 167,
+                "headline": "Copenhagen, Denmark"
+              },
+              "KVM Norway": {
+                "id": 172,
+                "headline": "KVM vps in Oslo, Norway"
+              },
+              "KVM United Arab Emirates": {
+                "id": 177,
+                "headline": "KVM vps in Dubai, United Arab Emirates"
+              },
+              "KVM Russia, Moscow": {
+                "id": 182,
+                "headline": "KVM vps in Moscow, Russia"
+              },
+              "KVM Austria, Vienna": {
+                "id": 192,
+                "headline": "KVM VPS/VDS in Vienna, Austria"
+              },
+              "KVM Lithuania": {
+                "id": 197,
+                "headline": "KVM vps in Vilnius, Lithuania"
+              },
+              "KVM Latvia": {
+                "id": 202,
+                "headline": "KVM vps in Riga, Latvia"
+              },
+              "KVM Croatia": {
+                "id": 207,
+                "headline": "KVM vps in Zagreb, Croatia"
+              },
+              "KVM North Macedonia": {
+                "id": 208,
+                "headline": "KVM vps in Skopje, North Macedonia"
+              },
+              "KVM USA, Miami": {
+                "id": 211,
+                "headline": ""
+              },
+              "KVM United Kingdom, London Docklands": {
+                "id": 212,
+                "headline": "NEW! London, Canary Wharf"
+              },
+              "KVM Austria, Vienna Danube": {
+                "id": 215,
+                "headline": "KVM VPS @ Vienna Interxion"
+              },
+              "KVM Colombia": {
+                "id": 217,
+                "headline": "KVM vps in Bogotá, Colombia"
+              },
+              "KVM USA, Los Angeles": {
+                "id": 219,
+                "headline": ""
+              },
+              "KVM Cyprus": {
+                "id": 221,
+                "headline": ""
+              },
+              "KVM Estonia": {
+                "id": 222,
+                "headline": "Tallinn, Estonia"
+              },
+              "KVM Switzerland, Zurich": {
+                "id": 223,
+                "headline": "KVM Switzerland, Zurich"
+              }
+            }
+          },
+          "status": {
+            "type": "string",
+            "example": "success"
+          }
+        }
+      },
+      "inline_response_400_3": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid parameters or missing fields."
+          },
+          "errors": {
             "type": "array",
             "example": [
-              "US-East",
-              "Europe-West",
-              "Asia-Pacific"
+              "email is required",
+              "password is required"
             ],
             "items": {
               "type": "string"
             }
+          }
+        }
+      },
+      "inline_response_401_3": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid WHMCS credentials."
+          },
+          "details": {
+            "type": "string",
+            "example": "The provided credentials are incorrect or expired."
           }
         }
       },
@@ -488,25 +1081,105 @@
       "inline_response_200_5": {
         "type": "object",
         "properties": {
+          "data": {
+            "type": "boolean",
+            "example": false
+          },
           "products": {
-            "type": "array",
-            "items": {
+            "type": "object",
+            "additionalProperties": {
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string",
-                  "example": "product_123"
+                  "type": "integer",
+                  "example": 1234
                 },
-                "name": {
+                "description": {
                   "type": "string",
-                  "example": "Standard VPS Plan"
+                  "example": "1024 MB RAM, 15 GB SSD, 1 IPv4 + /64 IPv6, 1 TB Traffic"
                 },
-                "price": {
-                  "type": "string",
-                  "example": "$20/month"
+                "addons": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 567
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Ubuntu LTS 22.04 64Bit"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
+          },
+          "status": {
+            "type": "string",
+            "example": "success"
+          }
+        }
+      },
+      "inline_response_400_4": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid parameters or missing fields."
+          },
+          "errors": {
+            "type": "array",
+            "example": [
+              "location ID is required",
+              "invalid email format"
+            ],
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "inline_response_401_4": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid WHMCS credentials provided."
+          },
+          "suggestion": {
+            "type": "string",
+            "example": "Please check your username and password and try again."
+          }
+        }
+      },
+      "inline_response_404_2": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "The specified location ID does not exist."
+          },
+          "hint": {
+            "type": "string",
+            "example": "Please verify the location ID and ensure it is correct."
           }
         }
       },
@@ -525,17 +1198,86 @@
           },
           "order": {
             "type": "string",
-            "description": "JSON-encoded string containing order details including billing cycle, payment method, and item configurations.\n",
-            "example": "{\"billingcycle\":\"monthly\",\"paymentmethod\":\"paypal\",\"item\":[{\"pid\":1814,\"os\":92,\"hostname\":\"kvmtest\",\"additional_ram\":467,\"additional_vcpu\":467,\"additional_ip\":467,\"additional_diskboost\":615,\"ssh_pubkey\":\"ssh-rsa. ...\"},{\"pid\":1814,\"os\":88,\"hostname\":\"kvmtest2\",\"additional_ram\":\"\",\"additional_vcpu\":\"\",\"additional_ip\":\"\",\"additional_driveboost\":\"\",\"ssh_pubkey\":\"ssh-rsa. ...\"}]}\n"
+            "description": "JSON-encoded string that includes order details such as billing cycle, payment method, and VPS item configurations. Each item specifies properties like product ID (pid), operating system (os), hostname, additional resources (RAM, vCPU, IP), and an optional SSH public key.",
+            "example": "{\n  \"billingcycle\": \"monthly\",\n  \"paymentmethod\": \"paypal\",\n  \"item\": [\n    {\n      \"pid\": 1814,\n      \"os\": 92,\n      \"hostname\": \"kvmtest\",\n      \"additional_ram\": 467,\n      \"additional_vcpu\": 467,\n      \"additional_ip\": 467,\n      \"additional_diskboost\": 615,\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    },\n    {\n      \"pid\": 1814,\n      \"os\": 88,\n      \"hostname\": \"kvmtest2\",\n      \"additional_ram\": \"\",\n      \"additional_vcpu\": \"\",\n      \"additional_ip\": \"\",\n      \"additional_driveboost\": \"\",\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    }\n  ]\n}\n"
           }
         }
       },
       "inline_response_200_6": {
         "type": "object",
         "properties": {
-          "order_id": {
+          "status": {
             "type": "string",
-            "example": "order_12345"
+            "example": "success"
+          },
+          "orderid": {
+            "type": "integer",
+            "example": 123456
+          },
+          "serviceids": {
+            "type": "string",
+            "example": "123456,123457"
+          },
+          "invoiceid": {
+            "type": "integer",
+            "example": 654321
+          }
+        }
+      },
+      "inline_response_400_5": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid parameters or incorrect JSON format."
+          },
+          "errors": {
+            "type": "array",
+            "example": [
+              "billingcycle is required",
+              "invalid JSON structure"
+            ],
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "inline_response_401_5": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid WHMCS credentials provided."
+          },
+          "suggestion": {
+            "type": "string",
+            "example": "Please verify your username and password and try again."
+          }
+        }
+      },
+      "inline_response_500": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "An unexpected error occurred while processing the order."
+          },
+          "support": {
+            "type": "string",
+            "example": "Please contact support with the order details for assistance."
           }
         }
       },
@@ -574,7 +1316,72 @@
         "properties": {
           "status": {
             "type": "string",
-            "example": "Cancellation successful"
+            "example": "success"
+          },
+          "serviceid": {
+            "type": "integer",
+            "example": 123456
+          },
+          "clientid": {
+            "type": "integer",
+            "nullable": true
+          }
+        }
+      },
+      "inline_response_400_6": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid parameters or missing required fields."
+          },
+          "errors": {
+            "type": "array",
+            "example": [
+              "service ID is required",
+              "cancellation type is invalid"
+            ],
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "inline_response_401_6": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid WHMCS credentials provided."
+          },
+          "suggestion": {
+            "type": "string",
+            "example": "Please check your credentials and try again."
+          }
+        }
+      },
+      "inline_response_404_3": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "The specified KVM ID or service ID does not exist."
+          },
+          "hint": {
+            "type": "string",
+            "example": "Please verify the provided KVM ID or service ID and try again."
           }
         }
       }
