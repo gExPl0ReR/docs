@@ -3,7 +3,7 @@ title: "Install WireGuard Client on Ubuntu 22.04 and Connecting to the server us
 description: "Learn how to install the WireGuard client on Ubuntu 22.04 and connect to a VPN using amneziawg configuration. Step-by-step guide for a secure and seamless VPN setup."
 ---
 
-To connect to a Wideguard VPN from your local machine to a remote server using the amneziawg configuration file you previously received from the configured server, follow these steps. This guide assumes you are using Ubuntu 22.04. You’ll need to install the WireGuard software, configure it, and initiate the VPN connection. Here's how to do it:
+To connect to a Wideguard VPN from your local machine to a remote server using the AmneziaWG configuration file you previously received from the configured server, follow these steps. This guide assumes you are using Ubuntu 22.04. You’ll need to install the WireGuard software, configure it, and initiate the VPN connection. Here's how to do it:
 
 ### 1. Change sources.list on the client's operation system:
 
@@ -97,7 +97,7 @@ If the command doesn't show any outputs execute this command:
 modprobe amneziawg && lsmod | grep amnezia
 ```
 
-### 3. Copy amneziawg config on Linux(Ubuntu):
+### 4. Copy amneziawg client config on Linux(Ubuntu):
 
 Include the command:
 
@@ -117,7 +117,7 @@ Where:
 
 * /etc/amnezia/amneziawg/ - the local directory on your Linux machine
 
-### 4. Get Your WireGuard Configuration
+### 5. Get Your WireGuard Configuration
 
 The Amnezia wireguard configuration file must be downloaded from VPS. The `.conf` file, is usually in the following format:
 
@@ -146,7 +146,7 @@ PublicKey = 7gExcFjYZ6rR5nU7F3xzrDQchtGu4OCxEwGjSlRGwnE=
 
 Save this file with a `.conf` extension, e.g., `wg0.conf`.
 
-### 5. Move Configuration to AmneziaWG Directory
+### 6. Move Configuration to AmneziaWG Directory
 
 Move your configuration file to AmneziaWG’s directory, where wg-client1.conf this is a client config that was previously downloaded from the server:
 
@@ -160,7 +160,7 @@ Ensure the file permissions are restricted to prevent unauthorized access:
 sudo chmod 600 /etc/amnezia/amneziawg/wg0.conf
 ```
 
-### 6. Start the WireGuard VPN Connection
+### 7. Start the WireGuard VPN Connection
 
 To start the VPN connection using the configuration file, run the following command:
 
@@ -170,7 +170,7 @@ sudo awg-quick up wg0
 
 If everything is configured properly, you'll be connected to the WireGuard VPN.
 
-### 7. Verify the Connection
+### 8. Verify the Connection
 
 To check if the connection is active, use:
 
@@ -181,7 +181,7 @@ ip
 
 This command shows details about the active WireGuard connection, such as the interface name, peer details, and data transfer statistics.
 
-### 8. Disconnect from the VPN
+### 9. Disconnect from the VPN
 
 To stop the VPN connection, use:
 
@@ -189,7 +189,7 @@ To stop the VPN connection, use:
 sudo awg-quick down wg0
 ```
 
-### 9. Optionally Enable WireGuard on Boot
+### 10. Optionally Enable WireGuard on Boot
 
 If you want the VPN to start automatically on boot, you can enable it with:
 
@@ -213,7 +213,7 @@ sudo systemctl disable awg-quick@wg0
 sudo journalctl -xe
 ```
 
-Following these steps, you should be able to connect to amneziawg on Ubuntu.
+Following these steps, you should be able to connect to AmneziaWG on Ubuntu.
 
 Links:
 
