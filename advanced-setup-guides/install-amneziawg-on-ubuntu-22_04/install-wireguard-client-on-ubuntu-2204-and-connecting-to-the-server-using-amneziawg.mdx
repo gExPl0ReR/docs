@@ -5,33 +5,104 @@ description: "Learn how to install the WireGuard client on Ubuntu 22.04 and conn
 
 To connect to a Wideguard VPN from your local machine to a remote server using the amneziawg configuration file you previously received from the configured server, follow these steps. This guide assumes you are using Ubuntu 22.04. You’ll need to install the WireGuard software, configure it, and initiate the VPN connection. Here's how to do it:
 
-### 1. Install WireGuard
+### 1. Change sources.list on the client's operation system:
 
-Open a terminal and update your package lists:
-
-```shell
-sudo apt update
-```
-
-Then install WireGuard.
-For Debian-based systems (like Ubuntu), use:
+Open a terminal and back up your sources.list:
 
 ```shell
-sudo apt update && sudo apt install wireguard
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
 ```
 
-For Red Hat-based systems (like CentOS or Fedora), use:
+Edit the File:
 
 ```shell
-sudo dnf install wireguard-tools
+nano /etc/apt/sources.list
 ```
 
-### 2. Copy amneziawg config on Linux(Ubuntu):
+**Uncomment deb-src Lines**: Remove the `#` from the beginning of any `deb-src` lines you want to activate.
+
+```shell
+#Example sources.list file for Ubuntu 22.04
+# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to
+# newer versions of the distribution.
+deb http://archive.ubuntu.com/ubuntu jammy main restricted
+deb-src http://archive.ubuntu.com/ubuntu jammy main restricted
+
+## Major bug fix updates produced after the final release of the
+## distribution.
+deb http://archive.ubuntu.com/ubuntu jammy-updates main restricted
+deb-src http://archive.ubuntu.com/ubuntu jammy-updates main restricted
+
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team. Also, please note that software in universe WILL NOT receive any
+## review or updates from the Ubuntu security team.
+deb http://archive.ubuntu.com/ubuntu jammy universe
+deb-src http://archive.ubuntu.com/ubuntu jammy universe
+deb http://archive.ubuntu.com/ubuntu jammy-updates universe
+deb-src http://archive.ubuntu.com/ubuntu jammy-updates universe
+
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team, and may not be under a free licence. Please satisfy yourself as to
+## your rights to use the software. Also, please note that software in
+## multiverse WILL NOT receive any review or updates from the Ubuntu
+## security team.
+deb http://archive.ubuntu.com/ubuntu jammy multiverse
+deb-src http://archive.ubuntu.com/ubuntu jammy multiverse
+deb http://archive.ubuntu.com/ubuntu jammy-updates multiverse
+deb-src http://archive.ubuntu.com/ubuntu jammy-updates multiverse
+
+## N.B. software from this repository may not have been tested as
+## extensively as that contained in the main release, although it includes
+## newer versions of some applications which may provide useful features.
+## Also, please note that software in backports WILL NOT receive any review
+## or updates from the Ubuntu security team.
+deb http://archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse
+
+deb http://security.ubuntu.com/ubuntu jammy-security main restricted
+deb-src http://security.ubuntu.com/ubuntu jammy-security main restricted
+deb http://security.ubuntu.com/ubuntu jammy-security universe
+deb-src http://security.ubuntu.com/ubuntu jammy-security universe
+deb http://security.ubuntu.com/ubuntu jammy-security multiverse
+deb-src http://security.ubuntu.com/ubuntu jammy-security multiverse
+```
+
+**Save and Exit**.
+
+### 2. Make upgrade system:
+
+```bash
+apt update && apt upgrade && apt-get full-upgrade && apt install resolvconf
+```
+
+### 3. Install AmneziaWG on Ubuntu 22.04:
+
+```bash
+apt install -y software-properties-common python3-launchpadlib gnupg2 linux-headers-$(uname -r)
+
+add-apt-repository ppa:amnezia/ppa
+
+apt-get install -y amneziawg
+```
+
+Check the availability of all necessary drivers in the system:
+
+```bash
+lsmod | grep amnezia
+```
+
+If the command doesn't show any outputs execute this command:
+
+```bash
+modprobe amneziawg && lsmod | grep amnezia
+```
+
+### 3. Copy amneziawg config on Linux(Ubuntu):
 
 Include the command:
 
 ```shell
-scp [username]@[server-ip-address]:/root/awg/wg-client1.conf /etc/wireguard/
+scp [username]@[server-ip-address]:/root/awg/wg-client1.conf /etc/amnezia/amneziawg/
 ```
 
 Where:
@@ -44,9 +115,9 @@ Where:
 
 * wg-client1.conf - wireguard config file
 
-* /etc/wireguard/ - the local directory on your Linux machine
+* /etc/amnezia/amneziawg/ - the local directory on your Linux machine
 
-### 2. Get Your WireGuard Configuration
+### 4. Get Your WireGuard Configuration
 
 The Amnezia wireguard configuration file must be downloaded from VPS. The `.conf` file, is usually in the following format:
 
@@ -75,60 +146,61 @@ PublicKey = 7gExcFjYZ6rR5nU7F3xzrDQchtGu4OCxEwGjSlRGwnE=
 
 Save this file with a `.conf` extension, e.g., `wg0.conf`.
 
-### 3. Move Configuration to WireGuard Directory
+### 5. Move Configuration to AmneziaWG Directory
 
-Move your configuration file to WireGuard’s directory, where wg0.conf this is a client config that was previously downloaded from the server:
+Move your configuration file to AmneziaWG’s directory, where wg-client1.conf this is a client config that was previously downloaded from the server:
 
 ```shell
-sudo mv wg0.conf /etc/wireguard/
+sudo mv /etc/amnezia/amneziawg/wg-client1.conf /etc/amnezia/amneziawg/wg0.conf
 ```
 
 Ensure the file permissions are restricted to prevent unauthorized access:
 
 ```shell
-sudo chmod 600 /etc/wireguard/wg0.conf
+sudo chmod 600 /etc/amnezia/amneziawg/wg0.conf
 ```
 
-### 4. Start the WireGuard VPN Connection
+### 6. Start the WireGuard VPN Connection
 
 To start the VPN connection using the configuration file, run the following command:
 
 ```shell
-sudo wg-quick up wg0
+sudo awg-quick up wg0
 ```
 
 If everything is configured properly, you'll be connected to the WireGuard VPN.
 
-### 5. Verify the Connection
+### 7. Verify the Connection
 
 To check if the connection is active, use:
 
 ```shell
-sudo wg
+awg show
+ip 
 ```
 
 This command shows details about the active WireGuard connection, such as the interface name, peer details, and data transfer statistics.
 
-### 6. Disconnect from the VPN
+### 8. Disconnect from the VPN
 
 To stop the VPN connection, use:
 
 ```shell
-sudo wg-quick down wg0
+sudo awg-quick down wg0
 ```
 
-### 7. Optionally Enable WireGuard on Boot
+### 9. Optionally Enable WireGuard on Boot
 
 If you want the VPN to start automatically on boot, you can enable it with:
 
 ```shell
-sudo systemctl enable wg-quick@wg0
+sudo systemctl enable awg-quick@wg0
 ```
 
 To disable it from starting on boot, use:
 
 ```shell
-sudo systemctl disable wg-quick@wg0
+sudo systemctl disable awg-quick@wg0
 ```
 
 ### Troubleshooting Tips:
@@ -142,3 +214,11 @@ sudo journalctl -xe
 ```
 
 Following these steps, you should be able to connect to amneziawg on Ubuntu.
+
+Links:
+
+* [https://github.com/amnezia-vpn/amneziawg-linux-kernel-module](https://github.com/amnezia-vpn/amneziawg-linux-kernel-module)
+
+* [https://github.com/amnezia-vpn/amnezia-client](https://github.com/amnezia-vpn/amnezia-client)
+
+* [https://docs.amnezia.org/documentation/supported-platforms/](https://docs.amnezia.org/documentation/supported-platforms/)
