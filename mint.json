@@ -52,6 +52,7 @@
       "name": "Order API Endpoints",
       "url": "order-api-reference",
       "pages": [
+        "order-api-reference/order-api-welcome",
         "order-api-reference/order-vps",
         "order-api-reference/get-vps-plans",
         "order-api-reference/get-vps-locations",
@@ -270,7 +271,8 @@
   {
     "group": "Order-API",
     "pages": [
-      "order-api-reference/order-vps",
+        "order-api-reference/order-api-welcome",
+        "order-api-reference/order-vps",
         "order-api-reference/get-vps-plans",
         "order-api-reference/get-vps-locations",
         "order-api-reference/get-billing-cycles",
