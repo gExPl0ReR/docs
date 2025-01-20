@@ -16,10 +16,10 @@ Our **ORDER API** allows seamless integration with our infrastructure to automat
 
 Follow these steps to begin using the **EDIS Global ORDER API**:
 
-1. **Authentication** 🔑  
+1. **Authentication** 🔑
    Ensure you are authenticated using your WHMCS username and password.
 
-2. **Explore the Endpoints** 🌐  
+2. **Explore the Endpoints** 🌐
    Use the API endpoints to explore available server locations, configure and order VPS hosting plans, lookup and configure payment methods and billing cycles, and submit cancellations.
 
 ---
@@ -28,64 +28,64 @@ Follow these steps to begin using the **EDIS Global ORDER API**:
 
 ### 1. **Order VPS**
 
-- **POST** `/kvm/v2/add/order`  
-  Places a new VPS order by specifying billing cycle, payment method, and product configurations in JSON format.  
+- **POST** `/kvm/v2/add/order`
+  Places a new VPS order by specifying billing cycle, payment method, and product configurations in JSON format.
   [Learn more](order-vps)
 
   **Usage:** Include product configurations such as RAM, CPU, and OS, along with your WHMCS credentials.
 
 ### 2. **Get VPS Plans**
 
-- **POST** `/kvm/v2/get/products`  
-  Fetches the available VPS plans and their configurations for a given location.  
-  [Learn more](get-vps-plans)
+- **POST** `/kvm/v2/get/products`
+  Fetches the available VPS plans and their configurations for a given location.
+  [Learn more](/get-vps-plans)
 
   **Usage:** Use the location ID from `/get/locations` and authenticate.
 
 ### 3. **Get VPS Locations**
 
-- **POST** `/kvm/v2/get/locations`  
-  Lists all available VPS locations across the globe.  
+- **POST** `/kvm/v2/get/locations`
+  Lists all available VPS locations across the globe.
   [Learn more](get-vps-locations)
 
   **Usage:** Provide your WHMCS email and password to get location details.
 
 ### 4. **Get Billing Cycles**
 
-- **POST** `/kvm/v2/get/billingcycles`  
-  Fetches all available billing cycles for different VPS products.  
+- **POST** `/kvm/v2/get/billingcycles`
+  Fetches all available billing cycles for different VPS products.
   [Learn more](get-billing-cycles)
 
   **Usage:** Authenticate with your WHMCS credentials.
 
 ### 5. **Get Payment Methods**
 
-- **POST** `/kvm/v2/get/paymentmethods`  
-  Retrieves a list of available payment methods for placing orders.  
+- **POST** `/kvm/v2/get/paymentmethods`
+  Retrieves a list of available payment methods for placing orders.
   [Learn more](get-payment-options)
 
   **Usage:** Provide your WHMCS email and password for authentication.
 
 ### 6. **Get Service ID**
 
-- **POST** `/kvm/v2/get/serviceid`  
-  Retrieves the service ID linked to a specific KVM instance.  
+- **POST** `/kvm/v2/get/serviceid`
+  Retrieves the service ID linked to a specific KVM instance.
   [Learn more](get-service-id)
 
   **Usage:** Provide WHMCS credentials and the KVM ID.
 
 ### 7. **Get KVM ID**
 
-- **POST** `/kvm/v2/get/kvmid`  
-  Retrieves the KVM ID for a specific service.  
+- **POST** `/kvm/v2/get/kvmid`
+  Retrieves the KVM ID for a specific service.
   [Learn more](get-kvm-id)
 
   **Usage:** Provide your WHMCS email, password, and service ID.
 
 ### 8. **Cancel VPS**
 
-- **POST** `/kvm/v2/cancel/product`  
-  Cancels a specific product or VPS service.  
+- **POST** `/kvm/v2/cancel/product`
+  Cancels a specific product or VPS service.
   [Learn more](cancel-vps)
 
   **Usage:** Provide either the KVM ID or service ID with the cancellation type (Immediate or End of Billing Period).
@@ -98,5 +98,5 @@ Each endpoint provides detailed error handling, including **400 (Bad Request)**,
 
 For more details on the EDIS Global ORDER API, explore the full documentation using the sidebar or reach out to us for any questions or assistance.
 
-**Happy Coding!**  
+**Happy Coding!**
 *The EDIS Global Team*
