@@ -47,6 +47,22 @@
       "url": "https://www.edisglobal.com/#start-now"
     }
     ],
+    "tabs": [
+      {
+      "name": "Order API Endpoints",
+      "url": "order-api-reference",
+      "pages": [
+        "order-api-reference/order-vps",
+        "order-api-reference/get-vps-plans",
+        "order-api-reference/get-vps-locations",
+        "order-api-reference/get-billing-cycles",
+        "order-api-reference/get-payment-options",
+        "order-api-reference/get-service-id",
+        "order-api-reference/get-kvm-id",
+        "order-api-reference/cancel-vps"
+        ]
+        }
+    ],
   "navigation": [
     {
       "group": "Getting Started",
