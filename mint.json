@@ -250,8 +250,21 @@
         "misc/manual-windows-server-installation-on-kvm",
         "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error"
       ]
-    }
-  ],
+    },
+  {
+    "group": "Order-API",
+    "pages": [
+      "order-api-reference/cancel-vps",
+      "order-api-reference/get-billing-cycles",
+      "order-api-reference/get-kvm-id",
+      "order-api-reference/get-payment-options",
+      "order-api-reference/get-service-id",
+      "order-api-reference/get-vps-locations",
+      "order-api-reference/get-vps-plans",
+      "order-api-reference/order-vps"
+    ]
+  }
+],
   "redirects": [
     {
       "source": "/everything-vps",
