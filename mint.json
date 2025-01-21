@@ -730,6 +730,9 @@
       "source": "/installing-openvpn-with-turnkey",
       "destination": "/advanced-setup-guides/installing-openvpn-with-turnkey"
     },
+      "source": "/advanced-setup-guides/fix-openssh-vm-delays-low-entropy",
+      "destination": "/misc/fix-openssh-vm-delays-low-entropy"
+    },
     {
       "source": "/ufw-uncomplicated-firewall-howto",
       "destination": "/advanced-setup-guides/ufw-uncomplicated-firewall-howto"
