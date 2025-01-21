@@ -1,0 +1,3393 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "EDIS Global Management API",
+    "description": "Use the API to access and manage your VPS services, including power control, rDNS, and VNC management.  \n**Authentication:** Enable API access on any KVM VPS you own. Then use the provided credentials to authenticate your requests.\n",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/GERHARDKLEEWEIN/New-edis-api-doc/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    },
+    {
+      "url": "https://api.edisglobal.com/v1",
+      "description": "Production Server"
+    },
+    {
+      "url": "https://sandbox.api.edisglobal.com/v1",
+      "description": "Sandbox Server"
+    },
+    {
+      "url": "https://session.edisglobal.com",
+      "description": "Session Authentication Server"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Authentication",
+      "description": "Create an AUTH Session"
+    },
+    {
+      "name": "Power Management",
+      "description": "KVM Power Management"
+    },
+    {
+      "name": "Installation",
+      "description": "ISO, Turnkey, Reinstall"
+    },
+    {
+      "name": "Settings",
+      "description": "KVM System Settings"
+    },
+    {
+      "name": "Collect Information",
+      "description": "KVM VPS Details."
+    },
+    {
+      "name": "VNC Management",
+      "description": "KVM VNC Access"
+    },
+    {
+      "name": "PTR",
+      "description": "KVM Reverse DNS"
+    },
+    {
+      "name": "Traffic Pool",
+      "description": "Traffic Pool Management"
+    },
+    {
+      "name": "Hooks",
+      "description": "KVM Webhook Management"
+    }
+  ],
+  "paths": {
+    "/kvm/v2/get/auth": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Create AUTH-session",
+        "description": "This endpoint creates an authentication session to manage your KVM VPS.  \nProvide your WHMCS credentials (`email` and `pw`) to authenticate your requests.  \nOptionally, you can include `kvm_id` to filter the session to a specific KVM.\n",
+        "operationId": "createAuthSession",
+        "requestBody": {
+          "description": "Required credentials to authenticate and create a session. Optionally, you can include `kvm_id` to target a specific KVM.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_auth_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Authentication session created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid credentials or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid WHMCS credentials."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://session.edisglobal.com",
+            "description": "Session Authentication Server"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/set/reset": {
+      "post": {
+        "tags": [
+          "Power Management"
+        ],
+        "summary": "hard reset",
+        "description": "This endpoint performs a hard reset on the specified KVM VPS.  \nThe `api_host` value is returned from the \"get session\" call and replaces `xxxxx.edisglobal.com` in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` obtained from the \"get session\" call.\n",
+        "operationId": "performHardReset",
+        "requestBody": {
+          "description": "Required parameters to execute the hard reset.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_reset_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The KVM VPS was successfully reset.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_1"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Power Management Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is unique for each server and must be dynamically set.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/get/power": {
+      "post": {
+        "tags": [
+          "Power Management"
+        ],
+        "summary": "power state",
+        "description": "This endpoint retrieves the power state of the specified KVM VPS.  \nThe `api_host` value is returned from the \"get session\" call and replaces `xxxxx.edisglobal.com` in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` obtained from the \"get session\" call.\n",
+        "operationId": "getPowerState",
+        "requestBody": {
+          "description": "Required parameters to retrieve the power state.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_power_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The power state of the KVM VPS was retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_2"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Power Management Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is unique for each server and must be dynamically set.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/set/poweron": {
+      "post": {
+        "tags": [
+          "Power Management"
+        ],
+        "summary": "Power on",
+        "description": "This endpoint powers on the specified KVM VPS.  \nProvide the `signature`, `kvm_id`, and `valid_until` obtained from the \"get session\" call.\n",
+        "operationId": "powerOnVPS",
+        "requestBody": {
+          "description": "Required parameters to power on the VPS.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_poweron_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The KVM VPS was successfully powered on.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_3"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Replace `xxxxx` with the `api_host` value returned from the \"get session\" call."
+          }
+        ]
+      }
+    },
+    "/kvm/v2/set/poweroff": {
+      "post": {
+        "tags": [
+          "Power Management"
+        ],
+        "summary": "Power off",
+        "description": "This endpoint powers off the specified KVM VPS.  \nProvide the `signature`, `kvm_id`, and `valid_until` obtained from the \"get session\" call.\n",
+        "operationId": "powerOffVPS",
+        "requestBody": {
+          "description": "Required parameters to power off the VPS.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_poweroff_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The KVM VPS was successfully powered off.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_4"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Replace `xxxxx` with the `api_host` value returned from the \"get session\" call."
+          }
+        ]
+      }
+    },
+    "/kvm/v2/get/isos": {
+      "post": {
+        "tags": [
+          "Installation"
+        ],
+        "summary": "ISO installation",
+        "description": "This endpoint retrieves a list of available ISO files that can be used for installation on the specified KVM VPS.  \nThe `api_host` value is returned from the \"get session\" call and replaces `xxxxx.edisglobal.com` in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` obtained from the \"get session\" call.\n",
+        "operationId": "getISOList",
+        "requestBody": {
+          "description": "Required parameters to retrieve the ISO list.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_isos_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "A list of available ISO files retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inline_response_200_5"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Installation Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/get/turnkey_images": {
+      "post": {
+        "tags": [
+          "Installation"
+        ],
+        "summary": "turnkey images",
+        "description": "This endpoint retrieves a list of available turnkey images for the specified KVM VPS.  \nThe `api_host` value is returned from the \"get session\" call and replaces `xxxxx.edisglobal.com` in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` obtained from the \"get session\" call.\n",
+        "operationId": "getTurnkeyImages",
+        "requestBody": {
+          "description": "Required parameters to retrieve the list of turnkey images.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_turnkey_images_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "A list of available turnkey images retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inline_response_200_6"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Installation Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/set/reinstall": {
+      "post": {
+        "tags": [
+          "Installation"
+        ],
+        "summary": "Reinstall",
+        "description": "This endpoint reinstalls the operating system on the specified KVM VPS.  \nThe `api_host` value is returned from the \"get session\" call and replaces `xxxxx.edisglobal.com` in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and other required parameters to execute the reinstallation.\n",
+        "operationId": "reinstallVPS",
+        "requestBody": {
+          "description": "Required parameters to reinstall the operating system.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_reinstall_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The operating system was successfully reinstalled on the VPS.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_7"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Installation Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/set/turnkey_reinstall": {
+      "post": {
+        "tags": [
+          "Installation"
+        ],
+        "summary": "Reinstall with turnkey",
+        "description": "This endpoint reinstalls the operating system on the specified KVM VPS using a turnkey image.  \nThe `api_host` value is returned from the \"get session\" call and replaces `xxxxx.edisglobal.com` in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and `image` parameters to execute the reinstallation.\n",
+        "operationId": "reinstallWithTurnkeyImage",
+        "requestBody": {
+          "description": "Required parameters to reinstall the operating system using a turnkey image.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_turnkey_reinstall_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The operating system was successfully reinstalled using the specified turnkey image.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_7"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Installation Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/set/mount": {
+      "post": {
+        "tags": [
+          "Installation"
+        ],
+        "summary": "Mount ISO",
+        "description": "This endpoint mounts an ISO file to the specified KVM VPS.  \nThe `api_host` value is returned from the \"get session\" call and replaces `xxxxx.edisglobal.com` in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and `iso` parameters.  \nOptionally, you can include `force_reset` to reset the VPS and boot from the mounted ISO.\n",
+        "operationId": "mountISO",
+        "requestBody": {
+          "description": "Required parameters to mount an ISO to the VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_mount_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The ISO was successfully mounted to the VPS.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_8"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Installation Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/set/umount": {
+      "post": {
+        "tags": [
+          "Installation"
+        ],
+        "summary": "Unmount ISO",
+        "description": "This endpoint unmounts the currently mounted ISO file from the specified KVM VPS.  \nThe `api_host` value is returned from the \"get session\" call and replaces `xxxxx.edisglobal.com` in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to execute the unmount operation.\n",
+        "operationId": "umountISO",
+        "requestBody": {
+          "description": "Required parameters to unmount an ISO from the VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_umount_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The ISO was successfully unmounted from the VPS.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_9"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Installation Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/set/download_iso": {
+      "post": {
+        "tags": [
+          "Installation"
+        ],
+        "summary": "Download custom ISO",
+        "description": "This endpoint downloads a custom ISO from a provided URL and adds it to the specified KVM VPS.  \nThe `api_host` value is returned from the \"get session\" call and replaces `xxxxx.edisglobal.com` in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and the `url` of the ISO to be downloaded.\n",
+        "operationId": "downloadCustomISO",
+        "requestBody": {
+          "description": "Required parameters to download a custom ISO and add it to the VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_download_iso_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The custom ISO was successfully downloaded and added to the VPS.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_10"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Installation Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/upload_qcow2": {
+      "post": {
+        "tags": [
+          "Installation"
+        ],
+        "summary": "Upload and replace qcow2",
+        "description": "This endpoint uploads and replaces the current qcow2 image on the specified KVM VPS.  \n**Warning:** All data on the VPS will be permanently lost if this operation is performed.  \nThe `api_host` value is returned from the \"get session\" call and replaces `xxxxx.edisglobal.com` in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and confirm data replacement by including `yes_purge_all_my_data`.\n",
+        "operationId": "uploadQCOW2",
+        "requestBody": {
+          "description": "Required parameters to upload and replace the qcow2 image.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded` or as file upload where specified.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/v2_upload_qcow2_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The qcow2 image was successfully uploaded and replaced on the VPS.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_11"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Installation Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/get/images": {
+      "post": {
+        "tags": [
+          "Installation"
+        ],
+        "summary": "Get autoinstall images",
+        "description": "This endpoint retrieves a list of available autoinstall images for the specified KVM VPS.  \nThe `api_host` value is returned from the \"get session\" call and replaces `xxxxx.edisglobal.com` in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to fetch the images.\n",
+        "operationId": "getAutoinstallImages",
+        "requestBody": {
+          "description": "Required parameters to retrieve the list of autoinstall images.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_images_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "A list of available autoinstall images retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inline_response_200_12"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Installation Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/set/config": {
+      "post": {
+        "tags": [
+          "Traffic Pool",
+          "Settings"
+        ],
+        "summary": "Configure settings",
+        "description": "This endpoint handles multiple configurations for a specified KVM VPS.  \nUse the `operation` parameter to specify the desired action:\n- **enable_auto_hydration:** Enable auto hydration with `{\"auto_hydration\":100}`.\n- **disable_auto_hydration:** Disable auto hydration with `{\"auto_hydration\":0}`.\n- **update_settings:** Update general system settings with a JSON configuration.\n",
+        "operationId": "configureKvmVps",
+        "requestBody": {
+          "description": "Required parameters for KVM VPS configuration.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_config_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Configuration updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_13"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "403": {
+            "description": "Forbidden - Access is not allowed."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        }
+      }
+    },
+    "/kvm/v2/get/config": {
+      "post": {
+        "tags": [
+          "Settings"
+        ],
+        "summary": "Get configuration",
+        "description": "This endpoint retrieves the current configuration settings for the specified KVM VPS.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to fetch the configuration.\n",
+        "operationId": "getConfiguration",
+        "requestBody": {
+          "description": "Required parameters to fetch the configuration for a VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_config_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Configuration retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_14"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Settings Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/get/screenshot": {
+      "post": {
+        "tags": [
+          "Collect Information"
+        ],
+        "summary": "Get screenshot",
+        "description": "This endpoint retrieves a current screenshot of the specified KVM VPS.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to access the screenshot.\n",
+        "operationId": "getScreenshot",
+        "requestBody": {
+          "description": "Required parameters to fetch a screenshot for a VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_screenshot_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Screenshot retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_15"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Screenshot Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/get/all_details": {
+      "post": {
+        "tags": [
+          "Collect Information"
+        ],
+        "summary": "Get all details",
+        "description": "This endpoint retrieves all details about the specified KVM VPS, including its configuration,  \nresource usage, network settings, and metadata.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to fetch the information.\n",
+        "operationId": "getAllDetails",
+        "requestBody": {
+          "description": "Required parameters to fetch all details for a KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_all_details_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Details retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_16"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Details Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/get/traffic": {
+      "post": {
+        "tags": [
+          "Collect Information"
+        ],
+        "summary": "Get traffic usage",
+        "description": "This endpoint retrieves the network traffic usage details for the specified KVM VPS.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to access traffic data.\n",
+        "operationId": "getTrafficUsage",
+        "requestBody": {
+          "description": "Required parameters to fetch traffic data for a KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_traffic_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Traffic data retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_17"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Traffic Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/get/cpu_usage": {
+      "post": {
+        "tags": [
+          "Collect Information"
+        ],
+        "summary": "Get CPU usage",
+        "description": "This endpoint retrieves the CPU usage statistics for the specified KVM VPS.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to access the data.\n",
+        "operationId": "getCpuUsage",
+        "requestBody": {
+          "description": "Required parameters to fetch CPU usage statistics for a KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_cpu_usage_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "CPU usage data retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_18"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "CPU Usage Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/get/details": {
+      "post": {
+        "tags": [
+          "Collect Information"
+        ],
+        "summary": "Get basic details",
+        "description": "This endpoint retrieves a few basic details about the specified KVM VPS.  \nProvide the `signature`, `kvm_id`, `valid_until`, and `api_host` parameters to access the information.\n",
+        "operationId": "getKvmDetails",
+        "requestBody": {
+          "description": "Required parameters to fetch basic details about the KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_details_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Basic details about the KVM VPS retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_19"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Details Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/get/mount": {
+      "post": {
+        "tags": [
+          "Collect Information"
+        ],
+        "summary": "Get mount details",
+        "description": "This endpoint retrieves the mount details for the specified KVM VPS.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to fetch the mount status.\n",
+        "operationId": "getMountDetails",
+        "requestBody": {
+          "description": "Required parameters to fetch mount details for a KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_mount_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Mount details retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_20"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Mount Details Server - Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/set/vnc/keyboard": {
+      "post": {
+        "tags": [
+          "VNC Management"
+        ],
+        "summary": "Set VNC keyboard language",
+        "description": "This endpoint configures the keyboard language for the VNC session of a specified KVM VPS.  \nSupported languages include `en-us`, `de`, `sv`, `fr`, and `it`.  \nProvide the `signature`, `kvm_id`, `valid_until`, and `vnc_keyboard` parameters to set the keyboard language.\n",
+        "operationId": "setVncKeyboardLanguage",
+        "requestBody": {
+          "description": "Required parameters to configure the VNC keyboard language.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/vnc_keyboard_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "VNC keyboard language set successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_21"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/get/vnc/status": {
+      "post": {
+        "tags": [
+          "VNC Management"
+        ],
+        "summary": "Get VNC status",
+        "description": "This endpoint retrieves the current status of the VNC session for a specified KVM VPS.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to get the VNC session status.\n",
+        "operationId": "getVncStatus",
+        "requestBody": {
+          "description": "Required parameters to retrieve the VNC session status.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/vnc_status_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "VNC status retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_22"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/set/vnc/enable": {
+      "post": {
+        "tags": [
+          "VNC Management"
+        ],
+        "summary": "Enable VNC access",
+        "description": "This endpoint enables VNC access for a specified KVM VPS.  \nProvide the `signature`, `kvm_id`, `valid_until`, and a VNC password (`vnc_pw`) to activate VNC.\n",
+        "operationId": "enableVnc",
+        "requestBody": {
+          "description": "Required parameters to enable VNC access.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/vnc_enable_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "VNC access enabled successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_23"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/set/vnc/disable": {
+      "post": {
+        "tags": [
+          "VNC Management"
+        ],
+        "summary": "Disable VNC access",
+        "description": "This endpoint disables VNC access for a specified KVM VPS.  \nProvide the `signature`, `kvm_id`, and `valid_until` obtained from the \"get session\" call.\n",
+        "operationId": "disableVnc",
+        "requestBody": {
+          "description": "Required parameters to disable VNC access.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/vnc_disable_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "VNC access disabled successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_24"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - The session signature is invalid or expired."
+          },
+          "403": {
+            "description": "Forbidden - The client does not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Replace `xxxxx` with the `api_host` value returned from the \"get session\" call.  \nThis URL is dynamically assigned per session.\n"
+          }
+        ]
+      }
+    },
+    "/get/ptr": {
+      "post": {
+        "tags": [
+          "PTR"
+        ],
+        "summary": "Get PTR Records",
+        "description": "This endpoint retrieves the PTR (Reverse DNS) records for specified IP addresses.  \nProvide the `signature`, `kvm_id`, `valid_until`, `api_host`, and a JSON-encoded list of IP addresses to query their PTR records.\n",
+        "operationId": "getPTR",
+        "requestBody": {
+          "description": "Required parameters to retrieve PTR records.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_ptr_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "PTR records retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_25"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://dns-api.edis.at",
+            "description": "Reverse DNS API Server"
+          }
+        ]
+      }
+    },
+    "/del/ptr": {
+      "post": {
+        "tags": [
+          "PTR"
+        ],
+        "summary": "Delete PTR Records",
+        "description": "This endpoint deletes PTR (Reverse DNS) records for specified IP addresses.  \nProvide the `signature`, `kvm_id`, `valid_until`, `api_host`, and a JSON-encoded list of IP addresses to delete their PTR records.\n",
+        "operationId": "deletePTR",
+        "requestBody": {
+          "description": "Required parameters to delete PTR records.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/del_ptr_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "PTR records deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_26"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://dns-api.edis.at",
+            "description": "Reverse DNS API Server"
+          }
+        ]
+      }
+    },
+    "/set/ptr": {
+      "post": {
+        "tags": [
+          "PTR"
+        ],
+        "summary": "Set PTR Records",
+        "description": "This endpoint sets PTR (Reverse DNS) records for specified IP addresses.  \nProvide the `signature`, `kvm_id`, `valid_until`, `api_host`, and a JSON-encoded object of IP addresses and their associated hostnames to set PTR records.\n",
+        "operationId": "setPTR",
+        "requestBody": {
+          "description": "Required parameters to set PTR records.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_ptr_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "PTR records set successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://dns-api.edis.at",
+            "description": "Reverse DNS API Server"
+          }
+        ]
+      }
+    },
+    "/kvm/v2/hooks/get": {
+      "post": {
+        "tags": [
+          "Hooks"
+        ],
+        "summary": "Get all webhooks",
+        "description": "This endpoint retrieves all webhooks configured for the specified KVM VPS.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to fetch the list of webhooks.\n",
+        "operationId": "getAllHooks",
+        "requestBody": {
+          "description": "Required parameters to retrieve all webhooks for a KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/hooks_get_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Webhooks retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_28"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters or missing fields."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to access this resource."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://xxxxx.edisglobal.com",
+            "description": "Replace `xxxxx` with the `api_host` value returned from the \"get session\" call."
+          }
+        ]
+      }
+    },
+    "/kvm/v2/get/pool_traffic": {
+      "post": {
+        "tags": [
+          "Traffic Pool"
+        ],
+        "summary": "Get Global Traffic Pool Size",
+        "description": "This endpoint retrieves the total size of the global traffic pool for a specified KVM VPS.\n",
+        "operationId": "getGlobalTrafficPoolSize",
+        "requestBody": {
+          "description": "Required parameters to retrieve the global traffic pool size.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_pool_traffic_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Global traffic pool size retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_29"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        }
+      }
+    },
+    "/kvm/v2/get/refill_log": {
+      "post": {
+        "tags": [
+          "Traffic Pool"
+        ],
+        "summary": "Get Hydration Log",
+        "description": "This endpoint retrieves the hydration (refill) log for a specified KVM VPS.\nUse the `query` parameter to filter the log by `client` or `kvm`.\n",
+        "operationId": "getHydrationLog",
+        "requestBody": {
+          "description": "Required parameters to retrieve the hydration log.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_refill_log_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Hydration log retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_30"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        }
+      }
+    },
+    "/kvm/v2/set/additional_pool_traffic": {
+      "post": {
+        "tags": [
+          "Traffic Pool"
+        ],
+        "summary": "Assign Traffic Resources from Global Pool",
+        "description": "This endpoint assigns additional traffic resources from the global pool to a specified KVM VPS.  \nThe amount of traffic to assign is specified in the `traffic` parameter (in GB).\n",
+        "operationId": "assignTrafficFromPool",
+        "requestBody": {
+          "description": "Required parameters to assign traffic resources.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_additional_pool_traffic_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Traffic resources assigned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_31"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        }
+      }
+    },
+    "/kvm/v2/hooks/del": {
+      "post": {
+        "tags": [
+          "Hooks"
+        ],
+        "summary": "Delete Hook",
+        "description": "This endpoint deletes a specific hook for a given KVM VPS.  \nProvide the `hook id` to identify the hook to delete.\n",
+        "operationId": "deleteHook",
+        "requestBody": {
+          "description": "Required parameters to delete a hook.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/hooks_del_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Hook deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_32"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        }
+      }
+    },
+    "/kvm/v2/hooks/set": {
+      "post": {
+        "tags": [
+          "Hooks"
+        ],
+        "summary": "Set hooks",
+        "description": "This endpoint allows you to set hooks for traffic monitoring on a specified KVM VPS.\n",
+        "operationId": "setKvmHooks",
+        "requestBody": {
+          "description": "Required parameters to set a hook.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/hooks_set_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Hook set successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_33"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        }
+      }
+    },
+    "/example/callback": {
+      "post": {
+        "tags": [
+          "Hooks"
+        ],
+        "summary": "Example callback triggered",
+        "description": "This endpoint demonstrates the structure of a callback triggered when a specific traffic threshold is reached.\n",
+        "operationId": "trafficHookCallbackExample",
+        "requestBody": {
+          "description": "Parameters sent to the callback URL when the hook is triggered.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/example_callback_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Callback received successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_34"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters."
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "get_config_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS whose configuration is being retrieved.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "inline_response_200_33": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "hook_id": {
+            "type": "string",
+            "description": "The ID of the created hook.",
+            "example": "123"
+          }
+        }
+      },
+      "inline_response_200_32": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "description": "A confirmation message.",
+            "example": "Hook with ID 1 has been deleted."
+          }
+        }
+      },
+      "inline_response_200_34": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status of the callback handling.",
+            "example": "success"
+          }
+        }
+      },
+      "inline_response_200_31": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "assigned_traffic": {
+            "type": "integer",
+            "description": "The amount of traffic assigned (in GB).",
+            "example": 10
+          }
+        }
+      },
+      "inline_response_200_30": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "hydration_log": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_30_hydration_log"
+            }
+          }
+        }
+      },
+      "get_images_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS for which the autoinstall images are being retrieved.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "get_auth_body": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Your email (WHMCS credentials).",
+            "example": "your-email@example.com"
+          },
+          "pw": {
+            "type": "string",
+            "description": "Your password (WHMCS credentials).",
+            "example": "your-password"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "(Optional) The unique identifier of the KVM to filter the session.  \nIf not provided, the session applies to all KVMs associated with your account.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          }
+        }
+      },
+      "get_details_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to retrieve details for.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "api_host": {
+            "type": "string",
+            "description": "The API host value obtained from the \"get session\" call.  \nThis ensures the request is sent to the correct endpoint.\n",
+            "example": "xxxxx.edisglobal.com"
+          }
+        }
+      },
+      "vnc_enable_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to enable VNC access for.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "vnc_pw": {
+            "type": "string",
+            "description": "The password to set for the VNC connection.  \nThis password will be required to access the VNC session.\n",
+            "example": "yourpassword"
+          }
+        }
+      },
+      "inline_response_200_9": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "umount_time": {
+            "type": "string",
+            "description": "The timestamp when the ISO was unmounted.",
+            "example": "2025-01-12T15:31:00Z"
+          }
+        }
+      },
+      "get_traffic_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to retrieve traffic data for.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "inline_response_200_22": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "vnc_status": {
+            "type": "string",
+            "description": "The current VNC status (e.g., enabled, disabled).",
+            "example": "enabled"
+          }
+        }
+      },
+      "inline_response_200_21": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "vnc_keyboard": {
+            "type": "string",
+            "description": "The configured keyboard language.",
+            "example": "en-us"
+          }
+        }
+      },
+      "inline_response_200_24": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "vnc_status": {
+            "type": "string",
+            "description": "The new VNC status.",
+            "example": "disabled"
+          }
+        }
+      },
+      "inline_response_200_23": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "vnc_status": {
+            "type": "string",
+            "description": "The new VNC status.",
+            "example": "enabled"
+          }
+        }
+      },
+      "inline_response_200_5": {
+        "type": "object",
+        "properties": {
+          "iso_name": {
+            "type": "string",
+            "description": "The name of the ISO file.",
+            "example": "ubuntu-20.04.iso"
+          },
+          "iso_url": {
+            "type": "string",
+            "description": "The URL for downloading the ISO file.",
+            "example": "https://isos.edisglobal.com/ubuntu-20.04.iso"
+          }
+        }
+      },
+      "inline_response_200_6": {
+        "type": "object",
+        "properties": {
+          "image_name": {
+            "type": "string",
+            "description": "The name of the turnkey image.",
+            "example": "turnkey-lamp-20.04"
+          },
+          "image_url": {
+            "type": "string",
+            "description": "The download URL for the turnkey image.",
+            "example": "https://images.edisglobal.com/turnkey-lamp-20.04.img"
+          }
+        }
+      },
+      "vnc_keyboard_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to configure.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "vnc_keyboard": {
+            "type": "string",
+            "description": "The desired keyboard language for the VNC session.  \nSupported values: `en-us`, `de`, `sv`, `fr`, `it`.\n",
+            "example": "en-us"
+          }
+        }
+      },
+      "set_reinstall_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to reinstall.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "image": {
+            "type": "string",
+            "description": "The name of the operating system image to install.  \nUse the `get iso` or `get turnkey images` endpoints to retrieve available images.\n",
+            "example": "debian-bullseye"
+          },
+          "password": {
+            "type": "string",
+            "description": "The root password for the new installation.",
+            "example": "your-password"
+          },
+          "pubkey": {
+            "type": "string",
+            "description": "(Deprecated) An optional SSH public key to configure for root access.  \nUse cloud-init user data for advanced configurations.\n",
+            "example": "ssh-rsa AAAAB3Nza..."
+          },
+          "postscript": {
+            "type": "string",
+            "description": "(Deprecated) A script to execute after the installation completes.  \nUse this for post-installation tasks.\n",
+            "example": "#!/bin/sh\necho Hello World"
+          },
+          "cloudinit_user_data": {
+            "type": "string",
+            "description": "Optional configuration for images supporting cloud-init.  \nRefer to the [Cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/reference/examples.html) for details.\n",
+            "example": "#cloud-config\nset_hostname: YOUR_HOSTNAME\nuser: root\npassword: YOUR_ROOT_PASSWORD\nssh_pwauth: True\nmanage_etc_hosts: true\n"
+          }
+        }
+      },
+      "inline_response_200_7": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "reinstall_time": {
+            "type": "string",
+            "description": "The timestamp when the reinstallation was completed.",
+            "example": "2025-01-12T15:31:00Z"
+          }
+        }
+      },
+      "inline_response_200_20": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "mount_details": {
+            "type": "object",
+            "description": "Details of the mounted ISO or device.",
+            "example": {
+              "mounted_iso": "ubuntu-22.04-desktop-amd64.iso",
+              "mount_status": "mounted"
+            }
+          }
+        }
+      },
+      "inline_response_200_8": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "mount_time": {
+            "type": "string",
+            "description": "The timestamp when the ISO was mounted.",
+            "example": "2025-01-12T15:31:00Z"
+          }
+        }
+      },
+      "set_download_iso_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to which the ISO will be added.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "url": {
+            "type": "string",
+            "description": "The URL of the ISO file to download.  \nThe provided URL must point to a valid ISO file accessible via HTTP or HTTPS.\n",
+            "example": "http://example.com/my-custom.iso"
+          }
+        }
+      },
+      "hooks_get_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to retrieve webhooks for.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "inline_response_200_29": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "traffic_pool_size": {
+            "type": "integer",
+            "description": "The size of the global traffic pool in GB.",
+            "example": 1000
+          }
+        }
+      },
+      "inline_response_200_26": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "description": "Confirmation message for deleted PTR records.",
+            "example": "PTR records deleted successfully."
+          }
+        }
+      },
+      "inline_response_200_25": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_25_records"
+            }
+          }
+        }
+      },
+      "get_power_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp of the session obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "inline_response_200_28": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "webhooks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_28_webhooks"
+            }
+          }
+        }
+      },
+      "inline_response_200_27": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "description": "Confirmation message for set PTR records.",
+            "example": "PTR records set successfully."
+          }
+        }
+      },
+      "vnc_disable_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS for which to disable VNC access.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "get_pool_traffic_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "set_reset_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM to reset.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp of the session obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "get_ptr_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM to query PTR records for.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp of the session obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "api_host": {
+            "type": "string",
+            "description": "The API host URL obtained from the \"get session\" call.",
+            "example": "xxxxx.edisglobal.com"
+          },
+          "ip": {
+            "type": "array",
+            "description": "A JSON-encoded list of IP addresses to query their PTR records.",
+            "example": [
+              "192.168.1.1",
+              "192.168.1.2",
+              "xxxx:xxxx:xxxx:xxxx::xxxx"
+            ],
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "inline_response_200_28_webhooks": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the webhook.",
+            "example": "hook_12345"
+          },
+          "event": {
+            "type": "string",
+            "description": "The event that triggers the webhook.",
+            "example": "power_on"
+          },
+          "url": {
+            "type": "string",
+            "description": "The URL where the webhook sends notifications.",
+            "example": "https://example.com/webhook"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Indicates if the webhook is active.",
+            "example": true
+          }
+        }
+      },
+      "inline_response_200_1": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "reset_time": {
+            "type": "string",
+            "description": "The timestamp when the reset occurred.",
+            "example": "2025-01-12T15:31:00Z"
+          }
+        }
+      },
+      "inline_response_200_2": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "power_state": {
+            "type": "string",
+            "description": "The current power state of the VPS (e.g., on, off).",
+            "example": "on"
+          }
+        }
+      },
+      "inline_response_200_3": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "poweron_time": {
+            "type": "string",
+            "description": "The timestamp when the VPS was powered on.",
+            "example": "2025-01-12T15:31:00Z"
+          }
+        }
+      },
+      "inline_response_200_4": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "poweroff_time": {
+            "type": "string",
+            "description": "The timestamp when the VPS was powered off.",
+            "example": "2025-01-12T15:31:00Z"
+          }
+        }
+      },
+      "set_turnkey_reinstall_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to reinstall.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "image": {
+            "type": "string",
+            "description": "The name of the turnkey image to reinstall.  \nUse the `get turnkey images` endpoint to retrieve available turnkey images.\n",
+            "example": "turnkey-owncloud-16.1-buster"
+          }
+        }
+      },
+      "inline_response_200_11": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "replace_time": {
+            "type": "string",
+            "description": "The timestamp when the qcow2 image was replaced.",
+            "example": "2025-01-12T15:31:00Z"
+          }
+        }
+      },
+      "del_ptr_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM to delete PTR records for.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp of the session obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "api_host": {
+            "type": "string",
+            "description": "The API host URL obtained from the \"get session\" call.",
+            "example": "xxxxx.edisglobal.com"
+          },
+          "ip": {
+            "type": "array",
+            "description": "A JSON-encoded list of IP addresses to delete their PTR records.",
+            "example": [
+              "192.168.1.1",
+              "192.168.1.2",
+              "xxxx:xxxx:xxxx:xxxx::xxxx"
+            ],
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "inline_response_200_10": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "download_time": {
+            "type": "string",
+            "description": "The timestamp when the ISO download was completed.",
+            "example": "2025-01-12T15:31:00Z"
+          }
+        }
+      },
+      "inline_response_200_13": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "updated_config": {
+            "type": "object",
+            "description": "The updated configuration settings.",
+            "example": {
+              "auto_hydration": 100
+            }
+          }
+        }
+      },
+      "inline_response_200_12": {
+        "type": "object",
+        "properties": {
+          "image_name": {
+            "type": "string",
+            "description": "The name of the autoinstall image.",
+            "example": "ubuntu-20.04-autoinstall"
+          },
+          "description": {
+            "type": "string",
+            "description": "A brief description of the autoinstall image.",
+            "example": "Ubuntu 20.04 LTS with preconfigured settings"
+          },
+          "size": {
+            "type": "string",
+            "description": "The size of the image file.",
+            "example": "2.5GB"
+          }
+        }
+      },
+      "inline_response_200_19": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "details": {
+            "type": "object",
+            "description": "Basic details about the KVM VPS.",
+            "example": {
+              "hostname": "example-host",
+              "ip_address": "192.168.0.1",
+              "os": "Ubuntu 22.04",
+              "memory": "8GB"
+            }
+          }
+        }
+      },
+      "inline_response_200_18": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "cpu_usage": {
+            "type": "object",
+            "description": "A dictionary containing CPU usage data for the VPS.",
+            "example": {
+              "usage_percentage": "45%",
+              "cores_in_use": 2,
+              "total_cores": 4
+            }
+          }
+        }
+      },
+      "inline_response_200_15": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "screenshot": {
+            "type": "string",
+            "description": "The binary screenshot image of the KVM VPS.",
+            "format": "binary"
+          }
+        }
+      },
+      "inline_response_200_14": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "configuration": {
+            "type": "object",
+            "description": "A dictionary of the current configuration settings for the VPS.",
+            "example": {
+              "boot_timeout": "5000",
+              "vnc_keymap": "en-us",
+              "cpu_model": "passthrough",
+              "disk_driver": "virtio"
+            }
+          }
+        }
+      },
+      "get_turnkey_images_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.  \nThis signature authenticates the request and ensures that the session is valid.\n",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS for which the turnkey images are being retrieved.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "inline_response_200_17": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "traffic": {
+            "type": "object",
+            "description": "A dictionary containing traffic usage data for the VPS.",
+            "example": {
+              "inbound": "50GB",
+              "outbound": "30GB",
+              "total": "80GB"
+            }
+          }
+        }
+      },
+      "inline_response_200_16": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "details": {
+            "type": "object",
+            "description": "A comprehensive dictionary of all details about the KVM VPS.",
+            "example": {
+              "configuration": {
+                "boot_timeout": "5000",
+                "vnc_keymap": "en-us"
+              },
+              "resource_usage": {
+                "cpu": "50%",
+                "memory": "2GB"
+              },
+              "network_settings": {
+                "ip_address": "192.168.1.10",
+                "mac_address": "00:1A:2B:3C:4D:5E"
+              }
+            }
+          }
+        }
+      },
+      "hooks_set_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "callback_method": {
+            "type": "string",
+            "description": "Method for callback: 'post' or 'get'.",
+            "example": "post"
+          },
+          "callback_user": {
+            "type": "string",
+            "description": "Optional: Username for callback authentication.",
+            "example": "callback_user"
+          },
+          "callback_pw": {
+            "type": "string",
+            "description": "Optional: Password for callback authentication.",
+            "example": "callback_password"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of hook to create, only 'traffic' is allowed.",
+            "example": "traffic"
+          },
+          "trigger_value": {
+            "type": "string",
+            "description": "Trigger value:\n- Set to a percentage for traffic usage (e.g., '80' for 80%).\n- Set to 'demo' for immediate unique call.\n",
+            "example": "80"
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "The callback URL (HTTP or HTTPS) to notify when the trigger value is reached.  \nExample: 'https://example.com/yourcallback'.\nSource IP: 149.154.154.251\n",
+            "example": "https://example.com/yourcallback"
+          }
+        }
+      },
+      "get_all_details_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS whose details are being retrieved.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "set_mount_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS where the ISO will be mounted.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "iso": {
+            "type": "string",
+            "description": "The name of the ISO file to mount.  \nUse the `get iso` endpoint to retrieve a list of available ISO files.\n",
+            "example": "0_System-Rescue-CD-6-x86.iso"
+          },
+          "force_reset": {
+            "type": "string",
+            "description": "(Optional) Whether to reset the VPS and boot from the ISO after mounting.  \nAcceptable values: `yes` or `no`. Defaults to `no`.\n",
+            "example": "no"
+          }
+        }
+      },
+      "get_screenshot_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to retrieve the screenshot from.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "inline_response_200_30_hydration_log": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "description": "The timestamp of the hydration event.",
+            "example": "2025-01-12T10:30:00Z"
+          },
+          "amount": {
+            "type": "integer",
+            "description": "The amount of traffic hydrated (in GB).",
+            "example": 50
+          },
+          "source": {
+            "type": "string",
+            "description": "The source of the hydration event.",
+            "example": "client"
+          }
+        }
+      },
+      "inline_response_200": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "description": "The unique session ID for the authentication.",
+            "example": "session_12345"
+          },
+          "status": {
+            "type": "string",
+            "description": "The status of the session creation.",
+            "example": "success"
+          },
+          "api_host": {
+            "type": "string",
+            "description": "The API host URL for further operations.",
+            "example": "xxxxx.edisglobal.com"
+          }
+        }
+      },
+      "v2_upload_qcow2_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS where the qcow2 image will be replaced.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "yes_purge_all_my_data": {
+            "type": "integer",
+            "description": "Confirmation to purge all data on the VPS.  \nThis parameter must be set to `1` to proceed.\n",
+            "example": 1
+          },
+          "file": {
+            "type": "string",
+            "description": "The qcow2 file to upload.  \nProvide the full path to the file.\n",
+            "format": "binary",
+            "example": "@/path/to/your_cloudinit.qcow2"
+          },
+          "pw": {
+            "type": "string",
+            "description": "The new root password for the VPS.  \nUsed if cloud-init is enabled.\n",
+            "example": "new-root-password"
+          },
+          "cloudinit_user_data": {
+            "type": "string",
+            "description": "Optional cloud-init configuration for the VPS.  \nSee [Cloud-init Documentation](https://cloudinit.readthedocs.io/en/latest/reference/examples.html) for examples.\n",
+            "example": "#cloud-config\nuser: root\npassword: \"new-root-password\"\nssh_pwauth: True\n"
+          }
+        }
+      },
+      "vnc_status_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to check the VNC status.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "set_poweroff_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM to power off.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp of the session obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "example_callback_body": {
+        "type": "object",
+        "properties": {
+          "kvm": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "details": {
+            "type": "string",
+            "description": "Details about the traffic threshold reached.",
+            "example": "traffic 80 reached"
+          },
+          "trigger_value": {
+            "type": "integer",
+            "description": "The current traffic value when the callback is triggered.",
+            "example": 80
+          }
+        }
+      },
+      "set_umount_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS from which the ISO will be unmounted.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "get_cpu_usage_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to retrieve CPU usage data for.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "get_isos_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "set_poweron_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM to power on.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp of the session obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      },
+      "get_refill_log_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "query": {
+            "type": "string",
+            "description": "Filter for the hydration log.  \nAcceptable values: `client` or `kvm`.\n",
+            "example": "client"
+          }
+        }
+      },
+      "set_ptr_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM to set PTR records for.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp of the session obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "api_host": {
+            "type": "string",
+            "description": "The API host URL obtained from the \"get session\" call.",
+            "example": "xxxxx.edisglobal.com"
+          },
+          "ip": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "A JSON-encoded object of IP addresses and their associated hostnames.",
+            "example": {
+              "192.168.1.1": "hostname.example.com",
+              "192.168.1.2": "another-host.example.com"
+            }
+          }
+        }
+      },
+      "hooks_del_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the hook to delete.",
+            "example": 1
+          }
+        }
+      },
+      "set_additional_pool_traffic_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "api_host": {
+            "type": "string",
+            "description": "The API host URL obtained from the \"get session\" call.",
+            "example": "xxxxx.edisglobal.com"
+          },
+          "traffic": {
+            "type": "integer",
+            "description": "The amount of traffic to assign from the global pool (in GB).",
+            "example": 10
+          }
+        }
+      },
+      "inline_response_200_25_records": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "description": "The queried IP address.",
+            "example": "192.168.1.1"
+          },
+          "ptr_record": {
+            "type": "string",
+            "description": "The PTR record associated with the IP address.",
+            "example": "example.com"
+          }
+        }
+      },
+      "set_config_body": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "description": "The operation to perform.  \nAccepted values: `enable_auto_hydration`, `disable_auto_hydration`, `update_settings`.\n",
+            "example": "enable_auto_hydration"
+          },
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.",
+            "example": "2025-01-12T15:30:00Z"
+          },
+          "config": {
+            "type": "string",
+            "description": "A JSON object containing the configuration settings.  \nExamples:\n- **Enable Auto Hydration:** `{\"auto_hydration\":100}`\n- **Disable Auto Hydration:** `{\"auto_hydration\":0}`\n- **Update Settings:** `{\"boot_timeout\":\"5000\", \"vnc_keymap\":\"en-us\"}`\n",
+            "example": "{\"auto_hydration\":100}"
+          }
+        }
+      },
+      "get_mount_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to retrieve mount details for.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"get session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "2025-01-12T15:30:00Z"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
