@@ -627,6 +627,10 @@
       "destination": "/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows"
     },
     {
+    "source": "/advanced-setup-guides/fix-openssh-vm-delays-low-entropy",
+    "destination": "/misc/fix-openssh-vm-delays-low-entropy"
+    },
+    {
       "source": "/transfer-files-sftp-linux",
       "destination": "/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux"
     },
