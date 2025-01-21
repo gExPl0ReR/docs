@@ -6,7 +6,7 @@ description: Update your IP address without server reinstallation. Follow these 
 
 ## **Manual IP Change Instructions**
 
-Easily update your IP address without server reinstallation. Follow these step-by-step instructions to manually configure the network settings in Ubuntu.
+Learn how to update your IP address without server reinstallation. Follow these step-by-step instructions to manually configure the network settings in Ubuntu.
 
 ### Access Portal and Launch VNC
 
@@ -19,7 +19,7 @@ Easily update your IP address without server reinstallation. Follow these step-b
   </Step>
   <Step title='Open VNC' >
    - Enter your username and password on the Ubuntu login page.
-   - It will look like the image below:
+   - The interface will look like the image below:
 
     ![](/assets/1sSq3fI0sZJj8Zc4RoSr4-IHXwJtgkL6gRgpkRc_Zr5-20241106-134742.png)
 
@@ -31,7 +31,7 @@ Easily update your IP address without server reinstallation. Follow these step-b
 ### Identify Your Network Interface
 
 1. **Open Terminal** in the VNC session.
-2. **Run the command** to find your network interface name:
+2. **Execute either of these commands** to find your network interface name:
 
 ```bash
 ip a
@@ -47,7 +47,7 @@ ip link
 
 ![](/assets/1sSq3fI0sZJj8Zc4RoSr4-kRjVlbM0BZZUbByalaeJ8-20241106-134849.png)
 
-Take note of the name of the interface you wish to configure, such as ens3 or eth0.
+Take note of your interface name (e.g., `ens3` or `eth0`).
 
 ---
 
@@ -62,27 +62,27 @@ cd /etc/netplan/
 **Open the configuration file** (e.g., `50-cloud-init.yaml`):
 
 ```bash
-nano /etc/netplan/50-cloud-init.yaml
+sudo nano /etc/netplan/50-cloud-init.yaml
 ```
 
 ![](/assets/1sSq3fI0sZJj8Zc4RoSr4-E9BdohFiajf-v7_GDh5FM-20241106-134922.png)
 
-Note: The filename `50-cloud-init.yaml` may differ across servers; for example, it could be `01-network-manager-all.yaml`. Ensure you edit the correct file accordingly.
+Note: The filename might be different on your system (e.g., `01-network-manager-all.yaml`). Make sure to edit the correct file for your installation.
 
 ---
 
 ### Change the IP Address
 
-1. **Locate the line with the old IP address** and change it to your new IP address (e.g., `172.16.30.15`).
-2. **Update the Gateway address** in the routes section to the new gateway IP.
+1. **Locate the current IP address** line and replace it with your new IP address (e.g., `172.16.30.15`).
+2. **Update the Gateway address** in the routes section to match your new network configuration.
 
 ---
 
 ### Configure Multiple IPs (Optional)
 
-**To add multiple IP addresses**, format them like this:
+To **add multiple IP addresses**, use this format in your configuration:
 
-```bash
+```yaml
 addresses:
         - 172.30.1.16/24
         - 172.30.1.17/24
@@ -91,20 +91,21 @@ addresses:
 
 ![](/assets/1sSq3fI0sZJj8Zc4RoSr4-GAWaDZQs40EA2dwmpDgoQ-20241106-134952.png)
 
-**Ensure proper indentation** in the YAML file.
+**Important**: Maintain proper YAML indentation to avoid configuration errors.
 
 ---
 
-### SAVE CONFIGURATION
+### Save Configuration
 
-1. **Press** `CTRL + X` to save the file.
-2. **Press** `Y` to confirm changes and then **hit** `Enter` to exit.
+1. Press `CTRL + X` to exit the editor
+2. Press `Y` to confirm your changes
+3. Press `Enter` to save the file
 
 ---
 
-### Apply Changes
+### Apply Network Changes
 
-1. **Run the following command** to apply the new configuration:
+Execute the following command to apply your new network configuration:
 
 ```bash
 sudo netplan apply
@@ -112,18 +113,18 @@ sudo netplan apply
 
 ---
 
-### Verify Changes
+### Verify Configuration
 
-**Check if the new IP is set** by running:
+Check your new IP configuration using either command:
 
 ```bash
 ip a
 ```
 
-**Alternatively, check the specific interface**:
+Or check a specific interface:
 
 ```bash
 ip addr show dev ens3
 ```
 
-(Replace `ens3` with your network interface name).
+(Replace `ens3` with your actual network interface name)
