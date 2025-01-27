@@ -108,7 +108,8 @@
           {
             "group": "Settings",
             "pages": [
-              "management-api-reference/settings/get-configuration"
+              "management-api-reference/settings/get-configuration",
+              "management-api-reference/settings/set-configuration"
             ]
           },
           {
@@ -208,7 +209,8 @@
      {
       "group": "Settings",
       "pages": [
-       "management-api-reference/settings/get-configuration"
+       "management-api-reference/settings/get-configuration",
+       "management-api-reference/settings/set-configuration"
       ]
      },
      {
