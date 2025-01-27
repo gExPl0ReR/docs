@@ -49,20 +49,107 @@
     ],
     "tabs": [
       {
-      "name": "Order API Endpoints",
-      "url": "order-api-reference",
-      "pages": [
-        "order-api-reference/order-api-welcome",
-        "order-api-reference/order-vps",
-        "order-api-reference/get-vps-plans",
-        "order-api-reference/get-vps-locations",
-        "order-api-reference/get-billing-cycles",
-        "order-api-reference/get-payment-options",
-        "order-api-reference/get-service-id",
-        "order-api-reference/get-kvm-id",
-        "order-api-reference/cancel-vps"
+        "name": "Order API Endpoints",
+        "url": "order-api-reference",
+        "pages": [
+          "order-api-reference/order-api-welcome",
+          "order-api-reference/order-vps",
+          "order-api-reference/get-vps-plans",
+          "order-api-reference/get-vps-locations",
+          "order-api-reference/get-billing-cycles",
+          "order-api-reference/get-payment-options",
+          "order-api-reference/get-service-id",
+          "order-api-reference/get-kvm-id",
+          "order-api-reference/cancel-vps"
         ]
-        }
+      },
+      {
+        "name": "Management API Endpoints",
+        "url": "management-api-reference",
+        "pages": [
+          {
+            "group": "Authentication",
+            "pages": [
+              "management-api-reference/authentication/create-auth-session"
+            ]
+          },
+          {
+            "group": "Power Management",
+            "pages": [
+              "management-api-reference/power-management/hard-reset",
+              "management-api-reference/power-management/power-state",
+              "management-api-reference/power-management/power-on",
+              "management-api-reference/power-management/power-off"
+            ]
+          },
+          {
+            "group": "Installation",
+            "pages": [
+              "management-api-reference/installation/iso-installation",
+              "management-api-reference/installation/turnkey-images",
+              "management-api-reference/installation/reinstall",
+              "management-api-reference/installation/reinstall-with-turnkey",
+              "management-api-reference/installation/mount-iso",
+              "management-api-reference/installation/unmount-iso",
+              "management-api-reference/installation/download-custom-iso",
+              "management-api-reference/installation/upload-and-replace-qcow2",
+              "management-api-reference/installation/get-autoinstall-images"
+            ]
+          },
+          {
+            "group": "Traffic Pool",
+            "pages": [
+              "management-api-reference/traffic-pool/configure-settings",
+              "management-api-reference/traffic-pool/get-global-traffic-pool-size",
+              "management-api-reference/traffic-pool/get-hydration-log",
+              "management-api-reference/traffic-pool/assign-traffic-resources-from-global-pool"
+            ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              "management-api-reference/settings/get-configuration"
+            ]
+          },
+          {
+            "group": "Collect Information",
+            "pages": [
+              "management-api-reference/collect-information/get-vps-screenshot",
+              "management-api-reference/collect-information/get-all-vps-details",
+              "management-api-reference/collect-information/get-traffic-usage",
+              "management-api-reference/collect-information/get-cpu-usage",
+              "management-api-reference/collect-information/get-basic-details",
+              "management-api-reference/collect-information/get-mount-details"
+            ]
+          },
+          {
+            "group": "VNC Management",
+            "pages": [
+              "management-api-reference/vnc-management/set-vnc-keyboard-language",
+              "management-api-reference/vnc-management/get-vnc-status",
+              "management-api-reference/vnc-management/enable-vnc-access",
+              "management-api-reference/vnc-management/disable-vnc-access"
+            ]
+          },
+          {
+            "group": "PTR",
+            "pages": [
+              "management-api-reference/ptr/get-ptr-records",
+              "management-api-reference/ptr/delete-ptr-records",
+              "management-api-reference/ptr/set-ptr-records"
+            ]
+          },
+          {
+            "group": "Hooks",
+            "pages": [
+              "management-api-reference/hooks/get-all-webhooks",
+              "management-api-reference/hooks/delete-a-webhook",
+              "management-api-reference/hooks/set-webhook-for-traffic-monitoring",
+              "management-api-reference/hooks/example-callback-triggered"
+            ]
+          }
+        ]
+      }
     ],
   "navigation": [
     {
@@ -78,6 +165,87 @@
         "getting-started/windows-remote-desktop",
         "getting-started/backups",
         "getting-started/acceptable-use-policy"
+      ]
+    },
+     {
+      "group": "Authentication",
+      "pages": [
+       "management-api-reference/authentication/create-auth-session"
+      ]
+     },
+     {
+      "group": "Power Management",
+      "pages": [
+       "management-api-reference/power-management/hard-reset",
+       "management-api-reference/power-management/power-state",
+       "management-api-reference/power-management/power-on",
+       "management-api-reference/power-management/power-off"
+      ]
+     },
+     {
+      "group": "Installation",
+      "pages": [
+       "management-api-reference/installation/iso-installation",
+       "management-api-reference/installation/turnkey-images",
+       "management-api-reference/installation/reinstall",
+       "management-api-reference/installation/reinstall-with-turnkey",
+       "management-api-reference/installation/mount-iso",
+       "management-api-reference/installation/unmount-iso",
+       "management-api-reference/installation/download-custom-iso",
+       "management-api-reference/installation/upload-and-replace-qcow2",
+       "management-api-reference/installation/get-autoinstall-images"
+      ]
+     },
+     {
+      "group": "Traffic Pool",
+      "pages": [
+       "management-api-reference/traffic-pool/configure-settings",
+       "management-api-reference/traffic-pool/get-global-traffic-pool-size",
+       "management-api-reference/traffic-pool/get-hydration-log",
+       "management-api-reference/traffic-pool/assign-traffic-resources-from-global-pool"
+      ]
+     },
+     {
+      "group": "Settings",
+      "pages": [
+       "management-api-reference/settings/get-configuration"
+      ]
+     },
+     {
+      "group": "Collect Information",
+      "pages": [
+       "management-api-reference/collect-information/get-vps-screenshot",
+       "management-api-reference/collect-information/get-all-vps-details",
+       "management-api-reference/collect-information/get-traffic-usage",
+       "management-api-reference/collect-information/get-cpu-usage",
+       "management-api-reference/collect-information/get-basic-details",
+       "management-api-reference/collect-information/get-mount-details"
+      ]
+     },
+     {
+      "group": "VNC Management",
+      "pages": [
+       "management-api-reference/vnc-management/set-vnc-keyboard-language",
+       "management-api-reference/vnc-management/get-vnc-status",
+       "management-api-reference/vnc-management/enable-vnc-access",
+       "management-api-reference/vnc-management/disable-vnc-access"
+      ]
+     },
+     {
+      "group": "PTR",
+      "pages": [
+       "management-api-reference/ptr/get-ptr-records",
+       "management-api-reference/ptr/delete-ptr-records",
+       "management-api-reference/ptr/set-ptr-records"
+      ]
+     },
+     {
+      "group": "Hooks",
+      "pages": [
+       "management-api-reference/hooks/get-all-webhooks",
+       "management-api-reference/hooks/delete-a-webhook",
+       "management-api-reference/hooks/set-webhook-for-traffic-monitoring",
+       "management-api-reference/hooks/example-callback-triggered"
       ]
     },
     {
