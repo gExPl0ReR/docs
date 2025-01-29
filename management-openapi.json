@@ -1238,23 +1238,53 @@
     },
     "/kvm/v2/set/config": {
       "post": {
-        "tags": [
-          "Traffic Pool",
-          "Settings"
+        "tags": ["Settings"],
+        "summary": "Set Configuration",
+        "description": "This endpoint allows you to set various configuration settings for a specified KVM VPS.\n\nUse the `api_host` parameter obtained from the **'Create AUTH-session'** response to authenticate the request.\n\n### Required Parameters:\n- **signature**: The session signature obtained from the 'Create AUTH-session' call.\n- **kvm_id**: The unique identifier of the KVM VPS.\n- **valid_until**: The expiration timestamp for the session.\n- **config**: A JSON object containing the configuration settings.\n\n### Example Configuration:\n```json\n{\"boot_timeout\":\"5000\",\"vnc_keymap\":\"en-us\",\"cpu_model\":\"passthrough\",\"disk_driver\":\"virtio\",\"nw_driver\":\"virtio\",\"video_driver\":\"cirrus\",\"description\":\"[a-zA-Z\\-0-9\\.\\_]\",\"assigned_vlan\":\"your vlan id\",\"cpu_set_cores\":\"core or socket\",\"auto_hydration\":100}\n```",
+        "operationId": "setKvmConfiguration",
+        "servers": [
+          {
+            "url": "https://{api_host}.edisglobal.com",
+            "description": "Settings Server - The `api_host` parameter, obtained from the 'Create AUTH-session' response, is dynamically set in the URL.",
+            "variables": {
+              "api_host": {
+                "default": "xxxxx",
+                "description": "The API host obtained from the 'Create AUTH-session' response."
+              }
+            }
+          }
         ],
-        "summary": "Configure settings",
-        "description": "This endpoint handles multiple configurations for a specified KVM VPS.  \nUse the `operation` parameter to specify the desired action:  \n- **enable_auto_hydration:** Enable auto hydration with `{\"auto_hydration\":100}`.  \n- **disable_auto_hydration:** Disable auto hydration with `{\"auto_hydration\":0}`.  \n- **update_settings:** Update general system settings with a JSON configuration.\n",
-        "operationId": "configureKvmVpsSettings",
         "requestBody": {
-          "description": "Required parameters for KVM VPS configuration.",
+          "description": "Parameters required to configure a KVM VPS.",
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "$ref": "#/components/schemas/set_config_body"
+                "type": "object",
+                "properties": {
+                  "signature": {
+                    "type": "string",
+                    "description": "The session signature obtained from the 'Create AUTH-session' call.",
+                    "example": "session_signature_12345"
+                  },
+                  "kvm_id": {
+                    "type": "string",
+                    "description": "The unique identifier of the KVM VPS.",
+                    "example": "kvm_xxxxx_yyyyy"
+                  },
+                  "valid_until": {
+                    "type": "string",
+                    "description": "The expiration timestamp for the session, obtained from the 'Create AUTH-session' call.",
+                    "example": "2025-01-12T15:30:00Z"
+                  },
+                  "config": {
+                    "type": "string",
+                    "description": "JSON object containing configuration settings.\n\nExample: `{\"boot_timeout\":\"5000\",\"vnc_keymap\":\"en-us\",\"cpu_model\":\"passthrough\",\"disk_driver\":\"virtio\",\"nw_driver\":\"virtio\",\"video_driver\":\"cirrus\",\"description\":\"[a-zA-Z\\-0-9\\.\\_]\",\"assigned_vlan\":\"your vlan id\",\"cpu_set_cores\":\"core or socket\",\"auto_hydration\":100}`\n\n**Your Settings**",
+                    "example": "{\"boot_timeout\":\"5000\",\"vnc_keymap\":\"en-us\",\"cpu_model\":\"passthrough\",\"disk_driver\":\"virtio\",\"nw_driver\":\"virtio\",\"video_driver\":\"cirrus\",\"description\":\"[a-zA-Z\\-0-9\\.\\_]\",\"assigned_vlan\":\"your vlan id\",\"cpu_set_cores\":\"core or socket\",\"auto_hydration\":100}"
+                  }
+                }
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -1262,7 +1292,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_7"
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    }
+                  }
                 }
               }
             }
@@ -1272,7 +1308,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_400_6"
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid parameters provided"
+                    }
+                  }
                 }
               }
             }
@@ -1282,17 +1324,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_401_6"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden - Access is not allowed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_403_5"
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid session"
+                    }
+                  }
                 }
               }
             }
@@ -1302,24 +1340,18 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_500_6"
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
                 }
               }
             }
           }
-        },
-        "servers": [
-          {
-            "url": "https://{api_host}.edisglobal.com",
-            "description": "Settings Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.\n",
-            "variables": {
-              "api_host": {
-                "description": "The API host obtained from the \"Create AUTH-session\" response.",
-                "default": "xxxxx"
-              }
-            }
-          }
-        ]
+        }
       }
     },
     "/kvm/v2/get/config": {
@@ -2517,6 +2549,408 @@
             }
           }
         ]
+      }
+    },
+    "/kvm/v2/set/autohydration_enable": {
+      "post": {
+        "tags": ["Traffic Pool"],
+        "summary": "Enable Auto Hydration",
+        "description": "This endpoint enables auto hydration for a specified KVM VPS, setting the hydration limit to 100 GB. \n\nUse the `api_host` from the 'Create AUTH-session' response to authenticate. \n\nRequired parameters:\n- `signature`: The session signature obtained from the 'Create AUTH-session' call.\n- `kvm_id`: The unique identifier of the KVM VPS.\n- `valid_until`: The expiration timestamp for the session.\n\nTo activate auto hydration, set the `config` parameter to:\n```json\n{\"auto_hydration\":100}\n```",
+        "operationId": "enableAutoHydration",
+        "servers": [
+          {
+            "url": "https://{api_host}.edisglobal.com",
+            "description": "Settings Server - The `api_host` parameter, obtained from the 'Create AUTH-session' response, is dynamically set in the URL.",
+            "variables": {
+              "api_host": {
+                "default": "xxxxx",
+                "description": "The API host obtained from the 'Create AUTH-session' response."
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Parameters required to enable auto hydration for a KVM VPS.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "signature": {
+                    "type": "string",
+                    "description": "The session signature obtained from the 'Create AUTH-session' call.",
+                    "example": "session_signature_12345"
+                  },
+                  "kvm_id": {
+                    "type": "string",
+                    "description": "The unique identifier of the KVM VPS.",
+                    "example": "kvm_xxxxx_yyyyy"
+                  },
+                  "valid_until": {
+                    "type": "string",
+                    "description": "The expiration timestamp for the session, obtained from the 'Create AUTH-session' call.",
+                    "example": "2025-01-12T15:30:00Z"
+                  },
+                  "config": {
+                    "type": "string",
+                    "description": "JSON object containing the auto hydration configuration.\n\nExample: `{\"auto_hydration\":100}`\n\n**Set autohydration to 100GByte**",
+                    "example": "{\"auto_hydration\":100}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auto hydration enabled successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid parameters provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid session"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/set/autohydration_disable": {
+      "post": {
+        "tags": ["Traffic Pool"],
+        "summary": "Disable Auto Hydration",
+        "description": "This endpoint disables auto hydration for a specified KVM VPS, setting the hydration limit to 0 GB.\n\nThe `api_host` parameter, obtained from the 'Create AUTH-session' response, must be dynamically set in the URL.\n\n### Required Parameters:\n- **signature**: The session signature obtained from the 'Create AUTH-session' call.\n- **kvm_id**: The unique identifier of the KVM VPS.\n- **valid_until**: The expiration timestamp for the session.\n- **config**: A JSON object to disable auto hydration.\n  ```json\n  {\"auto_hydration\": 0}\n  ```",
+        "operationId": "disableAutoHydration",
+        "servers": [
+          {
+            "url": "https://{api_host}.edisglobal.com",
+            "description": "Settings Server - The `api_host` parameter, obtained from the 'Create AUTH-session' response, is dynamically set in the URL.",
+            "variables": {
+              "api_host": {
+                "default": "xxxxx",
+                "description": "The API host obtained from the 'Create AUTH-session' response."
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Parameters required to disable auto hydration for a KVM VPS.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "signature": {
+                    "type": "string",
+                    "description": "The session signature obtained from the 'Create AUTH-session' call.",
+                    "example": "session_signature_12345"
+                  },
+                  "kvm_id": {
+                    "type": "string",
+                    "description": "The unique identifier of the KVM VPS.",
+                    "example": "kvm_123456_789012"
+                  },
+                  "valid_until": {
+                    "type": "string",
+                    "description": "The expiration timestamp for the session, obtained from the 'Create AUTH-session' call.",
+                    "example": "2025-01-12T15:30:00Z"
+                  },
+                  "config": {
+                    "type": "string",
+                    "description": "JSON object containing the auto hydration configuration.\n\nExample: `{\"auto_hydration\":0}`\n\n**Disable auto hydration**",
+                    "example": "{\"auto_hydration\":0}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auto hydration disabled successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid parameters provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid session"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/get/autohydration_status": {
+      "post": {
+        "tags": ["Traffic Pool"],
+        "summary": "Get Auto Hydration Status",
+        "description": "This endpoint retrieves the current auto hydration status for a specified KVM VPS.\n\nThe `api_host` parameter, obtained from the **'Create AUTH-session'** response, must be included in the request to route the request correctly.\n\nProvide the `signature`, `kvm_id`, and `valid_until` parameters from the **'Create AUTH-session'** response to authenticate the request.",
+        "operationId": "getAutoHydrationStatus",
+        "servers": [
+          {
+            "url": "https://{api_host}.edisglobal.com",
+            "description": "Auto Hydration Status Server - The `api_host` parameter, obtained from the 'Create AUTH-session' response, is dynamically set in the URL.",
+            "variables": {
+              "api_host": {
+                "default": "xxxxx",
+                "description": "The API host obtained from the 'Create AUTH-session' response."
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Parameters required to retrieve the auto hydration status of a KVM VPS.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "signature": {
+                    "type": "string",
+                    "description": "The session signature obtained from the 'Create AUTH-session' call.",
+                    "example": "session_signature_12345"
+                  },
+                  "kvm_id": {
+                    "type": "string",
+                    "description": "The unique identifier of the KVM VPS.",
+                    "example": "kvm_xxxxx_yyyyy"
+                  },
+                  "valid_until": {
+                    "type": "string",
+                    "description": "The expiration timestamp for the session, obtained from the 'Create AUTH-session' call.",
+                    "example": "2025-01-12T15:30:00Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auto hydration status retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "config": {
+                      "type": "object",
+                      "description": "Current auto hydration and other settings.",
+                      "properties": {
+                        "boot_timeout": {
+                          "type": "string",
+                          "example": "5000"
+                        },
+                        "vnc_keymap": {
+                          "type": "string",
+                          "example": "de"
+                        },
+                        "cpu_model": {
+                          "type": "string",
+                          "example": "default"
+                        },
+                        "disk_driver": {
+                          "type": "string",
+                          "example": "virtio"
+                        },
+                        "nw_driver": {
+                          "type": "string",
+                          "example": "virtio"
+                        },
+                        "video_driver": {
+                          "type": "string",
+                          "example": "cirrus"
+                        },
+                        "assigned_vlan": {
+                          "type": "string",
+                          "example": "100"
+                        },
+                        "cpu_set_cores": {
+                          "type": "string",
+                          "example": "socket"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "test1"
+                        },
+                        "available_vlans": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "example": ["100"]
+                        },
+                        "auto_hydration": {
+                          "type": "integer",
+                          "example": 100
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid parameters provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid session"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/kvm/v2/get/pool_traffic": {
@@ -4370,7 +4804,7 @@
           },
           "vnc_pw": {
             "type": "string",
-            "description": "The password to set for the VNC connection.  \nThis password will be required to access the VNC session.\n",
+            "description": "The password to set for the VNC connection.  \nThis password will be required to access the VNC session.\n\nVNC password requirements:\n- Exactly 8 characters long.\n- Only letters (A-Z, a-z) and numbers (0-9).\n- No symbols allowed.",
             "example": "securepassword123"
           }
         }

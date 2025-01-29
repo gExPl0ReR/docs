@@ -99,7 +99,9 @@
           {
             "group": "Traffic Pool",
             "pages": [
-              "management-api-reference/traffic-pool/configure-settings",
+              "management-api-reference/traffic-pool/enable-auto-hydration",
+              "management-api-reference/traffic-pool/disable-auto-hydration",
+              "management-api-reference/traffic-pool/get-auto-hydration-status",
               "management-api-reference/traffic-pool/get-global-traffic-pool-size",
               "management-api-reference/traffic-pool/get-hydration-log",
               "management-api-reference/traffic-pool/assign-traffic-resources-from-global-pool"
@@ -109,7 +111,7 @@
             "group": "Settings",
             "pages": [
               "management-api-reference/settings/get-configuration",
-              "management-api-reference/settings/set-configuration"
+              "management-api-reference/settings/configure-settings"
             ]
           },
           {
@@ -200,7 +202,9 @@
      {
       "group": "Traffic Pool",
       "pages": [
-       "management-api-reference/traffic-pool/configure-settings",
+       "management-api-reference/traffic-pool/enable-auto-hydration",
+       "management-api-reference/traffic-pool/disable-auto-hydration",
+       "management-api-reference/traffic-pool/get-auto-hydration-status",
        "management-api-reference/traffic-pool/get-global-traffic-pool-size",
        "management-api-reference/traffic-pool/get-hydration-log",
        "management-api-reference/traffic-pool/assign-traffic-resources-from-global-pool"
@@ -210,7 +214,7 @@
       "group": "Settings",
       "pages": [
        "management-api-reference/settings/get-configuration",
-       "management-api-reference/settings/set-configuration"
+       "management-api-reference/settings/configure-settings"
       ]
      },
      {
