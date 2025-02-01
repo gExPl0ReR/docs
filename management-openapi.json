@@ -2840,60 +2840,33 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "status": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "config": {
+                    "response_1": {
                       "type": "object",
-                      "description": "Current auto hydration and other settings.",
                       "properties": {
-                        "boot_timeout": {
+                        "status": {
                           "type": "string",
-                          "example": "5000"
-                        },
-                        "vnc_keymap": {
-                          "type": "string",
-                          "example": "de"
-                        },
-                        "cpu_model": {
-                          "type": "string",
-                          "example": "default"
-                        },
-                        "disk_driver": {
-                          "type": "string",
-                          "example": "virtio"
-                        },
-                        "nw_driver": {
-                          "type": "string",
-                          "example": "virtio"
-                        },
-                        "video_driver": {
-                          "type": "string",
-                          "example": "cirrus"
-                        },
-                        "assigned_vlan": {
-                          "type": "string",
-                          "example": "100"
-                        },
-                        "cpu_set_cores": {
-                          "type": "string",
-                          "example": "socket"
-                        },
-                        "description": {
-                          "type": "string",
-                          "example": "test1"
-                        },
-                        "available_vlans": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "example": ["100"]
+                          "example": "success"
                         },
                         "auto_hydration": {
-                          "type": "integer",
-                          "example": 100
+                          "type": "string",
+                          "example": "off"
+                        }
+                      }
+                    },
+                    "or": {
+                      "type": "string",
+                      "example": "OR"
+                    },
+                    "response_2": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string",
+                          "example": "success"
+                        },
+                        "auto_hydration": {
+                          "type": "string",
+                          "example": "100"
                         }
                       }
                     }
