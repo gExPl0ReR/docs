@@ -64,13 +64,13 @@ flowchart TD
         R3["✅ Possible Data Restoration"]
     end
 
-    subgraph no_recovery["⚠️)"]
+    subgraph no_recovery[""]
         direction TB
         X["🛑 Data Permanently Lost"]
     end
 
-    E -.->|Invoice NOT YET Cancelled| R1 --> R2 --> R3
-    E -.->|Invoice Cancelled| X
+    E -.->|Invoice UNPAID| R1 --> R2 --> R3
+    E -.->|Invoice CANCELLED| X
 ```
 
 <Note>
