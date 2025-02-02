@@ -39,6 +39,8 @@ If your VPS has been terminated, but your invoice is **UNAPID (not yet cancelled
 
 **Important:** Once an invoice shows as "cancelled" in your account, data recovery is no longer possible.
 
+
+
 ### Billing Timeline Flowchart
 
 ```mermaid
@@ -66,11 +68,11 @@ flowchart TD
 
     subgraph no_recovery["⚠️ No Recovery"]
         direction TB
-        X["🛑 Data Permanently Lost"]
+        X[""🛑 Data Permanently Lost""]
     end
 
-    E -.->|Invoice UNPAID| R1 --> R2 --> R3
-    E -.->|Invoice CANCELLED| X
+    E -.->|Invoice Status Unpaid| R1 --> R2 --> R3
+    E -.->|Invoice Status Cancelled| X
 ```
 
 <Note>
