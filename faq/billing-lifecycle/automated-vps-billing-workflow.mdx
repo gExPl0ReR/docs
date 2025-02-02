@@ -15,24 +15,25 @@ flowchart TD
     A["🧾 Invoice Generated<br>(7 days before due)"] --> B["💳 Credit Card Auto-Capture<br>(4 days before due)"]
     B --> C["📩 First Friendly Reminder<br>(2 days before due)"]
     
-    subgraph "🚨 Overdue Reminders"
+    subgraph overdue["🚨 Overdue Reminders"]
         direction TB
-        C1["📢 1 day overdue"]
-        C2["📢 2 days overdue"]
-        C3["📢 3 days overdue"]
+        C1["📢 1 Day Overdue"]
+        C2["📢 2 Days Overdue"]
+        C3["📢 3 Days Overdue"]
     end
     C --> C1 --> C2 --> C3
-    
+
     C3 --> D["⛔ Service Suspension<br>(3 days overdue)"]
     D --> E["❌ Service Termination<br>(8 days overdue - Data Wiped)"]
 
-    subgraph "🔄 Service Recovery"
+    subgraph recovery["🔄 Service Recovery"]
         direction TB
         R1["💰 Make Payment"]
         R2["📞 Contact Support"]
+        R3["✅ Possible Data Restoration"]
     end
 
-    E -.->|Invoice NOT Cancelled| R1 --> R2["✅ Possible Data Restoration"]
+    E -.->|Invoice NOT Cancelled| R1 --> R2 --> R3
     E -.->|Invoice Cancelled| X["⚠️ No Data Recovery Possible"]
 ```
 
