@@ -9,6 +9,35 @@ We want to provide you with a clear overview of our automated VPS billing proces
 
 ### Billing Timeline
 
+
+```Mermaid
+flowchart TD
+    A["🧾 Invoice Generated<br>(7 days before due)"] --> B["💳 Credit Card Auto-Capture<br>(4 days before due)"]
+    B --> C["📩 First Friendly Reminder<br>(2 days before due)"]
+    
+    subgraph "🚨 Overdue Reminders"
+        direction TB
+        C1["📢 1 day overdue"]
+        C2["📢 2 days overdue"]
+        C3["📢 3 days overdue"]
+    end
+    C --> C1 --> C2 --> C3
+    
+    C3 --> D["⛔ Service Suspension<br>(3 days overdue)"]
+    D --> E["❌ Service Termination<br>(8 days overdue - Data Wiped)"]
+
+    subgraph "🔄 Service Recovery"
+        direction TB
+        R1["💰 Make Payment"]
+        R2["📞 Contact Support"]
+    end
+
+    E -.->|Invoice NOT Cancelled| R1 --> R2["✅ Possible Data Restoration"]
+    E -.->|Invoice Cancelled| X["⚠️ No Data Recovery Possible"]
+```
+
+
+
 1. **Invoice Generation**
    - Generated 7 days before the due date
    
