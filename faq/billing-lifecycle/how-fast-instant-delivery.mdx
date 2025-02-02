@@ -18,24 +18,19 @@ Once the **payment has cleared**, your server will be **delivered** **instant
 
 In some rare occasions, we can't deliver your order right away and need to fulfill further compliance checks. EDIS team would reach out to you for additional information, or offer a refund.
 
-### **4. Use the Correct Code Block**
+```mermaid
+flowchart TD
+    A["Customer places order (Pro-forma Invoice 4004xxx)"] --> B["Customer makes payment"]
+    B --> C["Payment provider confirms transaction"]
+    C --> D["Billing system converts invoice (Tax Invoice 500xxxx)"]
+    D --> E["Provisioning system checks for paid orders (Every 3 minutes)"]
+    E --> F["VPS is provisioned & credentials sent"]
+    
+    subgraph Installation
+        direction TB
+        F --> G["Linux installation (~5 min)"]
+        F --> H["Windows installation (~15 min)"]
+    end
 
-Ensure that you're **using backticks (\`) for the code block**, and **not mixing spaces or tabs** incorrectly.
-
-### **5. Use Mintlify's Mermaid Component**
-
-Some versions of Mintlify may require wrapping the diagram with their **Mermaid component**:
-
-```markdown
-<Mermaid>
-graph TD;
-    A["Customer places order (Pro-forma Invoice 4004xxx)"] -->|Payment made| B["Payment provider confirms transaction"]
-    B --> C["Billing system converts invoice (Tax Invoice 500xxxx)"]
-    C --> D["Provisioning system checks for paid orders (Every 3 minutes)"]
-    D --> E["VPS is provisioned & credentials sent"]
-    E --> F["Installation begins"]
-    F -->|Linux (~5 min)| G["Finalization"]
-    F -->|Windows (~15 min)| G
-    G --> H["SSH/RDP ports blocked during installation"]
-</Mermaid>
+    G & H --> I["SSH/RDP ports blocked during installation"]
 ```
