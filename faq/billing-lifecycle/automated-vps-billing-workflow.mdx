@@ -57,14 +57,14 @@ flowchart TD
     C3 --> D["⛔ Service Suspension<br>(3 days overdue)"]
     D --> E["❌ Service Termination & Service Deletion<br>(8 days overdue)"]
 
-    subgraph recovery["🔄 Service Recovery"]
+    subgraph recovery["🔄 Recovery Possible"]
         direction TB
         R1["💰 Make Immediate Payment"]
         R2["📞 Contact Support"]
         R3["✅ Possible Data Restoration"]
     end
 
-    subgraph no_recovery["⚠️ Recovery No Longer Possible"]
+    subgraph no_recovery["⚠️ No Recovery"]
         direction TB
         X["🛑 Data Permanently Lost"]
     end
