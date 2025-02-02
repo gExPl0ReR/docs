@@ -18,22 +18,24 @@ Once the **payment has cleared**, your server will be **delivered** **instant
 
 In some rare occasions, we can't deliver your order right away and need to fulfill further compliance checks. EDIS team would reach out to you for additional information, or offer a refund.
 
-## Order and Delivery Process
+### **4. Use the Correct Code Block**
 
-EDIS Global provisions VPS orders automatically. Below is an overview of the process.
+Ensure that you're **using backticks (\`) for the code block**, and **not mixing spaces or tabs** incorrectly.
 
-## Order and Delivery Process
+### **5. Use Mintlify's Mermaid Component**
 
-EDIS Global provisions VPS orders automatically. Below is an overview of the process.
+Some versions of Mintlify may require wrapping the diagram with their **Mermaid component**:
 
-```mermaid
+```markdown
+<Mermaid>
 graph TD;
-    A[Customer places order (Pro-forma Invoice 4004xxx)] -->|Payment made| B[Payment provider confirms transaction]
-    B --> C[Billing system converts invoice (Tax Invoice 500xxxx)]
-    C --> D[Provisioning system checks for paid orders (Every 3 minutes)]
-    D --> E[VPS is provisioned & credentials sent]
-    E --> F[Installation begins]
-    F -->|Linux (~5 min)| G[Finalization]
+    A["Customer places order (Pro-forma Invoice 4004xxx)"] -->|Payment made| B["Payment provider confirms transaction"]
+    B --> C["Billing system converts invoice (Tax Invoice 500xxxx)"]
+    C --> D["Provisioning system checks for paid orders (Every 3 minutes)"]
+    D --> E["VPS is provisioned & credentials sent"]
+    E --> F["Installation begins"]
+    F -->|Linux (~5 min)| G["Finalization"]
     F -->|Windows (~15 min)| G
-    G --> H[SSH/RDP ports blocked during installation]
+    G --> H["SSH/RDP ports blocked during installation"]
+</Mermaid>
 ```
