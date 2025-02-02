@@ -20,17 +20,17 @@ In some rare occasions, we can't deliver your order right away and need to fulfi
 
 ```mermaid
 flowchart TD
-    A["Customer places order (Pro-forma Invoice 4004xxx)"] --> B["Customer makes payment"]
-    B --> C["Payment provider confirms transaction"]
-    C --> D["Billing system converts invoice (Tax Invoice 500xxxx)"]
-    D --> E["Provisioning system checks for paid orders (Every 3 minutes)"]
-    E --> F["VPS is provisioned & credentials sent"]
-    
-    subgraph Installation
+    A["🛒 Customer places order<br>(Pro-forma Invoice 400xxx)"] --> B["💳 Customer makes payment"]
+    B --> C["✅ Payment provider confirms"]
+    C --> D["📜 Invoice converted<br>(Tax Invoice 500xxx)"]
+    D --> E["🔄 Provisioning checks for paid orders<br>(Every 3 min)"]
+    E --> F["🚀 VPS provisioned & credentials sent"]
+
+    subgraph "🖥️ Installation Process" [Installation]
         direction TB
-        F --> G["Linux installation (~5 min)"]
-        F --> H["Windows installation (~15 min)"]
+        F --> G["🐧 Linux install (~5 min)"]
+        F --> H["🪟 Windows install (~15 min)"]
     end
 
-    G & H --> I["SSH/RDP ports blocked during installation"]
+    G & H --> I["🔒 SSH/RDP ports blocked during installation"]
 ```
