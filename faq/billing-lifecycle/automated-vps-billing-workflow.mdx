@@ -10,33 +10,40 @@ We want to provide you with a clear overview of our automated VPS billing proces
 ### Billing Timeline
 
 1. **Invoice Generation**
-   - Generated 7 days before the due date
-   
+
+   * Generated 7 days before the due date
+
 2. **Credit Card Processing**
-   - Automated capture 4 days before the due date
-   
+
+   * Automated capture 4 days before the due date
+
 3. **Payment Reminders**
-   - First friendly reminder: 2 days before the due date
-   - Overdue reminders: Sent 1, 2, and 3 days after the due date
-   
+
+   * First friendly reminder: 2 days before the due date
+
+   * Overdue reminders: Sent 1, 2, and 3 days after the due date
+
 4. **Service Actions**
-   - Service Suspension: Occurs 3 days after the due date
-   - Service Termination: Takes place 8 days after the due date (**all data is permanently wiped**)
+
+   * Service Suspension: Occurs 3 days after the due date
+
+   * Service Termination: Takes place 8 days after the due date (**all data is permanently wiped**)
 
 ### Service Recovery Options
 
 If your VPS has been terminated, but your invoice is **not yet cancelled**, there may be an opportunity to restore your data. To attempt recovery:
 
 1. Make the payment immediately
+
 2. Contact our support team to notify us of your payment
 
 **Important:** Once an invoice shows as "cancelled" in your account, data recovery is no longer possible.
 
-
+### Billing Timeline Flowchart
 
 ```mermaid
 flowchart TD
-    A["🧾 Invoice Generated<br>(7 days before due)"] --> B["💳 Credit Card Auto-Capture<br>(4 days before due)"]
+    A["🧾 Invoice Generated<br>(7 days before due)"] --> B["💳 Credit Card Processing<br>(4 days before due)"]
     B --> C["📩 First Friendly Reminder<br>(2 days before due)"]
 
     subgraph overdue["🚨 Overdue Reminders"]
@@ -48,33 +55,34 @@ flowchart TD
     C --> C1 --> C2 --> C3
 
     C3 --> D["⛔ Service Suspension<br>(3 days overdue)"]
-    D --> E["❌ Service Termination<br>(8 days overdue - Data Wiped)"]
+    D --> E["❌ Service Termination & Service Deletion<br>(8 days overdue)"]
 
-    subgraph recovery["🔄 Service Recovery (If Invoice NOT Cancelled)"]
+    subgraph recovery["🔄 Service Recovery (If Invoice NOT YET Cancelled)"]
         direction TB
         R1["💰 Make Payment"]
         R2["📞 Contact Support"]
         R3["✅ Possible Data Restoration"]
     end
 
-    subgraph no_recovery["⚠️ No Data Recovery Possible (If Invoice Cancelled)"]
+    subgraph no_recovery["⚠️ No Data Recovery Possible (If Invoice already Cancelled)"]
         direction TB
         X["🛑 Data Permanently Lost"]
     end
 
-    E -.->|Invoice NOT Cancelled| R1 --> R2 --> R3
+    E -.->|Invoice NOT YET Cancelled| R1 --> R2 --> R3
     E -.->|Invoice Cancelled| X
 ```
 
-
-
 <Note>
-**Client Responsibility Notice**
+  **Client Responsibility Notice**
 
-VPS customers are solely responsible for:
-- Managing their virtual machines
-- Creating regular backups of their servers
-- Securing all important data
+  VPS customers are solely responsible for:
 
-EDIS Global strongly recommends maintaining current backups of all critical information.
+  * Managing their virtual machines
+
+  * Creating regular backups of their servers
+
+  * Securing all important data
+
+  EDIS Global strongly recommends maintaining current backups of all critical information.
 </Note>
