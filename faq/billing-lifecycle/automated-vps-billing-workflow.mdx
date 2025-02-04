@@ -89,11 +89,11 @@ flowchart TD
 
     subgraph no_recovery["⚠️ No Recovery"]
         direction TB
-        X[""🛑 Data Permanently Lost""]
+        X[""🛑 Data is Lost""]
     end
 
-    E -.->|Invoice Status Unpaid| R1 --> R2 --> R3
-    E -.->|Invoice Status Cancelled| X
+    E -.->|Invoice Status <b>Unpaid</b>| R1 --> R2 --> R3
+    E -.->|Invoice Status <b>Cancelled</b> <br> ~8 days after termination| X
 ```
 
 ***

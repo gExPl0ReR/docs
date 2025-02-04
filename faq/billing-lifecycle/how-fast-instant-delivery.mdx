@@ -28,11 +28,11 @@ Once **payment clears**, your server is **delivered instantly**.
 
 ```mermaid
 flowchart TD
-    A["🛒 Customer places order<br>(Pro-Forma Invoice 400xxx)"] --> B["💳 Customer makes payment"]
-    B --> C["✅ Payment Provider Confirms"]
-    C --> D["📜 Invoice marked PAID<br>(TAX Invoice 500xxx)"]
-    D --> E["🔄 Provisioning Checks for PAID Orders<br>(every 3 minutes)"]
-    E --> F["🚀 VPS Provisioning <br>Email with credentials is sent"]
+    A["🛒 Place Your Order<br>(Pro-Forma Invoice 400xxx)"] --> B["💳 Make a Payment"]
+    B --> C["✅ Payment Confirmation"]
+    C --> D["📜 Invoice is Marked as Paid<br>(TAX Invoice 500xxx is sent)"]
+    D --> E["🔄 Provisioning Check<br>(every 3 minutes)"]
+    E --> F["🚀 VPS Provisioning <br> You will receive an email with your credentials."]
 
     subgraph "🖥️ Installation Process" [Installation Process]
         direction TB
@@ -40,8 +40,8 @@ flowchart TD
         F --> H["🪟 Windows Installation <br> (takes ~15 min)"]
     end
 
-    G & H --> I["🔒 SSH/RDP ports blocked during installation"]
-    I --> J["🖥️ You are good to connect (RDP/SSH)"]
+    G & H --> I["🔒 Installation Security Measures <br> SSH/RDP ports blocked during installation"]
+    I --> J["🖥 Your VPS is now ready for connection via RDP/SSH"]
 ```
 
 
