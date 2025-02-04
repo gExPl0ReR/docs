@@ -4,34 +4,49 @@ sidebarTitle: Instant Delivery
 description: Once the payment has cleared, your server will be delivered instantly.
 ---
 
-## How fast do you deliver my VPS order?
+## How Fast do you Deliver my VPS Order?
 
-EDIS wants to ensure a great experience for all of its customers.&#x20;
+EDIS Global wants to ensure a great experience for all of its customers.&#x20;
 In order to successfully welcome new clients, there are some essential checks that need to be completed.
 
-### &#xA;Instant delivery
+### &#xA;**Instant VPS Deployment**
 
-EDIS delivers VPS hosting plans instantly. Your virtual server will be delivered right after the payment has cleared, which typically takes **6 confirmations on the blockchain** (till our payment processor Coinbase Commerce reports the payment to us) and less than 2 minutes through PayPal and Credit Cards, or through payments with account credit.
+EDIS Global provisions VPS hosting within **3 minutes** after payment confirmation.
 
-Once the **payment has cleared**, your server will be **delivered** **instantly**.
+
+
+​	•	**PayPal & Credit Cards**: Near-instant processing
+
+​	•	**Crypto Payments**: Subject to blockchain confirmations
+
+
+
+Once **payment clears**, your server is **delivered instantly**.
+
+
+
+```mermaid
+flowchart TD
+    A["🛒 Customer places order<br>(Pro-Forma Invoice 400xxx)"] --> B["💳 Customer makes payment"]
+    B --> C["✅ Payment Provider Confirms"]
+    C --> D["📜 Invoice marked PAID<br>(TAX Invoice 500xxx)"]
+    D --> E["🔄 Provisioning Checks for PAID Orders<br>(every 3 minutes)"]
+    E --> F["🚀 VPS Provisioning <br>Email with credentials is sent"]
+
+    subgraph "🖥️ Installation Process" [Installation Process]
+        direction TB
+        F --> G["🐧 Linux Installation <br>(takes ~5 min)"]
+        F --> H["🪟 Windows Installation <br> (takes ~15 min)"]
+    end
+
+    G & H --> I["🔒 SSH/RDP ports blocked during installation"]
+    I --> J["🖥️ You are good to connect (RDP/SSH)"]
+```
+
+
+
+
 
 ### What, if it takes longer ...
 
 In some rare occasions, we can't deliver your order right away and need to fulfill further compliance checks. EDIS team would reach out to you for additional information, or offer a refund.
-
-```mermaid
-flowchart TD
-    A["🛒 Customer places order<br>(Pro-forma Invoice 400xxx)"] --> B["💳 Customer makes payment"]
-    B --> C["✅ Payment provider confirms"]
-    C --> D["📜 Invoice converted<br>(Tax Invoice 500xxx)"]
-    D --> E["🔄 Provisioning checks for paid orders<br>(Every 3 min)"]
-    E --> F["🚀 VPS provisioned & credentials sent"]
-
-    subgraph "🖥️ Installation Process" [Installation]
-        direction TB
-        F --> G["🐧 Linux install (~5 min)"]
-        F --> H["🪟 Windows install (~15 min)"]
-    end
-
-    G & H --> I["🔒 SSH/RDP ports blocked during installation"]
-```
