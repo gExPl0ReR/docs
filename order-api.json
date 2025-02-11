@@ -527,8 +527,8 @@
                     "example": "securepassword"
                   },
                   "kvm_id": {
-                    "type": "integer",
-                    "example": 123456,
+                    "type": "string",
+                    "example": "kvm_123456_789012",
                     "description": "KVM service ID(kvm_id) or numeric client ID."
                   },
                   "newpid": {
