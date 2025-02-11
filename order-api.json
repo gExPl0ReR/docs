@@ -526,7 +526,7 @@
                     "type": "string",
                     "example": "securepassword"
                   },
-                  "kvm_id": {
+                  "kvmid": {
                     "type": "string",
                     "example": "kvm_123456_789012",
                     "description": "KVM service ID(kvm_id) or numeric client ID."
