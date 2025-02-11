@@ -54,6 +54,7 @@
         "pages": [
           "order-api-reference/order-api-welcome",
           "order-api-reference/order-vps",
+          "order-api-reference/upgrade-vps",
           "order-api-reference/get-vps-plans",
           "order-api-reference/get-vps-locations",
           "order-api-reference/get-billing-cycles",
@@ -447,6 +448,7 @@
     "pages": [
         "order-api-reference/order-api-welcome",
         "order-api-reference/order-vps",
+        "order-api-reference/upgrade-vps",
         "order-api-reference/get-vps-plans",
         "order-api-reference/get-vps-locations",
         "order-api-reference/get-billing-cycles",

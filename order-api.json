@@ -506,6 +506,165 @@
         ]
       }
     },
+    "/kvm/v2/add/upgrade": {
+      "post": {
+        "summary": "Upgrade a KVM Service",
+        "description": "Upgrades a KVM service to a new product within the same location.",
+        "operationId": "upgradeKVM",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "user@example.com"
+                  },
+                  "pw": {
+                    "type": "string",
+                    "example": "securepassword"
+                  },
+                  "kvm_id": {
+                    "type": "integer",
+                    "example": 123456,
+                    "description": "KVM service ID(kvm_id) or numeric client ID."
+                  },
+                  "newpid": {
+                    "type": "integer",
+                    "example": 1642,
+                    "description": "New Product ID, must be within the same location"
+                  },
+                  "newbillingcycle": {
+                    "type": "string",
+                    "enum": ["monthly", "quarterly", "semi-annually", "annually"],
+                    "example": "monthly",
+                    "description": "Billing cycle for the upgraded product. Please select from the dropdown list."
+                  },
+                  "newpaymentmethod": {
+                    "type": "string",
+                    "example": "paypal"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Upgrade successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "orderid": {
+                      "type": "string",
+                      "example": "228300"
+                    },
+                    "serviceid": {
+                      "type": "string",
+                      "example": "209052"
+                    },
+                    "invoiceid": {
+                      "type": "string",
+                      "example": "1617670"
+                    },
+                    "oldproductname": {
+                      "type": "string",
+                      "example": "KVM BASIC"
+                    },
+                    "newproductname": {
+                      "type": "string",
+                      "example": "KVM PREMIUM PLUS"
+                    },
+                    "oldproductid": {
+                      "type": "string",
+                      "example": "1632"
+                    },
+                    "newproductid": {
+                      "type": "string",
+                      "example": "1642"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid parameters provided."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized, wrong credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Authentication failed. Invalid email or password."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Unexpected server error. Please try again later."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://order.edisglobal.com",
+            "description": "Specific endpoint for retrieving new VPS order"
+          }
+        ]
+      }
+    },
     "/kvm/v2/cancel/product": {
       "post": {
         "summary": "Cancel-VPS.",
