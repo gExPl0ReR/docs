@@ -9,15 +9,13 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 
 Virtualization technology has transformed the landscape of modern computing, especially in server environments. Within a Virtual Private Server (VPS) environment, understanding the difference between CPU cores and CPU sockets can be critical to optimizing performance. This article will detail these distinctions, describe how virtualization technology can render vCPU cores, and guide you through adjusting these settings in the VPS management dashboard.
 
-<CtaButton
-  label='fast forward to guide'
-  link='#3-adjusting-cpu-settings-in-kvm-management-dashboard'
-/>
+<CtaButton label="fast forward to guide" link="#3-adjusting-cpu-settings-in-kvm-management-dashboard" />
 
 ### 1. CPU Cores vs. CPU Sockets: What's the Difference?
 
-- **CPU Core**: A CPU core is an independent processing unit within a CPU. Modern CPUs can have multiple cores, allowing them to perform multiple tasks simultaneously. In a VPS environment, assigning multiple cores can increase the multitasking capability of a virtual machine.
-- **CPU Socket**: A CPU socket, often just referred to as a socket, is the physical slot on the computer's motherboard that holds the CPU. Each socket can hold one CPU chip, and that chip can contain one or more cores. When a VPS environment refers to 'sockets,' it often means virtual representations of these physical slots.
+* **CPU Core**: A CPU core is an independent processing unit within a CPU. Modern CPUs can have multiple cores, allowing them to perform multiple tasks simultaneously. In a VPS environment, assigning multiple cores can increase the multitasking capability of a virtual machine.
+
+* **CPU Socket**: A CPU socket, often just referred to as a socket, is the physical slot on the computer's motherboard that holds the CPU. Each socket can hold one CPU chip, and that chip can contain one or more cores. When a VPS environment refers to 'sockets,' it often means virtual representations of these physical slots.
 
 ### 2. Virtualization Capabilities
 
@@ -29,13 +27,22 @@ In the world of virtualization, technology can mimic hardware behavior. This mea
 
 If you're using the KVM management dashboard, here's how to access and modify the vCPU presentation:
 
-![](/assets/huaNpFAxK5PVCl_NLo3ID-iETZNYThaffnYenRdYUNi-20240806-114520.png)
+![](/assets/vps-system-configuration.webp)
 
-1. Navigate to your <a href="https://manage.edisglobal.com/clientarea.php" target="_blank">VPS Management Portal</a>
+
+
+1. Navigate to your&#x20;
+
+   <a href="https://manage.edisglobal.com/clientarea.php" target="_blank">VPS Management Portal</a>
+
 2. Locate your VPS in the Services tab
+
 3. Click on **KVM Settings**
+
 4. Within the settings, you'll find options to switch between "multiple sockets" and "multiple cores".
+
 5. Choose the desired configuration based on your requirements.
+
 6. Power-Cyle your VPS (shutdown in the OS, power off, power-on)
 
 ![](/assets/huaNpFAxK5PVCl_NLo3ID-tcYuoIemRB1MLqTyqaz6a-20240806-114542.png)
@@ -46,7 +53,4 @@ Typically, you might need to adjust these settings based on the operating system
 
 **Note**: Always remember to consult documentation or tech support when unsure, as certain settings can affect the performance and stability of your VPS.
 
-<CtaButton
-  label='Check CPU Cores on a Windows VPS'
-  link='./how-to-check-cpu-cores-windows-vps'
-/>
+<CtaButton label="Check CPU Cores on a Windows VPS" link="./how-to-check-cpu-cores-windows-vps" />
