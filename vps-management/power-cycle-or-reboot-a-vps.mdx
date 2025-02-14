@@ -1,33 +1,25 @@
 ---
-title: Power Cycle or Reboot a VPS
-sidebarTitle: Reboot VPS
-description: The document explains how to power-cycle or reboot a Virtual Private Server (VPS) through the KVM management portal or using a shutdown command followed by a power on through the portal.
+title: "Power Cycle or Reboot a VPS"
+sidebarTitle: "Reboot VPS"
+description: "The document explains how to power-cycle or reboot a Virtual Private Server (VPS) through the KVM management portal or using a shutdown command followed by a power on through the portal."
 ---
 
-## How to power-cyle your VPS
+## START / STOP and RESTART your VPS
 
-You trigger a power-cycle or reboot of your VPS in the KVM management portal.
+If your service is currently in **SHUTDOWN** state, you can **START** your VPS.
+Regardless of the current state, you always have the option to **Restart** (power-cycle) your VPS.
 
-### How it works
+![](/assets/vps-start-restart.webp)
 
-<Steps>
-  <Step title="Log in to your">
-    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
-  </Step>
+If your service is currently in **RUNNING** state, you can **STOP** (shutdown) your VPS.
+Regardless of the current state, you always have the option to **Restart** (power-cycle) your VPS.
 
-  <Step title="Locate your VPS in the Services tab" />
-
-  <Step title="Reinstall your VPS with a fresh OS and your own password">
-    and then click **"Shutdown"** or **"Reboot".** 
-
-    After a shutdown, you can **"power on"** your VPS again.
-  </Step>
-</Steps>
+![](/assets/vps-stop-restart.webp)
 
 ### What it does
 
-Both the Shutdown and Reboot actions terminate the hypervisor process managing your VPS, while a Reboot initiates a fresh start of your virtual machine with a new hypervisor process right after the process has ended.
+Both the **Stop** and **Restart** actions terminate the hypervisor process managing your VPS. In addition, a Restart also initiates a fresh start of your virtual machine on a new hypervisor process. if you had a VNC/noVNC console open, you need to restart VNC/noVNC console too.
 
 ### Alternative Solution (clean & safe)
 
-Alternatively, you can trigger a **"shutdown -h now"** or **"halt"** at the command prompt of your OS, followed by a **"power on"** through the KVM management portal. This should be the preferred way to cleanly shutdown/reboot your system.&#x20;
+You can trigger a **"shutdown -h now"** or **"halt"** at the command prompt of your OS, followed by a **"START"** through the KVM management portal. This should be the preferred way to give your machine a clean cold-boot.
