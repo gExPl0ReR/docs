@@ -10,79 +10,63 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 
 This guide walks you through reinstalling the OS on your Virtual Private Server (VPS). Whether you’re starting over or switching operating systems, you’ll be able to set up your VPS with a clean install and a new password. **Make sure to back up your important files before proceeding, as reinstallation will wipe all existing data.**
 
+![](/assets/vps-reinstall-os-button.webp)
+
 ## ▶️ Watch: Linux Install Guide
 
 Watch this short tutorial video on how to reinstall your VPS with Linux.&#x20;
 We’ll show you the most important steps to ensure a smooth and successful reinstallation process.
 
-<iframe
-  width='100%'
-  height='450'
-  src='https://www.loom.com/embed/33e129dad9554baebb562b3e84e9527a?sid=1010322b-9466-416f-a135-19e0f07a8951'
-  frameborder='0'
-  allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-  allowfullscreen
-></iframe>
+<iframe width="100%" height="450" src="https://www.loom.com/embed/33e129dad9554baebb562b3e84e9527a?sid=1010322b-9466-416f-a135-19e0f07a8951" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
 ## ▶️ Watch: Windows Install Guide (RDP)
 
 Watch this short tutorial video on how to reinstall your VPS with Windows Server.&#x20;
 We’ll guide you through the key steps to quickly set up your server, ensuring you have everything for remote desktop access.
 
-<iframe
-  width='100%'
-  height='450'
-  src='https://www.loom.com/embed/731fb25215a7488bb0463bd2c8d1fb16?sid=e7bd52c6-2f17-454e-991e-176c847de424'
-  frameborder='0'
-  allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-  allowfullscreen
-></iframe>
+<iframe width="100%" height="450" src="https://www.loom.com/embed/731fb25215a7488bb0463bd2c8d1fb16?sid=e7bd52c6-2f17-454e-991e-176c847de424" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
 ## Install / Reinstall your VPS with a fresh OS
 
 Follow these easy steps below
 
 <Steps>
-  <Step title='Log in to your'>
+  <Step title="Log in to your">
     [KVM Management Portal](https://manage.edisglobal.com/clientarea.php)
   </Step>
-  <Step title='Locate your VPS in the Services tab' />
-  <Step title='Click "AutoInstall OS" to reinstall your VPS with a fresh password and the OS of your liking'>
+
+  <Step title="Locate your VPS in the Services tab" />
+
+  <Step title="Click &#x22;AutoInstall OS&#x22; to reinstall your VPS with a fresh password and the OS of your liking">
     **Indicate a password** (or note down our randomly generated password)
 
     This will be your Linux (root) password or your new Windows Administrator password.
 
     Keep in mind, **no email will be sent** when you reinstall!
-
   </Step>
 </Steps>
 
 <Note>
   **A Linux installation** will take approx. 5 minutes.
 
-SSH port 22 is _closed during installations_ to avoid interference with the installation.
+  SSH port 22 is *closed during installations* to avoid interference with the installation.
 
-![](/assets/huaNpFAxK5PVCl_NLo3ID-qDPCEUD7wtL6EYnFUKOfe-20241001-201404.png)
-
+  ![](/assets/huaNpFAxK5PVCl_NLo3ID-qDPCEUD7wtL6EYnFUKOfe-20241001-201404.png)
 </Note>
 
 <Note>
   **A Windows installation** will take approx. 15 minutes.
 
-RDP port 3389 is _closed during installations_ to avoid interference with the installation.
+  RDP port 3389 is *closed during installations* to avoid interference with the installation.
 
-![](/assets/huaNpFAxK5PVCl_NLo3ID-ozGQ3EbLw2SKc3sattPPn-20241001-201443.png)
-
+  ![](/assets/huaNpFAxK5PVCl_NLo3ID-ozGQ3EbLw2SKc3sattPPn-20241001-201443.png)
 </Note>
 
 ## Installation via Cloud-init
 
 EDIS Global also offers semi-automated installations via Cloud-Init. Upload your favorite compatible cloud image and we'll do the rest. For more info please read on ...
 
-<CtaButton
-  label='OS Installation via Cloud-Init'
-  link='../advanced-setup-guides/cloud-init-os-installation'
-/>
+<CtaButton label="OS Installation via Cloud-Init" link="../advanced-setup-guides/cloud-init-os-installation" />
 
 ## Turnkey Images
 
