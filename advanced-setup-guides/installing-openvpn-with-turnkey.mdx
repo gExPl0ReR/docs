@@ -7,6 +7,22 @@ description: This guide explains how to install OpenVPN Community Edition via Tu
 
 **OpenVPN®**  Community Edition provides a full-featured open source SSL/TLS Virtual Private Network (VPN). The TurnKey Linux VPN software appliance leverages the open source 'openvpn-server', 'openvpn-client' and 'easy-rsa' software (developed by OpenVPN® Inc.) to support "site-to-site" or "gateway" access. "Site-to-site" can link 2 otherwise unconnected LANs; suitable for multi-site enterprise networks or linkage to an Amazon VPC. "Gateway" configuration can secure traffic across public and/or insecure wifi connections and/or provide a secure solution for remote work scenarios.
 
+<Steps>
+  <Step title='Log in to your'>
+    [KVM Management Portal](https://manage.edisglobal.com/clientarea.php)
+  </Step>
+  <Step title='Locate your VPS in the Services tab' />
+  <Step title='Click "AutoInstall OS"'>
+    ![](/assets/3u6V5fUi21VUCsb5K98uq_installing-open-vpn-community-edition-via-turnkey-images-2-944d4df8c0.png)
+  </Step>
+  <Step title='Click on the "Turnkey Images" tab' />
+  <Step title='Select OpenVPN from the dropdown' />
+  <Step title='Click "Start the installation"'>
+    ![](/assets/WLRAYES4hSd9mQoAVG77k_installing-open-vpn-community-edition-via-turnkey-images-fd71b5cc8f.png)
+  </Step>
+  <Step title='Start a VNC session and finish the installation / configuration of the appliance accordingly.' />
+</Steps>
+
 ###
 
 ## Credentials & Administration
@@ -17,9 +33,9 @@ For security reasons, there are **no default passwords**. All passwords are set
 
 **Web** - point your browser to
 
-1. [`http://12.34.56.789/`](http://12.34.56.789/) - not encrypted, no browser warning
+1. `http://12.34.56.789/` - not encrypted, no browser warning
 
-2. [`https://12.34.56.789/`](https://12.34.56.789/) - encrypted with self-signed SSL certificate
+2. `https://12.34.56.789/` - encrypted with self-signed SSL certificate
 
 **Username for OS system administration**:
 
@@ -27,11 +43,10 @@ Login as **root**
 
 1. Point your browser to:
 
-* [`https://12.34.56.789:12321/`](https://12.34.56.789:12321/) - System control panel
+- `https://12.34.56.789:12321/` - System control panel
+- `https://12.34.56.789:12320/` - Web-based command line terminal
 
-* [`https://12.34.56.789:12320/`](https://12.34.56.789:12320/) - Web-based command line terminal
-
-1. Login with SSH client:
+2. Login with SSH client:
 
 ```shell
 ssh root@12.34.56.789
