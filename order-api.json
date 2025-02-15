@@ -83,7 +83,7 @@
       ],
       "post": {
         "summary": "Retrieve user services",
-        "description": "Fetches the list of services associated with the provided user credentials.",
+        "description": "Retrieves a list of services linked to the user's account based on the provided login credentials, including details such as service status, billing cycle, pricing, and location.",
         "operationId": "getUserServices",
         "requestBody": {
           "content": {
@@ -94,12 +94,12 @@
                   "email": {
                     "type": "string",
                     "example": "user@example.com",
-                    "description": "Registered email of the user."
+                    "description": "Your WHMCS email address."
                   },
                   "pw": {
                     "type": "string",
                     "example": "securepassword123",
-                    "description": "Password for authentication."
+                    "description": "Your WHMCS password."
                   }
                 }
               }
