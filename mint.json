@@ -580,7 +580,14 @@
       "source": "/free-trials-available",
       "destination": "/faq/free-trials-available"
     },
-    { "source": "/is-port-25-open", "destination": "/faq/is-port-25-open" },
+    {
+      "source": "is-port-25-open",
+      "destination": "/faq/port-25-smtp-rate-limit-policy"
+    },
+    {
+      "source": "/faq/is-port-25-open",
+      "destination": "/faq/port-25-smtp-rate-limit-policy"
+    },
     {
       "source": "/windows-rdp-service-available",
       "destination": "/faq/windows-rdp-service-available"
