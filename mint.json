@@ -283,7 +283,7 @@
         "faq/what-is-a-virtual-private-server",
         "faq/what-is-a-kvm-vps",
         "faq/free-trials-available",
-        "faq/is-port-25-open",
+        "faq/port-25-smtp-rate-limit-policy",
         "faq/windows-rdp-service-available",
         "faq/hourly-plans-available",
         {
