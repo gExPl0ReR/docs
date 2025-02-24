@@ -581,7 +581,7 @@
       "destination": "/faq/free-trials-available"
     },
     {
-      "source": "is-port-25-open",
+      "source": "/is-port-25-open",
       "destination": "/faq/port-25-smtp-rate-limit-policy"
     },
     {
