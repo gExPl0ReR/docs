@@ -48,7 +48,7 @@ While authorities may not directly intervene in spam complaints, a high volume o
 ## ⚙️ What Does This Mean for You?
 
 - **Port 25 is open by default** for outbound email traffic.
-- SMTP traffic is **rate-limited to 8 packets per second (pps)**, which is more than enough for standard email usage.
+- SMTP traffic is **rate-limited to 8 packets per second (pps)**, with an **initial burst of 16 pps**, which is more than enough for standard email usage and swift outbound email delivery.
 - This limit is automatically applied to all **newly generated accounts starting February 24, 2025**.
 
 
