@@ -361,6 +361,7 @@
             "faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade",
             "faq/upgrades-downgrades/is-it-possible-to-downgrade",
             "faq/upgrades-downgrades/backup-restore-data-linux",
+            "faq/upgrades-downgrades/requesting-qcow2-image-backup",
             "faq/upgrades-downgrades/obtain-secondary-network-interface-edis-vps",
             {
               "group": "CPU Cores vs. CPU Sockets in VPS Environments",
