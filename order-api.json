@@ -612,7 +612,7 @@
     "/kvm/v2/add/order": {
       "post": {
         "summary": "Order-VPS.",
-        "description": "Place a new VPS order by authenticating with your WHMCS credentials and specifying the order details in JSON format.\n\n### JSON Parameters:\n- **billingcycle**: Specifies the billing cycle, e.g., 'monthly' or 'yearly'.\n- **paymentmethod**: Specifies the payment method, e.g., 'paypal'.\n- **item**: An array of product configurations:\n  - **pid**: Product ID.\n  - **os**: Operating System ID.\n  - **hostname**: Hostname for the VPS.\n  - **additional_ram**: Additional RAM requested (optional).\n  - **additional_vcpu**: Additional vCPU requested (optional).\n  - **additional_ip**: Additional IPs requested (optional).\n  - **additional_diskboost**: Additional disk boost requested (optional).\n  - **ssh_pubkey**: Public SSH key for access.\n\n**Example JSON:**\n```json\n{\n  \"billingcycle\": \"monthly\",\n  \"paymentmethod\": \"paypal\",\n  \"item\": [\n    {\n      \"pid\": 1814,\n      \"os\": 92,\n      \"hostname\": \"kvmtest\",\n      \"additional_ram\": 467,\n      \"additional_vcpu\": 467,\n      \"additional_ip\": 467,\n      \"additional_diskboost\": 615,\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    },\n    {\n      \"pid\": 1814,\n      \"os\": 88,\n      \"hostname\": \"kvmtest2\",\n      \"additional_ram\": \"\",\n      \"additional_vcpu\": \"\",\n      \"additional_ip\": \"\",\n      \"additional_driveboost\": \"\",\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    }\n  ]\n}\n```\n",
+        "description": "Place a new VPS order by authenticating with your WHMCS credentials and specifying the order details in JSON format.\n\n### JSON Parameters:\n- **billingcycle**: Specifies the billing cycle, e.g., 'monthly' or 'yearly'.\n- **paymentmethod**: Specifies the payment method, e.g., 'paypal'.\n- **applycredit**: Specifies whether to apply available account credit for the order. Accepts `true` or `false`.\n- **item**: An array of product configurations:\n  - **pid**: Product ID.\n  - **os**: Operating System ID.\n  - **hostname**: Hostname for the VPS.\n  - **additional_ram**: Additional RAM requested (optional).\n  - **additional_vcpu**: Additional vCPU requested (optional).\n  - **additional_ip**: Additional IPs requested (optional).\n  - **additional_diskboost**: Additional disk boost requested (optional).\n  - **ssh_pubkey**: Public SSH key for access.\n\n### **Response Behavior:**\n- If `applycredit` is set to `true` and there is sufficient credit in the account, the response will return:\n  ```json\n  { \"invoicepaid\": true }\n  ```\n- If there is insufficient credit or the request is incorrect, the response will return:\n  ```json\n  { \"invoicepaid\": false }\n  ```\n\n**Example JSON:**\n```json\n{\n  \"billingcycle\": \"monthly\",\n  \"paymentmethod\": \"paypal\",\n  \"applycredit\": true,\n  \"item\": [\n    {\n      \"pid\": 1814,\n      \"os\": 92,\n      \"hostname\": \"kvmtest\",\n      \"additional_ram\": 467,\n      \"additional_vcpu\": 467,\n      \"additional_ip\": 467,\n      \"additional_diskboost\": 615,\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    },\n    {\n      \"pid\": 1814,\n      \"os\": 88,\n      \"hostname\": \"kvmtest2\",\n      \"additional_ram\": \"\",\n      \"additional_vcpu\": \"\",\n      \"additional_ip\": \"\",\n      \"additional_driveboost\": \"\",\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    }\n  ]\n}\n```",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -1524,8 +1524,8 @@
           },
           "order": {
             "type": "string",
-            "description": "JSON-encoded string that includes order details such as billing cycle, payment method, and VPS item configurations. Each item specifies properties like product ID (pid), operating system (os), hostname, additional resources (RAM, vCPU, IP), and an optional SSH public key.",
-            "example": "{\n  \"billingcycle\": \"monthly\",\n  \"paymentmethod\": \"paypal\",\n  \"item\": [\n    {\n      \"pid\": 1814,\n      \"os\": 92,\n      \"hostname\": \"kvmtest\",\n      \"additional_ram\": 467,\n      \"additional_vcpu\": 467,\n      \"additional_ip\": 467,\n      \"additional_diskboost\": 615,\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    },\n    {\n      \"pid\": 1814,\n      \"os\": 88,\n      \"hostname\": \"kvmtest2\",\n      \"additional_ram\": \"\",\n      \"additional_vcpu\": \"\",\n      \"additional_ip\": \"\",\n      \"additional_driveboost\": \"\",\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    }\n  ]\n}\n"
+            "description": "JSON-encoded string that includes order details such as billing cycle, payment method, apply credit, and VPS item configurations. Each item specifies properties like product ID (pid), operating system (os), hostname, additional resources (RAM, vCPU, IP), and an optional SSH public key.",
+            "example": "{\n  \"billingcycle\": \"monthly\",\n  \"paymentmethod\": \"paypal\",\n  \"applycredit\": true,\n  \"item\": [\n    {\n      \"pid\": 1814,\n      \"os\": 92,\n      \"hostname\": \"kvmtest\",\n      \"additional_ram\": 467,\n      \"additional_vcpu\": 467,\n      \"additional_ip\": 467,\n      \"additional_diskboost\": 615,\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    },\n    {\n      \"pid\": 1814,\n      \"os\": 88,\n      \"hostname\": \"kvmtest2\",\n      \"additional_ram\": \"\",\n      \"additional_vcpu\": \"\",\n      \"additional_ip\": \"\",\n      \"additional_driveboost\": \"\",\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    }\n  ]\n}\n"
           }
         }
       },
@@ -1547,6 +1547,11 @@
           "invoiceid": {
             "type": "integer",
             "example": 654321
+          },
+          "invoicepaid": {
+            "type": "boolean",
+            "description": "Indicates whether the invoice was paid successfully using available credit or another payment method.",
+            "example": true
           }
         }
       },
