@@ -1,19 +1,19 @@
 ---
-title: How to Add a Second Network Interface to Your EDIS VPS
+title: How to Add a Second NIC to your VPS
 sidebarTitle: Secondary NIC
-description: Step-by-step guide on obtaining and configuring a secondary network interface for your EDIS VPS. Maximize your private network capabilities with the vLAN option.
+description: Step-by-step guide on obtaining and configuring a secondary network interface for your EDIS Global VPS. Maximize your Private Network Capabilities with the vLAN option.
 ---
 
 If you need an additional network interface for your VPS, follow these steps:
 
 ## What is the Secondary Network Interface?
 - EDIS Global's VPS comes with a single network interface (ethernet device) by default.
-- You can purchase a **second network interface** to enhance networking capabilities.
+- You can purchase a **second network interface** as part of EDIS Global **Private VLAN Option* to enhance your VPS' networking capabilities.
 - This interface is independent and can be configured with a private or public IP, depending on your needs.
 - The secondary network interface will become available to **every VPS in a particular server location** after the **Private VLAN Option** has been purchased.
 
 ## How to Order a Secondary Network Interface
-1. **Go to the Order Page**: [EDIS Global Private VLAN Option](https://manage.edisglobal.com/cart.php?gid=209)
+1. **Go to the Order Page**: [Purchase Private VLAN Option](https://manage.edisglobal.com/cart.php?gid=209)
 2. **Choose the Server Location**: Make sure to select the correct location where your VPS is hosted.
 3. **Complete the Purchase**: Follow the checkout process and pay the invoice.
 4. **Provisioning**: Secondary network interfaces will be assigned to all VPS in the selected server location after payment (don't forget to power-cycle after order delivery)
@@ -22,12 +22,12 @@ If you need an additional network interface for your VPS, follow these steps:
 
 ### For Linux:
 1. Your main interface is typically `eth0`. The second interface will appear as `eth1`.
-2. Assign an IP address to `eth1`, such as `192.168.1.10` or any private/public IP you have.
-3. Restart your VPS to detect the new interface.
+2. Restart your VPS to detect the new interface.
+3. Assign an IP address to `eth1`, such as `192.168.1.10` or any private/public IP you have.
 
 ### For Windows:
 1. After rebooting your VPS, Windows will detect the new network interface.
 2. Configure the new interface with the required IP settings.
 
 ## Final Notes
-Ensure that you select the correct location for the secondary network interface.
+Ensure that you select the correct server location when ordering the Private VLAN option
