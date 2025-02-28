@@ -363,7 +363,7 @@
             "faq/upgrades-downgrades/backup-restore-data-linux",
             "faq/upgrades-downgrades/requesting-qcow2-image-backup",
             "faq/upgrades-downgrades/private-vlan-option",
-            "faq/upgrades-downgrades/obtain-secondary-network-interface-edis-vps",
+            "faq/upgrades-downgrades/upgrades-downgrades/get-additional-network-card",
             {
               "group": "CPU Cores vs. CPU Sockets in VPS Environments",
               "pages": [
@@ -793,9 +793,8 @@
       "source": "/how-to-check-cpu-cores-windows-vps",
       "destination": "/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps"
     },
-
     {
-      "source": "/faq/upgrades-downgrades/obtain-secondary-network-interface-edis-vps",
+      "source": "/obtain-secondary-network-interface-edis-vps",
       "destination": "/faq/upgrades-downgrades/get-additional-network-card"
     },
     {
