@@ -794,10 +794,6 @@
       "destination": "/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps"
     },
     {
-      "source": "/obtain-secondary-network-interface-edis-vps",
-      "destination": "/faq/upgrades-downgrades/get-additional-network-card"
-    },
-    {
       "source": "/jobs-edisglobal-support-agent-non-voice",
       "destination": "/join-our-team/jobs-edisglobal-support-agent-non-voice"
     },
