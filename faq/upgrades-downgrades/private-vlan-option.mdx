@@ -1,0 +1,48 @@
+---
+title: Private VLAN Option at EDIS Global
+sidebarTitle: Private VLAN
+description: Learn how to set up and configure a Private VLAN on your EDIS Global VPS for secure internal communication.
+---
+
+# Private VLAN Option
+
+## What is a Private VLAN?
+A **Private VLAN** allows you to establish a private and secure Ethernet connection between Virtual Private Servers (VPS) within a chosen server location. This feature enhances network segmentation and security while enabling efficient internal communication between VPS instances.
+
+### Key Features:
+- **Secondary Ethernet Interface**: Each VPS in the chosen server location receives an additional Ethernet interface.
+- **VLAN Isolation**: A unique VLAN ID ensures that only VPS mapped to the same VLAN can communicate with each other through the user-configured private network.
+
+## Requirements
+### Single VPS Use Case
+- If you only need a **secondary Ethernet interface**, a single VPS is sufficient.
+
+### Multiple VPS Use Case
+- If you require **private communication between VPS**, you need **at least two VPS** in the same server location.
+- You can order multiple Private VLANs to create **complex network topologies**, assigning different VLAN IDs to different VPS groups.
+
+## How to Order a Private VLAN
+1. **Choose the Server Location**: Determine where you want to set up the Private VLAN.
+2. **Order the Private VLAN Option**: Purchase it from our shop at the following link:
+   - [EDIS Global Shopping Cart](https://manage.edisglobal.com/cart.php?gid=209)
+3. **Payment and Provisioning**: Once the invoice is paid, the Private VLAN option will be automatically provisioned and made available for all VPS in the chosen location.
+
+## How to Configure the Private VLAN
+1. **Log in to the VPS Management Dashboard**.
+2. **Click on "System Configuration"**.
+3. **Scroll down to "VLAN Settings"**.
+4. **Assign the VLAN ID** from the dropdown menu (e.g., 102).
+5. **Apply the settings**.
+6. **Power-cycle the VPS** to activate changes.
+7. **Repeat for each VPS** that should be connected to the Private VLAN.
+
+## Benefits of Using a Private VLAN
+- **Enhanced Security**: Traffic within a Private VLAN remains isolated from the public network.
+- **No Traffic Charges**: Data transmitted via the Private VLAN does **not count** towards your monthly traffic allowance.
+- **Scalability**: Multiple VLANs allow for **flexible and complex networking structures**, making them ideal for microservices, internal databases, or multi-server applications.
+
+---
+
+For further assistance, feel free to contact our support team via **[EDIS Global Support](https://manage.edisglobal.com/submitticket.php)**.
+
+You can copy and paste this markdown into your documentation system or website. Let me know if you need any modifications!
