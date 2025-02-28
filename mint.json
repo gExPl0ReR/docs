@@ -363,7 +363,7 @@
             "faq/upgrades-downgrades/backup-restore-data-linux",
             "faq/upgrades-downgrades/requesting-qcow2-image-backup",
             "faq/upgrades-downgrades/private-vlan-option",
-            "faq/upgrades-downgrades/upgrades-downgrades/get-additional-network-card",
+            "faq/upgrades-downgrades/get-additional-network-card",
             {
               "group": "CPU Cores vs. CPU Sockets in VPS Environments",
               "pages": [
