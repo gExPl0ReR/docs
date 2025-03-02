@@ -21,6 +21,25 @@ This timeline shows when we send reminders, suspend services, terminate subscrip
 | +14 | ❌ Terminate Service   | Service agreement ends         |
 | +20 | 🗑️ Delete VPS + Data | Server deletion                |
 
+```mermaid
+gantt
+    title VPS Billing Workflow Timeline
+    dateFormat  D
+    axisFormat  %d
+    section Invoicing
+    Invoice Created (IN)         :done,  -7, 1d
+    Unpaid Reminder (-2)         :active, -2, 1d
+    section Due Date
+    Due Date (D)                 :done,  0, 1d
+    Overdue Reminder 1 (+1)      :crit, 1, 1d
+    Overdue Reminder 2 (+2)      :crit, 2, 1d
+    Overdue Reminder 3 (+3)      :crit, 3, 1d
+    section Service Actions
+    Suspend Service (S)          :active, 7, 1d
+    Terminate Service (T)        :crit, 14, 1d
+    Delete VPS + Data (DEL)      :done, 20, 1d
+```
+
 ```
 ### VPS Billing Timeline
 
