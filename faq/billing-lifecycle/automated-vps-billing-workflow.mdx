@@ -3,42 +3,37 @@ title: "VPS Billing Workflow"
 description: "The document outlines the automated billing procedure for EDIS Global VPS services, including invoice generation, credit card captures, friendly and overdue reminders, service suspension, termination and data deletion."
 ---
 
-## 🚀 Automated VPS Billing Workflow
+## ⏳ Simplified, Automated VPS Billing Workflow
 
-This timeline shows when we send invoices, reminders, when we suspend services, terminate plans, and when we finally delete VPS data if an invoice remains unpaid.
-
-## ⏳ Simplified VPS Billing Workflow
+This timetable shows when we send invoices, reminders, when we suspend services, terminate plans, and when we delete VPS from our disks if an invoice does not receive its payment.
 
 | **Day**  | **Event**             | **Action**                            |
 | -------- | --------------------- | ------------------------------------- |
 | **-7**d  | 🧾 Invoice Created    | Invoice is generated and sent         |
+| -6d      | 💳 Credit Card Charge | Automatic attempt to charge your card |
 | **-2**d  | ✉️ Friendly Reminder  | First unpaid reminder sent            |
 | **0**    | **📅 Due Date**       | Payment is due                        |
 | **+1**d  | ⚠️ Overdue Reminder 1 | First overdue reminder                |
 | **+2d**  | ⚠️ Overdue Reminder 2 | Second overdue reminder               |
 | **+3**d  | ⚠️ Overdue Reminder 3 | Third overdue reminder                |
-| **+7**d  | ⏸️ Service Suspension | VPS access disabled                   |
+| **+7**d  | ⏸️ Service Suspension | VPS service powers down               |
 | **+14**d | ❌ Termination         | VPS agreement ends                    |
 | **+20**d | 🗑️ Data Deletion     | Invoice cancellation and VPS deletion |
 
+## 🛠 Service Recovery Options
 
+### **✅ Your Invoice shows Unpaid**
 
-🛠 Service Recovery Options
+**Service recovery is possible!**
 
-
-
-### **✅ If Your Invoice still shows as Unpaid**
-
-​Pay immediately, your service will reactivate automatically after we receive the payment
+​Proceed with the payment of your invoice, your service will reactivate automatically.
 ![invoice status unpaid, service can be recovered](/invoice-status-unpaid-cropped.webp)
-
-
 
 ### **❌ If Your Invoice is Cancelled**
 
 #### Service Recovery is Not Available
 
-If your invoice is **marked CANCELLED**, **recovery is NOT possible**.
+If your invoice shows as **CANCELLED**, **recovery is NOT possible**.
 
 Your VPS and **all data have been deleted** **(6 days after termination)**
 
@@ -47,7 +42,7 @@ Your VPS and **all data have been deleted** **(6 days after termination)**
 ***
 
 <Note>
-  ### **Client Responsibility Notice**
+  ## **Client Responsibility Notice**
 
   VPS customers are solely responsible for:
 
@@ -58,9 +53,6 @@ Your VPS and **all data have been deleted** **(6 days after termination)**
   * Securing all important data
 
   * Keeping payment methods updated to avoid suspension and deletion
-
-
-
 
   EDIS Global strongly recommends maintaining backups of all critical information.
 </Note>
