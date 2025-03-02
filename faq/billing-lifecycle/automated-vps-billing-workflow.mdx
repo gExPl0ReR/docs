@@ -22,30 +22,21 @@ This timeline shows when we send reminders, suspend services, terminate subscrip
 | +20 | 🗑️ Delete VPS + Data | Server deletion                |
 
 ```mermaid
-gantt
+timeline
     title VPS Billing Workflow Timeline
-    dateFormat  D
-    axisFormat  %d
     section Invoicing
-    Invoice Created (IN)         :done,  -7, 1d
-    Unpaid Reminder (-2)         :active, -2, 1d
-    section Due Date
-    Due Date (D)                 :done,  0, 1d
-    Overdue Reminder 1 (+1)      :crit, 1, 1d
-    Overdue Reminder 2 (+2)      :crit, 2, 1d
-    Overdue Reminder 3 (+3)      :crit, 3, 1d
+      -7 : Invoice Created (IN)
+      -2 : Unpaid Reminder
+    section Due Date & Reminders
+       0 : Due Date (D)
+      +1 : Overdue Reminder 1
+      +2 : Overdue Reminder 2
+      +3 : Overdue Reminder 3
     section Service Actions
-    Suspend Service (S)          :active, 7, 1d
-    Terminate Service (T)        :crit, 14, 1d
-    Delete VPS + Data (DEL)      :done, 20, 1d
+      +7 : Suspend Service (S)
+     +14 : Terminate Service (T)
+     +20 : Delete VPS + Data (DEL)
 ```
-
-```
-### VPS Billing Timeline
-
-Days:     -7    -2     0    +1   +2   +3   +7   +14   +20
-          |     |     |     |    |    |    |     |     |
-Events:  IN─────+─────D─────+────+────+────S─────T─────DEL
 
 Legend:
 - IN   = Invoice Created
@@ -59,7 +50,7 @@ Reminders:
 - ⚠️ Overdue Reminder 1 (+1 day)
 - ⚠️ Overdue Reminder 2 (+2 days)
 - ⚠️ Overdue Reminder 3 (+3 days)
-```
+
 
 ## Automated VPS Billing Workflow
 
