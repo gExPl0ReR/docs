@@ -1,175 +1,48 @@
 ---
-title: VPS Billing Workflow
-description: The doc outlines the automated billing procedure for EDIS Global VPS services, including invoice generation, credit card captures, friendly and overdue reminders, service suspension, and termination.
+title: "VPS Billing Workflow"
+description: "The document outlines the automated billing procedure for EDIS Global VPS services, including invoice generation, credit card captures, friendly and overdue reminders, service suspension, termination and data deletion."
 ---
 
 ## 🚀 Automated VPS Billing Workflow
 
-This timeline shows when we send reminders, suspend services, terminate subscriptions, and finally delete VPS data if an invoice remains unpaid.
+This timeline shows when we send invoices, reminders, when we suspend services, terminate plans, and when we finally delete VPS data if an invoice remains unpaid.
+
+## ⏳ Simplified VPS Billing Workflow
+
+| **Day**  | **Event**             | **Action**                            |
+| -------- | --------------------- | ------------------------------------- |
+| **-7**d  | 🧾 Invoice Created    | Invoice is generated and sent         |
+| **-2**d  | ✉️ Friendly Reminder  | First unpaid reminder sent            |
+| **0**    | **📅 Due Date**       | Payment is due                        |
+| **+1**d  | ⚠️ Overdue Reminder 1 | First overdue reminder                |
+| **+2d**  | ⚠️ Overdue Reminder 2 | Second overdue reminder               |
+| **+3**d  | ⚠️ Overdue Reminder 3 | Third overdue reminder                |
+| **+7**d  | ⏸️ Service Suspension | VPS access disabled                   |
+| **+14**d | ❌ Termination         | VPS agreement ends                    |
+| **+20**d | 🗑️ Data Deletion     | Invoice cancellation and VPS deletion |
 
 
 
-**🚀 Simplified VPS Billing Workflow**
+🛠 Service Recovery Options
 
 
 
-**Key Milestones:**
+### **✅ If Your Invoice still shows as Unpaid**
 
-| **Day** | **Event**            | **Action**                     |
-| ------- | -------------------- | ------------------------------ |
-| **-7**  | 🧾 Invoice Created    | Invoice generated              |
-| **-2**  | ✉️ Friendly Reminder  | First unpaid reminder sent     |
-| **0**   | 📅 Due Date           | Payment due                    |
-| **+1**  | ⚠️ Overdue Reminder 1 | First overdue reminder         |
-| **+2**  | ⚠️ Overdue Reminder 2 | Second overdue reminder        |
-| **+3**  | ⚠️ Overdue Reminder 3 | Third overdue reminder         |
-| **+7**  | ⏸️ Service Suspension | VPS access disabled            |
-| **+14** | ❌ Termination        | VPS Agreements ends            |
-| **+20** | 🗑️ Data Deletion      | Final deletion of all VPS data |
-
-
-
-**✅ Recovery Options:**
-
-​	•	**After Termination (Invoice status UNPAID):**
-
-​	•	Pay immediately, Service will reactivate after we receive the payment
-
-​	•	**After Termination (Invoice status CANCELLED):**
-
-​	•	Recovery is **NOT possible**.
-
-​	•	All data is **permanently lost**.
-
-**🔔 Important:**
-
-​	•	Once the invoice is **Cancelled**, **no recovery** of your VPS or data is possible.
-
-​	•	Keep your payment methods updated to avoid suspension and deletion.
-
-​	•	Regular backups are your responsibility.
-
-
-
-Would you like me to generate a Mermaid timeline or Gantt diagram for this as well?
-
-### ⏳ Timeline Overview
-
-![](/assets/billing-timeline-simple.webp)
-
-Legend:
-
-* IN   = Invoice Created
-
-* D    = Due Date
-
-* S    = Suspend Service
-
-* T    = Terminate Service
-
-* DEL  = Delete VPS
-
-Reminders:
-
-* 📩 Unpaid Reminder (-2 days)
-
-* ⚠️ Overdue Reminder 1 (+1 day)
-
-* ⚠️ Overdue Reminder 2 (+2 days)
-
-* ⚠️ Overdue Reminder 3 (+3 days)
-
-## Automated VPS Billing Workflow
-
-We want to provide you with a clear overview of our automated VPS billing process, including when we generate invoices, process credit card payments, send reminders, and what occurs if an invoice remains unpaid.
-
-1. **Invoice Generation**
-
-   * Generated 7 days before the due date
-
-2. **Credit Card Processing**
-
-   * Automated capture 4 days before the due date
-
-3. **Payment Reminders**
-
-   * First friendly reminder: 2 days before the due date
-
-   * Overdue reminders: Sent 1, 2, and 3 days after the due date
-
-4. **Service Actions**
-
-   * **Service Suspension**: Occurs 3 days after the due date
-
-   * **Service Termination**: Takes place 8 days after the due date (**all data is permanently wiped**)
-
-***
-
-## 🛠 Service Recovery Options
-
-### **✅ If Your Invoice is Unpaid**&#xA;
-
-If your VPS was terminated but the invoice in your account is still **marked UNPAID** (and not cancelled), you **may** be able to restore your VPS.
-
-#### Steps to Restore Your VPS
-
-&#x9;1\.	**Make the payment immediately** (first step)
-
-&#x9;2\.	**Contact Support**  to request data restoration  (after payment)
-
+​Pay immediately, your service will reactivate automatically after we receive the payment
 ![invoice status unpaid, service can be recovered](/invoice-status-unpaid-cropped.webp)
 
-***
+
 
 ### **❌ If Your Invoice is Cancelled**
 
-#### Service Recovery Not Available
+#### Service Recovery is Not Available
 
-&#x9;•	If your invoice is **marked CANCELLED**, **recovery is NOT possible**.
+If your invoice is **marked CANCELLED**, **recovery is NOT possible**.
 
-&#x9;•	Your VPS and **all data are permanently deleted**.
-
-<Warning>
-  **Service recovery is NOT possible after the invoice has been cancelled.**
-  **Invoices are cancelled when VPS are finally deleted (8 to 10 days after termination).**
-</Warning>
+Your VPS and **all data have been deleted** **(6 days after termination)**
 
 ![invoice status cancelled, service can no longer be recovered](/invoice-status-cancelled-cropped.webp)
-
-***
-
-### **⏰** Billing Timeline Flowchart
-
-```mermaid
-flowchart TD
-    A["🧾 Invoice Generated<br>(7 days before due)"] --> B["💳 Credit Card Processing<br>(4 days before due)"]
-    B --> C["📩 First Friendly Reminder<br>(2 days before due)"]
-
-    subgraph overdue["🚨 Overdue Reminders"]
-        direction TB
-        C1["📢 1 Day Overdue"]
-        C2["📢 2 Days Overdue"]
-        C3["📢 3 Days Overdue"]
-    end
-    C --> C1 --> C2 --> C3
-
-    C3 --> D["⛔ Service Suspension<br>(7 days overdue)"]
-    D --> E["❌ Service Termination<br>(14 days overdue)"]
-
-    subgraph recovery["🔄 Recovery Possible"]
-        direction TB
-        R1["💰 Make Payment Immediately"]
-        R2["✅ Automated Data Restoration"]
-    end
-
-    subgraph no_recovery["⚠️ No Recovery"]
-        direction TB
-        X[""🛑 VPS is Deleted""]
-    end
-
-    E -.->|Invoice Status <b>Unpaid</b>| R1 --> R2
-    E -.->|Invoice Status <b>Cancelled</b> <br> ~20 days past due date| X
-```
 
 ***
 
@@ -184,5 +57,10 @@ flowchart TD
 
   * Securing all important data
 
-  EDIS Global strongly recommends maintaining current backups of all critical information.
+  * Keeping payment methods updated to avoid suspension and deletion
+
+
+
+
+  EDIS Global strongly recommends maintaining backups of all critical information.
 </Note>
