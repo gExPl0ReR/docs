@@ -3,6 +3,47 @@ title: VPS Billing Workflow
 description: The doc outlines the automated billing procedure for EDIS Global VPS services, including invoice generation, credit card captures, friendly and overdue reminders, service suspension, and termination.
 ---
 
+## 🚀 Automated VPS Billing Workflow
+
+This timeline shows when we send reminders, suspend services, terminate subscriptions, and finally delete VPS data if an invoice remains unpaid.
+
+### ⏳ Timeline Overview
+
+| Day | Event                 | Description                    |
+| --- | --------------------- | ------------------------------ |
+| -7  | 🧾 Invoice Created    | Invoice is issued              |
+| -2  | 📩 Unpaid Reminder 1  | First reminder before due date |
+| 0   | 📅 Due Date           | Invoice due                    |
+| +1  | ⚠️ Overdue Reminder 1 | First overdue notice           |
+| +2  | ⚠️ Overdue Reminder 2 | Second overdue notice          |
+| +3  | ⚠️ Overdue Reminder 3 | Final overdue notice           |
+| +7  | ⏸️ Suspend Service    | Service stops working          |
+| +14 | ❌ Terminate Service   | Service agreement ends         |
+| +20 | 🗑️ Delete VPS + Data | Server deletion                |
+
+
+
+```
+📅 Days:   -7     -2     0     +1     +2     +3     +7     +14     +20  
+           |      |      |      |      |      |      |       |       |
+Events:   IN─────+───────D──────+──────+─────────────S───────T───────DEL
+
+Legend:
+- IN  = 🧾 Invoice Created
+- D   = 📅 Due Date
+- S   = ⏸️ Suspend Service
+- T   = ❌ Terminate Service
+- DEL = 🗑️ Delete VPS + Data
+
+Reminders:
+- 📩 Unpaid Reminder (-2 days)
+- ⚠️ Overdue Reminder 1 (+1 day)
+- ⚠️ Overdue Reminder 2 (+2 days)
+- ⚠️ Overdue Reminder 3 (+3 days)
+```
+
+
+
 ## Automated VPS Billing Workflow
 
 We want to provide you with a clear overview of our automated VPS billing process, including when we generate invoices, process credit card payments, send reminders, and what occurs if an invoice remains unpaid.
@@ -77,23 +118,22 @@ flowchart TD
     end
     C --> C1 --> C2 --> C3
 
-    C3 --> D["⛔ Service Suspension<br>(3 days overdue)"]
-    D --> E["❌ Service Termination & Service Deletion<br>(8 days overdue)"]
+    C3 --> D["⛔ Service Suspension<br>(7 days overdue)"]
+    D --> E["❌ Service Termination<br>(14 days overdue)"]
 
     subgraph recovery["🔄 Recovery Possible"]
         direction TB
-        R1["💰 Make Immediate Payment"]
-        R2["📞 Contact Support"]
-        R3["✅ Possible Data Restoration"]
+        R1["💰 Make Payment Immediately"]
+        R2["✅ Automated Data Restoration"]
     end
 
     subgraph no_recovery["⚠️ No Recovery"]
         direction TB
-        X[""🛑 Data is Lost""]
+        X[""🛑 VPS is Deleted""]
     end
 
-    E -.->|Invoice Status <b>Unpaid</b>| R1 --> R2 --> R3
-    E -.->|Invoice Status <b>Cancelled</b> <br> ~8 days after termination| X
+    E -.->|Invoice Status <b>Unpaid</b>| R1 --> R2
+    E -.->|Invoice Status <b>Cancelled</b> <br> ~20 days past due date| X
 ```
 
 ***
