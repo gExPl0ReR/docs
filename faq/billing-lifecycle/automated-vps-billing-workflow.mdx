@@ -9,48 +9,29 @@ This timeline shows when we send reminders, suspend services, terminate subscrip
 
 ### ⏳ Timeline Overview
 
-| Day | Event                 | Description                    |
-| --- | --------------------- | ------------------------------ |
-| -7  | 🧾 Invoice Created    | Invoice is issued              |
-| -2  | 📩 Unpaid Reminder 1  | First reminder before due date |
-| 0   | 📅 Due Date           | Invoice due                    |
-| +1  | ⚠️ Overdue Reminder 1 | First overdue notice           |
-| +2  | ⚠️ Overdue Reminder 2 | Second overdue notice          |
-| +3  | ⚠️ Overdue Reminder 3 | Final overdue notice           |
-| +7  | ⏸️ Suspend Service    | Service stops working          |
-| +14 | ❌ Terminate Service   | Service agreement ends         |
-| +20 | 🗑️ Delete VPS + Data | Server deletion                |
-
-```mermaid
-timeline
-    title VPS Billing Workflow Timeline
-    section Invoicing
-      -7 : Invoice Created (IN)
-      -2 : Unpaid Reminder
-    section Due Date & Reminders
-       0 : Due Date (D)
-      +1 : Overdue Reminder 1
-      +2 : Overdue Reminder 2
-      +3 : Overdue Reminder 3
-    section Service Actions
-      +7 : Suspend Service (S)
-     +14 : Terminate Service (T)
-     +20 : Delete VPS + Data (DEL)
-```
+![](/assets/billing-timeline-simple.webp)
 
 Legend:
-- IN   = Invoice Created
-- D    = Due Date
-- S    = Suspend Service
-- T    = Terminate Service
-- DEL  = Delete VPS + Data
+
+* IN   = Invoice Created
+
+* D    = Due Date
+
+* S    = Suspend Service
+
+* T    = Terminate Service
+
+* DEL  = Delete VPS
 
 Reminders:
-- 📩 Unpaid Reminder (-2 days)
-- ⚠️ Overdue Reminder 1 (+1 day)
-- ⚠️ Overdue Reminder 2 (+2 days)
-- ⚠️ Overdue Reminder 3 (+3 days)
 
+* 📩 Unpaid Reminder (-2 days)
+
+* ⚠️ Overdue Reminder 1 (+1 day)
+
+* ⚠️ Overdue Reminder 2 (+2 days)
+
+* ⚠️ Overdue Reminder 3 (+3 days)
 
 ## Automated VPS Billing Workflow
 
