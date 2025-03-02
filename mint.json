@@ -358,6 +358,7 @@
           "group": "Upgrades, Downgrades",
           "pages": [
             "faq/upgrades-downgrades/upgrading-a-vps-to-a-higher-tier",
+            "faq/upgrades-downgrades/upgrade-disk-drive-boost",
             "faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade",
             "faq/upgrades-downgrades/is-it-possible-to-downgrade",
             "faq/upgrades-downgrades/backup-restore-data-linux",
