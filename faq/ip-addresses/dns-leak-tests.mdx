@@ -1,0 +1,87 @@
+---
+title: Understanding DNS Leak Tests and Anycast DNS on EDIS Global VPS
+Description: Learn why DNS leak tests may show unexpected DNS server locations on EDIS Global VPS, how Anycast DNS works, and why this does not affect your geo-location.
+sidebarTitle: DNS Leak Tests
+---
+
+
+
+# 🔍 Understanding DNS Leak Tests and Anycast DNS on EDIS Global VPS
+
+When running DNS leak tests like **dnsleaktest.com** or **whoer.net**, you may sometimes notice that detected DNS servers are **not located in the same country as your VPS**.
+
+### 🛡️ Why is this happening?
+
+At **EDIS Global**, we use **fast and secure Anycast DNS servers** provided by **Cloudflare**—specifically **1.1.1.1** and **1.0.0.1**—to handle DNS resolution on our VPS.  
+
+With **Anycast technology**, your DNS requests are routed to the **closest and fastest available server**. This means your DNS traffic might be handled by a server **outside your VPS location**, even in a neighboring country.  
+
+> ⚠️ **This is completely normal and nothing to worry about.**
+
+#### ✅ Does this affect my VPS geo-location?
+**No!**  
+The DNS server location **does not influence** the geographic location of your VPS.  
+Your **VPS IP address** is what defines your geo-location, and not where DNS queries are resolved.
+
+#### 🔄 Why do test results show different locations?
+DNS leak tests show the **location of the DNS resolvers** that handled your queries (such as Cloudflare's Anycast nodes), which may differ from your VPS's actual location. Sometimes the nearest and fastest DNS server may even be across a national border.
+
+---
+
+## ✅ What is a DNS Leak Test?
+
+A **DNS Leak Test** checks whether your DNS requests are securely handled or if they accidentally leak outside your protected network, such as:
+- To your **local internet provider (ISP)**.
+- Outside of your **VPN tunnel**.
+
+The purpose of the test is to **confirm that only the intended DNS servers are used**, ensuring your privacy.
+
+---
+
+## 🧪 How does a DNS Leak Test work?
+
+DNS leak tests, like **dnsleaktest.com** and **whoer.net**, ask your device to resolve a series of unique domain names. The test then observes:
+- **Which DNS servers** answered the queries.
+- Their **IP addresses**.
+- Their **geographic locations**.
+- The **organizations** operating them.
+
+---
+
+## 🔍 What is the difference between Standard and Extended Tests?
+
+### Standard Test:
+- Performs a **quick check**.
+- Detects obvious DNS leaks.
+- Recommended for most users.
+
+### Extended Test:
+- Runs a **more thorough scan**.
+- Identifies all potential DNS servers.
+- Useful for higher privacy needs, but usually not necessary.
+
+---
+
+## ⚙️ Can I change the DNS servers on my VPS?
+
+Yes!  
+If you want to influence the test results or use different DNS resolvers, you can:
+- Switch to **Google DNS (8.8.8.8, 8.8.4.4)**, **Quad9 (9.9.9.9)**, **OpenDNS (208.67.222.222)**, or others.
+- Configure your own **custom DNS servers** on your VPS.
+
+#### 🔑 But remember:
+> **The goal of DNS leak tests is to detect if DNS requests are leaking outside your secure environment (like a VPN or VPS), not to determine geo-location accuracy.**
+
+---
+
+## 📝 Summary
+- **EDIS Global** uses **Cloudflare Anycast DNS (1.1.1.1 and 1.0.0.1)** to ensure **fast, secure DNS resolution**.
+- DNS leak test results showing locations different from your VPS location are **expected**.
+- **DNS server location does NOT affect your VPS's IP geo-location**.
+- You can change DNS resolvers if you want to adjust test results.
+- The purpose of a DNS Leak Test is **privacy and security**, ensuring DNS requests do not escape your secure environment.
+
+---
+
+## 💡 Need assistance?
+If you have questions or want help configuring your DNS, our support team is happy to assist you! 😊

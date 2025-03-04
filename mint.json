@@ -298,6 +298,7 @@
             "faq/ip-addresses/ip-can-not-be-reached-from-my-country",
             "faq/ip-addresses/geolocation-geoip-databases",
             "faq/ip-addresses/ip-location-incorrect-on-whatismyipaddresscom",
+            "faq/ip-addresses/dns-leak-tests",
             "faq/ip-addresses/understanding-ip-address-location",
             "faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location",
             "faq/ip-addresses/static-ip-addresses",
