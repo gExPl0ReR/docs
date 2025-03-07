@@ -1,0 +1,72 @@
+---
+title: Understanding DNS Systems at EDIS Global
+description: Learn how EDIS Global uses separate Anycast DNS systems for reverse DNS and domain resolution to ensure speed, security, and redundancy.
+sidebarTitle: DNS Systems at EDIS Global
+---
+
+# 🌐 Understanding the Different DNS Systems at EDIS Global
+
+At **EDIS Global**, we operate different DNS systems for different purposes to give you maximum speed, security, and resilience. Here's an overview of how DNS is handled within our infrastructure.
+
+
+## 🔄 Reverse DNS (rDNS) Resolution — **EDIS Global Anycast DNS**
+
+When someone performs a **reverse DNS lookup** (trying to find the domain name behind your IP address), EDIS Global handles these queries through our **own global Anycast DNS network**:
+
+- ns1.edis.global  
+- ns2.edis.global  
+
+### Why use Anycast for rDNS?
+
+You might wonder:  
+> "*Isn't that overkill for reverse DNS?*" 😉
+
+By using Anycast, we ensure reverse DNS lookups are answered from the **closest available node worldwide**, keeping responses fast and reliable.
+
+---
+
+### 🌍 Our rDNS Anycast Network
+
+We operate **two independent Anycast clouds** across **separate autonomous systems (AS)** for maximum reliability.
+
+#### ✅ Cloud 1:
+Amsterdam, Atlanta, Berlin, Budapest, Chicago, Dallas, Dublin, Frankfurt, Hong Kong, Johannesburg, London, Los Angeles, Madrid, Melbourne, Miami, Mumbai, New York, Paris, Reykjavik, Rheintal, Salzburg, Sao Paulo, Seattle, Singapore, Stockholm, St. Petersburg, Tel Aviv, Tokyo, Warsaw, Vienna, Zurich.
+
+#### ✅ Cloud 2:
+Amsterdam, Athens, Bangalore, Chicago, Dallas, Dubai, Frankfurt, Geneva, Hong Kong, Johannesburg, Klagenfurt, Lisbon, Ljubljana, London, Miami, Reston, San Jose, São Paulo, Seattle, Singapore, Sydney, Tampere, Tokyo, Toronto, Vienna.
+
+> 🛡️ **56+ global Anycast nodes** keep your reverse DNS running fast and smooth worldwide.
+
+---
+
+## 🌐 Forward DNS Resolution (Resolvers) — **Cloudflare Anycast DNS**
+
+When your VPS needs to resolve a domain name (like `example.com`) into an IP address, we use **Cloudflare’s Anycast DNS resolvers**:
+
+- 1.1.1.1  
+- 1.0.0.1  
+
+### Why Cloudflare?
+
+- 🔹 **Speed:** Queries are answered by the nearest Cloudflare node.
+- 🔹 **Privacy:** Cloudflare commits to strong privacy protections.
+- 🔹 **Reliability:** Global infrastructure ensures uptime.
+- 🔹 **Security:** Protection against DNS-based attacks.
+
+---
+
+## 📝 Recap of the DNS Systems We Use
+
+| Purpose                     | System                                           | Benefit                                          |
+| --------------------------- | ------------------------------------------------ | ------------------------------------------------ |
+| **Reverse DNS (rDNS)**      | ns1.edis.global + ns2.edis.global (EDIS Anycast) | Fast, redundant, globally available rDNS.        |
+| **Forward DNS (Resolvers)** | 1.1.1.1 + 1.0.0.1 (Cloudflare Anycast)           | Fast, secure, privacy-focused domain resolution. |
+
+---
+
+## ⚡ Final Thoughts
+
+With the power of Anycast, our DNS infrastructure delivers:
+- Ultra-fast response times.
+- Maximum uptime and redundancy.
+- Privacy-first, secure DNS handling.

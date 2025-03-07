@@ -267,6 +267,7 @@
         "vps-management/forgot-root-password-set-pwd-in-single-user-mode",
         "vps-management/mount-iso-image",
         "vps-management/post-install-scripts",
+        "vps-management/system-configuration-dialog",
         "vps-management/bring-your-own-iso",
         "vps-management/enable-vnc-server",
         "vps-management/ip-address-information",
