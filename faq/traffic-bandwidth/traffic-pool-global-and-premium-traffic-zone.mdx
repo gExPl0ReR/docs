@@ -1,6 +1,6 @@
 ---
-title: EDIS traffic pool - Global and Premium traffic zone
-description: EDIS Global offers a traffic pool feature that allows users to manage and allocate traffic to their VPS plans. The service features two traffic zones – the standard Global Traffic Zone and a Premium Traffic Zone
+title: "EDIS traffic pool - Global and Premium traffic zone"
+description: "EDIS Global offers a traffic pool feature that allows users to manage and allocate traffic to their VPS plans. The service features two traffic zones – the standard Global Traffic Zone and a Premium Traffic Zone"
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
@@ -11,7 +11,9 @@ Running out of traffic can be a hassle. At EDIS Global, our traffic pool feature
 
 To make it easy for you, we created two traffic zones rather than having a variety of different traffic-prices for our almost 50 locations.
 
-### **Why You'll Love Your Traffic Pool&#xA;**
+### \*\*Why You'll Love Your Traffic Pool
+
+\*\*
 
 ✅ You are in complete control of the process of allocating and managing traffic.
 
@@ -25,7 +27,7 @@ To make it easy for you, we created two traffic zones rather than having a varie
 
 ✅ Automatic refill option individually configurable for every VPS ("Auto Hydration")
 
-###
+### 
 
 ### 🌐 Global Traffic Zone
 
@@ -33,13 +35,23 @@ Standard traffic at base cost, available in most regions.
 
 ### 💎 Premium Traffic Zone
 
-High-demand regions with increased traffic costs (e.g., <a href="https://www.edisglobal.com/vps-hosting/cyprus-limassol" target="_blank">Cyprus</a>, <a href="https://www.edisglobal.com/vps-server/united-arab-emirates-dubai" target="_blank">UAE</a>, <a href="https://www.edisglobal.com/vps-server/australia-sydney" target="_blank">Australia</a>, <a href="https://www.edisglobal.com/vps-server/chile-vina-del-mar" target="_blank">Chile</a>, <a href="https://www.edisglobal.com/vps-server/colombia-bogota" target="_blank">Colombia</a>).
+High-demand regions with increased traffic costs (e.g., Cyprus
+
+, UAE
+
+, Australia
+
+, Chile
+
+, Colombia
+
+).
 
 ## **How to Get Started with the EDIS Traffic Pool**
 
 ### 🛒 Purchase Traffic
 
-Choose the amount of traffic you need and <a href="https://manage.edisglobal.com/cart.php?gid=214" target="_blank">Top Up your Traffic Pool.</a>
+Choose the amount of traffic you need and Top Up your Traffic Pool.
 
 ### 📌 Assign Traffic
 
@@ -72,21 +84,37 @@ Manually allocate +100GB, +500GB, or +1TB to your VPS as required.
 **C. Auto Hydration:**
 Automatically add 100GB when usage reaches 99%, ensuring no interruptions (can be toggled on/off).
 
-For custom monitoring, use our _callback feature_ in the <a href="https://docs.edisglobal.com/set-hooks" target="_blank">REST API</a> to trigger notifications when traffic reaches a defined threshold.
+For custom monitoring, use our _callback feature_ in the REST API
 
+to trigger notifications when traffic reaches a defined threshold.
 
+## Traffic Accounting Balance Sheet
 
-## Traffic Accounting
+The balance sheet below (demo data) works like a bank account statement. We log **traffic top-ups**, **pool** **traffic consumption**, and the resulting balance after each transaction. This report provides a transparent overview of **pool** **traffic usage across your entire VPS hosting account**.
 
+**How to Read the Balance Sheet**
 
+• **Date/Time:** Timestamp of the transaction.\
+• **Source:** The VPS instance consuming traffic, or a Traffic Pool Top-Up\
+• **Change:** Shows the amount of traffic deducted (negative) or added (positive).\
+• **New Balance:** The updated traffic balance after the transaction.
 
-
+| Date/Time           | Source              | Change    | New Balance |
+| ------------------- | ------------------- | --------- | ----------- |
+| 2025-03-17 16:52:12 | kvm_demo_id002      | \-100 GB  | 6500 GB     |
+| 2025-03-17 14:12:12 | kvm_demo_id002      | \-100 GB  | 6600 GB     |
+| 2025-03-17 12:22:32 | kvm_demo_id002      | \-1000 GB | 6700 GB     |
+| 2025-03-17 12:22:32 | kvm_demo_id002      | \-1000 GB | 6700 GB     |
+| 2025-03-16 10:02:30 | kvm_demo_id002      | \-500 GB  | 7700 GB     |
+| 2025-03-16 10:01:45 | kvm_demo_id004      | \-300 GB  | 8200 GB     |
+| 2025-03-16 09:59:10 | **Traffic Pool Top-Up** | **+1000 GB** | 8500 GB     |
+| 2025-03-16 08:45:15 | kvm_demo_id001      | \-1000 GB | 7500 GB     |
+| 2025-03-15 23:15:35 | kvm_demo_id001      | \-1000 GB | 8500 GB     |
+| 2025-03-15 22:12:20 | kvm_demo_id003      | \-500 GB  | 9500 GB     |
+| 2025-03-10 09:59:10 | **Traffic Pool Top-Up** | **+10000 GB** | 10000 GB    |
 
 ## Need More Traffic? 🚀
 
 Click below to explore your options to keep your VPS running smoothly:
 
-<CtaButton
-  label='Exceeding Monthly Traffic Limit'
-  link='./exceeding-monthly-traffic-limit-edis-global'
-/>
+<CtaButton label="Exceeding Monthly Traffic Limit" link="./exceeding-monthly-traffic-limit-edis-global" />
