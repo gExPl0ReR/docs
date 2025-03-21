@@ -293,6 +293,7 @@
             "faq/ip-addresses/ping-test-ip",
             "faq/ip-addresses/change-ip-address",
             "faq/ip-addresses/order-additional-ip-address",
+            "faq/ip-addresses/order-bespoke-ip-address",
             "faq/ip-addresses/configuring-additional-ip-address-linux",
             "faq/ip-addresses/setting-up-reverse-pointers",
             "faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall",
