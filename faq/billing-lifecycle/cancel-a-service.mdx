@@ -1,7 +1,7 @@
 ---
-title: Cancel a VPS service
-sidebarTitle: Cancellation
-description: VPS can be cancelled at any time through the KVM management portal. Users need to login to the VPS Management Portal, locate the VPS in the Services tab, and click "Request Cancellation".
+title: "Cancel a VPS service"
+sidebarTitle: "Cancellation"
+description: "VPS can be cancelled at any time through the KVM management portal. Users need to login to the VPS Management Portal, locate the VPS in the Services tab, and click "Request Cancellation"."
 ---
 
 ## How to request Cancellation for your EDIS VPS
@@ -12,50 +12,55 @@ A VPS can be cancelled in the KVM management portal at any time.
   <Step title="Log in to your">
     [KVM Management Portal](https://manage.edisglobal.com/clientarea.php)
   </Step>
-
-  <Step title="Locate your VPS in the Services tab" />
-
-  <Step title="and click &#x22;Request Cancellation&#x22;">
+  <Step title="Locate your VPS in the Services tab">
+    
+  </Step>
+  <Step title='and click "Request Cancellation"'>
     Cancel **with immediate effect** or **by the end of the billing period**.
   </Step>
 </Steps>
 
-Cancelling a service removes the lines for this service from pro-forma invoices!
+Cancelling a service removes the lines for this service from pro-forma invoices\\\\!
 
 ## Video Guide how to Cancel a Service
 
 <iframe width="100%" height="450" src="https://www.loom.com/embed/206825b87a894704af333b9fb57a5a2b?sid=7a6cf401-af9b-4494-b44d-8a95f12927ff" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
 <Note>
-  Our services are based on **MONTHLY subscriptions** rather than daily. We
-  understand that sometimes you may need to discontinue a service prior to the
-  completion of the subscription period. Unfortunately, in those cases, **we
-  cannot provide a refund** for any portion of the subscription that has already
+  Our services are based on **MONTHLY subscriptions** rather than daily. We\
+  understand that sometimes you may need to discontinue a service prior to the\
+  completion of the subscription period. Unfortunately, in those cases, **we**\
+  **cannot provide a refund** for any portion of the subscription that has already\
   been paid. We apologize for any inconvenience this may cause.
 </Note>
 
+## ⏳ VPS Expiration Cancellation Workflow
 
+_Used when you request cancellation at the end of the billing cycle (on expiry)._
 
-## ⏳ Simplified VPS expiration workflow
+| **Day**      | **Event**                          | **What Happens**                              |
+| ------------ | ---------------------------------- | --------------------------------------------- |
+| 0            | Cancellation (on expiry) requested | VPS continues running until the due date      |
+| 0            | Invoice cancelled                  | No charge for next billing period             |
+| **Due Date** | 🚫 Service Terminated              | VPS stops, contract ends                      |
+| \+6 days     | 🗑️ Data Deleted                   | VPS data permanently removed from our servers |
 
-This timetable shows what happens when you set a plan to expire, and when we delete VPS from our disks.
+---
 
-| **Day**  | **Event**                       | **Action**                       |
-| -------- | ------------------------------- | -------------------------------- |
-| 0        | Cancellation (expiry) submitted | Service continues until due date |
-| 0        | Invoice cancelled               | or service removed from invoice  |
-| due date | ⏸️ ❌ Termination                 | VPS agreement ends               |
-| +6d      | 🗑️ Data Deletion                 | VPS deletion                     |
+## ⚡ Immediate VPS Cancellation Workflow
 
-## ⏳ Simplified VPS immediate cancellation workflow
+_Used when you request cancellation right away._
 
-This timetable shows what happens when you submit an immediate cancellation request, and when we delete VPS from our disks.
+| **Day**  | **Event**                          | **What Happens**                              |
+| -------- | ---------------------------------- | --------------------------------------------- |
+| 0        | Cancellation (immediate) requested | VPS stops working immediately                 |
+| 0        | Invoice cancelled                  | No charge for next billing period             |
+| 0        | 🚫 Service Terminated              | VPS contract ends right away                  |
+| \+6 days | 🗑️ Data Deleted                   | VPS data permanently removed from our servers |
 
-| **Day** | **Event**                          | **Action**                        |
-| ------- | ---------------------------------- | --------------------------------- |
-| 0       | Cancellation (immediate) submitted | Service stops working immediately |
-| 0       | Invoice cancelled                  | or service removed from invoice   |
-| 0       | ⏸️ ❌ Termination                    | VPS agreement ends                |
-| +6d     | 🗑️ Data Deletion                    | VPS deletion                      
+---
 
-## 
+### 💡 Notes:
+
+- **Data Deletion** is **permanent** and cannot be reversed after 6 days.
+- Please **back up your data** before requesting cancellation.
