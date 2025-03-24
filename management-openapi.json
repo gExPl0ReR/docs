@@ -5858,7 +5858,7 @@
           },
           "iso": {
             "type": "string",
-            "description": "The name of the ISO file to mount.  \nUse the `get autoinstall images` endpoint to retrieve a list of available ISO files.\n",
+            "description": "The name of the ISO file to mount.  \nUse the `get ISO Images` endpoint to retrieve a list of available ISO files.\n",
             "example": "SystemRescue-10.02-amd64.iso"
           },
           "force_reset": {
