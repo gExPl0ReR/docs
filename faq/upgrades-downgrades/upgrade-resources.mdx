@@ -1,77 +1,63 @@
 ---
-title: Upgrading a VPS to a higher tier
-sidebarTitle: Upgrade VPS
-description: This doc explains how to upgrade a VPS to a higher plan, which can include more RAM, additional vCPU cores, more disk space, and increased monthly traffic commitment.
+title: Upgrade RAM, vCPU, Disk or IP on Your VPS
+sidebarTitle: Upgrade Resources
+description: Add more RAM, CPU cores, disk space, or IP addresses to your EDIS VPS. Learn how to order resource upgrades and what happens next.
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
-![](/assets/vps-upgrade-order.webp)
+# 🧩 Upgrade VPS Resources (RAM, CPU, Disk, IPs)
 
-## What is a VPS Upgrade?
+Need more resources without changing your entire plan?  
+You can add more **RAM, vCPU cores, disk space (Drive Boost)** or **IP addresses** to your VPS.
 
-A VPS Upgrade allows you to add additional resources to your VPS without the need of purchasing a fresh product.
+---
 
-* add **more RAM**
+## 🆚 What's the difference?
 
-* add **additional vCPU cores**
+This is **not** a plan change. It's a **resource extension** of your current VPS.
 
-* **increase the monthly traffic commitment**
+You can:
+- Add **more RAM**
+- Add **more vCPU cores**
+- Boost your **disk space** (Drive Boost)
+- Add **IPv4 addresses**
+- Mix and match any of the above
 
-* add **more disk space**
+---
 
-Adding RAM and vCPU cores require a cold-boot.
-Traffic becomes available immediately, no actions required.
-More info on <a href="https://docs.edisglobal.com/will-i-lose-data-when-i-upgrade" target="_blank">Upgrades and Disks</a>.
+## 💶 How is it billed?
 
-## How much is an upgrade?
+Just like plan upgrades:  
+You only pay the **prorated amount** for the rest of your billing cycle.
 
-*Example*: You upgrade from a EUR 4.99 SMART plan to the EUR 7.49 plan
-Let's assume you want to upgrade after using the product for 1 week already.
+---
 
-In this example, you only pay EUR 1.92 extra. We only charge you the difference for the time left in the month, and we count in the full EUR 4.99 you already paid.
+## 🛒 How to order a Resource Upgrade
 
-So, it's even cheaper than paying the full EUR 2.50 difference, and we definitely don't ask you to pay the full monthly price of the larger plan.
+### Option A – Order via Support
+1. Contact our support team
+2. Share your VPS IP or KVM_ID
+3. We'll send you a personalized upgrade link immediately
 
-## How to order an Upgrade
+### Option B – Order via Portal
+1. Log in to your [KVM Management Portal](https://my.edisglobal.com)
+2. Find your VPS in the **Services** tab
+3. Go to **Configurable Options**
+4. Click **“Upgrade Resources”** (your personalized link)
+5. Select what you want to upgrade
+6. Confirm and pay the invoice
 
-<Steps>
-  <Step title="Log in to your">
-    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
-  </Step>
+---
 
-  <Step title="Locate your VPS in the Services tab" />
+## 🛠️ What happens after payment?
 
-  <Step title="Click the &#x22;Upgrade&#x22; button, then select product, confirm and make payment" />
+- We process the upgrade within **7 minutes** after payment confirmation  
+- You’ll receive an **email with activation steps**
+- **RAM and vCPU** require a **cold reboot**
+- **IP addresses** need to be manually configured inside your OS
+- **Disk Boost**: your disk is untouched. You decide when to expand partition or add a volume.
 
-  <Step title="Once the payment has gone through,">
-    A. we upgrade your plan and
+---
 
-    <br />
-    
-    B. send you an email with instructions, on how to activate additional
-    resources. Additional traffic becomes available without further action.
-  </Step>
-</Steps>
-
-
-
-## Need more traffic than our plans offer?
-
-If you are already on the largest tier, and you're running out of available traffic, you can purchase traffic. EDIS offers the possibility to maintain a traffic pool. It allows you to manually assign traffic to your VPS, or enable auto-hydration (automatic refills at 99% usage levels).
-
-<CtaButton label="EDIS traffic pool" link="../traffic-bandwidth/traffic-pool-global-and-premium-traffic-zone" />
-
-##
-
-## Need more than 2 vCPU cores?
-
-To add more CPU cores to your VPS than our standard products have to offer, please reach out to the team 😊💻🚀. The cost for **1 additional vCPU core is €10 per month.** Our team will place the order for you.
-
-## Need more then 8GB RAM?
-
-To add more RAM to your VPS than our standard products have to offer, please reach out to the team. The cost per additional **1GB of RAM € 5 per month**. Our team will place the order for you.
-
-## Need more Disk space?
-
-For disk upgrades beyond plans' specifications, we offer customized solutions. Please get in touch to place an order for more drive space. The price for an additional 100GB is EUR 29 per month.
+<CtaButton label="Learn how to upgrade your plan" link="../upgrades-downgrades/upgrade-plan" />

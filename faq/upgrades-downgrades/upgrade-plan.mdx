@@ -1,6 +1,6 @@
 ---
 title: Upgrading a VPS to a higher tier
-sidebarTitle: Upgrade VPS
+sidebarTitle: Upgrade Plan
 description: This doc explains how to upgrade a VPS to a higher plan, which can include more RAM, additional vCPU cores, more disk space, and increased monthly traffic commitment.
 ---
 
@@ -8,70 +8,49 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 
 ![](/assets/vps-upgrade-order.webp)
 
-## What is a VPS Upgrade?
+# 🚀 Upgrade to a Higher VPS Plan
 
-A VPS Upgrade allows you to add additional resources to your VPS without the need of purchasing a fresh product.
+You can upgrade your VPS plan (e.g. from **KVM SMART** to **KVM STARTER**) anytime directly through the management portal.
 
-* add **more RAM**
+---
 
-* add **additional vCPU cores**
+## 🔄 What is a VPS Plan Upgrade?
 
-* **increase the monthly traffic commitment**
+A plan upgrade means moving your VPS to a **larger, predefined plan** with more resources like:
+- More RAM
+- More vCPU cores
+- More traffic commitment
 
-* add **more disk space**
-
-Adding RAM and vCPU cores require a cold-boot.
-Traffic becomes available immediately, no actions required.
-More info on <a href="https://docs.edisglobal.com/will-i-lose-data-when-i-upgrade" target="_blank">Upgrades and Disks</a>.
-
-## How much is an upgrade?
-
-*Example*: You upgrade from a EUR 4.99 SMART plan to the EUR 7.49 plan
-Let's assume you want to upgrade after using the product for 1 week already.
-
-In this example, you only pay EUR 1.92 extra. We only charge you the difference for the time left in the month, and we count in the full EUR 4.99 you already paid.
-
-So, it's even cheaper than paying the full EUR 2.50 difference, and we definitely don't ask you to pay the full monthly price of the larger plan.
-
-## How to order an Upgrade
-
-<Steps>
-  <Step title="Log in to your">
-    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
-  </Step>
-
-  <Step title="Locate your VPS in the Services tab" />
-
-  <Step title="Click the &#x22;Upgrade&#x22; button, then select product, confirm and make payment" />
-
-  <Step title="Once the payment has gone through,">
-    A. we upgrade your plan and
-
-    <br />
-    
-    B. send you an email with instructions, on how to activate additional
-    resources. Additional traffic becomes available without further action.
-  </Step>
-</Steps>
+No need to reinstall or migrate! The upgrade happens in-place.
 
 
 
-## Need more traffic than our plans offer?
+---
 
-If you are already on the largest tier, and you're running out of available traffic, you can purchase traffic. EDIS offers the possibility to maintain a traffic pool. It allows you to manually assign traffic to your VPS, or enable auto-hydration (automatic refills at 99% usage levels).
+## 💶 How is it billed?
 
-<CtaButton label="EDIS traffic pool" link="../traffic-bandwidth/traffic-pool-global-and-premium-traffic-zone" />
+You only pay the **price difference** between the two plans, **prorated for the rest of the billing period**.  
+You don’t pay the full price of the new plan — just the upgrade difference (you don't pay twice)
 
-##
+---
 
-## Need more than 2 vCPU cores?
+## 🛠️ How to order a Plan Upgrade
 
-To add more CPU cores to your VPS than our standard products have to offer, please reach out to the team 😊💻🚀. The cost for **1 additional vCPU core is €10 per month.** Our team will place the order for you.
+1. Log in to your [KVM Management Portal](https://manage.edisglobal.com/clientarea.php)
+2. Find your VPS in the **Services** tab
+3. Click the **“Upgrade”** button
+4. Select the higher plan, confirm, and pay the invoice
+5. Within 7 minutes after payment confirmation, the upgrade is processed and you’ll receive an email with instructions
 
-## Need more then 8GB RAM?
+---
 
-To add more RAM to your VPS than our standard products have to offer, please reach out to the team. The cost per additional **1GB of RAM € 5 per month**. Our team will place the order for you.
+## ⚙️ What happens next?
 
-## Need more Disk space?
+- **No IP change** or reinstall required  
+- **Traffic upgrade** is available immediately  
+- **RAM and vCPU** become active after a **cold reboot**  
+- **Disk remains untouched** – you choose whether to resize your filesystem
 
-For disk upgrades beyond plans' specifications, we offer customized solutions. Please get in touch to place an order for more drive space. The price for an additional 100GB is EUR 29 per month.
+---
+
+<CtaButton label="Learn how to upgrade individual resources" link="../upgrades-downgrades/upgrade-resources" />
