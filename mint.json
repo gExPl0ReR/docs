@@ -372,7 +372,6 @@
             "faq/upgrades-downgrades/requesting-qcow2-image-backup",
             "faq/upgrades-downgrades/private-vlan-option",
             "faq/upgrades-downgrades/get-additional-network-card",
-            "faq/upgrades-downgrades/upgrading-a-vps-to-a-higher-tier",
             {
               "group": "CPU Cores vs. CPU Sockets in VPS Environments",
               "pages": [
@@ -773,8 +772,12 @@
     },
     {
       "source": "/upgrading-a-vps-to-a-higher-tier",
-      "destination": "/faq/upgrades-downgrades/upgrading-a-vps-to-a-higher-tier"
+      "destination": "/faq/upgrades-downgrades/upgrade-plan"
     },
+    {
+      "source": "/faq/upgrades-downgrades/upgrading-a-vps-to-a-higher-tier",
+      "destination": "/faq/upgrades-downgrades/upgrade-plan"
+    },    
     {
       "source": "/will-i-lose-data-when-i-upgrade",
       "destination": "/faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade"
