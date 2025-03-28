@@ -65,6 +65,10 @@
           "order-api-reference/cancel-vps"
         ]
       },
+
+
+
+
       {
         "name": "Management API Endpoints",
         "url": "management-api-reference",
@@ -154,7 +158,34 @@
             ]
           }
         ]
+      },
+
+      {
+              "name": "Changelog",
+              "url": "changelog",
+              "pages": [
+                {
+                  "group": "Dashboard",
+                  "pages": [
+                    "changelog/product"
+                  ]
+                },
+                {
+                  "group": "Management API",
+                  "pages": [
+                    "changelog/management-api"
+                  ]
+                },
+                {
+                  "group": "Order API",
+                  "pages": [
+                    "changelog/order-api"
+                  ]
+                }
+              ]
       }
+
+
     ],
   "navigation": [
     {
@@ -187,6 +218,16 @@
        "management-api-reference/power-management/power-off"
       ]
      },
+
+     {
+       "group": "Changelog",
+       "pages": [
+         "changelog/product",
+         "changelog/management-api",
+         "changelog/order-api"
+       ]
+     },
+
      {
       "group": "Installation",
       "pages": [
@@ -278,6 +319,8 @@
         "vps-management/your-support-pin"
       ]
     },
+
+
     {
       "group": "FAQ",
       "pages": [
@@ -777,7 +820,7 @@
     {
       "source": "/faq/upgrades-downgrades/upgrading-a-vps-to-a-higher-tier",
       "destination": "/faq/upgrades-downgrades/upgrade-plan"
-    },    
+    },
     {
       "source": "/will-i-lose-data-when-i-upgrade",
       "destination": "/faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade"
