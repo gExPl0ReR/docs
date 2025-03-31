@@ -11,7 +11,7 @@ Updates and improvements
 <Update label="March 2025">
   ## **Plan Description Field in Order API Now Uses Structured Object Format**
 
-  The key difference between the **“vorher”** (before) and **“jetzt”** (now) structure is a shift from an **unstructured HTML string** to a **structured, machine-readable object**.
+  The plan description field in the Order API has been updated from a single unstructured HTML string to a structured, machine-readable object. This change separates data from presentation, making it easier to parse, localize, and display consistently across interfaces.
 
   ---
 
@@ -37,7 +37,7 @@ Updates and improvements
 
   ---
 
-  **✅ Now **
+  ✅ **After** 
 
   ```
   [KVM DIAMOND] => stdClass Object
@@ -64,9 +64,7 @@ Updates and improvements
 
   • Clear separation of values and units (size, unit).
 
-  • Much easier to:
-
-  • Sort, filter, or validate
+  • Much easier to: Sort, filter, or validate
 
   • Render dynamically in different formats (HTML, plain text, JSON)
 
@@ -86,7 +84,7 @@ Updates and improvements
 
   • ✅ Keeps raw data clean and reusable
 
-  If you’re planning future API enhancements, this structure sets you up nicely for automated plan comparisons, filters, or dynamic UIs. Let me know if you’d like a pretty-printer or rendering function for this\!
+  -- 
 
   #### **The Beginning**
 
@@ -97,8 +95,6 @@ Updates and improvements
   #### **Other improvements**
 
   - Cleaned up endpoint names for clarity
-
   - Restructured docs to reflect actual order flow
-
   - Removed a few cobwebs in the request body examples
 </Update>
