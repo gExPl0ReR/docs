@@ -1,7 +1,7 @@
 ---
-title: Order API Changelog
-description: Find out about recent changes to the EDIS Global Order API. See what’s new in provisioning, billing logic, validation rules, and plan upgrade automation.
-sidebarTitle: Order API
+title: "Order API Changelog"
+description: "Find out about recent changes to the EDIS Global Order API. See what’s new in provisioning, billing logic, validation rules, and plan upgrade automation."
+sidebarTitle: "Order API"
 ---
 
 ## Changelog Order API
@@ -9,24 +9,96 @@ sidebarTitle: Order API
 Updates and improvements
 
 <Update label="March 2025">
+  ## **Plan Description Field in Order API Now Uses Structured Object Format**
 
-#### **The Beginning**
+  The key difference between the **“vorher”** (before) and **“jetzt”** (now) structure is a shift from an **unstructured HTML string** to a **structured, machine-readable object**.
 
+  ---
 
+  **🧾 Before**
 
-This marks the very first entry in our public Order API changelog!  
+  ```
+  [KVM DIAMOND] => stdClass Object
+  (
+      [id] => 1834
+      [description] => "8192 MB RAM 1 CPU core 100 GB SSD ... <strong>30 TB Traffic</strong> ..."
+  )
+  ```
 
-From now on, we’ll share updates, improvements, and changes to how you interact with our order systems — right here.
+  • The description is a **single HTML string**.
 
+  • It’s meant for direct display on a webpage.
 
+  • Parsing values (like RAM or CPU) requires regex or manual parsing.
 
-#### **Other improvements**  
+  • Difficult to localize or transform programmatically.
 
-\- Cleaned up endpoint names for clarity  
+  • Mixes data and presentation (\<br /\>, \<strong\>).
 
-\- Restructured docs to reflect actual order flow  
+  ---
 
-\- Removed a few cobwebs in the request body examples  
+  **✅ Now **
 
+  ```
+  [KVM DIAMOND] => stdClass Object
+  (
+      [id] => 1834
+      [description] => stdClass Object
+          (
+              [disk] => stdClass Object
+                  (
+                      [size] => 100
+                      [unit] => GByte
+                  )
+              [ram] => stdClass Object
+                  (
+                      [size] => 8192
+                      [unit] => MByte
+                  )
+              ...
+          )
+  )
+  ```
 
+  • The description is now a **nested structured object**.
+
+  • Clear separation of values and units (size, unit).
+
+  • Much easier to:
+
+  • Sort, filter, or validate
+
+  • Render dynamically in different formats (HTML, plain text, JSON)
+
+  • Translate units or localize for different languages
+
+  • **Presentation logic can be handled elsewhere** (frontend templates, markdown renderers, etc.)
+
+  ---
+
+  **💡 Why this change is good**
+
+  • ✅ Easier to maintain and update
+
+  • ✅ Enables internationalization
+
+  • ✅ Enables filtering (e.g. “plans with ≥16 GB RAM”)
+
+  • ✅ Keeps raw data clean and reusable
+
+  If you’re planning future API enhancements, this structure sets you up nicely for automated plan comparisons, filters, or dynamic UIs. Let me know if you’d like a pretty-printer or rendering function for this\!
+
+  #### **The Beginning**
+
+  This marks the very first entry in our public Order API changelog\!
+
+  From now on, we’ll share updates, improvements, and changes to how you interact with our order systems — right here.
+
+  #### **Other improvements**
+
+  - Cleaned up endpoint names for clarity
+
+  - Restructured docs to reflect actual order flow
+
+  - Removed a few cobwebs in the request body examples
 </Update>
