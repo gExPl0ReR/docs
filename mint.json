@@ -305,7 +305,8 @@
         "vps-management/autoinstall-reinstall-install-vps-linux-windows",
         "vps-management/edis-cloud-init-vps-installation",
         "vps-management/power-cycle-or-reboot-a-vps",
-        "vps-management/forgot-root-password-set-pwd-in-single-user-mode",
+        "vps-management/reset-root-password-linux",
+        "vps-management/reset-windows-admin-password",
         "vps-management/mount-iso-image",
         "vps-management/post-install-scripts",
         "vps-management/system-configuration-dialog",
@@ -474,9 +475,8 @@
           ]
         },
         "advanced-setup-guides/how-to-install-google-chrome-on-windows-server",
-        "advanced-setup-guides/reset-forgotten-lost-administrator-password-on-windows-server",
-		    "advanced-setup-guides/reset-windows-admin-password",
-        "advanced-setup-guides/reset-root-password-linux",
+        "advanced-setup-guides/forgot-administrator-password-on-windows-server",
+        "advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode",
         "advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps",
         "advanced-setup-guides/gui-versions-of-ubuntu-debian",
         "advanced-setup-guides/install-jitsi-on-your-vps",
@@ -581,7 +581,11 @@
     },
     {
       "source": "/forgot-root-password-set-pwd-in-single-user-mode",
-      "destination": "/vps-management/forgot-root-password-set-pwd-in-single-user-mode"
+      "destination": "/vps-management/reset-root-password-linux"
+    },
+    {
+    "source": "/vps-management/forgot-root-password-set-pwd-in-single-user-mode",
+    "destination": "/vps-management/reset-root-password-linux"
     },
     {
       "source": "/mount-iso-image",
@@ -953,7 +957,11 @@
     },
     {
       "source": "/reset-forgotten-lost-administrator-password-on-windows-server",
-      "destination": "/advanced-setup-guides/reset-forgotten-lost-administrator-password-on-windows-server"
+      "destination": "/vps-management/reset-windows-admin-password"
+    },
+    {
+      "source": "/advanced-setup-guides/reset-forgotten-lost-administrator-password-on-windows-server",
+      "destination": "/vps-management/reset-windows-admin-password"
     },
     {
       "source": "/install-lamp-postgresql-postgis-edis-global-vps",
