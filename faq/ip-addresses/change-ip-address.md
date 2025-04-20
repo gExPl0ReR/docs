@@ -52,11 +52,8 @@ If you purchased a VPS, you’re eligible for one free IP change within the firs
 ### Standard IP Change
 
 With a standard IP change, the system automatically assigns a random IP address.
+You can <a href="https://manage.edisglobal.com/cart.php?gid=addons" target="_blank">**order a Standard IP Change here.**</a>
 
 ### Bespoke IP Change
 
-For a bespoke IP change, you will be provided with a list of IP addresses from various prefixes. You can select the IP address you prefer from this list.
-
-### Request an IP Address Change
-
-To request either a Standard- or a Bespoke IP Change, please get in touch through the messenger. We need your KVM\_ID and the IP address you'd like to change, as well as the service you are requesting (Standard (random) IP Change, or Bespoke IP Change)
+For a bespoke IP change, you will be provided with a list of IP addresses from various prefixes. You can select the IP address you prefer from this list. <a href="https://manage.edisglobal.com/cart.php?gid=addons" target="_blank">**Order your Bespoke IP Change here.**</a>
