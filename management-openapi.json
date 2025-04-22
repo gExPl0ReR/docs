@@ -4665,8 +4665,8 @@
           },
           "pw": {
             "type": "string",
-            "description": "Your password (WHMCS credentials). \n⚠️ **Important:** If your password contains special characters (+, &, =), the default cURL snippet using `--data` may fail. avoid issues, replace it with `--data-urlencode \"pw=your-password\"`. Or you can URL-encode the password before passing it with the `--data` flag. You can use [this tool](https://www.urlencoder.org) to encode your password.",
-            "example": "your-password"
+            "description": "Your WHMCS1 password.\n\n⚠️ **Important:** If your password contains special characters (such as `+`, `&`, `=`), the default cURL snippet using `--data` may not work correctly.\n\n✅ To avoid issues:\n- Use `--data-urlencode \"pw=your-password\"`, **or**\n- URL-encode your password manually before using it with the `--data` flag.\n\n🔧 You can encode your password using [this online tool](https://www.urlencoder.org).\n\n**Example:** `your-password`",
+            "example": "securepassword123"
           },
           "kvm_id": {
             "type": "string",
