@@ -4660,12 +4660,12 @@
         "properties": {
           "email": {
             "type": "string",
-            "description": "Your email (WHMCS credentials).",
+            "description": "Your WHMCS account email address used for login.\nThis is the same email you use to sign in to your WHMCS client area.",
             "example": "your-email@example.com"
           },
           "pw": {
             "type": "string",
-            "description": "Your WHMCS1 password.\n\n⚠️ **Important:** If your password contains special characters (such as `+`, `&`, `=`), the default cURL snippet using `--data` may not work correctly.\n\n✅ To avoid issues:\n- Use `--data-urlencode \"pw=your-password\"`, **or**\n- URL-encode your password manually before using it with the `--data` flag.\n\n🔧 You can encode your password using [this online tool](https://www.urlencoder.org).\n\n**Example:** `your-password`",
+            "description": "Your WHMCS account password.\n\n⚠️ **Important:** If your password contains special characters (such as `+`, `&`, `=`), the default cURL snippet using `--data` may not work correctly.\n\n✅ To avoid issues:\n- Use `--data-urlencode \"pw=your-password\"`, **or**\n- URL-encode your password manually before using it with the `--data` flag.\n\n🔧 You can encode your password using [this online tool](https://www.urlencoder.org).\n\n**Example:** `your-password`",
             "example": "securepassword123"
           },
           "kvm_id": {
