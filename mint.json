@@ -350,6 +350,7 @@
             "faq/ip-addresses/static-ip-addresses",
             "faq/ip-addresses/announcing-third-party-ip-prefixes",
             "faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance",
+            "faq/ip-addresses/network-is-down",
             "faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows"
           ]
         },

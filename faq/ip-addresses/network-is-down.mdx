@@ -1,0 +1,78 @@
+---
+title: Network Is Down (Linux server)
+description: Sometimes it feels like your server is unreachable or the network is not working. In these cases, the best first step is to connect directly to the server using **VNC** and check its status.
+---
+
+## How to Connect to the Server via VNC
+
+1. Log in to the [KVM Management Portal](https://manage.edisglobal.com/clientarea.php).
+2. Locate your VPS in the Services tab.
+3. Click on **Start VNC** , then use **noVNC** to connect to the console of your server.
+
+## What to Check Once Connected via VNC
+
+If your server's operating system is **Linux**:
+
+1. **Check the network interfaces:**
+
+   ```bash
+   ip a
+   ```
+
+   - Make sure the network interface (e.g., `eth0`, `ens3`) is UP and has a valid IP address.
+
+2. **Check the gateway and ping it:**
+
+   ```bash
+   ip route
+   ```
+
+   - Identify the gateway address (look for the line `default via ...`).
+   - Then ping the gateway:
+
+     ```bash
+     ping -c 4 <IP_GATEWAY>
+     ```
+
+3. **Ping local addresses:**
+
+   - Ensure the local network stack is working:
+
+     ```bash
+     ping -c 4 127.0.0.1
+     ping -c 4 $(hostname -I)
+     ```
+
+4. **Check the SSH service:**
+
+   - Verify if the SSH service is running:
+
+     ```bash
+     systemctl status sshd
+     ```
+
+5. **Check the web server (if applicable):**
+
+   - If nginx or apache is installed:
+
+     ```bash
+     systemctl status nginx
+     # or
+     systemctl status apache2
+     ```
+
+6. **Review recent logs:**
+
+   - Check for any recent system or network errors:
+
+     ```bash
+     journalctl -xe
+     ```
+
+7. **Restart the networking service if necessary:**
+
+   - If there are issues with the network interfaces or configuration:
+
+     ```bash
+     systemctl restart networking
+     ```
