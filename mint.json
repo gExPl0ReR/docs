@@ -385,7 +385,7 @@
             "faq/billing-lifecycle/how-to-pay-paypal-use-different-currency",
             "faq/billing-lifecycle/add-contact-receive-invoices-different-email",
             "faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account",
-            "faq/billing-lifecycle/handling-locked-cryptocurrency-payments-cryptomus"
+            "faq/billing-lifecycle/handling-blocked-cryptocurrency-payments-cryptomus"
           ]
         },
         {
@@ -523,6 +523,10 @@
       "source": "/everything-vps",
       "destination": "/getting-started/everything-vps"
     },
+    {
+      "source": "/faq/billing-lifecycle/handling-locked-cryptocurrency-payments-cryptomus",
+      "destination": "/faq/billing-lifecycle/handling-blocked-cryptocurrency-payments-cryptomus"
+    },    
     {
       "source": "/linux-secure-shell-ssh",
       "destination": "/getting-started/linux-secure-shell-ssh"
