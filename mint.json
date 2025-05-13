@@ -394,6 +394,7 @@
             "faq/traffic-bandwidth/traffic-vs-bandwidth",
             "faq/traffic-bandwidth/traffic-stats-refill-explained",
             "faq/traffic-bandwidth/traffic-pool-global-and-premium-traffic-zone",
+            "faq/traffic-bandwidth/speed-test",
             "faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global",
             {
               "group": "DOS Attacks",
@@ -526,7 +527,7 @@
     {
       "source": "/faq/billing-lifecycle/handling-locked-cryptocurrency-payments-cryptomus",
       "destination": "/faq/billing-lifecycle/handling-blocked-cryptocurrency-payments-cryptomus"
-    },    
+    },
     {
       "source": "/linux-secure-shell-ssh",
       "destination": "/getting-started/linux-secure-shell-ssh"
