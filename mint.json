@@ -92,9 +92,7 @@
             "group": "Installation",
             "pages": [
               "management-api-reference/installation/iso-installation",
-              "management-api-reference/installation/turnkey-images",
               "management-api-reference/installation/reinstall",
-              "management-api-reference/installation/reinstall-with-turnkey",
               "management-api-reference/installation/mount-iso",
               "management-api-reference/installation/unmount-iso",
               "management-api-reference/installation/download-custom-iso",
@@ -232,9 +230,7 @@
       "group": "Installation",
       "pages": [
        "management-api-reference/installation/iso-installation",
-       "management-api-reference/installation/turnkey-images",
        "management-api-reference/installation/reinstall",
-       "management-api-reference/installation/reinstall-with-turnkey",
        "management-api-reference/installation/mount-iso",
        "management-api-reference/installation/unmount-iso",
        "management-api-reference/installation/download-custom-iso",

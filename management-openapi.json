@@ -556,91 +556,6 @@
         ]
       }
     },
-    "/kvm/v2/get/turnkey_images": {
-      "post": {
-        "tags": [
-          "Installation"
-        ],
-        "summary": "Turnkey images",
-        "description": "This endpoint retrieves a list of available turnkey images for the specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters from the \n\"Create AUTH-session\" response to authenticate the request.\n",
-        "operationId": "getTurnkeyImages",
-        "requestBody": {
-          "description": "Required parameters to retrieve the list of turnkey images.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/get_turnkey_images_body"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "A list of available turnkey images retrieved successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_5"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request - Invalid parameters.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_400_3"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized - The session signature is invalid or expired.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_401_3"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden - The client does not have permission to access this resource.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_403_2"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error - An unexpected error occurred.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_500_3"
-                }
-              }
-            }
-          }
-        },
-        "servers": [
-          {
-            "url": "https://{api_host}.edisglobal.com",
-            "description": "Installation Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nThis URL is unique for each server and must be dynamically set.\n",
-            "variables": {
-              "api_host": {
-                "description": "The API host obtained from the \"Create AUTH-session\" response.",
-                "default": "xxxxx"
-              }
-            }
-          }
-        ]
-      }
-    },
     "/kvm/v2/set/reinstall": {
       "post": {
         "tags": [
@@ -663,91 +578,6 @@
         "responses": {
           "200": {
             "description": "The operating system was successfully reinstalled on the VPS.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_3"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request - Invalid parameters or missing fields.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_400_4"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized - The session signature is invalid or expired.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_401_4"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden - You do not have permission to access this resource.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_403_3"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error - An unexpected error occurred.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_500_4"
-                }
-              }
-            }
-          }
-        },
-        "servers": [
-          {
-            "url": "https://{api_host}.edisglobal.com",
-            "description": "Installation Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nThis URL is unique for each session.\n",
-            "variables": {
-              "api_host": {
-                "description": "The API host obtained from the \"Create AUTH-session\" response.",
-                "default": "xxxxx"
-              }
-            }
-          }
-        ]
-      }
-    },
-    "/kvm/v2/set/turnkey_reinstall": {
-      "post": {
-        "tags": [
-          "Installation"
-        ],
-        "summary": "Reinstall with turnkey",
-        "description": "This endpoint reinstalls the operating system on the specified KVM VPS using a turnkey image.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and `image` parameters to execute the reinstallation.\n",
-        "operationId": "reinstallWithTurnkeyImage",
-        "requestBody": {
-          "description": "Required parameters to reinstall the operating system using a turnkey image.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/set_turnkey_reinstall_body"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "The operating system was successfully reinstalled using the specified turnkey image.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4821,33 +4651,6 @@
           }
         }
       },
-      "inline_response_200_5": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "description": "The list of available turnkey images.",
-            "example": [
-              "turnkey-ansible-17.0-bullseye",
-              "turnkey-ansible-18.0-bookworm",
-              "turnkey-lamp-17.1-bullseye",
-              "turnkey-lamp-18.0-bookworm",
-              "turnkey-wordpress-17.1-bullseye",
-              "turnkey-wordpress-18.0-bookworm",
-              "turnkey-joomla-17.1-bullseye",
-              "turnkey-joomla-18.0-bookworm"
-            ],
-            "items": {
-              "type": "string"
-            }
-          },
-          "status": {
-            "type": "string",
-            "description": "The status of the request.",
-            "example": "success"
-          }
-        }
-      },
       "inline_response_400_19": {
         "type": "object",
         "properties": {
@@ -5291,31 +5094,6 @@
           }
         }
       },
-      "set_turnkey_reinstall_body": {
-        "type": "object",
-        "properties": {
-          "signature": {
-            "type": "string",
-            "description": "The session signature obtained from the \"Create AUTH-session\" call.",
-            "example": "session_signature_12345"
-          },
-          "kvm_id": {
-            "type": "string",
-            "description": "The unique identifier of the KVM VPS to reinstall.  \nThis value is specific to your VPS.\n",
-            "example": "kvm_xxxxx_yyyyy"
-          },
-          "valid_until": {
-            "type": "string",
-            "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
-          },
-          "image": {
-            "type": "string",
-            "description": "The name of the turnkey image to reinstall.  \nUse the `get autoinstall images` endpoint to retrieve available turnkey images.\n",
-            "example": "turnkey-owncloud-16.1-buster"
-          }
-        }
-      },
       "inline_response_200_11": {
         "type": "object",
         "properties": {
@@ -5637,26 +5415,6 @@
             "type": "integer",
             "description": "HTTP status code.",
             "example": 500
-          }
-        }
-      },
-      "get_turnkey_images_body": {
-        "type": "object",
-        "properties": {
-          "signature": {
-            "type": "string",
-            "description": "The session signature obtained from the \"Create AUTH-session\" call.  \nThis signature authenticates the request and ensures that the session is valid.\n",
-            "example": "session_signature_12345"
-          },
-          "kvm_id": {
-            "type": "string",
-            "description": "The unique identifier of the KVM VPS for which the turnkey images are being retrieved.  \nThis value is specific to your VPS.\n",
-            "example": "kvm_xxxxx_yyyyy"
-          },
-          "valid_until": {
-            "type": "string",
-            "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
           }
         }
       },
