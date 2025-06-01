@@ -44,6 +44,19 @@ Due to the need for more and more accurate data and even faster query options fo
 
 Most query/lookup providers do have commercial interest. Request-limits are used to persuade users to buy enterprise subscriptions. Some providers allow **free access to (older) databases** in order to persuade potential leads to purchase enterprise material with recent, but more importantly accurate data. **Some website-operators are not aware** that they are **checking their subscribers against old GEOIP database material**. Some service providers **find and use old GEO databases somewhere on the web** and use this data for production environments with the same effect.
 
+## **The whois Command in Linux**
+
+The whois tool lets you query registration details for domains and IP addresses directly from your terminal. **It pulls data from official internet registries like RIPE, ARIN, APNIC, etc**., showing the organization, contact info, and sometimes location metadata tied to an IP block.
+
+Results may **sometimes include a country field**, but it’s **not based on GeoIP lookup**!
+**If you’re looking for actual GeoIP functionality, refer to:**
+
+- geoiplookup (based on legacy MaxMind GeoIP database)
+- mmdblookup (for newer MaxMind GeoLite2 .mmdb databases)
+- APIs like IPinfo, ip-api, or MaxMind’s own services
+
+
+
 ## **EDIS GEOIP data feeds**
 
 As mentioned at the beginning of this document, **EDIS** **places a high value on correctly GEO located IPv4 and IPv6 addresses, respectively correctly geolocated services.** For that reason, EDIS IPv4 and IPv6 GEOIP data-feeds have been made available to numerous lookup providers, so that they can obtain first-hand information regarding potential amendments.
