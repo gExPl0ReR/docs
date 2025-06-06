@@ -982,10 +982,6 @@
       "destination": "/advanced-setup-guides/how-to-setup-wireguard-vpn"
     },
     {
-      "source": "/install-mikrotik-routeros-on-edis-vps",
-      "destination": "/advanced-setup-guides/install-mikrotik-routeros-on-edis-vps"
-    },
-    {
       "source": "/installing-openvpn-with-turnkey",
       "destination": "/advanced-setup-guides/installing-openvpn-with-turnkey"
     },
