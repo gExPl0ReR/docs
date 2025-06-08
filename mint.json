@@ -370,6 +370,7 @@
             "faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global",
             "faq/billing-lifecycle/how-fast-instant-delivery",
             "faq/billing-lifecycle/cancel-a-service",
+            "faq/billing-lifecycle/data-retention-period",
             "faq/billing-lifecycle/cancellation-and-refund-policy",
             "faq/billing-lifecycle/can-i-get-a-refund",
             "faq/billing-lifecycle/credit-card-reservation-vs-payment",
@@ -496,7 +497,8 @@
         "misc/why-has-windows-server-slowed-down",
         "misc/fix-for-realvnc-closing-connection",
         "misc/manual-windows-server-installation-on-kvm",
-        "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error"
+        "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error",
+        "misc/what-is-seabios"
       ]
     },
   {
