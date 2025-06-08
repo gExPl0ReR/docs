@@ -1,0 +1,60 @@
+---
+title: Difference Between Credit Card Reservation and Captured Payment
+sidebarTitle: Reservation vs Capture
+description: Learn the difference between credit card payment reservations (uncaptured payments) and successful captured payments, how they affect your card, and what EDIS Global receives.
+---
+
+## Understanding Payment Reservations vs. Captured Payments
+
+During payment, a timeout can occur - often related to a poor internet or VPN connection. When this happens during the credit card checkout process, only the **initial phase** of the payment is completed. This initial phase is known as a **reservation** - the amount is temporarily blocked on the credit card, but not actually charged. 
+
+The **second phase**, called **capturing**, would finalize the payment. But in this case, the connection or session was no longer valid, or the customer reloaded the page and restarted the checkout. As a result, only the reservation remained without being completed.
+
+---
+
+### 🔒 What is a Reservation?
+
+A **reservation** (also called an **uncaptured payment**) happens when a payment is initiated but **not completed**. It temporarily **reduces the available balance** on your credit card, but:
+
+- EDIS Global does **not receive any money**
+- The amount is **only blocked**
+- The funds are **guaranteed for us** but not yet transferred
+- If we don’t capture it manually, the reservation **automatically disappears within 7 days**
+- After expiration, **the line vanishes from your credit card statement**
+- A reservation **cannot be refunded**, because the money was never taken from your card.
+
+---
+
+### ✅ What is a Captured Payment?
+
+A **captured payment** is a **successful charge** where:
+
+- EDIS Global has **received the money**
+- Your available credit on your card is reduced
+- The charge appears on your credit card statement
+- If refunded, a **second line will appear** (credit/refund)
+
+Captured payments **can be refunded**, and once refunded, **we no longer have the money**.
+
+---
+
+### 💳 Comparison Table
+
+|                        | **Reservation**                      | **Captured Payment**       |
+| ---------------------- | ------------------------------------ | -------------------------- |
+| Reduces card balance   | ✅ Yes                                | ✅ Yes                      |
+| Funds received by EDIS | ❌ No                                 | ✅ Yes                      |
+| Can be refunded?       | ❌ No (no money taken)                | ✅ Yes (money returned)     |
+| Appears on statement?  | ✅ Temporarily (disappears in 7 days) | ✅ Charge + refund (if any) |
+
+---
+
+### 📝 Real-World Example
+
+Let’s say a customer tries to pay EUR 5 but reloads the page after authorizing the payment. What happens?
+
+- A **reservation** is created for EUR 5 → Balance reduced, but no payment completed.
+- The customer retries, and a new EUR 5 **captured** payment is made → EDIS gets the funds.
+- Now, if the customer requests a refund for the successful payment, a **credit line** appears in their statement.
+- The original reservation (failed payment attempt) **disappears after 7 days** automatically.
+
