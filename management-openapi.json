@@ -1104,7 +1104,7 @@
                   "valid_until": {
                     "type": "string",
                     "description": "The expiration timestamp for the session, obtained from the 'Create AUTH-session' call.",
-                    "example": "2025-01-12T15:30:00Z"
+                    "example": "1737476000"
                   },
                   "config": {
                     "type": "string",
@@ -2419,7 +2419,7 @@
                   "valid_until": {
                     "type": "string",
                     "description": "The expiration timestamp for the session, obtained from the 'Create AUTH-session' call.",
-                    "example": "2025-01-12T15:30:00Z"
+                    "example": "1737476000"
                   },
                   "config": {
                     "type": "string",
@@ -2537,7 +2537,7 @@
                   "valid_until": {
                     "type": "string",
                     "description": "The expiration timestamp for the session, obtained from the 'Create AUTH-session' call.",
-                    "example": "2025-01-12T15:30:00Z"
+                    "example": "1737476000"
                   },
                   "config": {
                     "type": "string",
@@ -2655,7 +2655,7 @@
                   "valid_until": {
                     "type": "string",
                     "description": "The expiration timestamp for the session, obtained from the 'Create AUTH-session' call.",
-                    "example": "2025-01-12T15:30:00Z"
+                    "example": "1737476000"
                   }
                 }
               }
@@ -3250,7 +3250,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -3580,7 +3580,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "image": {
             "type": "string",
@@ -3640,7 +3640,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "url": {
             "type": "string",
@@ -3665,7 +3665,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -3730,7 +3730,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp of the session obtained from the \"Create AUTH-session\" call.",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -3750,7 +3750,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp of the session obtained from the \"get session\" call.",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "api_host": {
             "type": "string",
@@ -3901,7 +3901,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "callback_method": {
             "type": "string",
@@ -3951,7 +3951,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, obtained from the **\"Create AUTH-session\"** call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -4046,7 +4046,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp of the session obtained from the \"Create AUTH-session\" call.\"",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -4066,7 +4066,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp of the session obtained from the \"Create AUTH-session\" call.",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -4086,7 +4086,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "id": {
             "type": "integer",
@@ -4161,7 +4161,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "api_host": {
             "type": "string",
@@ -4196,7 +4196,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, obtained from the \"Create AUTH-session\" call.",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "config": {
             "type": "string",
@@ -4425,7 +4425,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -4582,7 +4582,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -4602,7 +4602,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "vnc_pw": {
             "type": "string",
@@ -4647,7 +4647,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -4718,7 +4718,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "vnc_keyboard": {
             "type": "string",
@@ -4922,7 +4922,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp of the session obtained from the \"Create AUTH-session\" call.",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -4997,7 +4997,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -5017,7 +5017,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -5132,7 +5132,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp of the session obtained from the \"Create AUTH-session\" call.",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "api_host": {
             "type": "string",
@@ -5611,7 +5611,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "iso": {
             "type": "string",
@@ -5641,7 +5641,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, obtained from the **\"Create AUTH-session\"** call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -5674,7 +5674,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "yes_purge_all_my_data": {
             "type": "integer",
@@ -5715,7 +5715,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -5735,7 +5735,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp of the session obtained from the \"Create AUTH-session\" call.\"",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -5775,7 +5775,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -5795,7 +5795,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       },
@@ -5815,7 +5815,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "query": {
             "type": "string",
@@ -5840,7 +5840,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp of the session obtained from the \"Create AUTH-session\" call.",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           },
           "api_host": {
             "type": "string",
@@ -5926,7 +5926,7 @@
           "valid_until": {
             "type": "string",
             "description": "The expiration timestamp for the session, obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
-            "example": "2025-01-12T15:30:00Z"
+            "example": "1737476000"
           }
         }
       }
