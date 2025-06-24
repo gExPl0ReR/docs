@@ -524,6 +524,10 @@
       "destination": "/getting-started/everything-vps"
     },
     {
+      "source": "/install-mikrotik-routeros-on-edis-vps",
+      "destination": "/advanced-setup-guides/install-mikrotik-routeros-on-edis-vps"
+    },
+    {
       "source": "/faq/billing-lifecycle/handling-locked-cryptocurrency-payments-cryptomus",
       "destination": "/faq/billing-lifecycle/handling-blocked-cryptocurrency-payments-cryptomus"
     },
