@@ -1,7 +1,7 @@
 ---
 title: "Statuspage: Subscribe"
 sidebarTitle: "Subscribe to Status Updates"
-description: Subscribe to EDIS Global status updates and customize notifications for specific locations and services. Stay informed with real-time alerts via email, Slack, or Microsoft Teams.
+description: "Subscribe to EDIS Global status updates and customize notifications for specific locations and services. Stay informed with real-time alerts via email, Slack, or Microsoft Teams."
 ---
 
 # How to Subscribe for Status Updates
@@ -34,31 +34,24 @@ Click on the **"Sign in to EDIS Global Status"** button in the email. This will 
 
 Once you have signed up, you can manage your subscription by choosing specific locations or services for which you want to receive updates. You can pick only the locations that matter to you to reduce unnecessary notifications.
 
-* **Step 1**: Navigate to the section listing all available locations or services (e.g., **KVM Europe**, **KVM North- and Latin America**, etc.).
-
-* **Step 2**: Click on the 🔔 **bell icon** next to the location or service you want to follow.
-
-  * For example, if you have services in **Frankfurt, Germany**, click the bell icon next to that location. This allows you to receive updates only for Frankfurt, reducing notification clutter from regions you don’t use.
+- **Step 1**: Navigate to the section listing all available locations or services (e.g., **KVM Europe**, **KVM North- and Latin America**, etc.).
+- **Step 2**: Click on the 🔔 **bell icon** next to the location or service you want to follow.
+  - For example, if you have services in **Frankfurt, Germany**, click the bell icon next to that location. This allows you to receive updates only for Frankfurt, reducing notification clutter from regions you don’t use.
 
 ## 4. Notification Methods
 
 You can choose how you'd like to receive your updates. There are several options available based on your preferences:
 
-* **Email**: Receive updates directly in your inbox.
-
-* **Slack**: Receive updates in a designated Slack channel by integrating with your workspace.
-
-* **Microsoft Teams**: Get notifications directly in your Microsoft Teams workspace.
+- **Email**: Receive updates directly in your inbox.
+- **Slack**: Receive updates in a designated Slack channel by integrating with your workspace.
+- **Microsoft Teams**: Get notifications directly in your Microsoft Teams workspace.
 
 You can set up your preferred notification method by following these steps:
 
-* After clicking the bell icon, select **how you'd like to be notified** from the options provided:
-
-  * **Email**
-
-  * **Slack**
-
-  * **Microsoft Teams**
+- After clicking the bell icon, select **how you'd like to be notified** from the options provided:
+  - **Email**
+  - **Slack**
+  - **Microsoft Teams**
 
 You can also **unsubscribe** at any time by returning to the statuspage and selecting "Unsubscribe completely" if you no longer wish to receive updates.
 
@@ -67,3 +60,11 @@ You can also **unsubscribe** at any time by returning to the statuspage and sele
 Subscribing ensures you’re not only notified about **real-time updates** but also receive **advance notice about planned maintenance**. This allows you to proactively inform your own users or customers in a timely manner.
 
 By subscribing, you’ll receive targeted alerts about maintenance, downtimes, and performance issues specific to your services and locations. You’ll always stay informed and ready to act, while **avoiding irrelevant notifications from regions where you don’t have services**.
+
+## 6. Statuspage API
+
+The **EDIS Global Status API** provides real-time service health data, allowing users to integrate incident and maintenance updates into their workflows. It offers endpoints to retrieve overall status, component health (including uptime metrics), and a log of past and ongoing notices. 
+
+Each component can be queried individually, and metrics such as uptime percentage, mean time to recovery, and mean time between failures are available for the last 30 days or custom timeframes. Users can filter for planned/unplanned events, and pagination is provided for large datasets. The system is rate-limited to 10 requests per second to ensure fair use.\
+\
+Integrate our status-messages into your production system with the EDIS Global[ Statuspage API](https://status.edis.global/api). 
