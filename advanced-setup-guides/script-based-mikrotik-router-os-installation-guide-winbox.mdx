@@ -60,8 +60,11 @@ download_url="https://download.mikrotik.com/routeros/$latest_version/chr-$latest
 wget "$download_url" -O chr.img.zip
 gunzip -c chr.img.zip > chr.img && \
 
-kpartx -av chr.img
-mount /dev/mapper/loop3p2 /mnt/ && \
+# Mount img and inject autorun.scr
+loop_dev=$(losetup -f --show chr.img)
+kpartx -av "$loop_dev"
+sleep 1
+mount "/dev/mapper/$(basename $loop_dev)p2" /mnt/ && \
 
 # Find the primary network interface with an IP address
 interface=$(ip -o -4 addr show up primary scope global | awk '{print $2}' | head -n 1)
