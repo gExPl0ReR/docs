@@ -493,6 +493,7 @@
         "misc/fix-openssh-vm-delays-low-entropy",
         "misc/edis-global-vps-reselling-and-discount-structure",
         "misc/reporting-abuse",
+        "misc/security-compliance",
         "misc/fix-black-screen-windows-server",
         "misc/why-has-windows-server-slowed-down",
         "misc/fix-for-realvnc-closing-connection",
