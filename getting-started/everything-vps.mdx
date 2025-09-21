@@ -4,6 +4,8 @@ sidebarTitle: "Getting Started"
 description: "Step-by-step VPS setup and management guides from EDIS Global. Learn how to configure, manage, and troubleshoot your VPS quickly and securely."
 ---
 
+/* ---------- Inline SVG Icons (React components) ---------- */
+
 export const StartIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="#FF5E14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9-.8-.8-2-.8-2.9.9z"/>
@@ -17,50 +19,57 @@ export const PanelIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="#FF5E14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="8" rx="2"/>
     <rect x="2" y="14" width="20" height="8" rx="2"/>
-    <circle cx="6" cy="6" r="0.5"/>
-    <circle cx="6" cy="18" r="0.5"/>
+    <circle cx="6" cy="6" r="0.75"/>
+    <circle cx="6" cy="18" r="0.75"/>
   </svg>
 );
 
 export const FaqIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="#FF5E14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M20,13c0,5-3.5,7.5-7.7,9c-0.2,0.1-0.5,0.1-0.7,0C7.5,20.5,4,18,4,13V6c0-0.6,0.4-1,1-1c2,0,4.5-1.2,6.2-2.7c0.4-0.4,1.1-0.4,1.5,0C14.5,3.8,17,5,19,5c0.6,0,1,0.4,1,1V13z"/>
-    <path d="M9.1,9c0.6-1.6,2.3-2.4,3.8-1.8c1.2,0.4,2,1.5,2,2.8c0,2-3,3-3,3"/>
-    <path d="M12,17L12,17"/>
+    <path d="M20 13c0 5-3.5 7.5-7.7 9-.2.1-.5.1-.7 0C7.5 20.5 4 18 4 13V6c0-.6.4-1 1-1 2 0 4.5-1.2 6.2-2.7.4-.4 1.1-.4 1.5 0C14.5 3.8 17 5 19 5c.6 0 1 .4 1 1v7z"/>
+    <path d="M9.1 9c.6-1.6 2.3-2.4 3.8-1.8 1.2.4 2 1.5 2 2.8 0 2-3 3-3 3"/>
+    <path d="M12 17h0"/>
   </svg>
 );
 
 export const IpIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="#FF5E14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M15,20l3-3h2c1.1,0,2-0.9,2-2V6c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6v9c0,1.1,0.9,2,2,2h2l3,3H15z"/>
-    <path d="M6,8v1"/>
-    <path d="M10,8v1"/>
-    <path d="M14,8v1"/>
-    <path d="M18,8v1"/>
+    <path d="M15 20l3-3h2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h2l3 3h6z"/>
+    <path d="M6 8v1M10 8v1M14 8v1M18 8v1"/>
   </svg>
 );
 
 export const ReinstallIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="#FF5E14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12,2v4"/>
-    <path d="M16.2,7.8l2.9-2.9"/>
-    <path d="M18,12h4"/>
-    <path d="M16.2,16.2l2.9,2.9"/>
-    <path d="M12,18v4"/>
-    <path d="M4.9,19.1l2.9-2.9"/>
-    <path d="M2,12h4"/>
-    <path d="M4.9,4.9l2.9,2.9"/>
+    <path d="M12 2v4M16.2 7.8l2.9-2.9M18 12h4M16.2 16.2l2.9 2.9M12 18v4M4.9 19.1l2.9-2.9M2 12h4M4.9 4.9l2.9 2.9"/>
   </svg>
 );
 
 export const BillingIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="#FF5E14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M4 3h12l4 4v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/>
-    <path d="M8 7h6"/>
-    <path d="M8 11h8"/>
-    <path d="M8 15h4"/>
-    <path d="M16 19s0-2-2-2-2 2-2 2 0 2 2 2 2-2 2-2z"/>
-    <path d="M14 17v4"/>
+    <path d="M8 7h6M8 11h8M8 15h4"/>
+    <path d="M16 19c0-1.1-.9-2-2-2s-2 .9-2 2 0 2 2 2 2-1 2-2zM14 17v4"/>
+  </svg>
+);
+
+/* New: Private VLAN icon — 3 connected nodes */
+export const VlanIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="#FF5E14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="5" cy="6" r="2"/>
+    <circle cx="19" cy="6" r="2"/>
+    <circle cx="12" cy="18" r="2"/>
+    <path d="M7 6h10M6.2 7.6l4.4 7.6M17.8 7.6l-4.4 7.6"/>
+  </svg>
+);
+
+/* New: MikroTik icon — router with wireless waves */
+export const MikrotikIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="#FF5E14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="12" width="18" height="7" rx="2"/>
+    <path d="M6 15h2M10 15h2M14 15h2"/>
+    <path d="M12 12V7"/>
+    <path d="M12 7c1.5-1.5 3.9-1.5 5.4 0M12 9c1-.9 2.6-.9 3.6 0M12 5c2.4-2.4 6.3-2.4 8.7 0"/>
   </svg>
 );
 
@@ -93,8 +102,16 @@ Need assistance right now? Click the orange **chat icon** below to connect with 
     Learn how to safely change your VPS IP address when needed.
   </Card>
 
+  <Card title="Private VLAN" icon={<VlanIcon />} href="/faq/upgrades-downgrades/private-vlan-option">
+    Securely connect your VPS instances within the same server location.
+  </Card>
+
   <Card title="Reinstall" icon={<ReinstallIcon />} href="/vps-management/autoinstall-reinstall-install-vps-linux-windows">
     Reinstall your Operating System: Ubuntu, Debian, AlmaLinux, or Windows Server.
+  </Card>
+
+  <Card title="MikroTik Guide" icon={<MikrotikIcon />} href="/advanced-setup-guides/install-mikrotik-routeros-on-edis-vps">
+    Explore advanced MikroTik RouterOS configurations and setups.
   </Card>
 
   <Card title="Billing Workflow" icon={<BillingIcon />} href="/faq/billing-lifecycle/automated-vps-billing-workflow">
