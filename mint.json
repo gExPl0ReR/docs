@@ -18,15 +18,7 @@
 
 
   
-"head": [
-  {
-    "tag": "script",
-    "attributes": {
-      "src": "/alli.js",
-      "defer": "true"
-    }
-  }
-],
+
 
   
 
