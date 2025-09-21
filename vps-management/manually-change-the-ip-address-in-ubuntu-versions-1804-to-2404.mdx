@@ -1,8 +1,10 @@
 ---
-title: Manually Change IP Address in Ubuntu (Versions 18.04 to 24.04)
-sidebarTitle: Change IP (Ubuntu)
-description: Update your IP address without server reinstallation. Follow these step-by-step instructions to manually configure the network settings in Ubuntu.
+title: "Manually Change IP Address in Ubuntu (Versions 18.04 to 24.04)"
+sidebarTitle: "Change IP (Ubuntu)"
+description: "Update your IP address without server reinstallation. Follow these step-by-step instructions to manually configure the network settings in Ubuntu."
 ---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
 
 ## **Manual IP Change Instructions**
 
@@ -11,18 +13,17 @@ Learn how to update your IP address without server reinstallation. Follow these 
 ### Access Portal and Launch VNC
 
 <Steps>
-  <Step title='Log in to your'>
+  <Step title="Log in to your">
     [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
   </Step>
-  <Step title='Enable your VNC server' >
-   Follow the instructions [here](https://docs.edisglobal.com/enable-vnc-server)
+  <Step title="Enable your VNC server">
+    Follow the instructions [here](https://docs.edisglobal.com/enable-vnc-server)
   </Step>
-  <Step title='Open VNC' >
-   - Enter your username and password on the Ubuntu login page.
-   - The interface will look like the image below:
+  <Step title="Open VNC">
+    - Enter your username and password on the Ubuntu login page.
+    - The interface will look like the image below:
 
     ![](/assets/1sSq3fI0sZJj8Zc4RoSr4-IHXwJtgkL6gRgpkRc_Zr5-20241106-134742.png)
-
   </Step>
 </Steps>
 
@@ -128,3 +129,13 @@ ip addr show dev ens3
 ```
 
 (Replace `ens3` with your actual network interface name)
+
+---
+
+#### Fast Ubuntu VPS — Ready in Minutes
+
+Spin up a secure **Ubuntu VPS** with up to 8 vCPU cores. Instant setup, full root access, SSD/NVMe storage, and reliable global performance.
+
+Select your preferred hosting location, VPS plan, choose Ubuntu 24.04, 22.04 or 20.04 LTS at checkout, and get started with full SSH access within minutes.
+
+<CtaButton label="Launch Ubuntu VPS" link="https://www.edisglobal.com/#start-now" />
