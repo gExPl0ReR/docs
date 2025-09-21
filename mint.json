@@ -453,6 +453,7 @@
           ]
         },
         "advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox",
+        "advanced-setup-guides/install-mikrotik-routeros-on-edis-vps",
         "advanced-setup-guides/installing-a-vps-using-cloud-init",
         "advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems",
         "advanced-setup-guides/extend-hard-drive-windows-guide",
@@ -483,7 +484,6 @@
         "advanced-setup-guides/gui-versions-of-ubuntu-debian",
         "advanced-setup-guides/install-jitsi-on-your-vps",
         "advanced-setup-guides/how-to-setup-wireguard-vpn",
-        "advanced-setup-guides/install-mikrotik-routeros-on-edis-vps",
         "advanced-setup-guides/installing-openvpn-with-turnkey",
         "advanced-setup-guides/ufw-uncomplicated-firewall-howto"
       ]
