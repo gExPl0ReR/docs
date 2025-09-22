@@ -23,7 +23,7 @@ Learn how to update your IP address without server reinstallation. Follow these 
     - Enter your username and password on the Ubuntu login page.
     - The interface will look like the image below:
 
-    ![](/assets/1sSq3fI0sZJj8Zc4RoSr4-IHXwJtgkL6gRgpkRc_Zr5-20241106-134742.png)
+    ![Change IP (Ubuntu)](/assets/1sSq3fI0sZJj8Zc4RoSr4-IHXwJtgkL6gRgpkRc_Zr5-20241106-134742.png)
   </Step>
 </Steps>
 
@@ -38,7 +38,7 @@ Learn how to update your IP address without server reinstallation. Follow these 
 ip a
 ```
 
-![](/assets/1sSq3fI0sZJj8Zc4RoSr4-ReshjXd-8lmIVKifToQ0M-20241106-134551.png)
+![Change IP (Ubuntu)](/assets/1sSq3fI0sZJj8Zc4RoSr4-ReshjXd-8lmIVKifToQ0M-20241106-134551.png)
 
 or
 
@@ -46,7 +46,7 @@ or
 ip link
 ```
 
-![](/assets/1sSq3fI0sZJj8Zc4RoSr4-kRjVlbM0BZZUbByalaeJ8-20241106-134849.png)
+![Change IP (Ubuntu)](/assets/1sSq3fI0sZJj8Zc4RoSr4-kRjVlbM0BZZUbByalaeJ8-20241106-134849.png)
 
 Take note of your interface name (e.g., `ens3` or `eth0`).
 
@@ -66,7 +66,7 @@ cd /etc/netplan/
 sudo nano /etc/netplan/50-cloud-init.yaml
 ```
 
-![](/assets/1sSq3fI0sZJj8Zc4RoSr4-E9BdohFiajf-v7_GDh5FM-20241106-134922.png)
+![Change IP (Ubuntu)](/assets/1sSq3fI0sZJj8Zc4RoSr4-E9BdohFiajf-v7_GDh5FM-20241106-134922.png)
 
 Note: The filename might be different on your system (e.g., `01-network-manager-all.yaml`). Make sure to edit the correct file for your installation.
 
@@ -90,7 +90,7 @@ addresses:
         - 172.30.1.18/24
 ```
 
-![](/assets/1sSq3fI0sZJj8Zc4RoSr4-GAWaDZQs40EA2dwmpDgoQ-20241106-134952.png)
+![Change IP (Ubuntu)](/assets/1sSq3fI0sZJj8Zc4RoSr4-GAWaDZQs40EA2dwmpDgoQ-20241106-134952.png)
 
 **Important**: Maintain proper YAML indentation to avoid configuration errors.
 
