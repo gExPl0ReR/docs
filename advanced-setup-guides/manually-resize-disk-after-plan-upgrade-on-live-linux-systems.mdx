@@ -41,7 +41,7 @@ After the Upgrade was confirmed ...
     **Enable VNC Server**
   </a>
 
-![](/assets/Ijip8O_qmSgr6LR-nJvf5_sysrescuecd1.png)
+![Resize Linux Disk/Partition](/assets/Ijip8O_qmSgr6LR-nJvf5_sysrescuecd1.png)
 
 ## Launch noVNC
 
@@ -53,7 +53,7 @@ After the Upgrade was confirmed ...
 
 4. Press **Enter** to confirm
 
-![](/assets/vg4lijwNdjgyOUDN05SQD_sysrescuecd2.png)
+![Resize Linux Disk/Partition](/assets/vg4lijwNdjgyOUDN05SQD_sysrescuecd2.png)
 
 ## Resize partition
 
@@ -61,7 +61,7 @@ After the Upgrade was confirmed ...
 
 * **Open GParted**: Once in the graphical interface, open GParted. GParted is a free partition editor for graphically managing your disk partitions. Press "**Fix**" button on "Libparted Warning" pop-up window.
 
-![](/assets/-gvJtyF7VHSRiIGAeVws-_sysrescuecd3.png)
+![Resize Linux Disk/Partition](/assets/-gvJtyF7VHSRiIGAeVws-_sysrescuecd3.png)
 
 In the GParted window that opens, you will see several partitions. It will vda1 and vda2 partitions. You need to add unallocated space to vda1 (root) partition but you will not be able to expand space in the /dev/vda1 (root) partition without deleting /dev/vda2 (swap). &#x20;
 
@@ -73,7 +73,7 @@ In the GParted window that opens, you will see several partitions. It will vda1 
 
 4. **Сreate a swap partition**. Right-click on unallocated space and select New. In the Field File system switch to Linux-swap and click Add button.
 
-![](/assets/13ePrT-SgVGNR1CSJAvv7_sysrescuecd5.png)
+![Resize Linux Disk/Partition](/assets/13ePrT-SgVGNR1CSJAvv7_sysrescuecd5.png)
 
 1. **Check and Repair File Systems**: Once the partitioning is complete, it's a good idea to check the file systems for errors. You can do this from GParted by right-clicking on each partition and selecting “Check”.
 
