@@ -17,11 +17,22 @@
   },
 
   
+"errors": {
+  "404": {
+    "redirect": false,
+    "title": "🚧 Lost in Cyberspace",
+    "description": "This page might have rage-quit the cluster or got stuck in a traffic pool."
+  }
+},
+
+  
   "feedback": {
     "thumbsRating": true,
     "suggestEdit": true,
     "raiseIssue": true
   },
+  
+  
   "metadata": {
     "og:image": "https://cdn.sanity.io/images/zo1bnlq1/production/121731970c65bd91a20e36307ea56b043f8fbd60-1200x630.png"
   },
