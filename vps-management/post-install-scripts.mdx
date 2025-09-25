@@ -1,20 +1,32 @@
 ---
-title: Post-Install Scripts
-description: Explore how Post-Install Scripts in the Auto-Installer of EDIS VPS Hosting can streamline your server setup. Paste or upload your script, and it will run automatically post-installation.
+title: "Post-Install Scripts (Deprecated)"
+description: "Post-Install Scripts were previously available in the Auto-Installer of EDIS Global VPS Hosting. This functionality has been removed. Please use Cloud-Init for automating your VPS setup."
 ---
 
-## Automate your VPS deployment
+> ⚠️ **Deprecated**\
+> Post-Install Scripts are no longer available on EDIS Global VPS Hosting.\
+> As of September 2025, this functionality has been removed from the platform.\
+> All new VPS installations must use [Cloud-Init](https://docs.edisglobal.com/vps-management/edis-cloud-init-vps-installation) for automation.\
+> The information below is kept for archival purposes only.
 
-Discover a feature that can significantly ease your server setup process on EDIS Global VPS Hosting - Post-Install Scripts. This feature can be found in the auto-installer options within your KVM panel. It's a boon for those installing multiple servers with a specific setup or "recipe". All you need to do is paste your recipe/script or upload it directly into the tool, and it will be executed automatically right after the installation completes.
+---
 
-### Example Scripts
+## Background
 
-Below are three example scripts tailored for different operating systems:
+Post-Install Scripts were a feature that allowed you to streamline your VPS server setup by pasting or uploading a script, which was then executed automatically after installation. This functionality has now been replaced by Cloud-Init, which provides a more standardized and powerful way of automating configuration during VPS installation.
+
+---
+
+## Archived Examples
+
+Below are historical examples of Post-Install Scripts. They are **no longer supported**, but are shown here to help customers who may need to understand legacy configurations or migrate to Cloud-Init equivalents.
 
 ### **For Debian-based OS (Debian/Ubuntu)**
 
-The following script was successfully tested on Debian 12.&#x20;
-This script performs the following operations on a Debian-based OS (Debian, Ubuntu, Linux Mint, Kali Linux, Raspbian, Pop!\_OS, MX Linux, Deepin):&#x20;
+_(archived example)_
+
+The following script was successfully tested on Debian 12. 
+This script performs the following operations on a Debian-based OS (Debian, Ubuntu, Linux Mint, Kali Linux, Raspbian, Pop!\_OS, MX Linux, Deepin): 
 
 1. Disables password authentication for the root user, allowing only SSH key authentication.
 2. Changes the default SSH port from 22 to 10022 and restarts the SSH daemon to apply the changes.
@@ -66,21 +78,21 @@ ufw allow 443/tcp
 
 # Enable the firewall
 ufw enable
-
 ```
 
 The length of our Post Install Scripts is unrestricted. You can combine and tailor them to create intricate setup processes and streamline your deployment.
 
-###
+### 
 
 ### **For RPM-based OS (CentOS, Rocky Linux, ...)**
+
+_(archived example)_
 
 The following script performs several actions on a RPM-based OS (RHEL, Fedora, CentOS, openSUSE, SLES, Oracle Linux, Rocky Linux, AlmaLinux)
 
 1. **SSH Configuration**
 
    It restricts root login to SSH key authentication only, disabling password access. It then restarts the SSH daemon to apply these changes.
-
 2. **LAMP Stack Installation**:
    Updates the system packages.
    Installs necessary utilities: curl, wget, and unzip.
