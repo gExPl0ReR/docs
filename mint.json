@@ -528,6 +528,11 @@
       "source": "/everything-vps",
       "destination": "/getting-started/everything-vps"
     },
+        {
+      "source": "/vps-management-portalvps",
+      "destination": "/vps-management/vps-management-portal"
+    },
+
     {
       "source": "/install-mikrotik-routeros-on-edis-vps",
       "destination": "/advanced-setup-guides/install-mikrotik-routeros-on-edis-vps"
