@@ -7,18 +7,18 @@ description: "The document outlines the automated billing procedure for EDIS Glo
 
 This timetable shows when we send invoices, reminders, when we suspend services, terminate plans, and when we delete VPS from our disks if an invoice does not receive its payment.
 
-| **Day** | **Event**                 | **Action**                            |
-| ------- | ------------------------- | ------------------------------------- |
-| **-7d** | 🟢 Invoice Created        | Invoice is generated and sent         |
-| -6d     | 💳 Credit Card Charge     | Automatic attempt to charge your card |
-| -2d     | ✉️ Friendly Reminder      | First unpaid reminder sent            |
-| **0**   | 🟡 Due Date               | Payment is due                        |
-| +1d     | ⚠️ Overdue Reminder 1     | First overdue reminder                |
-| +2d     | ⚠️ Overdue Reminder 2     | Second overdue reminder               |
-| +3d     | ⚠️ Overdue Reminder 3     | Third overdue reminder                |
-| **+7d** | 🟠 Service Suspension     | VPS service powers down               |
-| +14d    | ❌ Termination             | VPS agreement ends                    |
-| **+20d**| 🔴 Data Deletion          | Invoice cancellation and VPS deletion |
+| **Day** | **Event**                 | **Action**                              |
+| ------- | ------------------------- | --------------------------------------- |
+| **-7d** | 🟢 Invoice Created        | Invoice is generated and sent           |
+| -6d     | 🟢 Credit Card Charge     | Automatic attempt to charge your card   |
+| -2d     | 🟢 Friendly Reminder      | First unpaid reminder sent              |
+| **0**   | 🟡 Due Date               | Payment is due                          |
+| +1d     | 🟡 Overdue Reminder 1     | First overdue reminder                  |
+| +2d     | 🟡 Overdue Reminder 2     | Second overdue reminder                 |
+| +3d     | 🟡 Overdue Reminder 3     | Third overdue reminder                  |
+| **+7d** | 🟠 Service Suspension     | VPS service powers down                 |
+| +14d    | 🔴 Termination            | VPS agreement ends (service no longer active, data still present) |
+| **+20d**| 🔴 Data Deletion          | All VPS data permanently removed        |
 
 ## 🛠 Service Recovery Options
 
