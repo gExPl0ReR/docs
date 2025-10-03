@@ -7,18 +7,18 @@ description: "The document outlines the automated billing procedure for EDIS Glo
 
 This timetable shows when we send invoices, reminders, when we suspend services, terminate plans, and when we delete VPS from our disks if an invoice does not receive its payment.
 
-| **Day** | **Event**                 | **Action**                              |
-| ------- | ------------------------- | --------------------------------------- |
-| **-7d** | 🟢  Invoice Created        | Invoice is generated and sent           |
-| -6d     | 🟢  Credit Card Charge     | Automatic attempt to charge your card   |
-| -2d     | 🟢  Friendly Reminder      | First unpaid reminder sent              |
-| **0**   | 🟡  Due Date               | Payment is due                          |
-| +1d     | 🟡  Overdue Reminder 1     | First overdue reminder                  |
-| +2d     | 🟡  Overdue Reminder 2     | Second overdue reminder                 |
-| +3d     | 🟡  Overdue Reminder 3     | Third overdue reminder                  |
-| **+7d** | 🟠  Service Suspension     | VPS service powers down                 |
-| +14d    | 🔴  Termination            | VPS agreement ends (service no longer active, data still present) |
-| **+20d**| 🔴  Data Deletion          | All VPS data permanently removed (and invoice is cancelled)       |
+| **Day**   | **Event**                 | **Action**                                                        |
+| --------- | ------------------------- | ----------------------------------------------------------------- |
+| **-7d**   | 🟢 **Invoice Created**    | Invoice is generated and sent                                     |
+| -6d       | 🟢 Credit Card Charge     | Automatic attempt to charge your card                             |
+| -2d       | 🟢 Friendly Reminder      | First unpaid reminder sent                                        |
+| **0**     | 🟡 **Due Date**           | Payment is due                                                    |
+| \+1d      | 🟡 Overdue Reminder 1     | First overdue reminder                                            |
+| \+2d      | 🟡 Overdue Reminder 2     | Second overdue reminder                                           |
+| \+3d      | 🟡 Overdue Reminder 3     | Third overdue reminder                                            |
+| **\+7d**  | 🟠 **Service Suspension** | VPS service powers down                                           |
+| \+14d     | 🔴 Termination            | VPS agreement ends (service no longer active, data still present) |
+| **\+20d** | 🔴 **Data Deletion**      | All VPS data permanently removed (and invoice is cancelled)       |
 
 ## 🛠 Service Recovery Options
 
@@ -26,8 +26,7 @@ This timetable shows when we send invoices, reminders, when we suspend services,
 
 **Service recovery is possible!**
 
-Proceed with the payment of your invoice, your service will reactivate automatically.
-![Billing WorkflowInvoice timing, payment reminders,...](/assets/invoice-status-unpaid-cropped.webp)
+Proceed with the payment of your invoice, your service will reactivate automatically. <img src="/assets/invoice-status-unpaid-cropped.webp" alt="Billing WorkflowInvoice timing, payment reminders,..." />
 
 ### **❌ If Your Invoice is Cancelled**
 
@@ -39,20 +38,17 @@ Your VPS and **all data have been deleted** **(6 days after termination)**
 
 ![Billing WorkflowInvoice timing, payment reminders,...](/assets/invoice-status-cancelled-cropped.webp)
 
-***
+---
 
 <Note>
   ## **Client Responsibility Notice**
 
   VPS customers are solely responsible for:
 
-  * Managing their virtual machines
-
-  * Creating regular backups of their servers
-
-  * Securing all important data
-
-  * Keeping payment methods updated to avoid suspension and deletion
+  - Managing their virtual machines
+  - Creating regular backups of their servers
+  - Securing all important data
+  - Keeping payment methods updated to avoid suspension and deletion
 
   EDIS Global strongly recommends maintaining backups of all critical information.
 </Note>
