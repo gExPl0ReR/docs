@@ -1,25 +1,36 @@
 ---
-title: "Extending 180 day trial version of Windows"
-description: "Solution to extend the validity of a Windows trial version using this simple command in PowerShell"
+title: "Extending the 180-Day Windows Trial Period"
+description: "Quick, user-friendly guide to extend a Windows Server trial for another 180 days using PowerShell."
 ---
 
-## How to extend the 180 day Windows trial timeframe
+## How to extend your Windows trial
 
-To extend the trial period on a Windows Server, you could try the following steps:
+Windows Server evaluation editions run for **180 days**. If you’re nearing the end of the trial, you can extend it with a simple command.
 
-Open PowerShell with administrative privileges. Run the following command **to view the current licensing status**:
+> **Good to know:** Microsoft allows a **limited number of extensions (“rearms”)** on evaluation editions. The command below works only while rearms remain available.
+
+### 1) Check your current license status
+Open **PowerShell as Administrator** and run:
 
 ```powershell
 slmgr -dlv
 ```
-
-As the trial period approaches its end, execute the following command to extend it by an additional 180 days:
+### 2) Extend the trial (add 180 days)
+When you are close to expiry (or any time you like), run:
 
 ```powershell
 slmgr -rearm
 ```
 
-Restart your computer to apply the changes.
+### 3) Restart the server
+Reboot to apply the change:
+
+```powershell
+Restart-Computer
+```
+
+After the restart, your trial period is extended by another 180 days.
+
 
 ### Is it legal to extend a trial version of Windows?
 
