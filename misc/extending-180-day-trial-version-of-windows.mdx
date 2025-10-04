@@ -1,14 +1,13 @@
 ---
-title: Extending 180 day trial version of Windows
-description: Solution to extend the validity of a Windows trial version using this simple command in PowerShell
+title: "Extending 180 day trial version of Windows"
+description: "Solution to extend the validity of a Windows trial version using this simple command in PowerShell"
 ---
 
 ## How to extend the 180 day Windows trial timeframe
 
 To extend the trial period on a Windows Server, you could try the following steps:
 
-Open PowerShell with administrative privileges.
-Run the following command **to view the current licensing status**:
+Open PowerShell with administrative privileges. Run the following command **to view the current licensing status**:
 
 ```powershell
 slmgr -dlv
@@ -22,7 +21,7 @@ slmgr -rearm
 
 Restart your computer to apply the changes.
 
-Is it legal to extend a trial version of Windows?
+### Is it legal to extend a trial version of Windows?
 
 Using the **slmgr -rearm** command to extend the trial period of Windows Server is a feature provided by Microsoft for specific editions of its software, primarily for evaluation purposes. This command resets the activation timer and can be used a limited number of times to extend the trial period, typically to allow users more time to evaluate the product before purchasing a license.
 
@@ -31,7 +30,6 @@ However, the legality and ethical use of this feature depend on the terms set fo
 While it is technically possible to use **slmgr -rearm** to extend the trial, it is essential to:
 
 1. **Use it within the limits** specified by Microsoft, which is typically up to two times, extending the trial to a maximum of an additional 180 days.
-
 2. **Understand it is intended for evaluation purposes** and not as a way to permanently avoid purchasing the necessary licenses for long-term use.
 
 If you are using the software in a commercial environment or for any purpose other than evaluation, it is recommended to purchase a valid license to stay compliant with Microsoft's licensing terms and avoid any legal issues.
