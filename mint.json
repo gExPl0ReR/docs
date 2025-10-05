@@ -20,7 +20,7 @@
       "title": "EDIS Global Docs",
       "description": "Help and how-to guides",
       "ogImage": {
-        "template": "/assets/og/template.png",
+        "template": "/assets/og/og_template.png",
         "titleColor": "#ffffff",
         "descriptionColor": "#cccccc",
         "fontFamily": "Inter",
