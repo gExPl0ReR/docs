@@ -19,7 +19,7 @@
     "title": "EDIS Global Docs",
     "description": "Help and how-to guides for EDIS VPS customers",
     "ogImage": {
-      "template": "/assets/og/og_template.png",
+      "template": "/public/og/og_template.png",
       "backgroundColor": "#ffffff",
       "gradientFrom": "#ffffff",
       "gradientTo": "#fff5ef",
