@@ -16,14 +16,25 @@
     }
   },
 
-  
+    "seo": {
+      "title": "EDIS Global Docs",
+      "description": "Help and how-to guides",
+      "ogImage": {
+        "template": "/assets/og/template.png",
+        "titleColor": "#ffffff",
+        "descriptionColor": "#cccccc",
+        "fontFamily": "Inter",
+        "textPosition": "center"
+      }
+    },
+
   "feedback": {
     "thumbsRating": true,
     "suggestEdit": true,
     "raiseIssue": true
   },
-  
-  
+
+
   "metadata": {
     "og:image": "https://cdn.sanity.io/images/zo1bnlq1/production/121731970c65bd91a20e36307ea56b043f8fbd60-1200x630.png"
   },
