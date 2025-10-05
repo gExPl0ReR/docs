@@ -19,20 +19,14 @@
     "title": "EDIS Global Docs",
     "description": "Help and how-to guides for EDIS VPS customers",
     "ogImage": {
-      "template": "/public/og/og_template.png",
+      "template": "default",
       "backgroundColor": "#ffffff",
-      "gradientFrom": "#ffffff",
-      "gradientTo": "#fff5ef",
-      "titleColor": "#F96002",
-      "descriptionColor": "#333333",
+      "gradientFrom": "#ffecd9",
+      "gradientTo": "#f96002",
+      "titleColor": "#ffffff",
+      "descriptionColor": "#fffaf5",
       "fontFamily": "Inter",
-      "titleFontWeight": 700,
-      "descriptionFontWeight": 400,
-      "textPosition": "bottom-left",
-      "padding": "100px 80px",
-      "logo": "/logo/light.svg",
-      "logoPosition": "top-left",
-      "logoWidth": 180
+      "textPosition": "bottom-left"
     }
   },
 
