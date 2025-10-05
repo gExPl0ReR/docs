@@ -19,14 +19,9 @@
     "title": "EDIS Global Docs",
     "description": "Help and how-to guides for EDIS VPS customers",
     "ogImage": {
-      "template": "default",
-      "backgroundColor": "#ffffff",
-      "gradientFrom": "#ffecd9",
-      "gradientTo": "#f96002",
-      "titleColor": "#ffffff",
-      "descriptionColor": "#fffaf5",
-      "fontFamily": "Inter",
-      "textPosition": "bottom-left"
+      "backgroundLight": "#ffffff",
+      "backgroundDark":  "#0e0b0b",
+      "logo": "/logo/light.svg"
     }
   },
 
