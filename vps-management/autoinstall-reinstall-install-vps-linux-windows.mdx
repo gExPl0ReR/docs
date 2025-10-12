@@ -55,38 +55,21 @@ Learn how to start the reinstall, set your administrator password, and re-enable
 
 ## Installation Time & Port Behavior
 
-Once the reinstallation starts, your VPS will go through the automated setup process.  
+Once the reinstallation starts, your VPS will go through the automated setup process.
 The following table shows how long it usually takes for each operating system:
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left;">OS</th>
-      <th style="text-align:center;">Time</th>
-      <th style="text-align:left;">Port Behavior</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Linux</strong></td>
-      <td style="text-align:center;">
-        <img src="/assets/huaNpFAxK5PVCl_NLo3ID-qDPCEUD7wtL6EYnFUKOfe-20241001-201404.png" alt="Linux install 5 min" width="52">
-        <div>≈ 5 min</div>
-        <div style="font-size:0.85em;color:#666;">Auto-install in progress</div>
-      </td>
-      <td>SSH <strong>22</strong> is closed during installation.</td>
-    </tr>
-    <tr>
-      <td><strong>Windows</strong></td>
-      <td style="text-align:center;">
-        <img src="/assets/huaNpFAxK5PVCl_NLo3ID-ozGQ3EbLw2SKc3sattPPn-20241001-201443.png" alt="Windows install 15 min" width="52">
-        <div>≈ 15 min</div>
-        <div style="font-size:0.85em;color:#666;">Preparing Windows image</div>
-      </td>
-      <td>RDP <strong>3389</strong> is closed during installation.</td>
-    </tr>
-  </tbody>
-</table>
+| OS        | Time     | Port Behavior                             |
+|-----------|----------|-------------------------------------------|
+| **Linux** | ≈ 5 min  | SSH **22** is closed during installation. |
+| **Windows** | ≈ 15 min | RDP **3389** is closed during installation. |
+
+**Visual reference**
+
+**Linux (≈ 5 min)**  
+![Linux install icon](/assets/huaNpFAxK5PVCl_NLo3ID-qDPCEUD7wtL6EYnFUKOfe-20241001-201404.png)
+
+**Windows (≈ 15 min)**  
+![Windows install icon](/assets/huaNpFAxK5PVCl_NLo3ID-ozGQ3EbLw2SKc3sattPPn-20241001-201443.png)
 
 <Note>
 During reinstallation, **remote access (SSH/RDP)** is temporarily disabled while your VPS is being rebuilt.  
@@ -94,6 +77,7 @@ You’ll be able to connect again once the installation has finished — typical
 
 ⚠️ **Do not power off or reboot your VPS** during this time, as it may interrupt the OS setup.
 </Note>
+
 ---
 
 ## Installation via Cloud-Init
