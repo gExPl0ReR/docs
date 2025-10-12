@@ -1,52 +1,45 @@
 ---
-title: Installing OpenVPN via Turnkey
-description: This guide explains how to install OpenVPN Community Edition via Turnkey on a VPS.
+title: "Turnkey Images (Deprecated)"
+description: "Turnkey image installations are no longer supported on EDIS Global VPS platforms. Learn about the supported alternatives for installing applications and operating systems."
 ---
 
-## Installing OpenVPN Community Edition via Turnkey
+# Turnkey Images (Deprecated)
 
-**OpenVPN®**  Community Edition provides a full-featured open source SSL/TLS Virtual Private Network (VPN). The TurnKey Linux VPN software appliance leverages the open source 'openvpn-server', 'openvpn-client' and 'easy-rsa' software (developed by OpenVPN® Inc.) to support "site-to-site" or "gateway" access. "Site-to-site" can link 2 otherwise unconnected LANs; suitable for multi-site enterprise networks or linkage to an Amazon VPC. "Gateway" configuration can secure traffic across public and/or insecure wifi connections and/or provide a secure solution for remote work scenarios.
+> ⚠️ **This article is deprecated.**  
+> Turnkey Linux images are **no longer supported** on EDIS Global VPS platforms.
 
+Turnkey-based installations were previously used to deploy pre-configured virtual appliances such as **OpenVPN**, **WordPress**, and similar systems.  
+These images have been discontinued due to compatibility and stability issues with current virtualization environments.
 
+---
 
-## How to Install a Turnkey Image
+## 🧭 Recommended Alternatives
 
-Download the .iso Image from https://www.turnkeylinux.org/openvpn to your computer, and use our Cusom ISO function to upload the file to your server and have it installed. 
+To install applications or operating systems on your VPS, use one of the supported deployment methods below:
 
-https://docs.edisglobal.com/vps-management/bring-your-own-iso#upload-a-custom-iso-image
+### 1. Auto-Install a Supported OS
+Reinstall your VPS with a clean Linux or Windows image using the **AutoInstall OS** feature in your [EDIS Global Control Panel](https://manage.edisglobal.com/clientarea.php).  
+This ensures full compatibility with current hosting infrastructure and networking configurations.
 
-After the initial installation process of the .iso is completed, the Turnkey OpenVPN Software appliance will be deployed on your VPS. 
+→ See: [Reinstalling Your VPS with Linux or Windows](../vps-management/autoinstall-reinstall-install-vps-linux-windows)
 
-**Finish the installation in a VNC session.**
+---
 
+### 2. Bring Your Own Image (Cloud-Init)
+If you need a specific configuration or custom distribution, you can upload your own **.qcow2 image** and automate setup using **Cloud-Init user-data scripts**.  
+This method replaces the old Turnkey workflow and gives full control over system initialization.
 
+→ See: [Installing a VPS Using Cloud-Init](../advanced-setup-guides/installing-a-vps-using-cloud-init)
 
-## Credentials & Administration
+---
 
-For security reasons, there are **no default passwords**. All passwords are set at **system initialization** (in the VNC session).
+## 🔒 Why Turnkey Was Removed
 
-**Ignore browser SSL warnings**: browsers show warnings when using self-signed SSL certificates. This is the only certificate that can be generated automatically. If you have a domain name configured,  you can generate a free **Let's Encypt SSL certificate** via **Confconsole Advanced menu**.
+- Frequent version mismatches and outdated software stacks  
+- Inconsistent network configuration on newer KVM nodes  
+- Lack of long-term maintenance from upstream Turnkey Linux  
+- Improved reliability and automation via Cloud-Init  
 
-**Web** - point your browser to
+---
 
-1. [`http://12.34.56.789/`](http://12.34.56.789/) - not encrypted, no browser warning
-
-2. [`https://12.34.56.789/`](https://12.34.56.789/) - encrypted with self-signed SSL certificate
-
-**Username for OS system administration**:
-
-Login as **root**
-
-1. Point your browser to:
-
-* [`https://12.34.56.789:12321/`](https://12.34.56.789:12321/) - System control panel
-
-* [`https://12.34.56.789:12320/`](https://12.34.56.789:12320/) - Web-based command line terminal
-
-1. Login with SSH client:
-
-```shell
-ssh root@12.34.56.789
-```
-
-\*Replace `12.34.56.789` with your KVM IP address
+If you previously relied on Turnkey images for fast deployments, we recommend switching to **Cloud-Init templates** or the **Auto-Install OS** feature — both offer faster, more reliable, and up-to-date installations.
