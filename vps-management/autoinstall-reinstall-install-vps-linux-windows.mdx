@@ -71,8 +71,17 @@ You’ll be able to connect again once the installation has finished — typical
 
 ## Installation via Cloud-Init
 
-EDIS Global also supports semi-automated installations via **Cloud-Init**.\
-You can upload your own compatible image and customize initialization with user-data scripts.
+If you prefer to use your **own operating system image**, EDIS Global also supports installations via **Cloud-Init**.  
+This method is ideal for advanced users who want to **bring their own (BYO) image** — such as a custom or pre-built `.qcow2` file — and automatically configure it on first boot with Cloud-Init user-data.
+
+<Note>
+Use **Cloud-Init** when you need to:  
+• deploy a custom or pre-configured operating system image  
+• automate user creation, SSH keys, or initial setup commands  
+• maintain full control over your server’s image and configuration  
+
+If you just need a clean Linux or Windows environment, the **Auto-Install OS** option is simpler and faster.
+</Note>
 
 <CtaButton label="OS Installation via Cloud-Init" link="../advanced-setup-guides/installing-a-vps-using-cloud-init" />
 
