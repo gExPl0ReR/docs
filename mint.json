@@ -25,6 +25,19 @@
     }
   },
 
+ "contextual": {
+   "options": [
+     "copy",
+     "view",
+     "chatgpt",
+     "claude",
+     "perplexity",
+     "mcp",
+     "cursor",
+     "vscode"
+   ]
+ },
+
   "feedback": {
     "thumbsRating": true,
     "suggestEdit": true,
