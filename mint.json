@@ -426,7 +426,7 @@
             "faq/upgrades-downgrades/private-vlan-option",
             "faq/upgrades-downgrades/get-additional-network-card",
             {
-              "group": "CPU Cores vs. CPU Sockets in VPS Environments",
+              "group": "CPU Resources in VPS",
               "pages": [
                 "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps",
                 "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-linux-vps",
