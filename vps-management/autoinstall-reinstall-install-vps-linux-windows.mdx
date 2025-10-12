@@ -4,8 +4,6 @@ sidebarTitle: "Reinstall VPS"
 description: "This guide explains how to change the operating system on your Virtual Private Server (VPS) by performing a complete reinstallation. Note that all existing data on the VPS will be erased during the process."
 ---
 
-import { CtaButton } from "/snippets/cta-button.mdx";
-
 ## Auto-Install your VPS with a fresh OS
 
 This guide walks you through reinstalling the OS on your Virtual Private Server (VPS). Whether you’re starting over or switching operating systems, you’ll be able to set up your VPS with a clean install and a new password. **Make sure to back up your important files before proceeding, as reinstallation will wipe all existing data.**
@@ -44,44 +42,18 @@ Follow these easy steps below
   </Step>
 </Steps>
 
-<Grid cols={{ initial: 1, md: 2 }} gap={16}>
+| OS          | Time                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Port behavior                               |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| **Linux**   | <div style={{ type:"mdxJsxAttributeValueExpression",value:"{textAlign:\"center\"}",data:{estree:{type:"Program",start:2494,end:2514,body:[{type:"ExpressionStatement",expression:{type:"ObjectExpression",start:2494,end:2514,loc:{start:{line:50,column:26,offset:2494},end:{line:50,column:46,offset:2514}},properties:[{type:"Property",start:2495,end:2513,loc:{start:{line:50,column:27,offset:2495},end:{line:50,column:45,offset:2513}},method:false,shorthand:false,computed:false,key:{type:"Identifier",start:2495,end:2504,loc:{start:{line:50,column:27,offset:2495},end:{line:50,column:36,offset:2504}},name:"textAlign",range:[2495,2504]},value:{type:"Literal",start:2505,end:2513,loc:{start:{line:50,column:37,offset:2505},end:{line:50,column:45,offset:2513}},value:"center",raw:"\"center\"",range:[2505,2513]},kind:"init",range:[2495,2513]}],range:[2494,2514]},start:2494,end:2514,loc:{start:{line:50,column:26,offset:2494},end:{line:50,column:46,offset:2514}},range:[2494,2514]}],sourceType:"module",comments:[],loc:{start:{line:50,column:26,offset:2494},end:{line:50,column:46,offset:2514}},range:[2494,2514]}} }}> <img   src="/assets/huaNpFAxK5PVCl_NLo3ID-qDPCEUD7wtL6EYnFUKOfe-20241001-201404.png"   alt="≈5 min"   style={{ width:"60px",marginBottom:"4px" }} />  <br />≈ 5 min</div>   | SSH **22** is closed during installation.   |
+| **Windows** | <div style={{ type:"mdxJsxAttributeValueExpression",value:"{textAlign:\"center\"}",data:{estree:{type:"Program",start:2749,end:2769,body:[{type:"ExpressionStatement",expression:{type:"ObjectExpression",start:2749,end:2769,loc:{start:{line:51,column:28,offset:2749},end:{line:51,column:48,offset:2769}},properties:[{type:"Property",start:2750,end:2768,loc:{start:{line:51,column:29,offset:2750},end:{line:51,column:47,offset:2768}},method:false,shorthand:false,computed:false,key:{type:"Identifier",start:2750,end:2759,loc:{start:{line:51,column:29,offset:2750},end:{line:51,column:38,offset:2759}},name:"textAlign",range:[2750,2759]},value:{type:"Literal",start:2760,end:2768,loc:{start:{line:51,column:39,offset:2760},end:{line:51,column:47,offset:2768}},value:"center",raw:"\"center\"",range:[2760,2768]},kind:"init",range:[2750,2768]}],range:[2749,2769]},start:2749,end:2769,loc:{start:{line:51,column:28,offset:2749},end:{line:51,column:48,offset:2769}},range:[2749,2769]}],sourceType:"module",comments:[],loc:{start:{line:51,column:28,offset:2749},end:{line:51,column:48,offset:2769}},range:[2749,2769]}} }}> <img   src="/assets/huaNpFAxK5PVCl_NLo3ID-ozGQ3EbLw2SKc3sattPPn-20241001-201443.png"   alt="≈15 min"   style={{ width:"60px",marginBottom:"4px" }} />  <br />≈ 15 min</div> | RDP **3389** is closed during installation. |
 
-  <Card title="Linux auto-install" icon="terminal">
-    <div style={{display:'flex',alignItems:'center',gap:'8px',margin:'4px 0 12px'}}>
-      <Badge>≈ 5 min</Badge>
-    </div>
-    <Callout type="info">
-      SSH port <code>22</code> is <strong>closed during installation</strong> to avoid interference.
-    </Callout>
-    <img
-      src="/assets/huaNpFAxK5PVCl_NLo3ID-qDPCEUD7wtL6EYnFUKOfe-20241001-201404.png"
-      alt="Linux reinstall progress (≈5 min)"
-      width="220"
-      style={{marginTop:12}}
-    />
-  </Card>
-
-  <Card title="Windows auto-install" icon="windows">
-    <div style={{display:'flex',alignItems:'center',gap:'8px',margin:'4px 0 12px'}}>
-      <Badge>≈ 15 min</Badge>
-    </div>
-    <Callout type="info">
-      RDP port <code>3389</code> is <strong>closed during installation</strong> to avoid interference.
-    </Callout>
-    <img
-      src="/assets/huaNpFAxK5PVCl_NLo3ID-ozGQ3EbLw2SKc3sattPPn-20241001-201443.png"
-      alt="Windows reinstall progress (≈15 min)"
-      width="220"
-      style={{marginTop:12}}
-    />
-  </Card>
-
-</Grid>
 ## Installation via Cloud-init
 
 EDIS Global also offers semi-automated installations via Cloud-Init. Upload your favorite compatible cloud image and we'll do the rest. For more info please read on ...
 
 <CtaButton label="OS Installation via Cloud-Init" link="../advanced-setup-guides/installing-a-vps-using-cloud-init" />
+
+import { CtaButton } from "/snippets/cta-button.mdx";
 
 ## Turnkey Images
 
