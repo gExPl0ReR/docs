@@ -1,7 +1,7 @@
 ---
 title: "Reinstalling Your VPS: Choose Linux or Windows"
-sidebarTitle: Reinstall VPS
-description: This guide explains how to change the operating system on your Virtual Private Server (VPS) by performing a complete reinstallation. Note that all existing data on the VPS will be erased during the process.
+sidebarTitle: "Reinstall VPS"
+description: "This guide explains how to change the operating system on your Virtual Private Server (VPS) by performing a complete reinstallation. Note that all existing data on the VPS will be erased during the process."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
@@ -14,15 +14,13 @@ This guide walks you through reinstalling the OS on your Virtual Private Server 
 
 ## ▶️ Watch: Linux Install Guide
 
-Watch this short tutorial video on how to reinstall your VPS with Linux.&#x20;
-We’ll show you the most important steps to ensure a smooth and successful reinstallation process.
+Watch this short tutorial video on how to reinstall your VPS with Linux.  We’ll show you the most important steps to ensure a smooth and successful reinstallation process.
 
 <iframe width="100%" height="450" src="https://www.loom.com/embed/33e129dad9554baebb562b3e84e9527a?sid=1010322b-9466-416f-a135-19e0f07a8951" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
 ## ▶️ Watch: Windows Install Guide (RDP)
 
-Watch this short tutorial video on how to reinstall your VPS with Windows Server.&#x20;
-We’ll guide you through the key steps to quickly set up your server, ensuring you have everything for remote desktop access.
+Watch this short tutorial video on how to reinstall your VPS with Windows Server.  We’ll guide you through the key steps to quickly set up your server, ensuring you have everything for remote desktop access.
 
 <iframe width="100%" height="450" src="https://www.loom.com/embed/731fb25215a7488bb0463bd2c8d1fb16?sid=e7bd52c6-2f17-454e-991e-176c847de424" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
@@ -34,34 +32,51 @@ Follow these easy steps below
   <Step title="Log in to your">
     [KVM Management Portal](https://manage.edisglobal.com/clientarea.php)
   </Step>
-
-  <Step title="Locate your VPS in the Services tab" />
-
-  <Step title="Click &#x22;AutoInstall OS&#x22; to reinstall your VPS with a fresh password and the OS of your liking">
+  <Step title="Locate your VPS in the Services tab">
+    
+  </Step>
+  <Step title='Click "AutoInstall OS" to reinstall your VPS with a fresh password and the OS of your liking'>
     **Indicate a password** (or note down our randomly generated password)
 
     This will be your Linux (root) password or your new Windows Administrator password.
-    
+
     Keep in mind, **no email will be sent** when you reinstall!
   </Step>
 </Steps>
 
-<Note>
-  **A Linux installation** will take approx. 5 minutes.
+<Grid cols={{ initial: 1, md: 2 }} gap={16}>
 
-  SSH port 22 is *closed during installations* to avoid interference with the installation.
+  <Card title="Linux auto-install" icon="terminal">
+    <div style={{display:'flex',alignItems:'center',gap:'8px',margin:'4px 0 12px'}}>
+      <Badge>≈ 5 min</Badge>
+    </div>
+    <Callout type="info">
+      SSH port <code>22</code> is <strong>closed during installation</strong> to avoid interference.
+    </Callout>
+    <img
+      src="/assets/huaNpFAxK5PVCl_NLo3ID-qDPCEUD7wtL6EYnFUKOfe-20241001-201404.png"
+      alt="Linux reinstall progress (≈5 min)"
+      width="220"
+      style={{marginTop:12}}
+    />
+  </Card>
 
-  ![Reinstall VPS](/assets/huaNpFAxK5PVCl_NLo3ID-qDPCEUD7wtL6EYnFUKOfe-20241001-201404.png)
-</Note>
+  <Card title="Windows auto-install" icon="windows">
+    <div style={{display:'flex',alignItems:'center',gap:'8px',margin:'4px 0 12px'}}>
+      <Badge>≈ 15 min</Badge>
+    </div>
+    <Callout type="info">
+      RDP port <code>3389</code> is <strong>closed during installation</strong> to avoid interference.
+    </Callout>
+    <img
+      src="/assets/huaNpFAxK5PVCl_NLo3ID-ozGQ3EbLw2SKc3sattPPn-20241001-201443.png"
+      alt="Windows reinstall progress (≈15 min)"
+      width="220"
+      style={{marginTop:12}}
+    />
+  </Card>
 
-<Note>
-  **A Windows installation** will take approx. 15 minutes.
-
-  RDP port 3389 is *closed during installations* to avoid interference with the installation.
-
-  ![Reinstall VPS](/assets/huaNpFAxK5PVCl_NLo3ID-ozGQ3EbLw2SKc3sattPPn-20241001-201443.png)
-</Note>
-
+</Grid>
 ## Installation via Cloud-init
 
 EDIS Global also offers semi-automated installations via Cloud-Init. Upload your favorite compatible cloud image and we'll do the rest. For more info please read on ...
@@ -71,8 +86,6 @@ EDIS Global also offers semi-automated installations via Cloud-Init. Upload your
 ## Turnkey Images
 
 Turnkey images are pre-configured system snapshots that include an operating system and essential software, all set up and ready to be deployed immediately, akin to a product that's ready to use right out of the box. These images facilitate quick and easy setup for users who want to run servers or applications without going through the hassle of intense manual installation and configuration.
-
-
 
 ## How to Install a Turnkey Image
 
