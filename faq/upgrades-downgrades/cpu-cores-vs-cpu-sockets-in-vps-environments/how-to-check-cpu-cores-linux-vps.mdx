@@ -1,11 +1,13 @@
 ---
-title: How to Check CPU Cores on a Linux VPS
-description: Multiple methods to check the number of CPU cores on a Linux VPS. From simple command-line utilities to detailed hardware info tools, get a comprehensive guide to optimize and understand your server's performance capabilities
+title: "How to Check CPU Cores on a Linux VPS"
+description: "Multiple methods to check the number of CPU cores on a Linux VPS. From simple command-line utilities to detailed hardware info tools, get a comprehensive guide to optimize and understand your server's performance capabilities"
 ---
 
-import { CtaButton } from "/snippets/cta-button.mdx";
+## Introduction to CPU Cores
 
-## Verifying the Number of Cores Available to Linux
+When managing a Linux system, understanding your CPU cores is essential for optimizing performance. CPU cores are the fundamental processing units within your VPS, each capable of executing instructions and handling tasks independently. The number of cores in your system directly impacts its ability to multitask and manage workloads efficiently.
+
+## **Verifying** the Number of Cores Available to Linux
 
 When managing a Virtual Private Server (VPS) running Linux, it's crucial to understand its resources to optimize performance. One such resource is the number of CPU cores. The more cores you have, the more tasks your VPS can handle simultaneously. Here's a guide on how to check the number of CPU cores on a Linux VPS.
 
@@ -19,7 +21,7 @@ One of the simplest methods to determine the number of CPU cores is by reading t
 cat /proc/cpuinfo | grep "processor"
 ```
 
-Each "processor" line represents a CPU core. Count the number of such lines to determine the total cores.
+The output of this command includes a line for each core, and also provides details such as the processor model. Each "processor" line represents a CPU core. Count the number of such lines to determine the total cores.
 
 ### The `lscpu` Command
 
@@ -35,7 +37,7 @@ Look for the "CPU(s)" line. This will display the total number of cores. If you 
 
 ### The `nproc` Command
 
-For a straightforward count of available processing units, use `nproc`.
+For a straightforward count of available processing units, use **nproc** command\*\*:\*\*
 
 **Command:**
 
@@ -71,7 +73,7 @@ In `htop`, you will directly see a visual representation of the usage of each co
 
 ### The `hwinfo` Command
 
-`hwinfo` provides detailed hardware information, including about the CPU.
+`hwinfo` provides detailed hardware information, including your CPUs.
 
 **Command (to specifically get CPU info):**
 
@@ -85,7 +87,4 @@ Look for "Number of processors" for the count of CPU cores.
 
 Regularly checking and understanding the number of CPU cores and their utilization can help in optimizing the performance and load distribution of tasks on your Linux VPS. Use the methods above as needed and based on the tools you have installed on your system.
 
-<CtaButton
-  label='CPU Cores vs. CPU Sockets'
-  link='./understanding-cpu-cores-vs-sockets-in-vps'
-/>
+<CtaButton label="CPU Cores vs. CPU Sockets" link="./understanding-cpu-cores-vs-sockets-in-vps" />
