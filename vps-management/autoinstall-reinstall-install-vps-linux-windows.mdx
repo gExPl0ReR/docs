@@ -55,12 +55,25 @@ Learn how to start the reinstall, set your administrator password, and re-enable
 
 ## Installation Time & Port Behavior
 
-Once the reinstallation starts, your VPS will go through the automated setup process. The image below shows the typical duration and port behavior for each operating system:
+Once the reinstallation starts, your VPS will go through the automated setup process.  
+The image below shows the typical duration and port behavior for each operating system:
 
-![Installation times for Linux and Windows](/assets/windows-linux-install-time-ports-closed.png)
+<figure style={{ textAlign: "center" }}>
+  <img
+    src="/assets/windows-linux-install-time-ports-closed.png"
+    alt="Linux and Windows VPS installation time and port behavior"
+    style={{ maxWidth: "100%", borderRadius: "8px", margin: "0 auto" }}
+  />
+  <figcaption style={{ color: "#666", fontSize: "0.9em", marginTop: "6px" }}>
+    Typical Auto-Install durations and temporary port behavior for Linux and Windows.
+  </figcaption>
+</figure>
 
 <Note>
-  During reinstallation, **remote access (SSH/RDP)** is temporarily disabled while your VPS is being rebuilt. You’ll be able to connect once the installation has finished — typically after **≈ 5 minutes for Linux** or **≈ 15 minutes for Windows**. ⚠️ **Do not power off or reboot your VPS** during this time, as it may interrupt the OS setup.
+During reinstallation, **remote access (SSH/RDP)** is temporarily disabled while your VPS is being rebuilt.  
+You’ll be able to connect again once the installation has finished — typically after **≈ 5 minutes for Linux** or **≈ 15 minutes for Windows**.  
+
+⚠️ **Do not power off or reboot your VPS** during this time, as it may interrupt the OS setup.
 </Note>
 
 ---
