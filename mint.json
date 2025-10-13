@@ -25,17 +25,18 @@
     }
   },
 
- "contextual": {
-   "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "cursor",
-     "vscode"
-   ]
- },
+"contextual": {
+  "enabled": true,
+  "options": [
+    "copy",
+    "view",
+    "chatgpt",
+    "claude",
+    "perplexity",
+    "cursor",
+    "vscode"
+  ]
+},
 
   "feedback": {
     "thumbsRating": true,
