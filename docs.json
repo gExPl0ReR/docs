@@ -8,6 +8,9 @@
     "dark": "#d55200"
   },
   "favicon": "/favicon.svg",
+
+  "contextual": { "options": [ "copy", "view", "chatgpt", "claude", "perplexity", "cursor", "vscode" ] },
+  
   "navigation": {
     "tabs": [
       {
