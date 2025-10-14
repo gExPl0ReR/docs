@@ -7,6 +7,11 @@
     "light": "#F96002",
     "dark": "#d55200"
   },
+
+    "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
   "favicon": "/favicon.svg",
 
   "contextual": { "options": [ "copy", "view", "chatgpt", "claude", "perplexity", "cursor", "vscode" ] },
