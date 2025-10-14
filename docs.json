@@ -14,6 +14,17 @@
   },
   "favicon": "/favicon.svg",
 
+    "seo": {
+    "title": "EDIS Global Docs",
+    "description": "Help and how-to guides for EDIS VPS customers",
+    "ogImage": {
+      "backgroundLight": "#ffffff",
+      "backgroundDark":  "#0e0b0b",
+      "logo": "/logo/light.svg"
+    }
+  },
+
+
   "contextual": { "options": [ "copy", "view", "chatgpt", "claude", "perplexity", "cursor", "vscode" ] },
   
   "navigation": {
