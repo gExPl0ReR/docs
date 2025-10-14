@@ -1,77 +1,59 @@
 ---
-title: "Change IP addresses"
-description: "Customers can change their VPS's IP address within 24 hours of purchase free of charge. After 24 hours, a service fee is charged for IP address changes."
+title: "Change IP Address"
+description: "Customers can change their VPS’s IP address within 24 hours free; after that, a service fee applies."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
-## **How to Change Your IP Address**
+## How to Change Your IP Address
 
-### **Free IP Change (Within the First 24 Hours)**
+### Free IP Change (Within 24 Hours)
 
-If you purchased a VPS, you’re eligible for one free IP change within the first 24 hours.
+You’re eligible for one **free IP change** if requested within the first 24 hours of your VPS purchase.
 
-### **Steps to Change Your IP Address:**
+**Steps:**
 
-1. **Log into your EDIS Global** [dashboard](https://manage.edisglobal.com/clientarea.php) using your credentials.
-2. **Locate your VPS** in the Services tab
-3. **Initiate the IP Change** by clicking on the ♻️ recycle icon next to your current IP.
+1. Log in to your EDIS Global [dashboard](https://manage.edisglobal.com/clientarea.php).
+2. Navigate to **Services** and locate your VPS.
+3. Click the ♻️ recycle icon next to your current IP to request the change.
 
-**Note:** After the IP change, you will need to reinstall your system or manually configure the new IP in your OS using VNC. Once a new IP is assigned, your old IP will stop working immediately.
+> **Note:** After the IP change, you will need to **reinstall your system or manually configure** the new IP using VNC. Once the new IP is activated, your old IP stops working immediately.
 
-![IP ChangeLearn how to safely change your VPS IP address...](/assets/vps-change-ip-recycle-symbol.webp)
-
-## Configure New IP After a Change
-
-**Steps to Configure IP After Change:**
-
-• **Reinstall your VPS** for the new IP to become active.
-
-• **Manually configure** your new IP using VNC if you prefer not to reinstall.
-
-<CtaButton label="(Re-) Install Linux/Windows" link="../../vps-management/autoinstall-reinstall-install-vps-linux-windows" />
-
-<CtaButton label="Enable VNC server" link="../../vps-management/enable-vnc-server" />
+![IP Change Recycle Icon](/assets/vps-change-ip-recycle-symbol.webp)
 
 ---
 
-## **IP Changes After 24 Hours**
+## IP Change After 24 Hours (Paid Options)
 
-If 24 hours have passed, IP changes are no longer free. You can choose from two options:
+If more than 24 hours have passed, IP changes incur a fee. You have two options:
 
-| Option | Price | Details |
+| Option | Price | Description |
 |---|---|---|
-| Standard IP Change | **€5** | A random new IP is automatically assigned from a /24 subnet. You cannot pick the subnet. |
-| Bespoke IP Change | **€10** | You get a selectable list of available IPs and can choose one. |
-
+| **Standard IP Change** | **€5** | A new IP is automatically assigned (random subnet; no selection). |
+| **Bespoke IP Change** | **€10** | You choose an IP from a provided list of available addresses. |
 
 ### Standard IP Change
 
-With a Standard IP Change, our system automatically assigns a new IP address to your VPS. The IP is selected at random from a randomly chosen /24 subnet. Once payment is completed, the new IP address will be delivered to you.
-
-> **Note:** “Random” means that you cannot select the subnet yourself, and we cannot guarantee that the new IP will come from a specific or desired subnet.
+After payment, the system assigns a random IP from a /24 subnet. You cannot influence the subnet selection.
+> **Note:** “Random” means you cannot pick the subnet or guarantee its prefix.
 
 <CtaButton label="Order Standard IP Change" link="https://manage.edisglobal.com/cart.php?gid=addons" />
 
-After the IP change, you will need to reinstall your system or manually configure the new IP in your OS using VNC. Once a new IP is assigned, your old IP will stop working immediately.
-
-
 ### Bespoke IP Change
 
-For a _Bespoke IP Change_, you will be provided with a list of IP addresses from various prefixes. You can select the IP address you prefer from this list. After payment, the IP address will be delivered to you.
-
-> **Note:** If you previously cancelled a service and would like to use the same IP address again, there is a chance you may find it available through the Bespoke IP Change option - provided the IP has not yet been reassigned yet.
+You will receive a list of available IPs (from varying prefixes) and can choose one.
+> **Note:** If you previously had an IP and it’s still unassigned, you may see it in this list.
 
 <CtaButton label="Order Bespoke IP Change" link="https://manage.edisglobal.com/cart.php?gid=addons" />
 
-**Note:** After the IP change, you will need to reinstall your system or manually configure the new IP in your OS using VNC. Once a new IP is assigned, your old IP will stop working immediately.
+---
 
-## Configure New IP After Change (common for all)
+## Configure New IP After Change (for ALL cases)
 
-Regardless of whether the change was free or paid:
-
-- **Reinstall the VPS** is the easiest path to activate the new IP cleanly.
-- Or, **manually configure** your new IP using VNC to set network settings.
+> **Important:** Once the new IP is assigned, the **old IP immediately stops working**. You must activate the new IP by either:
+>
+> • **Reinstalling your VPS**, or
+> • **Manually configuring** it using VNC
 
 <CtaButton label="(Re-) Install Linux/Windows" link="../../vps-management/autoinstall-reinstall-install-vps-linux-windows" />
 <CtaButton label="Enable VNC server" link="../../vps-management/enable-vnc-server" />
@@ -80,8 +62,6 @@ Regardless of whether the change was free or paid:
 
 ## Summary & Recommendations
 
-- **If within 24 hours**, use the free option.
-- **After 24 hours**, choose between Standard (cheaper & automatic) or Bespoke (select your IP).
-- Always reinstall or reconfigure after change, regardless of scenario.
-
----
+- If within 24 hours → use the **free IP change**.
+- After 24 hours → choose **Standard** or **Bespoke**.
+- **Always** follow up by reinstalling or configuring your new IP (see above).
