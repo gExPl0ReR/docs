@@ -7,15 +7,18 @@ description: "Quick, user-friendly guide to extend a Windows Server trial for an
 
 Windows Server evaluation editions run for **180 days**. If you’re nearing the end of the trial, you can extend it with a simple command.
 
-> **Good to know:** Microsoft allows a **limited number of extensions (“rearms”)** on evaluation editions. The command below works only while rearms remain available.
+> **Good to know:** Microsoft allows a **limited number of extensions (“rearms”)** on evaluation editions. The command below works only while rearms remain available — on most editions, you can rearm up to five times (for a total of about **six 180-day periods, or nearly three years** of evaluation).
 
 ### 1) Check your current license status
+
 Open **PowerShell as Administrator** and run:
 
 ```powershell
 slmgr -dlv
 ```
+
 ### 2) Extend the trial (add 180 days)
+
 When you are close to expiry (or any time you like), run:
 
 ```powershell
@@ -23,6 +26,7 @@ slmgr -rearm
 ```
 
 ### 3) Restart the server
+
 Reboot to apply the change:
 
 ```powershell
@@ -30,7 +34,6 @@ Restart-Computer
 ```
 
 After the restart, your trial period is extended by another 180 days.
-
 
 ### Is it legal to extend a trial version of Windows?
 
