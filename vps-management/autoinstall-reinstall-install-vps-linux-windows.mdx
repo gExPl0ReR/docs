@@ -4,7 +4,7 @@ sidebarTitle: "Reinstall VPS"
 description: "How to reinstall your VPS with a clean operating system — Linux or Windows — using the AutoInstall feature in your EDIS Global Control Panel."
 ---
 
-## Reinstall Your VPS with a Fresh OS
+# Reinstall Your VPS with a Fresh OS
 
 You can reinstall your Virtual Private Server (VPS) with a clean operating system in just a few clicks.\
 Whether you’re switching from Linux to Windows or simply starting fresh, the **AutoInstall OS** feature lets you rebuild your VPS quickly and securely.
@@ -55,32 +55,31 @@ Learn how to start the reinstall, set your administrator password, and re-enable
 
 ## Installation Time & Port Behavior
 
-Once the reinstallation starts, your VPS will go through the automated setup process.
-The image below shows the typical duration and port behavior for each operating system:
+Once the reinstallation starts, your VPS will go through the automated setup process. The image below shows the typical duration and port behavior for each operating system:
 
 ![Installation times for Linux and Windows](/assets/windows-linux-install-time-ports-closed.png)
 
 <Note>
-During reinstallation, **remote access (SSH/RDP)** is temporarily disabled while your VPS is being rebuilt.  
-You’ll be able to connect again once the installation has finished — typically after **≈ 5 minutes for Linux** or **≈ 15 minutes for Windows**.
+  During reinstallation, **remote access (SSH/RDP)** is temporarily disabled while your VPS is being rebuilt.\
+  You’ll be able to connect again once the installation has finished — typically after **≈ 5 minutes for Linux** or **≈ 15 minutes for Windows**.
 
-⚠️ **Do not power off or reboot your VPS** during this time, as it may interrupt the OS setup.
+  ⚠️ **Do not power off or reboot your VPS** during this time, as it may interrupt the OS setup.
 </Note>
 
 ---
 
 ## Installation via Cloud-Init
 
-If you prefer to use your **own operating system image**, EDIS Global also supports installations via **Cloud-Init**.  
+If you prefer to use your **own operating system image**, EDIS Global also supports installations via **Cloud-Init**.\
 This method is ideal for advanced users who want to **bring their own (BYO) image** — such as a custom or pre-built `.qcow2` file — and automatically configure it on first boot with Cloud-Init user-data.
 
 <Note>
-Use **Cloud-Init** when you need to:  
-• deploy a custom or pre-configured operating system image  
-• automate user creation, SSH keys, or initial setup commands  
-• maintain full control over your server’s image and configuration  
+  Use **Cloud-Init** when you need to:\
+  • deploy a custom or pre-configured operating system image\
+  • automate user creation, SSH keys, or initial setup commands\
+  • maintain full control over your server’s image and configuration
 
-If you just need a clean Linux or Windows environment, the **Auto-Install OS** option is simpler and faster.
+  If you just need a clean Linux or Windows environment, the **Auto-Install OS** option is simpler and faster.
 </Note>
 
 <CtaButton label="OS Installation via Cloud-Init" link="../advanced-setup-guides/installing-a-vps-using-cloud-init" />
