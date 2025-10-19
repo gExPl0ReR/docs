@@ -203,6 +203,7 @@
                 ]
               },
               "advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox",
+              "advanced-setup-guides/MikroTik 6to4 Tunnel Configuration Guide (Router-to-Router)",
               "advanced-setup-guides/install-mikrotik-routeros-on-edis-vps",
               "advanced-setup-guides/installing-a-vps-using-cloud-init",
               "advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems",
@@ -430,6 +431,10 @@
     {
       "source": "/install-mikrotik-routeros-on-edis-vps",
       "destination": "/advanced-setup-guides/install-mikrotik-routeros-on-edis-vps"
+    },
+    {
+      "source": "/mikrotik-6to4-tunnel-configuration-guide-router-to-router",
+      "destination": "/advanced-setup-guides/MikroTik 6to4 Tunnel Configuration Guide (Router-to-Router)"
     },
     {
       "source": "/faq/billing-lifecycle/handling-locked-cryptocurrency-payments-cryptomus",
