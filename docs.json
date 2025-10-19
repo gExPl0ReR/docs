@@ -861,10 +861,10 @@
       "destination": "/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204"
     },
     
-    {
-      "source": "/advanced-setup-guides/MikroTik%206to4%20Tunnel%20Configuration%20Guide%20(Router-to-Router)",
-      "destination": "/vps-management/ipv6-configuration#how-to-configure-ipv6-on-your-vps"
-    },
+{
+  "source": "/advanced-setup-guides/MikroTik%206to4%20Tunnel%20Configuration%20Guide%20(Router-to-Router)",
+  "destination": "/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router"
+},
     
 
     
