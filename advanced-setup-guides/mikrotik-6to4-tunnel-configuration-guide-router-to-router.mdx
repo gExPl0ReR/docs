@@ -1,9 +1,8 @@
 ---
-title: MikroTik 6to4 Tunnel Configuration Guide (Router-to-Router)
-sidebarTitle: 6to4 Tunnel Setup
-description: Learn how to configure a 6to4 tunnel between two MikroTik routers to enable IPv6 connectivity over IPv4 with IPsec encryption.
+title: "MikroTik 6to4 Tunnel Configuration Guide (Router-to-Router)"
+sidebarTitle: "Mikrotik 6to4 Tunnel"
+description: "Learn how to configure a 6to4 tunnel between two MikroTik routers to enable IPv6 connectivity over IPv4 with IPsec encryption."
 ---
-
 
 ## **Introduction**
 
@@ -15,28 +14,35 @@ You typically need a 6to4 tunnel in the following cases:
 
 1. **Your devices are in two IPv6 networks** but your provider doesn’t route IPv6 between them.
 
-    → The 6to4 tunnel bridges the two IPv6 subnets using IPv4 transport.
-
+   → The 6to4 tunnel bridges the two IPv6 subnets using IPv4 transport.
 2. **Your provider doesn’t support IPv6**, but you want to send IPv6 traffic over IPv4 infrastructure.
 
-    → The 6to4 tunnel encapsulates and forwards IPv6 packets between locations.
+   → The 6to4 tunnel encapsulates and forwards IPv6 packets between locations.
 
 In this example, we’ll divide an IPv6 prefix fe::/32 into two subnets and configure a **point-to-point 6to4 tunnel** between **Mikrotik 1** and **Mikrotik 2**, secured with an **IPsec secret**.
+
+### **Note on Usage and Filtering**
+
+A **6to4 tunnel** allows two servers in different countries to connect and exchange data as if they were on the same local network.  
+Because many network filters are designed mainly for IPv4, traffic sent through 6to4 tunnels can sometimes pass older filtering systems that do not fully inspect IPv6 or encapsulated packets.
+
+> **Important:** This note is for informational awareness only.  
+> While this behaviour can be useful for testing and research, tunnelling technologies must **not** be used to bypass lawful restrictions or government-imposed filtering.  
+> Always comply with local regulations and your provider’s acceptable use policy.
 
 ---
 
 ## **Network Topology**
 
-| Device | IPv4 Address | IPv6 Tunnel Address | IPv6 Subnet | Role |
-| ----- | ----- | ----- | ----- | ----- |
-| **Mikrotik 1** | 45.153.127.87 | fd::1/126 | **fe::/33** | Local router |
-| **Mikrotik 2** | 45.151.73.213 | fd::2/126 | **fe:8000::/33** | Remote router |
+| Device         | IPv4 Address  | IPv6 Tunnel Address | IPv6 Subnet      | Role          |
+| -------------- | ------------- | ------------------- | ---------------- | ------------- |
+| **Mikrotik 1** | 45.153.127.87 | fd::1/126           | **fe::/33**      | Local router  |
+| **Mikrotik 2** | 45.151.73.213 | fd::2/126           | **fe:8000::/33** | Remote router |
 
 📘 The original IPv6 prefix fe::/32 is divided into two halves:
 
-* **fe::/33** → used on Mikrotik 1’s network
-
-* **fe:8000::/33** → used on Mikrotik 2’s network
+- **fe::/33** → used on Mikrotik 1’s network
+- **fe:8000::/33** → used on Mikrotik 2’s network
 
 Each router will route traffic between these subnets via the secure 6to4 tunnel.
 
@@ -45,7 +51,6 @@ Each router will route traffic between these subnets via the secure 6to4 tunnel.
 Before you begin:
 
 1. Ensure both MikroTik routers have **public IPv4 addresses** (no NAT).
-
 2. Enable the **IPv6 feature** (RouterOS v7 syntax):
 
 ```bash
@@ -57,7 +62,6 @@ Before you begin:
 ![Enable IPv6 on Mikrotik](/assets/enable-ipv6.png)
 
 3. Access both routers via **Winbox** or **SSH**.
-
 4. This guide is written for **RouterOS v7.x** (v7.12 or later recommended).
 
 ## **Step 1 – Create the 6to4 Tunnel Interface**
@@ -93,8 +97,7 @@ Assign IPv6 addresses to the 6to4 tunnel for connectivity and to each router’s
 /ipv6/address/add address=fe::1/64 interface=ether1 advertise=no
 ```
 
-![IPv6 address list](/assets/IPv6-address-list.png) 
-	
+![IPv6 address list](/assets/IPv6-address-list.png)
 
 ### **On Mikrotik 2**
 
@@ -125,11 +128,9 @@ Each router must know how to reach the other router’s /33 subnet through the 6
 
 ✅ **Explanation:**
 
-* fe::/33 → local network of Mikrotik 1
-
-* fe:8000::/33 → remote network on Mikrotik 2
-
-* The gateway value is the **remote IPv6 tunnel address** (fd::1 or fd::2).
+- fe::/33 → local network of Mikrotik 1
+- fe:8000::/33 → remote network on Mikrotik 2
+- The gateway value is the **remote IPv6 tunnel address** (fd::1 or fd::2).
 
 Now, both routers can route IPv6 traffic between their subnets through the 6to4 tunnel.
 
@@ -141,7 +142,8 @@ Test IPv6 connectivity between both routers and their LANs.
 
 ```bash
 /ping fe:8000::1
-```  
+```
+
 ![Ping IPv6](/assets/Ping-IPv6-address.png)
 
 ### **From Mikrotik 2**
@@ -154,20 +156,14 @@ Test IPv6 connectivity between both routers and their LANs.
 
 If the tunnel doesn’t work as expected:
 
-* Confirm both routers have **public IPv4 connectivity**.
-
-* Check that IPv6 is **enabled globally**.
-
-* Ensure the same ipsec-secret value is used on both routers.
-
-* Allow **protocol 41 (IPv6 encapsulation)** and **IPsec traffic** in the firewall.
-
-* Keep MTU set to **1280** to avoid fragmentation.
+- Confirm both routers have **public IPv4 connectivity**.
+- Check that IPv6 is **enabled globally**.
+- Ensure the same ipsec-secret value is used on both routers.
+- Allow **protocol 41 (IPv6 encapsulation)** and **IPsec traffic** in the firewall.
+- Keep MTU set to **1280** to avoid fragmentation.
 
 ## **Conclusion**
 
 You’ve successfully configured a **secure 6to4 tunnel** between two MikroTik routers running RouterOS v7.
 
 This setup connects two IPv6 subnets (fe::/33 and fe:8000::/33) over IPv4, with automatic IPsec protection using the shared secret edisglobal.
-
-  
