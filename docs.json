@@ -863,16 +863,23 @@
 
 
 
-    
-{
-  "source": "/advanced-setup-guides/MikroTik%206to4%20Tunnel%20Configuration%20Guide%20(Router-to-Router)",
-  "destination": "/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router"
-},
-    
-{
-  "source": "/advanced-setup-guides/MikroTik%206to4%20Tunnel%20Configuration%20Guide%20%28Router-to-Router%29",
-  "destination": "/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router"
-},
+    {
+      "source": "/advanced-setup-guides/MikroTik%206to4%20Tunnel%20Configuration%20Guide%20%28Router-to-Router%29",
+      "destination": "/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router"
+    },
+    {
+      "source": "/advanced-setup-guides/MikroTik%206to4%20Tunnel%20Configuration%20Guide%20(Router-to-Router)",
+      "destination": "/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router"
+    },
+    {
+      "source": "/advanced-setup-guides/MikroTik%206to4%20Tunnel%20Configuration%20Guide%20%28Router-to-Router%29/",
+      "destination": "/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router"
+    },
+    {
+      "source": "/advanced-setup-guides/MikroTik%206to4%20Tunnel%20Configuration%20Guide%20(Router-to-Router)/",
+      "destination": "/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router"
+    },
+
     
     
     {
