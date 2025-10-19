@@ -4,6 +4,15 @@ sidebarTitle: "Mikrotik 6to4 Tunnel"
 description: "Learn how to configure a 6to4 tunnel between two MikroTik routers to enable IPv6 connectivity over IPv4 with IPsec encryption."
 ---
 
+## Note on Usage and Network Filtering
+
+A **6to4 tunnel** allows two servers in different countries to connect and exchange data as if they were on the same local network.  
+Because many network filters are designed mainly for IPv4, traffic sent through 6to4 tunnels can sometimes pass older filtering systems that do not fully inspect IPv6 or encapsulated packets.
+
+> **Important:** This information is provided for general awareness.  
+> While this behaviour can be useful for testing and research, tunnelling technologies must **not** be used to bypass lawful restrictions or government-imposed filtering.  
+> Always follow local regulations and your provider’s acceptable use policy.
+
 ## **Introduction**
 
 A **6to4 tunnel** encapsulates IPv6 packets inside IPv4 packets, allowing IPv6 communication across IPv4-only networks.
@@ -20,15 +29,6 @@ You typically need a 6to4 tunnel in the following cases:
    → The 6to4 tunnel encapsulates and forwards IPv6 packets between locations.
 
 In this example, we’ll divide an IPv6 prefix fe::/32 into two subnets and configure a **point-to-point 6to4 tunnel** between **Mikrotik 1** and **Mikrotik 2**, secured with an **IPsec secret**.
-
-### **Note on Usage and Filtering**
-
-A **6to4 tunnel** allows two servers in different countries to connect and exchange data as if they were on the same local network.  
-Because many network filters are designed mainly for IPv4, traffic sent through 6to4 tunnels can sometimes pass older filtering systems that do not fully inspect IPv6 or encapsulated packets.
-
-> **Important:** This note is for informational awareness only.  
-> While this behaviour can be useful for testing and research, tunnelling technologies must **not** be used to bypass lawful restrictions or government-imposed filtering.  
-> Always comply with local regulations and your provider’s acceptable use policy.
 
 ---
 
