@@ -860,13 +860,20 @@
       "source": "/install-amneziawg-on-ubuntu-2204",
       "destination": "/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204"
     },
+
+
+
     
 {
   "source": "/advanced-setup-guides/MikroTik%206to4%20Tunnel%20Configuration%20Guide%20(Router-to-Router)",
   "destination": "/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router"
 },
     
-
+{
+  "source": "/advanced-setup-guides/MikroTik%206to4%20Tunnel%20Configuration%20Guide%20%28Router-to-Router%29",
+  "destination": "/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router"
+},
+    
     
     {
       "source": "/install-amneziawg-on-keenetic-router",
