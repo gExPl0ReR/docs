@@ -1,18 +1,19 @@
 ---
-title: "How to Investigate and Stop Unusual Bandwidth"
-sidebarTitle: "Detect Unusual Bandwidth Usage"
-description: "Your VPS may start consuming traffic because of hidden background processes — from rogue scripts and crypto miners to misbehaving cron jobs. Learn how to find and stop them before they drain your bandwidth."
+title: "How to Investigate and Stop Unusual Network Usage on Linux"
+sidebarTitle: "Detect Unusual Network Usage"
+description: "Your VPS may start showing abnormal network usage because of hidden background processes — from rogue scripts and crypto miners to misbehaving cron jobs. Learn how to find and stop them before they impact performance."
+slug: "investigate-stop-unusual-network-usage-linux"
 ---
 
-# Detecting Suspicious Bandwidth Spikes in Linux Servers 🚨
+# Detecting Suspicious Network Spikes in Linux Servers 🚨
 
-Unusual bandwidth spikes often come from background activity you don’t expect — hidden tasks or processes quietly using your network, such as:
+Unusual network spikes often come from background activity you don’t expect — hidden tasks or processes quietly using your bandwidth, such as:
 
 - **Rogue scripts:** hidden or leftover commands constantly transferring data.  
 - **Crypto miners:** unauthorized software using your server’s CPU and network for mining.  
 - **Misbehaving processes:** normal services stuck in loops or retries, flooding the network.
 
-Spotting these early helps you prevent wasted bandwidth, slow performance, and unexpected traffic costs.
+Spotting these early helps you prevent wasted data, slow performance, and unexpected network costs.
    
 📘 **Related:** Learn the difference between *traffic* and *bandwidth* in [this EDIS Global guide](https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-vs-bandwidth).  
 
@@ -20,7 +21,7 @@ Spotting these early helps you prevent wasted bandwidth, slow performance, and u
 
 ## 1) Monitor Live Network Activity
 
-Start by checking which IPs or processes are using bandwidth. Two lightweight tools are `iftop` and `nload`.
+Start by checking which IPs or processes are using your network. Two lightweight tools are `iftop` and `nload`.
 
 Before running them, make sure you’re using the correct network interface —  
 it’s not always `eth0` (it can be `ens3`, `ens18`, `eno1`, etc.).  
@@ -53,9 +54,9 @@ sudo nload eth0
 
 ---
 
-## 2) Identify Which Process Is Behind the Traffic
+## 2) Identify Which Process Is Behind the Network Usage
 
-Once you spot unusual traffic, use `ss` (modern) or `netstat` (optional) to find the process behind the connections.
+Once you spot unusual network activity, use `ss` (modern) or `netstat` (optional) to find the process behind the connections.
 
 ~~~bash
 # recommended (modern tool)
@@ -70,10 +71,10 @@ sudo netstat -tupn
 ~~~
 
 Based on the screenshot below, you can see how each process (identified by its **PID**) connects to remote hosts.  
-For example, a process like `xray-linux-amd6` with PID `28799` is making outbound connections to multiple external IPs — a strong sign of a background service or script consuming bandwidth.
+For example, a process like `xray-linux-amd6` with PID `28799` is making outbound connections to multiple external IPs — a strong sign of a background service or script consuming network bandwidth.
 
 ![ss and netstat example screenshot](/assets/tunpn-tests.png)
-💡 *`ss` / `netstat` output shows which PIDs are opening remote connections and potentially causing abnormal traffic.*
+💡 *`ss` / `netstat` output shows which PIDs are opening remote connections and potentially causing abnormal network usage.*
 
 ---
 
@@ -113,9 +114,9 @@ sudo cp /proc/28799/exe /root/suspicious_exe_backup || true
 sudo rm -rf /usr/local/x-ui/bin/xray-linux-amd64 /tmp/.miner /var/tmp/.hidden || true
 ~~~
 
-| ![traffic before](/assets/iftop-test.png) | ![traffic after](/assets/after-kill.png) |
+| ![network before](/assets/iftop-test.png) | ![network after](/assets/after-kill.png) |
 |:--:|:--:|
-|Traffic before stopping process.|Traffic after stopping — usage drops.|
+|Network usage before stopping process.|Network usage after stopping — activity drops.|
 
 ---
 
@@ -158,9 +159,9 @@ remove it immediately, as it will automatically restart the rogue process every 
 
 ---
 
-## 6) Use nethogs for Per-Process Bandwidth Tracking
+## 6) Use nethogs for Per-Process Network Tracking
 
-To continuously monitor which processes use the most bandwidth:
+To continuously monitor which processes use the most network bandwidth:
 
 ~~~bash
 sudo apt install nethogs -y
@@ -174,14 +175,12 @@ You’ll see a live list of processes with **sent** and **received** rates — p
 
 ---
 
-## 7) Check Your Overall Traffic Consumption
+## 7) Check Your Overall Network Usage
 
-If you suspect something has already used too much bandwidth, you can review your traffic stats directly in your EDIS dashboard.  
+If you suspect something has already used too much data, you can review your usage stats directly in your EDIS dashboard.  
 It shows **total monthly usage**, **daily graphs**, and **refill times**.
 
-📘 [Learn how EDIS Global meters traffic and how refills work here](https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-stats-refill-explained).
-
-
+📘 [Learn how EDIS Global measures network usage and refill cycles here](https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-stats-refill-explained).
 
 ---
 
@@ -220,4 +219,4 @@ for advanced protection steps such as disabling root login, changing default SSH
 
 ---
 
-✅ Following these steps ensures your VPS stays stable, secure, and free from hidden processes consuming bandwidth or resources.
+✅ Following these steps ensures your VPS stays stable, secure, and free from hidden processes consuming network resources or performance.
