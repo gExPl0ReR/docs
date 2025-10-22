@@ -146,6 +146,7 @@
                   "faq/traffic-bandwidth/traffic-stats-refill-explained",
                   "faq/traffic-bandwidth/traffic-pool-global-and-premium-traffic-zone",
                   "faq/traffic-bandwidth/speed-test",
+                  "faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-bandwidth",
                   "faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global",
                   {
                     "group": "DOS Attacks",
@@ -732,6 +733,10 @@
     {
       "source": "/traffic-pool-global-and-premium-traffic-zone",
       "destination": "/faq/traffic-bandwidth/traffic-pool-global-and-premium-traffic-zone"
+    },
+        {
+      "source": "/how-to-investigate-and-stop-unusual-bandwidth",
+      "destination": "/faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-bandwidth"
     },
     {
       "source": "/exceeding-monthly-traffic-limit-edis-global",
