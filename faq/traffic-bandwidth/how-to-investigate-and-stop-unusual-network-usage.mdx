@@ -1,18 +1,19 @@
 ---
-title: "How to Investigate and Stop Unusual Bandwidth"
-sidebarTitle: "Detect Unusual Bandwidth Usage"
-description: "Your VPS may start consuming traffic because of hidden background processes — from rogue scripts and crypto miners to misbehaving cron jobs. Learn how to find and stop them before they drain your bandwidth."
+title: "How to Investigate and Stop Unusual Network Usage on Linux"
+sidebarTitle: "Detect Unusual Network Usage"
+description: "Your VPS may start showing abnormal network usage because of hidden background processes — from rogue scripts and crypto miners to misbehaving cron jobs. Learn how to find and stop them before they impact performance."
+slug: "investigate-stop-unusual-network-usage-linux"
 ---
 
-# Detecting Suspicious Bandwidth Spikes in Linux Servers 🚨
+# Detecting Suspicious Network Spikes in Linux Servers 🚨
 
-Unusual bandwidth spikes often come from background activity you don’t expect — hidden tasks or processes quietly using your network, such as:
+Unusual network spikes often come from background activity you don’t expect — hidden tasks or processes quietly using your bandwidth, such as:
 
 - **Rogue scripts:** hidden or leftover commands constantly transferring data.  
 - **Crypto miners:** unauthorized software using your server’s CPU and network for mining.  
 - **Misbehaving processes:** normal services stuck in loops or retries, flooding the network.
 
-Spotting these early helps you prevent wasted bandwidth, slow performance, and unexpected traffic costs.
+Spotting these early helps you prevent wasted data, slow performance, and unexpected network costs.
    
 📘 **Related:** Learn the difference between *traffic* and *bandwidth* in [this EDIS Global guide](https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-vs-bandwidth).  
 
@@ -20,22 +21,22 @@ Spotting these early helps you prevent wasted bandwidth, slow performance, and u
 
 ## 1) Monitor Live Network Activity
 
-Start by checking which IPs or processes are using bandwidth. Two lightweight tools are iftop and nload.
+Start by checking which IPs or processes are using your network. Two lightweight tools are `iftop` and `nload`.
 
 Before running them, make sure you’re using the correct network interface —  
-it’s not always eth0 (it can be ens3, ens18, eno1, etc.).  
+it’s not always `eth0` (it can be `ens3`, `ens18`, `eno1`, etc.).  
 You can find your active interface by running:
 
-~~~bash
+```bash
 ip -o link show up | awk -F': ' '{print $2}'
-~~~
+```
 
-Then replace eth0 in the commands below with your interface name:
+Then replace `eth0` in the commands below with your interface name:
 
-~~~bash
+```bash
 sudo apt install iftop nload -y
 sudo iftop -i eth0
-~~~
+```
 
 In **iftop**, you’ll see source/destination IPs, ports, and data rates.  
 Look for unknown or suspicious external IPs constantly sending or receiving data.
@@ -45,51 +46,51 @@ Look for unknown or suspicious external IPs constantly sending or receiving data
 
 If you want a simpler graph view:
 
-~~~bash
+```bash
 sudo nload eth0
-~~~
+```
 
 ![nload graph](/assets/nload-test.png)
 
 ---
 
-## 2) Identify Which Process Is Behind the Traffic
+## 2) Identify Which Process Is Behind the Network Usage
 
-Once you spot unusual traffic, use ss (modern) or netstat (optional) to find the process behind the connections.
+Once you spot unusual network activity, use `ss` (modern) or `netstat` (optional) to find the process behind the connections.
 
-~~~bash
+```bash
 # recommended (modern tool)
 sudo ss -tupn
-~~~
+```
 
-If you prefer netstat, install net-tools first:
+If you prefer `netstat`, install `net-tools` first:
 
-~~~bash
+```bash
 sudo apt install net-tools -y
 sudo netstat -tupn
-~~~
+```
 
 Based on the screenshot below, you can see how each process (identified by its **PID**) connects to remote hosts.  
-For example, a process like xray-linux-amd6 with PID 28799 is making outbound connections to multiple external IPs — a strong sign of a background service or script consuming bandwidth.
+For example, a process like `xray-linux-amd6` with PID `28799` is making outbound connections to multiple external IPs — a strong sign of a background service or script consuming network bandwidth.
 
 ![ss and netstat example screenshot](/assets/tunpn-tests.png)
-💡 *ss / netstat output shows which PIDs are opening remote connections and potentially causing abnormal traffic.*
+💡 *`ss` / `netstat` output shows which PIDs are opening remote connections and potentially causing abnormal network usage.*
 
 ---
 
 ## 3) Inspect the Suspicious Process
 
-Now that you’ve identified the suspicious PID from **ss** or **netstat**, check what it actually is and where it’s running from.
+Now that you’ve identified the suspicious PID from **`ss`** or **`netstat`**, check what it actually is and where it’s running from.
 
-~~~bash
+```bash
 ps aux | grep 28799
 ls -l /proc/28799/exe
 strings /proc/28799/cmdline
-~~~
+```
 
-💡 *Replace **28799** with the PID of the process you found suspicious in the previous step.*
+💡 *Replace **`28799`** with the PID of the process you found suspicious in the previous step.*
 
-If you notice the executable path pointing to directories like **/tmp/**, **/dev/shm/**, or **/var/tmp/**,  
+If you notice the executable path pointing to directories like **`/tmp/`**, **`/dev/shm/`**, or **`/var/tmp/`**,  
 it’s often a rogue or crypto-mining script — legitimate system services rarely run from those paths.
 
 | ![proc exe](/assets/proc-exe.png) | ![proc cmdline](/assets/proc-cmdline.png) |
@@ -102,20 +103,20 @@ it’s often a rogue or crypto-mining script — legitimate system services rare
 
 Stop the suspicious process immediately (replace **28799** with your PID):
 
-~~~bash
+```bash
 sudo kill -9 28799
-~~~
+```
 
 Before deleting, back up the executable for later analysis:
 
-~~~bash
+```bash
 sudo cp /proc/28799/exe /root/suspicious_exe_backup || true
 sudo rm -rf /usr/local/x-ui/bin/xray-linux-amd64 /tmp/.miner /var/tmp/.hidden || true
-~~~
+```
 
-| ![traffic before](/assets/iftop-test.png) | ![traffic after](/assets/after-kill.png) |
+| ![network before](/assets/iftop-test.png) | ![network after](/assets/after-kill.png) |
 |:--:|:--:|
-|Traffic before stopping process.|Traffic after stopping — usage drops.|
+|Network usage before stopping process.|Network usage after stopping — activity drops.|
 
 ---
 
@@ -124,48 +125,48 @@ sudo rm -rf /usr/local/x-ui/bin/xray-linux-amd64 /tmp/.miner /var/tmp/.hidden ||
 Many rogue scripts try to restart automatically after reboot using cron or startup files.  
 Inspect the following locations carefully:
 
-~~~bash
+```bash
 crontab -l
 sudo cat /etc/crontab
 sudo ls /etc/cron.d/
 sudo cat /etc/rc.local
-~~~
+```
 
 Also check these common paths:
 
-~~~text
+```text
 /etc/systemd/system/
 /etc/init.d/
 /home/*/.bashrc
 /home/*/.profile
-~~~
+```
 
 If you find a suspicious entry like this:
 
-~~~bash
+```bash
 @reboot sleep 30 && /usr/local/x-ui/bin/xray-linux-amd64 -c /usr/local/x-ui/config.json >/dev/null 2>&1 &
-~~~
+```
 
 or something referencing temporary paths:
 
-~~~bash
+```bash
 @reboot /tmp/.miner/start.sh
-~~~
+```
 
 remove it immediately, as it will automatically restart the rogue process every time the system boots.
 
-💡 *Tip:* Legitimate cron jobs usually run system maintenance tasks (like backups or log rotations) — anything starting from /tmp, /dev/shm, or /var/tmp is highly suspicious.
+💡 *Tip:* Legitimate cron jobs usually run system maintenance tasks (like backups or log rotations) — anything starting from `/tmp`, `/dev/shm`, or `/var/tmp` is highly suspicious.
 
 ---
 
-## 6) Use nethogs for Per-Process Bandwidth Tracking
+## 6) Use nethogs for Per-Process Network Tracking
 
-To continuously monitor which processes use the most bandwidth:
+To continuously monitor which processes use the most network bandwidth:
 
-~~~bash
+```bash
 sudo apt install nethogs -y
 sudo nethogs
-~~~
+```
 
 You’ll see a live list of processes with **sent** and **received** rates — perfect for spotting anomalies before they grow.
 
@@ -174,12 +175,12 @@ You’ll see a live list of processes with **sent** and **received** rates — p
 
 ---
 
-## 7) Check Your Overall Traffic Consumption
+## 7) Check Your Overall Network Usage
 
-If you suspect something has already used too much bandwidth, you can review your traffic stats directly in your EDIS dashboard.  
+If you suspect something has already used too much data, you can review your usage stats directly in your EDIS dashboard.  
 It shows **total monthly usage**, **daily graphs**, and **refill times**.
 
-📘 [Learn how EDIS Global meters traffic and how refills work here](https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-stats-refill-explained).
+📘 [Learn how EDIS Global measures network usage and refill cycles here](https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-stats-refill-explained).
 
 ---
 
@@ -187,35 +188,35 @@ It shows **total monthly usage**, **daily graphs**, and **refill times**.
 
 After removing the rogue process, secure your server to prevent it from coming back.
 
-- **If /tmp or /var/tmp are separate mounts, disable script execution:**
-  ~~~bash
+- **If `/tmp` or `/var/tmp` are separate mounts, disable script execution:**
+  ```bash
   sudo mount -o remount,noexec /tmp
   sudo mount -o remount,noexec /var/tmp || true
-  ~~~
+  ```
 
 - **If you get “mount point not mounted” error:**  
-  it means /tmp isn’t a separate mount. Use this safer alternative:
-  ~~~bash
+  it means `/tmp` isn’t a separate mount. Use this safer alternative:
+  ```bash
   sudo mount -o bind /tmp /tmp
   sudo mount -o remount,noexec,nosuid /tmp
-  ~~~
+  ```
 
 - **Limit outbound connections:**  
-  Use ufw or iptables to block unknown processes from sending data.
+  Use `ufw` or `iptables` to block unknown processes from sending data.
 
 - **Find recently changed files (possible rogue scripts):**
-  ~~~bash
+  ```bash
   sudo find / -mtime -1 -type f 2>/dev/null
-  ~~~
+  ```
 
 - **Check SSH login attempts:**
-  ~~~bash
+  ```bash
   sudo journalctl -u ssh | grep "Failed password"
-  ~~~
+  ```
 
 💡 *Tip:* You can also follow our detailed [SSH Security Hardening Guide](https://docs.edisglobal.com/getting-started/ssh-security-hardening-guide)  
 for advanced protection steps such as disabling root login, changing default SSH ports, and setting up fail2ban.
 
 ---
 
-✅ Following these steps ensures your VPS stays stable, secure, and free from hidden processes consuming bandwidth or resources.
+✅ Following these steps ensures your VPS stays stable, secure, and free from hidden processes consuming network resources or performance.
