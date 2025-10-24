@@ -24,8 +24,7 @@ The billing window occurs **daily between midnight and 05:15 CET (Central Europe
 | Billrun – End               | ~05:00 CET | ~04:00 UTC |
 | Credit Manipulation – End   | 05:15 CET  | 04:15 UTC  |
 
-⚠️ **Do not place new orders or modify services** between **00:00 CET and 05:15 CET**, as transactions may be delayed or temporarily locked during this period. 
-During this time, **account credit may be applied to scheduled invoices**, which might not be desirable if you have **credit manipulation** enabled on your account.
+⚠️ **Do not place new orders or modify services** between **00:00 CET and 05:15 CET**, as transactions may be delayed or temporarily locked during this period. During this time, **account credit may be applied to scheduled invoices**, which might not be desirable if you have **credit manipulation** enabled on your account.
 
 ---
 
@@ -48,7 +47,8 @@ However, a **small group of resellers** have opted out of this automatic credit 
 1. **Invoice Generation** – Renewal invoices are created for upcoming services.
 2. **Credit Card Charges** – Automatic payment attempts are processed.
 3. **Credit Manipulation** – Credits are temporarily locked to ensure billing accuracy (if configured).
-4. **Service Suspension** – Non-paid services are automatically suspended.
+4. **Service Suspension** – Non-paid services are automatically suspended
+4. **Service Termination** – Terminations are processed 
 5. **Finalization** – After 05:15 CET, all billing operations resume as normal.
 
 ---
@@ -56,7 +56,7 @@ However, a **small group of resellers** have opted out of this automatic credit 
 ## ⚙️ Service Suspension
 
 Service suspension (if related to non-payments) happens **during the billrun window**.\
-If your service was suspended for non-payment, it will automatically reactivate once an invoice is paid.
+If your service is suspended for non-payment, it will automatically reactivate once an invoice gets paid. Once an invoice shows _cancelled_, it can not longer be paid, the service no longer exists.
 
 📘 For full details, see:\
 [**VPS Billing Workflow → Automated Billing Lifecycle**](https://docs.edisglobal.com/faq/billing-lifecycle/automated-vps-billing-workflow)
@@ -66,9 +66,11 @@ If your service was suspended for non-payment, it will automatically reactivate 
 ## ✅ Summary
 
 - The billing window ensures accurate renewals and payment processing.
-- Do not place orders between **00:00–05:15 CET**.
-- Account credit is backed up, temporarily locked, and restored automatically (if configured for your account)
-- Service suspensions are handled during the billrun.
+- Do not place orders or top-up your account between **00:00–05:15 CET**.
+- Account credit is backed up, temporarily locked, and restored automatically \
+  (if configured for your account)
+- Automatic attempts to charge your saved payment method (via our payment provider).
+- Service suspensions and terminations are handled during the billrun.
 
 ---
 
