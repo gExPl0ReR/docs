@@ -947,7 +947,7 @@
       "destination": "/misc/fix-for-realvnc-closing-connection"
     },
     {
-      "source": "/manual-windows-server-intallation-on-kvm",
+      "source": "/manual-windows-server-installation-on-kvm",
       "destination": "/misc/manual-windows-server-installation-on-kvm"
     },
     {
