@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "EDIS Global Docs",
   "colors": {
-    "primary": "#F96002",
-    "light": "#F96002",
-    "dark": "#d55200"
+    "primary": "#CC4E01",
+    "light": "#FF8A33",
+    "dark": "#B24500"
   },
 
     "logo": {
