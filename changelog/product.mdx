@@ -1,7 +1,7 @@
 ---
-title: Product Changelog
-description: Explore the latest improvements to the EDIS Global product experience — from powerful new features and dashboard enhancements to expanded VPS locations and support upgrades. We’re constantly building better hosting for you.
-sidebarTitle: Product
+title: "Product Changelog"
+description: "Explore the latest improvements to the EDIS Global product experience — from powerful new features and dashboard enhancements to expanded VPS locations and support upgrades. We’re constantly building better hosting for you."
+sidebarTitle: "Product"
 ---
 
 ## Product Updates
@@ -9,141 +9,112 @@ sidebarTitle: Product
 Updates and improvements
 
 <Update label="November 2025">
+  #### November 11, 2025 — Global Database Cluster Upgrade ⚡➡️ Real-Time 
 
-#### November 11, 2025 — Global Database Cluster Upgrade ⚡➡️ Real-Time EDIS
+  We’ve successfully upgraded EDIS Global from a **centralized database system** to a fully **distributed, highly resilient global database cluster**.\
+  This major platform upgrade unlocks **real-time operations**, smoother performance, and a noticeably faster user experience across the entire EDIS ecosystem.
 
-We’ve successfully upgraded EDIS Global from a **centralized database system** to a fully **distributed, highly resilient global database cluster**.  
-This major platform upgrade unlocks **real-time operations**, smoother performance, and a noticeably faster user experience across the entire EDIS ecosystem.
+  ## What’s improved?
 
-## What’s improved?
-- **Real-time backend operations**: Orders, transactions, and provisioning updates now propagate instantly across all regions.  
-- **Faster order processing**: New VPS deployments and account actions complete more quickly and more consistently.  
-- **Simplified internal architecture**: Cleaner, more efficient backend structures reduce complexity and make the platform more reliable.  
-- **Resilient traffic-pool logic**: Traffic accounting and quota adjustments now run with increased stability and real-time precision.  
-- **Higher fault tolerance**: The distributed cluster ensures continuity even during regional outages or network disruptions.  
+  - **Real-time backend operations**: Orders, transactions, and provisioning updates now propagate instantly across all regions.
+  - **Faster order processing**: New VPS deployments and account actions complete more quickly and more consistently.
+  - **Simplified internal architecture**: Cleaner, more efficient backend structures reduce complexity and make the platform more reliable.
+  - **Resilient traffic-pool logic**: Traffic accounting and quota adjustments now run with real-time precision.
+  - **Higher fault tolerance**: The distributed cluster ensures continuity even during regional outages or network disruptions.
 
-This upgrade brings EDIS Global another step closer to a **fully real-time, globally consistent hosting platform** — delivering a smoother, faster, and more dependable experience for all users.
-
+  This upgrade brings EDIS Global another step closer to a **fully real-time, globally consistent hosting platform** — delivering a smoother, faster, and more dependable experience for all users.
 </Update>
 
-
-
-
-
 <Update label="September 2025">
+  ### September 25, 2025 — Post-Install Scripts Deprecated ⚠️➡️ Cloud-Init Only
 
-### September 25, 2025 — Post-Install Scripts Deprecated ⚠️➡️ Cloud-Init Only
+  We’ve officially **retired Post-Install Scripts** from the EDIS Global VPS platform.\
+  All new operating system installations now rely exclusively on **Cloud-Init**, the industry standard for automated server initialization.
 
-We’ve officially **retired Post-Install Scripts** from the EDIS Global VPS platform.  
-All new operating system installations now rely exclusively on **Cloud-Init**, the industry standard for automated server initialization.  
+  👉 Why this change?
 
-👉 Why this change?  
-- **Unified automation**: Cloud-Init replaces custom Post-Install scripts with a standardized, more powerful configuration method.  
-- **Faster deployments**: Inject configs directly at installation — no need for extra script execution afterwards.  
-- **Broader compatibility**: Supported across nearly all Linux distributions we offer.  
-- **Future-ready**: Easier scaling, improved security, and cleaner workflows.  
+  - **Unified automation**: Cloud-Init replaces custom Post-Install scripts with a standardized, more powerful configuration method.
+  - **Faster deployments**: Inject configs directly at installation — no need for extra script execution afterwards.
+  - **Broader compatibility**: Supported across nearly all Linux distributions we offer.
+  - **Future-ready**: Easier scaling, improved security, and cleaner workflows.
 
-If you’ve used Post-Install Scripts before, don’t worry — we’ve kept the [archived documentation](https://docs.edisglobal.com/vps-management/post-install-scripts) for reference.  
-For all current and future VPS setups, please use our [Cloud-Init Installation Guide](https://docs.edisglobal.com/vps-management/edis-cloud-init-vps-installation).  
-
+  If you’ve used Post-Install Scripts before, don’t worry — we’ve kept the [archived documentation](https://docs.edisglobal.com/vps-management/post-install-scripts) for reference.\
+  For all current and future VPS setups, please use our [Cloud-Init Installation Guide](https://docs.edisglobal.com/vps-management/edis-cloud-init-vps-installation).
 </Update>
 
 <Update label="August 2025">
+  ### August 21, 2025 — New OS Auto-Installers Available! 🆕🐧
 
-### August 21, 2025 — New OS Auto-Installers Available! 🆕🐧
+  We’ve expanded our VPS platform with the latest operating systems, giving you more choice, flexibility, and performance:
 
-We’ve expanded our VPS platform with the latest operating systems, giving you more choice, flexibility, and performance:
+  - **Arch Linux 20250815** – rolling release, always up to date, perfect for power users who want bleeding-edge software.
+  - **Debian 13 (Trixie) 64Bit** – released 9 Aug 2025, rock-solid stability with the latest updates, ideal for production workloads.
+  - **Rocky Linux 10 64Bit** – enterprise-grade, community-driven, 100% RHEL compatible, a safe choice for businesses migrating from CentOS.
+  - **CentOS Stream 10 64Bit** – the upstream (development) branch of RHEL, great for those who want to stay ahead of the curve.
 
-- **Arch Linux 20250815** – rolling release, always up to date, perfect for power users who want bleeding-edge software.  
-- **Debian 13 (Trixie) 64Bit** – released 9 Aug 2025, rock-solid stability with the latest updates, ideal for production workloads.  
-- **Rocky Linux 10 64Bit** – enterprise-grade, community-driven, 100% RHEL compatible, a safe choice for businesses migrating from CentOS.  
-- **CentOS Stream 10 64Bit** – the upstream (development) branch of RHEL, great for those who want to stay ahead of the curve.  
+  ### 🚀 Why upgrade or deploy with these OS images?
 
-### 🚀 Why upgrade or deploy with these OS images?
-- Stay secure with the latest kernels, patches, and features.  
-- Match your dev/test environments with the newest community and enterprise releases.  
-- Gain long-term reliability (**Debian & Rocky**), or ride the cutting edge (**Arch & CentOS Stream**).  
-- Faster deployments: spin up your preferred distro with one click.  
+  - Stay secure with the latest kernels, patches, and features.
+  - Match your dev/test environments with the newest community and enterprise releases.
+  - Gain long-term reliability (**Debian & Rocky**), or ride the cutting edge (**Arch & CentOS Stream**).
+  - Faster deployments: spin up your preferred distro with one click.
 
-👉 Try them today and tailor your VPS to your exact needs: [edisglobal.com/vps-hosting](https://www.edisglobal.com/vps-hosting)
-
+  👉 Try them today and tailor your VPS to your exact needs: [edisglobal.com/vps-hosting](https://www.edisglobal.com/vps-hosting)
 </Update>
-
 
 <Update label="July 2025">
+  ### July 16, 2025 — 10 Gbps Upgrades in Sweden
 
-### July 16, 2025 — 10 Gbps Upgrades in Sweden
+  Our VPS network in **Sweden** has been upgraded to 2×10 Gbps per node! 🚀 Customers now benefit from up to 20 Gbps bandwidth with seamless automatic failover to 10 Gbps, ensuring faster, more reliable VPS hosting in Sweden.
 
-Our VPS network in **Sweden** has been upgraded to 2×10 Gbps per node! 🚀 Customers now benefit from up to 20 Gbps bandwidth with seamless automatic failover to 10 Gbps, ensuring faster, more reliable VPS hosting in Sweden.
-
-👉 [Sweden VPS Hosting Plans](https://www.edisglobal.com/vps-hosting/sweden-stockholm#start-now)
-
+  👉 [Sweden VPS Hosting Plans](https://www.edisglobal.com/vps-hosting/sweden-stockholm#start-now)
 </Update>
-
-
 
 <Update label="June 2025">
+  ### June 26, 2025 — 10 Gbps Upgrades in Slovenia
 
-### June 26, 2025 — 10 Gbps Upgrades in Slovenia
+  We’ve upgraded our network capacity in **Slovenia** to 2×10 Gbps per node! 🚀 Enjoy up to 20 Gbps performance with automatic failover to 10 Gbps for maximum reliability.
 
-We’ve upgraded our network capacity in **Slovenia** to 2×10 Gbps per node! 🚀 Enjoy up to 20 Gbps performance with automatic failover to 10 Gbps for maximum reliability.
-
-👉 [Explore Slovenia VPS Plans](https://www.edisglobal.com/vps-hosting/slovenia-ljubljana#start-now)
-
+  👉 [Explore Slovenia VPS Plans](https://www.edisglobal.com/vps-hosting/slovenia-ljubljana#start-now)
 </Update>
 
-
-
-
 <Update label="May 2025">
+  ### April 29, 2025 — New VPS Hosting Location: Finland 🇫🇮
 
-### April 29, 2025 — New VPS Hosting Location: Finland 🇫🇮
+  We’ve launched our latest VPS hosting platform in **Helsinki, Finland**!\
+  Powered by 10 Gbps uplinks and top-tier network partners, our Finland location offers low-latency performance, excellent international reach, and enterprise-grade reliability.
 
-We’ve launched our latest VPS hosting platform in **Helsinki, Finland**!  
-Powered by 10 Gbps uplinks and top-tier network partners, our Finland location offers low-latency performance, excellent international reach, and enterprise-grade reliability.
+  👉 [Explore Finland VPS Plans](https://www.edisglobal.com/vps-hosting/finland-helsinki)
 
-👉 [Explore Finland VPS Plans](https://www.edisglobal.com/vps-hosting/finland-helsinki)
-
-Available now across all plan tiers — from KVM Smart to High Performance.
-
+  Available now across all plan tiers — from KVM Smart to High Performance.
 </Update>
 
 <Update label="April 2025">
+  ### April 4, 2025 — Prague Network & Hostnode Upgrades
 
-### April 4, 2025 — Prague Network & Hostnode Upgrades
+  We’ve completed a major infrastructure upgrade at our [**Prague**](https://www.edisglobal.com/vps-hosting/czech-republic-prague) location:
 
-We’ve completed a major infrastructure upgrade at our [**Prague**](https://www.edisglobal.com/vps-hosting/czech-republic-prague) location:
+  - 🌐 Introduced **redundant network infrastructure** with clustered equipment for improved availability
+  - 🚀 Upgraded all hostnodes with **2× 10 Gbps fiber** network interfaces
+  - ⚙️ Enabled **hardware offloading** for ultra-low latency and optimized throughput
 
-- 🌐 Introduced **redundant network infrastructure** with clustered equipment for improved availability
-- 🚀 Upgraded all hostnodes with **2× 10 Gbps fiber** network interfaces
-- ⚙️ Enabled **hardware offloading** for ultra-low latency and optimized throughput
-
-These enhancements significantly boost network performance and fault tolerance — ideal for latency-sensitive and high-availability workloads.
-
+  These enhancements significantly boost network performance and fault tolerance — ideal for latency-sensitive and high-availability workloads.
 </Update>
 
-
 <Update label="March 2025">
+  #### **The Beginning**
 
-#### **The Beginning**
+  Hello world! 👋
 
+  This is our very first public changelog entry for the EDIS Global product.
 
+  Going forward, we’ll use this space to share updates on everything product-related — from new VPS locations to dashboard features and support improvements.
 
-Hello world! 👋
+  #### **Other improvements**
 
-This is our very first public changelog entry for the EDIS Global product.
+  - Dusted off our dashboard UI for better usability
 
-Going forward, we’ll use this space to share updates on everything product-related — from new VPS locations to dashboard features and support improvements.
+  - Polished VPS provisioning workflows (less friction, more magic)
 
-
-
-#### **Other improvements**
-
-\- Dusted off our dashboard UI for better usability
-
-\- Polished VPS provisioning workflows (less friction, more magic)
-
-\- Tidied up internal processes for a smoother support experience
-
-
+  - Tidied up internal processes for a smoother support experience
 </Update>
