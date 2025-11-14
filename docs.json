@@ -53,6 +53,7 @@
               "vps-management/api-for-management-and-ordering",
               "vps-management/vps-management-portal",
               "vps-management/autoinstall-reinstall-install-vps-linux-windows",
+              "vps-management/os-availability",
               "vps-management/edis-cloud-init-vps-installation",
               "vps-management/power-cycle-or-reboot-a-vps",
               "vps-management/reset-root-password-linux",
