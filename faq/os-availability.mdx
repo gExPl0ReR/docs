@@ -1,0 +1,211 @@
+---
+title: "Operating System Availability"
+description: "Understand which operating systems are available during order and which additional OS images can be selected later in the dashboard for auto-installation."
+sidebarPosition: "12"
+---
+
+# Operating System Availability
+
+EDIS Global and EDBB provide a wide selection of operating systems for VPS deployments.\
+However, the list of OS images shown **during the initial order** is intentionally different from the list shown later in the **dashboard (Auto-Installation)**.
+
+This guide explains the differences and helps you choose the right OS for your setup.
+
+---
+
+## OS Options Available in the Shopping Cart
+
+🛒 The shopping cart shows a **curated, recommended list** of operating systems.\
+These versions are selected for:
+
+- Stability and long-term support
+- Broad compatibility
+- Fastest deployment
+- Cloud-Init support
+- Ease of use for new customers
+
+### **Available OS in the Shopping Cart**
+
+#### **Debian**
+
+- Debian 13 (Trixie) 64-bit
+- Debian 12 (Bookworm) 64-bit
+- Debian 11 (Bullseye) 64-bit
+- Debian 10 (Buster) 64-bit
+
+#### **AlmaLinux**
+
+- AlmaLinux 9 (64-bit)
+- AlmaLinux 8 (64-bit)
+
+#### **Arch Linux**
+
+- Arch Linux 20250815 (64-bit)
+
+#### **Rocky Linux**
+
+- Rocky Linux 10 (64-bit)
+- Rocky Linux 9 (64-bit)
+
+#### **CentOS Stream**
+
+- CentOS Stream 10 (64-bit)
+- CentOS Stream 9 (64-bit)
+- CentOS Stream 8 (64-bit)
+
+#### **Ubuntu LTS**
+
+- Ubuntu 24.04 LTS (64-bit)
+- Ubuntu 22.04 LTS (64-bit)
+- Ubuntu 20.04 LTS (64-bit)
+
+#### **Windows Server (Trial Installers)**
+
+- Windows Server 2022 (180-day trial)
+- Windows Server 2019 (180-day trial)
+- Windows Server 2016 (180-day trial)
+
+#### **Custom Installation**
+
+- Alternative / Manual installation via VNC\
+  (Boot your own ISO or use an installer)
+
+---
+
+## OS Options Available in the Dashboard (Auto-Install)
+
+🖥️  After your VPS is deployed, the **Control Panel → Auto-Install** section provides a **much broader** OS selection.
+
+This includes:
+
+- Older versions
+- Multiple LTS generations
+- Legacy builds for compatibility
+- Additional Arch Linux snapshots
+- Windows 10
+- Archived OS templates
+- More advanced choices intended for experienced users
+
+### **Full OS List in Dashboard Auto-Install**
+
+#### **Debian**
+
+- Debian 13
+- Debian 12
+- Debian 11
+- Debian 10
+- Debian 9
+
+#### **Ubuntu LTS**
+
+- Ubuntu 24.04
+- Ubuntu 22.04
+- Ubuntu 20.04
+- Ubuntu 18.04
+- Ubuntu 16.04
+
+#### **AlmaLinux**
+
+- AlmaLinux 9
+- AlmaLinux 8
+
+#### **Rocky Linux**
+
+- Rocky Linux 10
+- Rocky Linux 9
+
+#### **CentOS / CentOS Stream**
+
+- CentOS Stream 10
+- CentOS Stream 9
+- CentOS Stream 8
+- CentOS 7
+
+#### **Arch Linux**
+
+- Arch Linux 20250815
+- Arch Linux 20231115
+
+#### **Windows**
+
+- Windows Server 2022
+- Windows Server 2019
+- Windows Server 2016
+- Windows 10
+
+#### **Custom OS**
+
+- Manual installation via VNC / ISO
+- Cloud-Init custom configurations
+
+---
+
+## 🔍 Why Are The Lists Different?
+
+### **Shopping Cart = Recommended Defaults**
+
+A simplified list that avoids:
+
+- Very old or deprecated OS versions
+- Niche or advanced setups
+- Confusing duplicate entries
+- Legacy LTS generations no longer recommended
+
+This ensures a smooth onboarding experience for new users.
+
+---
+
+### **VPS Control Panel = Full Flexibility**
+
+The dashboard exposes **all available auto-install images**, including:
+
+- Legacy templates still needed by existing customers
+- Older LTS releases
+- Additional builds and snapshots
+- Advanced OS options
+- Deprecated versions kept for compatibility
+
+This allows experienced users full control over their environment.
+
+---
+
+## 🧰 Installing Other Operating Systems
+
+Even if your preferred OS does not appear in the shopping cart, you can install **anything** via:
+
+### ✔ **Cloud-Init**
+
+Automatic configuration (users, SSH keys, packages, scripts).
+
+### ✔ **Manual VNC / ISO Installation**
+
+Boot into any installer:
+
+- FreeBSD / OpenBSD / NetBSD
+- Custom Linux distributions
+- Security appliances
+- Custom ISO images
+
+---
+
+## 📘 Summary
+
+| Feature                    | Shopping Cart | Control Panel Auto-Install |
+| -------------------------- | ------------- | -------------------------- |
+| Modern OS versions         | ✔             | ✔                          |
+| Older LTS releases         | —             | ✔                          |
+| Debian 9 / Ubuntu 16.04    | —             | ✔                          |
+| Multiple Arch Linux builds | —             | ✔                          |
+| CentOS 7                   | —             | ✔                          |
+| Windows 10                 | —             | ✔                          |
+| Windows Server             | ✔             | ✔                          |
+
+---
+
+## 📎 Related Articles
+
+- [How to Install a Custom OS via VNC](/vps-management/custom-os-vnc)
+- [Cloud-Init Quickstart Guide](/vps-management/cloud-init)
+- [Reinstalling Your VPS](/vps-management/reinstall)
+
+---
