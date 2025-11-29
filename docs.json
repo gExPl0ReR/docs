@@ -80,6 +80,7 @@
               "faq/free-trials-available",
               "faq/port-25-smtp-rate-limit-policy",
               "faq/windows-rdp-service-available",
+              "faq/desktop-acceleration",
               "faq/hourly-plans-available",
               {
                 "group": "IP Addresses",
