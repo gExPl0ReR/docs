@@ -29,15 +29,17 @@ apt update && apt upgrade -y
 ```bash
 apt install curl -y
 ```
-5. Disable IPv6:
+5. Disable IPv6 on Ubuntu 22.04:
 ```bash
 #Create file 99-disable-ipv6.conf
 sudo nano /etc/sysctl.d/99-disable-ipv6.conf
+
 #Put this inside the file:
 net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
 net.ipv6.conf.lo.disable_ipv6 = 1
 #Save file and exit, then apply:
+
 sudo sysctl --system
 #Check network settings:
 ip a
@@ -228,7 +230,7 @@ If configured correctly, you will have an entry with the protocol. Try to click 
 In the drop down menu click to the QR code image:
 ![qrcodeclick1](/assets/3x-ui-qrcodeclick1.png)
 
-In the pop-up window you’ll see two QR codes. Click the QR code on the right (the VLESS one) and its client configuration will be copied to your clipboard. Then paste this config into your VPN client on your PC.
+In the pop-up window you’ll see two QR codes. Click the QR code on the right (the VLESS one) and its client configuration will be copied to your clipboard. Then paste this config into your VPN client on your PC or Mobile device.
 ![QRcode2](/assets/3x-ui-QRcode2.png)
 
 
