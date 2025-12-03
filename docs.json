@@ -232,6 +232,15 @@
                   "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows"
                 ]
               },
+              {
+                "group": "Install 3x-ui on VPS",
+                "pages": [
+                  "advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204",
+                  "advanced-setup-guides/install-3x-ui-on-vps/hiddify-client-for-windows",
+                  "advanced-setup-guides/install-3x-ui-on-vps/connect-to-vless-vpn-in-android",
+                  "advanced-setup-guides/install-3x-ui-on-vps/connect-to-vless-vpn-on-ios"
+                ]
+              },
               "advanced-setup-guides/how-to-install-google-chrome-on-windows-server",
               "advanced-setup-guides/forgot-administrator-password-on-windows-server",
               "advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode",

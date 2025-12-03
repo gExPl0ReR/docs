@@ -1,0 +1,48 @@
+---
+title: "Hiddify Client for Windows"
+sidebartitle: Connect to VLESS VPN on Windows
+description: "A complete step-by-step guide on how to connect to VLESS VPN on Windows via Hiddify app"
+---
+
+## Hiddify Client for Windows
+
+To connect to 3X-UI using the Hiddify client from your PC, follow these steps:
+
+1. [Download](https://github.com/hiddify/hiddify-app/releases/) the Hiddify release with the `Latest` tag and install the package or file for your operating system.
+2. Run the installer and complete the setup.
+
+3. After installing Hiddify, go to its install folder (usually <u> C:\Program Files\Hiddify\ </u>), right-click on **Hiddify.exe** and choose Properties, then open the Compatibility tab in the window that appears.
+   Check the box  **Run this program as administrator**, and click OK.
+
+   ![HiddifyAdminPermission](/assets/HiddifyAdminPermission.png)
+
+4. On the main screen, click the settings icon in the top-right corner:
+   ![HiddifyOpenSettings](/assets/HiddifyOpenSettings.png)
+
+5. On the settings panel that opens, select the VPN setting:
+   ![HiddifySetVPN](/assets/HiddifySetVPN.png)
+
+6. Follow to the main Hiddify screen, click the Profiles icon on the left sidebar to open the profile management section:
+   ![HiddifyOpenSettings2](/assets/HiddifyOpenSettings2.png)
+
+7. In the Config Options, find the Region setting under Route Options and click it. Make sure the region is set to **Other** (as shown in the screenshot).
+   ![HiddifyOpenSettings2RegionOther](/assets/HiddifyOpenSettings2RegionOther.png)
+
+8. Follow to the main Hiddify screen, click **New Profile** button:
+   ![HiddifyNewProfile](/assets/HiddifyNewProfile.png)
+
+9. In the pop-up window, click **Add From Clipboard** to automatically create a profile from the VLESS/subscription link you previously copied by clicking the QR code in the 3x-ui panel.
+   ![HiddifyAddNewprofile](/assets/HiddifyAddNewprofile.png)
+
+10. At the top of the window, you should see the name of your VPN profile if the configuration was imported correctly. To connect to the VPN and check connection, just click to **Tap to Connect** button: 
+   ![HiddifyTaptoconnect](/assets/HiddifyTaptoconnect.png)
+
+11. On your first connection, Hiddify will show an “Experimental Features In Use” pop-up. Check **Don’t Show Again** if you like, then click **CONNECT** to continue.
+    ![HiddifyTaptoconnect_PopUP_window](/assets/HiddifyTaptoconnect_PopUP_window.png)
+
+12. Once the button turns green🟢 and shows Connected ✅, your VPN is successfully established🌐. You’ll also see live upload⬇️/download↕️ numbers at the bottom, confirming that your traffic is now going through the VPN.
+    ![HiddifySuccefullyconectedtoVPNserver](/assets/HiddifySuccefullyconectedtoVPNserver.png)
+
+13. Official documentation for Hiddify:
+    - https://hiddify.com/app/How-to-install-Hiddify-app/
+    - https://hiddify.com/app/How-to-use-Hiddify-app/

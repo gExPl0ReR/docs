@@ -1,0 +1,256 @@
+---
+title: "Install 3x-ui on VPS"
+sidebartitle: Install 3x-ui on Ubuntu 22.04
+description: "A complete step-by-step guide on how to install 3x-ui on Ubuntu 22.04, ensuring privacy, bypassing Deep Packet Inspection (DPI), and enabling access to restricted content."
+---
+
+## What is VLESS?
+VLESS is a modern, lightweight protocol used to create fast, flexible VPN-like connections over the internet. It’s an improved version of VMess with a simpler design and no built-in encryption, because it relies on TLS instead. This makes it efficient, good for use with CDNs, and useful for bypassing censorship or network limits when combined with Xray on a VPS.
+
+## What is 3x-ui?
+3x-ui is a web panel (a control dashboard in your browser) for managing Xray-core. It lets you create and manage VLESS VPN accounts without touching complex config files. You can add users, generate VLESS links or QR codes, and see traffic usage in a few clicks. 3x-ui also supports other popular protocols like Trojan, Shadowsocks, and more, so you can choose what works best for your needs. Overall, it turns many “terminal-only” tasks into simple buttons and forms, which is much easier for beginners.
+
+## Installation 3x-ui on VPS
+
+1. Install Ubuntu 22.04 on your EDIS Global VPS.
+2. Connect to the VPS server using the SSH protocol:
+
+```bash
+ssh root@VPS_IP_address
+Enter root password:
+```
+3. Update and upgrade packages
+
+```bash
+apt update && apt upgrade -y 
+```
+4. Install curl package:
+   
+```bash
+apt install curl -y
+```
+5. Disable IPv6:
+```bash
+#Create file 99-disable-ipv6.conf
+sudo nano /etc/sysctl.d/99-disable-ipv6.conf
+#Put this inside the file:
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+#Save file and exit, then apply:
+sudo sysctl --system
+#Check network settings:
+ip a
+ip a | grep inet6
+```
+
+6. Install 3x-ui panel
+
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+```
+
+7. Enter custom panel port 
+<Card>
+During the installation process script asked about change port -> 
+Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]: 
+Type "y" to set your own port. The port should use between  41000-65000 range. For example: 46522
+</Card>
+
+At the end, you will see something like:
+<Card>
+###############################################<br />
+Username: ajYbrazcyO <br />
+Password: HPty32FVU7 <br />
+Port: 46522 <br />
+WebBasePath: ZtvraBUmNK9NQj43ks <br />
+Access URL: http://YOUR_SERVER_IP:46522/ZtvraBUmNK9NQj43ks
+###############################################
+</Card>
+
+<Callout icon="key" color="#FFC107" iconType="regular">Save these credentials to notes.</Callout>
+
+## Connect to the 3x-ui panel
+Never ever connect to 3x-ui by http. It is unsecure. (add more text,examples why)
+
+Always connect to 3x-ui using https or by ssh tunnel. 
+To do this and connect securely to the panel, you need to meet one of these conditions: 
+1) Generate and assign a self-sign cert for panel
+2) Use SSH port forwarding (connection with SSH tunnel)
+3) Use Let's encrypt SSL cert if you register a domain.
+
+In the example below, we will not touch on the domain option.
+
+<Tabs>
+  <Tab title="Self-sign cert" icon="expeditedssl">
+    A self-signed certificate lets the 3x-ui panel use HTTPS, so all data between your browser and the panel is encrypted instead of sent in plain text. Your browser may show a warning because the cert isn’t from a public CA, but the connection is still secure—this helps prevent man-in-the-middle (MITM) attacks and is much safer than using HTTP, especially when entering your password or changing VPN settings.
+
+   Generate a self-signed certificate and apply it to 3x-ui:
+   1. Create a directory for the certificate:
+    ```bash 
+      # Create cert directory
+      sudo mkdir -p /root/cert/
+    ```
+   2. Generate a self-signed certificate: 
+    ```bash
+      sudo openssl req -x509 -nodes -newkey rsa:2048 -days 365 \
+        -keyout /root/cert/private.key \
+        -out /root/cert/cert.crt \
+        -subj "/C=EE/ST=Harjumaa/L=Tallinn/O=Org/OU=site/CN=localhost"
+    ```
+   3. Assign the certificate to the 3x-ui web panel:
+    ```bash
+      sudo /usr/local/x-ui/x-ui cert \
+        -webCert "/root/cert/cert.crt" \
+        -webCertKey "/root/cert/private.key"
+    ```
+   4. Restart the 3x-ui panel to apply changes:
+    ```bash
+    sudo x-ui
+    ```
+    Select option **13** to restart the panel. After that, the 3x-ui web interface will be served over HTTPS using your self-signed certificate.
+
+  </Tab>
+  <Tab title="SSH port forwarding" icon="left-right">
+   SSH port forwarding (SSH tunneling) lets you securely access a service on your VPS, like the 3x-ui web panel, without opening its port to the public internet. You create an encrypted SSH connection where your PC listens on a local port (for example `2222`) and forwards all traffic to the 3x-ui port on the server (for example `46522`), so when you open `http://127.0.0.1:2222/` in your browser, you’re safely talking to the panel through SSH.
+
+   Setup SSH port Forwarding on VPS:
+   ```bash
+      #Execute 3x-ui cli
+      x-ui
+
+      #Select an item 22. SSH Port Forwarding Management 
+      Please enter your selection [0-25]: 22
+
+      #Choose setting Set listen IP
+      Choose an option: 1
+      #Use default IP (127.0.0.1)
+      Select an option (1 or 2): 1
+   ```
+   When you select option 1, 3x-ui will show you sample commands for creating an SSH tunnel from your local machine.
+   
+   <b>Create an SSH tunnel from your PC:</b><br />
+   ```bash
+      SSH Port Forwarding Configuration:
+      Standard SSH command:
+      ssh -L 2222:127.0.0.1:46522 root@134.255.210.100
+
+      If using SSH key:
+      ssh -i <sshkeypath> -L 2222:127.0.0.1:46522 root@YOUR_SERVER_IP
+
+      After connecting, access the panel at:
+      http://localhost:2222/ZtvraBUmNK9NQj43ks/
+   ```
+    You can also use these second example on how to connect to the server from your local machine, where port of 3x-ui is 46522:
+
+   ```bash
+      ssh -L 127.0.0.1:2222:127.0.0.1:46522 root@YOUR_SERVER_IP
+   ```
+
+    Open URL in the browser on your own PC:
+   ```text
+      http://127.0.0.1:2222/ZtvraBUmNK9NQj43ks
+   ```
+
+  </Tab>
+  <Tab title="Let's encrypt SSL cert" icon="certificate">
+   To get a trusted HTTPS certificate from Let’s Encrypt for the 3x-ui panel, you need:
+   - Domain name, e.g. vpn.example.com
+   - That domain’s A record pointing to your VPS IP(set in the hosting provider)
+   - Port 80 on the VPS open to the internet (for HTTP validation)
+
+   Connect to the server via SSH and run these commands:
+   ```bash
+      #Execute 3x-ui cli
+      x-ui
+
+      #Select SSL Certificate Management
+      Please enter your selection [0-25]: 18
+
+      #Choose “Get SSL”
+      Choose an option: 1
+
+      Select Get SSL, then enter:
+      Your domain name (e.g. vpn.example.com)
+      Your email address (used by Let’s Encrypt)
+
+      #Set the certificate for the 3x-ui panel
+      In the same SSL Certificate Management menu, choose Set Certificate Paths for the Panel, then pick the certificate for your domain so the panel uses it for HTTPS.
+
+      #Restart the 3x-ui panel to apply changes:
+      sudo x-ui
+      Select option **13** to restart the panel.
+      #After that, you can use URLs with valid Let’s Encrypt certificate:
+      https://vpn.example.com:PORT/ 
+   ```
+  </Tab>
+</Tabs>
+
+<Check>
+Great, you’re now securely connected and logged in to the 3x-ui panel. Next, you’ll create a new inbound and connect to your server from your client apps. 
+</Check>
+
+## 3X-UI panel 
+Login to the panel:
+
+![3x-ui login](/assets/3x-ui-login.png)
+
+After logging into the 3X-UI panel, go to the Inbounds tab and click on the Add Inbound button:
+
+![inbounds](/assets/3x-ui-inbounds.png)
+
+Fill in the following fields in the opened menu:
+
+- Remark - name the connection
+- Protocol - select <b>vless</b>
+- Listen IP - leave the field blank;
+- Port - specify port <b>443</b>.
+- Click on the Client drop-down list and click one by one to the Email, ID, Subscription to update. 
+- For Flow settings choose <b>xtls-rprx-vision</b>. The Flow will be visible after activation Reality for Security setting.
+![addinbound](/assets/3x-ui-addinbound.png)
+
+- Trasmission - TCP(RAW)
+- Security - Reality
+- uTLS - chrome or firefox
+- Target - google.com:443
+- SNI - google.com,www.google.com
+- Short IDs click to update 
+- Click to Generate New Cert
+![addinbound2](/assets/3x-ui-addinbound2.png)
+
+Activate Sniffing, switch to enable:
+![addinbound3snifingenable](/assets/3x-ui-addinbound3snifingenable.png)
+After entering the data, click the Create button.
+
+If configured correctly, you will have an entry with the protocol. Try to click on the <b>+</b> plus to show client settings for export:
+![inboundcreated](/assets/3x-ui-inboundcreated.png)
+
+In the drop down menu click to the QR code image:
+![qrcodeclick1](/assets/3x-ui-qrcodeclick1.png)
+
+In the pop-up window you’ll see two QR codes. Click the QR code on the right (the VLESS one) and its client configuration will be copied to your clipboard. Then paste this config into your VPN client on your PC.
+![QRcode2](/assets/3x-ui-QRcode2.png)
+
+
+## How to Connect to 3x-ui (PC, Android, iOS)
+
+Descabe about 3X-UI clients for PC: **Hiddify**, **v2rayN**, **v2RayTun**, **v2RayNG**, **Nekoray** and others. 
+
+| Client        | Mobile (Android / iOS)                                                                       | PC (Windows / Linux / macOS)                                                                                                                                       | Notes                                                                  |
+| ------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
+| **v2rayNG**   | <Icon icon="android" iconType="solid" /> Android                                             | –                                                                                                                                                                  | Popular Android V2Ray/Xray client; supports import via link/QR.        |
+| **v2RayTun**  | <Icon icon="android" iconType="solid" /> Android, <Icon icon="apple" iconType="solid" /> iOS | <Icon icon="windows" iconType="solid" /> Windows                                                                                                                   | Xray-based client that works well with VLESS/Trojan configs.           |
+| **Streisand** | <Icon icon="android" iconType="solid" /> Android, <Icon icon="apple" iconType="solid" /> iOS | <Icon icon="windows" iconType="solid" /> Windows <br /> <Icon icon="apple" iconType="solid" /> macOS                                                                     | Multi-protocol client supporting VLESS, VMess, Trojan, Shadowsocks.    |
+| **Hiddify**   | <Icon icon="android" iconType="solid" /> Android, <Icon icon="apple" iconType="solid" /> iOS | <Icon icon="windows" iconType="solid" /> Windows <br /> <Icon icon="apple" iconType="solid" /> macOS <br /> <Icon icon="linux" iconType="solid" /> Linux                       | Multi-platform client; easy to use with 3x-ui links and subscriptions. |
+| **v2rayN**    | –                                                                                            | <Icon icon="windows" iconType="solid" /> Windows <br /> <Icon icon="linux" iconType="solid" /> Linux <br /> <Icon icon="apple" iconType="solid" /> macOS | Classic GUI client for VLESS/VMess/Trojan/Xray.                        |
+| **Nekoray**   | –                                                                                            | <Icon icon="windows" iconType="solid" /> Windows <br /> <Icon icon="linux" iconType="solid" /> Linux                                                                     | Cross-platform GUI proxy client for desktops and laptops.              |
+
+
+Links:
+- https://github.com/MHSanaei/3x-ui
+- https://github.com/MHSanaei/3x-ui/wiki
+- https://github.com/MHSanaei/3x-ui/wiki/Installation#docker-recommended
+- https://github.com/XTLS/Xray-core
+- https://xtls.github.io/en/config/inbounds/vless.html
+
+

@@ -1,0 +1,32 @@
+---
+title: "Connect to VLESS VPN on Android"
+sidebartitle: Connect to VLESS VPN on Android
+description: "A complete step-by-step guide on how to connect to VLESS VPN on Android"
+---
+
+## Connect to VLESS VPN in Android
+1. **Install v2rayNG**  
+   - Open **Google Play**, search for **v2rayNG**, then download and install the app.  
+   - Official site link: https://en.v2rayng.org/download/
+   - Official Github release page: https://github.com/2dust/v2rayNG/releases/
+
+2. **Open v2rayNG and create a new connection**
+   Tap the **“+”** icon (usually in the top-right corner) to add a new server.
+   ![v2rayNGaddnewserver](/assets/v2rayNG1.png)
+3. **Add the VPN config from 3x-ui**
+  - In v2rayNG, choose **Scan QR code** (and point the camera at the QR from 3x-ui).   
+   - The new VPN profile will appear in the list.
+   ![v2rayNGimportconfig](/assets/v2rayNG2.png)
+
+4. **Connect and check the status**  
+   Tap the newly added profile, then tap the **paper airplane / connect** button.  
+   ![v2rayNGstartVPN](/assets/v2rayNG3.png)
+
+   When you tap connect, Android shows a “Connection request” pop-up from v2rayNG. Tap **OK** to allow the app to create the VPN connection and continue.
+   ![v2rayNGpopupwindow](/assets/v2rayNG4.png)
+
+   When the status changes to **Connected**, your Android device is using the VPN. Click to **Connected, tap to check connection** 
+   ![v2rayNGpopupwindow](/assets/v2rayNG5.png)
+
+   If you see **Success: Connection took *ms**, that means connection establishment.
+   ![v2rayNGpopupwindow](/assets/v2rayNG6.png)
