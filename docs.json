@@ -237,8 +237,8 @@
                 "pages": [
                   "advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204",
                   "advanced-setup-guides/install-3x-ui-on-vps/hiddify-client-for-windows",
-                  "advanced-setup-guides/install-3x-ui-on-vps/connect-to-vless-vpn-in-android",
-                  "advanced-setup-guides/install-3x-ui-on-vps/3x-ui-client-on-ios"
+                  "advanced-setup-guides/install-3x-ui-on-vps/v2rayng-vpn-client-on-android",
+                  "advanced-setup-guides/install-3x-ui-on-vps/v2raytun-vpn-client-on-ios"
                 ]
               },
               "advanced-setup-guides/how-to-install-google-chrome-on-windows-server",
