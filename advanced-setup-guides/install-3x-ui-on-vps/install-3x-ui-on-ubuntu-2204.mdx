@@ -11,74 +11,75 @@ VLESS is a modern, lightweight protocol used to create fast, flexible VPN-like c
 3x-ui is a web panel (a control dashboard in your browser) for managing Xray-core. It lets you create and manage VLESS VPN accounts without touching complex config files. You can add users, generate VLESS links or QR codes, and see traffic usage in a few clicks. 3x-ui also supports other popular protocols like Trojan, Shadowsocks, and more, so you can choose what works best for your needs. Overall, it turns many “terminal-only” tasks into simple buttons and forms, which is much easier for beginners.
 
 ## Installation 3x-ui on VPS
+<Steps>
+  <Step title="Install Ubuntu 22.04 on your EDIS Global VPS">
+    [Purchase a VPS](https://www.edisglobal.com/) in your preferred location through our website.
+  </Step>
+  <Step title="Connect to the VPS server using the SSH protocol:">
+    ```bash
+        ssh root@VPS_IP_address
+        Enter root password:
+    ```
+  </Step>
+  <Step title="Update and upgrade packages">
+    ```bash
+        apt update && apt upgrade -y 
+    ```
+  </Step>
+  <Step title="Install curl package:">
+    ```bash
+        apt install curl -y
+    ```
+  </Step>
+  <Step title="Disable IPv6 on Ubuntu 22.04:">
+    ```bash
+        #Create file 99-disable-ipv6.conf
+        sudo nano /etc/sysctl.d/99-disable-ipv6.conf
 
-1. Install Ubuntu 22.04 on your EDIS Global VPS.
-2. Connect to the VPS server using the SSH protocol:
+        #Put this inside the file:
+        net.ipv6.conf.all.disable_ipv6 = 1
+        net.ipv6.conf.default.disable_ipv6 = 1
+        net.ipv6.conf.lo.disable_ipv6 = 1
+        #Save file and exit, then apply:
 
-```bash
-ssh root@VPS_IP_address
-Enter root password:
-```
-3. Update and upgrade packages
+        sudo sysctl --system
+        #Check network settings:
+        ip a
+        ip a | grep inet6
+    ```
+  </Step>
+  <Step title="Install 3x-ui panel">
+    ```bash
+        bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+    ```
+  </Step>
+  <Step title="During the installation process script asked about change port">
+    ```bash
+        Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]: 
+    ```
+  Type **y** to set your own port. The port should use between  41000-65000 range. For example: 46522
+  
+  At the end, you will see something like:
+  <Card>
+  ###############################################<br />
+  Username: ajYbrazcyO <br />
+  Password: HPty32FVU7 <br />
+  Port: 46522 <br />
+  WebBasePath: ZtvraBUmNK9NQj43ks <br />
+  Access URL: http://YOUR_SERVER_IP:46522/ZtvraBUmNK9NQj43ks
+  ###############################################
+  </Card>
 
-```bash
-apt update && apt upgrade -y 
-```
-4. Install curl package:
-   
-```bash
-apt install curl -y
-```
-5. Disable IPv6 on Ubuntu 22.04:
-```bash
-#Create file 99-disable-ipv6.conf
-sudo nano /etc/sysctl.d/99-disable-ipv6.conf
-
-#Put this inside the file:
-net.ipv6.conf.all.disable_ipv6 = 1
-net.ipv6.conf.default.disable_ipv6 = 1
-net.ipv6.conf.lo.disable_ipv6 = 1
-#Save file and exit, then apply:
-
-sudo sysctl --system
-#Check network settings:
-ip a
-ip a | grep inet6
-```
-
-6. Install 3x-ui panel
-
-```bash
-bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
-```
-
-7. During the installation process script asked about change port
-```bash
-Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]: 
-```
-Type **y** to set your own port. The port should use between  41000-65000 range. For example: 46522
-
-At the end, you will see something like:
-<Card>
-###############################################<br />
-Username: ajYbrazcyO <br />
-Password: HPty32FVU7 <br />
-Port: 46522 <br />
-WebBasePath: ZtvraBUmNK9NQj43ks <br />
-Access URL: http://YOUR_SERVER_IP:46522/ZtvraBUmNK9NQj43ks
-###############################################
-</Card>
-
-<Callout icon="key" color="#FFC107" iconType="regular">Save these credentials to notes.</Callout>
+  <Callout icon="key" color="#FFC107" iconType="regular">Save these credentials to notes.</Callout>
+  </Step>
+</Steps>
 
 ## Connect to the 3x-ui panel
-Never ever connect to 3x-ui by http. It is unsecure. (add more text,examples why)
+Never connect to 3x-ui over plain http – it’s not secure. Always access the panel via https or through an SSH tunnel. To secure your connection to 3x-ui, make sure at least one of the following is set up:
 
-Always connect to 3x-ui using https or by ssh tunnel. 
-To do this and connect securely to the panel, you need to meet one of these conditions: 
-- Generate and assign a self-sign cert for panel
-- Use SSH port forwarding (connection with SSH tunnel)
-- Use Let's encrypt SSL cert if you register a domain.
+- Generate and assign a self-signed certificate for the panel
+- Use SSH port forwarding (access 3x-ui through an SSH tunnel)
+- Use a Let’s Encrypt SSL certificate if you have a registered domain
 
 <Tabs>
   <Tab title="Self-sign cert" icon="expeditedssl">
