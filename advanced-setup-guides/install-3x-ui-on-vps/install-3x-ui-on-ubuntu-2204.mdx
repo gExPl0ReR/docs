@@ -52,12 +52,11 @@ ip a | grep inet6
 bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
 ```
 
-7. Enter custom panel port 
-<Card>
-During the installation process script asked about change port -> 
+7. During the installation process script asked about change port
+```bash
 Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]: 
-Type "y" to set your own port. The port should use between  41000-65000 range. For example: 46522
-</Card>
+```
+Type **y** to set your own port. The port should use between  41000-65000 range. For example: 46522
 
 At the end, you will see something like:
 <Card>
@@ -77,11 +76,9 @@ Never ever connect to 3x-ui by http. It is unsecure. (add more text,examples why
 
 Always connect to 3x-ui using https or by ssh tunnel. 
 To do this and connect securely to the panel, you need to meet one of these conditions: 
-1) Generate and assign a self-sign cert for panel
-2) Use SSH port forwarding (connection with SSH tunnel)
-3) Use Let's encrypt SSL cert if you register a domain.
-
-In the example below, we will not touch on the domain option.
+- Generate and assign a self-sign cert for panel
+- Use SSH port forwarding (connection with SSH tunnel)
+- Use Let's encrypt SSL cert if you register a domain.
 
 <Tabs>
   <Tab title="Self-sign cert" icon="expeditedssl">

@@ -4,10 +4,24 @@ sidebartitle: v2RayTun VPN client on iOS
 description: "A complete step-by-step guide on how to connect to VLESS VPN on iOS"
 ---
 
-## Connect to VLESS VPN on iOS
+## Connect to VLESS VPN on iOS (v2RayTun)
 
-1. Download and install v2RayTun on iOS use link: https://apps.apple.com/th/app/v2raytun/id6476628951
+1. **Install v2RayTun**  
+   [Download](https://apps.apple.com/th/app/v2raytun/id6476628951) and install v2RayTun on iOS.
 
-2. Import client config to v2RayTun
+2. **Copy your VLESS link from 3x-ui**  
+   In the 3x-ui panel, open your inbound click the QR code and copy the key/link to your clipboard.
 
-3. Connect to the server 
+3. **Import the config into v2RayTun**  
+   - Open **v2RayTun** on your iPhone.  
+   - Tap the **“+” / Add** button to create a new configuration.  
+   - Choose **Import from Clipboard** (or **Scan QR** if you’re scanning directly from the 3x-ui QR code).  
+   - Your server profile will appear in the list.
+
+4. **Connect to the VPN**  
+   - Tap your new profile to select it.  
+   - Tap **Connect** (or toggle the main switch).  
+   - On first use, iOS will show a **“VPN Configurations”** permission popup – tap **Allow** and confirm with Face ID/Touch ID or your passcode.
+
+5. **Verify the connection**  
+   When the status shows **Connected** and the **VPN icon** appears in the top bar of iOS, your iPhone is successfully connected to the VLESS VPN through v2RayTun.
