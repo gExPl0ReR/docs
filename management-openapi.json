@@ -7,16 +7,8 @@
   },
   "servers": [
     {
-      "url": "https://virtserver.swaggerhub.com/GERHARDKLEEWEIN/New-edis-api-doc/1.0.0",
-      "description": "SwaggerHub API Auto Mocking"
-    },
-    {
-      "url": "https://api.edisglobal.com/v1",
-      "description": "Production Server"
-    },
-    {
-      "url": "https://sandbox.api.edisglobal.com/v1",
-      "description": "Sandbox Server"
+      "url": "https://{api_host}.edisglobal.com",
+      "description": "Server"
     },
     {
       "url": "https://session.edisglobal.com",
