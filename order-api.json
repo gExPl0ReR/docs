@@ -6,6 +6,7 @@
     "version": "1.0.0"
   },
   "servers": [
+    
     {
       "url": "https://api.orders.edisglobal.com/v1",
       "description": "Production Server"
