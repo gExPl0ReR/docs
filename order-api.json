@@ -7,15 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://virtserver.swaggerhub.com/GERHARDKLEEWEIN/New-order-docs/1.0.0",
-      "description": "SwaggerHub API Auto Mocking"
-    },
-    {
-      "url": "https://api.orders.edisglobal.com/v1",
-      "description": "Production Server"
-    },
-    {
-      "url": "https://sandbox.orders.edisglobal.com/v1",
+      "url": "https://order.edisglobal.com",
       "description": "Sandbox Server"
     }
   ],
