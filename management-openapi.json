@@ -43,18 +43,6 @@
       "description": "KVM Webhook Management"
     }
   ],
-   "servers": [
-    {
-      "url": "https://{api_host}.edisglobal.com",
-      "description": "Set `api_host` to the value returned from the \"Create AUTH-session\" response. This keeps the Try It console available globally.",
-      "variables": {
-        "api_host": {
-          "description": "The API host obtained from the \"Create AUTH-session\" response (unique per server).",
-          "default": "xxxxx"
-        }
-      }
-    },
-  ],
   "paths": {
     "/kvm/v2/get/auth": {
       "post": {
