@@ -112,7 +112,13 @@
             "description": "Session Authentication Server"
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://session.edisglobal.com",
+          "description": "Session Authentication Server"
+        }
+      ]
     },
     "/kvm/v2/set/reset": {
       "post": {
@@ -197,7 +203,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/power": {
       "post": {
@@ -282,7 +300,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/poweron": {
       "post": {
@@ -367,7 +397,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/poweroff": {
       "post": {
@@ -452,7 +494,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/isos": {
       "post": {
@@ -537,7 +591,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/reinstall": {
       "post": {
@@ -622,7 +688,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/mount": {
       "post": {
@@ -707,7 +785,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/umount": {
       "post": {
@@ -792,7 +882,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/download_iso": {
       "post": {
@@ -877,7 +979,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/upload_qcow2": {
       "post": {
@@ -962,7 +1076,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/images": {
       "post": {
@@ -1047,7 +1173,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/config": {
       "post": {
@@ -1167,7 +1305,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/config": {
       "post": {
@@ -1252,7 +1402,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/screenshot": {
       "post": {
@@ -1337,7 +1499,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/all_details": {
       "post": {
@@ -1422,7 +1596,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/traffic": {
       "post": {
@@ -1507,7 +1693,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/cpu_usage": {
       "post": {
@@ -1562,7 +1760,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/details": {
       "post": {
@@ -1647,7 +1857,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/mount": {
       "post": {
@@ -1732,7 +1954,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/vnc/keyboard": {
       "post": {
@@ -1817,7 +2051,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/vnc/status": {
       "post": {
@@ -1902,7 +2148,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/vnc/enable": {
       "post": {
@@ -1987,7 +2245,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/vnc/disable": {
       "post": {
@@ -2072,7 +2342,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/get/ptr": {
       "post": {
@@ -2141,7 +2423,13 @@
             "description": "DNS API Server"
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://dns-api.edis.at",
+          "description": "DNS API Server"
+        }
+      ]
     },
     "/del/ptr": {
       "post": {
@@ -2210,7 +2498,13 @@
             "description": "DNS API Server"
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://dns-api.edis.at",
+          "description": "DNS API Server"
+        }
+      ]
     },
     "/set/ptr": {
       "post": {
@@ -2279,7 +2573,13 @@
             "description": "DNS API Server"
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://dns-api.edis.at",
+          "description": "DNS API Server"
+        }
+      ]
     },
     "/kvm/v2/hooks/get": {
       "post": {
@@ -2364,7 +2664,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/autohydration_enable": {
       "post": {
@@ -2484,7 +2796,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/autohydration_disable": {
       "post": {
@@ -2604,7 +2928,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/autohydration_status": {
       "post": {
@@ -2745,7 +3081,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/pool_traffic": {
       "post": {
@@ -2820,7 +3168,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/get/refill_log": {
       "post": {
@@ -2895,7 +3255,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/set/additional_pool_traffic": {
       "post": {
@@ -2970,7 +3342,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/hooks/del": {
       "post": {
@@ -3055,7 +3439,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/kvm/v2/hooks/set": {
       "post": {
@@ -3140,7 +3536,19 @@
             }
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{api_host}.edisglobal.com",
+          "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+          "variables": {
+            "api_host": {
+              "description": "The API host obtained from the \"Create AUTH-session\" response.",
+              "default": "xxxxx"
+            }
+          }
+        }
+      ]
     },
     "/example/callback": {
       "post": {
@@ -3199,7 +3607,13 @@
             "description": "Callback URL"
           }
         ]
-      }
+      },
+      "servers": [
+        {
+          "url": "https://{callback_url}",
+          "description": "Callback URL"
+        }
+      ]
     }
   },
   "components": {
