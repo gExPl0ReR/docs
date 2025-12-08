@@ -68,6 +68,12 @@
           },
           "required": true
         },
+        "servers": [
+          {
+            "url": "https://session.edisglobal.com",
+            "description": "Session Authentication Server"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Authentication session created successfully.",
