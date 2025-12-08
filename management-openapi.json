@@ -207,7 +207,6 @@
           "Power Management"
         ],
         "summary": "power state",
-        "description": "This endpoint retrieves the power state of the specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nUse the `signature`, `kvm_id`, and `valid_until` parameters returned from the \n\"Create AUTH-session\" response to authenticate the request.\n",
         "operationId": "getPowerState",
         "requestBody": {
           "description": "Required parameters to retrieve the power state.",
@@ -376,7 +375,6 @@
           "Power Management"
         ],
         "summary": "Power off",
-        "description": "This endpoint powers off the specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters from the \n\"Create AUTH-session\" response to authenticate the request.\n",
         "operationId": "powerOffVPS",
         "requestBody": {
           "description": "Required parameters to power off the VPS.",
@@ -461,7 +459,6 @@
           "Installation"
         ],
         "summary": "ISO installation",
-        "description": "This endpoint retrieves a list of available ISO files that can be used for installation on the specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters from the \n\"Create AUTH-session\" response to authenticate the request.\n",
         "operationId": "getISOList",
         "requestBody": {
           "description": "Required parameters to retrieve the ISO list.",
@@ -546,7 +543,6 @@
           "Installation"
         ],
         "summary": "Reinstall",
-        "description": "This endpoint reinstalls the operating system on the specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and other required parameters \nto execute the reinstallation.\n",
         "operationId": "reinstallVPS",
         "requestBody": {
           "description": "Required parameters to reinstall the operating system.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -631,7 +627,6 @@
           "Installation"
         ],
         "summary": "Mount ISO",
-        "description": "This endpoint mounts an ISO file to the specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and `iso` parameters.  \nOptionally, you can include `force_reset` to reset the VPS and boot from the mounted ISO.\n",
         "operationId": "mountISO",
         "requestBody": {
           "description": "Required parameters to mount an ISO to the VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -716,7 +711,6 @@
           "Installation"
         ],
         "summary": "Unmount ISO",
-        "description": "This endpoint unmounts the currently mounted ISO file from the specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to execute the unmount operation.\n",
         "operationId": "umountISO",
         "requestBody": {
           "description": "Required parameters to unmount an ISO from the VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -801,7 +795,6 @@
           "Installation"
         ],
         "summary": "Download custom ISO",
-        "description": "This endpoint downloads a custom ISO from a provided URL and adds it to the specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and the `url` of the ISO to be downloaded.\n",
         "operationId": "downloadCustomISO",
         "requestBody": {
           "description": "Required parameters to download a custom ISO and add it to the VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -886,7 +879,6 @@
           "Installation"
         ],
         "summary": "Upload and replace qcow2",
-        "description": "This endpoint uploads and replaces the current qcow2 image on the specified KVM VPS.  \n**Warning:** All data on the VPS will be permanently lost if this operation is performed.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and confirm data replacement by including `yes_purge_all_my_data` parameter.\n",
         "operationId": "uploadQCOW2",
         "requestBody": {
           "description": "Required parameters to upload and replace the qcow2 image.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded` or as file upload where specified.\n",
@@ -971,7 +963,6 @@
           "Installation"
         ],
         "summary": "Get autoinstall images",
-        "description": "This endpoint retrieves a list of available autoinstall images for the specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to fetch the available images.\n",
         "operationId": "getAutoinstallImages",
         "requestBody": {
           "description": "Required parameters to retrieve the list of autoinstall images.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -1054,7 +1045,6 @@
       "post": {
         "tags": ["Settings"],
         "summary": "Set Configuration",
-        "description": "This endpoint allows you to set various configuration settings for a specified KVM VPS.\n\nUse the `api_host` parameter obtained from the **'Create AUTH-session'** response to authenticate the request.\n\n### Required Parameters:\n- **signature**: The session signature obtained from the 'Create AUTH-session' call.\n- **kvm_id**: The unique identifier of the KVM VPS.\n- **valid_until**: The expiration timestamp for the session.\n- **config**: A JSON object containing the configuration settings.\n\n### Example Configuration:\n```json\n{\"boot_timeout\":\"5000\",\"vnc_keymap\":\"en-us\",\"cpu_model\":\"passthrough\",\"disk_driver\":\"virtio\",\"nw_driver\":\"virtio\",\"video_driver\":\"cirrus\",\"description\":\"[a-zA-Z\\-0-9\\.\\_]\",\"assigned_vlan\":\"your vlan id\",\"cpu_set_cores\":\"core or socket\",\"auto_hydration\":100}\n```",
         "operationId": "setKvmConfiguration",
         "servers": [
           {
@@ -1174,7 +1164,6 @@
           "Settings"
         ],
         "summary": "Get configuration",
-        "description": "This endpoint retrieves the current configuration settings for the specified KVM VPS.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to fetch the configuration.\n",
         "operationId": "getKvmVpsSettings",
         "requestBody": {
           "description": "Required parameters to fetch the configuration for a VPS.",

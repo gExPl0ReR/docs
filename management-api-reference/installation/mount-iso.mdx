@@ -2,4 +2,5 @@
 openapi: post /kvm/v2/set/mount
 title: Mount ISO
 sidebarTitle: Mount ISO
+description: "This endpoint mounts an ISO file to the specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and `iso` parameters.  \nOptionally, you can include `force_reset` to reset the VPS and boot from the mounted ISO.\n"
 ---
