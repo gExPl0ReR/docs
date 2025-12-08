@@ -63,7 +63,7 @@
           },
           "required": true
         },
-              "servers": [
+          "servers": [
           {
             "url": "https://session.edisglobal.com",
             "description": "Session Authentication Server"
