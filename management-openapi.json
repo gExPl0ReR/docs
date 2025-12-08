@@ -45,12 +45,6 @@
   ],
   "paths": {
     "/kvm/v2/get/auth": {
-      "servers": [
-        {
-          "url": "https://session.edisglobal.com",
-          "description": "Session Authentication Server"
-        }
-      ],
       "post": {
         "tags": [
           "Authentication"
