@@ -5,6 +5,22 @@
     "description": "Use the API to access and manage your VPS services, including power control, rDNS, and VNC management.  \n**Authentication:** Enable API access on any KVM VPS you own. Then use the provided credentials to authenticate your requests.\n",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://{api_host}.edisglobal.com",
+      "description": "Set `api_host` to the value returned from the \"Create AUTH-session\" response. This keeps the Try It console available globally.",
+      "variables": {
+        "api_host": {
+          "description": "The API host obtained from the \"Create AUTH-session\" response (unique per server).",
+          "default": "xxxxx"
+        }
+      }
+    },
+    {
+      "url": "https://session.edisglobal.com",
+      "description": "Session Authentication Server"
+    }
+  ],
   "tags": [
     {
       "name": "Authentication",
@@ -45,6 +61,12 @@
   ],
   "paths": {
     "/kvm/v2/get/auth": {
+      "servers": [
+        {
+          "url": "https://session.edisglobal.com",
+          "description": "Session Authentication Server"
+        }
+      ],
       "post": {
         "tags": [
           "Authentication"
@@ -54,6 +76,7 @@
         "servers": [
           {
             "url": "https://session.edisglobal.com",
+            "description": "Session Authentication Server"
           }
         ],
         "operationId": "createAuthSession",
@@ -68,12 +91,6 @@
           },
           "required": true
         },
-        "servers": [
-          {
-            "url": "https://session.edisglobal.com",
-            "description": "Session Authentication Server"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Authentication session created successfully.",
@@ -111,7 +128,7 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/inline_response_500"
-                  }
+                }
               }
             }
           }
