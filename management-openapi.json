@@ -5,6 +5,22 @@
     "description": "Use the API to access and manage your VPS services, including power control, rDNS, and VNC management.  \n**Authentication:** Enable API access on any KVM VPS you own. Then use the provided credentials to authenticate your requests.\n",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://{api_host}.edisglobal.com",
+      "description": "Set `api_host` to the value returned from the \"Create AUTH-session\" response. This keeps the Try It console available globally.",
+      "variables": {
+        "api_host": {
+          "description": "The API host obtained from the \"Create AUTH-session\" response (unique per server).",
+          "default": "xxxxx"
+        }
+      }
+    },
+    {
+      "url": "https://session.edisglobal.com",
+      "description": "Session Authentication Server"
+    }
+  ],
   "tags": [
     {
       "name": "Authentication",
@@ -45,12 +61,24 @@
   ],
   "paths": {
     "/kvm/v2/get/auth": {
+      "servers": [
+        {
+          "url": "https://session.edisglobal.com",
+          "description": "Session Authentication Server"
+        }
+      ],
       "post": {
         "tags": [
           "Authentication"
         ],
         "summary": "Create AUTH-session",
         "description": "Use this endpoint to create an authentication session for managing your KVM VPS. Simply provide your WHMCS credentials (`email` and `password`) to authenticate requests. Optionally, you can specify a `kvm_id` to limit the session access to a specific KVM instance.\n",
+        "servers": [
+          {
+            "url": "https://session.edisglobal.com",
+            "description": "Session Authentication Server"
+          }
+        ],
         "operationId": "createAuthSession",
         "requestBody": {
           "description": "Required credentials to authenticate and create a session. Optionally, you can include `kvm_id` to target a specific KVM.",
@@ -104,13 +132,7 @@
               }
             }
           }
-        },
-        "servers": [
-          {
-            "url": "https://session.edisglobal.com",
-            "description": "Session Authentication Server"
-          }
-        ]
+        }
       }
     },
     "/kvm/v2/set/reset": {
@@ -187,7 +209,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Power Management Server - Replace `api_host` with the value returned \nfrom the \"Create AUTH-session\" response.  \nThis URL is unique for each server and must be dynamically set.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -272,7 +294,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Power Management Server - Replace `api_host` with the value returned \nfrom the \"Create AUTH-session\" response.  \nThis URL is unique for each server and must be dynamically set.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -357,7 +379,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Power Management Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nThis URL is unique for each server and must be dynamically set.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -442,7 +464,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Power Management Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nThis URL is unique for each server and must be dynamically set.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -527,7 +549,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Installation Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nThis URL is unique for each server and must be dynamically set.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -612,7 +634,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Installation Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nThis URL is unique for each session.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -697,7 +719,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Installation Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nThis URL is unique for each session.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -782,7 +804,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Installation Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nThis URL is unique for each session.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -867,7 +889,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Installation Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nThis URL is unique for each session.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -952,7 +974,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Installation Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nThis URL is unique for each session.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -1037,7 +1059,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Installation Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -1050,12 +1072,22 @@
     },
     "/kvm/v2/set/config": {
       "post": {
-        "tags": [
-          "Settings"
-        ],
+        "tags": ["Settings"],
         "summary": "Set Configuration",
         "description": "This endpoint allows you to set various configuration settings for a specified KVM VPS.\n\nUse the `api_host` parameter obtained from the **'Create AUTH-session'** response to authenticate the request.\n\n### Required Parameters:\n- **signature**: The session signature obtained from the 'Create AUTH-session' call.\n- **kvm_id**: The unique identifier of the KVM VPS.\n- **valid_until**: The expiration timestamp for the session.\n- **config**: A JSON object containing the configuration settings.\n\n### Example Configuration:\n```json\n{\"boot_timeout\":\"5000\",\"vnc_keymap\":\"en-us\",\"cpu_model\":\"passthrough\",\"disk_driver\":\"virtio\",\"nw_driver\":\"virtio\",\"video_driver\":\"cirrus\",\"description\":\"[a-zA-Z\\-0-9\\.\\_]\",\"assigned_vlan\":\"your vlan id\",\"cpu_set_cores\":\"core or socket\",\"auto_hydration\":100}\n```",
         "operationId": "setKvmConfiguration",
+        "servers": [
+          {
+            "url": "https://{api_host}.edisglobal.com",
+            "description": "Settings Server - The `api_host` parameter, obtained from the 'Create AUTH-session' response, is dynamically set in the URL.",
+            "variables": {
+              "api_host": {
+                "default": "xxxxx",
+                "description": "The API host obtained from the 'Create AUTH-session' response."
+              }
+            }
+          }
+        ],
         "requestBody": {
           "description": "Parameters required to configure a KVM VPS.",
           "content": {
@@ -1153,19 +1185,7 @@
               }
             }
           }
-        },
-        "servers": [
-          {
-            "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
-            "variables": {
-              "api_host": {
-                "description": "The API host obtained from the \"Create AUTH-session\" response.",
-                "default": "xxxxx"
-              }
-            }
-          }
-        ]
+        }
       }
     },
     "/kvm/v2/get/config": {
@@ -1242,7 +1262,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Settings Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -1327,10 +1347,10 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Screenshot Server - The `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \ndynamically replaces `xxxxx` in the URL.\n",
             "variables": {
               "api_host": {
-                "description": "The API host obtained from the \"Create AUTH-session\" response.",
+                "description": "The API host value obtained from the **\"Create AUTH-session\"** response.",
                 "default": "xxxxx"
               }
             }
@@ -1412,10 +1432,10 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Details Server - The `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \ndynamically replaces `xxxxx` in the URL.\n",
             "variables": {
               "api_host": {
-                "description": "The API host obtained from the \"Create AUTH-session\" response.",
+                "description": "The API host value obtained from the **\"Create AUTH-session\"** response.",
                 "default": "xxxxx"
               }
             }
@@ -1497,7 +1517,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Traffic Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -1552,7 +1572,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "CPU Usage Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -1637,7 +1657,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Details Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -1722,7 +1742,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Mount Details Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -1807,7 +1827,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "VNC Management Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -1892,7 +1912,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "VNC Management Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -1977,7 +1997,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "VNC Management Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -2062,7 +2082,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "VNC Management Server - The `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -2137,7 +2157,7 @@
         "servers": [
           {
             "url": "https://dns-api.edis.at",
-            "description": "DNS API Server"
+            "description": "Reverse DNS API Server"
           }
         ]
       }
@@ -2206,7 +2226,7 @@
         "servers": [
           {
             "url": "https://dns-api.edis.at",
-            "description": "DNS API Server"
+            "description": "Reverse DNS API Server"
           }
         ]
       }
@@ -2275,7 +2295,7 @@
         "servers": [
           {
             "url": "https://dns-api.edis.at",
-            "description": "DNS API Server"
+            "description": "Reverse DNS API Server"
           }
         ]
       }
@@ -2354,7 +2374,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Webhooks API Server",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -2367,12 +2387,22 @@
     },
     "/kvm/v2/set/autohydration_enable": {
       "post": {
-        "tags": [
-          "Traffic Pool"
-        ],
+        "tags": ["Traffic Pool"],
         "summary": "Enable Auto Hydration",
         "description": "This endpoint enables auto hydration for a specified KVM VPS, setting the hydration limit to 100 GB. \n\nUse the `api_host` from the 'Create AUTH-session' response to authenticate. \n\nRequired parameters:\n- `signature`: The session signature obtained from the 'Create AUTH-session' call.\n- `kvm_id`: The unique identifier of the KVM VPS.\n- `valid_until`: The expiration timestamp for the session.\n\nTo activate auto hydration, set the `config` parameter to:\n```json\n{\"auto_hydration\":100}\n```",
         "operationId": "enableAutoHydration",
+        "servers": [
+          {
+            "url": "https://{api_host}.edisglobal.com",
+            "description": "Settings Server - The `api_host` parameter, obtained from the 'Create AUTH-session' response, is dynamically set in the URL.",
+            "variables": {
+              "api_host": {
+                "default": "xxxxx",
+                "description": "The API host obtained from the 'Create AUTH-session' response."
+              }
+            }
+          }
+        ],
         "requestBody": {
           "description": "Parameters required to enable auto hydration for a KVM VPS.",
           "content": {
@@ -2470,29 +2500,27 @@
               }
             }
           }
-        },
-        "servers": [
-          {
-            "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
-            "variables": {
-              "api_host": {
-                "description": "The API host obtained from the \"Create AUTH-session\" response.",
-                "default": "xxxxx"
-              }
-            }
-          }
-        ]
+        }
       }
     },
     "/kvm/v2/set/autohydration_disable": {
       "post": {
-        "tags": [
-          "Traffic Pool"
-        ],
+        "tags": ["Traffic Pool"],
         "summary": "Disable Auto Hydration",
         "description": "This endpoint disables auto hydration for a specified KVM VPS, setting the hydration limit to 0 GB.\n\nThe `api_host` parameter, obtained from the 'Create AUTH-session' response, must be dynamically set in the URL.\n\n### Required Parameters:\n- **signature**: The session signature obtained from the 'Create AUTH-session' call.\n- **kvm_id**: The unique identifier of the KVM VPS.\n- **valid_until**: The expiration timestamp for the session.\n- **config**: A JSON object to disable auto hydration.\n  ```json\n  {\"auto_hydration\": 0}\n  ```",
         "operationId": "disableAutoHydration",
+        "servers": [
+          {
+            "url": "https://{api_host}.edisglobal.com",
+            "description": "Settings Server - The `api_host` parameter, obtained from the 'Create AUTH-session' response, is dynamically set in the URL.",
+            "variables": {
+              "api_host": {
+                "default": "xxxxx",
+                "description": "The API host obtained from the 'Create AUTH-session' response."
+              }
+            }
+          }
+        ],
         "requestBody": {
           "description": "Parameters required to disable auto hydration for a KVM VPS.",
           "content": {
@@ -2590,29 +2618,27 @@
               }
             }
           }
-        },
-        "servers": [
-          {
-            "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
-            "variables": {
-              "api_host": {
-                "description": "The API host obtained from the \"Create AUTH-session\" response.",
-                "default": "xxxxx"
-              }
-            }
-          }
-        ]
+        }
       }
     },
     "/kvm/v2/get/autohydration_status": {
       "post": {
-        "tags": [
-          "Traffic Pool"
-        ],
+        "tags": ["Traffic Pool"],
         "summary": "Get Auto Hydration Status",
         "description": "This endpoint retrieves the current auto hydration status for a specified KVM VPS.\n\nThe `api_host` parameter, obtained from the **'Create AUTH-session'** response, must be included in the request to route the request correctly.\n\nProvide the `signature`, `kvm_id`, and `valid_until` parameters from the **'Create AUTH-session'** response to authenticate the request.",
         "operationId": "getAutoHydrationStatus",
+        "servers": [
+          {
+            "url": "https://{api_host}.edisglobal.com",
+            "description": "Auto Hydration Status Server - The `api_host` parameter, obtained from the 'Create AUTH-session' response, is dynamically set in the URL.",
+            "variables": {
+              "api_host": {
+                "default": "xxxxx",
+                "description": "The API host obtained from the 'Create AUTH-session' response."
+              }
+            }
+          }
+        ],
         "requestBody": {
           "description": "Parameters required to retrieve the auto hydration status of a KVM VPS.",
           "content": {
@@ -2731,19 +2757,7 @@
               }
             }
           }
-        },
-        "servers": [
-          {
-            "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
-            "variables": {
-              "api_host": {
-                "description": "The API host obtained from the \"Create AUTH-session\" response.",
-                "default": "xxxxx"
-              }
-            }
-          }
-        ]
+        }
       }
     },
     "/kvm/v2/get/pool_traffic": {
@@ -2810,7 +2824,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Traffic Pool API Server - Replace `{api_host}` with the `api_host` value obtained from the \"Create AUTH-session\" response.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -2885,7 +2899,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Traffic Pool API Server - Replace `{api_host}` with the `api_host` value obtained from the \"Create AUTH-session\" response.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -2960,7 +2974,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Traffic Pool API Server - Replace `{api_host}` with the `api_host` value obtained from the \"Create AUTH-session\" response.\n",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -3045,7 +3059,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Webhooks API Server",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -3130,7 +3144,7 @@
         "servers": [
           {
             "url": "https://{api_host}.edisglobal.com",
-            "description": "The `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.",
+            "description": "Webhooks API Server",
             "variables": {
               "api_host": {
                 "description": "The API host obtained from the \"Create AUTH-session\" response.",
@@ -3195,7 +3209,13 @@
         "servers": [
           {
             "url": "https://{callback_url}",
-            "description": "Callback URL"
+            "description": "Callback Server - The `callback_url` parameter should be provided when setting up the webhook.\n",
+            "variables": {
+              "callback_url": {
+                "description": "The user-defined callback URL where webhook notifications are sent.",
+                "default": "your-callback-url.com"
+              }
+            }
           }
         ]
       }
@@ -4479,7 +4499,7 @@
           },
           "pw": {
             "type": "string",
-            "description": "Your WHMCS account password.\n\n\u26a0\ufe0f **Important:** If your password contains special characters (such as `+`, `&`, `=`), the default cURL snippet using `--data` may not work correctly.\n\n\u2705 To avoid issues:\n- Use `--data-urlencode \"pw=your-password\"`, **or**\n- URL-encode your password manually before using it with the `--data` flag.\n\n\ud83d\udd27 You can encode your password using [this online tool](https://www.urlencoder.org).\n\n**Example:** `your-password`",
+            "description": "Your WHMCS account password.\n\n⚠️ **Important:** If your password contains special characters (such as `+`, `&`, `=`), the default cURL snippet using `--data` may not work correctly.\n\n✅ To avoid issues:\n- Use `--data-urlencode \"pw=your-password\"`, **or**\n- URL-encode your password manually before using it with the `--data` flag.\n\n🔧 You can encode your password using [this online tool](https://www.urlencoder.org).\n\n**Example:** `your-password`",
             "example": "p@ssw0rd123!"
           },
           "kvm_id": {
