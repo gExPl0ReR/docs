@@ -72,7 +72,7 @@
           "Authentication"
         ],
         "summary": "Create AUTH-session",
-        "description": "Use this endpoint to create an authentication session for managing your KVM VPS. Simply provide your WHMCS credentials (`email` and `password`) to authenticate requests. Optionally, you can specify a `kvm_id` to limit the session access to a specific KVM instance.\n\nIf you are using the \"Try it\" console, switch the server to `https://session.edisglobal.com` before sending the request; this endpoint does not need `api_host`.",
+        "description": "Use this endpoint to create an authentication session for managing your KVM VPS. Simply provide your WHMCS credentials (`email` and `password`) to authenticate requests. Optionally, you can specify a `kvm_id` to limit the session access to a specific KVM instance.\n",
         "servers": [
           {
             "url": "https://session.edisglobal.com",
