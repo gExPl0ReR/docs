@@ -7,10 +7,6 @@
   },
   "servers": [
     {
-      "url": "https://session.edisglobal.com",
-      "description": "Session Authentication Server (default for Create AUTH-session)"
-    },
-    {
       "url": "https://{api_host}.edisglobal.com",
       "description": "Set `api_host` to the value returned from the \"Create AUTH-session\" response. This keeps the Try It console available globally.",
       "variables": {
@@ -19,6 +15,10 @@
           "default": "xxxxx"
         }
       }
+    },
+    {
+      "url": "https://session.edisglobal.com",
+      "description": "Session Authentication Server"
     }
   ],
   "tags": [
@@ -4500,6 +4500,7 @@
           "pw": {
             "type": "string",
             "description": "Your WHMCS account password.\n\n⚠️ **Important:** If your password contains special characters (such as `+`, `&`, `=`), the default cURL snippet using `--data` may not work correctly.\n\n✅ To avoid issues:\n- Use `--data-urlencode \"pw=your-password\"`, **or**\n- URL-encode your password manually before using it with the `--data` flag.\n\n🔧 You can encode your password using [this online tool](https://www.urlencoder.org).\n\n**Example:** `your-password`",
+            "example": "p@ssw0rd123!"
           },
           "kvm_id": {
             "type": "string",
