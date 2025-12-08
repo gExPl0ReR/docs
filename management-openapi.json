@@ -5,7 +5,6 @@
     "description": "Use the API to access and manage your VPS services, including power control, rDNS, and VNC management.  \n**Authentication:** Enable API access on any KVM VPS you own. Then use the provided credentials to authenticate your requests.\n",
     "version": "1.0.0"
   },
-  "servers": [],
   "tags": [
     {
       "name": "Authentication",
