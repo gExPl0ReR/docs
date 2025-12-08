@@ -50,7 +50,6 @@
           "Authentication"
         ],
         "summary": "Create AUTH-session",
-        "description": "Use this endpoint to create an authentication session for managing your KVM VPS. Simply provide your WHMCS credentials (`email` and `password`) to authenticate requests. Optionally, you can specify a `kvm_id` to limit the session access to a specific KVM instance.\n",
         "servers": [
           {
             "url": "https://session.edisglobal.com",
@@ -124,7 +123,6 @@
           "Power Management"
         ],
         "summary": "hard reset",
-        "description": "This endpoint performs a hard reset on the specified KVM VPS. \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL. \nProvide the `signature`, `kvm_id`, and `valid_until` parameters from \nthe same response to authenticate the request.\n",
         "operationId": "performHardReset",
         "requestBody": {
           "description": "Required parameters to execute the hard reset.",
@@ -294,7 +292,6 @@
           "Power Management"
         ],
         "summary": "Power on",
-        "description": "This endpoint powers on the specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` obtained from the \n\"Create AUTH-session\" response to authenticate the request.\n",
         "operationId": "powerOnVPS",
         "requestBody": {
           "description": "Required parameters to power on the VPS.",
