@@ -7,6 +7,10 @@
   },
   "servers": [
     {
+      "url": "https://session.edisglobal.com",
+      "description": "Session Authentication Server (default for Create AUTH-session)"
+    },
+    {
       "url": "https://{api_host}.edisglobal.com",
       "description": "Set `api_host` to the value returned from the \"Create AUTH-session\" response. This keeps the Try It console available globally.",
       "variables": {
