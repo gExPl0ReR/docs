@@ -8,11 +8,13 @@
   "servers": [
     {
       "url": "https://{api_host}.edisglobal.com",
-      "description": "Server"
-    },
-    {
-      "url": "https://session.edisglobal.com",
-      "description": "Session Authentication Server"
+      "description": "Set `api_host` to the value returned from the \"Create AUTH-session\" response. This keeps the \"Try It\" console aligned with the per-endpoint servers.",
+      "variables": {
+        "api_host": {
+          "description": "The API host obtained from the \"Create AUTH-session\" response (unique per server).",
+          "default": "xxxxx"
+        }
+      }
     }
   ],
   "tags": [
