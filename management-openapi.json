@@ -108,6 +108,11 @@
     },
     "/kvm/v2/set/reset": {
       "post": {
+      "servers": [
+          {
+            "url": "https://session.edisglobal.com"
+          }
+        ],
         "tags": [
           "Power Management"
         ],
