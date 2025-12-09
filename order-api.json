@@ -1154,186 +1154,353 @@
         "properties": {
           "locations": {
             "type": "object",
-            "example": {
-              "KVM Hong Kong": {
-                "id": 22
-              },
-              "KVM Iceland": {
-                "id": 24
-              },
-              "KVM Russia, St. Petersburg": {
-                "id": 31,
-                "headline": ""
-              },
-              "KVM Slovenia": {
-                "id": 36
-              },
-              "KVM Hungary": {
-                "id": 46
-              },
-              "KVM Bulgaria": {
-                "id": 51
-              },
-              "KVM Italy, Sicily, Palermo": {
-                "id": 52
-              },
-              "KVM Canada": {
-                "id": 57,
-                "headline": "Montreal, Canada"
-              },
-              "KVM Japan": {
-                "id": 62
-              },
-              "KVM Singapore": {
-                "id": 67
-              },
-              "KVM Israel": {
-                "id": 72
-              },
-              "KVM Chile": {
-                "id": 77
-              },
-              "KVM Moldova": {
-                "id": 78
-              },
-              "KVM Czech Republic": {
-                "id": 83,
-                "headline": "KVM Czech Republic"
-              },
-              "KVM Serbia": {
-                "id": 88,
-                "headline": ""
-              },
-              "KVM USA": {
-                "id": 93,
-                "headline": "New York Metropolitan Area"
-              },
-              "KVM Greece": {
-                "id": 94,
-                "headline": ""
-              },
-              "KVM Australia": {
-                "id": 100,
-                "headline": ""
-              },
-              "KVM Belgium": {
-                "id": 102,
-                "headline": "KVM vps in Brussels, Belgium"
-              },
-              "KVM Austria, Graz": {
-                "id": 107,
-                "headline": "KVM vps in Graz, Austria"
-              },
-              "KVM Germany": {
-                "id": 122,
-                "headline": "KVM vps in Frankfurt, Germany"
-              },
-              "KVM United Kingdom": {
-                "id": 127,
-                "headline": "KVM VPS in the City of London"
-              },
-              "KVM Sweden": {
-                "id": 132,
-                "headline": "KVM vps in Stockholm, Sweden"
-              },
-              "KVM France": {
-                "id": 137,
-                "headline": "KVM vps in Paris, France"
-              },
-              "KVM Poland": {
-                "id": 142,
-                "headline": "KVM vps in Warsaw, Poland"
-              },
-              "KVM Spain": {
-                "id": 147,
-                "headline": "KVM vps in Seville, Spain"
-              },
-              "KVM Italy, Milan": {
-                "id": 152,
-                "headline": "KVM vps in Milan, Italy"
-              },
-              "KVM Netherlands": {
-                "id": 157,
-                "headline": "KVM vps in Schiphol-Rijk (Amsterdam), Netherlands"
-              },
-              "KVM Romania": {
-                "id": 162,
-                "headline": "KVM vps in Bucharest, Romania"
-              },
-              "KVM Denmark": {
-                "id": 167,
-                "headline": "Copenhagen, Denmark"
-              },
-              "KVM Norway": {
-                "id": 172,
-                "headline": "KVM vps in Oslo, Norway"
-              },
-              "KVM United Arab Emirates": {
-                "id": 177,
-                "headline": "KVM vps in Dubai, United Arab Emirates"
-              },
-              "KVM Russia, Moscow": {
-                "id": 182,
-                "headline": "KVM vps in Moscow, Russia"
-              },
-              "KVM Austria, Vienna": {
-                "id": 192,
-                "headline": "KVM VPS/VDS in Vienna, Austria"
-              },
-              "KVM Lithuania": {
-                "id": 197,
-                "headline": "KVM vps in Vilnius, Lithuania"
-              },
-              "KVM Latvia": {
-                "id": 202,
-                "headline": "KVM vps in Riga, Latvia"
-              },
-              "KVM Croatia": {
-                "id": 207,
-                "headline": "KVM vps in Zagreb, Croatia"
-              },
-              "KVM North Macedonia": {
-                "id": 208,
-                "headline": "KVM vps in Skopje, North Macedonia"
-              },
-              "KVM USA, Miami": {
-                "id": 211,
-                "headline": ""
-              },
-              "KVM United Kingdom, London Docklands": {
-                "id": 212,
-                "headline": "NEW! London, Canary Wharf"
-              },
-              "KVM Austria, Vienna Danube": {
-                "id": 215,
-                "headline": "KVM VPS @ Vienna Interxion"
-              },
-              "KVM Colombia": {
-                "id": 217,
-                "headline": "KVM vps in Bogotá, Colombia"
-              },
-              "KVM USA, Los Angeles": {
-                "id": 219,
-                "headline": ""
-              },
-              "KVM Cyprus": {
-                "id": 221,
-                "headline": ""
-              },
-              "KVM Estonia": {
-                "id": 222,
-                "headline": "Tallinn, Estonia"
-              },
-              "KVM Switzerland, Zurich": {
-                "id": 223,
-                "headline": "KVM Switzerland, Zurich"
-              }
-            }
+            "description": "Available KVM locations keyed by location label.\n\nFields per location:\n- `id`: Unique identifier of the location.\n- `name`: Display name of the location.\n- `country`: Country or region code for the location.\n- `out_of_stock`: Availability flag; `false` means available to order, `true` means currently unavailable.\n- `headline`: Optional marketing headline for the location."
           },
           "status": {
             "type": "string",
             "example": "success"
           }
+        },
+        "example": {
+          "locations": {
+            "KVM Hong Kong": {
+              "id": 22,
+              "headline": null,
+              "name": "Hong Kong",
+              "country": "hk",
+              "out_of_stock": false
+            },
+            "KVM Iceland": {
+              "id": 24,
+              "headline": null,
+              "name": "Iceland",
+              "country": "is",
+              "out_of_stock": false
+            },
+            "KVM Russia, St. Petersburg": {
+              "id": 31,
+              "headline": "",
+              "name": "Russia, St. Petersburg",
+              "country": "ru-sp",
+              "out_of_stock": true
+            },
+            "KVM Slovenia": {
+              "id": 36,
+              "headline": null,
+              "name": "Slovenia",
+              "country": "si",
+              "out_of_stock": false
+            },
+            "KVM Hungary": {
+              "id": 46,
+              "headline": null,
+              "name": "Hungary",
+              "country": "hu",
+              "out_of_stock": false
+            },
+            "KVM Bulgaria": {
+              "id": 51,
+              "headline": null,
+              "name": "Bulgaria",
+              "country": "bg",
+              "out_of_stock": false
+            },
+            "KVM Italy, Sicily, Palermo": {
+              "id": 52,
+              "headline": null,
+              "name": "Italy, Sicily, Palermo",
+              "country": "it-pa",
+              "out_of_stock": false
+            },
+            "KVM Canada": {
+              "id": 57,
+              "headline": "Montreal, Canada",
+              "name": "Canada",
+              "country": "ca",
+              "out_of_stock": false
+            },
+            "KVM Japan": {
+              "id": 62,
+              "headline": null,
+              "name": "Japan",
+              "country": "jp",
+              "out_of_stock": false
+            },
+            "KVM Singapore": {
+              "id": 67,
+              "headline": null,
+              "name": "Singapore",
+              "country": "sg",
+              "out_of_stock": false
+            },
+            "KVM Israel": {
+              "id": 72,
+              "headline": null,
+              "name": "Israel",
+              "country": "il",
+              "out_of_stock": false
+            },
+            "KVM Chile": {
+              "id": 77,
+              "headline": null,
+              "name": "Chile",
+              "country": "cl",
+              "out_of_stock": false
+            },
+            "KVM Moldova": {
+              "id": 78,
+              "headline": null,
+              "name": "Moldova",
+              "country": "md",
+              "out_of_stock": false
+            },
+            "KVM Czech Republic": {
+              "id": 83,
+              "headline": "KVM Czech Republic",
+              "name": "Czech Republic",
+              "country": "cz",
+              "out_of_stock": false
+            },
+            "KVM Serbia": {
+              "id": 88,
+              "headline": "",
+              "name": "Serbia",
+              "country": "rs",
+              "out_of_stock": false
+            },
+            "KVM USA": {
+              "id": 93,
+              "headline": "New York Metropolitan Area",
+              "name": "USA",
+              "country": "us",
+              "out_of_stock": false
+            },
+            "KVM Greece": {
+              "id": 94,
+              "headline": "",
+              "name": "Greece",
+              "country": "gr",
+              "out_of_stock": false
+            },
+            "KVM Australia": {
+              "id": 100,
+              "headline": "",
+              "name": "Australia",
+              "country": "au",
+              "out_of_stock": false
+            },
+            "KVM Belgium": {
+              "id": 102,
+              "headline": "KVM vps in Brussels, Belgium",
+              "name": "Belgium",
+              "country": "be",
+              "out_of_stock": false
+            },
+            "KVM Austria, Graz": {
+              "id": 107,
+              "headline": "KVM vps in Graz, Austria",
+              "name": "Austria, Graz",
+              "country": "at-grz",
+              "out_of_stock": true
+            },
+            "KVM Germany": {
+              "id": 122,
+              "headline": "KVM vps in Frankfurt, Germany",
+              "name": "Germany",
+              "country": "de",
+              "out_of_stock": false
+            },
+            "KVM United Kingdom": {
+              "id": 127,
+              "headline": "KVM VPS in the City of London",
+              "name": "United Kingdom",
+              "country": "uk",
+              "out_of_stock": true
+            },
+            "KVM Sweden": {
+              "id": 132,
+              "headline": "KVM vps in Stockholm, Sweden",
+              "name": "Sweden",
+              "country": "se",
+              "out_of_stock": false
+            },
+            "KVM France": {
+              "id": 137,
+              "headline": "KVM vps in Paris, France",
+              "name": "France",
+              "country": "fr",
+              "out_of_stock": false
+            },
+            "KVM Poland": {
+              "id": 142,
+              "headline": "KVM vps in Warsaw, Poland",
+              "name": "Poland",
+              "country": "pl",
+              "out_of_stock": false
+            },
+            "KVM Spain": {
+              "id": 147,
+              "headline": "KVM vps in Seville, Spain",
+              "name": "Spain",
+              "country": "es",
+              "out_of_stock": false
+            },
+            "KVM Italy, Milan": {
+              "id": 152,
+              "headline": "KVM vps in Milan, Italy",
+              "name": "Italy, Milan",
+              "country": "it",
+              "out_of_stock": false
+            },
+            "KVM Netherlands": {
+              "id": 157,
+              "headline": "KVM vps in Schiphol-Rijk (Amsterdam), Netherlands",
+              "name": "Netherlands",
+              "country": "nl",
+              "out_of_stock": false
+            },
+            "KVM Romania": {
+              "id": 162,
+              "headline": "KVM vps in Bucharest, Romania",
+              "name": "Romania",
+              "country": "ro",
+              "out_of_stock": false
+            },
+            "KVM Denmark": {
+              "id": 167,
+              "headline": "Copenhagen, Denmark",
+              "name": "Denmark",
+              "country": "dk",
+              "out_of_stock": false
+            },
+            "KVM Norway": {
+              "id": 172,
+              "headline": "KVM vps in Oslo, Norway",
+              "name": "Norway",
+              "country": "no",
+              "out_of_stock": false
+            },
+            "KVM United Arab Emirates": {
+              "id": 177,
+              "headline": "KVM vps in Dubai, United Arab Emirates",
+              "name": "United Arab Emirates",
+              "country": "ae",
+              "out_of_stock": false
+            },
+            "KVM Russia, Moscow": {
+              "id": 182,
+              "headline": "KVM vps in Moscow, Russia",
+              "name": "Russia, Moscow",
+              "country": "ru",
+              "out_of_stock": true
+            },
+            "KVM Austria, Vienna": {
+              "id": 192,
+              "headline": "KVM VPS/VDS in Vienna, Austria",
+              "name": "Austria, Vienna",
+              "country": "at",
+              "out_of_stock": false
+            },
+            "KVM Lithuania": {
+              "id": 197,
+              "headline": "KVM vps in Vilnius, Lithuania",
+              "name": "Lithuania",
+              "country": "lt",
+              "out_of_stock": false
+            },
+            "KVM Latvia": {
+              "id": 202,
+              "headline": "KVM vps in Riga, Latvia",
+              "name": "Latvia",
+              "country": "lv",
+              "out_of_stock": false
+            },
+            "KVM Croatia": {
+              "id": 207,
+              "headline": "KVM vps in Zagreb, Croatia",
+              "name": "Croatia",
+              "country": "hr",
+              "out_of_stock": false
+            },
+            "KVM North Macedonia": {
+              "id": 208,
+              "headline": "KVM vps in Skopje, North Macedonia",
+              "name": "North Macedonia",
+              "country": "mk",
+              "out_of_stock": false
+            },
+            "KVM USA, Miami": {
+              "id": 211,
+              "headline": "",
+              "name": "USA, Miami",
+              "country": "us-mia",
+              "out_of_stock": true
+            },
+            "KVM United Kingdom, London Docklands": {
+              "id": 212,
+              "headline": "NEW! London, Canary Wharf",
+              "name": "United Kingdom, London Docklands",
+              "country": "uk-lnd",
+              "out_of_stock": false
+            },
+            "KVM Austria, Vienna Interxion": {
+              "id": 215,
+              "headline": "KVM VPS @ Vienna Interxion",
+              "name": "Austria, Vienna Interxion",
+              "country": "at-vie",
+              "out_of_stock": false
+            },
+            "KVM Colombia": {
+              "id": 217,
+              "headline": "KVM vps in Bogotá, Colombia",
+              "name": "Colombia",
+              "country": "co",
+              "out_of_stock": false
+            },
+            "KVM USA, Los Angeles": {
+              "id": 219,
+              "headline": "",
+              "name": "USA, Los Angeles",
+              "country": "us-lax",
+              "out_of_stock": false
+            },
+            "KVM Cyprus": {
+              "id": 221,
+              "headline": "",
+              "name": "Cyprus",
+              "country": "cy",
+              "out_of_stock": false
+            },
+            "KVM Estonia": {
+              "id": 222,
+              "headline": "Tallinn, Estonia",
+              "name": "Estonia",
+              "country": "ee",
+              "out_of_stock": false
+            },
+            "KVM Switzerland, Zurich": {
+              "id": 223,
+              "headline": "KVM Switzerland, Zurich",
+              "name": "Switzerland, Zurich",
+              "country": "ch-zrh",
+              "out_of_stock": false
+            },
+            "KVM Finland": {
+              "id": 225,
+              "headline": "KVM VPS in Helsinki, Finland",
+              "name": "Finland",
+              "country": "fi",
+              "out_of_stock": false
+            },
+            "KVM Sweden, Stockholm": {
+              "id": 226,
+              "headline": "KVM vps in Sweden, Stockholm",
+              "name": "Sweden, Stockholm",
+              "country": "se-sto",
+              "out_of_stock": false
+            }
+          },
+          "status": "success"
         }
       },
       "inline_response_400_3": {
