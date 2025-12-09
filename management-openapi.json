@@ -52,7 +52,7 @@
         "summary": "Create AUTH-session",
         "servers": [
           {
-            "url": "https://session.edisglobal.com",
+            "url": "https://session.edisglobal.com"
           }
         ],
         "operationId": "createAuthSession",
