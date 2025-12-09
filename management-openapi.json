@@ -50,6 +50,11 @@
           "Authentication"
         ],
         "summary": "Create AUTH-session",
+        "servers": [
+          {
+            "url": "https://session.edisglobal.com",
+          }
+        ],
         "operationId": "createAuthSession",
         "requestBody": {
           "description": "Required credentials to authenticate and create a session. Optionally, you can include `kvm_id` to target a specific KVM.",
