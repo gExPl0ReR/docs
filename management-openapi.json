@@ -103,7 +103,12 @@
               }
             }
           }
-        }
+        },
+        "servers": [
+          {
+            "url": "https://session.edisglobal.com"
+          }
+        ]
       }
     },
     "/kvm/v2/set/reset": {
