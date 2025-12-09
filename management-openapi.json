@@ -1248,7 +1248,6 @@
           "Collect Information"
         ],
         "summary": "Get VPS Screenshot",
-        "description": "This endpoint retrieves a current screenshot of the specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters obtained  \nfrom the same response to retrieve the screenshot.\n",
         "operationId": "getVpsScreenshot",
         "requestBody": {
           "description": "Required parameters to fetch a screenshot for the VPS.",
@@ -1333,7 +1332,6 @@
           "Collect Information"
         ],
         "summary": "Get all VPS details",
-        "description": "This endpoint retrieves comprehensive details about the specified KVM VPS,  \nincluding configuration, resource usage, network settings, and metadata.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters obtained  \nfrom the same response to fetch the information.\n",
         "operationId": "getAllDetails",
         "requestBody": {
           "description": "Required parameters to fetch all details for a KVM VPS.",
@@ -1418,7 +1416,6 @@
           "Collect Information"
         ],
         "summary": "Get traffic usage",
-        "description": "This endpoint retrieves network traffic usage details for the specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters obtained  \nfrom the same response to access traffic data.\n",
         "operationId": "getTrafficUsage",
         "requestBody": {
           "description": "Required parameters to fetch traffic data for a KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -1503,7 +1500,6 @@
           "Collect Information"
         ],
         "summary": "Get CPU usage",
-        "description": "This endpoint retrieves the CPU usage statistics for the specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters obtained  \nfrom the same response to access CPU usage data.\n",
         "operationId": "getCpuUsage",
         "requestBody": {
           "description": "Required parameters to fetch CPU usage statistics for a KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -1558,7 +1554,6 @@
           "Collect Information"
         ],
         "summary": "Get basic details",
-        "description": "This endpoint retrieves a few basic details about the specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters obtained  \nfrom the same response to access the VPS details.\n",
         "operationId": "getKvmDetails",
         "requestBody": {
           "description": "Required parameters to fetch basic details about the KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -1643,7 +1638,6 @@
           "Collect Information"
         ],
         "summary": "Get mount details",
-        "description": "This endpoint retrieves the mount details for the specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters obtained  \nfrom the same response to access the mount details.\n",
         "operationId": "getMountDetails",
         "requestBody": {
           "description": "Required parameters to fetch mount details for a KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -1728,7 +1722,6 @@
           "VNC Management"
         ],
         "summary": "Set VNC keyboard language",
-        "description": "This endpoint configures the keyboard language for the VNC session of a specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nSupported keyboard languages include `en-us`, `de`, `sv`, `fr`, and `it`.  \nProvide the `signature`, `kvm_id`, `valid_until`, and `vnc_keyboard` parameters obtained  \nfrom the \"Create AUTH-session\" call to configure the keyboard language.\n",
         "operationId": "setVncKeyboardLanguage",
         "requestBody": {
           "description": "Required parameters to configure the VNC keyboard language.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -1813,7 +1806,6 @@
           "VNC Management"
         ],
         "summary": "Get VNC status",
-        "description": "This endpoint retrieves the current status of the VNC session for a specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to get the VNC session status.\n",
         "operationId": "getVncStatus",
         "requestBody": {
           "description": "Required parameters to retrieve the VNC session status.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -1898,7 +1890,6 @@
           "VNC Management"
         ],
         "summary": "Enable VNC access",
-        "description": "This endpoint enables VNC access for a specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and `vnc_pw` parameters to activate VNC.\n",
         "operationId": "enableVnc",
         "requestBody": {
           "description": "Required parameters to enable VNC access.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -1983,7 +1974,6 @@
           "VNC Management"
         ],
         "summary": "Disable VNC access",
-        "description": "This endpoint disables VNC access for a specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to disable VNC access.\n",
         "operationId": "disableVnc",
         "requestBody": {
           "description": "Required parameters to disable VNC access.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -2068,7 +2058,6 @@
           "PTR"
         ],
         "summary": "Get PTR Records",
-        "description": "This endpoint retrieves the PTR (Reverse DNS) records for specified IP addresses.  \nProvide the `signature`, `kvm_id`, `valid_until`, `api_host`, and a JSON-encoded list of IP addresses to query their PTR records.\n",
         "operationId": "getPTR",
         "requestBody": {
           "description": "Required parameters to retrieve PTR records.",
@@ -2137,7 +2126,6 @@
           "PTR"
         ],
         "summary": "Delete PTR Records",
-        "description": "This endpoint deletes PTR (Reverse DNS) records for specified IP addresses.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and a JSON-encoded list of IP addresses to delete their PTR records.\n",
         "operationId": "deletePTR",
         "requestBody": {
           "description": "Required parameters to delete PTR records.",
@@ -2206,7 +2194,6 @@
           "PTR"
         ],
         "summary": "Set PTR Records",
-        "description": "This endpoint sets PTR (Reverse DNS) records for specified IP addresses.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and a JSON-encoded object of IP addresses and their associated hostnames to set PTR records.\n",
         "operationId": "setPTR",
         "requestBody": {
           "description": "Required parameters to set PTR records.",
@@ -2275,7 +2262,6 @@
           "Hooks"
         ],
         "summary": "Get all webhooks",
-        "description": "This endpoint retrieves all webhooks configured for the specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to fetch the list of webhooks.\n",
         "operationId": "getAllHooks",
         "requestBody": {
           "description": "Required parameters to retrieve all webhooks for a KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -2358,7 +2344,6 @@
       "post": {
         "tags": ["Traffic Pool"],
         "summary": "Enable Auto Hydration",
-        "description": "This endpoint enables auto hydration for a specified KVM VPS, setting the hydration limit to 100 GB. \n\nUse the `api_host` from the 'Create AUTH-session' response to authenticate. \n\nRequired parameters:\n- `signature`: The session signature obtained from the 'Create AUTH-session' call.\n- `kvm_id`: The unique identifier of the KVM VPS.\n- `valid_until`: The expiration timestamp for the session.\n\nTo activate auto hydration, set the `config` parameter to:\n```json\n{\"auto_hydration\":100}\n```",
         "operationId": "enableAutoHydration",
         "servers": [
           {
@@ -2476,7 +2461,6 @@
       "post": {
         "tags": ["Traffic Pool"],
         "summary": "Disable Auto Hydration",
-        "description": "This endpoint disables auto hydration for a specified KVM VPS, setting the hydration limit to 0 GB.\n\nThe `api_host` parameter, obtained from the 'Create AUTH-session' response, must be dynamically set in the URL.\n\n### Required Parameters:\n- **signature**: The session signature obtained from the 'Create AUTH-session' call.\n- **kvm_id**: The unique identifier of the KVM VPS.\n- **valid_until**: The expiration timestamp for the session.\n- **config**: A JSON object to disable auto hydration.\n  ```json\n  {\"auto_hydration\": 0}\n  ```",
         "operationId": "disableAutoHydration",
         "servers": [
           {
@@ -2594,7 +2578,6 @@
       "post": {
         "tags": ["Traffic Pool"],
         "summary": "Get Auto Hydration Status",
-        "description": "This endpoint retrieves the current auto hydration status for a specified KVM VPS.\n\nThe `api_host` parameter, obtained from the **'Create AUTH-session'** response, must be included in the request to route the request correctly.\n\nProvide the `signature`, `kvm_id`, and `valid_until` parameters from the **'Create AUTH-session'** response to authenticate the request.",
         "operationId": "getAutoHydrationStatus",
         "servers": [
           {
@@ -2735,7 +2718,6 @@
           "Traffic Pool"
         ],
         "summary": "Get Global Traffic Pool Size",
-        "description": "This endpoint retrieves the total size of the global traffic pool for a specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.\n",
         "operationId": "getGlobalTrafficPoolSize",
         "requestBody": {
           "description": "Required parameters to retrieve the global traffic pool size.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -2810,7 +2792,6 @@
           "Traffic Pool"
         ],
         "summary": "Get Hydration Log",
-        "description": "This endpoint retrieves the hydration (refill) log for a specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nUse the `query` parameter to filter the log by `client` or `kvm`.\n",
         "operationId": "getHydrationLog",
         "requestBody": {
           "description": "Required parameters to retrieve the hydration log.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -2885,7 +2866,6 @@
           "Traffic Pool"
         ],
         "summary": "Assign Traffic Resources from Global Pool",
-        "description": "This endpoint assigns additional traffic resources from the global pool to a specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nThe amount of traffic to assign is specified in the `traffic` parameter (in GB).\n",
         "operationId": "assignTrafficFromPool",
         "requestBody": {
           "description": "Required parameters to assign traffic resources.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -3045,7 +3025,6 @@
           "Hooks"
         ],
         "summary": "Set Webhook for Traffic Monitoring",
-        "description": "This endpoint allows setting up webhooks for traffic monitoring on a specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and webhook configuration details.\n",
         "operationId": "setKvmHooks",
         "requestBody": {
           "description": "Required parameters to set a webhook for traffic monitoring.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
@@ -3130,7 +3109,6 @@
           "Hooks"
         ],
         "summary": "Example Callback Triggered",
-        "description": "This endpoint demonstrates the structure of a callback triggered when a specified traffic threshold is reached.  \nThe callback URL should be provided during webhook setup, and this request will be made when the traffic trigger value is reached.\n",
         "operationId": "trafficHookCallbackExample",
         "requestBody": {
           "description": "Parameters sent to the callback URL when the webhook is triggered.",

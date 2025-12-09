@@ -2,4 +2,5 @@
 openapi: post /kvm/v2/set/vnc/keyboard
 title: Keyboard Language
 sidebarTitle: Keyboard Language
+description: "This endpoint configures the keyboard language for the VNC session of a specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nSupported keyboard languages include `en-us`, `de`, `sv`, `fr`, and `it`.  \nProvide the `signature`, `kvm_id`, `valid_until`, and `vnc_keyboard` parameters obtained  \nfrom the \"Create AUTH-session\" call to configure the keyboard language.\n"
 ---
