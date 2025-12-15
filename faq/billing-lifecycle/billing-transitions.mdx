@@ -24,14 +24,22 @@ If you or your accountant feel that billing has become hard to follow, this guid
 
 Many accounts start simple and become more complex over time.
 
+### Optional improvement (less vertical scrolling)
+If you want it more compact, switch to left-to-right:
+
+
+### Optional improvement (less vertical scrolling)
+If you want it more compact, switch to left-to-right:
+
+```mdx
 ```mermaid
-flowchart TD
-    A[Initial Setup\nPayPal Payments] --> B[PayPal Subscriptions Created]
-    B --> C[Services Change Over Time\nUpgrades, Downgrades, New Orders]
-    C --> D[Manual PayPal & Credit Card Payments Added]
-    D --> E[Account Credit Appears\nOverpayments & Duplicates]
-    E --> F[Pro-Rata Billing\nInvoice Alignment]
-    F --> G[Accounting Confusion\nMultiple Payment Sources]
+flowchart LR
+  A["Initial setup<br/>PayPal payments"] --> B["PayPal subscriptions<br/>created"]
+  B --> C["Services change over time<br/>(upgrades/downgrades/new orders)"]
+  C --> D["Manual payments added<br/>(PayPal + credit card)"]
+  D --> E["Account credit appears<br/>(overpayments/duplicates)"]
+  E --> F["Pro-rata billing<br/>invoice alignment"]
+  F --> G["Accounting confusion<br/>multiple sources"]
 ```
 
 ### What this looks like in practice
