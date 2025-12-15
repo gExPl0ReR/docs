@@ -26,13 +26,25 @@ Many accounts start simple and become more complex over time.
 
 
 ```mermaid
-flowchart LR
-  A["Initial setup<br/>PayPal payments"] --> B["PayPal subscriptions<br/>created"]
-  B --> C["Services change over time<br/>(upgrades/downgrades/new orders)"]
-  C --> D["Manual payments added<br/>(PayPal + credit card)"]
-  D --> E["Account credit appears<br/>(overpayments/duplicates)"]
-  E --> F["Pro-rata billing<br/>invoice alignment"]
-  F --> G["Accounting confusion<br/>multiple sources"]
+flowchart TD
+  subgraph Phase1["Phase 1: Organic Growth"]
+    A["Initial setup<br/>PayPal payments"]
+    B["PayPal subscriptions<br/>created"]
+    C["Services evolve<br/>(upgrades, downgrades, new orders)"]
+
+    A --> B --> C
+  end
+
+  subgraph Phase2["Phase 2: Growing Complexity"]
+    D["Manual payments added<br/>(PayPal & credit card)"]
+    E["Account credit appears<br/>(overpayments & duplicates)"]
+    F["Pro-rata billing<br/>invoice alignment"]
+    G["Accounting confusion<br/>multiple payment sources"]
+
+    D --> E --> F --> G
+  end
+
+  C --> D
 ```
 
 ### What this looks like in practice
