@@ -2,5 +2,4 @@
 openapi: post /kvm/v2/set/autohydration_enable
 title: Enable Auto Hydration
 sidebarTitle: Enable Hydration
-description: "This endpoint enables auto hydration for a specified KVM VPS, setting the hydration limit to 100 GB. \n\nUse the `api_host` from the 'Create AUTH-session' response to authenticate. \n\nRequired parameters:\n- `signature`: The session signature obtained from the 'Create AUTH-session' call.\n- `kvm_id`: The unique identifier of the KVM VPS.\n- `valid_until`: The expiration timestamp for the session.\n\nTo activate auto hydration, set the `config` parameter to:\n```json\n{\"auto_hydration\":100}\n```"
 ---
