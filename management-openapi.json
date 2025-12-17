@@ -7,10 +7,6 @@
   },
   "servers": [
     {
-      "url": "https://session.edisglobal.com",
-      "description": "Session Authentication Server"
-    },
-    {
       "url": "https://{api_host}.edisglobal.com",
       "description": "Power Management Server (dynamic per session)",
       "variables": {
@@ -61,6 +57,12 @@
   ],
   "paths": {
     "/kvm/v2/get/auth": {
+      "servers": [
+        {
+          "url": "https://session.edisglobal.com",
+          "description": "Session Authentication Server"
+        }
+      ],
       "post": {
         "tags": [
           "Authentication"
@@ -121,14 +123,6 @@
             }
           }
         },
-        "servers": [
-          {
-            "url": "https://session.edisglobal.com",
-            "description": "Session Authentication Server"
-          }
-        ]
-      }
-    },
     "/kvm/v2/set/reset": {
       "post": {
         "tags": [
