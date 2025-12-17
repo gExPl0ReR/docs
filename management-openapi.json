@@ -5,6 +5,22 @@
     "description": "Use the API to access and manage your VPS services, including power control, rDNS, and VNC management.  \n**Authentication:** Enable API access on any KVM VPS you own. Then use the provided credentials to authenticate your requests.\n",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://session.edisglobal.com",
+      "description": "Session Authentication Server"
+    },
+    {
+      "url": "https://{api_host}.edisglobal.com",
+      "description": "Power Management Server (dynamic per session)",
+      "variables": {
+        "api_host": {
+          "description": "API host returned by the Create AUTH-session endpoint",
+          "default": "xxxxx"
+        }
+      }
+    }
+  ],
   "tags": [
     {
       "name": "Authentication",
@@ -44,6 +60,75 @@
     }
   ],
   "paths": {
+    "/kvm/v2/get/auth": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Create AUTH-session",
+        "description": "Use this endpoint to create an authentication session for managing your KVM VPS. Simply provide your WHMCS credentials (`email` and `password`) to authenticate requests. Optionally, you can specify a `kvm_id` to limit the session access to a specific KVM instance\n",
+        "operationId": "createAuthSession",
+        "requestBody": {
+          "description": "Required credentials to authenticate and create a session. Optionally, you can include `kvm_id` to target a specific KVM.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_auth_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Authentication session created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid credentials or missing parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid WHMCS credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://session.edisglobal.com",
+            "description": "Session Authentication Server"
+          }
+        ]
+      }
+    },
     "/kvm/v2/set/reset": {
       "post": {
         "tags": [
