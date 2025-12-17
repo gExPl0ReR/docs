@@ -43,6 +43,12 @@
       "description": "KVM Webhook Management"
     }
   ],
+  "servers": [
+    {
+      "url": "https://order.edisglobal.com",
+      "description": "Sandbox Server"
+    }
+  ],
   "paths": {
     "/kvm/v2/get/auth": {
       "post": {
