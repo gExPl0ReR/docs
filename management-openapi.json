@@ -68,7 +68,7 @@
           "Authentication"
         ],
         "summary": "Create AUTH-session",
-        "description": "Use this endpoint to create an authentication session for managing your KVM VPS. Simply provide your WHMCS credentials (`email` and `password`) to authenticate requests. Optionally, you can specify a `kvm_id` to limit the session access to a specific KVM instance\n",
+        "description": "Use this endpoint to create an authentication session for managing your KVM VPS. Simply provide your WHMCS credentials (`email` and `password`) to authenticate requests. Optionally, you can specify a `kvm_id` to limit the session access to a specific KVM instance",
         "operationId": "createAuthSession",
         "requestBody": {
           "description": "Required credentials to authenticate and create a session. Optionally, you can include `kvm_id` to target a specific KVM.",
@@ -122,7 +122,9 @@
               }
             }
           }
-        },
+        }
+      }
+    },
     "/kvm/v2/set/reset": {
       "post": {
         "tags": [
