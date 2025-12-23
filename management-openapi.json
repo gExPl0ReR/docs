@@ -12,7 +12,7 @@
       "variables": {
         "api_host": {
           "default": "{api_host.edisglobal.com}",
-          "description": "Enter the full API host exactly as returned by /kvm/v2/get/auth (for example: 7ef141.edisglobal.com)"
+          "description": "Enter the full API host exactly as returned by /kvm/v2/get/auth (for example: 12345.edisglobal.com)"
         }
       }
     }
