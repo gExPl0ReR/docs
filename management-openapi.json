@@ -1810,6 +1810,12 @@
       }
     },
     "/get/ptr": {
+      "servers": [
+        {
+          "url": "https://dns-api.edis.at",
+          "description": "Reverse DNS API Server"
+        }
+      ],
       "post": {
         "tags": [
           "PTR"
@@ -1869,16 +1875,16 @@
               }
             }
           }
-        },
-        "servers": [
-          {
-            "url": "https://dns-api.edis.at",
-            "description": "Reverse DNS API Server"
-          }
-        ]
+        }
       }
     },
     "/del/ptr": {
+      "servers": [
+        {
+          "url": "https://dns-api.edis.at",
+          "description": "Reverse DNS API Server"
+        }
+      ],
       "post": {
         "tags": [
           "PTR"
@@ -1938,16 +1944,16 @@
               }
             }
           }
-        },
-        "servers": [
-          {
-            "url": "https://dns-api.edis.at",
-            "description": "Reverse DNS API Server"
-          }
-        ]
+        }
       }
     },
     "/set/ptr": {
+      "servers": [
+        {
+          "url": "https://dns-api.edis.at",
+          "description": "Reverse DNS API Server"
+        }
+      ],
       "post": {
         "tags": [
           "PTR"
@@ -2007,13 +2013,7 @@
               }
             }
           }
-        },
-        "servers": [
-          {
-            "url": "https://dns-api.edis.at",
-            "description": "Reverse DNS API Server"
-          }
-        ]
+        }
       }
     },
     "/kvm/v2/hooks/get": {
