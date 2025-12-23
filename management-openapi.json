@@ -11,7 +11,7 @@
       "description": "Dynamic API host returned from the AUTH session endpoint.",
       "variables": {
         "api_host": {
-          "default": "{api_host}",
+          "default": "{api_host.edisglobal.com}",
           "description": "Enter the full API host exactly as returned by /kvm/v2/get/auth (for example: 7ef141.edisglobal.com)"
         }
       }
