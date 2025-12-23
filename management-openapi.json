@@ -7,12 +7,12 @@
   },
   "servers": [
     {
-      "url": "https://{api_host}.edisglobal.com",
+      "url": "https://{api_host}",
       "description": "Dynamic API host returned from the AUTH session endpoint.",
       "variables": {
         "api_host": {
           "default": "{api_host}",
-          "description": "Replace with the actual API host value returned by /kvm/v2/get/auth"
+          "description": "Enter the full API host exactly as returned by /kvm/v2/get/auth (for example: 7ef141.edisglobal.com)"
         }
       }
     }
