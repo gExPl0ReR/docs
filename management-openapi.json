@@ -1812,7 +1812,7 @@
     "/get/ptr": {
       "servers": [
         {
-          "url": "https://dns-api.edis.at",
+          "url": "https://dns-api.edisglobal.com",
           "description": "Reverse DNS API Server"
         }
       ],
@@ -1881,7 +1881,7 @@
     "/del/ptr": {
       "servers": [
         {
-          "url": "https://dns-api.edis.at",
+          "url": "https://dns-api.edisglobal.com",
           "description": "Reverse DNS API Server"
         }
       ],
@@ -1950,7 +1950,7 @@
     "/set/ptr": {
       "servers": [
         {
-          "url": "https://dns-api.edis.at",
+          "url": "https://dns-api.edisglobal.com",
           "description": "Reverse DNS API Server"
         }
       ],
