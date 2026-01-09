@@ -28,6 +28,15 @@
   "contextual": { "options": [ "copy", "view", "chatgpt", "claude", "perplexity", "cursor", "vscode" ] },
   
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Explore VPS Hosting",
+          "icon": "cloud",
+          "href": "https://www.edisglobal.com/#start-now"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Documentation",
@@ -85,6 +94,7 @@
               {
                 "group": "IP Addresses",
                 "pages": [
+                  "documentation/faq/ip-addresses/untitled-page",
                   "faq/ip-addresses/ping-test-ip",
                   "faq/ip-addresses/change-ip-address",
                   "faq/ip-addresses/order-additional-ip-address",
@@ -116,12 +126,12 @@
                 "group": "Billing & Lifecycle",
                 "pages": [
                   "faq/billing-lifecycle/automated-payments",
-                  "faq/billing-lifecycle/payments-transitions",   
+                  "faq/billing-lifecycle/payments-transitions",
                   "faq/billing-lifecycle/pay-invoices-from-credit-balance",
                   "faq/billing-lifecycle/how-to-add-account-credit",
                   "faq/billing-lifecycle/top-up-credit-balance-by-bank-transfer",
-                  "faq/billing-lifecycle/no-upfront-deposits-required", 
-                  "faq/billing-lifecycle/moving-services-to-different-client-account",                  
+                  "faq/billing-lifecycle/no-upfront-deposits-required",
+                  "faq/billing-lifecycle/moving-services-to-different-client-account",
                   "faq/billing-lifecycle/accidental-renewal-convert-payment-to-credit",
                   "faq/billing-lifecycle/accepted-payment-methods",
                   "faq/billing-lifecycle/automatic-currency-conversion",
@@ -133,7 +143,7 @@
                   "faq/billing-lifecycle/can-i-get-a-refund",
                   "faq/billing-lifecycle/credit-card-reservation-vs-payment",
                   "faq/billing-lifecycle/automated-vps-billing-workflow",
-                  "faq/billing-lifecycle/scheduled-billing-window",                  
+                  "faq/billing-lifecycle/scheduled-billing-window",
                   "faq/billing-lifecycle/how-to-receive-monthly-consolidated-invoice",
                   "faq/billing-lifecycle/eu-vat-explained-if-and-how-much",
                   "faq/billing-lifecycle/can-i-pay-with-iban",
@@ -394,16 +404,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Explore VPS Hosting",
-          "href": "https://www.edisglobal.com/#start-now",
-          "icon": "cloud"
-        }
-      ]
-    }
+    ]
   },
   "styling": {
     "codeblocks": "system"

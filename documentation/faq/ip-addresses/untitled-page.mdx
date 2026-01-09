@@ -1,0 +1,66 @@
+---
+title: "How to Use ping.pe to Check Connectivity and Packet Loss"
+sidebarTitle: "How to use ping.pe"
+description: "Learn how to use ping.pe to check IP reachability and packet loss from multiple global locations, and how to interpret MTR results correctly."
+---
+
+## Overview
+
+ping.pe is a public tool that provides an overview of ping and packet loss measurements from multiple locations worldwide. Ping.pe can help determine whether an IP address or hostname is reachable and whether packet loss may be present.
+
+ping.pe runs its probes on third-party (VPS-) infrastructure. As a result, measurements are **not fail-safe**:
+
+- Probe nodes may be temporarily unstable
+- Some providers block traffic from other providers
+- Individual probe locations may show misleading results
+
+Despite these limitations, ping.pe is a useful first step for basic connectivity analysis.
+
+---
+
+## Running a ping.pe Test
+
+1. Open [**https://ping.pe**](https://ping.pe)
+2. Enter the **IP address or hostname** you want to test
+3. Start the test and allow it to run for **at least 30 seconds**
+
+Running the test long enough is important to detect intermittent packet loss or unstable routing.
+
+---
+
+## Reviewing Packet Loss Using MTR
+
+When packet loss is suspected, do not rely on ping results alone.\
+Always review the **MTR output**.
+
+1. Let the test run for **at least 30 seconds**
+2. Click the green **“Show”** button in the **MTR** column\
+   (second column from the right)
+3. The MTR results will expand below the table
+
+The MTR output helps identify:
+
+- Whether packet loss is present
+- At which hop packet loss begins
+- Whether the issue is upstream, transit-related, or destination-related
+
+Understanding where packet loss occurs is essential for proper troubleshooting.
+
+![Expanded MTR output in ping.pe showing packet loss per hop](/ping-pe-mtr-expanded.png)
+
+---
+
+## Sharing ping.pe Results
+
+At the bottom of the ping.pe page, click **“Save Image”**.
+
+This generates an image of the current test results, including ping and MTR data.\
+You can share the generated image link with **EDIS Global support**, allowing us to review exactly the same output you see.
+
+---
+
+## Important Notes
+
+- ping.pe results are indicative, not authoritative
+- Single failing probe locations do not necessarily indicate a real issue
+- Packet loss analysis should always include MTR data
