@@ -94,7 +94,7 @@
               {
                 "group": "IP Addresses",
                 "pages": [
-                  "documentation/faq/ip-addresses/untitled-page",
+                  "documentation/faq/ip-addresses/ping-pe-connectivity-check",
                   "faq/ip-addresses/ping-test-ip",
                   "faq/ip-addresses/change-ip-address",
                   "faq/ip-addresses/order-additional-ip-address",
