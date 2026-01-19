@@ -1,0 +1,335 @@
+---
+title: "EDIS Global Partner Starter Pack"
+description: "Everything partners need to evaluate, integrate, and to resell EDIS Global VPS infrastructure."
+sidebarTitle: "Partner Starter Pack"
+---
+
+# EDIS Global Partner Starter Pack
+
+This document provides a **complete technical and commercial overview** of EDIS Global for partners, resellers, and integrators. All information below reflects how EDIS Global operates in production today.
+
+---
+
+## Company & Infrastructure Overview
+
+**Company Type:** Infrastructure Provider\
+**Infrastructure Model:** 100% owned and operated by EDIS Global\
+**Reselling:** EDIS Global does not resell third-party infrastructure
+
+EDIS Global operates its own VPS infrastructure across multiple global locations. All services are provisioned and managed directly by EDIS Global.
+
+---
+
+## Locations & Availability
+
+EDIS Global operates VPS infrastructure in **50+ locations worldwide**.
+
+Each location exposes a **machine-readable JSON data feed** containing:
+
+- Country and City
+- Available plans
+- Pricing
+- CPU type
+- Disk technology
+- Network uplinks
+- Traffic allocation
+- URL on our website
+- Classification: entry-level, standard-vps, high-performance plans, high traffic plans
+- Data Centre address
+
+### Location Data Feeds
+
+All location feeds follow the same schema:
+
+```
+https://www.edisglobal.com/location-data/<location-slug>/data.json
+```
+
+### Example Locations
+
+- https://www.edisglobal.com/location-data/austria-graz/data.json
+- https://www.edisglobal.com/location-data/germany-frankfurt/data.json
+- https://www.edisglobal.com/location-data/finland-helsinki/data.json
+- https://www.edisglobal.com/location-data/cyprus-limassol/data.json
+- https://www.edisglobal.com/location-data/usa-new-york/data.json
+
+(Full list is available at the end of the document)
+
+---
+
+## Products
+
+### VPS Only
+
+- ✅ Virtual Private Servers (KVM)
+- ❌ No Dedicated Servers
+
+### Operating Systems
+
+- Linux distributions (multiple)
+- Windows Server (180‑day trial images available)
+
+OS availability: https://docs.edisglobal.com/vps-management/os-availability
+
+### Custom ISO
+
+- ✅ Supported
+
+Documentation: https://docs.edisglobal.com/vps-management/bring-your-own-iso
+
+---
+
+## Network & Traffic Model
+
+### Included Bandwidth (per VPS)
+
+Each VPS plan includes a **defined amount of monthly bandwidth**, depending on:
+
+- Location
+- Plan tier
+
+Products can be **upgraded at any time**.
+
+---
+
+### Traffic Pool Model (Additional Bandwidth)
+
+In addition to per‑VPS included bandwidth, EDIS Global offers a **Traffic Pool** system:
+
+- Shared traffic pool across all services in your account 
+- Traffic can be assigned manually or automatically
+- Designed for high‑consumption or burst workloads
+
+#### Traffic Assignment Modes
+
+**Manual Hydration**
+
+- Traffic is assigned manually from the pool to a VPS
+
+**Auto‑Hydration**
+
+- System automatically assigns traffic increments (e.g. 100 GB)
+- Triggered when a VPS reaches ~99% of its included traffic
+- Requires sufficient pool balance
+
+Documentation: https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-pool-global-and-premium-traffic-zone
+
+---
+
+## Provisioning
+
+- **Provisioning Speed:** Live (within minutes after payment confirmation)
+- **Reinstallations:** Self‑service, no cost
+- **Upgrades:** Instant (where technically possible) - IP does not change, no reinstall required
+
+Instant delivery details: https://docs.edisglobal.com/faq/billing-lifecycle/how-fast-instant-delivery
+
+---
+
+## Snapshots & Backups
+
+- ❌ Not self‑service
+- ✅ Available on request (QCOW2 image)
+
+Documentation: https://docs.edisglobal.com/faq/upgrades-downgrades/requesting-qcow2-image-backup
+
+---
+
+## IP Addresses
+
+- Additional IPv4: **€5 / IP**
+- Random IP change: **€5 (NRC)**
+- Bespoke IP change: **€10 (NRC)**
+
+IPv6 available where supported by location.
+
+Documentation: https://docs.edisglobal.com/faq/ip-addresses/change-ip-address
+
+---
+
+## Billing
+
+### Billing Cycles
+
+- Monthly
+- Quarterly
+- Semi‑annual
+- Annual (1 month free)
+
+### Payment Methods
+
+- Credit Card
+- PayPal
+- Bank Transfer (account top‑ups \> €250)
+- Cryptocurrency
+- SEPA / ACH Direct Debit
+
+Accepted payment methods: https://docs.edisglobal.com/faq/billing-lifecycle/accepted-payment-methods
+
+---
+
+## Automation & APIs
+
+EDIS Global is built for **automation‑first integrations**.
+
+### Order API
+
+Create, manage, and list services programmatically.
+
+https://docs.edisglobal.com/order-api-reference/order-api-welcome
+
+### Management API
+
+Perform VPS lifecycle and management actions.
+
+https://docs.edisglobal.com/management-api-reference/authentication/create-auth-session
+
+---
+
+## Support
+
+### Channels
+
+- Live Chat
+- Email
+- WhatsApp
+- Telegram
+
+❌ No phone support
+
+### Documentation
+
+Comprehensive technical documentation: https://docs.edisglobal.com/getting-started/everything-vps
+
+---
+
+## Reselling & Discounts
+
+EDIS Global offers structured reseller discounts.
+
+Documentation: https://docs.edisglobal.com/misc/edis-global-vps-reselling-and-discount-structure
+
+---
+
+## Automated Billing Workflows
+
+- Automated payments
+- Automated renewals
+- Automated provisioning
+
+Documentation:
+
+- https://docs.edisglobal.com/faq/billing-lifecycle/automated-vps-billing-workflow
+- https://docs.edisglobal.com/faq/billing-lifecycle/automated-payments
+
+---
+
+## Summary
+
+EDIS Global is designed for partners who value:
+
+- Deterministic infrastructure
+- Transparent pricing
+- API‑first automation
+- Global coverage
+- Predictable operations
+
+For questions beyond this document, please contact the EDIS Global team or consult the documentation linked above.
+
+### Location Data Feeds - full list
+
+https://www.edisglobal.com/location-data/austria-graz/data.json
+
+https://www.edisglobal.com/location-data/austria-vienna/data.json
+
+https://www.edisglobal.com/location-data/austria-vienna-interxion/data.json 
+
+https://www.edisglobal.com/location-data/belgium-brussels/data.json 
+
+https://www.edisglobal.com/location-data/bulgaria-sofia/data.json 
+
+https://www.edisglobal.com/location-data/croatia-zagreb/data.json 
+
+https://www.edisglobal.com/location-data/czech-republic-prague/data.json 
+
+https://www.edisglobal.com/location-data/denmark-copenhagen/data.json 
+
+https://www.edisglobal.com/location-data/estonia-tallinn/data.json 
+
+https://www.edisglobal.com/location-data/france-paris/data.json 
+
+https://www.edisglobal.com/location-data/germany-frankfurt/data.json 
+
+https://www.edisglobal.com/location-data/greece-thessaloniki/data.json 
+
+https://www.edisglobal.com/location-data/hungary-budapest/data.json 
+
+https://www.edisglobal.com/location-data/iceland-hafnarfjordur/data.json 
+
+https://www.edisglobal.com/location-data/italy-milan/data.json 
+
+https://www.edisglobal.com/location-data/italy-palermo/data.json 
+
+https://www.edisglobal.com/location-data/latvia-riga/data.json 
+
+https://www.edisglobal.com/location-data/lithuania-vilnius/data.json 
+
+https://www.edisglobal.com/location-data/moldova-chisinau/data.json 
+
+https://www.edisglobal.com/location-data/netherlands-amsterdam/data.json 
+
+https://www.edisglobal.com/location-data/north-macedonia-skopje/data.json 
+
+https://www.edisglobal.com/location-data/norway-oslo/data.json 
+
+https://www.edisglobal.com/location-data/poland-warsaw/data.json 
+
+https://www.edisglobal.com/location-data/romania-bucharest/data.json 
+
+https://www.edisglobal.com/location-data/russia-moscow/data.json 
+
+https://www.edisglobal.com/location-data/russia-st-petersburg/data.json 
+
+https://www.edisglobal.com/location-data/serbia-belgrade/data.json 
+
+https://www.edisglobal.com/location-data/slovenia-ljubljana/data.json 
+
+https://www.edisglobal.com/location-data/spain-seville/data.json 
+
+https://www.edisglobal.com/location-data/sweden-stockholm/data.json 
+
+https://www.edisglobal.com/location-data/switzerland-zurich/data.json 
+
+https://www.edisglobal.com/location-data/united-kingdom-london-city/data.json 
+
+https://www.edisglobal.com/location-data/unitedkingdom-london-docklands/data.json 
+
+https://www.edisglobal.com/location-data/canada-montreal/data.json 
+
+https://www.edisglobal.com/location-data/chile-vina-del-mar/data.json 
+
+https://www.edisglobal.com/location-data/colombia-bogota/data.json 
+
+https://www.edisglobal.com/location-data/usa-los-angeles/data.json 
+
+https://www.edisglobal.com/location-data/usa-miami/data.json 
+
+https://www.edisglobal.com/location-data/usa-new-york/data.json 
+
+https://www.edisglobal.com/location-data/israel-tel-aviv/data.json 
+
+https://www.edisglobal.com/location-data/united-arab-emirates-dubai/data.json
+
+https://www.edisglobal.com/location-data/singapore-singapore/data.json 
+
+https://www.edisglobal.com/location-data/hongkong-kwai-chung/data.json 
+
+https://www.edisglobal.com/location-data/japan-tokyo/data.json 
+
+https://www.edisglobal.com/location-data/australia-sydney/data.json
+
+https://www.edisglobal.com/location-data/finland-helsinki/data.json
+
+https://www.edisglobal.com/location-data/sweden-stockholm-interxion/data.json
+
+https://www.edisglobal.com/location-data/cyprus-limassol/data.json
