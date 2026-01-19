@@ -268,10 +268,10 @@
           {
             "group": "Misc",
             "pages": [
-              "documentation/misc/untitled-page",
               "misc/extending-180-day-trial-version-of-windows",
               "misc/fix-openssh-vm-delays-low-entropy",
               "misc/edis-global-vps-reselling-and-discount-structure",
+              "documentation/misc/untitled-page",
               "misc/reporting-abuse",
               "misc/security-compliance",
               "misc/fix-black-screen-windows-server",
