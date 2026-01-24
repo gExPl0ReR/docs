@@ -82,6 +82,10 @@
             "application/json": {
               "schema": {
                 "type": "object",
+                "required": [
+                  "email",
+                  "pw"
+                ],
                 "properties": {
                   "email": {
                     "type": "string",
@@ -104,86 +108,125 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "status": {
-                          "type": "string",
-                          "example": "success"
-                        },
-                        "services": {
-                          "type": "array",
-                          "description": "List of active and suspended services for the user.",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "service_id": {
-                                "type": "integer",
-                                "example": 209052,
-                                "description": "Unique identifier for the service."
-                              },
-                              "kvm_id": {
-                                "type": "string",
-                                "example": "kvm_18351_018442",
-                                "description": "KVM unique identifier."
-                              },
-                              "suspended": {
-                                "type": "string",
-                                "example": "Active",
-                                "description": "Service status (Active or Suspended)."
-                              },
-                              "billingcycle": {
-                                "type": "string",
-                                "example": "One Time",
-                                "description": "Billing cycle type (e.g., Monthly, One Time)."
-                              },
-                              "price": {
-                                "type": "string",
-                                "example": "0.00",
-                                "description": "Price of the service."
-                              },
-                              "key_date": {
-                                "type": "string",
-                                "format": "date",
-                                "example": "2021-09-07",
-                                "description": "Date associated with the service."
-                              },
-                              "paymentmethod": {
-                                "type": "string",
-                                "example": "paypal",
-                                "description": "Payment method used."
-                              },
-                              "plan": {
-                                "type": "string",
-                                "example": "KVM BASIC",
-                                "description": "Plan name of the service."
-                              },
-                              "location": {
-                                "type": "string",
-                                "example": "Austria, Vienna",
-                                "description": "Location where the service is hosted."
-                              }
-                            }
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "services"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success",
+                      "description": "Request status. Returns `success` when the request was processed correctly."
+                    },
+                    "services": {
+                      "type": "array",
+                      "description": "List of services linked to the authenticated account. Returns an empty array if no services exist.",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "service_id",
+                          "kvm_id",
+                          "status",
+                          "billingcycle",
+                          "price",
+                          "creation_date",
+                          "key_date",
+                          "paymentmethod",
+                          "plan",
+                          "location"
+                        ],
+                        "properties": {
+                          "service_id": {
+                            "type": "integer",
+                            "example": 312845,
+                            "description": "Unique WHMCS service identifier for the VPS."
+                          },
+                          "kvm_id": {
+                            "type": "string",
+                            "example": "kvm_114732_602381",
+                            "description": "EDIS KVM instance identifier."
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "active",
+                              "suspended",
+                              "terminated"
+                            ],
+                            "example": "active",
+                            "description": "Service lifecycle status. Possible values: `active`, `suspended`, `terminated`."
+                          },
+                          "billingcycle": {
+                            "type": "string",
+                            "example": "Monthly",
+                            "description": "Billing cycle of the service (e.g., Monthly, Quarterly, Annually, One Time)."
+                          },
+                          "price": {
+                            "type": "string",
+                            "example": "0.00",
+                            "description": "Recurring price for the selected billing cycle (string format)."
+                          },
+                          "creation_date": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2025-03-11",
+                            "description": "Creation date of the VPS (new field)."
+                          },
+                          "key_date": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2026-03-19",
+                            "description": "Next invoice due date for this service. (Previously used for creation date.)"
+                          },
+                          "paymentmethod": {
+                            "type": "string",
+                            "example": "cryptomus",
+                            "description": "Payment method assigned to the service."
+                          },
+                          "plan": {
+                            "type": "string",
+                            "example": "KVM BASIC",
+                            "description": "Product/plan name of the VPS."
+                          },
+                          "location": {
+                            "type": "string",
+                            "example": "Austria, Vienna",
+                            "description": "VPS hosting location."
                           }
                         }
                       }
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "status": {
-                          "type": "string",
-                          "example": "success"
-                        },
-                        "errormsg": {
-                          "type": "string",
-                          "example": "no service found",
-                          "description": "Indicates that no services are available for the provided credentials."
-                        }
-                      }
                     }
-                  ]
+                  }
+                },
+                "examples": {
+                  "successWithServices": {
+                    "summary": "Services found",
+                    "value": {
+                      "services": [
+                        {
+                          "service_id": 312845,
+                          "kvm_id": "kvm_114732_602381",
+                          "status": "active",
+                          "billingcycle": "Monthly",
+                          "price": "0.00",
+                          "creation_date": "2025-03-11",
+                          "key_date": "2026-03-19",
+                          "paymentmethod": "cryptomus",
+                          "plan": "KVM BASIC",
+                          "location": "Austria, Vienna"
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  },
+                  "successNoServices": {
+                    "summary": "No services found",
+                    "value": {
+                      "services": [],
+                      "status": "success"
+                    }
+                  }
                 }
               }
             }
@@ -203,6 +246,26 @@
                       "type": "string",
                       "example": "Invalid email or password.",
                       "description": "Error message if authentication fails."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid WHMCS credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "errormsg": {
+                      "type": "string",
+                      "example": "Invalid WHMCS credentials."
                     }
                   }
                 }
