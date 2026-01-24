@@ -953,7 +953,7 @@
           },
           "services": {
             "type": "array",
-            "description": "List of services linked to the authenticated account. Returns an empty array if no services exist. ⚠️ **Detailed field descriptions are available under “Show child attributes”.**",
+            "description": "List of services linked to the authenticated account. Returns an empty array if no services exist.\n\n⚠️ **To view detailed descriptions for each service field, click “Show child attributes” below.**",
             "items": {
               "$ref": "#/components/schemas/service_item"
             }
