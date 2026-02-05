@@ -39,23 +39,6 @@ To install Mikrotik on an EDIS Global VPS, you’ll need to adjust a few hardwar
   </Step>
 </Steps>
 
-## Implications on Mikrotik Upgrades from v6 to v7
-
-We learned from clients that the upgrade procedure from Mikrotik v6 to v7 seems to be broken. Clients were left with instances not being able to boot after the version upgrade from Mikrotik 6.x to Mikrotik 7.x and error messages like
-
-```powershell VNC
-Press ESC from boot menu.
-
-Booting from Hard Disk ...
-Load system
-
-ERROR: could not mount disk!
-Please attach it somewhere else
-
-```
-
-So far, the only known workaround is a fresh Mikrotik v7.x intallation.&#x20;
-
 ## Mikrotik CHR (Cloud Hosted Router)
 
 If you want to give Mikrotik CHR a try, you can download images from the official <a href="https://mikrotik.com/download" target="_blank">Mikrotik download page</a>. To make life easy for you, we converted a couple of <a href="https://files.edisglobal.com/index.php/s/Jph4RkS7Cgw0ryY" target="_blank">cloud images</a> downloaded from the Mikrotik website, which can be used with our Cloud-Init installer 😎
