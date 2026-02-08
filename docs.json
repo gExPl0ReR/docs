@@ -94,6 +94,7 @@
               {
                 "group": "IP Addresses",
                 "pages": [
+                  "faq/ip-addresses/understanding-packet-loss-virtualized-environments",
                   "faq/ip-addresses/ping-test-ip",
                   "faq/ip-addresses/change-ip-address",
                   "faq/ip-addresses/order-additional-ip-address",
