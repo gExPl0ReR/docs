@@ -6,6 +6,9 @@ icon: "head-side-brain"
 keywords: ["packet loss"]
 ---
 
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+
 Customers often report packet loss after running traceroute or MTR tests and seeing **80% or even 100% loss on intermediate hops**. In many cases, however, the **final destination shows no packet loss at all**.
 
 This article explains how to correctly interpret these results and how to distinguish between real connectivity problems and harmless artifacts of how routers handle diagnostic traffic.
@@ -45,7 +48,8 @@ Before interpreting packet loss, make sure the test was run correctly.
 
 Follow our step-by-step guide:
 
-👉 https://docs.edisglobal.com/faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows
+👉 <CtaButton label="Traceroute & MTR" link="./debugging-packet-loss-traceroute-mtr-windows" />
+
 
 Run MTR for at least **100 cycles** to get meaningful statistics.
 
@@ -53,7 +57,8 @@ Run MTR for at least **100 cycles** to get meaningful statistics.
 
 For external verification from multiple locations:
 
-👉 https://docs.edisglobal.com/documentation/faq/ip-addresses/ping-pe-connectivity-check
+👉 <CtaButton label="Traceroute & MTR" link="./ping-pe-connectivity-check" />
+
 
 This helps confirm whether an issue is local or global.
 
