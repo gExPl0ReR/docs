@@ -1,13 +1,10 @@
 ---
-title: "Understanding Packet Loss in Virtualized Environments"
+title: "Understanding Packet Loss in Traceroute & MTR (Virtualized Environments)"
 description: "Learn how to interpret packet loss in traceroute and MTR results in virtualized environments, and why packet loss on intermediate hops does not always indicate a problem."
-sidebarTitle: Packet Loss
+sidebarTitle: "Packet Loss"
 icon: "head-side-brain"
 keywords: ["packet loss"]
 ---
-
-import { CtaButton } from "/snippets/cta-button.mdx";
-
 
 Customers often report packet loss after running traceroute or MTR tests and seeing **80% or even 100% loss on intermediate hops**. In many cases, however, the **final destination shows no packet loss at all**.
 
@@ -20,7 +17,7 @@ This article explains how to correctly interpret these results and how to distin
 - Packet loss on **intermediate hops** does **not automatically mean a problem**
 - The **final hop** (your VPS or target host) is what matters most
 - Many routers **de-prioritize or rate-limit ICMP responses**
-- Virtualized environments add additional layers where ICMP handling may differ from normal traffic
+- Virtualized environments add additional layers where diagnostic ICMP traffic may be handled differently from normal application traffic
 
 If the final destination shows **0% packet loss and stable latency**, your connection is usually healthy.
 
@@ -30,7 +27,15 @@ If the final destination shows **0% packet loss and stable latency**, your conne
 
 Tools like **traceroute** and **MTR** send diagnostic packets (usually ICMP or UDP) and measure how routers respond.
 
-Important: routers are optimized to **forward traffic**, not to respond to diagnostic probes. When under load, they may:
+Think of traceroute and MTR as asking every router along the path:
+
+> "Can you reply to me right now?"
+
+Some routers choose not to answer — but they still forward real traffic perfectly.
+
+I
+
+mportant: routers are optimized to **forward traffic**, not to respond to diagnostic probes. When under load, they may:
 
 - Rate-limit ICMP replies
 - Drop diagnostic packets
@@ -50,7 +55,6 @@ Follow our step-by-step guide:
 
 👉 <CtaButton label="Traceroute & MTR" link="./debugging-packet-loss-traceroute-mtr-windows" />
 
-
 Run MTR for at least **100 cycles** to get meaningful statistics.
 
 ### Using ping.pe
@@ -58,7 +62,6 @@ Run MTR for at least **100 cycles** to get meaningful statistics.
 For external verification from multiple locations:
 
 👉 <CtaButton label="Using ping.pe" link="./ping-pe-connectivity-check" />
-
 
 This helps confirm whether an issue is local or global.
 
@@ -85,6 +88,8 @@ This usually means:
 
 If the final hop shows **0% loss**, the connection is working.
 
+**If packet loss does not reach the final hop, your VPS is not losing packets.**
+
 ---
 
 ### Scenario 2: Loss continues to the final hop
@@ -107,7 +112,7 @@ Possible causes:
 - Faulty links
 - Host or hypervisor issues
 
-This is when investigation is required.
+This is when investigation is required, because real traffic is affected.
 
 ---
 
@@ -149,7 +154,7 @@ Please contact our support team if you observe:
 
 When reporting issues, include:
 
-- Full MTR output 
+- Full MTR output
 - Test timestamps (UTC)
 - Source and destination IP addresses
 - ping.pe results if available
