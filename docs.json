@@ -111,7 +111,7 @@
                   "faq/ip-addresses/announcing-third-party-ip-prefixes",
                   "faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance",
                   "faq/ip-addresses/network-is-down",
-                  "faq/ip-addresses/understanding-packet-loss-virtualized-environments",
+                  "faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute-virtualized-environments",
                   "faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows",
                   "faq/ip-addresses/ping-pe-connectivity-check"
                 ]
