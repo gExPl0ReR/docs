@@ -94,6 +94,7 @@
               {
                 "group": "IP Addresses",
                 "pages": [
+                  "faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute",
                   "faq/ip-addresses/ping-test-ip",
                   "faq/ip-addresses/change-ip-address",
                   "faq/ip-addresses/order-additional-ip-address",
@@ -111,7 +112,6 @@
                   "faq/ip-addresses/announcing-third-party-ip-prefixes",
                   "faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance",
                   "faq/ip-addresses/network-is-down",
-                  "faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute",
                   "faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows",
                   "faq/ip-addresses/ping-pe-connectivity-check"
                 ]
