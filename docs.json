@@ -93,6 +93,7 @@
               "faq/hourly-plans-available",
               {
                 "group": "IP Addresses",
+                "icon": "folder-tree",
                 "pages": [
                   "faq/ip-addresses/ping-test-ip",
                   "faq/ip-addresses/change-ip-address",
@@ -118,6 +119,7 @@
               },
               {
                 "group": "Server Locations",
+                "icon": "folder-medical",
                 "pages": [
                   "faq/server-locations/list-of-edis-global-server-locations-by-continent-region",
                   "faq/server-locations/change-server-location"
