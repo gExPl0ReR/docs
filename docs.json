@@ -93,7 +93,7 @@
               "faq/hourly-plans-available",
               {
                 "group": "IP Addresses",
-                "icon": "folder-tree",
+                "icon": "chart-network",
                 "pages": [
                   "faq/ip-addresses/ping-test-ip",
                   "faq/ip-addresses/change-ip-address",
@@ -119,7 +119,7 @@
               },
               {
                 "group": "Server Locations",
-                "icon": "folder-medical",
+                "icon": "globe",
                 "pages": [
                   "faq/server-locations/list-of-edis-global-server-locations-by-continent-region",
                   "faq/server-locations/change-server-location"
@@ -127,6 +127,7 @@
               },
               {
                 "group": "Billing & Lifecycle",
+                "icon": "money-bill-1-wave",
                 "pages": [
                   "faq/billing-lifecycle/automated-payments",
                   "faq/billing-lifecycle/payments-transitions",
@@ -160,6 +161,7 @@
               },
               {
                 "group": "Traffic (bandwidth)",
+                "icon": "display-chart-up",
                 "pages": [
                   "faq/traffic-bandwidth/traffic-vs-bandwidth",
                   "faq/traffic-bandwidth/traffic-stats-refill-explained",
@@ -177,6 +179,7 @@
               },
               {
                 "group": "Upgrades, Downgrades",
+                "icon": "gear",
                 "pages": [
                   "faq/upgrades-downgrades/upgrades",
                   "faq/upgrades-downgrades/upgrade-plan",
