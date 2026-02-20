@@ -1,22 +1,75 @@
 ---
 title: How to Change VPS Server Location
-description: It is not possible to move an existing server from one location to another
+description: You may request a one-time free location change within 24 hours of ordering a VPS. After 24 hours, relocation requires ordering a new VPS.
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
 ### Understanding VPS Server Location Changes
 
-IP addresses are tied to specific server locations and cannot be transferred between geographical regions. Due to this technical limitation, changing the location of an existing server (relocating a server) is not feasible.
+IP addresses are tied to specific server locations and cannot be transferred between geographical regions. Because of this technical limitation, an existing VPS cannot be physically moved to another location.
 
-### Steps to Change VPS Server Location:
+Instead, a location change is performed by reprovisioning the VPS in the new location.
+
+---
+
+### Free Location Change Within 24 Hours
+
+Customers may request a **one-time free location change within 24 hours of the original VPS order**.
+
+This option is useful if you:
+
+- selected the wrong location
+- need lower latency to a different region
+- require a different geographic presence
+
+When a location change is approved:
+
+- The VPS will be reprovisioned in the new location
+- The billing cycle and plan remain unchanged
+- No refund is issued
+- The original VPS will be permanently deleted
+
+<LocationChangeRestrictions>
+
+**Location change restrictions:**
+
+- Available only within 24 hours of the original order
+- Limited to one location change per VPS service
+- Additional IPv4 addresses are not automatically migrated and may require re-approval
+- Services flagged for abuse, spam, or policy violations are not eligible
+- Subject to resource availability in the requested location
+
+EDIS Global reserves the right to deny location change requests in cases of abuse prevention, fraud detection, or policy enforcement.
+
+</LocationChangeRestrictions>
+
+<Warning>
+
+**Important:**  
+Location changes involve reprovisioning a new VPS. Data, IP addresses, and configuration are not migrated automatically. Customers are responsible for creating backups before requesting a location change.
+
+</Warning>
+
+---
+
+### After 24 Hours
+
+After the initial 24-hour period, location changes are no longer available.
+
+To use a different location, follow these steps:
 
 <Steps>
-  <Step title='Cancellation:'>
-    Cancel the VPS in the location you no longer need.
+  <Step title='Order a New VPS:'>
+    Order a VPS in the desired location.
   </Step>
-  <Step title='New Order:'>
-    Order a VPS in any other location you need.
+
+  <Step title='Migrate Your Data:'>
+    Transfer your data and configuration to the new VPS.
+  </Step>
+
+  <Step title='Cancel the Old VPS:'>
+    Cancel the VPS in the previous location once migration is complete.
   </Step>
 </Steps>
 
@@ -30,4 +83,3 @@ IP addresses are tied to specific server locations and cannot be transferred bet
   label='Cancel VPS'
   link='../billing-lifecycle/cancel-a-service'
 />
-
