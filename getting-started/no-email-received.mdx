@@ -9,7 +9,9 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 
 If you did not receive our email with VPS credentials:
 
-<Info> We can’t resend passwords! We are unable to resend emails which contain credentials or passwords. For security reasons, we don’t store your passwords. Don’t worry, you can easily set up your service with a new password. </Info>
+<Info>
+   We can’t resend passwords! We are unable to resend emails which contain credentials or passwords. For security reasons, we don’t store your passwords. Don’t worry, you can easily set up your service with a new password. 
+</Info>
 
 ## How to Access Your New VPS
 
@@ -17,12 +19,24 @@ If you did not receive our email with VPS credentials:
   <Step title="Log in to your">
     [KVM Management Portal](https://manage.edisglobal.com/clientarea.php)
   </Step>
-
-  <Step title="Locate your VPS in the Services tab" />
-
+  <Step title="Locate your VPS in the Services tab">
+    
+  </Step>
   <Step title="Reinstall your VPS with a fresh OS and your own password">
     <CtaButton label="How to Install Linux or Windows" link="/vps-management/autoinstall-reinstall-install-vps-linux-windows" />
   </Step>
 </Steps>
 
-<Info>Keep in mind, no email will be sent when you reinstall!</Info>
+<Info>
+  Keep in mind, no email will be sent when you reinstall!
+</Info>
+
+## Why we can't resend passwords
+
+We do not store passwords at all.
+
+Passwords are generated during deployment and configured directly on the server. They are never saved in our systems. If you did not receive or no longer have the initial password, it cannot be recovered.
+
+In this case, the server must be reinstalled and a new password will be set during the installation process.
+
+This design ensures maximum security — credentials that are never stored cannot be leaked, accessed, or compromised.
