@@ -42,15 +42,6 @@
         "tab": "Documentation",
         "groups": [
           {
-            "group": "Join Our Team",
-            "hidden": true,
-            "pages": [
-              "join-our-team/jobs-edisglobal-support-agent-non-voice",
-              "join-our-team/technical-procurement-and-server-operations-coordinator",
-              "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert"
-            ]
-          },
-          {
             "group": "Getting Started",
             "pages": [
               "getting-started/everything-vps",
@@ -288,6 +279,15 @@
               "misc/manual-windows-server-installation-on-kvm",
               "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error",
               "misc/what-is-seabios"
+            ]
+          },
+          {
+            "group": "Join Our Team",
+            "hidden": true,
+            "pages": [
+              "join-our-team/jobs-edisglobal-support-agent-non-voice",
+              "join-our-team/technical-procurement-and-server-operations-coordinator",
+              "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert"
             ]
           }
         ]
