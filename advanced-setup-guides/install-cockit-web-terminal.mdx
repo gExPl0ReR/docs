@@ -8,21 +8,21 @@ In this guide, we will walk you through installing Cockpit on a Debian 13 VPS an
 
 ## What is Cockpit?
 
-Cockpit is a **web-based Server Management** interface for Linux systems that allows you to monitor, configure, and control your VPS directly through a standard web browser.
+CCockpit is a lightweight, web-based server management interface for Linux systems. It allows you to monitor, configure, and control your VPS directly from a standard web browser.
 
-One of its most useful features is the **built-in Web Terminal**, which allows you to access the command line of your server without needing SSH clients or other remote access tools.
+Cockpit is especially useful for VPS environments where administrators need fast, secure, and convenient access to system management tools without relying exclusively on SSH.
 
-This is especially useful in environments where SSH access may be unreliable, restricted, or filtered by network providers (Russia, China, Iran), firewalls, or regional network policies. Because Cockpit uses secure HTTPS connections, it can provide a more accessible and reliable management interface.
+The Cockpit Web Terminal is particularly useful in environments where SSH access may be unreliable, restricted, or filtered by network providers, firewalls, or regional routing policies. Because Cockpit operates over secure HTTPS (port 9090), it can provide a more accessible management channel.
 
 ## What makes the Cockpit Web Terminal special?
 
-Unlike VNC-based consoles,  Cockpit Web Terminal provides:
+Unlike VNC-based console access, the Cockpit Web Terminal provides:
 
-- Works when port 22 or SSH fingerprints are filtered or blocked
-- Full command-line access directly in your browser
-- Secure access via HTTPS
-- Native clipboard support (copy/paste functionality)
-- Faster and more responsive interaction
+- Reliable access when SSH (port 22) is restricted or filtered
+- Full command-line functionality directly in your browser
+- Secure HTTPS-based communication
+- Native clipboard support (copy and paste commands easily)
+- Faster and more responsive interaction compared to VNC
 - No additional client software required
 
 ## How to install Cockpit Web Terminal on Debian 13
@@ -81,9 +81,11 @@ Open your web browser and navigate to `https://your-server-ip:9090`. You will be
 
 Cockpit uses HTTPS encryption by default. You may see a browser warning due to a self-signed certificate. This is normal for new installations. For production environments, you can install a trusted SSL certificate using Let’s Encrypt.
 
-## Activate Adminsitrator Privileges
+## Activate Administrator Privileges
 
-After logging into the Cockpit panel, activate adminsitrator privileges by clicking on the user icon in the top right corner and selecting "Activate administrator privileges" from the dropdown menu.
+After logging in, click on your username in the top right corner and select **“Turn on administrative access”**.
+
+You will be prompted to re-enter your password to confirm elevated privileges.
 
 ![Cockpit Privileges](/assets/Cockpit-Privileges.png)
 
@@ -101,9 +103,17 @@ Links:
 
 ## Cockpit on EDIS Global VPS
 
-Cockpit works perfectly on EDIS Global KVM VPS hosting and provides an excellent alternative to SSH or VNC for server management.
+Cockpit works seamlessly on EDIS Global KVM VPS hosting. It provides a convenient web-based management interface alongside SSH and VNC access.
 
-It is especially useful for: •	VPS monitoring •	VPN server management •	Linux system administration •	Remote infrastructure management
+Typical use cases include:
+
+- VPS monitoring and diagnostics
+
+- VPN server administration
+
+- Linux system management
+
+- Remote infrastructure operations
 
 ⸻
 
