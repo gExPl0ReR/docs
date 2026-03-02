@@ -11,8 +11,10 @@ a web browser. Cockpit is designed to be simple and intuitive, making it easier 
 
 ## What is cockpit web terminal?
 Cockpit Web Terminal is a feature of the Cockpit server management tool that provides a web-based
-terminal interface. It allows you to access the command line of your server directly from your web browser, without needing to use SSH or other remote terminal tools. This can be especially convenient for quick tasks or when you want to manage your server from a device that doesn't have a terminal application
-installed. The web terminal is integrated into the Cockpit interface, so you can easily switch between monitoring your server's performance and executing commands in the terminal, all within the same web-based environment.
+terminal interface. 
+It allows you to access the command line of your server directly from your web browser, without needing to use SSH or other remote terminal tools. 
+If you have difficulty accessing your server via SSH because your provider trottle SSH protocol, the Cockpit Web Terminal can be a convenient alternative for managing your server and executing commands. 
+Because it’s a web service, you’ll interact with it the same way you would with any normal website—by sending standard, legitimate requests. And since it has a built-in terminal, you can use your clipboard (copy/paste) directly, which isn’t possible with VNC.
 
 ## How to install cockpit web terminal on Debian 13
 To install Cockpit Web Terminal on Debian 13, you can follow these steps:
@@ -35,6 +37,7 @@ Now the new user can access Cockpit with administrative privileges.
 ```bash
 sudo apt update
 sudo apt install cockpit ufw -y
+```
 5. Enable and start the Cockpit service:
 ```bash
 sudo systemctl enable --now cockpit.socket
@@ -48,15 +51,13 @@ sudo ufw allow 9090/tcp
 ```bash
 sudo systemctl restart cockpit
 ```
-8. Access Cockpit Web Terminal:
+## Access Cockpit Web Terminal:
 Open your web browser and navigate to `https://your-server-ip:9090`. You will
 be prompted to log in with your server's username and password. Once logged in, you can access the web terminal from the Cockpit dashboard.
-Congratulations! You have successfully installed Cockpit Web Terminal on your Debian 13 server. You can now manage your server and execute commands directly from your web browser.
-
-Login to the panel:
 
 ![Cockpit login](/assets/Cockpit-Login-page.png)
 
+## Activate adminsitrator privileges
 After logging into the Cockpit panel, activate adminsitrator privileges by clicking on the user icon in the top right corner and selecting "Activate administrator privileges" from the dropdown menu.
 
 ![Cockpit Privileges](/assets/Cockpit-Privileges.png)
@@ -65,6 +66,7 @@ To switch to administrative access, you will be prompted to enter your password 
 ![Cockpit Enter Password](/assets/Cockpit-Enter-Password.png)
 
 Final, open the terminal from the left sidebar by clicking on "Terminal". This will open the web terminal interface where you can execute commands directly on your server.
+Now that's easy to copy paste any command from the web and execute it on your server without needing to use SSH or other remote terminal tools.
 ![Open Terminal](/assets/Cockpit-Terminal.png)
 
 
