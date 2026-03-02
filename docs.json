@@ -259,7 +259,7 @@
               "advanced-setup-guides/gui-versions-of-ubuntu-debian",
               "advanced-setup-guides/install-jitsi-on-your-vps",
               "advanced-setup-guides/how-to-setup-wireguard-vpn",
-              "advanced-setup-guides/install-cockpit-vps-debian",
+              "advanced-setup-guides/install-debian-cockpit-web-terminal",
               "advanced-setup-guides/installing-openvpn-with-turnkey",
               "advanced-setup-guides/ufw-uncomplicated-firewall-howto"
             ]
@@ -951,8 +951,8 @@
       "destination": "/advanced-setup-guides/how-to-setup-wireguard-vpn"
     },
     {
-      "source": "/install-cockit-web-terminal",
-      "destination": "/advanced-setup-guides/install-cockit-web-terminal"
+      "source": "/install-debian-cockpit-web-terminal",
+      "destination": "/advanced-setup-guides/install-debian-cockpit-web-terminal"
     },
     {
       "source": "/installing-openvpn-with-turnkey",
