@@ -289,6 +289,15 @@
               "join-our-team/technical-procurement-and-server-operations-coordinator",
               "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert"
             ]
+          },
+          {
+            "group": "playground",
+            "hidden": true,
+            "pages": [
+              "pavel-1",
+              "pavel-2",
+              "pavel-3"
+            ]
           }
         ]
       },
