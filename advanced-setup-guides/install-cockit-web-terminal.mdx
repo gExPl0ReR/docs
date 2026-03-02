@@ -1,80 +1,94 @@
 ---
-title: "Install cockpit on VPS"
-sidebartitle: Install cockpit on VPS
-description: "Guide on how to install cockpit on Debian 13"
+title: "Install Cockpit on a VPS (Debian 13) – Web-Based Linux Server Management Guide"
+sidebarTitle: "Install Cockpit on VPS"
+description: "Step-by-step guide to install Cockpit on a Debian 13 VPS. Learn how to enable web-based Linux server management, monitoring, and make use of Cockpit Web Terminal as a SSH replacement."
 ---
 
-## For what is cockpit used for?
-Cockpit is a web-based server management tool that provides a user-friendly interface for monitoring and administering
-Linux servers. It allows you to manage various aspects of your server, such as system performance, storage, network settings, and services, all through
-a web browser. Cockpit is designed to be simple and intuitive, making it easier for administrators to perform tasks without needing to use the command line extensively. It is particularly useful for those who prefer a graphical interface for server management or for those who are new to Linux administration.
+This article we'll walk you though the installation of Cockpit and how you how make use of its Web Terminal for situatiations when SSH port and signatures might be blocked.
 
-## What is cockpit web terminal?
-Cockpit Web Terminal is a feature of the Cockpit server management tool that provides a web-based
-terminal interface. 
-It allows you to access the command line of your server directly from your web browser, without needing to use SSH or other remote terminal tools. 
-If you have difficulty accessing your server via SSH because your provider trottle SSH protocol, the Cockpit Web Terminal can be a convenient alternative for managing your server and executing commands. 
-Because it’s a web service, you’ll interact with it the same way you would with any normal website—by sending standard, legitimate requests. And since it has a built-in terminal, you can use your clipboard (copy/paste) directly, which isn’t possible with VNC.
+## What is Cockpit?
 
-## How to install cockpit web terminal on Debian 13
+Cockpit is a **web-based Server Management** interface for Linux systems that allows you to monitor, configure, and control your VPS directly through a standard web browser.
+
+One of its most useful features is the **built-in Web Terminal**, which allows you to access the command line of your server without needing SSH clients or other remote access tools.
+
+This is especially useful in environments where SSH access may be unreliable, restricted, or filtered by network providers (Russia, China, Iran), firewalls, or regional network policies. Because Cockpit uses secure HTTPS connections, it can provide a more accessible and reliable management interface.
+
+## What makes the Cockpit Web Terminal special?
+
+Unlike VNC-based consoles,  Cockpit Web Terminal provides:
+
+- Works when port 22 or SSH fingerprints are filtered or blocked
+- Full command-line access directly in your browser
+- Secure access via HTTPS
+- Native clipboard support (copy/paste functionality)
+- Faster and more responsive interaction
+- No additional client software required
+
+## How to install Cockpit Web Terminal on Debian 13
+
 To install Cockpit Web Terminal on Debian 13, you can follow these steps:
+
 1. Connect to your Debian 13 server using SSH or any terminal access method you prefer.
-2. Create a new user (optional):
-If you want to create a new user for accessing Cockpit, you can do so with the following command:
+2. Create a new user (optional): If you want to create a new user for accessing Cockpit, you can do so with the following command:
+
 ```bash
 sudo useradd -m -s /bin/bash newusername
 sudo passwd newusername
 ```
-Replace `newusername` with the desired username. After creating the user, you can log in to Cockpit using this new account.
-3. Add the new user to the `sudo` group (optional):
-If you want the new user to have administrative privileges, you can add them to the `sudo` group:
+
+Replace `newusername` with the desired username. After creating the user, you can log in to Cockpit using this new account. 3. Add the new user to the `sudo` group (optional): If you want the new user to have administrative privileges, you can add them to the `sudo` group:
+
 ```bash
 sudo usermod -aG sudo newusername
 ```
-Now the new user can access Cockpit with administrative privileges. 
+
+Now the new user can access Cockpit with administrative privileges.
 
 4. Update your package list and install Cockpit:
+
 ```bash
 sudo apt update
 sudo apt install cockpit ufw -y
 ```
+
 5. Enable and start the Cockpit service:
+
 ```bash
 sudo systemctl enable --now cockpit.socket
 sudo systemctl start cockpit
 ```
+
 6. Open the necessary firewall port (if applicable):
+
 ```bash
 sudo ufw allow 9090/tcp
-```     
+```
+
 7. Restart the Cockpit service to apply changes:
+
 ```bash
 sudo systemctl restart cockpit
 ```
+
 ## Access Cockpit Web Terminal:
-Open your web browser and navigate to `https://your-server-ip:9090`. You will
-be prompted to log in with your server's username and password. Once logged in, you can access the web terminal from the Cockpit dashboard.
+
+Open your web browser and navigate to `https://your-server-ip:9090`. You will be prompted to log in with your server's username and password. Once logged in, you can access the web terminal from the Cockpit dashboard.
 
 ![Cockpit login](/assets/Cockpit-Login-page.png)
 
 ## Activate adminsitrator privileges
+
 After logging into the Cockpit panel, activate adminsitrator privileges by clicking on the user icon in the top right corner and selecting "Activate administrator privileges" from the dropdown menu.
 
 ![Cockpit Privileges](/assets/Cockpit-Privileges.png)
 
-To switch to administrative access, you will be prompted to enter your password again. Enter the password and click "Authenticate" to proceed.
-![Cockpit Enter Password](/assets/Cockpit-Enter-Password.png)
+To switch to administrative access, you will be prompted to enter your password again. Enter the password and click "Authenticate" to proceed. <img src="/assets/Cockpit-Enter-Password.png" alt="Cockpit Enter Password" />
 
-Final, open the terminal from the left sidebar by clicking on "Terminal". This will open the web terminal interface where you can execute commands directly on your server.
-Now that's easy to copy paste any command from the web and execute it on your server without needing to use SSH or other remote terminal tools.
-![Open Terminal](/assets/Cockpit-Terminal.png)
-
-
+Final, open the terminal from the left sidebar by clicking on "Terminal". This will open the web terminal interface where you can execute commands directly on your server. Now that's easy to copy paste any command from the web and execute it on your server without needing to use SSH or other remote terminal tools. <img src="/assets/Cockpit-Terminal.png" alt="Open Terminal" />
 
 Links:
+
 - https://cockpit-project.org
 - https://cockpit-project.org/running.html
 - https://cockpit-project.org/guide/latest/
-
-
-
