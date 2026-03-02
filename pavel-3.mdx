@@ -1,4 +1,28 @@
 ---
-title: 'pavel-3'
+title: "Article 3 H1 long title"
+sidebarTitle: "Article 3"
+description: "Meta Description goes here"
 ---
 
+## We work with h2 headlines, because mintlify uses title above as h1
+
+This is text
+
+### this is a sub-headline (h3)
+
+### **Some Demo content:**
+
+* The script `addvpnuser.sh` allows you to add new VPN users with specified usernames and passwords.
+
+* Replace `'newusername'` and `'newpassword'` with the desired credentials.
+
+### Removing a VPN User
+
+Download the user removal script and remove an existing user.
+
+```bash
+sudo wget https://get.vpnsetup.net/deluser -O /opt/src/delvpnuser.sh
+sudo chmod +x /opt/src/delvpnuser.sh
+sudo ln -s /opt/src/delvpnuser.sh /usr/bin/delvpnuser.sh
+
+sudo delvpnuser.sh 'username_to_remove'
