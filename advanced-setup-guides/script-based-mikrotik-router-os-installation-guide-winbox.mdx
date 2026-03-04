@@ -1,10 +1,9 @@
 ---
-title: Automatic Installation of MikroTik Router OS (MikroTik CHR)
+title: "Automatic Installation of MikroTik Router OS (MikroTik CHR)"
 sidebarTitle: "Install MikroTik CHR RouterOS"
-description: Learn how to install MikroTik Router OS (CHR) on your VPS with an automated script. Step-by-step instructions for setup, configuration, and connecting via Winbox.
+description: "Learn how to install MikroTik Router OS (CHR) on your VPS with an automated script. Step-by-step instructions for setup, configuration, and connecting via Winbox."
 metaTitle: "How to Install MikroTik RouterOS (CHR) on EDIS Global KVM VPS"
 metaDescription: "Step-by-step guide for automated installation of MikroTik RouterOS (CHR) on EDIS Global VPS, including IDE/E1000 settings and ISO upload."
-
 ---
 
 ## Introduction
@@ -12,20 +11,19 @@ metaDescription: "Step-by-step guide for automated installation of MikroTik Rout
 This guide simplifies the process of installing MikroTik Router OS on a VPS. By automating the installation with a script, there’s no need to manually enter commands in the MikroTik CLI console. Once complete, you’ll have a fully operational VPS running MikroTik Router OS.
 
 ## Getting Started: Prerequisites and VPS Preparation
+
 <Steps>
-  <Step title="">
-    <a href='https://docs.edisglobal.com/autoinstall-reinstall-install-vps-linux-windows' target='_blank'>
-    Install Debian 12 on VPS
-    </a>
+  <Step>
+    <a href="https://docs.edisglobal.com/autoinstall-reinstall-install-vps-linux-windows" target="_blank">
+  Install Debian 12 on VPS
+</a>
   </Step>
-  <Step title="">
-    <a href='https://docs.edisglobal.com/linux-secure-shell-ssh' target='_blank'>
-    Connect to the server via SSH
-    </a>
+  <Step>
+    <a href="https://docs.edisglobal.com/linux-secure-shell-ssh" target="_blank">
+  Connect to the server via SSH
+</a>
   </Step>
 </Steps>
-
-
 
 Open a terminal and create a script file:
 
@@ -148,39 +146,42 @@ chmod 755 mikrotik.sh
 
 The VPS will reboot automatically once the installation completes.
 
-### Install settings manually in RouterOS 
-1. Login to your [VPS Management Portal](https://manage.edis.at/whmcs/clientarea.php) 
+### Install settings manually in RouterOS
+
+1. Login to your [VPS Management Portal](https://manage.edis.at/whmcs/clientarea.php)
 2. Locate your VPS from the Services tab
 3. [**Enable VNC Server**](https://docs.edisglobal.com/enable-vnc-server)
 4. Open the noVNC or connect by VNC client
-5. Login to the Router OS using admin account and blank password
+5. Login to the Router OS using **admin** account and **blank password** (no password)
 6. Setup new password for admin account
 7. Show the name of interfaces:
+
 <Card title="Check name of interface">
   <img
     src="/assets/checkinterface.png"
     alt="Check name of interface in RouterOS"
     className="rounded-none"
   />
-```bash
-/interface print
-```
+
+  ```bash
+  /interface print
+  ```
 </Card>
 
-8. Check you [**Network Information**](https://docs.edisglobal.com/vps-management/ip-address-information#ip-settings,-network-info) in the billing panel.
-Configure your IP address of the server (_*192.168.1.100*_ - IP address of the server &
-_*ether1*_ - name of interface):<br />
+8. Check you [**Network Information**](https://docs.edisglobal.com/vps-management/ip-address-information#ip-settings,-network-info) in the billing panel. Configure your IP address of the server (__192.168.1.100__ - IP address of the server & __ether1__ - name of interface):
+
 ```bash
  /ip address add address=192.168.1.100/24 interface=ether1 
 ```
 
-9. Configure gateway(_*192.168.1.1*_ - IP address of gateway): 
+9. Configure gateway(__192.168.1.1__ - IP address of gateway):
 
 ```bash
 /ip route add gateway=192.168.1.1 dst-address=0.0.0.0/0
 ```
 
 10. Configure DNS:
+
 ```bash
 /ip dns set servers=1.1.1.1,1.0.0.1
 ```
@@ -190,13 +191,12 @@ After you have finished configuring Router OS in VNC,Connect to MikroTik Router 
 ### Connecting to Server Using Winbox
 
 1. **Download and Install** Winbox from the [MikroTik website](https://mikrotik.com/download).
-
 2. Open Winbox and create a new connection:
 
    • Enter your VPS **IP address**.
 
-   • Use admin for the **Login** field and Enter the **Password** that you installed before.<br />
-   
+   • Use admin for the **Login** field and Enter the **Password** that you installed before.
+
    • Click **Connect**.
 
    ![Install MikroTik RouterOS](/assets/winbox.png)
