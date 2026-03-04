@@ -15,7 +15,7 @@ This guide simplifies the process of installing MikroTik Router OS on a VPS. By 
 <Steps>
   <Step>
     <a href="https://docs.edisglobal.com/autoinstall-reinstall-install-vps-linux-windows" target="_blank">
-  Install Debian 12 on VPS
+  Install Debian 13 on VPS
 </a>
   </Step>
   <Step>
@@ -168,13 +168,13 @@ The VPS will reboot automatically once the installation completes.
   ```
 </Card>
 
-8. Check you [**Network Information**](https://docs.edisglobal.com/vps-management/ip-address-information#ip-settings,-network-info) in the billing panel. Configure your IP address of the server (__192.168.1.100__ - IP address of the server & __ether1__ - name of interface):
+8. Check you [**Network Information**](https://docs.edisglobal.com/vps-management/ip-address-information#ip-settings,-network-info) in the billing panel. Configure your IP address of the server (**192.168.1.100** - IP address of the server & **ether1** - name of interface):
 
 ```bash
  /ip address add address=192.168.1.100/24 interface=ether1 
 ```
 
-9. Configure gateway(__192.168.1.1__ - IP address of gateway):
+9. Configure gateway(**192.168.1.1** - IP address of gateway):
 
 ```bash
 /ip route add gateway=192.168.1.1 dst-address=0.0.0.0/0
