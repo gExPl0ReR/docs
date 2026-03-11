@@ -1,70 +1,160 @@
 ---
-title: "Statuspage: Subscribe"
-sidebarTitle: "Subscribe to Status Updates"
-description: "Subscribe to EDIS Global status updates and customize notifications for specific locations and services. Stay informed with real-time alerts via email, Slack, or Microsoft Teams."
+title: "Subscribe to Status Updates"
+slug: "statuspage-subscribe"
+description: "Learn how to subscribe to EDIS Global status updates and receive notifications for specific VPS locations and services."
+sidebarTitle: Subscribe on Statuspage
 ---
 
-## How to Subscribe for Status Updates
+# Subscribe to Status Updates
 
-At **EDIS Global**, we provide services across **50 locations worldwide**. We understand that receiving updates for every location can be overwhelming, especially if you only need notifications for specific regions or services. That's why we allow our users to **customize** the notifications they receive by **subscribing only to updates** relevant to their services and locations.
+Stay informed about **incidents, maintenance, and service status** for the locations and services you use.
 
-Follow the steps below to manage and personalize your subscription to our **statuspage**:
+You can subscribe to updates via:
 
-## 1. Access the EDIS Global Statuspage
+- Email
+- Slack
+- Microsoft Teams
+- Google Chat
 
-Start by visiting the EDIS Global Statuspage at [status.edis.global](https://status.edis.global). This page provides real-time updates about the status of our services in different locations worldwide.
+You can also choose **specific locations only**, so you avoid notifications from regions you don't use.
 
-## 2. Subscribe for Location-Specific Updates
+<Note>
+  You only receive notifications for locations where the **bell icon is enabled**.
+</Note>
 
-### Step 1: Click Subscribe
+---
 
-Once you are on the statuspage, click the **"Subscribe"** button at the top-right of the page.
+## Quick Overview
 
-### Step 2: Enter Your Email Address
+Subscribing takes less than a minute.
 
-A popup will appear asking for your email address. Enter the email address where you want to receive status updates, then click **"Start subscription"**.
+1. Click **Subscribe**
+2. Enter your **email address**
+3. Click the **magic link** in the email
+4. Select the **locations you want to follow**
+5. Click **Save Changes**
 
-### Step 3: Confirm Subscription via Magic Link
+---
 
-After entering your email, you will receive a confirmation email containing a **Magic Link**. The email will look like this:
+## 1. Open the Status Page
 
-Click on the **"Sign in to EDIS Global Status"** button in the email. This will confirm your subscription and allow you to choose your notification preferences.
+Go to the EDIS Global Statuspage:
 
-## 3. Customize Notifications for Specific Locations
+https://status.edis.global
 
-Once you have signed up, you can manage your subscription by choosing specific locations or services for which you want to receive updates. You can pick only the locations that matter to you to reduce unnecessary notifications.
+This page shows the **current operational status and uptime metrics** for all EDIS Global services.
 
-- **Step 1**: Navigate to the section listing all available locations or services (e.g., **KVM Europe**, **KVM North- and Latin America**, etc.).
-- **Step 2**: Click on the 🔔 **bell icon** next to the location or service you want to follow.
-  - For example, if you have services in **Frankfurt, Germany**, click the bell icon next to that location. This allows you to receive updates only for Frankfurt, reducing notification clutter from regions you don’t use.
+---
 
-## 4. Notification Methods
+## 2. Click **Subscribe**
 
-You can choose how you'd like to receive your updates. There are several options available based on your preferences:
+In the top right corner of the page, click the **Subscribe** button.
 
-- **Email**: Receive updates directly in your inbox.
-- **Slack**: Receive updates in a designated Slack channel by integrating with your workspace.
-- **Microsoft Teams**: Get notifications directly in your Microsoft Teams workspace.
+---
 
-You can set up your preferred notification method by following these steps:
+## 3. Enter Your Email Address
 
-- After clicking the bell icon, select **how you'd like to be notified** from the options provided:
-  - **Email**
-  - **Slack**
-  - **Microsoft Teams**
+A small dialog will appear asking for your email address.
 
-You can also **unsubscribe** at any time by returning to the statuspage and selecting "Unsubscribe completely" if you no longer wish to receive updates.
+Enter the address where you want to receive notifications and click:
 
-## 5. Why Subscribe?
+**Start subscription**
 
-Subscribing ensures you’re not only notified about **real-time updates** but also receive **advance notice about planned maintenance**. This allows you to proactively inform your own users or customers in a timely manner.
+---
 
-By subscribing, you’ll receive targeted alerts about maintenance, downtimes, and performance issues specific to your services and locations. You’ll always stay informed and ready to act, while **avoiding irrelevant notifications from regions where you don’t have services**.
+## 4. Confirm via Magic Link
 
-## 6. Statuspage API
+You will receive an email containing a **Magic Link**.
 
-The **EDIS Global Status API** provides real-time service health data, allowing users to integrate incident and maintenance updates into their workflows. It offers endpoints to retrieve overall status, component health (including uptime metrics), and a log of past and ongoing notices. 
+Click:
 
-Each component can be queried individually, and metrics such as uptime percentage, mean time to recovery, and mean time between failures are available for the last 30 days or custom timeframes. Users can filter for planned/unplanned events, and pagination is provided for large datasets. The system is rate-limited to 10 requests per second to ensure fair use.\
-\
-Integrate our status-messages into your production system with the EDIS Global[ Statuspage API](https://status.edis.global/api). 
+**Sign in to EDIS Global Status | EDBB Status**
+
+This link will authenticate you and open the subscription settings.
+
+---
+
+## 5. Select Locations or Services
+
+Once signed in, you can select which **regions or services** you want to follow.
+
+Examples include:
+
+- **KVM Europe**
+- **KVM Asia, Australia and Oceania**
+- **KVM North and Latin America**
+- **KVM Middle East and Africa**
+- **EDIS Webhosting & E-Mail**
+
+---
+
+## 6. Subscribe to Specific Locations
+
+Expand a region to see individual locations.
+
+Click the **bell icon 🔔** next to the locations you want to follow.
+
+Examples:
+
+- Austria, Vienna
+- Germany, Frankfurt
+- France, Paris
+- Greece, Thessaloniki
+
+### Icon Meaning
+
+| Icon | Meaning                |
+| ---- | ---------------------- |
+| 🔔   | Notifications enabled  |
+| 🔕   | Notifications disabled |
+
+---
+
+## 7. Save Your Changes
+
+After selecting your locations, click:
+
+**Save Changes**
+
+Your notification preferences are now active.
+
+---
+
+## Unsubscribe
+
+You can unsubscribe at any time.
+
+Return to the status page and:
+
+- disable the **bell icon** for specific locations
+- or choose **unsubscribe completely**
+
+---
+
+## Status API
+
+For monitoring systems and automation, the **EDIS Global Status API** provides programmatic access to service health and incident data.
+
+The API allows you to retrieve:
+
+- overall service status
+- component health
+- uptime metrics
+- incident history
+- maintenance events
+
+API endpoint:
+
+https://status.edis.global/api
+
+Rate limit: **10 requests per second**
+
+---
+
+## Documentation Index
+
+Fetch the complete documentation index at:
+
+https://docs.edisglobal.com/llms.txt
+
+This file lists all available documentation pages.
