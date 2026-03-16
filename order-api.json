@@ -66,6 +66,146 @@
         ]
       }
     },
+    "/kvm/v2/get/account-balance": {
+      "servers": [
+        {
+          "url": "https://order.edisglobal.com",
+          "description": "Production Server"
+        }
+      ],
+      "post": {
+        "summary": "Retrieve account balance",
+        "description": "Retrieves the current account credit balance for the authenticated WHMCS account, including the amount and currency.",
+        "operationId": "getAccountBalance",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "yourwhmc_email",
+                    "description": "Your WHMCS email address."
+                  },
+                  "pw": {
+                    "type": "string",
+                    "example": "yourwhmc_password",
+                    "description": "Your WHMCS password."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "balance": {
+                      "type": "object",
+                      "properties": {
+                        "amount": {
+                          "type": "string",
+                          "example": "20.00",
+                          "description": "Current account credit balance amount."
+                        },
+                        "currency": {
+                          "type": "string",
+                          "example": "EUR",
+                          "description": "Currency of the account balance."
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "success",
+                      "description": "Request status. Returns `success` when the request was processed correctly."
+                    }
+                  }
+                },
+                "examples": {
+                  "successWithBalance": {
+                    "summary": "Account balance found",
+                    "value": {
+                      "balance": {
+                        "amount": "20.00",
+                        "currency": "EUR"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "errormsg": {
+                      "type": "string",
+                      "example": "Invalid parameters or missing fields."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid WHMCS credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "errormsg": {
+                      "type": "string",
+                      "example": "Invalid WHMCS credentials."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "errormsg": {
+                      "type": "string",
+                      "example": "Internal server error. Please try again later."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/kvm/v2/get/services": {
       "servers": [
         {
@@ -1001,6 +1141,73 @@
             "type": "string",
             "example": "Internal server error. Please try again later.",
             "description": "General server-side error message."
+          }
+        }
+      },
+      "get_account_balance_response_200": {
+        "type": "object",
+        "properties": {
+          "balance": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "example": "20.00",
+                "description": "Current account credit balance amount."
+              },
+              "currency": {
+                "type": "string",
+                "example": "EUR",
+                "description": "Currency of the account balance."
+              }
+            }
+          },
+          "status": {
+            "type": "string",
+            "example": "success",
+            "description": "Request status."
+          }
+        }
+      },
+
+      "get_account_balance_response_400": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "errormsg": {
+            "type": "string",
+            "example": "Invalid parameters or missing fields."
+          }
+        }
+      },
+
+      "get_account_balance_response_401": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "errormsg": {
+            "type": "string",
+            "example": "Invalid WHMCS credentials."
+          }
+        }
+      },
+
+      "get_account_balance_response_500": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "errormsg": {
+            "type": "string",
+            "example": "Internal server error. Please try again later."
           }
         }
       },
