@@ -23,12 +23,13 @@ For crypto payments, provisioning begins once the required **blockchain confirma
 ```mermaid
 flowchart TD
     A["🛒 Place Order"] --> B["📄 Pro-forma Invoice"]
-    B --> C["💳 Payment"]
-    C --> D["✅ Payment Confirmation"]
-    D --> E["🚀 VPS Delivered<br/>Credentials sent via email"]
+    B --> C["💳 Payment Received"]
+    C --> D["✅ Payment Confirmed ⚡"]
+    D --> E["🚀 VPS Created ⚡<br/>Credentials sent via email"]
+    D -->|Instant ⚡| E
     E --> F["🖥️ OS Installation<br/>~5 min Linux <br/> ~15 min Windows"]
     F --> G["🔒 SSH / RDP access blocked during installation"]
-    G --> H["✅ VPS Ready<br/>Connect via SSH / RDP"]
+    G --> H["✅ VPS Ready ⚡<br/>Connect via SSH / RDP"]
 
     classDef highlight fill:#ecfdf5,stroke:#10b981,stroke-width:2px;
     class H highlight;
