@@ -4,44 +4,38 @@ sidebarTitle: "Instant Delivery"
 description: "We strive to deliver your order instantly ⚡ once the payment is confirmed."
 ---
 
-## **How Fast Do You Deliver My VPS Order?**
-
-EDIS Global wants to ensure a great experience for all of its customers.  In order to successfully welcome new clients, there are some essential checks that need to be completed.
-
-### **Instant VPS Deployment**
+## How fast is VPS delivery?
 
 **VPS servers are deployed instantly ⚡ after payment confirmation.**
 
-Linux systems are typically ready within **5 minutes**, while Windows deployments may take up to 15 minutes to install.
+- **Linux**: ready in ~5 minutes
+- **Windows**: may take up to ~15 minutes
 
-For crypto payments, provisioning begins once the required **blockchain confirmations** are completed. You will receive a payment confirmation once this process is finished.
+For crypto payments, provisioning begins once the required **blockchain confirmations** are completed.
 
 **Provisioning starts immediately after payment is confirmed.**
 
-​	•	**PayPal & Credit Cards**: **near-realtime ⚡**
+- **PayPal & Credit Cards**: near-realtime ⚡
+- **Crypto Payments**: depends on blockchain confirmations
 
-​	•	**Crypto Payments**: Subject to blockchain confirmations
-
-Once **payment clears**, your server is **delivered instantly**.
+**Once payment clears, your server is delivered instantly.**
 
 ```mermaid
 flowchart TD
-    A["🛒 Place Your Order<br>(Pro-Forma Invoice 400xxx)"] --> B["💳 Make a Payment"]
-    B --> C["✅ Payment Confirmation"]
-    C --> D["📜 Invoice is Marked as Paid<br>(TAX Invoice 500xxx is sent)"]
-    D --> E["🔄 Provisioning Check<br>(runs every 3 minutes)"]
-    E --> F["🚀 VPS Provisioning <br> You will receive an email with your credentials."]
-
-    subgraph "🖥️ Installation Process" [Installation Process]
-        direction TB
-        F --> G["🐧 Linux Installation <br>(takes ~5 min)"]
-        F --> H["🪟 Windows Installation <br> (takes ~15 min)"]
-    end
-
-    G & H --> I["🔒 Installation Security Measures <br> SSH/RDP ports blocked during installation"]
-    I --> J["🖥 Your VPS is now ready for connection via RDP/SSH"]
+    A["🛒 Place Order"] --> B["📄 Pro-forma Invoice Sent"]
+    B --> C["💳 Payment"]
+    C --> D["✅ Payment Confirmation"]
+    D --> E["🚀 VPS Delivered<br/>Credentials sent via email"]
+E --> F["🚀 VPS Setup<br/>(~5 min Linux / ~15 min Windows)"]
+F --> G["🖥️ VPS Ready<br/>Login credentials sent via email"]
+    style E fill:#e6fffa,stroke:#10b981,stroke-width:2px
 ```
 
-### When things take longer than expected
+### When delivery may take longer
 
-In some rare occasions, we can't deliver your order right away. It can be a temporary resource-shortage, or the need to fulfill further compliance checks. EDIS Global team would reach out to you for additional information (if required), or offer a refund.
+In rare cases, delivery may be delayed due to:
+
+- temporary resource shortages
+- additional compliance checks
+
+If required, our team will contact you or offer a refund.
