@@ -7,26 +7,30 @@
     "light": "#F96002",
     "dark": "#d55200"
   },
-
-    "logo": {
+  "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
-
-    "seo": {
+  "seo": {
     "title": "EDIS Global Docs",
     "description": "Help and how-to guides for EDIS VPS customers",
     "ogImage": {
       "backgroundLight": "#ffffff",
-      "backgroundDark":  "#0e0b0b",
+      "backgroundDark": "#0e0b0b",
       "logo": "/logo/light.svg"
     }
   },
-
-
-  "contextual": { "options": ["view", "chatgpt", "claude", "perplexity", "cursor", "vscode" ] },
-  
+  "contextual": {
+    "options": [
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "cursor",
+      "vscode"
+    ]
+  },
   "navigation": {
     "global": {
       "anchors": [
@@ -206,6 +210,14 @@
             ]
           },
           {
+            "group": "Join Our Team",
+            "pages": [
+              "join-our-team/jobs-edisglobal-support-agent-non-voice",
+              "join-our-team/technical-procurement-and-server-operations-coordinator",
+              "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert"
+            ]
+          },
+          {
             "group": "Advanced Setup Guides",
             "pages": [
               {
@@ -281,24 +293,6 @@
               "misc/manual-windows-server-installation-on-kvm",
               "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error",
               "misc/what-is-seabios"
-            ]
-          },
-          {
-            "group": "playground",
-            "hidden": true,
-            "pages": [
-              "pavel-1",
-              "pavel-2",
-              "pavel-3"
-            ]
-          },
-          {
-            "group": "Join Our Team",
-            "hidden": true,
-            "pages": [
-              "join-our-team/jobs-edisglobal-support-agent-non-voice",
-              "join-our-team/technical-procurement-and-server-operations-coordinator",
-              "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert"
             ]
           }
         ]
@@ -756,7 +750,7 @@
     },
     {
       "source": "/handling-locked-cryptocurrency-payments-cryptomus",
-      "destination": "/faq/billing-lifecycle/handling-locked-cryptocurrency-payments-cryptomus"
+      "destination": "/faq/billing-lifecycle/handling-blocked-cryptocurrency-payments-cryptomus"
     },
     {
       "source": "/traffic-vs-bandwidth",
@@ -902,17 +896,14 @@
       "source": "/install-amneziawg-on-ubuntu-2204",
       "destination": "/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204"
     },
-
     {
       "source": "/advanced-setup-guides/MikroTik 6to4 Tunnel Configuration Guide (Router-to-Router)",
       "destination": "/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router"
     },
-
     {
       "source": "/advanced-setup-guides/MikroTik 6to4 Tunnel Configuration Guide (Router-to-Router/)",
       "destination": "/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router"
     },
-
     {
       "source": "/install-amneziawg-on-keenetic-router",
       "destination": "/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router"
@@ -952,6 +943,10 @@
     {
       "source": "/how-to-setup-wireguard-vpn",
       "destination": "/advanced-setup-guides/how-to-setup-wireguard-vpn"
+    },
+    {
+      "source": "/install-cockit-web-terminal",
+      "destination": "/advanced-setup-guides/install-cockpit-on-vps"
     },
     {
       "source": "/install-cockpit-on-vps",
