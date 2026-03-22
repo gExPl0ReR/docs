@@ -19,7 +19,8 @@
       "backgroundLight": "#ffffff",
       "backgroundDark": "#0e0b0b",
       "logo": "/logo/light.svg"
-    }
+    },
+    "indexing": "navigable"
   },
   "contextual": {
     "options": [
@@ -985,5 +986,14 @@
       "source": "/rnir-fix-remote-desktop-credssp-encryption-oracle-remediation-error",
       "destination": "/misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error"
     }
-  ]
+  ],
+  "metadata": {
+    "timestamp": true
+  },
+  "search": {
+    "prompt": "Search the docs"
+  },
+  "icons": {
+    "library": "fontawesome"
+  }
 }
