@@ -422,7 +422,8 @@
     ]
   },
   "styling": {
-    "codeblocks": "system"
+    "codeblocks": "system",
+    "eyebrows": "breadcrumbs"
   },
   "navbar": {
     "links": [
