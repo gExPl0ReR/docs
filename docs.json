@@ -277,7 +277,8 @@
               "advanced-setup-guides/how-to-setup-wireguard-vpn",
               "advanced-setup-guides/install-cockpit-on-vps",
               "advanced-setup-guides/installing-openvpn-with-turnkey",
-              "advanced-setup-guides/ufw-uncomplicated-firewall-howto"
+              "advanced-setup-guides/ufw-uncomplicated-firewall-howto",
+              "advanced-setup-guides/install-openclaw-edislobal-vps"
             ]
           },
           {

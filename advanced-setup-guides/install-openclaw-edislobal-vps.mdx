@@ -1,0 +1,161 @@
+---
+title: "Install OpenClaw on an EDIS Global VPS"
+sidebarTitle: "Install OpenClaw"
+slug: "install-openclaw-edislobal-vps"
+metaTitle: "Install OpenClaw on EDIS Global VPS (Step-by-Step Guide)"
+metaDescription: "Learn how to install OpenClaw on an EDIS Global KVM VPS. Simple step-by-step guide with recommended plans, security tips, and access instructions."
+---
+
+## Install OpenClaw on an EDIS Global VPS
+
+OpenClaw is a powerful AI automation tool that can run directly on your VPS.\
+This guide shows you how to install and securely run OpenClaw on an **EDIS Global KVM VPS**.
+
+---
+
+## Recommended VPS Plans
+
+To ensure smooth performance, we recommend:
+
+- **KVM Starter (2 GB RAM)** – suitable for testing and light usage
+- **KVM Basic (4 GB RAM)** – recommended for stable, long-term use
+
+> OpenClaw may consume significant memory depending on usage and integrations.
+
+---
+
+## Requirements
+
+Before you begin:
+
+- A running **EDIS Global KVM VPS**
+- **Ubuntu 22.04 or newer**
+- Root or sudo access
+- Internet connectivity
+
+---
+
+## Step 1 – Connect to Your VPS
+
+Connect via SSH:
+
+```bash
+ssh root@YOUR_SERVER_IP
+```
+
+---
+
+## Step 2 – Install OpenClaw
+
+Run the official installer:
+
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+This will automatically:
+
+- Install required dependencies (Node.js, etc.)
+- Install OpenClaw
+- Prepare the system for onboarding
+
+---
+
+## Step 3 – Run Onboarding
+
+Start the setup wizard:
+
+```bash
+openclaw onboard --install-daemon
+```
+
+During onboarding, you will:
+
+- Configure API keys (e.g. OpenAI, Claude)
+- Set up integrations (optional)
+- Enable background service
+
+---
+
+## Step 4 – Access the Web Interface
+
+OpenClaw runs locally on port **18789**.
+
+For secure access, use an SSH tunnel:
+
+```bash
+ssh -L 18789:localhost:18789 root@YOUR_SERVER_IP
+```
+
+Then open in your browser:
+
+[http://localhost:18789](http://localhost:18789)
+
+---
+
+## Security Recommendations
+
+OpenClaw has system-level access and can execute commands.
+
+For safe operation:
+
+- Do **not** expose port `18789` publicly
+- Use SSH tunneling instead of opening firewall ports
+- Run OpenClaw on a **separate VPS**
+- Use restricted API keys with limited permissions
+
+---
+
+## Optional: Add Swap (Recommended for 2 GB Plans)
+
+If you are using the **KVM Starter (2 GB RAM)** plan, adding swap improves stability:
+
+```bash
+fallocate -l 4G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+```
+
+---
+
+## Managing the Service
+
+If installed as a daemon, you can control OpenClaw via:
+
+```bash
+systemctl status openclaw
+systemctl restart openclaw
+systemctl stop openclaw
+```
+
+---
+
+## Troubleshooting
+
+**Installation fails or crashes**
+
+- Ensure at least 2 GB RAM (4 GB recommended)
+- Add swap if needed
+
+**Cannot access UI**
+
+- Verify SSH tunnel is active
+- Ensure OpenClaw is running:
+
+```bash
+systemctl status openclaw
+```
+
+---
+
+## Summary
+
+- Use **KVM Starter (2 GB)** for testing
+- Use **KVM Basic (4 GB)** for production
+- Install via one-line script
+- Access securely via SSH tunnel
+
+---
+
+If you need assistance, our team is happy to help you deploy and run OpenClaw on your VPS.
