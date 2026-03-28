@@ -497,6 +497,10 @@
       "destination": "/getting-started/statuspage-subscribe"
     },
     {
+      "source": "//obtain-secondary-network-interface-edis-vps",
+      "destination": "/faq/upgrades-downgrades/get-additional-network-card#what-is-a-secondary-network-interface"
+    },
+    {
       "source": "/how-our-support-team-helps-you",
       "destination": "/getting-started/how-our-support-team-helps-you"
     },
