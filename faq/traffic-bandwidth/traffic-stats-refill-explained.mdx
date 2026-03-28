@@ -15,7 +15,6 @@ To access your VPS traffic information:
   <Step title="Log in to your">
     [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
   </Step>
-
   <Step title="Pick any VPS from the Services tab">
     Review the "Traffic Information" window at the top right.
   </Step>
@@ -37,9 +36,11 @@ Days remaining for monthly VPS traffic reset. Countdown to when your VPS traffic
 
 ### How We Meter Traffic
 
-EDIS Global monitors traffic counters on the Ethernet interfaces of your Virtual Private Servers in real-time. The total traffic usage is determined by summing up the ingress (incoming) and egress (outgoing) traffic.
+EDIS Global measures traffic usage directly on the Ethernet interfaces of your Virtual Private Servers in real time.
 
-$$Total Traffic  =  \sum (\text{IN} + \text{OUT})$$
+Total traffic is calculated as the sum of **ingress (incoming)** and **egress (outgoing)** traffic across the measured period.
+
+$Total Traffic  =  \sum (\text{IN} + \text{OUT})$
 
 ### What Happens When All Traffic is Consumed?
 
@@ -54,6 +55,7 @@ There's no overage charge, ensuring your server remains online even if all traff
 We have a chart showing the **total (cumulated) traffic** since the last refill. VPS traffic meters are reset and refilled monthly on your product's key (renewal) date.
 
 There is a small indicator (red arrow below) showing how many days until your VPS receives its next monthly traffic refill. This indicator helps you understand whether you should:
+
 - "Hydrate" your KVM with traffic from your <a href="https://docs.edisglobal.com/traffic-pool-global-and-premium-traffic-zone" target="_blank">Traffic Pool</a>
 - Upgrade to a higher tier
 - Wait for the next refill
@@ -63,6 +65,5 @@ The red line represents the total amount of traffic available to your KVM. It us
 ![Detailed Traffic Information](/assets/lHUScqmop6d5_TFXKZlHt_cumulative-traffic-bc46ac6118.png)
 
 <Note>
-  In the panel, hover the mouse over any particular day to get more insights from
-  the readings. Please note that the diagram is rendered exponentially and not linearly.
+  In the panel, hover the mouse over any particular day to get more insights from the readings. Please note that the diagram is rendered exponentially and not linearly.
 </Note>
