@@ -805,10 +805,6 @@
       "destination": "/faq/upgrades-downgrades/backup-restore-data-linux"
     },
     {
-      "source": "/obtain-secondary-network-interface-edis-vps",
-      "destination": "/faq/upgrades-downgrades/obtain-secondary-network-interface-edis-vps"
-    },
-    {
       "source": "/understanding-cpu-cores-vs-sockets-in-vps",
       "destination": "/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps"
     },
