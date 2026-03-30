@@ -253,12 +253,15 @@
                       "services": [
                         {
                           "service_id": 312845,
-                          "kvm_id": "kvm_114732_602381",
+                          "kvm_id": "kvm_112234_457381",
                           "status": "active",
-                          "billingcycle": "Monthly",
-                          "price": "0.00",
+                          "price": {
+                            "billingcycle": "Monthly",
+                            "amount": "4.99",
+                            "currency": "EUR"
+                          },
                           "creation_date": "2025-03-11",
-                          "key_date": "2026-03-19",
+                          "key_date": "2025-04-11",
                           "paymentmethod": "cryptomus",
                           "plan": "KVM BASIC",
                           "location": "Austria, Vienna"
@@ -570,11 +573,45 @@
                   "$ref": "#/components/schemas/inline_response_200_5"
                 },
                 "example": {
-                  "data": false,
                   "products": {
                     "KVM SMART": {
-                      "id": 1382,
-                      "description": "1024 MB RAM\r\n15 GB SSD\r\n1 IPv4 + /64 IPv6\r\n1 TB Traffic\r\nKVM based",
+                      "id": 106,
+                      "description": {
+                        "disk": {
+                          "size": 15,
+                          "unit": "GByte"
+                        },
+                        "ram": {
+                          "size": 1024,
+                          "unit": "MByte"
+                        },
+                        "cpu": {
+                          "size": 1,
+                          "unit": "core/socket"
+                        },
+                        "traffic": {
+                          "size": 1,
+                          "unit": "TByte"
+                        },
+                        "price": {
+                          "monthly": {
+                            "amount": "7.99",
+                            "currency": "EUR"
+                          },
+                          "quarterly": {
+                            "amount": "23.97",
+                            "currency": "EUR"
+                          },
+                          "semiannually": {
+                            "amount": "47.94",
+                            "currency": "EUR"
+                          },
+                          "annually": {
+                            "amount": "87.89",
+                            "currency": "EUR"
+                          }
+                        }
+                      },
                       "addons": {
                         "operating system": {
                           "88": {
@@ -584,12 +621,22 @@
                           "92": {
                             "id": 92,
                             "description": "alternative / manual installation via VNC"
+                          },
+                          "208": {
+                            "id": 208,
+                            "description": "Debian 12 (Bookworm) 64Bit"
                           }
                         },
                         "additional ram": {
                           "396": {
                             "id": 396,
-                            "description": "+1GB"
+                            "description": "+1GB",
+                            "price": {
+                              "monthly": {
+                                "amount": "5.00",
+                                "currency": "EUR"
+                              }
+                            }
                           },
                           "416": {
                             "id": 416,
@@ -599,38 +646,107 @@
                         "additional ip": {
                           "8": {
                             "id": 8,
-                            "description": "no additional IPs"
+                            "description": "no additional IPs",
+                            "price": {
+                              "monthly": {
+                                "amount": "0.00",
+                                "currency": "EUR"
+                              }
+                            }
                           },
                           "9": {
                             "id": 9,
-                            "description": "1 IP"
+                            "description": "1 IP",
+                            "price": {
+                              "monthly": {
+                                "amount": "5.00",
+                                "currency": "EUR"
+                              }
+                            }
                           }
                         }
                       }
                     },
                     "KVM STARTER": {
-                      "id": 1387,
-                      "description": "2048 MB RAM\r\n20 GB SSD\r\n1 IPv4 + /64 IPv6\r\n2 TB Traffic\r\nKVM based",
+                      "id": 99,
+                      "description": {
+                        "disk": {
+                          "size": 20,
+                          "unit": "GByte"
+                        },
+                        "ram": {
+                          "size": 2048,
+                          "unit": "MByte"
+                        },
+                        "cpu": {
+                          "size": 1,
+                          "unit": "core/socket"
+                        },
+                        "traffic": {
+                          "size": 2,
+                          "unit": "TByte"
+                        },
+                        "price": {
+                          "monthly": {
+                            "amount": "12.99",
+                            "currency": "EUR"
+                          },
+                          "quarterly": {
+                            "amount": "38.97",
+                            "currency": "EUR"
+                          },
+                          "semiannually": {
+                            "amount": "77.94",
+                            "currency": "EUR"
+                          },
+                          "annually": {
+                            "amount": "142.89",
+                            "currency": "EUR"
+                          }
+                        }
+                      },
                       "addons": {
                         "operating system": {
+                          "88": {
+                            "id": 88,
+                            "description": "Ubuntu LTS 20.04 64Bit"
+                          },
+                          "92": {
+                            "id": 92,
+                            "description": "alternative / manual installation via VNC"
+                          },
                           "208": {
                             "id": 208,
                             "description": "Debian 12 (Bookworm) 64Bit"
                           }
                         },
+                        "additional ram": {
+                          "396": {
+                            "id": 396,
+                            "description": "+1GB",
+                            "price": {
+                              "monthly": {
+                                "amount": "5.00",
+                                "currency": "EUR"
+                              }
+                            }
+                          },
+                          "416": {
+                            "id": 416,
+                            "description": "no"
+                          }
+                        },
                         "additional drive boost": {
                           "605": {
                             "id": 605,
-                            "description": "100GB"
+                            "description": "100GB",
+                            "price": {
+                              "monthly": {
+                                "amount": "29.00",
+                                "currency": "EUR"
+                              }
+                            }
                           }
-                        }
-                      }
-                    },
-                    "global products": {
-                      "traffic pool": {
-                        "TOP UP TRAFFIC POOL 1 TB": {
-                          "id": 1872,
-                          "description": "EDIS has two traffic zones: Global traffic zone EUR 6,-- per 1 TB"
                         }
                       }
                     }
@@ -1043,15 +1159,26 @@
             "example": "active",
             "description": "Service lifecycle status. Possible values: `active`, `suspended`, `terminated`."
           },
-          "billingcycle": {
-            "type": "string",
-            "example": "Monthly",
-            "description": "Billing cycle of the service (e.g., Monthly, Quarterly, Annually, One Time)."
-          },
           "price": {
-            "type": "string",
-            "example": "0.00",
-            "description": "Recurring price for the selected billing cycle (string format)."
+            "type": "object",
+            "description": "Structured pricing information for the service.",
+            "properties": {
+              "billingcycle": {
+                "type": "string",
+                "example": "Monthly",
+                "description": "Billing cycle of the service."
+              },
+              "amount": {
+                "type": "string",
+                "example": "4.99",
+                "description": "Recurring price amount."
+              },
+              "currency": {
+                "type": "string",
+                "example": "EUR",
+                "description": "Currency of the service price."
+              }
+            }
           },
           "creation_date": {
             "type": "string",
@@ -1842,11 +1969,121 @@
               "properties": {
                 "id": {
                   "type": "integer",
-                  "example": 1234
+                  "example": 106
                 },
                 "description": {
-                  "type": "string",
-                  "example": "1024 MB RAM, 15 GB SSD, 1 IPv4 + /64 IPv6, 1 TB Traffic"
+                  "type": "object",
+                  "properties": {
+                    "disk": {
+                      "type": "object",
+                      "properties": {
+                        "size": {
+                          "type": "integer",
+                          "example": 15
+                        },
+                        "unit": {
+                          "type": "string",
+                          "example": "GByte"
+                        }
+                      }
+                    },
+                    "ram": {
+                      "type": "object",
+                      "properties": {
+                        "size": {
+                          "type": "integer",
+                          "example": 1024
+                        },
+                        "unit": {
+                          "type": "string",
+                          "example": "MByte"
+                        }
+                      }
+                    },
+                    "cpu": {
+                      "type": "object",
+                      "properties": {
+                        "size": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "unit": {
+                          "type": "string",
+                          "example": "core/socket"
+                        }
+                      }
+                    },
+                    "traffic": {
+                      "type": "object",
+                      "properties": {
+                        "size": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "unit": {
+                          "type": "string",
+                          "example": "TByte"
+                        }
+                      }
+                    },
+                    "price": {
+                      "type": "object",
+                      "properties": {
+                        "monthly": {
+                          "type": "object",
+                          "properties": {
+                            "amount": {
+                              "type": "string",
+                              "example": "7.99"
+                            },
+                            "currency": {
+                              "type": "string",
+                              "example": "EUR"
+                            }
+                          }
+                        },
+                        "quarterly": {
+                          "type": "object",
+                          "properties": {
+                            "amount": {
+                              "type": "string",
+                              "example": "23.97"
+                            },
+                            "currency": {
+                              "type": "string",
+                              "example": "EUR"
+                            }
+                          }
+                        },
+                        "semiannually": {
+                          "type": "object",
+                          "properties": {
+                            "amount": {
+                              "type": "string",
+                              "example": "47.94"
+                            },
+                            "currency": {
+                              "type": "string",
+                              "example": "EUR"
+                            }
+                          }
+                        },
+                        "annually": {
+                          "type": "object",
+                          "properties": {
+                            "amount": {
+                              "type": "string",
+                              "example": "87.89"
+                            },
+                            "currency": {
+                              "type": "string",
+                              "example": "EUR"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "addons": {
                   "type": "object",
@@ -1857,11 +2094,29 @@
                       "properties": {
                         "id": {
                           "type": "integer",
-                          "example": 567
+                          "example": 396
                         },
                         "description": {
                           "type": "string",
-                          "example": "Ubuntu LTS 22.04 64Bit"
+                          "example": "+1GB"
+                        },
+                        "price": {
+                          "type": "object",
+                          "properties": {
+                            "monthly": {
+                              "type": "object",
+                              "properties": {
+                                "amount": {
+                                  "type": "string",
+                                  "example": "5.00"
+                                },
+                                "currency": {
+                                  "type": "string",
+                                  "example": "EUR"
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     }
