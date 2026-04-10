@@ -39,7 +39,12 @@
           "anchor": "Explore VPS Hosting Plans & Locations",
           "icon": "cloud",
           "href": "https://www.edisglobal.com/vps-hosting"
-        }
+        },
+      {
+        "anchor": "Why Our VPS Infrastructure Is Different",
+        "icon": "network",
+        "href": "https://www.edisglobal.com/why-edis-global"
+      }
       ]
     },
     "tabs": [
