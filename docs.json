@@ -50,6 +50,10 @@
             "group": "Getting Started",
             "pages": [
               "getting-started/everything-vps",
+              {
+          "title": "Why EDIS Global Infrastructure",
+          "href": "https://www.edisglobal.com/why-edis-global"
+        },
               "getting-started/check-your-inbox",
               "getting-started/no-email-received",
               "getting-started/statuspage-subscribe",
