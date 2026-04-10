@@ -1,6 +1,6 @@
 ---
 title: "Install AmneziaWG on Ubuntu 22.04"
-sidebartitle: Install AmneziaWG on Ubuntu
+sidebartitle: "Install AmneziaWG on Ubuntu"
 description: "A complete step-by-step guide on how to install Amnezia WireGuard VPN on Ubuntu 22.04, ensuring privacy, bypassing Deep Packet Inspection (DPI), and enabling access to restricted content."
 ---
 
@@ -18,8 +18,7 @@ Amnezia VPN is a project developed by Russian internet activists focused on find
 
 ## Installing AmneziaWG VPN on a VPS
 
-1. Install Ubuntu 22.04 on your EDIS Global VPS. [VPS in Estonia](https://www.edisglobal.com/vps-hosting/estonia-tallinn) works great from and to Russia, [VPS in Amsterdam](https://www.edisglobal.com/vps-hosting/netherlands-amsterdam) works well in Iran, but [any other VPS location](https://www.edisglobal.com) will do a great job as well.
-
+1. Install Ubuntu 22.04 on your EDIS Global VPS. [VPS in Estonia](https://www.edisglobal.com/vps-hosting/estonia-tallinn) works great from and to Russia, [VPS in Amsterdam](https://www.edisglobal.com/vps-hosting/netherlands-amsterdam) work well in Iran, but [many other VPS locations](https://www.edisglobal.com) like Cyprus, Moldova, Hungary or Austria will deliver great results too.
 2. Connect to the VPS server using the SSH protocol:
 
 ```bash
@@ -75,6 +74,7 @@ lsmod | grep amnezia
 ```
 
 Expected output:
+
 ```text
 amneziawg              98304  0
 curve25519_x86_64      36864  2 amneziawg,wireguard
@@ -169,7 +169,7 @@ vps systemd[1]: Finished WireGuard via wg-quick(8) for awg0.
 awg show
 ```
 
-You can now copy the generated client configurations (my_amneziawg_client1, my_amneziawg_client2) to your client machines. For client setup instructions, choose your platform:
+You can now copy the generated client configurations (my\_amneziawg\_client1, my\_amneziawg\_client2) to your client machines. For client setup instructions, choose your platform:
 
 <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
   <CtaButton label="Install AmneziaWG client on Keenetic router" link="./install-amneziawg-on-keenetic-router" openInNewTab={true} />
@@ -183,13 +183,13 @@ You can now copy the generated client configurations (my_amneziawg_client1, my_a
 
 Official Documentation and Guides:
 
-* [AmneziaWG Documentation](https://docs.amnezia.org/documentation/amnezia-wg/)
-* [Keenetic OS Configuration Guide](https://docs.amnezia.org/documentation/instructions/keenetic-os-awg/)
-* [OpenWRT Installation Guide](https://github.com/openwrt-xiaomi/awg-openwrt/wiki/AmneziaWG-installing)
+- [AmneziaWG Documentation](https://docs.amnezia.org/documentation/amnezia-wg/)
+- [Keenetic OS Configuration Guide](https://docs.amnezia.org/documentation/instructions/keenetic-os-awg/)
+- [OpenWRT Installation Guide](https://github.com/openwrt-xiaomi/awg-openwrt/wiki/AmneziaWG-installing)
 
 Platform-Specific Guides:
 
-* [Android Guide](https://github.com/amnezia-vpn/awg-android)
-* [Windows Guide](https://github.com/amnezia-vpn/awg-windows)
-* [MacOS and iOS Guide](https://github.com/amnezia-vpn/awg-apple)
-* [WireGuard Guide](https://github.com/amnezia-vpn/amnezia-wg-tools)
+- [Android Guide](https://github.com/amnezia-vpn/awg-android)
+- [Windows Guide](https://github.com/amnezia-vpn/awg-windows)
+- [MacOS and iOS Guide](https://github.com/amnezia-vpn/awg-apple)
+- [WireGuard Guide](https://github.com/amnezia-vpn/amnezia-wg-tools)
