@@ -58,7 +58,11 @@
               "getting-started/ssh-security-hardening-guide",
               "getting-started/windows-remote-desktop",
               "getting-started/backups",
-              "getting-started/acceptable-use-policy"
+              "getting-started/acceptable-use-policy",
+              {
+          "title": "Why EDIS Global Infrastructure",
+          "href": "https://www.edisglobal.com/why-edis-global"
+        }
             ]
           },
           {
