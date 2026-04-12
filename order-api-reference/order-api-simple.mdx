@@ -1,244 +1,595 @@
 ---
-title: "How to Order a VPS with the EDIS Global API (Simple Guide)"
+title: "How to Order a VPS with the EDIS Global API"
 sidebarTitle: "Order API (Simple)"
 description: "A simple, human-friendly guide to ordering a VPS using the EDIS Global Order API."
 ---
 
-## Let’s Keep This Simple
+<Tabs>
+  <Tab title="Simple Guide">
+    ## Let’s Keep This Simple
 
-If you want to order a VPS using the EDIS Global API, think of it like this:
+    If you want to order a VPS using the EDIS Global API, think of it like this:
 
-👉 You **don’t start by ordering**\
-👉 You **first collect all the pieces you need**
+    👉 You **don’t start by ordering**\
+    👉 You **first collect all the pieces you need**
 
-Only after that, you send one final request.
+    Only after that, you send one final request.
 
----
+    ---
 
-## The Basic Idea
+    ## The Basic Idea
 
-Imagine ordering a VPS like ordering food:
+    Imagine ordering a VPS like ordering food:
 
-You need to decide:
+    You need to decide:
 
-- where (location)
-- what (plan)
-- how often you pay (billing cycle)
-- how you pay (payment method)
-- extras (RAM, IPs, etc.)
+    - where (location)
+    - what (plan)
+    - how often you pay (billing cycle)
+    - how you pay (payment method)
+    - extras (RAM, IPs, etc.)
 
-The API works exactly the same way.
+    The API works exactly the same way.
 
----
+    ---
 
-## Step-by-Step Overview
+    ## Step-by-Step Overview
 
-<Steps>
-  <Step title="Login">
-    Use your EDIS Global email \+ password (same as client area)
-  </Step>
-  <Step title="Get available options">
-    Ask the API:
+    <Steps>
+      <Step title="Login">
+        Use your EDIS Global email \+ password (same as client area)
+      </Step>
+      <Step title="Get available options">
+        Ask the API:
 
-    - what billing cycles exist
-    - what payment methods exist
-    - what locations exist
-  </Step>
-  <Step title="Pick a location">
-    Choose where your VPS should be deployed
-  </Step>
-  <Step title="Get plans for that location">
-    This gives you:
+        - what billing cycles exist
+        - what payment methods exist
+        - what locations exist
+      </Step>
+      <Step title="Pick a location">
+        Choose where your VPS should be deployed
+      </Step>
+      <Step title="Get plans for that location">
+        This gives you:
 
-    - product IDs (pid)
-    - OS IDs
-    - addon IDs
-  </Step>
-  <Step title="Build your order">
-    Put everything together into one JSON request
-  </Step>
-  <Step title="Send the order">
-    Call the order endpoint
-  </Step>
-</Steps>
+        - product IDs (pid)
+        - OS IDs
+        - addon IDs
+      </Step>
+      <Step title="Build your order">
+        Put everything together into one JSON request
+      </Step>
+      <Step title="Send the order">
+        Call the order endpoint
+      </Step>
+    </Steps>
 
----
+    ---
 
-## Step 1: Get Billing Cycles
+    ## Step 1: Get Billing Cycles
 
-Just ask the API what billing cycles exist.
+    Just ask the API what billing cycles exist.
 
-```bash
-curl --request POST \
-  --url https://order.edisglobal.com/kvm/v2/get/billingcycles \
-  --data email=YOUR_EMAIL \
-  --data pw=YOUR_PASSWORD
-```
+    ```bash
+    curl --request POST \
+      --url https://order.edisglobal.com/kvm/v2/get/billingcycles \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD
+    ```
 
-You’ll get something like:
+    You’ll get something like:
 
-```json
-["monthly", "quarterly", "annually"]
-```
+    ```json
+    ["monthly", "quarterly", "annually"]
+    ```
 
-👉 Pick one.
+    👉 Pick one.
 
----
+    ---
 
-## Step 2: Get Payment Methods
+    ## Step 2: Get Payment Methods
 
-```bash
-curl --request POST \
-  --url https://order.edisglobal.com/kvm/v2/get/paymentmethods \
-  --data email=YOUR_EMAIL \
-  --data pw=YOUR_PASSWORD
-```
+    ```bash
+    curl --request POST \
+      --url https://order.edisglobal.com/kvm/v2/get/paymentmethods \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD
+    ```
 
-Example result:
+    Example result:
 
-```json
-["paypal", "creditcard"]
-```
+    ```json
+    ["paypal", "creditcard"]
+    ```
 
-👉 Pick one.
+    👉 Pick one.
 
----
+    ---
 
-## Step 3: Get VPS Locations
+    ## Step 3: Get VPS Locations
 
-```bash
-curl --request POST \
-  --url https://order.edisglobal.com/kvm/v2/get/locations \
-  --data email=YOUR_EMAIL \
-  --data pw=YOUR_PASSWORD
-```
+    ```bash
+    curl --request POST \
+      --url https://order.edisglobal.com/kvm/v2/get/locations \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD
+    ```
 
-You’ll see something like:
+    You’ll see something like:
 
-```json
-"Greece": { "id": 94, "out_of_stock": false }
-```
+    ```json
+    "Greece": { "id": 94, "out_of_stock": false }
+    ```
 
-👉 Important:
+    👉 Important:
 
-- use the **id**
-- ignore locations where `out_of_stock = true`
+    - use the **id**
+    - ignore locations where `out_of_stock = true`
 
----
+    ---
 
-## Step 4: Get VPS Plans (This Is the Important One)
+    ## Step 4: Get VPS Plans (This Is the Important One)
 
-Now you ask:
+    Now you ask:
 
-👉 “What can I buy in this location?”
+    👉 “What can I buy in this location?”
 
-```bash
-curl --request POST \
-  --url https://order.edisglobal.com/kvm/v2/get/products \
-  --data email=YOUR_EMAIL \
-  --data pw=YOUR_PASSWORD \
-  --data location_id=94
-```
+    ```bash
+    curl --request POST \
+      --url https://order.edisglobal.com/kvm/v2/get/products \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD \
+      --data location_id=94
+    ```
 
-Now you get everything:
+    Now you get everything:
 
-- plan IDs → `pid`
-- OS IDs → `os`
-- addon IDs → RAM, IPs, etc.
+    - plan IDs → `pid`
+    - OS IDs → `os`
+    - addon IDs → RAM, IPs, etc.
 
----
+    ---
 
-## Step 5: Pick What You Want
+    ## Step 5: Pick What You Want
 
-From that response, choose:
+    From that response, choose:
 
-- plan → `pid`
-- OS → `os`
-- optional:
-  - RAM
-  - CPU
-  - IPs
-  - disk 👉 Everything is just IDs.
+    - plan → `pid`
+    - OS → `os`
+    - optional:
+      - RAM
+      - CPU
+      - IPs
+      - disk 👉 Everything is just IDs.
 
----
+    ---
 
-## Final Step: Send the Order
+    ## Final Step: Send the Order
 
-Now you finally send the order:
+    Now you finally send the order:
 
-```bash
-curl --request POST \
-  --url https://order.edisglobal.com/kvm/v2/add/order \
-  --data email=YOUR_EMAIL \
-  --data pw=YOUR_PASSWORD \
-  --data 'order={
-    "billingcycle": "monthly",
-    "paymentmethod": "paypal",
-    "item": [
-      {
-        "pid": 892,
-        "os": 208,
-        "hostname": "my-server",
-        "additional_ram": 396,
-        "additional_ip": 10
+    ```bash
+    curl --request POST \
+      --url https://order.edisglobal.com/kvm/v2/add/order \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD \
+      --data 'order={
+        "billingcycle": "monthly",
+        "paymentmethod": "paypal",
+        "item": [
+          {
+            "pid": 892,
+            "os": 208,
+            "hostname": "my-server",
+            "additional_ram": 396,
+            "additional_ip": 10
+          }
+        ]
+      }'
+    ```
+
+    ---
+
+    ## What Happens Next?
+
+    If everything is correct, you get:
+
+    ```json
+    {
+      "status": "success",
+      "orderid": 123,
+      "serviceids": "456",
+      "invoiceid": 789
+    }
+    ```
+
+    That means:
+
+    ✅ Order created\
+    ✅ Invoice created\
+    ✅ VPS is being deployed
+
+    ---
+
+    ## Key Takeaway
+
+    👉 The API is simple once you understand this:
+
+    1. Ask for options
+    2. Pick IDs
+    3. Send order
+
+    That’s it.
+
+    ---
+
+    ## Pro Tip
+
+    <Info>
+      Always fetch locations and products dynamically.
+
+      IDs can change, new locations can appear, stock can change, and new plans can appear.
+
+      Account credit will be applied automatically, regardless of the payment method you choose.
+    </Info>
+
+    ---
+
+    ## If You Get Stuck
+
+    Think of it like this:
+
+    👉 “What values do I still NOT have?”
+
+    Then go back and call the endpoint that gives you that value.
+
+    That’s the whole workflow.
+  </Tab>
+  <Tab title="Developer Version">
+    ## Order a VPS the Right Way
+
+    When ordering a VPS through the EDIS Global Order API, the most important step is **not** sending the final request first.
+
+    👉 First collect all required values\
+    👉 Then send one clean order request
+
+    This approach avoids errors and ensures successful provisioning.
+
+    <Info>
+      This guide uses `curl` examples for clarity. The same workflow works with Python, PHP, JavaScript, Postman, or any HTTP client.
+    </Info>
+
+    ---
+
+    ## API Workflow
+
+    <Steps>
+      <Step title="Authenticate">
+        Use your EDIS Global client area email and password
+      </Step>
+      <Step title="Collect values">
+        Retrieve billing cycles, payment methods, locations, products, and addon IDs
+      </Step>
+      <Step title="Build payload">
+        Combine all selected values into one JSON structure
+      </Step>
+      <Step title="Submit order">
+        Send the final request to the order endpoint
+      </Step>
+    </Steps>
+
+    ---
+
+    ## Important: Payment Method Behavior
+
+    <Info>
+      The selected `paymentmethod` defines how the **first invoice and all renewal invoices** are issued.
+
+      If account credit is available, it is **automatically applied**, and orders are typically delivered in near real-time.
+    </Info>
+
+    ---
+
+    ## Try the API Directly in the Documentation
+
+    <Info>
+      All endpoints can be tested directly in the documentation portal.
+
+      You can execute live requests and switch between multiple programming languages such as cURL, Python, JavaScript, PHP, Go, Java, and Ruby.
+    </Info>
+
+    This is the fastest way to validate your integration before writing code.
+
+    ### Available Endpoints
+
+    - [https://docs.edisglobal.com/order-api-reference/order-vps](https://docs.edisglobal.com/order-api-reference/order-vps)
+    - [https://docs.edisglobal.com/order-api-reference/upgrade-vps](https://docs.edisglobal.com/order-api-reference/upgrade-vps)
+    - [https://docs.edisglobal.com/order-api-reference/get-vps-plans](https://docs.edisglobal.com/order-api-reference/get-vps-plans)
+    - [https://docs.edisglobal.com/order-api-reference/get-vps-locations](https://docs.edisglobal.com/order-api-reference/get-vps-locations)
+    - [https://docs.edisglobal.com/order-api-reference/get-billing-cycles](https://docs.edisglobal.com/order-api-reference/get-billing-cycles)
+    - [https://docs.edisglobal.com/order-api-reference/get-services](https://docs.edisglobal.com/order-api-reference/get-services)
+    - [https://docs.edisglobal.com/order-api-reference/get-payment-options](https://docs.edisglobal.com/order-api-reference/get-payment-options)
+    - [https://docs.edisglobal.com/order-api-reference/get-accountbalance](https://docs.edisglobal.com/order-api-reference/get-accountbalance)
+    - [https://docs.edisglobal.com/order-api-reference/get-service-id](https://docs.edisglobal.com/order-api-reference/get-service-id)
+    - [https://docs.edisglobal.com/order-api-reference/get-kvm-id](https://docs.edisglobal.com/order-api-reference/get-kvm-id)
+    - [https://docs.edisglobal.com/order-api-reference/cancel-vps](https://docs.edisglobal.com/order-api-reference/cancel-vps)
+
+    ---
+
+    ## Final Order Endpoint
+
+    ```bash
+    POST https://order.edisglobal.com/kvm/v2/add/order
+    ```
+
+    Example payload:
+
+    ```json
+    {
+      "billingcycle": "monthly",
+      "paymentmethod": "paypal",
+      "applycredit": false,
+      "item": [
+        {
+          "pid": 892,
+          "os": 208,
+          "hostname": "my-server",
+          "additional_ram": 396,
+          "additional_ip": 10
+        }
+      ]
+    }
+    ```
+
+    ---
+
+    ## Example: Successful Response
+
+    ```json
+    {
+      "status": "success",
+      "orderid": 123456,
+      "serviceids": "123456",
+      "invoiceid": 654321,
+      "invoicepaid": true
+    }
+    ```
+
+    ---
+
+    ## Best Practices
+
+    <Info>
+      Always fetch locations, products, and addon IDs dynamically.
+
+      Inventory, availability, and IDs can change at any time.
+    </Info>
+
+    Before submitting an order, verify:
+
+    - location is not out of stock
+    - product exists in that location
+    - OS is valid for that product
+    - addon IDs belong to the same product response
+
+    ---
+
+    ## Summary
+
+    To order a VPS:
+
+    1. get billing cycles
+    2. get payment methods
+    3. get locations
+    4. get products
+    5. collect IDs
+    6. submit order
+
+    👉 **Collect first. Order last.**
+  </Tab>
+  <Tab title="Fulll Example">
+    ## Full Example (End-to-End)
+
+    This example walks through the complete workflow:
+
+    👉 collect all required values\
+    👉 build the payload\
+    👉 submit the order
+
+    ---
+
+    ## Step 1: Get Billing Cycle
+
+    ```bash
+    curl --request POST \
+      --url https://order.edisglobal.com/kvm/v2/get/billingcycles \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD
+    ```
+
+    Example result:
+
+    ```json
+    {
+      "billingcycle": ["monthly", "quarterly", "annually"]
+    }
+    ```
+
+    👉 We choose: `monthly`
+
+    ---
+
+    ## Step 2: Get Payment Method
+
+    ```bash
+    curl --request POST \
+      --url https://order.edisglobal.com/kvm/v2/get/paymentmethods \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD
+    ```
+
+    Example result:
+
+    ```json
+    {
+      "paymentmethods": ["paypal", "creditcard"]
+    }
+    ```
+
+    👉 We choose: `paypal`
+
+    ---
+
+    ## Step 3: Get Location
+
+    ```bash
+    curl --request POST \
+      --url https://order.edisglobal.com/kvm/v2/get/locations \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD
+    ```
+
+    Example result:
+
+    ```json
+    {
+      "KVM Greece": {
+        "id": 94,
+        "out_of_stock": false
       }
-    ]
-  }'
-```
+    }
+    ```
 
----
+    👉 We choose: `location_id = 94`
 
-## What Happens Next?
+    ---
 
-If everything is correct, you get:
+    ## Step 4: Get Products for Location
 
-```json
-{
-  "status": "success",
-  "orderid": 123,
-  "serviceids": "456",
-  "invoiceid": 789
-}
-```
+    ```bash
+    curl --request POST \
+      --url https://order.edisglobal.com/kvm/v2/get/products \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD \
+      --data location_id=94
+    ```
 
-That means:
+    Example result (simplified):
 
-✅ Order created\
-✅ Invoice created\
-✅ VPS is being deployed
+    ```json
+    {
+      "KVM STARTER": {
+        "id": 892,
+        "addons": {
+          "operating system": {
+            "208": "Debian 12"
+          },
+          "additional ram": {
+            "396": "+1GB"
+          },
+          "additional ip": {
+            "10": "2 IPs"
+          }
+        }
+      }
+    }
+    ```
 
----
+    👉 We select:
 
-## Key Takeaway
+    - `pid = 892`
+    - `os = 208`
+    - `additional_ram = 396`
+    - `additional_ip = 10`
 
-👉 The API is simple once you understand this:
+    ---
 
-1. Ask for options
-2. Pick IDs
-3. Send order
+    ## Step 5: Build Order Payload
 
-That’s it.
+    ```json
+    {
+      "billingcycle": "monthly",
+      "paymentmethod": "paypal",
+      "applycredit": false,
+      "item": [
+        {
+          "pid": 892,
+          "os": 208,
+          "hostname": "example-greece-server",
+          "additional_ram": 396,
+          "additional_vcpu": "",
+          "additional_ip": 10,
+          "additional_diskboost": "",
+          "ssh_pubkey": ""
+        }
+      ]
+    }
+    ```
 
----
+    ---
 
-## Pro Tip
+    ## Step 6: Submit Order
 
-<Info>
-  Always fetch locations and products dynamically.
+    ```bash
+    curl --request POST \
+      --url https://order.edisglobal.com/kvm/v2/add/order \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD \
+      --data 'order={...}'
+    ```
 
-  IDs can change, new locations can appear, stock can change, and new plans can appear.
+    ---
 
-  Account credit will be applied automatically, regardless of the payment method you choose. 
-</Info>
+    ## Successful Response
 
----
+    ```json
+    {
+      "status": "success",
+      "orderid": 264401,
+      "serviceids": "356728",
+      "invoiceid": 1764460,
+      "invoicepaid": true
+    }
+    ```
 
-## If You Get Stuck
+    ---
 
-Think of it like this:
+    ## What Just Happened
 
-👉 “What values do I still NOT have?”
+    - Order was created
+    - Invoice was generated
+    - Credit (if available) was applied automatically
+    - VPS provisioning started
 
-Then go back and call the endpoint that gives you that value.
+    ---
 
-That’s the whole workflow.
+    ## Key Insight
+
+    👉 Every value used in the final request comes from previous API calls
+
+    There are **no hardcoded values**.
+
+    ---
+
+    ## Pro Tip
+
+    <Info>
+      Use the documentation portal to test each step before implementing your integration.
+
+      [https://docs.edisglobal.com/order-api-reference/order-vps](https://docs.edisglobal.com/order-api-reference/order-vps)
+    </Info>
+
+    ---
+
+    ## Final Summary
+
+    1. get billing cycles
+    2. get payment methods
+    3. get locations
+    4. get products
+    5. collect IDs
+    6. submit order
+
+    👉 This is the complete workflow.
+  </Tab>
+</Tabs>
