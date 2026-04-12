@@ -1,0 +1,243 @@
+---
+title: "How to Order a VPS with the EDIS Global API (Simple Guide)"
+sidebarTitle: "Order API (Simple)"
+description: "A simple, human-friendly guide to ordering a VPS using the EDIS Global Order API."
+---
+
+## Let’s Keep This Simple
+
+If you want to order a VPS using the EDIS Global API, think of it like this:
+
+👉 You **don’t start by ordering**\
+👉 You **first collect all the pieces you need**
+
+Only after that, you send one final request.
+
+---
+
+## The Basic Idea
+
+Imagine ordering a VPS like ordering food:
+
+You need to decide:
+
+- where (location)
+- what (plan)
+- how often you pay (billing cycle)
+- how you pay (payment method)
+- extras (RAM, IPs, etc.)
+
+The API works exactly the same way.
+
+---
+
+## Step-by-Step Overview
+
+<Steps>
+  <Step title="Login">
+    Use your EDIS Global email \+ password (same as client area)
+  </Step>
+  <Step title="Get available options">
+    Ask the API:
+
+    - what billing cycles exist
+    - what payment methods exist
+    - what locations exist
+  </Step>
+  <Step title="Pick a location">
+    Choose where your VPS should be deployed
+  </Step>
+  <Step title="Get plans for that location">
+    This gives you:
+
+    - product IDs (pid)
+    - OS IDs
+    - addon IDs
+  </Step>
+  <Step title="Build your order">
+    Put everything together into one JSON request
+  </Step>
+  <Step title="Send the order">
+    Call the order endpoint
+  </Step>
+</Steps>
+
+---
+
+## Step 1: Get Billing Cycles
+
+Just ask the API what billing cycles exist.
+
+```bash
+curl --request POST \
+  --url https://order.edisglobal.com/kvm/v2/get/billingcycles \
+  --data email=YOUR_EMAIL \
+  --data pw=YOUR_PASSWORD
+```
+
+You’ll get something like:
+
+```json
+["monthly", "quarterly", "annually"]
+```
+
+👉 Pick one.
+
+---
+
+## Step 2: Get Payment Methods
+
+```bash
+curl --request POST \
+  --url https://order.edisglobal.com/kvm/v2/get/paymentmethods \
+  --data email=YOUR_EMAIL \
+  --data pw=YOUR_PASSWORD
+```
+
+Example result:
+
+```json
+["paypal", "creditcard"]
+```
+
+👉 Pick one.
+
+---
+
+## Step 3: Get VPS Locations
+
+```bash
+curl --request POST \
+  --url https://order.edisglobal.com/kvm/v2/get/locations \
+  --data email=YOUR_EMAIL \
+  --data pw=YOUR_PASSWORD
+```
+
+You’ll see something like:
+
+```json
+"Greece": { "id": 94, "out_of_stock": false }
+```
+
+👉 Important:
+
+- use the **id**
+- ignore locations where `out_of_stock = true`
+
+---
+
+## Step 4: Get VPS Plans (This Is the Important One)
+
+Now you ask:
+
+👉 “What can I buy in this location?”
+
+```bash
+curl --request POST \
+  --url https://order.edisglobal.com/kvm/v2/get/products \
+  --data email=YOUR_EMAIL \
+  --data pw=YOUR_PASSWORD \
+  --data location_id=94
+```
+
+Now you get everything:
+
+- plan IDs → `pid`
+- OS IDs → `os`
+- addon IDs → RAM, IPs, etc.
+
+---
+
+## Step 5: Pick What You Want
+
+From that response, choose:
+
+- plan → `pid`
+- OS → `os`
+- optional:
+  - RAM
+  - CPU
+  - IPs
+  - disk
+  👉 Everything is just IDs.
+
+---
+
+## Final Step: Send the Order
+
+Now you finally send the order:
+
+```bash
+curl --request POST \
+  --url https://order.edisglobal.com/kvm/v2/add/order \
+  --data email=YOUR_EMAIL \
+  --data pw=YOUR_PASSWORD \
+  --data 'order={
+    "billingcycle": "monthly",
+    "paymentmethod": "paypal",
+    "item": [
+      {
+        "pid": 892,
+        "os": 208,
+        "hostname": "my-server",
+        "additional_ram": 396,
+        "additional_ip": 10
+      }
+    ]
+  }'
+```
+
+---
+
+## What Happens Next?
+
+If everything is correct, you get:
+
+```json
+{
+  "status": "success",
+  "orderid": 123,
+  "serviceids": "456",
+  "invoiceid": 789
+}
+```
+
+That means:
+
+✅ Order created\
+✅ Invoice created\
+✅ VPS is being deployed
+
+---
+
+## Key Takeaway
+
+👉 The API is simple once you understand this:
+
+1. Ask for options
+2. Pick IDs
+3. Send order
+
+That’s it.
+
+---
+
+## Pro Tip
+
+<Info>
+  Always fetch locations and products dynamically.
+
+  IDs can change, new locations can appear, stock can change, and new plans can appear.
+</Info>
+
+---
+
+## If You Get Stuck
+
+Think of it like this:
+
+👉 “What values do I still NOT have?”
+
+Then go back and call the endpoint that gives you that value.
+
+That’s the whole workflow.
