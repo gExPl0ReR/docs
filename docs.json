@@ -312,7 +312,7 @@
             "group": "Order-API",
             "pages": [
               "order-api-reference/order-api-welcome",
-              "order-api-reference/order-api-simple",
+              "order-api-reference/order-api",
               "order-api-reference/order-vps",
               "order-api-reference/upgrade-vps",
               "order-api-reference/get-vps-plans",
