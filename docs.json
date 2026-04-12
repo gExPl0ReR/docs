@@ -911,6 +911,10 @@
       "destination": "/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204"
     },
     {
+      "source": "/advanced-setup-guides/install-amneziawg-on-ubuntu-2204",
+      "destination": "/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204"
+    },
+    {
       "source": "/advanced-setup-guides/MikroTik 6to4 Tunnel Configuration Guide (Router-to-Router)",
       "destination": "/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router"
     },
