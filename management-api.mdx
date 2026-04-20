@@ -1,0 +1,678 @@
+---
+title: "How to Use the EDIS Global Management API"
+sidebarTitle: "Management API Guide"
+description: "Learn how to authenticate, manage, monitor, and control your VPS with the EDIS Global Management API using a simple guide, developer reference, and full end-to-end example."
+---
+
+## Manage Your VPS the Right Way
+
+**EDIS Global Management API** is used to manage active VPS services in your account.
+
+Use it to:
+
+- authenticate and create a session
+- check VPS status and resource usage
+- power a server on, off, or reset it
+- reinstall a VPS or mount an ISO
+- manage VNC, PTR records, traffic pool actions, settings, and webhooks
+
+<Info>
+  You must have at least one active VPS in your account before you can enable API Access in the control panel.
+</Info>
+
+<Tabs>
+  <Tab title="Simple Guide">
+    ## Let’s Keep This Simple
+
+    Think of the Management API like a secure remote control for a VPS you already own.
+
+    👉 You do **not** start by sending a power or reinstall command.\
+    👉 You first create an **auth session** and collect the temporary values required for sending management requests.
+
+    After that, you reuse those values to run other endpoints.
+
+    ---
+
+    ## The Basic Idea
+
+    The workflow is always the same:
+
+    1. Enable **API Access** in the KVM portal
+    2. Create an auth session
+    3. Collect the session values
+    4. Use those values on management endpoints
+    5. Re-authenticate when the session expires
+
+    The most important values you receive are:
+
+    - `api_host`
+    - `kvm_id`
+    - `signature`
+    - `valid_until`
+
+    These are the core values used across the Management API.
+
+    ---
+
+    ## Step-by-Step Overview
+
+    <Steps>
+      <Step title="Enable API Access">
+        Open the KVM management portal for one of your VPS services and enable API access. \
+        \
+        API access is account-wide — enabling it for one VPS activates it for all existing and future VPS in your account until it is disabled.
+      </Step>
+      <Step title="Create auth session">
+        Call the auth endpoint with your client area email and password.
+      </Step>
+      <Step title="Collect session values">
+        Save `api_host`, `kvm_id`, `signature`, and `valid_until` from the response.
+      </Step>
+      <Step title="Run management endpoints">
+        Use those values on endpoints such as power state, reinstall, mount ISO, VNC, PTR, traffic pool, and more.
+      </Step>
+      <Step title="Re-authenticate when needed">
+        If the session expires, create a new auth session and use the new values.
+      </Step>
+    </Steps>
+
+    ---
+
+    ## Create an Auth Session
+
+    ```bash
+    curl --request POST \
+      --url https://session.edisglobal.com/kvm/v2/get/auth \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD \
+      --data kvm_id=YOUR_KVM_ID
+    ```
+
+    You can omit `kvm_id` if you need auth data for all VPS services in your account.
+
+    ---
+
+    ## Example Auth Response
+
+    ```json
+    {
+      "data": {
+        "kvm_847362_918273": {
+          "api_host": "7f3a21.edisglobal.com",
+          "kvm_id": "kvm_947312_968273",
+          "valid_until": 1789456123,
+          "signature": "12345678901234567890123456789012345678901234567890",
+          "primary_ip": "185.203.118.74"
+        }
+      },
+      "status": "success"
+    }
+    ```
+
+    ---
+
+    ## What Do These Values Mean?
+
+    - **`api_host`** → the VPS-specific API host you will call next
+    - **`kvm_id`** → the VPS you want to manage
+    - **`signature`** → temporary auth signature for that session
+    - **`valid_until`** → session expiry timestamp
+
+    If the session expires, request a new one.
+
+    ---
+
+    ## Example: Check Power State
+
+    ```bash
+    curl --request POST \
+      --url https://API_HOST/kvm/v2/get/power \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data signature=SESSION_SIGNATURE \
+      --data kvm_id=KVM_ID \
+      --data valid_until=VALID_UNTIL
+    ```
+
+    Example response:
+
+    ```json
+    {
+      "data": "server powered on",
+      "status": "success",
+      "traffic_suspended": false
+    }
+    ```
+
+    ---
+
+    ## Example: Reinstall a VPS
+
+    Start by fetching a list of auto-installable OS images:
+
+    ```bash
+    curl --request POST \
+      --url https://API_HOST/kvm/v2/get/images \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data signature=SESSION_SIGNATURE \
+      --data kvm_id=KVM_ID \
+      --data valid_until=VALID_UNTIL
+    ```
+
+    Pick one and trigger an installation.
+
+    ```bash
+    curl --request POST \
+      --url https://API_HOST/kvm/v2/set/reinstall \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data signature=SESSION_SIGNATURE \
+      --data kvm_id=KVM_ID \
+      --data valid_until=VALID_UNTIL \
+      --data image=cloudinit_ubuntu-lts-22-04 \
+      --data password=YOUR_PASSWORD
+    ```
+
+    ---
+
+    ## Pro Tip
+
+    Avoid hardcoding values. Always create a fresh auth session and fetch current parameters before performing actions.
+
+    ## Key Takeaway
+
+    The Management API is simple once you understand this pattern:
+
+    1. create auth session
+    2. collect session values
+    3. call the endpoint you need
+    4. re-authenticate when the session expires
+
+    That’s the core principle.
+  </Tab>
+  <Tab title="Developer Version">
+    ## Management API Workflow
+
+    Use this order when working with the API:
+
+    <Steps>
+      <Step title="Enable API Access">
+        Enable API access in the KVM management portal of one of your VPS services.\
+        API access is a global setting — enabling it for one VPS activates it for all existing and future VPS in your account until it is disabled.
+      </Step>
+      <Step title="Create auth session">
+        Call the authentication endpoint and retrieve temporary session values.
+      </Step>
+      <Step title="Store common values">
+        Save `api_host`, `kvm_id`, `signature`, and `valid_until`.
+      </Step>
+      <Step title="Call management endpoints">
+        Use the session values on power, install, traffic, settings, VNC, PTR, hooks, and information endpoints.
+      </Step>
+      <Step title="Refresh expired sessions">
+        Create a new auth session when `valid_until` has passed.
+      </Step>
+    </Steps>
+
+    ---
+
+    ## Common Parameters Used Across the Management API
+
+    Most management endpoints use the same core parameters:
+
+    - `api_host`
+    - `signature`
+    - `kvm_id`
+    - `valid_until`
+
+    Some endpoints require additional parameters such as:
+
+    - `image`
+    - `password`
+    - `iso`
+    - `force_reset`
+    - PTR or VNC values
+    - settings payloads
+    - webhook configuration values
+
+    <Info>
+      The `api_host` is VPS-specific and comes from the auth session response.
+    </Info>
+
+    ---
+
+    ## Authentication
+
+    ### Create Auth Session
+
+    Creates a temporary authentication session for one VPS or for all VPS services on the account.
+
+    **Endpoint:** `/management-api-reference/authentication/create-auth-session`
+
+    **Important output fields:**
+
+    - `api_host`
+    - `kvm_id`
+    - `signature`
+    - `valid_until`
+    - `primary_ip`
+
+    <CodeGroup>
+
+    ```bash cURL
+    curl --request POST \
+      --url https://session.edisglobal.com/kvm/v2/get/auth \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD \
+      --data kvm_id=YOUR_KVM_ID
+    ```
+
+    ```json Response
+    {
+      "data": {
+        "kvm_847362_918273": {
+          "api_host": "7f3a21.edisglobal.com",
+          "kvm_id": "kvm_847362_918273",
+          "valid_until": 1789456123,
+          "signature": "12345678901234567890123456789012345678901234567890",
+          "primary_ip": "185.203.118.74"
+        }
+      },
+      "status": "success"
+    }
+    ```
+
+    </CodeGroup>
+
+    ---
+
+    ## Pro Tip
+
+    Avoid hardcoding API values.
+
+    Autoinstall images are subject to change, and api\_host is not static — it may change when a VPS is migrated to a different host node.
+
+    Always generate a new auth session and retrieve current parameters before calling management endpoints.
+
+    ---
+
+    ## Full Endpoint List
+
+    ### Session & Authentication
+
+    - [Create AUTH Session](https://docs.edisglobal.com/management-api-reference/authentication/create-auth-session)\
+      Creates a temporary authenticated management session and returns the required parameters (`api_host`, `signature`, `kvm_id`, `valid_until`) for all subsequent Management API requests.
+
+    ---
+
+    ### Power Management
+
+    - [HARD RESET](https://docs.edisglobal.com/management-api-reference/power-management/hard-reset)\
+      Performs an immediate hard reboot of the VPS (restarts hypervisor process)
+    - [POWER STATE](https://docs.edisglobal.com/management-api-reference/power-management/power-state)\
+      Returns the current power state of the VPS (e.g., powered on or powered off).
+    - [POWER ON](https://docs.edisglobal.com/management-api-reference/power-management/power-on)\
+      Powers on a VPS that is currently shut down.
+    - [POWER OFF](https://docs.edisglobal.com/management-api-reference/power-management/power-off)\
+      Powers off a running VPS.
+
+    ---
+
+    ### Installation & Recovery
+
+    - [List Available ISO images for installation](https://docs.edisglobal.com/management-api-reference/installation/iso-installation)\
+      Returns a list of ISO images available for manual installation, recovery, or rescue environments.
+    - [List of Autoinstall OS Images](https://docs.edisglobal.com/management-api-reference/installation/get-autoinstall-images)\
+      Returns available operating system images for automated installation.
+    - [Reinstall fresh OS](https://docs.edisglobal.com/management-api-reference/installation/reinstall)\
+      Reinstalls the VPS using an autoinstall operating system image.
+    - [Mount ISO](https://docs.edisglobal.com/management-api-reference/installation/mount-iso)\
+      Mounts an ISO image to the VPS for manual installation or recovery.
+    - [Umount ISO](https://docs.edisglobal.com/management-api-reference/installation/unmount-iso)\
+      Removes the currently mounted ISO from the VPS.
+    - [Provide Custom ISO](https://docs.edisglobal.com/management-api-reference/installation/download-custom-iso)\
+      Downloads and mounts a custom ISO image from a specified URL.
+    - [Upload and Replace QCOW2](https://docs.edisglobal.com/management-api-reference/installation/upload-and-replace-qcow2)\
+      Replaces the VPS disk with a provided QCOW2 image
+
+    ---
+
+    ### Traffic Pool
+
+    - [Enable Auto-Hydration](https://docs.edisglobal.com/management-api-reference/traffic-pool/enable-auto-hydration)\
+      Enables automatic traffic assignment from the traffic pool when VPS traffic is depleted.
+    - [Disable Auto-Hydration](https://docs.edisglobal.com/management-api-reference/traffic-pool/disable-auto-hydration)\
+      Disables automatic traffic assignment.
+    - [Auto-Hydration Status](https://docs.edisglobal.com/management-api-reference/traffic-pool/get-auto-hydration-status)\
+      Returns the current auto-hydration status for the VPS.
+    - [Traffic Pool balance](https://docs.edisglobal.com/management-api-reference/traffic-pool/get-global-traffic-pool-size)\
+      Returns the available balance in the global traffic pool.
+    - [Hydration Log](https://docs.edisglobal.com/management-api-reference/traffic-pool/get-hydration-log)\
+      Returns a log of traffic assignments (automatic and manual).
+    - [Manually Assign Traffic (Manual Hydration)](https://docs.edisglobal.com/management-api-reference/traffic-pool/assign-traffic-resources-from-global-pool)\
+      Manually assigns traffic from the traffic pool to a VPS.
+
+    ---
+
+    ### Settings
+
+    - [Retrieve Hardware Settings](https://docs.edisglobal.com/management-api-reference/settings/get-configuration)\
+      Returns the current configurable hardware settings of the VPS.
+    - [Save changes Hardware Settings](https://docs.edisglobal.com/management-api-reference/settings/configure-settings)\
+      Applies updated hardware configuration settings.
+
+    ---
+
+    ### Monitoring & Information
+
+    - [Pull a VNC screenshot](https://docs.edisglobal.com/management-api-reference/collect-information/get-vps-screenshot)\
+      Captures and returns a screenshot of the VPS console via VNC.
+    - [VPS Details](https://docs.edisglobal.com/management-api-reference/collect-information/get-all-vps-details)\
+      Returns full VPS details, including configuration, usage, network data, and metadata.
+    - [Traffic Usage](https://docs.edisglobal.com/management-api-reference/collect-information/get-traffic-usage)\
+      Returns traffic usage statistics for the VPS.
+    - [CPU Usage](https://docs.edisglobal.com/management-api-reference/collect-information/get-cpu-usage)\
+      Returns current or recent CPU usage data.
+    - [Basic Details](https://docs.edisglobal.com/management-api-reference/collect-information/get-basic-details)\
+      Returns a simplified set of VPS information.
+    - [Mount Details](https://docs.edisglobal.com/management-api-reference/collect-information/get-mount-details)\
+      Shows which ISO (if any) is currently mounted.
+
+    ---
+
+    ### VNC Management
+
+    - [VNC Keymap](https://docs.edisglobal.com/management-api-reference/vnc-management/set-vnc-keyboard-language)\
+      Sets the keyboard layout for the VNC console.
+    - [VNC Status](https://docs.edisglobal.com/management-api-reference/vnc-management/get-vnc-status)\
+      Returns the current VNC access status.
+    - [Enable VNC](https://docs.edisglobal.com/management-api-reference/vnc-management/enable-vnc-access)\
+      Enables VNC access to the VPS.
+    - [Disable VNC](https://docs.edisglobal.com/management-api-reference/vnc-management/disable-vnc-access)\
+      Disables VNC access.
+
+    ---
+
+    ### PTR (rDNS)
+
+    - [Get PTR](https://docs.edisglobal.com/management-api-reference/ptr/get-ptr-records)\
+      Returns current reverse DNS (PTR) records.
+    - [Delete PTR](https://docs.edisglobal.com/management-api-reference/ptr/delete-ptr-records)\
+      Deletes a PTR record.
+    - [Set PTR](https://docs.edisglobal.com/management-api-reference/ptr/set-ptr-records)\
+      Creates or updates a PTR record.
+
+    ---
+
+    ### Webhooks
+
+    - [Get all Webhooks](https://docs.edisglobal.com/management-api-reference/hooks/get-all-webhooks)\
+      Returns all configured webhooks for the VPS.
+    - [Delete Webhook](https://docs.edisglobal.com/management-api-reference/hooks/delete-a-webhook)\
+      Deletes a webhook.
+    - [Traffic Monitor Webhook](https://docs.edisglobal.com/management-api-reference/hooks/set-webhook-for-traffic-monitoring)\
+      Creates a webhook that triggers when a traffic threshold is reached.
+    - [Callback example](https://docs.edisglobal.com/management-api-reference/hooks/example-callback-triggered)\
+      Shows an example payload of a webhook callback.
+  </Tab>
+  <Tab title="Full End-2-End Example">
+    ## Full Example: Authenticate, Check Status, Reinstall, and Verify Mount
+
+    This example shows a realistic workflow for managing one existing VPS.
+
+    We will:
+
+    1. create an auth session
+    2. collect the session values
+    3. check power state
+    4. get available autoinstall images
+    5. reinstall the VPS
+    6. get available ISO images
+    7. mount an ISO
+    8. verify the mounted ISO
+
+    ---
+
+    ## Step 1: Create the Auth Session
+
+    ```bash
+    curl --request POST \
+      --url https://session.edisglobal.com/kvm/v2/get/auth \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data email=YOUR_EMAIL \
+      --data pw=YOUR_PASSWORD \
+      --data kvm_id=kvm_847362_918273
+    ```
+
+    Example response:
+
+    ```json
+    {
+      "data": {
+        "kvm_847362_918273": {
+          "api_host": "7f3a21.edisglobal.com",
+          "api_rdns": "dns-api.edisglobal.com",
+          "kvm_id": "kvm_847362_918273",
+          "valid_until": 1789456123,
+          "signature": "12345678901234567890123456789012345678901234567890",
+          "suspended": "n",
+          "description": "v2eu",
+          "lps": "DE",
+          "lps_ispremium": true,
+          "primary_ip": "185.203.118.74"
+        }
+      },
+      "status": "success"
+    }
+    ```
+
+    From here, save:
+
+    - `api_host=7f3a21.edisglobal.com`
+    - `kvm_id=kvm_847362_918273`
+    - `signature=`12345678901234567890123456789012345678901234567890
+    - `valid_until=1789456123`
+
+    ---
+
+    ## Step 2: Check Power State
+
+    ```bash
+    curl --request POST \
+      --url https://7f3a21.edisglobal.com/kvm/v2/get/power \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data signature=12345678901234567890123456789012345678901234567890 \
+      --data kvm_id=kvm_847362_918273 \
+      --data valid_until=1789456123
+    ```
+
+    Example response:
+
+    ```json
+    {
+      "data": "server powered on",
+      "status": "success",
+      "traffic_suspended": false
+    }
+    ```
+
+    ---
+
+    ## Step 3: Get Available Autoinstall Images
+
+    ```bash
+    curl --request POST \
+      --url https://7f3a21.edisglobal.com/kvm/v2/get/images \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data signature=12345678901234567890123456789012345678901234567890 \
+      --data kvm_id=kvm_847362_918273 \
+      --data valid_until=1789456123
+    ```
+
+    Example response excerpt:
+
+    ```json
+    {
+      "data": [
+        "cloudinit_almalinux-9",
+        "cloudinit_debian-bookworm",
+        "cloudinit_debian-trixie",
+        "cloudinit_ubuntu-lts-22-04",
+        "cloudinit_ubuntu-lts-24-04",
+        "windows-server-2022"
+      ],
+      "status": "success"
+    }
+    ```
+
+    For this example, we will use:
+
+    ```text
+    cloudinit_ubuntu-lts-22-04
+    ```
+
+    ---
+
+    ## Step 4: Reinstall the VPS
+
+    ```bash
+    curl --request POST \
+      --url https://7f3a21.edisglobal.com/kvm/v2/set/reinstall \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data signature=12345678901234567890123456789012345678901234567890 \
+      --data kvm_id=kvm_847362_918273 \
+      --data valid_until=1789456123 \
+      --data image=cloudinit_ubuntu-lts-22-04 \
+      --data password=YOUR_NEW_PASSWORD
+    ```
+
+    Example response:
+
+    ```json
+    {
+      "status": "success"
+    }
+    ```
+
+    <Info>
+      A Linux reinstall usually finishes in about 5 minutes. No email with credentials is being sent.
+    </Info>
+
+    ---
+
+    ## Step 5: Get Available ISO Images
+
+    ```bash
+    curl --request POST \
+      --url https://7f3a21.edisglobal.com/kvm/v2/get/isos \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data signature=12345678901234567890123456789012345678901234567890 \
+      --data kvm_id=kvm_847362_918273 \
+      --data valid_until=1789456123
+    ```
+
+    Example response excerpt:
+
+    ```json
+    {
+      "data": [
+        "0_SystemRescue-10.02-amd64.iso",
+        "1_Password-Reset-Helper.iso",
+        "Windows_Server_2019_RS5_EVAL_x64_EN-US.iso",
+        "Windows_Server_2022_EVAL_x64_EN-US.iso",
+        "pfSense-2.7.iso"
+      ],
+      "status": "success"
+    }
+    ```
+
+    For this example, we will mount:
+
+    ```text
+    Windows_Server_2022_EVAL_x64_EN-US.iso
+    ```
+
+    ---
+
+    ## Step 6: Mount the ISO
+
+    ```bash
+    curl --request POST \
+      --url https://7f3a21.edisglobal.com/kvm/v2/set/mount \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data signature=12345678901234567890123456789012345678901234567890 \
+      --data kvm_id=kvm_847362_918273 \
+      --data valid_until=1789456123 \
+      --data iso=Windows_Server_2022_EVAL_x64_EN-US.iso \
+      --data force_reset=no
+    ```
+
+    Example response:
+
+    ```json
+    {
+      "status": "success"
+    }
+    ```
+
+    ---
+
+    ## Step 7: Verify the Current Mount
+
+    ```bash
+    curl --request POST \
+      --url https://7f3a21.edisglobal.com/kvm/v2/get/mount \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data signature=12345678901234567890123456789012345678901234567890 \
+      --data kvm_id=kvm_847362_918273 \
+      --data valid_until=1789456123
+    ```
+
+    Example response:
+
+    ```json
+    {
+      "current_iso": "Windows_Server_2022_EVAL_x64_EN-US.iso",
+      "status": "success"
+    }
+    ```
+
+    ---
+
+    ## What This Example Shows
+
+    This end-to-end example used the Management API to:
+
+    - authenticate a VPS session
+    - retrieve session values
+    - inspect current VPS state
+    - retrieve autoinstall image names
+    - reinstall the VPS
+    - retrieve ISO names
+    - mount an ISO
+    - confirm the current mount state
+
+    This is the general pattern you will also use for other management tasks such as:
+
+    - VNC access
+    - PTR changes
+    - traffic pool actions
+    - hardware settings
+    - webhook setup
+
+    ---
+
+    ## Final Takeaway
+
+    The Management API always starts with **auth session first**.
+
+    Once you have:
+
+    - `api_host`
+    - `kvm_id`
+    - `signature`
+    - `valid_until`
+
+    you can manage the VPS just like you would in the web portal.
+  </Tab>
+</Tabs>
