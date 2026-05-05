@@ -164,7 +164,6 @@
                   "faq/billing-lifecycle/how-to-receive-monthly-consolidated-invoice",
                   "faq/billing-lifecycle/eu-vat-explained-if-and-how-much",
                   "faq/billing-lifecycle/can-i-pay-with-iban",
-                  "faq/billing-lifecycle/btc-payment-arrived-after-the-payment-window",
                   "faq/billing-lifecycle/find-and-download-invoices",
                   "faq/billing-lifecycle/how-to-pay-paypal-use-different-currency",
                   "faq/billing-lifecycle/add-contact-receive-invoices-different-email",
@@ -747,7 +746,11 @@
     },
     {
       "source": "/btc-payment-arrived-after-the-payment-window",
-      "destination": "/faq/billing-lifecycle/btc-payment-arrived-after-the-payment-window"
+      "destination": "/faq/billing-lifecycle/accepted-payment-methods"
+    },
+    {
+      "source": "/faq/billing-lifecycle/btc-payment-arrived-after-the-payment-window",
+      "destination": "/faq/billing-lifecycle/accepted-payment-methods"
     },
     {
       "source": "/how-to-pay-paypal-use-different-currency",
