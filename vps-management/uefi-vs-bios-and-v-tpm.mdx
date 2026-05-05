@@ -1,0 +1,149 @@
+---
+title: "UEFI vs BIOS and vTPM in EDIS Global VPS"
+sidebarTitle: "UEFI, BIOS & vTPM"
+description: "Understand the differences between BIOS and UEFI boot modes, and when to enable vTPM in your VPS"
+---
+
+## 🆕 UEFI, BIOS & vTPM Overview
+
+EDIS Global VPS supports both **BIOS (legacy boot)** and **UEFI (modern boot)**, as well as **vTPM (software-based Trusted Platform Module)**.
+
+These options are primarily relevant for **operating system compatibility**, especially for modern systems like Windows 11.
+
+---
+
+## 🧭 BIOS vs UEFI
+
+### 🟢 BIOS (Default)
+
+- Legacy boot mode
+- Maximum compatibility
+- Works with all supported operating systems
+- Recommended for most Linux installations
+
+👉 **Default setting on all VPS**
+
+---
+
+### 🔵 UEFI
+
+- Modern boot standard
+- Required for newer operating systems
+- Supports advanced features like Secure Boot
+
+Required for:
+
+- Windows 11
+- Windows Server 2025
+
+---
+
+## 🔐 What is vTPM?
+
+vTPM (Virtual Trusted Platform Module) is a **software emulation of a TPM chip**.
+
+It is required for:
+
+- Windows 11 installation
+- Certain OS security features (disk encryption, secure boot chains)
+
+### Options
+
+- **None (Default)** → TPM disabled
+- **Software TPM** → TPM enabled
+
+👉 Only enable vTPM if your operating system requires it
+
+---
+
+## ⚙️ Default Configuration
+
+To ensure maximum compatibility:
+
+- **Boot Mode:** BIOS
+- **TPM:** Disabled
+
+These defaults are suitable for the majority of use cases.
+
+---
+
+## 🤖 Auto-Installer Behavior
+
+When using EDIS Global **Auto-Installers**:
+
+- BIOS / UEFI is **automatically selected**
+- TPM is **enabled or disabled as required**
+
+👉 Manual settings are **ignored** to ensure successful installation
+
+---
+
+## 🧩 When Manual Configuration Matters
+
+Manual BIOS / UEFI / TPM settings are relevant when:
+
+### ✔️ Custom Cloud-Init Images
+
+- You can:
+  - Use current VPS settings, or
+  - Override boot mode and TPM during deployment
+
+---
+
+### ✔️ Custom ISO / Uploaded Images
+
+- VPS will use the **System Configuration settings**
+- If needed:
+  1. Change Boot Mode / TPM
+  2. **Power-cycle the VPS**
+  3. Boot your image
+
+---
+
+## ⚠️ Important Considerations
+
+### OS Compatibility
+
+- A significant number of operating systems are **not UEFI-compatible**
+- Switching from BIOS → UEFI on an existing installation will usually result in:
+  - ❌ Boot failure
+
+---
+
+### Changing Boot Mode
+
+- Boot mode must match how the OS was installed
+- Changing it later requires:
+  - Reinstallation, or
+  - Advanced manual recovery
+
+---
+
+### TPM Usage
+
+- Not required for Linux in most cases
+- Only enable when explicitly needed
+- Adds complexity without benefit if unused
+
+---
+
+## 🧾 Quick Recommendations
+
+- Use **BIOS \+ no TPM** for:
+  - Linux servers
+  - General-purpose workloads
+- Use **UEFI \+ TPM** only for:
+  - Windows 11 / modern Windows deployments
+
+---
+
+## 🧭 Summary
+
+| Feature | Default | When to Change |
+| --- | --- | --- |
+| Boot Mode | BIOS | Only if OS requires UEFI |
+| TPM | Disabled | Only if OS requires TPM |
+
+---
+
+If you are unsure which configuration to use, the **Auto-Installer will always choose the correct setup automatically**.
