@@ -8,6 +8,25 @@ sidebarTitle: "Product"
 
 Updates and improvements
 
+<Update label="May 2026">
+  ### May 5, 2026 — UEFI, BIOS & vTPM Settings for VPS ⚙️🔐
+
+  EDIS Global VPS now exposes **Boot Mode** and **TPM** controls directly in the System Configuration, making it easier to deploy modern operating systems like **Windows 11** and **Windows Server 2025**.
+
+  **What’s new**
+
+  - **Boot Mode**: choose between **BIOS** (default, legacy) or **UEFI** (modern, required for Secure Boot and newer Windows releases).
+  - **TPM**: leave **Disabled** (default) or enable **Software TPM** for OS features that require a Trusted Platform Module — such as Windows 11 installation and disk encryption.
+
+  **Defaults & automation**
+
+  - Defaults remain **BIOS + TPM Disabled** for maximum compatibility across Linux workloads.
+  - **Auto-Installers** continue to pick the correct Boot Mode and TPM setting automatically — manual values are ignored to guarantee a successful install.
+  - Manual settings apply when deploying **custom Cloud-Init images** or **uploaded ISOs**.
+
+  👉 Full details in the [UEFI vs BIOS and vTPM guide](https://docs.edisglobal.com/vps-management/uefi-vs-bios-and-v-tpm).
+</Update>
+
 <Update label="January 2026">
   ### January 12, 2026 — Smarter 90% Traffic Warnings for Auto-Hydration 🚦📊
 
