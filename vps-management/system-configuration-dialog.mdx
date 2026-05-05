@@ -1,7 +1,7 @@
 ---
-title: Understanding the System Configuration Dialog in Your EDIS Global VPS
-sidebarTitle: System Configuration
-description: Learn how to configure CPU, disk, network, video, and VLAN settings in your EDIS VPS for optimal performance and compatibility
+title: "Understanding the System Configuration Dialog in Your EDIS Global VPS"
+sidebarTitle: "System Configuration"
+description: "Learn how to configure CPU, disk, network, video, and VLAN settings in your EDIS VPS for optimal performance and compatibility"
 ---
 
 ## ⚙️ System Configuration Dialog in VPS Panel
@@ -14,7 +14,7 @@ Below you'll find a detailed explanation of each setting:
 
 ## ⏲️ Boot Menu Timeout
 
-This setting controls how long the boot menu is displayed when your VPS starts.  
+This setting controls how long the boot menu is displayed when your VPS starts.\
 Options:
 
 - **0 sec** – Skip the boot menu.
@@ -23,6 +23,34 @@ Options:
 - **60 sec** – Extended time for troubleshooting or manual selection.
 
 For most users, **5 seconds** is ideal.
+
+---
+
+## 🆕 Boot Mode & TPM (Quick Overview)
+
+The System Configuration allows you to control:
+
+- **Boot Mode:** BIOS or UEFI
+- **TPM:** Disabled or Software TPM (vTPM)
+
+### Default behavior
+
+- **BIOS** and **TPM disabled** are the default settings for maximum compatibility.
+
+### Important
+
+- Many operating systems are **not compatible with UEFI**
+- Some modern systems (e.g. Windows 11) **require UEFI \+ TPM**
+
+### How settings are applied
+
+- **Auto-installers** automatically select the correct configuration
+- Manual settings are mainly relevant when:
+  - using **custom images**
+  - booting from **ISO**
+
+👉 For detailed guidance, see:\
+[**UEFI vs BIOS & vTPM explained**](#) _(coming soon)_
 
 ---
 
@@ -44,7 +72,7 @@ This determines how the CPU is presented to the guest operating system:
 - **default** – A generic, highly compatible CPU model that works well with most operating systems.
 - **Host CPU Passthrough** – Passes the host's actual CPU features (like AES, SSE3, SSE4.1, SSE4.2, etc.) to the VPS for better performance, especially with workloads that can utilize advanced instruction sets.
 
-**Recommendation:**  
+**Recommendation:**\
 For maximum performance and compatibility, use **Host CPU Passthrough** unless your operating system has specific requirements.
 
 ---
@@ -68,8 +96,8 @@ The disk driver determines how your VPS’s storage device is presented to the g
 - **IDE**: Highly compatible but slower performance.
 - **SCSI**: Balanced option for certain OS environments.
 
-> **For Mikrotik RouterOS**:  
-> Set **Disk Driver** to **IDE** to ensure compatibility.  
+> **For Mikrotik RouterOS**:\
+> Set **Disk Driver** to **IDE** to ensure compatibility.\
 > 📖 [Mikrotik CHR installation guide](https://docs.edisglobal.com/advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox)
 
 ---
@@ -82,8 +110,8 @@ Controls the emulated network interface:
 - **E1000**: Emulates an Intel network adapter. Compatible with most systems.
 - **RTL8139**: Legacy option with broad compatibility but lower performance.
 
-> **For Mikrotik RouterOS**:  
-> Set **Network Driver** to **E1000** for the best compatibility.  
+> **For Mikrotik RouterOS**:\
+> Set **Network Driver** to **E1000** for the best compatibility.\
 > 📖 [Mikrotik CHR installation guide](https://docs.edisglobal.com/advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox)
 
 ---
@@ -121,6 +149,6 @@ The dropdown will show the VLAN IDs available to your account.
 ---
 
 ## ⚠️ Important Notes:
+
 - Changing any of these settings requires a **power-cycle** of your VPS to apply the changes.
 - Use the recommended drivers for best performance unless specific compatibility (like with Mikrotik) is required.
-
