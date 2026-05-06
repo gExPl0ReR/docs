@@ -117,7 +117,7 @@ Where:
 
 * /etc/amnezia/amneziawg/ - the local directory on your Linux machine
 
-### 5. Get Your Amnezia WireGuard Configuration
+### 5. Get your Amnezia WireGuard configuration
 
 The Amnezia wireguard configuration file must be downloaded from VPS. The `.conf` file, is usually in the following format:
 
@@ -146,7 +146,7 @@ PublicKey = 7gExcFjYZ6rR5nU7F3xzrDQchtGu4OCxEwGjSlRGwnE=
 
 Save this file with a `.conf` extension, e.g., `wg0.conf`.
 
-### 6. Move Configuration to AmneziaWG Directory
+### 6. Move configuration to AmneziaWG directory
 
 Move your configuration file to AmneziaWG’s directory, where wg-client1.conf this is a client config that was previously downloaded from the server:
 
@@ -160,7 +160,7 @@ Ensure the file permissions are restricted to prevent unauthorized access:
 sudo chmod 600 /etc/amnezia/amneziawg/wg0.conf
 ```
 
-### 7. Start the WireGuard VPN Connection
+### 7. Start the WireGuard VPN connection
 
 To start the VPN connection using the configuration file, run the following command:
 
@@ -189,7 +189,7 @@ To stop the VPN connection, use:
 sudo awg-quick down wg0
 ```
 
-### 10. Optionally Enable WireGuard on Boot
+### 10. Optionally enable WireGuard on boot
 
 If you want the VPN to start automatically on boot, you can enable it with:
 

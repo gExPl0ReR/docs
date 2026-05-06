@@ -4,7 +4,7 @@ sidebarTitle: "Rescue CD Troubleshooting"
 description: "Recover a Linux VPS that fails to boot or has connectivity issues using SystemRescueCD to fix network configurations, firewall rules, and SSH problems."
 ---
 
-# What Is Rescue CD and Why Use It? 💡
+# What is rescue CD and why use it? 💡
 
 **SystemRescueCD** is a Linux-based live environment used for troubleshooting and maintenance. It allows you to:
 - Access and repair non-booting systems  
@@ -34,11 +34,11 @@ description: "Recover a Linux VPS that fails to boot or has connectivity issues 
    startx
 ---
 
-## Configure Network in Rescue Mode 🌐
+## Configure network in rescue mode 🌐
 
 You can configure networking via the GUI (simplest) or command line.
 
-### Using the Graphical Interface
+### Using the graphical interface
 
 1. Open **Settings → Advanced Network Configuration**.  
 ![Advanced Network Configuration](/assets/AdvancedNetworkConfiguration.png)
@@ -73,7 +73,7 @@ ping -c 3 google.com       # DNS + outbound test
 
 ---
 
-### Using Command Line (If GUI Not Available)
+### Using command line (if GUI not available)
 
 If you’re in command-line mode:
 
@@ -92,7 +92,7 @@ ping -c 4 google.com
 
 ---
 
-## Checking Firewall from Rescue Mode 🧱
+## Checking firewall from rescue mode 🧱
 
 If you are in the graphical environment, open a **Terminal** first.
 
@@ -129,7 +129,7 @@ chroot /mnt/system systemctl stop iptables
 
 ---
 
-## Check SSH Configuration and Service 🔐
+## Check SSH configuration and service 🔐
 
 If you are in the graphical environment, open a **Terminal** first.
 

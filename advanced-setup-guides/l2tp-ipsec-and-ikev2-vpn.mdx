@@ -4,7 +4,7 @@ sidebartitle: "L2TP/IPsec & IKEv2 VPN"
 description: "Build an L2TP/IPsec and IKEv2 VPN server on Ubuntu 22.04 with the hw5ds2/setup-ipsec-vpn scripts for flexible, encrypted connections on an EDIS VPS."
 ---
 
-## Setting Up L2TP/IPsec and IKEv2 VPN Server on Ubuntu 22.04
+## Setting up L2TP/IPsec and IKEv2 VPN server on Ubuntu 22.04
 
 ## Introduction
 
@@ -48,7 +48,7 @@ We will perform the following high-level steps:
 
 ## Steps on the VPS Server
 
-### 1. Update and Upgrade System Packages
+### 1. Update and upgrade system packages
 
 Ensure your server is up to date.
 
@@ -58,7 +58,7 @@ sudo apt update && sudo apt upgrade -y
 
 **Explanation:** Updates the package lists and upgrades installed packages to their latest versions, ensuring your system is secure and up to date.
 
-### 2. Install Required Packages
+### 2. Install required packages
 
 Install `curl` and `wget`, which are necessary for downloading scripts and files.
 
@@ -66,7 +66,7 @@ Install `curl` and `wget`, which are necessary for downloading scripts and files
 sudo apt install curl wget -y
 ```
 
-### 3. Download and Run the VPN Setup Script
+### 3. Download and run the VPN setup script
 
 Use the setup script from [hwdsl2/setup-ipsec-vpn](https://github.com/hwdsl2/setup-ipsec-vpn) to configure the VPN server.
 
@@ -126,9 +126,9 @@ https://vpnsetup.net/clients
 
 **Note:** Replace `x.x.x.x` with your server's public IP address. The script outputs important VPN credentials—keep them secure.
 
-### 4. Managing VPN Users
+### 4. Managing VPN users
 
-### Adding a New VPN User
+### Adding a new VPN user
 
 Download the user management script and add a new user.
 
@@ -146,7 +146,7 @@ sudo addvpnuser.sh 'newusername' 'newpassword'
 
 * Replace `'newusername'` and `'newpassword'` with the desired credentials.
 
-### Removing a VPN User
+### Removing a VPN user
 
 Download the user removal script and remove an existing user.
 
@@ -168,9 +168,9 @@ sudo delvpnuser.sh 'username_to_remove'
 
 ## Steps on the Client Machine
 
-### Option 1: Connect Using L2TP/IPsec
+### Option 1: connect using L2TP/IPsec
 
-### 1. Install L2TP VPN Client
+### 1. Install L2TP VPN client
 
 Install the Network Manager L2TP plugin.
 
@@ -180,7 +180,7 @@ sudo apt install network-manager-l2tp-gnome -y
 
 **Explanation:** Installs the necessary packages to enable L2TP/IPsec VPN connections via the GNOME Network Manager.
 
-### 2. Configure the VPN Connection
+### 2. Configure the VPN connection
 
 Follow these steps to set up the VPN connection:
 
@@ -234,7 +234,7 @@ Follow these steps to set up the VPN connection:
 
 * **Phase1 and Phase2 Algorithms:** These settings ensure compatibility with the VPN server configuration.
 
-### 3. Verify the VPN Connection
+### 3. Verify the VPN connection
 
 After connecting, verify your IP address to confirm that the VPN is working.
 
@@ -244,9 +244,9 @@ curl ifconfig.me
 
 **Explanation:** This command displays your public IP address, which should now be the VPN server's IP if the connection is successful.
 
-### Option 2: Connect Using IKEv2
+### Option 2: connect using IKEv2
 
-### 1. Install StrongSwan Network Manager Plugin
+### 1. Install StrongSwan network manager plugin
 
 ```bash
 sudo apt install network-manager-strongswan -y
@@ -254,7 +254,7 @@ sudo apt install network-manager-strongswan -y
 
 **Explanation:** Installs the StrongSwan plugin, enabling IKEv2 VPN connections via the Network Manager.
 
-### 2. Obtain VPN Client Configuration Files
+### 2. Obtain VPN client configuration files
 
 You need the following files from your VPN server:
 
@@ -272,7 +272,7 @@ scp root@Your_VPN_Server_IP:/root/vpnclient.p12 ~/
 
 **Explanation:** Replace `Your_VPN_Server_IP` with your VPN server's IP address.
 
-### 3. Extract Certificates and Private Key
+### 3. Extract certificates and private key
 
 Create a directory to store the certificates and extract them from the `.p12` file.
 
@@ -308,7 +308,7 @@ sudo chmod 600 ca.cer client.cer client.key
 
 **Explanation:** Changes ownership to root and restricts permissions to prevent unauthorized access.
 
-### 5. Install Network Manager Plugins (If Not Already Installed)
+### 5. Install network manager plugins (if not already installed)
 
 Depending on your Linux distribution, install the necessary packages:
 
@@ -329,7 +329,7 @@ sudo yum install epel-release
 sudo yum --enablerepo=epel install NetworkManager-strongswan-gnome
 ```
 
-### 6. Configure the VPN Connection
+### 6. Configure the VPN connection
 
 Follow these steps to set up the IKEv2 VPN connection:
 
@@ -385,7 +385,7 @@ Follow these steps to set up the IKEv2 VPN connection:
 
 * **Cipher Proposals:** Setting custom proposals ensures that the encryption algorithms match those expected by the VPN server.
 
-### 7. Verify the VPN Connection
+### 7. Verify the VPN connection
 
 Check your public IP address to confirm that you are connected through the VPN.
 
