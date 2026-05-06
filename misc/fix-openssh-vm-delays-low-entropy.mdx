@@ -33,7 +33,7 @@ VirtIO provides an efficient way to supply entropy to a guest VM. Follow these s
 **Edit the QEMU Command Line**
 Add the following parameters to the QEMU command line for your VM:
 
-```
+```bash
 -object rng-random,id=rng0,filename=/dev/urandom \
 -device virtio-rng-pci,bus=pci.0,addr=0x1e,max-bytes=1024,period=1000
 ```
@@ -56,14 +56,14 @@ For older kernels or other OS types, ensure the VirtIO RNG driver is supported a
 
 If adding the VirtIO RNG interface is not feasible, install a pseudo-random number generator (PRNG) on the guest:
 
-```
+```bash
 sudo apt update
 sudo apt install haveged
 ```
 
 Start and enable the service:
 
-```
+```bash
 sudo systemctl start haveged
 sudo systemctl enable haveged
 ```
