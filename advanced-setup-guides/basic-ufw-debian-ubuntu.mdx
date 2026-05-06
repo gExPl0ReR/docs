@@ -17,9 +17,9 @@ sudo apt update
 sudo apt install ufw
 ```
 
-## Basic UFW Commands
+## Basic UFW commands
 
-### Check UFW Status
+### Check UFW status
 
 ```bash
 sudo ufw status
@@ -33,7 +33,7 @@ For a more detailed view, use:
 sudo ufw status verbose
 ```
 
-### Enable and Disable UFW
+### Enable and disable UFW
 
 <Warning>
   Before enabling UFW, ensure you have configured rules to allow SSH access (port 22)
@@ -50,9 +50,9 @@ To disable UFW:
 sudo ufw disable
 ```
 
-## Managing Basic Rules
+## Managing basic rules
 
-### Allow Incoming Connections
+### Allow incoming connections
 
 Allow specific ports:
 ```bash
@@ -68,7 +68,7 @@ sudo ufw allow http
 sudo ufw allow https
 ```
 
-### Deny Incoming Connections
+### Deny incoming connections
 
 Deny specific ports:
 ```bash
@@ -95,7 +95,7 @@ sudo ufw delete allow 80
 
 ## Advanced Configuration
 
-### Allow Specific IP Addresses
+### Allow specific IP addresses
 
 Allow a specific IP address:
 ```bash
@@ -107,7 +107,7 @@ Allow an IP address to access a specific port:
 sudo ufw allow from 203.0.113.4 to any port 22
 ```
 
-### Configure Default Policies
+### Configure default policies
 
 Set default policies for incoming and outgoing traffic:
 ```bash
@@ -141,9 +141,9 @@ sudo ufw default allow outgoing
    sudo cp /etc/ufw/user.rules /etc/ufw/user.rules.backup
    ```
 
-## Common Configuration Examples
+## Common configuration examples
 
-### Basic Web Server Setup
+### Basic web server setup
 ```bash
 # Allow SSH, HTTP, and HTTPS
 sudo ufw allow ssh
@@ -151,7 +151,7 @@ sudo ufw allow http
 sudo ufw allow https
 ```
 
-### Database Server Setup
+### Database server setup
 ```bash
 # Allow MySQL/MariaDB from specific IP
 sudo ufw allow from 203.0.113.4 to any port 3306

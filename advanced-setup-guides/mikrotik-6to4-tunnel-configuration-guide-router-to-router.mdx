@@ -46,7 +46,7 @@ In this example, we’ll divide an IPv6 prefix fe::/32 into two subnets and conf
 
 Each router will route traffic between these subnets via the secure 6to4 tunnel.
 
-## **Getting Started: Prerequisites**
+## **Getting started: prerequisites**
 
 Before you begin:
 
@@ -64,7 +64,7 @@ Before you begin:
 3. Access both routers via **Winbox** or **SSH**.
 4. This guide is written for **RouterOS v7.x** (v7.12 or later recommended).
 
-## **Step 1 – Create the 6to4 Tunnel Interface**
+## **Step 1 – create the 6to4 tunnel interface**
 
 Create a 6to4 tunnel on both routers, specifying the local and remote IPv4 addresses, and enable IPsec encryption using an ipsec-secret.
 
@@ -84,7 +84,7 @@ Create a 6to4 tunnel on both routers, specifying the local and remote IPv4 addre
 
 🟢 The ipsec-secret parameter automatically encrypts the 6to4 traffic using the shared key **edisglobal** for secure communication.
 
-## **Step 2 – Assign IPv6 Addresses**
+## **Step 2 – assign IPv6 addresses**
 
 Assign IPv6 addresses to the 6to4 tunnel for connectivity and to each router’s internal network using their respective /33 subnets.
 
@@ -108,7 +108,7 @@ Assign IPv6 addresses to the 6to4 tunnel for connectivity and to each router’s
 /ipv6/address/add address=fe:8000::1/64 interface=ether1 advertise=no
 ```
 
-## **Step 3 – Add IPv6 Routes**
+## **Step 3 – add IPv6 routes**
 
 Each router must know how to reach the other router’s /33 subnet through the 6to4 tunnel.
 
@@ -134,7 +134,7 @@ Each router must know how to reach the other router’s /33 subnet through the 6
 
 Now, both routers can route IPv6 traffic between their subnets through the 6to4 tunnel.
 
-## **Step 4 – Test the Tunnel**
+## **Step 4 – test the tunnel**
 
 Test IPv6 connectivity between both routers and their LANs.
 

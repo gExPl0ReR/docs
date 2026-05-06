@@ -3,7 +3,7 @@ title: Understanding reverse DNS location vs VPS location
 description: "Why reverse DNS nameserver location may differ from VPS location, how EDIS Global anycast DNS handles PTR records, and why the difference is negligible."
 ---
 
-## Understanding Test Sites for VPS
+## Understanding test sites for VPS
 
 Some websites (VPS- and IP test sites) indicate "DNS locations". This just means they're telling you where the DNS servers (responsible for linking an IP address to a hostname) they queried your IP address for are located. A "mismatch" might be puzzling for some users. It's crucial to understand that the indicated "DNS location" isn't a measure of service quality.&#x20;
 
@@ -13,7 +13,7 @@ At EDIS Global, we use a smart DNS system called Anycast DNS. Think of it like a
 2. But here's a key point: Which special DNS servers are used, depends on the test sites location. Anycast routes queries to the closest DNS servers.
 3. VPS and rDNS locations will only show the same country if both your VPS and the website you're testing from are in the same country.
 
-## What are Reverse PTR Records?
+## What are reverse PTR records?
 
 A PTR (Pointer) record is a vital DNS record type, linking an IP address back to a hostname. Unlike typical DNS records, such as A records which guide domain names to IP addresses, a reverse PTR record directs an IP address to a domain name.
 
@@ -25,7 +25,7 @@ A PTR (Pointer) record is a vital DNS record type, linking an IP address back to
 
 ---
 
-## EDIS Global's Anycast DNS System
+## EDIS Global's anycast DNS system
 
 Employing the power of Anycast DNS to resolve reverse pointers (PTR records), EDIS Global stands out with its expansive network. We operate a global network with 51 nameservers spanning two distinct clouds.
 

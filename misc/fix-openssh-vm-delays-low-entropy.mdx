@@ -6,7 +6,7 @@ description: "Fix OpenSSH startup delays on virtual machines caused by low entro
 
 ## How to Feed a Guest VM with Sufficient Entropy from /dev/urandom
 
-## Problem: OpenSSH delays System Startup
+## Problem: OpenSSH delays system startup
 
 Guest virtual machines (VMs) can experience delays when starting services like `OpenSSHd` due to insufficient entropy. This is particularly noticeable during boot when services block while waiting for entropy from `/dev/[u]random` or `getrandom()` (in newer Linux releases). The lack of entropy results in delays, potentially extending boot time by up to a minute.
 
@@ -26,7 +26,7 @@ By providing additional entropy sources, such as through VirtIO RNG or other met
 
 ## Implementation Steps
 
-### 1. Use VirtIO RNG (Random Number Generator)
+### 1. Use VirtIO RNG (random number generator)
 
 VirtIO provides an efficient way to supply entropy to a guest VM. Follow these steps to enable it:
 
@@ -70,7 +70,7 @@ sudo systemctl enable haveged
 
 ***
 
-## Benefits of Using VirtIO RNG
+## Benefits of using VirtIO RNG
 
 * Provides consistent and fast entropy from the host.
 

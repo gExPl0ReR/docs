@@ -33,7 +33,7 @@ We will perform the following high-level steps:
 
 ## Steps on the VPS Server
 
-### 1. Update and Upgrade System Packages
+### 1. Update and upgrade system packages
 
 Ensure your system packages are up to date.
 
@@ -53,7 +53,7 @@ sudo apt install stunnel4 -y
 
 **Explanation:** Installs the Stunnel package, allowing you to encrypt arbitrary TCP connections inside SSL.
 
-### 3. Generate SSL Certificates for Stunnel
+### 3. Generate SSL certificates for stunnel
 
 Navigate to the Stunnel configuration directory and generate a self-signed SSL certificate.
 
@@ -115,7 +115,7 @@ cert = /etc/stunnel/stunnel.pem
 - `connect = 127.0.0.1:1194`: Forwards incoming connections to the local OpenVPN service.
 - `cert`: Specifies the SSL certificate file.
 
-### 6. Enable and Start Stunnel Service
+### 6. Enable and start stunnel service
 
 Enable Stunnel to start on boot and start the service.
 
@@ -143,7 +143,7 @@ sudo bash openvpn-install.sh
 
 **Explanation:** This script automates OpenVPN installation and configuration. It will prompt for configuration options—choose settings that suit your needs.
 
-### 8. Modify OpenVPN Server Configuration
+### 8. Modify OpenVPN server configuration
 
 Edit the OpenVPN server configuration file to listen on all interfaces.
 
@@ -163,7 +163,7 @@ local 0.0.0.0
 
 **Explanation:** Setting `local 0.0.0.0` ensures OpenVPN listens on all network interfaces.
 
-### 9. Restart OpenVPN Service
+### 9. Restart OpenVPN service
 
 Apply the configuration changes.
 
@@ -213,7 +213,7 @@ connect = VPS_IP_ADDRESS:443
 
 **Note:** Replace `VPS_IP_ADDRESS` with your actual VPS server IP.
 
-### 3. Enable and Start Stunnel Service
+### 3. Enable and start stunnel service
 
 Enable Stunnel to start on boot and start the service.
 
@@ -223,7 +223,7 @@ sudo systemctl restart stunnel4
 sudo systemctl status stunnel4
 ```
 
-### 4. Copy OpenVPN Client Configuration File
+### 4. Copy OpenVPN client configuration file
 
 Securely copy the OpenVPN client configuration file from the VPS to your client machine.
 
@@ -235,7 +235,7 @@ scp root@VPS_IP_ADDRESS:/root/client.ovpn ~/
 
 **Note:** Replace `VPS_IP_ADDRESS` with your VPS IP.
 
-### 5. Modify OpenVPN Client Configuration
+### 5. Modify OpenVPN client configuration
 
 Rename and edit the OpenVPN client configuration file.
 
@@ -257,7 +257,7 @@ Modify the following:
 - `script-security 2`: Allows the execution of scripts.
 - `route-up`: Executes a script after connection is established.
 
-### 6. Create a Routing Script
+### 6. Create a routing script
 
 Create a script to adjust routing after connecting.
 
@@ -291,7 +291,7 @@ Make the script executable:
 sudo chmod +x /etc/openvpn/routing.sh
 ```
 
-### 7. Start OpenVPN Client
+### 7. Start OpenVPN client
 
 Start the OpenVPN client service.
 
@@ -307,7 +307,7 @@ sudo systemctl status openvpn-client@client.service
 
 ## Verification
 
-### 1. Check IP Address
+### 1. Check IP address
 
 Before and after starting the VPN, check your public IP to ensure traffic is routed through the VPN.
 

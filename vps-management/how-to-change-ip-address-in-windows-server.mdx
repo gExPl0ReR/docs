@@ -10,14 +10,14 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 
 Here’s a revised guide on how to change the IP address on Windows Server, specifically tailored for users who are connected via VNC.
 
-## Change IP Address on Windows Server
+## Change IP address on Windows server
 
 Enable your VNC server: Follow the instructions <a href="https://docs.edisglobal.com/enable-vnc-server" target="_blank">
 here</a>
 
 .
 
-### **Step 1: Connect to Your Windows Server via VNC**
+### **Step 1: connect to your Windows server via VNC**
 
 <Steps>
   <Step title="Log in to your">
@@ -36,7 +36,7 @@ here</a>
 
 ---
 
-### **Step 2: Open Network Connections**
+### **Step 2: open network connections**
 
 1. Once connected, right-click on the **Start** button and select **Run**.
 2. Type `ncpa.cpl` and press **Enter**. This will open the **Network Connections** window.
@@ -45,7 +45,7 @@ here</a>
 
 ---
 
-### **Step 3: Access Properties of the Network Adapter;**
+### **Step 3: access properties of the network adapter;**
 
 1. In the Network Connections window, find the network adapter you wish to configure (e.g., Ethernet).
 2. Right-click on the adapter and select **Properties** from the context menu.
@@ -54,7 +54,7 @@ here</a>
 
 ---
 
-### **Step 4: Select Internet Protocol Version**
+### **Step 4: select internet protocol version**
 
 1. In the Properties window, locate and select **Internet Protocol Version 4 (TCP/IPv4)**.
 2. Click the **Properties** button.
@@ -63,7 +63,7 @@ here</a>
 
 ---
 
-### **Step 5: Change the IP Address**
+### **Step 5: change the IP address**
 
 1. In the TCP/IPv4 Properties window, select **Use the following IP address**.
 2. Enter your desired **IP address**, **Subnet mask**, and **Default gateway**. For example:
@@ -75,7 +75,7 @@ here</a>
 
 ---
 
-### **Step 6: Configure DNS Servers (Optional)**
+### **Step 6: configure DNS servers (optional)**
 
 1. If needed, select **Use the following DNS server addresses**.
 2. Enter your preferred **DNS server** (e.g., `8.8.8.8` for Google DNS) and an **alternate DNS server** (e.g., `8.8.4.4`).
@@ -84,14 +84,14 @@ here</a>
 
 ---
 
-### **Step 7: Save Changes**
+### **Step 7: save changes**
 
 1. Click **OK** to close the TCP/IPv4 Properties window.;
 2. Click **Close** in the Network Adapter Properties window.
 
 ---
 
-### **Step 8: Verify the Changes**
+### **Step 8: verify the changes**
 
 1. Open **Command Prompt** or **PowerShell** by right-clicking the Start button and selecting it from the menu.
 2. Type the following command and press **Enter**:
@@ -108,7 +108,7 @@ here</a>
 
 ---
 
-#### Fast Windows VPS — Ready in Minutes
+#### Fast Windows VPS — ready in minutes
 
 Spin up a secure Windows VPS with 2 vCPUs or more. Instant setup, full administrator access, and reliable global performance.
 

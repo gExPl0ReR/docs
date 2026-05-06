@@ -3,11 +3,11 @@ title: "Traffic Explained"
 description: "Understand the VPS Traffic Information dashboard, how EDIS Global meters traffic, refill cycles, and what happens when monthly traffic limits are reached."
 ---
 
-## All about VPS Traffic, Metering and Refills
+## All about VPS traffic, metering and refills
 
 This document explains how to access and interpret traffic information for a VPS through the Management Portal. It includes details on total traffic used, available (remaining) traffic, and monthly reset/refills, as well as a chart showing cumulative traffic and days remaining until the next refill. Users can also view daily traffic data for every VPS.
 
-### Access Your VPS Traffic Information
+### Access your VPS traffic information
 
 To access your VPS traffic information:
 
@@ -22,19 +22,19 @@ To access your VPS traffic information:
 
 ![Detailed Traffic Information](/assets/cNp-aoYzm2d52KmDABp4u_traffic-info-edis-global.png)
 
-### Total Traffic Used
+### Total traffic used
 
 The total amount of traffic (GB and percentage) consumed since the beginning of the current **monthly** service timeframe.
 
-### Total Traffic Available
+### Total traffic available
 
 The total amount of traffic included in your plan for a 1-month period.
 
-### Monthly Traffic Reset/Refill
+### Monthly traffic Reset/Refill
 
 Days remaining for monthly VPS traffic reset. Countdown to when your VPS traffic metrics will be reset and the traffic allocation for your plan is replenished (refill).
 
-### How We Meter Traffic
+### How we meter traffic
 
 EDIS Global measures traffic usage directly on the Ethernet interfaces of your Virtual Private Servers in real time.
 
@@ -42,7 +42,7 @@ Total traffic is calculated as the sum of **ingress (incoming)** and **egress (o
 
 $Total Traffic  =  \sum (\text{IN} + \text{OUT})$
 
-### What Happens When All Traffic is Consumed?
+### What happens when all traffic is consumed?
 
 Warnings are sent out at 80%, 90%, and at 100% traffic usage levels. When all traffic is used, your Ethernet interface is throttled to about 64kbit/s. We apply a **5% grace** amount, so the throttling only happens at roughly 105% usage.
 
@@ -50,7 +50,7 @@ There's no overage charge, ensuring your server remains online even if all traff
 
 ![Detailed Traffic Information](/assets/-n9f9xXjqDwmY3XgFkQUn_daily-traffic-432a39609a.png)
 
-### Exponential Traffic Chart
+### Exponential traffic chart
 
 We have a chart showing the **total (cumulated) traffic** since the last refill. VPS traffic meters are reset and refilled monthly on your product's key (renewal) date.
 

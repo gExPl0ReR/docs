@@ -39,7 +39,7 @@ To install Mikrotik on an EDIS Global VPS, you’ll need to adjust a few hardwar
   </Step>
 </Steps>
 
-## Mikrotik CHR (Cloud Hosted Router)
+## Mikrotik CHR (cloud hosted router)
 
 If you want to give Mikrotik CHR a try, you can download images from the official <a href="https://mikrotik.com/download" target="_blank">Mikrotik download page</a>. To make life easy for you, we converted a couple of <a href="https://files.edisglobal.com/index.php/s/Jph4RkS7Cgw0ryY" target="_blank">cloud images</a> downloaded from the Mikrotik website, which can be used with our Cloud-Init installer 😎
 
@@ -79,7 +79,7 @@ If you want to give Mikrotik CHR a try, you can download images from the officia
 
 ![Mikrotik RouterOS on EDIS KVM](/assets/09LZQI22gA6fwQ5vkQmgu_mikrotik-chr-installer-in-novnc.png)
 
-## Configure Static IPv4 in MikroTik
+## Configure static IPv4 in MikroTik
 
 Log into MikroTik Router:
 
@@ -87,7 +87,7 @@ Log into MikroTik Router:
 
 * Log in with your credentials (by default, the username is `admin`, and there is no password unless you changed it).
 
-### Set Static IPv4 Address:
+### Set static IPv4 address:
 
 After logging into MikroTik, use the **Terminal** window and enter the following commands to configure the static IP:
 
@@ -120,7 +120,7 @@ ip/dns/set servers=8.8.8.8,8.8.4.4
 
 * You can use any DNS servers, such as `1.1.1.1` and `1.0.0.1` for Cloudflare’s public DNS resolvers.
 
-### Verify Your Configuration:
+### Verify your configuration:
 
 Please reboot the server with the following command to apply the changes and set up the network:
 
@@ -134,7 +134,7 @@ system/reboot
 
 To configure the imaginary IPv6 address **2a03:f80:22:4198::1** on a **MikroTik CHR** device, follow these steps:Always refer to your VPS dashboard for the correct I/64 Pv6 address assignment-.
 
-### **Assign the IPv6 Address**
+### **Assign the IPv6 address**
 
 1. **Open your MikroTik terminal** or connect via **Winbox**.
 
@@ -148,7 +148,7 @@ To configure the imaginary IPv6 address **2a03:f80:22:4198::1** on a **MikroTik 
 
 Remember that the **subnet mask is configured as /48** while the size of your allocation remains /64.
 
-### Configure the IPv6 Default Route
+### Configure the IPv6 default route
 
 1. **Add the default route** for IPv6 to allow external communication.
 

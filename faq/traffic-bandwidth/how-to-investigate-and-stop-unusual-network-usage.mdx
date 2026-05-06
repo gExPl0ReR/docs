@@ -5,7 +5,7 @@ description: "Diagnose and stop unusual network usage on a Linux VPS caused by h
 slug: "investigate-stop-unusual-network-usage-linux"
 ---
 
-# Detecting Suspicious Network Spikes in Linux Servers 🚨
+# Detecting suspicious network spikes in Linux servers 🚨
 
 Unusual network spikes often come from background activity you don’t expect — hidden tasks or processes quietly using your bandwidth, such as:
 
@@ -19,7 +19,7 @@ Spotting these early helps you prevent wasted data, slow performance, and unexpe
 
 ---
 
-## 1) Monitor Live Network Activity
+## 1) Monitor live network activity
 
 Start by checking which IPs or processes are using your network. Two lightweight tools are `iftop` and `nload`.
 
@@ -54,7 +54,7 @@ sudo nload eth0
 
 ---
 
-## 2) Identify Which Process Is Behind the Network Usage
+## 2) Identify which process is behind the network usage
 
 Once you spot unusual network activity, use `ss` (modern) or `netstat` (optional) to find the process behind the connections.
 
@@ -78,7 +78,7 @@ For example, a process like `xray-linux-amd6` with PID `28799` is making outboun
 
 ---
 
-## 3) Inspect the Suspicious Process
+## 3) Inspect the suspicious process
 
 Now that you’ve identified the suspicious PID from **`ss`** or **`netstat`**, check what it actually is and where it’s running from.
 
@@ -120,7 +120,7 @@ sudo rm -rf /usr/local/x-ui/bin/xray-linux-amd64 /tmp/.miner /var/tmp/.hidden ||
 
 ---
 
-## 5) Check Cron Jobs and Autostart Entries
+## 5) Check cron jobs and autostart entries
 
 Many rogue scripts try to restart automatically after reboot using cron or startup files.  
 Inspect the following locations carefully:
@@ -175,7 +175,7 @@ You’ll see a live list of processes with **sent** and **received** rates — p
 
 ---
 
-## 7) Check Your Overall Network Usage
+## 7) Check your overall network usage
 
 If you suspect something has already used too much data, you can review your usage stats directly in your EDIS dashboard.  
 It shows **total monthly usage**, **daily graphs**, and **refill times**.
@@ -184,7 +184,7 @@ It shows **total monthly usage**, **daily graphs**, and **refill times**.
 
 ---
 
-## 8) Harden the System Against Rogue Scripts 🛡️
+## 8) Harden the system against rogue scripts 🛡️
 
 After removing the rogue process, secure your server to prevent it from coming back.
 
