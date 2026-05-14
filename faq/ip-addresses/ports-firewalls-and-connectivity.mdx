@@ -25,6 +25,10 @@ If you need to use a specific port such as:
 
 or any other TCP/UDP port, you simply need to configure your software or operating system to listen on that port.
 
+<Note>
+  **Exception: Port 25 (SMTP).** Outbound traffic on port `25` is rate-limited by default. We apply this rate limit to protect both our network and our customers from the negative impacts of spamming activities. For details and how to request a higher limit, see the [Port 25 SMTP Rate Limit Policy](/faq/port-25-smtp-rate-limit-policy#port-25-smtp-rate-limit-policy).
+</Note>
+
 ---
 
 ## ⚙️ What do you need to do?
