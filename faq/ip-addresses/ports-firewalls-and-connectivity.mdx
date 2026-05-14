@@ -1,0 +1,137 @@
+---
+title: "Incoming and Outgoing Ports on EDIS Global VPS"
+sidebarTitle: "Ports & Firewalls"
+description: "EDIS Global does not block or restrict incoming or outgoing TCP/UDP ports on VPS services. Learn how port configuration works and why no provider-side port opening is required."
+metaTitle: "EDIS Global VPS Ports & Firewalls | No Port Blocking"
+metaDescription: "Learn how incoming and outgoing TCP/UDP ports work on EDIS Global VPS services. No provider-side port opening is required — configure ports directly inside your VPS operating system."
+---
+
+## 🔓 Does EDIS Global block or restrict ports?
+
+No.
+
+EDIS Global does not block, filter, or restrict incoming or outgoing TCP/UDP ports on VPS services.
+
+Your VPS is connected directly to the network through a virtual Ethernet interface and bridge. There are no provider-side firewalls, NAT layers, or port restrictions in between that would require ports to be "opened" manually by EDIS Global staff.
+
+If you need to use a specific port such as:
+
+- `1080`
+- `10800`
+- `443`
+- `25565`
+- `3389`
+- `51820`
+
+or any other TCP/UDP port, you simply need to configure your software or operating system to listen on that port.
+
+---
+
+## ⚙️ What do you need to do?
+
+Port accessibility is entirely managed inside your VPS operating system.
+
+Typical requirements include:
+
+- Configuring your application to bind to the desired port
+- Ensuring your software is actively listening on the port
+- Allowing the port in your operating system firewall
+- Verifying that the service is running correctly
+
+Examples:
+
+- Configure Nginx or Apache to listen on port `443`
+- Configure a SOCKS proxy on port `1080`
+- Configure WireGuard on port `51820`
+- Configure Remote Desktop on port `3389`
+
+No action from EDIS Global is required.
+
+---
+
+## 🛡️ Operating system firewalls
+
+Some operating systems enable local firewalls by default.
+
+Examples:
+
+### Linux
+
+- `ufw`
+- `iptables`
+- `nftables`
+- `firewalld`
+
+### Windows
+
+- Windows Defender Firewall
+
+You may need to allow the desired port locally inside the VPS.
+
+---
+
+## 🌍 Government or ISP restrictions
+
+Please note that EDIS Global has no control over restrictions imposed by:
+
+- Governments
+- National regulators
+- ISPs
+- Mobile carriers
+- Corporate firewalls
+
+In some countries or networks, specific ports, protocols, or IP ranges may be filtered or blocked externally.
+
+Such restrictions occur outside of EDIS Global infrastructure and cannot be modified or bypassed by EDIS Global.
+
+---
+
+## 🔎 How to verify if a port is listening
+
+### Linux
+
+Check listening ports:
+
+```bash
+ss -tulpen
+```
+
+or:
+
+```bash
+netstat -tulpen
+```
+
+### Windows
+
+Open PowerShell:
+
+```powershell
+netstat -ano
+```
+
+---
+
+## 🧪 Testing connectivity
+
+You can test whether a service is reachable using tools such as:
+
+- `telnet`
+- `nc` (netcat)
+- `curl`
+- external port checkers
+- another VPS/server
+
+Example:
+
+```bash
+nc -zv your-ip-address 1080
+```
+
+---
+
+## 📌 Important note
+
+EDIS Global provides infrastructure-level connectivity only.
+
+Application setup, proxy configuration, firewall management, and software troubleshooting inside the VPS remain fully customer-managed.
