@@ -1,0 +1,130 @@
+---
+title: "RDP Error 0xd07: User Account Locked"
+sidebarTitle: "RDP Error 0xd07"
+description: "Learn what the Windows RDP error 0xd07 means and how to unlock or protect your Windows VPS from repeated failed login attempts."
+---
+
+When connecting to a Windows VPS via Remote Desktop (RDP), you may see the following message:
+
+> **Unable to connect**
+>
+> We couldn't connect to the remote PC because the user account has been locked due to too many sign in or password change attempts.
+>
+> Error code: **0xd07**
+
+This is a Windows security protection mechanism and is very common on publicly accessible Windows servers.
+
+## Why this happens
+
+Windows automatically locks user accounts temporarily after multiple failed login attempts.
+
+In many cases, this is **not caused by the customer directly**.
+
+Public RDP services are constantly scanned by automated bots attempting brute-force logins against Windows servers connected to the internet.
+
+Common causes include:
+
+- Incorrect saved RDP credentials
+- Multiple failed password attempts
+- Password changes while old credentials are still cached
+- Automated login attempts from bots scanning port `3389`
+- Publicly exposed RDP services
+
+## Quick solution
+
+### 1. Wait and try again
+
+Most Windows systems automatically unlock the account after:
+
+- 15 minutes
+- 30 minutes
+- or according to local Windows security policies
+
+Wait a little while and try connecting again.
+
+### 2. Verify username and password
+
+Make sure you are using:
+
+- the correct username
+- the correct password
+- the correct keyboard layout
+
+If your password was recently changed, remove any old saved credentials.
+
+### 3. Remove saved RDP credentials
+
+Old saved credentials are a very common cause.
+
+On Windows:
+
+1. Open:
+
+   ```text
+   Control Panel → Credential Manager
+   ```
+
+2. Remove old RDP credentials related to the server.
+
+3. Reconnect and enter the password manually.
+
+If you have forgotten the Administrator password, see [How to reset Windows Administrator password](/vps-management/reset-windows-admin-password).
+
+## Recommended security improvements
+
+If your RDP port is publicly accessible, we strongly recommend improving security.
+
+### Restrict RDP access by IP
+
+Allow RDP access only from trusted IP addresses using:
+
+- Windows Firewall
+- External firewalls
+- VPS provider firewall rules
+
+### Change the default RDP port
+
+The default RDP port is:
+
+```text
+3389
+```
+
+Changing the port reduces automated scanning and brute-force attempts.
+
+### Enable Network Level Authentication (NLA)
+
+NLA improves RDP security by requiring authentication before the full RDP session starts.
+
+Recommended for almost all Windows VPS installations and *enabled by default*.
+
+### Use a VPN instead of public RDP
+
+For better security, avoid exposing RDP directly to the internet.
+
+Recommended options include:
+
+- WireGuard
+- Tailscale
+- ZeroTier
+
+This allows RDP access privately through a secure tunnel.
+
+## Affected Windows versions
+
+This issue can occur on many Windows versions, including:
+
+- Windows 11
+- Windows 10
+- Windows Server 2025
+- Windows Server 2022
+- Windows Server 2019
+- Windows Server 2016
+
+## Still need help?
+
+If the account remains locked or you cannot access the server, please contact support and include:
+
+- your VPS IP address
+- the affected username
+- and the approximate time the issue occurred
