@@ -59,13 +59,10 @@ Old saved credentials are a very common cause.
 On Windows:
 
 1. Open:
-
    ```text
    Control Panel → Credential Manager
    ```
-
 2. Remove old RDP credentials related to the server.
-
 3. Reconnect and enter the password manually.
 
 If you have forgotten the Administrator password, see [How to reset Windows Administrator password](/vps-management/reset-windows-admin-password).
@@ -80,7 +77,6 @@ Allow RDP access only from trusted IP addresses using:
 
 - Windows Firewall
 - External firewalls
-- VPS provider firewall rules
 
 ### Change the default RDP port
 
@@ -96,7 +92,7 @@ Changing the port reduces automated scanning and brute-force attempts.
 
 NLA improves RDP security by requiring authentication before the full RDP session starts.
 
-Recommended for almost all Windows VPS installations and *enabled by default*.
+Recommended for almost all Windows VPS installations and **enabled on EDIS Global by default**.
 
 ### Use a VPN instead of public RDP
 
