@@ -1,0 +1,43 @@
+---
+title: "Disable serial-getty@ttyS0 on Debian 13 (Fix Log Spam)"
+sidebarTitle: "Disable ttyS0 Logging"
+description: "Stop serial-getty@ttyS0.service restart loops and journal log spam on Debian 13 VPS without a serial console. Step-by-step disable and mask commands."
+---
+
+## Overview
+
+Some Debian 13 installations repeatedly attempt to start a serial console (`ttyS0`) even on systems where no physical or virtual serial device exists.
+
+This can result in continuous log noise similar to:
+
+```text
+serial-getty@ttyS0.service: Failed with result 'exit-code'
+serial-getty@ttyS0.service: Scheduled restart job
+```
+
+The issue has been discussed publicly in the Debian kernel mailing list.
+
+## EDIS Global handling
+
+EDIS Global automatically disables the unnecessary serial getty service during fresh Debian 13 installations to avoid excessive logging and unnecessary service restarts.
+
+## Existing systems
+
+If you already have a running Debian 13 system affected by this issue, you can silence the logging noise with the following commands:
+
+```bash
+systemctl disable serial-getty@ttyS0.service
+systemctl mask serial-getty@ttyS0.service
+```
+
+## Optional verification
+
+You can verify the service status with:
+
+```bash
+systemctl status serial-getty@ttyS0.service
+```
+
+## Additional information
+
+Related Debian discussion: [lists.debian.org/debian-kernel/2025/02/msg01161.html](https://lists.debian.org/debian-kernel/2025/02/msg01161.html)

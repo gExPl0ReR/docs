@@ -302,7 +302,8 @@
               "misc/fix-for-realvnc-closing-connection",
               "misc/manual-windows-server-installation-on-kvm",
               "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error",
-              "misc/what-is-seabios"
+              "misc/what-is-seabios",
+              "misc/disable-serial-getty-ttys0-debian-13"
             ]
           }
         ]
