@@ -58,7 +58,7 @@ IP=`hostname -I | awk '{print $1}'`
 curl -s --form-string $token --form-string $user --form-string 'message=Post installation script finished on server with IP: $IP. Have fun' https://api.pushover.net/1/messages.json
 ```
 
-This below example post install script performs the installation oft a simple firewall.
+This below example post install script performs the installation of a simple firewall.
 This script does three main things:
 
 1. It installs a firewall tool called UFW (uncomplicated firewall)

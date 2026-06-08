@@ -63,7 +63,7 @@ After the Upgrade was confirmed ...
 
 ![Resize Linux Disk/Partition](/assets/-gvJtyF7VHSRiIGAeVws-_sysrescuecd3.png)
 
-In the GParted window that opens, you will see several partitions. It will vda1 and vda2 partitions. You need to add unallocated space to vda1 (root) partition but you will not be able to expand space in the /dev/vda1 (root) partition without deleting /dev/vda2 (swap). &#x20;
+In the GParted window that opens, you will see several partitions. There will be vda1 and vda2 partitions. You need to add unallocated space to vda1 (root) partition but you will not be able to expand space in the /dev/vda1 (root) partition without deleting /dev/vda2 (swap). &#x20;
 
 1. **Remove the swap partition**. The vda 2 (swap) partition will be located next to vda1 and the unallocated space. Right-click on this partition and set Delete.&#x20;
 
@@ -71,7 +71,7 @@ In the GParted window that opens, you will see several partitions. It will vda1 
 
 3. **Apply Changes**: After arranging the partitions as desired, click the “Apply” button in GParted to apply the changes. Be aware that this process can take some time and may result in data loss if not done correctly.
 
-4. **Сreate a swap partition**. Right-click on unallocated space and select New. In the Field File system switch to Linux-swap and click Add button.
+4. **Create a swap partition**. Right-click on unallocated space and select New. In the Field File system switch to Linux-swap and click Add button.
 
 ![Resize Linux Disk/Partition](/assets/13ePrT-SgVGNR1CSJAvv7_sysrescuecd5.png)
 
