@@ -4,23 +4,25 @@ sidebarTitle: "Reboot VPS"
 description: "Power-cycle or reboot a VPS through the EDIS Global KVM management portal, or use a shutdown command followed by a power-on action from the dashboard."
 ---
 
-## Clean & safe shutdown (and start)
+## Always give your operating system a clean shutdown
 
-You can trigger a shutdown with **"shutdown -h now"** or **"halt"** at the command prompt of your OS, followed by a **"START"** through the KVM management portal. This should be your preferred way to give your machine a clean cold-boot.
+Before restarting your VPS, always perform a proper shutdown from within the operating system.
 
-## Start / stop and restart buttons
+- **Linux:** Run `shutdown -h now` or `halt` from the command line.
+- **Windows:** Select **Start → Power → Shut down**, or run `shutdown /s /t 0` from **Command Prompt** or **PowerShell**.
 
-If your service is currently in **SHUTDOWN** state, you can **Start** your VPS.
-Regardless of the current state, you always have the option to **Restart** your VPS.
+Once the operating system has shut down completely, start the VPS again using the **START** button in the KVM management portal. This is the preferred way to perform a clean cold boot and helps prevent filesystem corruption or data loss.
+
+## Start. Stop. Restart.
+
+If your service is currently in **SHUTDOWN** state, you can **Start** your VPS. You always have the option to **Restart** your VPS. Restart fires a Stop, followed by Start command, regardless of the machines state. 
 
 ![Reboot VPS](/assets/vps-start-restart.webp)
 
-If your service is currently in **RUNNING** state, you can **Stop** (Shutdown) your VPS.
-You always have the option to **Restart** your VPS.
+If your service is currently in **RUNNING** state, you can **Stop** (Shutdown) your VPS. You always have the option to **Restart** your VPS. Restart fires a Stop, followed by Start command, regardless of the machines state. 
 
 ![Reboot VPS](/assets/vps-stop-restart.webp)
 
 ## Stop and Restart from a technical perspective
 
-Both the **Stop** and **Restart** buttons terminate the hypervisor process which is managing your VPS. In addition, a Restart also initiates a fresh start of your virtual machine on a new hypervisor process. If you had a VNC/noVNC console open, you need to restart VNC/noVNC console too.
-Please always consider a clean shutdown through your operating system first!
+Both the **Stop** and **Restart** buttons terminate the hypervisor process which is managing your VPS. In addition, a Restart also initiates a fresh start of your virtual machine on a new hypervisor process. If you had a VNC/noVNC console open, you need to restart VNC/noVNC console too. Please always consider a clean shutdown through your operating system before stopping or restarting your virtual machine. 
