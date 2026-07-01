@@ -180,7 +180,7 @@
                 "pages": [
                   "faq/traffic-bandwidth/traffic-vs-bandwidth",
                   "faq/traffic-bandwidth/traffic-stats-refill-explained",
-                  "faq/traffic-bandwidth/traffic-pool-global-and-premium-traffic-zone",
+                  "faq/traffic-bandwidth/traffic-pool",
                   "faq/traffic-bandwidth/speed-test",
                   "faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global",
                   {
@@ -789,7 +789,11 @@
     },
     {
       "source": "/traffic-pool-global-and-premium-traffic-zone",
-      "destination": "/faq/traffic-bandwidth/traffic-pool-global-and-premium-traffic-zone"
+      "destination": "/faq/traffic-bandwidth/traffic-pool"
+    },
+    {
+      "source": "/faq/traffic-bandwidth/traffic-pool-global-and-premium-traffic-zone",
+      "destination": "/faq/traffic-bandwidth/traffic-pool"
     },
     {
       "source": "/exceeding-monthly-traffic-limit-edis-global",
