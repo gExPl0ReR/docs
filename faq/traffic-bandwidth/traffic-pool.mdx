@@ -83,24 +83,26 @@ to trigger notifications when traffic reaches a defined threshold.
 
 ## Traffic pool accounting balance sheet
 
-The balance sheet below (demo data) works like a bank account statement. We log **traffic top-ups**, **pool** **traffic consumption**, and the resulting balance after each transaction. This report provides a transparent overview of **pool** **traffic usage across your entire VPS hosting account**.The balance sheet below (demo data) works like a bank account statement. We log **traffic top-ups**, **pool** **traffic consumption**, and the resulting balance after each transaction. This report provides a transparent overview of **pool** **traffic usage across your entire VPS hosting account**.The balance sheet below (demo data) works like a bank account statement. We log **traffic top-ups**, **pool** **traffic consumption**, and the resulting balance after each transaction. This report provides a transparent overview of **pool** **traffic usage across your entire VPS hosting account**.
+The table below (demo data) works like a bank account statement. Every traffic transaction is recorded chronologically, including traffic purchases, complimentary starter credits, traffic assigned to VPS instances, and the resulting traffic pool balance after each transaction.
 
-**How to Read the Balance SheetHow to Read the Balance SheetHow to Read the Balance Sheet**
+### **How to Read the Balance Sheet**
 
 • **Date/Time:** Timestamp of the transaction.\
-• **Source:** The VPS instance consuming traffic, or a Traffic Pool Top-Up\
-• **Change:** Shows the amount of traffic deducted (negative) or added (positive).\
+•**Source:** Indicates what caused the transaction, such as a VPS consuming traffic, a traffic pool top-up, or received complimentary starter credit.\
+• **Change:** The amount of traffic added to (\+) or deducted from (−) your traffic pool.\
 • **New Balance:** The updated traffic balance after the transaction.
+
+Entries are listed with the newest transaction first. Read the table from top to bottom, or start at the bottom if you want to follow the complete history chronologically.
 
 | Date/Time | Source | Change | New Balance |
 | --- | --- | --- | --- |
 | 2025-03-17 16:52:12 | kvm\_demo\_id002 | -100 GB | 6000 GB |
 | 2025-03-17 14:12:12 | kvm\_demo\_id002 | -100 GB | 6700 GB |
-| 2025-03-17 12:22:32 | **Traffic Pool Starter Credit (100GB) kvm\_demo\_id003** | **\+100 GB** | 6800 GB |
+| 2025-03-17 12:22:32 | **Starter Credit (100GB) kvm\_demo\_id003** | **\+100 GB** | 6800 GB |
 | 2025-03-17 12:22:32 | kvm\_demo\_id002 | -1000 GB | 6700 GB |
 | 2025-03-16 10:02:30 | kvm\_demo\_id002 | -500 GB | 7700 GB |
 | 2025-03-16 10:01:45 | kvm\_demo\_id004 | -300 GB | 8200 GB |
-| 2025-03-16 09:59:10 | **Traffic Pool Top-Up** | **\+1000 GB** | 8500 GB |
+| 2025-03-16 09:59:10 | **Traffic Pool Top-Up** | **\+1000 GB** | **8500 GB** |
 | 2025-03-16 08:45:15 | kvm\_demo\_id001 | -1000 GB | 7500 GB |
 | 2025-03-15 23:15:35 | kvm\_demo\_id001 | -1000 GB | 8500 GB |
 | 2025-03-15 22:12:20 | kvm\_demo\_id003 | -500 GB | 9500 GB |
