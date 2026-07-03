@@ -71,11 +71,13 @@ Multiple prefixes announced together in a single request incur only **one** setu
 
 ## Requirements
 
-- You must own the prefix or have the right to use the IPv4 prefix 
-- RIR authorization (LOA / ROA
+- You must own the IPv4 prefix or have the legal right to use it.
+- The prefix must be registered with a Regional Internet Registry (RIR).
+- You must provide authorization for us to announce the prefix on your behalf (e.g. an LOA and/or appropriate RPKI ROA, depending on your routing setup).
 - The minimum supported prefix size is **/24**.
 - Larger prefixes are also supported.
-- Each server location requires its own dedicated prefix.
+- A separate **/24 (or larger)** prefix is required for each server location where you want to use BYOIP.
+- The prefix will be announced under **your own Autonomous System (AS) number**.
 
 ## Interested?
 
