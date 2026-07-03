@@ -816,6 +816,10 @@
       "destination": "/faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients"
     },
     {
+      "source": "/plan-upgrade",
+      "destination": "/upgrading-a-vps-to-a-higher-tier"
+    },
+    {
       "source": "/upgrading-a-vps-to-a-higher-tier",
       "destination": "/faq/upgrades-downgrades/upgrade-plan"
     },
