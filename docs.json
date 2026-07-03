@@ -792,6 +792,10 @@
       "destination": "/faq/traffic-bandwidth/traffic-stats-refill-explained"
     },
     {
+      "source": "/traffic-pool",
+      "destination": "/faq/traffic-bandwidth/traffic-pool"
+    },
+    {
       "source": "/traffic-pool-global-and-premium-traffic-zone",
       "destination": "/faq/traffic-bandwidth/traffic-pool"
     },
