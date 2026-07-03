@@ -122,7 +122,6 @@
                   "faq/ip-addresses/understanding-ip-address-location",
                   "faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location",
                   "faq/ip-addresses/static-ip-addresses",
-                  "faq/ip-addresses/announcing-third-party-ip-prefixes",
                   "faq/ip-addresses/bring-your-own-ipv4-prefix",
                   "faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance",
                   "faq/ip-addresses/network-is-down",
@@ -686,7 +685,11 @@
     },
     {
       "source": "/announcing-third-party-ip-prefixes",
-      "destination": "/faq/ip-addresses/announcing-third-party-ip-prefixes"
+      "destination": "/faq/ip-addresses/bring-your-own-ipv4-prefix"
+    },
+    {
+      "source": "/faq/ip-addresses/announcing-third-party-ip-prefixes",
+      "destination": "/faq/ip-addresses/bring-your-own-ipv4-prefix"
     },
     {
       "source": "/is-ip-spoofing-allowed-edis-global-stance",
