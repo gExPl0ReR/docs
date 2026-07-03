@@ -1,0 +1,91 @@
+---
+title: Bring Your Own IPv4 /24 (BYOIP)
+description: Use your own IPv4 /24 or larger prefixes with EDIS Global VPS. Choose between full integration or partial integration and announce your IP space at one or more locations.
+---
+
+EDIS Global supports **Bring Your Own IP (BYOIP)** for VPS services.
+
+If you own an IPv4 **/24 or larger** prefix, we can announce and route it through our network, allowing you to use your own IP addresses with your VPS instances.
+
+If you are interested, please **describe your use case** so we can recommend the most suitable integration method.
+
+<Note>
+  A separate **/24 (or larger)** IPv4 prefix is required for **each server location** where you want to use your own IP space.
+
+  Example:
+
+  - Cyprus → one /24
+  - Frankfurt → another /24
+  - New York → another /24
+</Note>
+
+## Integration options
+
+We offer two different integration models.
+
+### Full integration (recommended)
+
+Your IP range becomes fully integrated into the EDIS Global platform.
+
+With this option:
+
+- Every newly ordered VPS in the agreed location automatically receives an IPv4 address from **your** IP range.
+- Up to **10 additional IPv4 addresses** from your own range can be assigned to a single VPS.
+- IP address changes continue to use addresses from your own prefix.
+- Automatic IP configuration during OS reinstall is supported (depending on the operating system).
+- Reverse DNS (rDNS/PTR) management is available through the customer portal.
+- Your IP addresses are fully integrated into our provisioning and management systems, including spoofing protection to avoid duplicate IP address assignments.
+
+This option provides the same user experience as using standard EDIS Global IPv4 addresses while retaining ownership of your address space.
+
+### Partial integration
+
+This option offers maximum flexibility with minimal platform integration.
+
+With this option:
+
+- Every new VPS is delivered with a standard EDIS Global IPv4 address.
+- Your announced IPv4 prefix is whitelisted in our anti-spoofing protection.
+- You may configure **any number of your own IP addresses** inside your VPS within the agreed location.
+- You are responsible for managing and avoiding duplicate IP assignments.
+- Your IP addresses are **not** stored in our management databases.
+- Your own IP addresses are **not** displayed in the customer portal.
+- Automatic IP configuration during OS reinstall is **not** available.
+- Reverse DNS (rDNS/PTR) management for your own IP addresses is **not** available.
+
+This option is ideal if you prefer to manage your IP space entirely yourself.
+
+## Setup fee
+
+A **one-time setup fee of EUR 199** applies **for each announcement request in each server location**, regardless of the number of IPv4 prefixes announced as part of that request.
+
+Multiple prefixes announced together in a single request incur only **one** setup fee. Any future announcement requests for the same location are charged separately.
+
+### Examples
+
+| Announcement                              | Setup fee |
+| ----------------------------------------- | --------- |
+| 1 × /24 in Cyprus                         | EUR 199   |
+| 5 × /24 in Cyprus                         | EUR 199   |
+| 3 × /24 in Cyprus + 2 × /24 in Frankfurt  | EUR 398   |
+
+## Requirements
+
+- You must own the IPv4 prefix and provide a LOA for the BGP announcement.
+- The minimum supported prefix size is **/24**.
+- Larger prefixes are also supported.
+- Each server location requires its own dedicated prefix.
+
+## Interested?
+
+If you would like to use your own IPv4 address space with EDIS Global VPS, please contact us with:
+
+- Your IPv4 prefix(es)
+- The desired server location(s)
+- A short description of your intended use case
+
+We'll recommend the most suitable integration option and assist you with the announcement process.
+
+<Note>
+  Full geolocation of IP ranges can take up to 4 weeks until reflected correctly in reference databases like MaxMind GeoIP, IP2Location, etc.
+</Note>
