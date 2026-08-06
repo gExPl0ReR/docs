@@ -29,7 +29,13 @@
       "claude",
       "perplexity",
       "cursor",
-      "vscode"
+      "vscode",
+      "download-pdf",
+      "copy",
+      "assistant",
+      "grok",
+      "aistudio",
+      "windsurf"
     ]
   },
   "navigation": {
