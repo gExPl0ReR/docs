@@ -15,10 +15,10 @@ Updates and improvements
 
   **What's changed**
 
-  * Previously: your card was charged **1 day after invoice creation**.
-  * Now: your card is charged **4 days after the invoice is sent**.
+  - Previously: your card was charged **1 day after invoice creation**.
+  - Now: your card is charged **4 days after the invoice is sent**.
 
-  This gives you more time to review upcoming renewals and apply account credit or change your payment method before the charge is attempted.
+  This gives you more time to review upcoming renewals, and cancel a service before the charge is attempted.
 
   👉 Learn more in the [VPS Billing Workflow](/faq/billing-lifecycle/automated-vps-billing-workflow) and [How VPS Renewals Work](/faq/billing-lifecycle/how-vps-renewals-work).
 </Update>
@@ -30,10 +30,10 @@ Updates and improvements
 
   **What's new**
 
-  * 🌐 **BYOIP support for VPS**: bring an existing **IPv4 /24** you own or have authorization to use and have it announced from EDIS Global.
-  * 🛡️ **Keep your IP reputation**: retain your established address space, PTR/rDNS setup, and allow-lists when migrating workloads to EDIS.
-  * 🌍 **Global reach**: announce your prefix from any of our **50 EDIS locations**, subject to routing policy and RIR authorization (LOA / ROA).
-  * ⚙️ **Works with all VPS plans** — from KVM Smart to High Performance.
+  - 🌐 **BYOIP support for VPS**: bring an existing **IPv4 /24** you own or have authorization to use and have it announced from EDIS Global.
+  - 🛡️ **Keep your IP reputation**: retain your established address space, PTR/rDNS setup, and allow-lists when migrating workloads to EDIS.
+  - 🌍 **Global reach**: announce your prefix from any of our **50 EDIS locations**, subject to routing policy and RIR authorization (LOA / ROA).
+  - ⚙️ **Works with all VPS plans** — from KVM Smart to High Performance.
 
   👉 Contact [EDIS Global support](https://www.edisglobal.com/contact) to get started with BYOIP onboarding.
 
@@ -41,10 +41,10 @@ Updates and improvements
 
   We’ve simplified the EDIS Traffic Pool to make it easier to understand and use.
 
-  * 🌍 **One global traffic pool** – no more Global and Premium traffic zones.
-  * 💰 **One simple price** across all **50 EDIS locations**.
-  * 🎁 **100 GB free Traffic Pool starter credit** continues to be included with every newly purchased VPS.
-  * ♾️ **Traffic stored in your Traffic Pool never expires** until assigned to a VPS.
+  - 🌍 **One global traffic pool** – no more Global and Premium traffic zones.
+  - 💰 **One simple price** across all **50 EDIS locations**.
+  - 🎁 **100 GB free Traffic Pool starter credit** continues to be included with every newly purchased VPS.
+  - ♾️ **Traffic stored in your Traffic Pool never expires** until assigned to a VPS.
 
   👉 Learn more in the [Traffic Pool FAQ](/faq/traffic-bandwidth/traffic-pool) or [top up your Traffic Pool](https://manage.edisglobal.com/cart.php).
 </Update>
@@ -61,7 +61,7 @@ Updates and improvements
 
   **Defaults & automation**
 
-  - Defaults remain **BIOS + TPM Disabled** for maximum compatibility across Linux workloads.
+  - Defaults remain **BIOS \+ TPM Disabled** for maximum compatibility across Linux workloads.
   - **Auto-Installers** continue to pick the correct Boot Mode and TPM setting automatically — manual values are ignored to guarantee a successful install.
   - Manual settings apply when deploying **custom Cloud-Init images** or **uploaded ISOs**.
 
@@ -79,7 +79,7 @@ Updates and improvements
 
   Starting **January 12, 2026**, we no longer send **90% traffic limit warning emails** when:
 
-  - **Auto-Hydration is enabled**, and  
+  - **Auto-Hydration is enabled**, and
   - the account has **enough traffic pool balance** to cover the next automatic hydration.
 
   This ensures traffic warnings are only sent when **action is actually required**, reducing unnecessary notifications while keeping customers fully informed when there is a real risk of traffic throttling.
@@ -88,8 +88,7 @@ Updates and improvements
 <Update label="December 2025">
   ### December 28, 2025 — Due-Date Reminders for Partially Paid Invoices 💳⏰
 
-  EDIS Global applies **account credit automatically during billrun** (unless you’ve opted out of automatic credit application).\
-  If the available credit is **not sufficient**, the invoice is **partially paid** and remains **unpaid** until the outstanding amount is settled.
+  EDIS Global applies **account credit automatically during billrun** (unless you’ve opted out of automatic credit application).<br />If the available credit is **not sufficient**, the invoice is **partially paid** and remains **unpaid** until the outstanding amount is settled.
 
   Starting **December 28, 2025**, we send **payment reminders at the service due date** for invoices that:
 
@@ -102,8 +101,7 @@ Updates and improvements
 <Update label="November 2025">
   #### November 11, 2025 — Global Database Cluster Upgrade ⚡➡️ Real-Time
 
-  We’ve successfully upgraded EDIS Global from a **centralized database system** to a fully **distributed, highly resilient global database cluster**.\
-  This major platform upgrade unlocks **real-time operations**, smoother performance, and a noticeably faster user experience across the entire EDIS ecosystem.
+  We’ve successfully upgraded EDIS Global from a **centralized database system** to a fully **distributed, highly resilient global database cluster**.<br />This major platform upgrade unlocks **real-time operations**, smoother performance, and a noticeably faster user experience across the entire EDIS ecosystem.
 
   ## What’s improved?
 
@@ -119,8 +117,7 @@ Updates and improvements
 <Update label="September 2025">
   ### September 25, 2025 — Post-Install Scripts Deprecated ⚠️➡️ Cloud-Init Only
 
-  We’ve officially **retired Post-Install Scripts** from the EDIS Global VPS platform.\
-  All new operating system installations now rely exclusively on **Cloud-Init**, the industry standard for automated server initialization.
+  We’ve officially **retired Post-Install Scripts** from the EDIS Global VPS platform.<br />All new operating system installations now rely exclusively on **Cloud-Init**, the industry standard for automated server initialization.
 
   👉 Why this change?
 
@@ -129,8 +126,7 @@ Updates and improvements
   - **Broader compatibility**: Supported across nearly all Linux distributions we offer.
   - **Future-ready**: Easier scaling, improved security, and cleaner workflows.
 
-  If you’ve used Post-Install Scripts before, don’t worry — we’ve kept the [archived documentation](https://docs.edisglobal.com/vps-management/post-install-scripts) for reference.\
-  For all current and future VPS setups, please use our [Cloud-Init Installation Guide](https://docs.edisglobal.com/vps-management/edis-cloud-init-vps-installation).
+  If you’ve used Post-Install Scripts before, don’t worry — we’ve kept the [archived documentation](https://docs.edisglobal.com/vps-management/post-install-scripts) for reference.<br />For all current and future VPS setups, please use our [Cloud-Init Installation Guide](https://docs.edisglobal.com/vps-management/edis-cloud-init-vps-installation).
 </Update>
 
 <Update label="August 2025">
@@ -172,8 +168,7 @@ Updates and improvements
 <Update label="May 2025">
   ### April 29, 2025 — New VPS Hosting Location: Finland 🇫🇮
 
-  We’ve launched our latest VPS hosting platform in **Helsinki, Finland**!\
-  Powered by 10 Gbps uplinks and top-tier network partners, our Finland location offers low-latency performance, excellent international reach, and enterprise-grade reliability.
+  We’ve launched our latest VPS hosting platform in **Helsinki, Finland**!<br />Powered by 10 Gbps uplinks and top-tier network partners, our Finland location offers low-latency performance, excellent international reach, and enterprise-grade reliability.
 
   👉 [Explore Finland VPS Plans](https://www.edisglobal.com/vps-hosting/finland-helsinki)
 
