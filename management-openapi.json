@@ -68,7 +68,7 @@
           "Authentication"
         ],
         "summary": "Create AUTH-session",
-        "description": "Use this endpoint to create an authentication session for managing your KVM VPS. Simply provide your WHMCS credentials (`email` and `password`) to authenticate requests. Optionally, you can specify a `kvm_id` to limit the session access to a specific KVM instance",
+        "description": "Use this endpoint to create an authentication session for managing your KVM VPS. The API does not use static API keys. Instead, provide your WHMCS credentials (`email` and `pw`) to authenticate requests. WHMCS is the billing software behind the EDIS Global Client Portal, so these are the same email and password you use to sign in to the Client Portal. Optionally, you can specify a `kvm_id` to limit the session access to a specific KVM instance",
         "operationId": "createAuthSession",
         "requestBody": {
           "description": "Required credentials to authenticate and create a session. Optionally, you can include `kvm_id` to target a specific KVM.",
@@ -4097,12 +4097,12 @@
         "properties": {
           "email": {
             "type": "string",
-            "description": "Your WHMCS account email address used for login.\nThis is the same email you use to sign in to your WHMCS client area.",
+            "description": "Your WHMCS account email address used for login.\nThis is the same email you use to sign in to the EDIS Global Client Portal (the WHMCS client area).",
             "example": "your-email@example.com"
           },
           "pw": {
             "type": "string",
-            "description": "Your WHMCS account password.\n\n⚠️ **Important:** If your password contains special characters (such as `+`, `&`, `=`), the default cURL snippet using `--data` may not work correctly.\n\n✅ To avoid issues:\n- Use `--data-urlencode \"pw=your-password\"`, **or**\n- URL-encode your password manually before using it with the `--data` flag.\n\n🔧 You can encode your password using [this online tool](https://www.urlencoder.org).\n\n**Example:** `your-password`"
+            "description": "Your WHMCS account password. This is the same password you use to sign in to the EDIS Global Client Portal.\n\n⚠️ **Important:** If your password contains special characters (such as `+`, `&`, `=`), the default cURL snippet using `--data` may not work correctly.\n\n✅ To avoid issues:\n- Use `--data-urlencode \"pw=your-password\"`, **or**\n- URL-encode your password manually before using it with the `--data` flag.\n\n🔧 You can encode your password using [this online tool](https://www.urlencoder.org).\n\n**Example:** `your-password`"
           },
           "kvm_id": {
             "type": "string",

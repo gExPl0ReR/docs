@@ -20,6 +20,14 @@ Use it to:
   You must have at least one active VPS in your account before you can enable API Access in the VPS Management Portal.
 </Info>
 
+## Authentication: no API keys
+
+The Management API does not use static API keys. There is no API key to create or copy.
+
+Instead, you authenticate with your **WHMCS credentials**. WHMCS is the billing software that powers the EDIS Global Client Portal. Your WHMCS credentials are the same email and password you use to sign in to the Client Portal.
+
+Each auth request returns temporary session values (`api_host`, `kvm_id`, `signature`, `valid_until`) that you pass to all other management endpoints. Create a new auth session when the previous one expires.
+
 <Tabs>
   <Tab title="Simple Guide">
     ## Let’s Keep This Simple
