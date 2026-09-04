@@ -3,7 +3,7 @@ title: How to setup OpenVPN over Stunnel
 description: "Set up OpenVPN over Stunnel on Ubuntu 22.04 to disguise OpenVPN traffic as TLS. Step-by-step guide for stealth VPN deployment that bypasses DPI filters."
 ---
 
-## Guide Setting Up OpenVPN over Stunnel on Ubuntu 22.04 on your VPS
+## Guide setting up OpenVPN over Stunnel on Ubuntu 22.04 on your VPS
 
 ## Introduction
 
@@ -31,7 +31,7 @@ We will perform the following high-level steps:
 
 ---
 
-## Steps on the VPS Server
+## Steps on the VPS server
 
 ### 1. Update and upgrade system packages
 
@@ -69,7 +69,7 @@ sudo openssl req -new -x509 -days 365 -nodes -out stunnel.pem -keyout stunnel.pe
 
 **Note:** You'll be prompted to enter information (Country, State, etc.). You can fill these out or leave them blank.
 
-### 4. Create a Log File for Stunnel
+### 4. Create a log file for Stunnel
 
 Create a log file for Stunnel to write logs.
 
@@ -176,7 +176,7 @@ sudo systemctl status openvpn-server@server.service
 
 ---
 
-## Steps on the Client Machine
+## Steps on the client machine
 
 ### 1. Install Stunnel
 
@@ -315,7 +315,7 @@ Before and after starting the VPN, check your public IP to ensure traffic is rou
 curl ifconfig.me
 ```
 
-### 2. Verify Services
+### 2. Verify services
 
 Check that Stunnel and OpenVPN services are running.
 
@@ -324,7 +324,7 @@ sudo systemctl status stunnel4
 sudo systemctl status openvpn-client@client.service
 ```
 
-### 3. Test Connectivity
+### 3. Test connectivity
 
 Ensure you can access internet resources and that traffic is routed through the VPN.
 

@@ -18,7 +18,7 @@ Virtualization technology has transformed the landscape of modern computing, esp
 
 * **CPU Socket**: A CPU socket, often just referred to as a socket, is the physical slot on the computer's motherboard that holds the CPU. Each socket can hold one CPU chip, and that chip can contain one or more cores. When a VPS environment refers to 'sockets,' it often means virtual representations of these physical slots.
 
-### 2. Virtualization Capabilities
+### 2. Virtualization capabilities
 
 In the world of virtualization, technology can mimic hardware behavior. This means that a vCPU core can be rendered either as a representation of a CPU socket or as a direct CPU core. While the underlying physical hardware might have a fixed number of sockets and cores, virtualization can manipulate these representations to suit software requirements, like operating system limitations or specific software constraints.
 
@@ -46,7 +46,7 @@ If you're using the VPS Management Portal, here's how to access and modify the v
 
 ![CPU Cores vs. CPU Sockets](/assets/huaNpFAxK5PVCl_NLo3ID-tcYuoIemRB1MLqTyqaz6a-20240806-114542.png)
 
-### 4. When to Change the Settings
+### 4. When to change the settings
 
 Typically, you might need to adjust these settings based on the operating system or specific software you are running on your VPS. For example, Microsoft Windows is designed to recognize only two sockets but can handle multiple cores. Hence, if you're running Windows on your VPS, you'll want to ensure your vCPU cores are represented as "multiple cores" rather than "multiple sockets".
 

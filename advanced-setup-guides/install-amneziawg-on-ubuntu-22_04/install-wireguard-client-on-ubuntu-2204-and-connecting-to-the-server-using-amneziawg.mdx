@@ -69,7 +69,7 @@ deb-src http://security.ubuntu.com/ubuntu jammy-security multiverse
 
 **Save and Exit**.
 
-### 2. Upgrade the System
+### 2. Upgrade the system
 
 ```bash
 apt update && apt upgrade && apt-get full-upgrade && apt install resolvconf
@@ -119,7 +119,7 @@ Where:
 
 ### 5. Get your Amnezia WireGuard configuration
 
-The Amnezia wireguard configuration file must be downloaded from VPS. The `.conf` file, is usually in the following format:
+Download the Amnezia WireGuard configuration file from the VPS. The `.conf` file, is usually in the following format:
 
 ```shell
 [Interface]
@@ -170,7 +170,7 @@ sudo awg-quick up wg0
 
 If everything is configured properly, you'll be connected to the WireGuard VPN.
 
-### 8. Verify the Connection
+### 8. Verify the connection
 
 To check if the connection is active, use:
 
@@ -203,7 +203,7 @@ To disable it from starting on boot, use:
 sudo systemctl disable awg-quick@wg0
 ```
 
-### Troubleshooting Tips:
+### Troubleshooting tips:
 
 * Ensure that your private key, public key, and endpoint details in the configuration are correct.
 

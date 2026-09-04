@@ -10,7 +10,7 @@ SFTP (Secure File Transfer Protocol) is a secure way to transfer files between y
 
 ***
 
-## Step 1: Ensure SSH is Enabled on your Linux Server
+## Step 1: ensure SSH is enabled on your Linux server
 
 Make sure the SSH service is installed and running on your Linux server. Use the following command:
 
@@ -22,7 +22,7 @@ sudo apt-get install openssh-server
 
 ## Step 2: use the `sftp` command to transfer files
 
-### Connect to the Server
+### Connect to the server
 
 To start an SFTP session, use the following command:
 
@@ -50,15 +50,15 @@ Once connected, you can use the following commands to transfer files:
 
 ***
 
-## Example Commands
+## Example commands
 
-### Upload Example
+### Upload example
 
 ```bash
 put ~/Documents/example.txt /home/user/uploads
 ```
 
-### Download Example
+### Download example
 
 ```bash
 get /home/user/uploads/example.txt ~/Downloads

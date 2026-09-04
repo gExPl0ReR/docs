@@ -75,7 +75,7 @@ Deny specific ports:
 sudo ufw deny 23     # Deny Telnet
 ```
 
-### Delete Rules
+### Delete rules
 
 Delete rules by number:
 1. List rules with numbers:
@@ -93,7 +93,7 @@ Delete rules by specification:
 sudo ufw delete allow 80
 ```
 
-## Advanced Configuration
+## Advanced configuration
 
 ### Allow specific IP addresses
 
@@ -115,7 +115,7 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 ```
 
-## Best Practices
+## Best practices
 
 1. **Always Allow SSH First**
    Before enabling UFW, ensure SSH access is allowed:
@@ -157,7 +157,7 @@ sudo ufw allow https
 sudo ufw allow from 203.0.113.4 to any port 3306
 ```
 
-### Rate Limiting
+### Rate limiting
 Enable rate limiting for SSH to prevent brute force attacks:
 ```bash
 sudo ufw limit ssh

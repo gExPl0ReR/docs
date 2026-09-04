@@ -3,7 +3,7 @@ title: "Install AmneziaWG on Keenetic Router"
 description: "Install AmneziaWG on a Keenetic router to bypass ISP restrictions. Step-by-step setup of a stealth VPN connection using the latest Keenetic OS interface."
 ---
 
-Installing **amneziawg** on Keenetic router can help bypass restrictions imposed by your Internet Service Provider (ISP) by concealing the operation of WireGuard. Unlike traditional VPN setups, **amneziawg** masks the WireGuard protocol, making it difficult for the ISP to detect that you're using a VPN. This stealth feature prevents the provider from identifying and blocking the VPN traffic, ensuring a seamless and unrestricted internet experience even in environments where VPN usage is typically monitored or restricted by government-controlled firewalls.
+Installing **amneziawg** on Keenetic router can help bypass restrictions imposed by your Internet Service Provider (ISP) by concealing the operation of WireGuard. Unlike traditional VPN setups, **amneziawg** masks the WireGuard protocol, making it difficult for the ISP to detect that you're using a VPN. This stealth feature prevents the provider from identifying and blocking the VPN traffic. This ensures a seamless and unrestricted internet experience, even in environments where VPN usage is typically monitored or restricted by government-controlled firewalls.
 
 Creating a WireGuard connection with additional asc parameters in the updated interface of Keenetic OS 4.2 routers.
 
@@ -25,7 +25,7 @@ Move to: Management → System settings
 
 Step3
 
-Check which version of KeeneticOS is installed on the router, and whether KeeneticOS is being updated to version 4.2., since WireGuard support with asc parameters in KeeneticOS has appeared since version 4.2 Alpha 2. If the KeeneticOS 4.2 release has not yet been released for your router, try switching the update channel to "Preview".
+Check which version of KeeneticOS is installed on the router, and whether KeeneticOS is being updated to version 4.2. WireGuard support with asc parameters has appeared in KeeneticOS since version 4.2 Alpha 2. If the KeeneticOS 4.2 release has not yet been released for your router, try switching the update channel to "Preview".
 
 ![Install AmneziaWG client on Keenetic router](/assets/Bd-JTcNUMlq5WlMBIMBFK_version.png)
 
@@ -43,7 +43,7 @@ On the "**System Component Options**" page that opens, in the "**Network Functio
 
 Step6
 
-If you get insufficient memory to install all select components in a new window that appears during the system update, click to View changes and disable components, and uncheck the unnecessary components to free up memory.
+If you get insufficient memory to install all select components in a new window that appears during the system update, click to View changes and disable components. Uncheck the unnecessary components to free up memory.
 *If the update is interrupted with the message "Not enough space", you need to disable unnecessary components in the list to reduce the size of the update.*
 
 ![Install AmneziaWG client on Keenetic router](/assets/Of8QWzOFOrDxe6qBYS9KJ_a310a5e0-3b13-4dbb-a658-3ecc0251ab9f.png)
