@@ -1,65 +1,94 @@
 ---
-title: "Check your Inbox ✉️"
-sidebarTitle: "Check your Inbox"
-description: "Get started with your EDIS Global VPS. Check your inbox for login details, server IP addresses, and access to the VPS Management Portal to set up your server."
+title: "Check Your Inbox"
+sidebarTitle: "Check Your Inbox"
+description: "Find your EDIS Global VPS deployment email, access credentials, server IP addresses, and the links needed to complete your initial setup."
 ---
 
-## You're almost ready to go! 🚀
+import { CtaButton } from "/snippets/cta-button.mdx";
 
-Thank you for choosing EDIS Global as your trusted provider. We're excited to have you on board, and we'll make sure your experience is smooth and personalized.
+## Your VPS deployment email
 
-### What's next?
+After payment is confirmed and deployment is complete, EDIS Global sends the VPS access details to the email address registered with your client account.
 
-Please keep an eye on your mailbox for an important email from [**support@edisglobal.com**](mailto:support@edisglobal.com). This email contains everything you need to get started with your Virtual Private Server (VPS).
+Look for a message from [**support@edisglobal.com**](mailto:support@edisglobal.com). Keep this email secure because it contains sensitive access information.
 
-### What's in the email?
+<CtaButton label="Open VPS Management Portal" link="https://manage.edisglobal.com/clientarea.php" />
 
-1. **Login Details**: Your unique username and password to access your VPS.
-2. **Server IP Addresses**: Both your IPv4 address and IPv6 address range.
-3. **VPS Management Portal**: A direct link to the <a href="https://manage.edisglobal.com/clientarea.php" target="_blank">VPS Management Portal</a> where you can manage your VPS settings and more.
-4. **Knowledge Base Access**: Get help anytime with the <a href="https://docs.edisglobal.com" target="_blank">EDIS Global Knowledgebase</a>, filled with tips and solutions to common questions.
-5. **Acceptable Use Policy (AUP)**: A link to our <a href="https://docs.edisglobal.com/acceptable-use-policy" target="_blank">AUP</a> so you're familiar with our operational guidelines.
-6. **Status Page**: Stay up-to-date with server status, maintenance schedules, and uptime via our <a href="https://status.edis.global" target="_blank">Status Page</a>.
-7. **Support Information**: Need help? You'll find details on how to contact the <a href="https://www.edisglobal.com/contact" target="_blank">EDIS Global Support Team</a> anytime.
+## What the email contains
 
-### **No email received?**
+| Information | Description |
+| --- | --- |
+| **Login credentials** | The username and initial password required to access your VPS. |
+| **Network details** | Your primary IPv4 address and assigned IPv6 range. |
+| **VPS Management Portal** | Access to power controls, reinstallation, VNC, traffic information, upgrades, and other management functions. |
+| **Important links** | Documentation, the Acceptable Use Policy, service status, and support information. |
 
-If the email hasn't arrived, please [click here](https://docs.edisglobal.com/email-with-password-not-received-solution) for help. We'll make sure everything's in order!
+<Warning>
+  EDIS Global does not store or recover VPS passwords. The initial credentials cannot be resent if the deployment email is lost.
+</Warning>
 
-## **Bookmark relevant pages**
+## Complete your initial setup
 
-We highly recommend bookmarking these key links for easy access:
+<Steps>
+  <Step title="Open the VPS Management Portal">
+    Sign in to the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), open **Services**, and confirm that your new VPS is shown as active.
+  </Step>
+  <Step title="Connect to your VPS">
+    Use [SSH for Linux](/getting-started/linux-secure-shell-ssh) or [Remote Desktop for Windows](/getting-started/windows-remote-desktop) with the credentials from the deployment email.
+  </Step>
+  <Step title="Secure your access">
+    Change the initial operating-system password after your first successful login. For Linux, we recommend configuring SSH key authentication and following the [SSH Security Hardening Guide](/getting-started/ssh-security-hardening-guide).
+  </Step>
+  <Step title="Subscribe to service updates">
+    Subscribe to updates for the locations you use so that you receive relevant maintenance and incident notifications. See [Subscribe to Status Updates](/getting-started/statuspage-subscribe).
+  </Step>
+  <Step title="Plan your backups">
+    VPS customers are responsible for protecting their own data. Review the [Backup Guide](/getting-started/backups) before placing important workloads on the server.
+  </Step>
+</Steps>
 
-[VPS Management Portal](https://manage.edisglobal.com/clientarea.php) – Quickly manage your VPS.
+## Included Traffic Pool starter credit
 
-[Knowledgebase](https://docs.edisglobal.com) – Access helpful guides and troubleshooting tips.
+Every newly purchased VPS adds **100 GB of complimentary traffic** to your shared Traffic Pool. The credit does not expire while it remains in the Pool and can be assigned manually or used with Auto-Hydration.
 
-### **Safety first**
+<Card title="Traffic Pool & Auto-Hydration" icon="tint" href="/faq/traffic-bandwidth/traffic-pool">
+  Learn how to maintain a shared traffic reserve and protect your VPS from traffic exhaustion.
+</Card>
 
-For security reasons, we advise changing your password the first time you log in. This ensures maximum protection for your server.
+## **No deployment email received?**
 
-### **Stay informed**
+First check your spam or junk folder and confirm that you are checking the email address registered with your EDIS Global account.
 
-Keep up with the latest updates and scheduled maintenance by regularly checking our <a href="https://status.edis.global" target="_blank">Status Page</a>. You can even subscribe to get notifications for your specific server location. For developers, our <a href="https://status.edis.global/api" target="_blank">Status Page API</a> gives you direct access to the latest status updates.
+If the VPS is active but the deployment email cannot be found, follow the [No email received?](/getting-started/no-email-received) guide. Because EDIS Global does not store VPS passwords, you will need to reinstall the VPS and choose a new password.
 
-You can also find real-time status information by clicking the **Megaphone Icon** at the top of our website or within the in-messenger status section.
+<Warning>
+  Reinstalling a VPS permanently deletes its current contents. Confirm that no required data exists on the server before starting a reinstallation.
+</Warning>
 
-### **Need assistance?**
+## Essential links
 
-Our dedicated Support Team is ready to help. You can:
+<Columns cols={2}>
+  <Card title="VPS Management Portal" icon="server" href="https://manage.edisglobal.com/clientarea.php">
+    Manage services, traffic, power controls, reinstallation, and upgrades.
+  </Card>
 
-• Use our **Website Messenger** for real-time support.
+  <Card title="EDIS Global Documentation" icon="book" href="https://docs.edisglobal.com">
+    Find setup instructions, operational guidance, and troubleshooting articles.
+  </Card>
 
-• Refer to our [Contact Information](https://www.edisglobal.com/contact) for more ways to reach out.
+  <Card title="Service Status" icon="signal" href="https://status.edis.global">
+    Review current incidents and scheduled maintenance by location.
+  </Card>
 
-We're here to ensure your experience remains top-notch. Don't hesitate to reach out for any help or inquiries.
+  <Card title="Acceptable Use Policy" icon="shield-alt" href="/getting-started/acceptable-use-policy">
+    Review the activities and workloads permitted on EDIS Global infrastructure.
+  </Card>
+</Columns>
 
-Thank you for choosing EDIS Global – we're thrilled to be a part of your journey and look forward to delivering world-class service!
+## Need assistance?
 
-[Install Google Chrome on Windows Server](../advanced-setup-guides/how-to-install-google-chrome-on-windows-server)
+EDIS Global support can assist with your account, billing, platform functions, and infrastructure-level technical issues. For privacy and security, our team does not log in to your VPS or configure software inside it.
 
-Warm regards,
-
-**The EDIS Global Team**
-
-![Check your Inbox](/assets/m9tdma29_95LwshskbP0D_edis-vps-world-coverage-map-2710613844.jpg)
+- Use the orange **chat icon** to contact us through the website messenger.
+- Review [How EDIS Global Support Can Help You](/getting-started/how-our-support-team-helps-you).
+- See all [contact options](https://www.edisglobal.com/contact).
