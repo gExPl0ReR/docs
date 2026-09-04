@@ -21,7 +21,7 @@ Here’s a general guide on how to resize disk space manually:
 
 After the Upgrade was confirmed ...
 
-* Login to your <a href="https://manage.edis.at/whmcs/clientarea.php" target="_blank">VPS Management Portal</a>
+* Log in to your <a href="https://manage.edis.at/whmcs/clientarea.php" target="_blank">VPS Management Portal</a>
 
 * Locate your VPS from the Services tab
 
@@ -59,7 +59,7 @@ After the Upgrade was confirmed ...
 
 * **Start the Graphical Interface**: If SystemRescueCD boots into a command line, you can start the graphical interface by typing: `startx`.
 
-* **Open GParted**: Once in the graphical interface, open GParted. GParted is a free partition editor for graphically managing your disk partitions. Press "**Fix**" button on "Libparted Warning" pop-up window.
+* **Open GParted**: Once in the graphical interface, open GParted. GParted is a free partition editor for graphically managing your disk partitions. Click the "**Fix**" button on the "Libparted Warning" pop-up window.
 
 ![Resize Linux Disk/Partition](/assets/-gvJtyF7VHSRiIGAeVws-_sysrescuecd3.png)
 
@@ -81,7 +81,7 @@ In the GParted window that opens, you will see several partitions. There will be
 
 ## Identify the new swap partition
 
-1. **Log into Your VPS:** Login to with root of the system.
+1. **Log into Your VPS:** Log in as the root user of the system.
 
 2. **List Current Partitions**: Use the command blkid to list all partitions and identify the swap partition and its UUID. Copy the UUID of a swap partition.
    `blkid`

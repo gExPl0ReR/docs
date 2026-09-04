@@ -8,11 +8,11 @@ sidebarTitle: Check CPU Cores on Linux
 
 When managing a Linux system, understanding your CPU cores is essential for optimizing performance. CPU cores are the fundamental processing units within your VPS, each capable of executing instructions and handling tasks independently. The number of cores in your system directly impacts its ability to multitask and manage workloads efficiently.
 
-## Verifying the Number of Cores Available to Linux
+## Verifying the number of cores available to Linux
 
 When managing a Virtual Private Server (VPS) running Linux, it's crucial to understand its resources to optimize performance. One such resource is the number of CPU cores. The more cores you have, the more tasks your VPS can handle simultaneously. Here's a guide on how to check the number of CPU cores on a Linux VPS.
 
-### The `/proc/cpuinfo` File
+### The `/proc/cpuinfo` file
 
 One of the simplest methods to determine the number of CPU cores is by reading the `/proc/cpuinfo` file.
 
@@ -24,7 +24,7 @@ cat /proc/cpuinfo | grep "processor"
 
 The output of this command includes a line for each core, and also provides details such as the processor model. Each "processor" line represents a CPU core. Count the number of such lines to determine the total cores.
 
-### The `lscpu` Command
+### The `lscpu` command
 
 The `lscpu` command provides detailed information about the CPU architecture.
 
@@ -36,7 +36,7 @@ lscpu
 
 Look for the "CPU(s)" line. This will display the total number of cores. If you want to differentiate between physical cores and threads (in case of hyper-threading), look for "Core(s) per socket" and "Thread(s) per core".
 
-### The `nproc` Command
+### The `nproc` command
 
 For a straightforward count of available processing units, use **nproc** command\*\*:\*\*
 
@@ -48,7 +48,7 @@ nproc
 
 This will return a single number representing the number of CPU cores.
 
-### The `top` and `htop` Commands
+### The `top` and `htop` commands
 
 Both `top` and `htop` are interactive process viewers that display the system's current state.
 
@@ -72,7 +72,7 @@ htop
 
 In `htop`, you will directly see a visual representation of the usage of each core at the top of the interface.
 
-### The `hwinfo` Command
+### The `hwinfo` command
 
 `hwinfo` provides detailed hardware information, including your CPUs.
 

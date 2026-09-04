@@ -22,7 +22,7 @@ Use it to:
 
 <Tabs>
   <Tab title="Simple Guide">
-    ## Let’s Keep This Simple
+    ## Let’s keep this simple
 
     Think of the Management API like a secure remote control for a VPS you already own.
 
@@ -33,7 +33,7 @@ Use it to:
 
     ---
 
-    ## The Basic Idea
+    ## The basic idea
 
     The workflow is always the same:
 
@@ -54,7 +54,7 @@ Use it to:
 
     ---
 
-    ## Step-by-Step Overview
+    ## Step-by-step overview
 
     <Steps>
       <Step title="Enable API Access">
@@ -78,7 +78,7 @@ Use it to:
 
     ---
 
-    ## Create an Auth Session
+    ## Create an auth session
 
     ```bash
     curl --request POST \
@@ -93,7 +93,7 @@ Use it to:
 
     ---
 
-    ## Example Auth Response
+    ## Example auth response
 
     ```json
     {
@@ -112,7 +112,7 @@ Use it to:
 
     ---
 
-    ## What Do These Values Mean?
+    ## What do these values mean?
 
     - **`api_host`** → the VPS-specific API host you will call next
     - **`kvm_id`** → the VPS you want to manage
@@ -123,7 +123,7 @@ Use it to:
 
     ---
 
-    ## Example: Check Power State
+    ## Example: Check power state
 
     ```bash
     curl --request POST \
@@ -174,11 +174,11 @@ Use it to:
 
     ---
 
-    ## Pro Tip
+    ## Pro tip
 
     Avoid hardcoding values. Always create a fresh auth session and fetch current parameters before performing actions.
 
-    ## Key Takeaway
+    ## Key takeaway
 
     The Management API is simple once you understand this pattern:
 
@@ -190,7 +190,7 @@ Use it to:
     That’s the core principle.
   </Tab>
   <Tab title="Developer Version">
-    ## Management API Workflow
+    ## Management API workflow
 
     Use this order when working with the API:
 
@@ -215,7 +215,7 @@ Use it to:
 
     ---
 
-    ## Common Parameters Used Across the Management API
+    ## Common parameters used across the Management API
 
     Most management endpoints use the same core parameters:
 
@@ -242,7 +242,7 @@ Use it to:
 
     ## Authentication
 
-    ### Create Auth Session
+    ### Create auth session
 
     Creates a temporary authentication session for one VPS or for all VPS services on the account.
 
@@ -286,7 +286,7 @@ Use it to:
 
     ---
 
-    ## Pro Tip
+    ## Pro tip
 
     Avoid hardcoding API values.
 
@@ -296,16 +296,16 @@ Use it to:
 
     ---
 
-    ## Full Endpoint List
+    ## Full endpoint list
 
-    ### Session & Authentication
+    ### Session & authentication
 
     - [Create AUTH Session](https://docs.edisglobal.com/management-api-reference/authentication/create-auth-session)\
       Creates a temporary authenticated management session and returns the required parameters (`api_host`, `signature`, `kvm_id`, `valid_until`) for all subsequent Management API requests.
 
     ---
 
-    ### Power Management
+    ### Power management
 
     - [HARD RESET](https://docs.edisglobal.com/management-api-reference/power-management/hard-reset)\
       Performs an immediate hard reboot of the VPS (restarts hypervisor process)
@@ -318,7 +318,7 @@ Use it to:
 
     ---
 
-    ### Installation & Recovery
+    ### Installation & recovery
 
     - [List Available ISO images for installation](https://docs.edisglobal.com/management-api-reference/installation/iso-installation)\
       Returns a list of ISO images available for manual installation, recovery, or rescue environments.
@@ -363,7 +363,7 @@ Use it to:
 
     ---
 
-    ### Monitoring & Information
+    ### Monitoring & information
 
     - [Pull a VNC screenshot](https://docs.edisglobal.com/management-api-reference/collect-information/get-vps-screenshot)\
       Captures and returns a screenshot of the VPS console via VNC.
@@ -380,7 +380,7 @@ Use it to:
 
     ---
 
-    ### VNC Management
+    ### VNC management
 
     - [VNC Keymap](https://docs.edisglobal.com/management-api-reference/vnc-management/set-vnc-keyboard-language)\
       Sets the keyboard layout for the VNC console.
@@ -416,7 +416,7 @@ Use it to:
       Shows an example payload of a webhook callback.
   </Tab>
   <Tab title="Full End-2-End Example">
-    ## Full Example: Authenticate, Check Status, Reinstall, and Verify Mount
+    ## Full example: Authenticate, check status, reinstall, and verify mount
 
     This example shows a realistic workflow for managing one existing VPS.
 
@@ -433,7 +433,7 @@ Use it to:
 
     ---
 
-    ## Step 1: Create the Auth Session
+    ## Step 1: Create the auth session
 
     ```bash
     curl --request POST \
@@ -475,7 +475,7 @@ Use it to:
 
     ---
 
-    ## Step 2: Check Power State
+    ## Step 2: Check power state
 
     ```bash
     curl --request POST \
@@ -498,7 +498,7 @@ Use it to:
 
     ---
 
-    ## Step 3: Get Available Autoinstall Images
+    ## Step 3: Get available autoinstall images
 
     ```bash
     curl --request POST \
@@ -560,7 +560,7 @@ Use it to:
 
     ---
 
-    ## Step 5: Get Available ISO Images
+    ## Step 5: Get available ISO images
 
     ```bash
     curl --request POST \
@@ -617,7 +617,7 @@ Use it to:
 
     ---
 
-    ## Step 7: Verify the Current Mount
+    ## Step 7: Verify the current mount
 
     ```bash
     curl --request POST \
@@ -639,7 +639,7 @@ Use it to:
 
     ---
 
-    ## What This Example Shows
+    ## What this example shows
 
     This end-to-end example used the Management API to:
 
@@ -662,7 +662,7 @@ Use it to:
 
     ---
 
-    ## Final Takeaway
+    ## Final takeaway
 
     The Management API always starts with **auth session first**.
 
