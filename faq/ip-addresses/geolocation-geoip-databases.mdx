@@ -3,7 +3,7 @@ title: Geolocation & GEO IP databases
 description: "How EDIS Global ensures precise GEO localization of VPS services through local hosting, regional upstream providers, and GeoIP database registrations."
 ---
 
-## **EDIS prioritizes precise GEO localization of its services.**
+## EDIS prioritizes precise GEO localization of its services.
 
 We prioritize precise GEO localization of our services. Our <a href="https://www.edisglobal.com/" target="_blank">VPS hosting</a> services are hosted exactly at the indicated server location. They connect to the Internet through several international upstream providers and local Internet Exchanges.
 
@@ -13,7 +13,7 @@ The information about the geographic location where an IP address is hosted come
 
 In addition, there are the following bodies with responsibility for the regions given in brackets: AFRINIC (Africa), ARIN (North America/USA), APNIC (Asia Pacific) and LACNIC (Latin America and Caribbean).
 
-## **WHOIS databases**
+## WHOIS databases
 
 The above network coordination centers operate so-called WHOIS databases. These databases store the owners of an IP address range (service operators) and contacts in the event of misuse. They also store the corresponding GEO information: where an IP address range is announced, at which address, longitude and latitude.
 
@@ -31,20 +31,20 @@ language: EN
 language: ZH
 ```
 
-## **What is geolocation?**
+## What is geolocation?
 
 Geolocation refers to **any kind of data that allows for determining, with reasonable precision, the location of a person or a device on planet Earth**.
 For a quick Geo-IP overview, we like to use meta-lookup services like [https://www.iplocation.net](https://www.iplocation.net/ip-lookup/158.255.208.0). This site allows you to enter any IP address to discover where it is located geographically. It queries several databases like MaxMind, DB-IP, and IP2Location to give you a decent overview if all databases are in sync.
 
-## **Ever more, ever faster - ever more accurate?**
+## Ever more, ever faster - ever more accurate?
 
 The demand for ever more accurate data and even faster API query options for a subscriber's GEO data keeps growing. This has led to a proliferation of Geolocation lookup providers. Some of them obtain their data (at least the basic material) from the reference databases of the network coordination centers RIPE, ARIN, APNIC, LACNIC and AFRINIC. Some of them let end users make changes to GeoIP address assignments. The latter leads to chaotic quality of the material in their databases.
 
-## **Commercial lookup providers**
+## Commercial lookup providers
 
 Most query/lookup providers do have commercial interest. They use request-limits to persuade users to buy enterprise subscriptions. Some providers allow **free access to (older) databases**. This is meant to persuade potential leads to purchase enterprise material with recent, but more importantly accurate, data. **Some website-operators are not aware** that they are **checking their subscribers against old GEOIP database material**. Some service providers **find old GEO databases somewhere on the web** and use this data for production environments, with the same effect.
 
-## **The whois command in Linux**
+## The whois command in Linux
 
 The whois tool lets you query registration details for domains and IP addresses directly from your terminal. **It pulls data from official internet registries like RIPE, ARIN, APNIC, etc**., showing the organization, contact info, and sometimes location metadata tied to an IP block.
 
@@ -57,7 +57,7 @@ Some results may include a country field, but **whois is not a GeoIP lookup tool
 
 
 
-## **EDIS GEOIP data feeds**
+## EDIS GEOIP data feeds
 
 As mentioned at the beginning of this document, **EDIS places a high value on correctly GEO located IPv4 and IPv6 addresses and, in turn, correctly geolocated services.** For that reason, EDIS has made its IPv4 and IPv6 GEOIP data-feeds available to numerous lookup providers. This lets them obtain first-hand information regarding potential amendments.
 
