@@ -1,47 +1,73 @@
 ---
 title: "Getting Started with Your VPS (Setup, Management & Access)"
 sidebarTitle: "Getting Started"
-description: "Step-by-step VPS setup and management guides from EDIS Global. Learn how to configure, manage, and troubleshoot your VPS quickly and securely."
+description: "Set up, secure, manage, monitor, and scale your EDIS Global VPS with practical guides for access, traffic, upgrades, billing, and recovery."
 ---
 
 ## Welcome to EDIS Global help and docs 🚀
 
-We're here to help you get the most out of your Virtual Private Server (VPS). Whether you're just getting started or managing production workloads, you'll find clear, practical guides to set up, operate, and troubleshoot your services.
+Use these guides to set up, secure, manage, and scale your Virtual Private Server (VPS).
 
-Our support team is available if you need assistance with upgrades, configuration, or troubleshooting at any stage.
+EDIS Global support can assist with infrastructure, account, billing, and upgrade questions. For configuration inside your VPS, we provide practical documentation and troubleshooting guidance while your server remains fully under your control.
 
-Need help right now? Click the orange **chat icon** below to connect with us instantly.
+Need help right now? Click the orange **chat icon** below to connect with us.
+
+## Start with the essentials
 
 <Columns cols={4}>
-  <Card title="Get Started" icon="rocket" href="/getting-started/check-your-inbox">
-    Start here: initial setup, login details, and first steps.
+  <Card title="Check Your Inbox" icon="envelope" href="/getting-started/check-your-inbox">
+    Find your server credentials, IP addresses, and VPS Management Portal link.
   </Card>
 
+  <Card title="Connect with SSH" icon="terminal" href="/getting-started/linux-secure-shell-ssh">
+    Connect securely to a Linux VPS and configure SSH access.
+  </Card>
+
+  <Card title="Connect with RDP" icon="desktop" href="/getting-started/windows-remote-desktop">
+    Connect to a Windows VPS using Remote Desktop.
+  </Card>
+
+  <Card title="Secure Your VPS" icon="shield-alt" href="/getting-started/ssh-security-hardening-guide">
+    Improve SSH security, authentication, and access controls.
+  </Card>
+</Columns>
+
+## Manage and scale your VPS
+
+<Columns cols={4}>
   <Card title="VPS Management" icon="server" href="/vps-management/vps-management-portal">
-    Manage, monitor, and control your VPS environment.
+    Power-cycle, reinstall, monitor, and configure your VPS from one portal.
   </Card>
 
-  <Card title="VPS FAQs" icon="question" href="/faq/what-is-a-virtual-private-server">
-    Quick answers to common VPS questions and issues.
+  <Card title="Traffic & Monthly Refills" icon="chart-line" href="/faq/traffic-bandwidth/traffic-stats-refill-explained">
+    Understand traffic usage, monthly allowances, warnings, and refill dates.
   </Card>
 
-  <Card title="IP Change" icon="exchange-alt" href="/faq/ip-addresses/change-ip-address">
-    Safely change your VPS IP address when required.
+  <Card title="Traffic Pool & Auto-Hydration" icon="tint" href="/faq/traffic-bandwidth/traffic-pool">
+    Keep a shared traffic reserve and protect VPS services from traffic exhaustion.
   </Card>
 
-  <Card title="Private VLAN" icon="project-diagram" href="/faq/upgrades-downgrades/private-vlan-option">
-    Connect VPS instances privately within the same location.
+  <Card title="Upgrades & Scaling" icon="arrow-up" href="/faq/upgrades-downgrades/upgrades">
+    Add resources or move to a higher VPS plan as your requirements grow.
   </Card>
+</Columns>
 
-  <Card title="Reinstall" icon="redo" href="/vps-management/autoinstall-reinstall-install-vps-linux-windows">
+## Common tasks
+
+<Columns cols={4}>
+  <Card title="Reinstall Your VPS" icon="redo" href="/vps-management/autoinstall-reinstall-install-vps-linux-windows">
     Reinstall Linux or Windows operating systems at any time.
   </Card>
 
-  <Card title="MikroTik Guide" icon="wifi" href="/advanced-setup-guides/install-mikrotik-routeros-on-edis-vps">
-    Install and configure MikroTik RouterOS CHR.
+  <Card title="Change IP Address" icon="exchange-alt" href="/faq/ip-addresses/change-ip-address">
+    Free primary IPv4 change within 24 hours, or choose a paid Standard or Bespoke IP change later.
   </Card>
 
-  <Card title="Billing Workflow" icon="file-invoice" href="/faq/billing-lifecycle/automated-vps-billing-workflow">
-    Understand invoices, payments, and billing lifecycle.
+  <Card title="Billing & Renewals" icon="file-invoice" href="/faq/billing-lifecycle/automated-vps-billing-workflow">
+    Understand invoices, payments, renewals, suspension, and service recovery.
+  </Card>
+
+  <Card title="Backups" icon="save" href="/getting-started/backups">
+    Protect important data and understand the available backup options.
   </Card>
 </Columns>

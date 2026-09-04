@@ -1,122 +1,168 @@
 ---
 title: "Global Traffic Pool: One Pool. One Global Price."
-sidebarTitle: "Traffic Pool"
-description: "Buy traffic once and assign it to any EDIS Global VPS. Unused GB never expire, and every new VPS gets a free 100 GB starter credit."
+sidebarTitle: "Traffic Pool & Auto-Hydration"
+description: "Buy traffic once, keep it in a non-expiring shared pool, and assign it manually or automatically to any EDIS Global VPS."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
 ## One traffic pool. One global price.
 
-Running out of traffic doesn’t have to interrupt your services. The EDIS Global Traffic Pool lets you purchase traffic once and assign it to any VPS whenever needed. Unused traffic stays in your pool forever.
+The EDIS Global Traffic Pool gives every VPS in your account access to one shared traffic reserve. Purchase traffic once and assign it to any VPS whenever additional traffic is needed.
 
-Prefer a hands-off approach? Enable **Auto-Hydration** and your VPS will automatically receive additional traffic from your Traffic Pool when it reaches **99%** consumption. Choose the refill size—from **100 GB** to **1 TB**—and we’ll take care of the rest.
+Traffic that remains in your Pool **does not expire**. You can assign it manually or enable **Auto-Hydration** to assign a configured amount automatically when a VPS reaches **99%** of its current traffic allowance.
 
-🌍 **No traffic zones. Just one global price for all 50 EDIS locations.**
+🌍 **No traffic zones. One global price across all 50 EDIS locations.**
 
 <CtaButton label="Buy Traffic" link="https://www.edisglobal.com/buy-traffic" />
 
----
-
-### Why you'll love your traffic pool
-
-- ✅ You are in complete control of the process of allocating and managing traffic.
-- ✅ Maintain optimal functioning for your services.
-- ✅ Take advantage of lowest price traffic rates (starting from EUR 6 /TB)
-- ✅ Traffic in the pool never expires.
-- ✅ Manually assign traffic to any KVM in your account which is running low on traffic.
-- ✅ Automatic refill option individually configurable for every VPS ("Auto Hydration")
-- ✅ One global price
+<Warning>
+  Traffic never expires while it remains in your Traffic Pool. Once Pool Traffic is assigned to a VPS, it becomes part of that VPS's current allowance. Any assigned traffic left unused at the next monthly refill expires together with the VPS's monthly Plan Traffic.
+</Warning>
 
 ---
 
-## Traffic pool starter credit
+## Plan Traffic and Pool Traffic explained
 
-Starting **November 19, 2025**, every newly purchased VPS includes **100 GB of complimentary traffic**. EDIS Global automatically adds **\+100 GB** to your Traffic Pool account for each new VPS you order. This starter credit lets you explore how the Traffic Pool works — and gives you a safety buffer if you ever run low on traffic.
+| Traffic type | Where it is available | What happens at the VPS monthly refill? |
+| --- | --- | --- |
+| **Plan Traffic** | Included with one VPS for its current monthly cycle | Usage resets and the plan allowance is refilled. Unused Plan Traffic does not carry forward. |
+| **Unassigned Pool Traffic** | Shared across all VPS services in your account | It remains in your Pool and never expires. |
+| **Assigned Pool Traffic** | Added to the current allowance of one VPS | Any unused assigned amount expires when that VPS reaches its next monthly refill. |
+| **100 GB starter credit** | Added to your shared Pool when a new VPS is purchased | It never expires while it remains unassigned in your Pool. |
 
-**Your 100 GB starter credit:**
-
-- ✅ **Never expires** while stored in your Traffic Pool.
-- ✅ Can be assigned to **any VPS** in your account.
-- ✅ Works with both **manual** and **Auto-Hydration**.
-- ✅ Can be combined with additional Traffic Pool purchases at any time.
-
----
-
-## How to get started with the EDIS Traffic Pool
-
-### [🛒 Purchase traffic](https://edisglobal.com/buy-traffic)
-
-Choose the amount of traffic you need, from **1 TB** to **10 PB**. Larger bundles offer a lower price per TB.
-
-### [📌 Assign traffic](#traffic-pool-in-the-traffic-information-window)
-
-Once your purchase is complete, open the **Traffic Information** window of your VPS and assign traffic from your pool in **100 GB**, **500 GB**, **1 TB**, or **10 TB** increments.
-
-### [⚙️ Enable Auto-Hydration](#traffic-pool-in-the-traffic-information-window)
-
-**Enable Auto-Hydration** to automatically assign additional traffic from your Traffic Pool when your VPS reaches **99%** of its currently assigned traffic allowance (monthly plan traffic plus any assigned Traffic Pool traffic).
+<Note>
+  Only assign the amount a VPS is likely to use before its next monthly refill. Keeping the remainder in your Pool preserves it for future use.
+</Note>
 
 ---
 
-## Traffic pool in the traffic information window
+## Why use the Traffic Pool?
 
-In the Traffic Information window, you can monitor and manage your traffic pool allocation. This section provides a snapshot of your current traffic usage and remaining balance, with options for manual or automatic top-ups to ensure uninterrupted service.
+- ✅ Keep unused traffic in a shared, non-expiring reserve.
+- ✅ Assign traffic to any KVM VPS in your account.
+- ✅ Use one global price across all EDIS locations.
+- ✅ Enable Auto-Hydration individually for each VPS.
+- ✅ Cover temporary traffic peaks without changing your VPS plan permanently.
+- ✅ Purchase **1 TB for EUR 6**, with volume pricing available down to **EUR 4.49 per TB**.
+
+---
+
+## Traffic Pool starter credit
+
+Starting **November 19, 2025**, every newly purchased VPS adds **100 GB of complimentary traffic** to your Traffic Pool account. The starter credit provides a safety reserve and lets you try manual assignment or Auto-Hydration before purchasing additional Pool Traffic.
+
+Your 100 GB starter credit:
+
+- ✅ Never expires while stored in your Traffic Pool.
+- ✅ Can be assigned to any VPS in your account.
+- ✅ Works with manual assignment and Auto-Hydration.
+- ✅ Can be combined with purchased Pool Traffic.
+
+---
+
+## How to use the EDIS Traffic Pool
+
+### 1. [Purchase traffic](https://edisglobal.com/buy-traffic)
+
+Choose the amount you need, from **1 TB** to **10 PB**. Larger bundles provide a lower price per TB. Purchased traffic is added to your shared Pool and does not expire while it remains there.
+
+### 2. [Assign traffic manually](#traffic-pool-in-the-traffic-information-window)
+
+Open the **Traffic Information** window for the VPS and select one of the available assignment amounts. The assigned amount is deducted immediately from your Pool balance and added to that VPS's current traffic allowance.
+
+<Warning>
+  Assigned Pool Traffic does not carry over beyond that VPS's next monthly refill. Check the refill date before assigning a large amount.
+</Warning>
+
+### 3. [Enable Auto-Hydration](#traffic-pool-in-the-traffic-information-window)
+
+Enable **Auto-Hydration** for an individual VPS to automatically assign your configured amount from the Traffic Pool when the VPS reaches **99%** of its current allowance. The current allowance includes monthly Plan Traffic plus any Pool Traffic already assigned during the cycle.
+
+<Note>
+  Auto-Hydration uses your existing Traffic Pool balance. It does not automatically purchase additional traffic. If the Pool balance is insufficient, no further traffic can be assigned until the Pool is topped up.
+</Note>
+
+---
+
+## Traffic Pool in the Traffic Information window
+
+The **Traffic Information** window shows current VPS usage, the next monthly refill, the shared Pool balance, and the available manual and automatic assignment controls.
 
 ![Learn about Traffic Pool](/assets/_incGduwnwlN1t_FCJzrC_traffic-pool-edis-global-manual-auto-hydration.png)
 
 ### Infographic key
 
-**A. Traffic Pool Size & Top-Up Link:** Shows your current pool balance, with a “top up” option to add traffic when needed.
+**A. Traffic Pool balance and Top Up:** Shows the traffic currently available in your shared Pool. Use **Top Up** to purchase additional non-expiring Pool Traffic.
 
-**B. Manual Hydration:** Manually allocate \+100GB, \+500GB, or \+1TB to your VPS as required.
+**B. Manual assignment:** Moves the selected amount from your Pool to this VPS immediately. The amount is deducted from the Pool balance and becomes part of the VPS's current-cycle allowance.
 
-**C. Auto Hydration:**
+**C. Auto-Hydration:** Automatically assigns the configured amount from your existing Pool balance when this VPS reaches 99% of its current traffic allowance. You can configure or disable Auto-Hydration individually for every VPS through the VPS Management Portal or API.
 
-**Automatically top up your traffic pool with 100GB, 200GB, 300GB, or 500GB** when usage reaches 99%, ensuring uninterrupted service. You can enable or disable auto top-up at any time. You can configure the top-up size individually for each VPS through the VPS Management Portal or API.
+For custom monitoring, use the Management REST API callback feature to trigger notifications at a defined threshold.
 
-**For custom monitoring,** use our **\_callback feature\_** via the Management REST API
-
-<CtaButton label="Callback via API" link="https://docs.edisglobal.com/management-api-reference/hooks/example-callback-triggered" />
-
-to trigger notifications when traffic reaches a defined threshold.
+<CtaButton label="Configure Callback via API" link="https://docs.edisglobal.com/management-api-reference/hooks/example-callback-triggered" />
 
 ---
 
-## Traffic pool accounting balance sheet
+## Traffic Pool accounting balance sheet
 
-The table below (demo data) works like a bank account statement. Every traffic transaction is recorded chronologically, including traffic purchases, complimentary starter credits, traffic assigned to VPS instances, and the resulting traffic pool balance after each transaction.
+The balance sheet records every Traffic Pool transaction chronologically, including purchases, complimentary starter credits, manual or automatic assignments to VPS services, and the resulting Pool balance.
 
 ### How to read the balance sheet
 
-• **Date/Time** – When the transaction occurred.<br />• **Source:** Indicates what caused the transaction, such as a VPS consuming traffic, a traffic pool top-up, or received complimentary starter credit.<br />• **Change:** The amount of traffic added to (\+) or deducted from (−) your traffic pool.<br />• **New Balance:** The updated traffic balance after the transaction.
+- **Date/Time:** When the transaction occurred.
+- **Source:** What caused the transaction, such as a purchase, starter credit, or assignment to a VPS.
+- **Change:** The amount added to (`+`) or deducted from (`-`) the Pool.
+- **New Balance:** The Pool balance after the transaction.
 
-The newest transactions appear at the top. The traffic pool is shared across all VPS instances in your account, providing a complete history of all traffic purchases, credits, and allocations.
+The newest transactions appear first. A deduction records traffic being **assigned to a VPS**; it does not mean the VPS has already consumed that traffic.
 
 | Date/Time | Source | Change | New Balance |
 | --- | --- | --- | --- |
-| 2025-03-17 16:52:12 | kvm\_demo\_id002 | -100 GB | 6000 GB |
+| 2025-03-17 16:52:12 | kvm_demo_id002 | -100 GB | 6600 GB |
 | 2025-03-17 14:12:12 | kvm\_demo\_id002 | -100 GB | 6700 GB |
-| 2025-03-17 12:22:32 | **Starter Credit (100GB) kvm\_demo\_id003** | **\+100 GB** | 6800 GB |
+| 2025-03-17 12:22:32 | **Starter Credit (100 GB) kvm_demo_id003** | **+100 GB** | **6800 GB** |
 | 2025-03-17 12:22:32 | kvm\_demo\_id002 | -1000 GB | 6700 GB |
 | 2025-03-16 10:02:30 | kvm\_demo\_id002 | -500 GB | 7700 GB |
 | 2025-03-16 10:01:45 | kvm\_demo\_id004 | -300 GB | 8200 GB |
 | 2025-03-16 09:59:10 | **Traffic Pool Top-Up** | **\+1000 GB** | **8500 GB** |
-| 2025-03-16 08:45:15 | kvm\_demo\_id001 | -1000 GB | 7500 GB |
-| 2025-03-15 23:15:35 | kvm\_demo\_id001 | -1000 GB | 8500 GB |
+| 2025-03-15 23:15:35 | kvm_demo_id001 | -1000 GB | 7500 GB |
 | 2025-03-15 22:12:20 | kvm\_demo\_id003 | -500 GB | 9500 GB |
-| 2025-03-10 09:59:10 | **Traffic Pool Top-Up** | **\+10000 GB** | 10000 GB |
-
-### Email notification at 20% pool traffic remaining
-
-We’ve implemented an automatic email notification to help you stay ahead of traffic exhaustion. After each top-up, your traffic pool is considered 100% full.
-
-Once **80% of that traffic has been assigned**, you will receive an email letting you know that **only 20% remains**. This early alert gives you time to top up your pool and avoid service interruptions.
+| 2025-03-10 09:59:10 | **Traffic Pool Top-Up** | **+10000 GB** | **10000 GB** |
 
 ---
 
-## All options to add more traffic to your VPS 🚀
+## Email notification when 20% or less remains
 
-Click below to explore all options to keep your VPS running smoothly:
+After each Traffic Pool top-up, the resulting Pool balance becomes the reference balance for the low-balance notification. When **80% or more of that reference balance has been assigned**, EDIS Global sends an email indicating that **20% or less remains**.
 
-<CtaButton label="Exceeding Monthly Traffic Limit" link="./exceeding-monthly-traffic-limit-edis-global" />
+Because traffic is assigned in fixed increments, the balance may already be below exactly 20%—or even at **0 GB**—when the notification is generated. The email indicates that the low-balance threshold has been crossed.
+
+<Note>
+  A low or empty Pool balance does not affect a VPS that still has available assigned traffic. It means that manual assignment and Auto-Hydration cannot provide further traffic until the Pool is topped up.
+</Note>
+
+<CtaButton label="Top Up Traffic Pool" link="https://www.edisglobal.com/buy-traffic" />
+
+---
+
+## Which option should you choose?
+
+| Situation | Recommended option |
+| --- | --- |
+| Temporary or unpredictable traffic increase | Assign or purchase Pool Traffic. |
+| Existing Pool balance is sufficient | Assign traffic manually or enable Auto-Hydration. |
+| Traffic regularly runs out before the monthly refill | Compare and upgrade to a higher VPS plan. |
+| The next monthly refill is very close | Assign only what you expect to use before the refill, or wait for the Plan Traffic reset. |
+| You already use the largest available VPS plan | Use the Traffic Pool for additional traffic. |
+
+<Columns cols={2}>
+  <Card title="Traffic Limit & Restoration" icon="gauge-high" href="./exceeding-monthly-traffic-limit-edis-global">
+    Learn what happens when a VPS reaches its traffic limit and how to restore full speed.
+  </Card>
+
+  <Card title="Upgrade Your VPS Plan" icon="arrow-up" href="/faq/upgrades-downgrades/upgrade-plan">
+    Compare a higher plan when increased traffic usage is recurring.
+  </Card>
+</Columns>
