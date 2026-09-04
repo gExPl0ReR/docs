@@ -31,7 +31,7 @@ Think of traceroute and MTR as asking every router along the path:
 
 > "Can you reply to me right now?"
 
-Some routers choose not to answer — **but they still forward real application traffic perfectly.**
+Some routers choose not to answer, **but they still forward real application traffic perfectly.**
 
 Important: routers are optimized to **forward traffic**, not to respond to diagnostic probes. When under load, they may:
 
@@ -168,4 +168,4 @@ MTR is a powerful tool, but it is often misunderstood.
 👉 **Packet loss on intermediate hops alone is not a reliable indicator of network problems.**\
 👉 The final destination’s statistics are what truly matter.
 
-If the destination sho
+If the destination shows stable latency and no loss, your connection is healthy, **even if earlier hops look alarming.**

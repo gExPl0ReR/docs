@@ -5,7 +5,7 @@ description: "Install the WireGuard client on Ubuntu 22.04 and connect to an Amn
 
 To connect to a WireGuard VPN from your local machine to a remote server using the AmneziaWG configuration file you previously received from the configured server, follow these steps. This guide assumes you are using Ubuntu 22.04. You’ll need to install the WireGuard software, configure it, and initiate the VPN connection. Here's how to do it:
 
-### 1. Change sources.list on the client's operation system:
+### 1. Change sources.list on the client's operating system
 
 Open a terminal and back up your sources.list:
 
@@ -13,7 +13,7 @@ Open a terminal and back up your sources.list:
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
 ```
 
-Edit the File:
+Edit the file:
 
 ```shell
 nano /etc/apt/sources.list
@@ -91,7 +91,7 @@ Check the availability of all necessary drivers in the system:
 lsmod | grep amnezia
 ```
 
-If the command doesn't show any outputs execute this command:
+If the command doesn't show any output, execute this command:
 
 ```bash
 modprobe amneziawg && lsmod | grep amnezia
@@ -111,7 +111,7 @@ Where:
 
 * server-ip-address - the IP address of the server
 
-* /root/awg/ - directory where located an amneziawg client config files
+* /root/awg/ - directory where the AmneziaWG client config files are located
 
 * wg-client1.conf - amneziawg config file
 
@@ -119,7 +119,7 @@ Where:
 
 ### 5. Get your Amnezia WireGuard configuration
 
-Download the Amnezia WireGuard configuration file from the VPS. The `.conf` file, is usually in the following format:
+Download the Amnezia WireGuard configuration file from the VPS. The `.conf` file is usually in the following format:
 
 ```shell
 [Interface]
@@ -148,7 +148,7 @@ Save this file with a `.conf` extension, e.g., `wg0.conf`.
 
 ### 6. Move configuration to AmneziaWG directory
 
-Move your configuration file to AmneziaWG’s directory, where wg-client1.conf this is a client config that was previously downloaded from the server:
+Move your configuration file to AmneziaWG’s directory. Here, wg-client1.conf is the client config you previously downloaded from the server:
 
 ```shell
 sudo mv /etc/amnezia/amneziawg/wg-client1.conf /etc/amnezia/amneziawg/wg0.conf
@@ -203,7 +203,7 @@ To disable it from starting on boot, use:
 sudo systemctl disable awg-quick@wg0
 ```
 
-### Troubleshooting tips:
+### Troubleshooting tips
 
 * Ensure that your private key, public key, and endpoint details in the configuration are correct.
 

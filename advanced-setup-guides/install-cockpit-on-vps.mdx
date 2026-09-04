@@ -37,7 +37,9 @@ sudo useradd -m -s /bin/bash newusername
 sudo passwd newusername
 ```
 
-Replace `newusername` with the desired username. After creating the user, you can log in to Cockpit using this new account. 3. Add the new user to the `sudo` group (optional): If you want the new user to have administrative privileges, you can add them to the `sudo` group:
+Replace `newusername` with the desired username. After creating the user, you can log in to Cockpit using this new account.
+
+3. Add the new user to the `sudo` group (optional): If you want the new user to have administrative privileges, you can add them to the `sudo` group:
 
 ```bash
 sudo usermod -aG sudo newusername
@@ -71,7 +73,7 @@ sudo ufw allow 9090/tcp
 sudo systemctl restart cockpit
 ```
 
-## Access Cockpit web terminal:
+## Access Cockpit web terminal
 
 Open your web browser and navigate to `https://your-server-ip:9090`. You will be prompted to log in with your server's username and password. Once logged in, you can access the web terminal from the Cockpit dashboard.
 
@@ -93,7 +95,7 @@ To switch to administrative access, you will be prompted to enter your password 
 
 ![Cockpit Password](/assets/Cockpit-Enter-Password.png)
 
-Finally, open the terminal from the left sidebar by clicking on "Terminal". This will open the web terminal interface where you can execute commands directly on your server. Now that's easy to copy paste any command from the web and execute it on your server without needing to use SSH or other remote terminal tools. 
+Finally, open the terminal from the left sidebar by clicking on "Terminal". This will open the web terminal interface where you can execute commands directly on your server. Now it's easy to copy and paste any command from the web and execute it on your server without needing to use SSH or other remote terminal tools. 
 
 ![Cockpit Terminal](/assets/Cockpit-Terminal.png)
 

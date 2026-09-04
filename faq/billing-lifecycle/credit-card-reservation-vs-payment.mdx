@@ -6,7 +6,7 @@ description: "Understand the difference between a credit card reservation (uncap
 
 ## Understanding payment reservations vs. captured payments
 
-During payment, a timeout can occur - often related to a poor internet or VPN connection. When this happens during the credit card checkout process, only the **initial phase** of the payment is completed. This initial phase is known as a **reservation** - the amount is temporarily blocked on the credit card, but not actually charged. 
+During payment, a timeout can occur. This is often related to a poor internet or VPN connection. When this happens during the credit card checkout process, only the **initial phase** of the payment is completed. This initial phase is known as a **reservation**. The amount is temporarily blocked on the credit card, but not actually charged. 
 
 The **second phase**, called **capturing**, would finalize the payment. But in this case, the connection or session was no longer valid, or you reloaded the page and restarted the checkout. As a result, only the reservation remained without being completed.
 

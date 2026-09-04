@@ -58,7 +58,7 @@ IP=`hostname -I | awk '{print $1}'`
 curl -s --form-string $token --form-string $user --form-string 'message=Post installation script finished on server with IP: $IP. Have fun' https://api.pushover.net/1/messages.json
 ```
 
-This below example post install script performs the installation of a simple firewall.
+The example post-install script below installs a simple firewall.
 This script does three main things:
 
 1. It installs a firewall tool called UFW (uncomplicated firewall)
@@ -88,7 +88,7 @@ The length of our Post Install Scripts is unrestricted. You can combine and tail
 
 _(archived example)_
 
-The following script performs several actions on a RPM-based OS (RHEL, Fedora, CentOS, openSUSE, SLES, Oracle Linux, Rocky Linux, AlmaLinux)
+The following script performs several actions on an RPM-based OS (RHEL, Fedora, CentOS, openSUSE, SLES, Oracle Linux, Rocky Linux, AlmaLinux)
 
 1. **SSH Configuration**
 
@@ -183,4 +183,4 @@ Here are some more examples of tasks you can automate with post-install scripts:
 - Setting up Kubernetes or other container orchestration systems.
 - Deploying containers and managing containerized applications.
 
-These examples illustrate a spectrum of automated tasks you can accomplish with EDIS Globals post-install scripts, making server setup and management more efficient and error-free. By crafting tailored scripts, you can significantly streamline your deployment processes and operational workflows on our VPS Hosting.
+These examples illustrate a spectrum of automated tasks you can accomplish with EDIS Global's post-install scripts, making server setup and management more efficient and error-free. By crafting tailored scripts, you can significantly streamline your deployment processes and operational workflows on our VPS Hosting.

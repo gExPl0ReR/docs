@@ -31,7 +31,7 @@ Open a terminal and create a script file:
 nano mikrotik.sh
 ```
 
-Copy and paste the following script into the file
+Copy and paste the following script into the file:
 
 ```bash Script expandable
 #!/bin/bash
@@ -129,7 +129,7 @@ echo b | sudo tee /proc/sysrq-trigger >/dev/null
 
 Press `CTRL+O` to save your changes, then exit by pressing `CTRL+X`.
 
-### **Set script permissions**
+### Set script permissions
 
 Set the script execution rights:
 
@@ -138,7 +138,7 @@ chmod +x mikrotik.sh
 chmod 755 mikrotik.sh
 ```
 
-### **Run the script**
+### Run the script
 
 ```bash
 ./mikrotik.sh
@@ -151,9 +151,9 @@ The VPS will reboot automatically once the installation completes.
 1. Log in to your [VPS Management Portal](https://manage.edis.at/whmcs/clientarea.php)
 2. Locate your VPS from the Services tab
 3. [**Enable VNC Server**](https://docs.edisglobal.com/enable-vnc-server)
-4. Open the noVNC or connect by VNC client
+4. Open noVNC or connect using a VNC client
 5. Log in to the Router OS using **admin** account and **blank password** (no password)
-6. Setup new password for admin account
+6. Set up a new password for the admin account
 7. Show the name of interfaces:
 
 <Card title="Check name of interface">
@@ -168,13 +168,13 @@ The VPS will reboot automatically once the installation completes.
   ```
 </Card>
 
-8. Check your [**Network Information**](https://docs.edisglobal.com/vps-management/ip-address-information#ip-settings,-network-info) in the billing panel. Configure your IP address of the server (**192.168.1.100** - IP address of the server & **ether1** - name of interface):
+8. Check your [**Network Information**](https://docs.edisglobal.com/vps-management/ip-address-information#ip-settings,-network-info) in the billing panel. Configure the IP address of the server (**192.168.1.100** - IP address of the server & **ether1** - name of interface):
 
 ```bash
  /ip address add address=192.168.1.100/24 interface=ether1 
 ```
 
-9. Configure gateway(**192.168.1.1** - IP address of gateway):
+9. Configure the gateway (**192.168.1.1** - IP address of gateway):
 
 ```bash
 /ip route add gateway=192.168.1.1 dst-address=0.0.0.0/0
@@ -188,14 +188,14 @@ The VPS will reboot automatically once the installation completes.
 
 After you have finished configuring Router OS in VNC, connect to MikroTik Router OS using Winbox.
 
-### Connecting to server using Winbox
+### Connect to the server using Winbox
 
 1. **Download and Install** Winbox from the [MikroTik website](https://mikrotik.com/download).
 2. Open Winbox and create a new connection:
 
    • Enter your VPS **IP address**.
 
-   • Use admin for the **Login** field and Enter the **Password** that you installed before.
+   • Use admin for the **Login** field and enter the **Password** that you set before.
 
    • Click **Connect**.
 
