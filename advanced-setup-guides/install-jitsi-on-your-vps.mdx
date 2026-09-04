@@ -7,11 +7,11 @@ description: This document is a basic guide for installing Jitsi Meet, which is 
 
 Jitsi is an open-source video conferencing software that allows for video calls, screen sharing, and many other features. Here's a basic guide to installing Jitsi Meet on a VPS (we'll use Ubuntu for this example):
 
-### **1. Prepare your server:**
+### 1. Prepare your server:
 
 Make sure you have a server (e.g., VPS) running Ubuntu. Ensure your server has a public IP address.
 
-### **2. Update your system:**
+### 2. Update your system:
 
 Before you start, it's always good to make sure your server's package list and software are up to date:
 
@@ -20,11 +20,11 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
-### **3. Set up a domain:**
+### 3. Set up a domain:
 
 For Jitsi to work properly with SSL (which you want for security), you'll need a domain name. Make sure to point your domain to your server's IP address using DNS settings.
 
-### **4. Install Jitsi:**
+### 4. Install Jitsi:
 
 a. First, add the Jitsi repository to your sources list:
 
@@ -52,7 +52,7 @@ sudo apt install jitsi-meet -y
 
 During the installation, you'll be prompted to enter the hostname (your domain). Enter the domain you prepared. After this, you'll be asked to generate a new SSL certificate or use your own. For simplicity, select 'Generate a new self-signed certificate.'
 
-### **5. Secure Jitsi with a real SSL certificate:**
+### 5. Secure Jitsi with a real SSL certificate:
 
 a. Install `certbot` (this is for Let's Encrypt SSL certificates):
 
@@ -68,7 +68,7 @@ sudo /usr/share/jitsi-meet/scripts/install-letsencrypt-cert.sh
 
 Follow the prompt. This script will handle the certificate retrieval and configuration for you.
 
-### **6. Access Jitsi:**
+### 6. Access Jitsi:
 
 Now, in any web browser, go to `https://yourdomain.com` (replace "yourdomain.com" with your actual domain). You should see the Jitsi Meet interface where you can start or join a meeting.
 

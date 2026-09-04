@@ -21,7 +21,7 @@ Post-Install Scripts were a feature that allowed you to streamline your VPS serv
 
 Below are historical examples of Post-Install Scripts. They are **no longer supported**, but are shown here to help you understand legacy configurations or migrate to Cloud-Init equivalents.
 
-### **For Debian-based OS (Debian/Ubuntu)**
+### For Debian-based OS (Debian/Ubuntu)
 
 _(archived example)_
 
@@ -84,7 +84,7 @@ The length of our Post Install Scripts is unrestricted. You can combine and tail
 
 ### 
 
-### **For RPM-based OS (CentOS, Rocky Linux, ...)**
+### For RPM-based OS (CentOS, Rocky Linux, ...)
 
 _(archived example)_
 
@@ -128,7 +128,7 @@ IP=`hostname -I | awk '{print $1}'`
 curl -s --form-string $token --form-string $user --form-string 'message=Post installation script finished on server with IP: $IP. Have fun' https://api.pushover.net/1/messages.json
 ```
 
-### Use cases for Post install scripts
+### Use cases for post-install scripts
 
 The above scripts serve as illustrative examples, showcasing how you can leverage the Post Install Script feature. The potential applications are boundless.
 
