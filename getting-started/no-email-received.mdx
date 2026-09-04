@@ -1,42 +1,69 @@
 ---
 title: "No email received?"
-description: "Did not receive your EDIS Global VPS welcome email? Reinstall the server with a fresh password and OS of your choice using the auto-installer in the portal."
+description: "Recover access to a new EDIS Global VPS when the deployment email or initial credentials cannot be found."
+sidebarTitle: "No email received?"
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
 ## We cannot resend emails!
 
-If you did not receive our email with VPS credentials:
+If you cannot find the original VPS deployment email, EDIS Global cannot resend that message or recover the initial password.
 
 <Info>
-   We can’t resend passwords! We are unable to resend emails which contain credentials or passwords. For security reasons, we don’t store your passwords. Don’t worry, you can easily set up your service with a new password. 
+  VPS passwords are generated during deployment and are not retained in a recoverable form in our management or support systems. You can regain access by reinstalling the VPS and choosing a new password.
 </Info>
 
-## How to access your new VPS
+## Before you reinstall
+
+1. Check your **spam**, **junk**, and **quarantine** folders for an email from [support@edisglobal.com](mailto:support@edisglobal.com).
+2. Make sure you are checking the email address registered to your EDIS Global account.
+3. Log in to the VPS Management Portal and confirm that the VPS appears under **Services** and its status is **Active**.
+
+<Note>
+  If the VPS is missing from your account or is still being provisioned, do not reinstall it. [Contact our Support Team](https://www.edisglobal.com/contact) so we can check the service status.
+</Note>
+
+<CtaButton label="Open VPS Management Portal" link="https://manage.edisglobal.com/clientarea.php" />
+
+## Restore access to your VPS
+
+<Warning>
+  Reinstalling permanently deletes the operating system, configuration, and all data currently stored on the VPS. Continue only if there is no data you need to preserve.
+</Warning>
 
 <Steps>
-  <Step title="Log in to your">
-    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
+  <Step title="Open your VPS">
+    In the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), open **Services** and select the affected VPS.
   </Step>
-  <Step title="Locate your VPS in the Services tab">
-    
+  <Step title="Start the reinstallation">
+    Open the operating-system installation or reinstallation option.
   </Step>
-  <Step title="Reinstall your VPS with a fresh OS and your own password">
-    <CtaButton label="How to Install Linux or Windows" link="/vps-management/autoinstall-reinstall-install-vps-linux-windows" />
+  <Step title="Choose an operating system and password">
+    Select Linux or Windows and enter a strong new password when prompted.
+  </Step>
+  <Step title="Complete the installation">
+    Start the installation and wait for the VPS to finish provisioning before attempting to connect.
+  </Step>
+  <Step title="Connect with your new password">
+    Use [SSH for Linux](/getting-started/linux-secure-shell-ssh) or [Remote Desktop for Windows](/getting-started/windows-remote-desktop).
   </Step>
 </Steps>
 
+<CtaButton label="View the Reinstallation Guide" link="/vps-management/autoinstall-reinstall-install-vps-linux-windows" />
+
 <Info>
-  Keep in mind, no email will be sent when you reinstall!
+  No new credentials email is sent after a reinstallation. Use the password you selected during setup and store it securely in a password manager.
 </Info>
 
-## Why we can't resend passwords
+## Why the original password cannot be recovered
 
-We do not store passwords at all.
+The initial password is generated during VPS deployment and configured directly on the server. EDIS Global does not retain a recoverable copy in its management or support systems, so our team cannot retrieve or resend it later.
 
-Passwords are generated during deployment and configured directly on the VPS. They are never saved in any of our systems. If you did not receive the initial password, it cannot be recovered.
+This reduces the risk of a VPS password being disclosed through those systems. If the initial password is unavailable, reinstalling the VPS and selecting a new password is the supported way to regain access.
 
-In this case, you must reinstall the server and set a new password during the installation process.
+## Still need help?
 
-This design ensures maximum security. Credentials that are not stored cannot be leaked, accessed, or compromised.
+Our Support Team can help with account access, service status, and the reinstallation process. For security reasons, the team cannot recover the original VPS password or log in to the server on your behalf.
+
+[Learn how our Support Team can help](/getting-started/how-our-support-team-helps-you), or [contact EDIS Global](https://www.edisglobal.com/contact).
