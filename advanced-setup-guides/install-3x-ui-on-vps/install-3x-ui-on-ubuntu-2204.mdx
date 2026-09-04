@@ -89,7 +89,7 @@ Never connect to 3x-ui over plain http – it’s not secure. Always access the 
 
 <Tabs>
   <Tab title="Self-sign cert" icon="expeditedssl">
-    A self-signed certificate lets the 3x-ui panel use HTTPS, so all data between your browser and the panel is encrypted instead of sent in plain text. Your browser may show a warning because the cert isn’t from a public CA, but the connection is still secure—this helps prevent man-in-the-middle (MITM) attacks and is much safer than using HTTP, especially when entering your password or changing VPN settings.
+    A self-signed certificate lets the 3x-ui panel use HTTPS, so all data between your browser and the panel is encrypted instead of sent in plain text. Your browser may show a warning because the cert isn’t from a public CA, but the connection is still secure. This helps prevent man-in-the-middle (MITM) attacks. It is also much safer than using HTTP, especially when entering your password or changing VPN settings.
 
     Generate a self-signed certificate and apply it to 3x-ui:
 
@@ -126,7 +126,7 @@ Never connect to 3x-ui over plain http – it’s not secure. Always access the 
     Select option **13** to restart the panel. After that, the 3x-ui web interface will be served over HTTPS using your self-signed certificate.
   </Tab>
   <Tab title="SSH port forwarding" icon="left-right">
-    SSH port forwarding (SSH tunneling) lets you securely access a service on your VPS, like the 3x-ui web panel, without opening its port to the public internet. You create an encrypted SSH connection where your PC listens on a local port (for example `2222`) and forwards all traffic to the 3x-ui port on the server (for example `46522`), so when you open `http://127.0.0.1:2222/` in your browser, you’re safely talking to the panel through SSH.
+    SSH port forwarding (SSH tunneling) lets you securely access a service on your VPS, like the 3x-ui web panel, without opening its port to the public internet. You create an encrypted SSH connection where your PC listens on a local port (for example `2222`) and forwards all traffic to the 3x-ui port on the server (for example `46522`). When you open `http://127.0.0.1:2222/` in your browser, you’re safely talking to the panel through SSH.
 
     Setup SSH port Forwarding on VPS:
 
