@@ -5,7 +5,7 @@ description: "Learn how to backup and restore data on Linux systems using tools 
 
 ## Backup and restore data on Linux
 
-In this article, we will explain how to back up and restore data on Linux systems using different tools like `tar`, `rsync`, `dd`, and cloud services such as Google Drive and Amazon S3. The guide covers both the backup and restore procedures for each tool.
+In this article, we will explain how to back up and restore data on Linux systems. We cover different tools like `tar`, `rsync`, and `dd`, as well as cloud services such as Google Drive and Amazon S3. The guide covers both the backup and restore procedures for each tool.
 
 ---
 
@@ -13,16 +13,16 @@ In this article, we will explain how to back up and restore data on Linux system
 
 One of the most commonly used tools for backing up files and directories in Linux is the `tar` command. It allows you to easily compress files and store them in an archive, helping you save important files and directories for later restoration.
 
-Tar can also be used for incremental backups by archiving only files that have changed since the last backup, which saves storage space and reduces backup time.
+You can also use tar for incremental backups by archiving only files that have changed since the last backup. This saves storage space and reduces backup time.
 
 Note: tar archives do not include certain metadata like boot records.
 
 A common use case is backing up the home directory.
 
-### Backup steps:
+### Backup steps
 
 1. **Open Terminal**
-2. To backup a specific folder (e.g., `/home/user/data`), use the following command:
+2. To back up a specific folder (e.g., `/home/user/data`), use the following command:
 
 ```bash Bash
 tar -cvpzf /path/to/backup/backup_file.tar.gz /home/user/data
@@ -48,7 +48,7 @@ tar -xzvf backup.tar.gz -C /destination/directory
 
 This restoration process with tar will return your files to a previous state by extracting them from the backup archive. Restoring from a tar archive will replace any existing files in the destination directory with the versions from the backup, effectively reverting the system or files to their earlier configuration.
 
-### Restore steps:
+### Restore steps
 
 1. **Open Terminal**
 2. To restore data from a backup file to a specific directory, run the following command:
@@ -71,10 +71,10 @@ Explanation:
 
 **rsync** is a reliable and useful tool for backups, allowing you to sync data between directories, or even between servers. Rsync is commonly used to sync files and directories for backup purposes, ensuring data consistency and integrity.
 
-### Backup steps:
+### Backup steps
 
 1. **Open Terminal**
-2. To backup data from a specific folder, run the following command:
+2. To back up data from a specific folder, run the following command:
 
 ```bash Bash
 rsync -avz /path/to/source/ /path/to/backup/
@@ -86,7 +86,7 @@ Explanation:
 2. `-v`: Show detailed progress.
 3. `-z`: Compress data for faster transfer.
 
-To backup from a remote server, use:
+To back up from a remote server, use:
 
 ```bash Bash
 rsync -avz user@remote_server:/path/to/source/ /path/to/backup/
@@ -98,7 +98,7 @@ rsync -avz user@remote_server:/path/to/source/ /path/to/backup/
 
 To restore data from a backup made with **rsync**, use the same command structure for restoring files.
 
-### Restore steps:
+### Restore steps
 
 1. **Open Terminal**
 2. To restore data from a backup directory, run:
@@ -119,7 +119,7 @@ rsync -avz user@remote_server:/path/to/backup/ /path/to/restore/
 
 The **dd** tool is used for making **complete backups of disks** or partitions (for example, for backing up an operating system or a specific partition). dd is commonly used for cloning entire disks or partitions, making an exact clone of a machine or host. It supports backing up the entire file system, including important system directories and logs. dd can also be used to create an ISO image of a disk for backup or migration purposes. Before starting the backup process, ensure proper setup to avoid data loss and ensure a reliable restore. dd can be used to back up the entire computer for disaster recovery or migration to new hardware. When handling disk images, consider security, as these images may contain sensitive data from your system.
 
-### Backup steps:
+### Backup steps
 
 1. **Open Terminal**
 2. To create a backup of a disk, use:
@@ -140,7 +140,7 @@ Explanation:
 
 To restore data from a disk or partition backup created with **dd**, use the following command for restoring. This restoration process will replace all data on the target disk with the backup image.
 
-### Restore steps:
+### Restore steps
 
 1. **Open Terminal**
 2. To restore data to the target disk, run:
@@ -157,7 +157,7 @@ If you use cloud services like Google Drive, Amazon S3, or Dropbox for storing b
 
 If you prefer a graphical interface, GUI programs like Deja Dup are available. Deja Dup (a graphical interface for Duplicity) supports incremental and encrypted backups, and integrates with cloud storage.
 
-### Backup steps:
+### Backup steps
 
 1. **Open Terminal**
 2. To back up data to a cloud service, use:
@@ -166,7 +166,7 @@ If you prefer a graphical interface, GUI programs like Deja Dup are available. D
 rclone copy /path/to/data remote:backup_folder
 ```
 
-### Restore steps:
+### Restore steps
 
 1. **Open Terminal**
 2. To restore data from the cloud service, use:

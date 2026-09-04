@@ -3,7 +3,7 @@ title: "Install AmneziaWG on Keenetic Router"
 description: "Install AmneziaWG on a Keenetic router to bypass ISP restrictions. Step-by-step setup of a stealth VPN connection using the latest Keenetic OS interface."
 ---
 
-Installing **amneziawg** on Keenetic router can help bypass restrictions imposed by your Internet Service Provider (ISP) by concealing the operation of WireGuard. Unlike traditional VPN setups, **amneziawg** masks the WireGuard protocol, making it difficult for the ISP to detect that you're using a VPN. This stealth feature prevents the provider from identifying and blocking the VPN traffic. This ensures a seamless and unrestricted internet experience, even in environments where VPN usage is typically monitored or restricted by government-controlled firewalls.
+Installing **amneziawg** on a Keenetic router can help bypass restrictions imposed by your Internet Service Provider (ISP) by concealing the operation of WireGuard. Unlike traditional VPN setups, **amneziawg** masks the WireGuard protocol, making it difficult for the ISP to detect that you're using a VPN. This stealth feature prevents the provider from identifying and blocking the VPN traffic. This ensures a seamless and unrestricted internet experience, even in environments where VPN usage is typically monitored or restricted by government-controlled firewalls.
 
 Creating a WireGuard connection with additional asc parameters in the updated interface of Keenetic OS 4.2 routers.
 
@@ -23,38 +23,38 @@ Move to: Management → System settings
 
 ![Install AmneziaWG client on Keenetic router](/assets/ZwVIrwGnrtyhTuVhebO1y_systemsettings.png)
 
-Step3
+Step 3
 
 Check which version of KeeneticOS is installed on the router, and whether KeeneticOS is being updated to version 4.2. WireGuard support with asc parameters has appeared in KeeneticOS since version 4.2 Alpha 2. If the KeeneticOS 4.2 release has not yet been released for your router, try switching the update channel to "Preview".
 
 ![Install AmneziaWG client on Keenetic router](/assets/Bd-JTcNUMlq5WlMBIMBFK_version.png)
 
-Step4
+Step 4
 
-More important backup a system files before upgrading. Save firmware, startup-config, default-config, and running-config. It will help to restore if failure occurs during the upgrade.
+More importantly, back up the system files before upgrading. Save firmware, startup-config, default-config, and running-config. This will help you restore the router if a failure occurs during the upgrade.
 
 ![Install AmneziaWG client on Keenetic router](/assets/eLEJWz9xWEQRGaQyL6GYK_savesystemfiles.png)
 
-Step5
+Step 5
 
 On the "**System Component Options**" page that opens, in the "**Network Functions**" section, check if the "**WireGuard VPN**" component is installed. If the "**WireGuard VPN**" component is not installed, check the appropriate checkbox for installation, and click the "**Update KeeneticOS**" button that appears below. Wait for the router to update and reboot.
 
 ![Install AmneziaWG client on Keenetic router](/assets/_IFJOih54kYBz12FCmHwr_wireguardcomponent.png)
 
-Step6
+Step 6
 
-If you get insufficient memory to install all select components in a new window that appears during the system update, click to View changes and disable components. Uncheck the unnecessary components to free up memory.
+A new window may appear during the system update saying there is insufficient memory to install all selected components. In that case, click View changes and disable components. Uncheck the unnecessary components to free up memory.
 *If the update is interrupted with the message "Not enough space", you need to disable unnecessary components in the list to reduce the size of the update.*
 
 ![Install AmneziaWG client on Keenetic router](/assets/Of8QWzOFOrDxe6qBYS9KJ_a310a5e0-3b13-4dbb-a658-3ecc0251ab9f.png)
 
-Step7
+Step 7
 
 After that, upgrade the router to version 4.2 or later by clicking the **Update KeeneticOS** button on the **System Settings** page. During the update process, the router will reboot.
 
 ![Install AmneziaWG client on Keenetic router](/assets/6xfCfi2viC0Adhkmtbjwo_0659002c-42d8-4e42-a2f8-92e90d8c69ec.png)
 
-Step8
+Step 8
 
 After updating and restarting the router, you need to log in again on the router management page.
 
@@ -80,7 +80,7 @@ Select the Wireguard section, create a new connection in it, and import the save
 
 Step 12
 
-Choose the config file and press enter. You should get the following, where VPS\_IP\_ADDRESS is the IP address of VPS, and 42666 is the port.
+Select the config file and press Enter. You should get the following, where VPS\_IP\_ADDRESS is the IP address of the VPS, and 42666 is the port.
 The new connection should appear in the Wireguard section, with the same name as the imported file. But it's too early to use the connection that has appeared. You need to go to its settings for editing by clicking on its line anywhere except the switcher.
 
 ![Install AmneziaWG client on Keenetic router](/assets/e4gRJtuIkZdft3vR4Y45D_addconfig.png)
@@ -152,13 +152,13 @@ In this example, the string will look like:
 interface Wireguard0 wireguard asc 120 60 1266 11 54 563549684 1544213701 529241130 981267317
 ```
 
-The resulting line should be inserted into the web version of the router's command line, and click the "Send request" button. If you entered the correct command, the result of processing the request will be displayed below, as in the screenshot.
+Insert the resulting line into the web version of the router's command line, and click the "Send request" button. If you entered the correct command, the result of processing the request will be displayed below, as in the screenshot.
 
 ![commandwireguardasc.png](/assets/V4n8bUmeD4CSCstZKDBHc_commandwireguardasc.png)
 
 Step 18
 
-Then execute **system configuration save** into the web version of the router's command line, and click the "Send request" button.
+Then execute **system configuration save** in the web version of the router's command line, and click the "Send request" button.
 
 ![Install AmneziaWG client on Keenetic router](/assets/kasZKCfyE3pPMq3KXztgC_commandsaveconfiguration.png)
 
@@ -170,28 +170,28 @@ Go to the Internet section and select **Connection Policies**.
 
 Step 20
 
-In the Connection Policies section add a new policy. For example, write **amneziawg** policy name and click on to Save button.
+In the Connection Policies section, add a new policy. For example, enter **amneziawg** as the policy name and click the Save button.
 
 ![Install AmneziaWG client on Keenetic router](/assets/WKVEaYOpaxqXlLP0AzFw6_createamneziawgpolicy.png)
 
 Step 21
 
-Click on **amneziawg** policy and move **my\_amneziawg\_client1** that it will be on the top and set checkbox. Click save to save this setting.
+Click the **amneziawg** policy, move **my\_amneziawg\_client1** to the top, and set its checkbox. Click Save to save this setting.
 
 ![Install AmneziaWG client on Keenetic router](/assets/dtJ90fEOAwrkz9AolYKrQ_activaterutepolicyamneziawg.png)
 
-*In the Access Policy settings in the Default Policy, the created VPN connection (my\_amneziawg\_client1) should go below your main Internet connection in order to avoid problems with reconnecting the router when the main Internet connection is interrupted.*
+*In the Access Policy settings in the Default Policy, the created VPN connection (my\_amneziawg\_client1) should go below your main Internet connection. This avoids problems with reconnecting the router when the main Internet connection is interrupted.*
 
 Step 22
 
-Now you need to go to the **Internet** section, then **Other connections**, and check the functionality of the created WireGuard connection by switching its state to "Enabled". After a few seconds, the activity mark of the feast should change color from gray to green. Also, information about incoming/outgoing traffic and the time since the last "handshake" should be displayed.
+Now you need to go to the **Internet** section, then **Other connections**, and check the functionality of the created WireGuard connection by switching its state to "Enabled". After a few seconds, the activity mark of the peer should change color from gray to green. Also, information about incoming/outgoing traffic and the time since the last "handshake" should be displayed.
 
 ![Install AmneziaWG client on Keenetic router](/assets/EPzVS-GsqvCLgiYia9TZb_activateamneziawg.png)
 
 Step 23
 
 Move again to Internet → Connection Policies → Policy Bindings.
-In the **Default policy** section choose the **device** (for example it is SamsungSmartTv) for which you want to route traffic through amneziawg. In the switcher menu choose our **amneziawg** policy and click to **Confirm**.
+In the **Default policy** section, select the **device** (for example, SamsungSmartTv) for which you want to route traffic through amneziawg. In the switcher menu, select the **amneziawg** policy and click **Confirm**.
 
 ![Install AmneziaWG client on Keenetic router](/assets/ZLoqrgh9r_A7Dtgt8sN2v_installpolicyforsamsungsmarttv.png)
 

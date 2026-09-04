@@ -9,9 +9,9 @@ description: "Set up and configure a Private VLAN on your EDIS Global VPS for se
 ## What is a Private VLAN?
 A **Private VLAN** allows you to establish a private and secure Ethernet connection between Virtual Private Servers (VPS) within a chosen server location. This feature enhances network segmentation and security while enabling efficient internal communication between VPS instances.
 
-### Key features:
+### Key features
 - **Secondary Ethernet Interface**: Each VPS in the chosen server location receives an additional Ethernet interface.
-- **VLAN Isolation**: A unique VLAN ID ensures that only VPS mapped to the same VLAN can communicate with each other through the user-configured private network.
+- **VLAN Isolation**: A unique VLAN ID ensures that only VPS mapped to the same VLAN can communicate with each other through the private network you configure.
 
 ## Requirements
 ### Single VPS use case
@@ -36,7 +36,7 @@ A **Private VLAN** allows you to establish a private and secure Ethernet connect
 5. **Apply the settings**.
 6. **Power-cycle the VPS** to activate changes.
 7. **Repeat for each VPS** that should be connected to the Private VLAN.
-8. **Configure Private IP addresses** on your VPS' secondary NICs
+8. **Configure Private IP addresses** on your VPS' secondary NICs.
 
 ## Benefits of using a Private VLAN
 - **Enhanced Security**: Traffic within a Private VLAN remains isolated from the public network.

@@ -5,12 +5,12 @@ description: "Why reverse DNS nameserver location may differ from VPS location, 
 
 ## Understanding test sites for VPS
 
-Some websites (VPS- and IP test sites) indicate "DNS locations". This just means they're telling you where the DNS servers (responsible for linking an IP address to a hostname) they queried your IP address for are located. A "mismatch" might be puzzling for some users. It's crucial to understand that the indicated "DNS location" isn't a measure of service quality.&#x20;
+Some websites (VPS- and IP test sites) indicate "DNS locations". This just means they're telling you where the DNS servers they queried for your IP address are located. These DNS servers are responsible for linking an IP address to a hostname. A "mismatch" might be puzzling for some users. It's crucial to understand that the indicated "DNS location" isn't a measure of service quality.&#x20;
 
 At EDIS Global, we use a smart DNS system called Anycast DNS. Think of it like a GPS that always guides you to the closest grocery store.
 
-1. When you or anyone else tries to find out the hostname linked to a VPS' IP address, our system ensures they're pointed to the closest of 50+ special DNS servers.
-2. But here's a key point: Which special DNS servers are used, depends on the test sites location. Anycast routes queries to the closest DNS servers.
+1. When you or anyone else tries to find out the hostname linked to a VPS' IP address, our system points them to the closest of 50+ special DNS servers.
+2. But here's a key point: which special DNS servers are used depends on the test site's location. Anycast routes queries to the closest DNS servers.
 3. VPS and rDNS locations will only show the same country if both your VPS and the website you're testing from are in the same country.
 
 ## What are reverse PTR records?

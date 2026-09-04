@@ -53,7 +53,7 @@ sudo apt install stunnel4 -y
 
 **Explanation:** Installs the Stunnel package, allowing you to encrypt arbitrary TCP connections inside SSL.
 
-### 3. Generate SSL certificates for stunnel
+### 3. Generate SSL certificates for Stunnel
 
 Navigate to the Stunnel configuration directory and generate a self-signed SSL certificate.
 
@@ -115,7 +115,7 @@ cert = /etc/stunnel/stunnel.pem
 - `connect = 127.0.0.1:1194`: Forwards incoming connections to the local OpenVPN service.
 - `cert`: Specifies the SSL certificate file.
 
-### 6. Enable and start stunnel service
+### 6. Enable and start the Stunnel service
 
 Enable Stunnel to start on boot and start the service.
 
@@ -141,7 +141,7 @@ wget https://git.io/vpn -O openvpn-install.sh
 sudo bash openvpn-install.sh
 ```
 
-**Explanation:** This script automates OpenVPN installation and configuration. It will prompt for configuration options—choose settings that suit your needs.
+**Explanation:** This script automates OpenVPN installation and configuration. It will prompt for configuration options. Choose settings that suit your needs.
 
 ### 8. Modify OpenVPN server configuration
 
@@ -213,7 +213,7 @@ connect = VPS_IP_ADDRESS:443
 
 **Note:** Replace `VPS_IP_ADDRESS` with your actual VPS server IP.
 
-### 3. Enable and start stunnel service
+### 3. Enable and start the Stunnel service
 
 Enable Stunnel to start on boot and start the service.
 

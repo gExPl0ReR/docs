@@ -56,7 +56,7 @@ The System Configuration allows you to control:
 
 ## 🧠 CPU cores vs. sockets
 
-This setting controls how CPU resources are presented to your VPS (only valid if you have more than one vCPU)
+This setting controls how CPU resources are presented to your VPS (only valid if you have more than one vCPU).
 
 - **Multiple Sockets**: Emulates multiple physical CPUs. Useful for certain legacy systems but can introduce overhead.
 - **Multiple Cores**: Emulates multiple cores within a single CPU socket. This is more efficient and recommended for most modern systems.
@@ -70,7 +70,7 @@ This setting controls how CPU resources are presented to your VPS (only valid if
 This determines how the CPU is presented to the guest operating system:
 
 - **default** – A generic, highly compatible CPU model that works well with most operating systems.
-- **Host CPU Passthrough** – Passes the host's actual CPU features (like AES, SSE3, SSE4.1, SSE4.2, etc.) to the VPS for better performance, especially with workloads that can utilize advanced instruction sets.
+- **Host CPU Passthrough** – Passes the host's actual CPU features (like AES, SSE3, SSE4.1, SSE4.2, etc.) to the VPS for better performance. This especially benefits workloads that can utilize advanced instruction sets.
 
 **Recommendation:**\
 For maximum performance and compatibility, use **Host CPU Passthrough** unless your operating system has specific requirements.

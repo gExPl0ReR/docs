@@ -13,7 +13,7 @@ Because many network filters are designed mainly for IPv4, traffic sent through 
 > While this behaviour can be useful for testing and research, tunnelling technologies must **not** be used to bypass lawful restrictions or government-imposed filtering.  
 > Always follow local regulations and your provider’s acceptable use policy.
 
-## **Introduction**
+## Introduction
 
 A **6to4 tunnel** encapsulates IPv6 packets inside IPv4 packets, allowing IPv6 communication across IPv4-only networks.
 
@@ -32,7 +32,7 @@ In this example, we’ll divide an IPv6 prefix fe::/32 into two subnets and conf
 
 ---
 
-## **Network topology**
+## Network topology
 
 | Device         | IPv4 Address  | IPv6 Tunnel Address | IPv6 Subnet      | Role          |
 | -------------- | ------------- | ------------------- | ---------------- | ------------- |
@@ -46,7 +46,7 @@ In this example, we’ll divide an IPv6 prefix fe::/32 into two subnets and conf
 
 Each router will route traffic between these subnets via the secure 6to4 tunnel.
 
-## **Getting started: prerequisites**
+## Getting started: prerequisites
 
 Before you begin:
 
@@ -64,11 +64,11 @@ Before you begin:
 3. Access both routers via **Winbox** or **SSH**.
 4. This guide is written for **RouterOS v7.x** (v7.12 or later recommended).
 
-## **Step 1 – create the 6to4 tunnel interface**
+## Step 1 – create the 6to4 tunnel interface
 
 Create a 6to4 tunnel on both routers, specifying the local and remote IPv4 addresses, and enable IPsec encryption using an ipsec-secret.
 
-### **On Mikrotik 1**
+### On Mikrotik 1
 
 ```bash
 /interface 6to4 add local-address=45.153.127.87 remote-address=45.151.73.213 mtu=1280 name=6to4-tunnel ipsec-secret=edisglobal
@@ -76,7 +76,7 @@ Create a 6to4 tunnel on both routers, specifying the local and remote IPv4 addre
 
 ![Adding 6to4 Interface](/assets/add-interface-6to4.png)
 
-### **On Mikrotik 2**
+### On Mikrotik 2
 
 ```bash
 /interface 6to4 add local-address=45.151.73.213 remote-address=45.153.127.87 mtu=1280 name=6to4-tunnel ipsec-secret=edisglobal
@@ -84,11 +84,11 @@ Create a 6to4 tunnel on both routers, specifying the local and remote IPv4 addre
 
 🟢 The ipsec-secret parameter automatically encrypts the 6to4 traffic using the shared key **edisglobal** for secure communication.
 
-## **Step 2 – assign IPv6 addresses**
+## Step 2 – assign IPv6 addresses
 
 Assign IPv6 addresses to the 6to4 tunnel for connectivity and to each router’s internal network using their respective /33 subnets.
 
-### **On Mikrotik 1**
+### On Mikrotik 1
 
 ```bash
 # Tunnel address
@@ -99,7 +99,7 @@ Assign IPv6 addresses to the 6to4 tunnel for connectivity and to each router’s
 
 ![IPv6 address list](/assets/IPv6-address-list.png)
 
-### **On Mikrotik 2**
+### On Mikrotik 2
 
 ```bash
 # Tunnel address
@@ -108,11 +108,11 @@ Assign IPv6 addresses to the 6to4 tunnel for connectivity and to each router’s
 /ipv6/address/add address=fe:8000::1/64 interface=ether1 advertise=no
 ```
 
-## **Step 3 – add IPv6 routes**
+## Step 3 – add IPv6 routes
 
 Each router must know how to reach the other router’s /33 subnet through the 6to4 tunnel.
 
-### **On Mikrotik 1**
+### On Mikrotik 1
 
 ```bash
 /ipv6/route/add dst-address=fe:8000::/33 gateway=fd::2
@@ -120,7 +120,7 @@ Each router must know how to reach the other router’s /33 subnet through the 6
 
 ![IPv6 Route list](/assets/IPv6-route-list.png)
 
-### **On Mikrotik 2**
+### On Mikrotik 2
 
 ```bash
 /ipv6/route/add dst-address=fe::/33 gateway=fd::1
@@ -134,11 +134,11 @@ Each router must know how to reach the other router’s /33 subnet through the 6
 
 Now, both routers can route IPv6 traffic between their subnets through the 6to4 tunnel.
 
-## **Step 4 – test the tunnel**
+## Step 4 – test the tunnel
 
 Test IPv6 connectivity between both routers and their LANs.
 
-### **From Mikrotik 1**
+### From Mikrotik 1
 
 ```bash
 /ping fe:8000::1
@@ -146,13 +146,13 @@ Test IPv6 connectivity between both routers and their LANs.
 
 ![Ping IPv6](/assets/Ping-IPv6-address.png)
 
-### **From Mikrotik 2**
+### From Mikrotik 2
 
 ```bash
 /ping fe::1
 ```
 
-## **Troubleshooting**
+## Troubleshooting
 
 If the tunnel doesn’t work as expected:
 
@@ -162,7 +162,7 @@ If the tunnel doesn’t work as expected:
 - Allow **protocol 41 (IPv6 encapsulation)** and **IPsec traffic** in the firewall.
 - Keep MTU set to **1280** to avoid fragmentation.
 
-## **Conclusion**
+## Conclusion
 
 You’ve successfully configured a **secure 6to4 tunnel** between two MikroTik routers running RouterOS v7.
 

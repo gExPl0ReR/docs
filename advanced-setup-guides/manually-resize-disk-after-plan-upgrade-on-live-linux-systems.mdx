@@ -5,7 +5,7 @@ description: "Manually resize disk space on a live Linux VPS after a plan upgrad
 ---
 
 <Warning>
-  ### Important Notice: Risks Associated with Resizing Disk Space
+  ### Important notice: risks associated with resizing disk space
 
   Resizing disks and partitions on production Linux operating systems is a complex and potentially hazardous process that should only be undertaken by experienced system administrators. There are significant risks involved, including the possibility of data loss. It is imperative to perform a complete backup of all data on the drive before attempting any resizing operations. Additionally, be aware that the process might not work as intended, and unforeseen issues could arise. **Please proceed with caution and use this guide at your own risk.**
 </Warning>
@@ -19,7 +19,7 @@ Here’s a general guide on how to resize disk space manually:
 
 ## Access the VPS management portal
 
-After the Upgrade was confirmed ...
+After the upgrade was confirmed ...
 
 * Log in to your <a href="https://manage.edis.at/whmcs/clientarea.php" target="_blank">VPS Management Portal</a>
 
@@ -63,15 +63,15 @@ After the Upgrade was confirmed ...
 
 ![Resize Linux Disk/Partition](/assets/-gvJtyF7VHSRiIGAeVws-_sysrescuecd3.png)
 
-In the GParted window that opens, you will see several partitions. There will be vda1 and vda2 partitions. You need to add unallocated space to vda1 (root) partition but you will not be able to expand space in the /dev/vda1 (root) partition without deleting /dev/vda2 (swap). &#x20;
+In the GParted window that opens, you will see several partitions. There will be vda1 and vda2 partitions. You need to add unallocated space to the vda1 (root) partition. However, you will not be able to expand space in the /dev/vda1 (root) partition without deleting /dev/vda2 (swap). &#x20;
 
-1. **Remove the swap partition**. The vda 2 (swap) partition will be located next to vda1 and the unallocated space. Right-click on this partition and set Delete.&#x20;
+1. **Remove the swap partition**. The vda2 (swap) partition will be located next to vda1 and the unallocated space. Right-click on this partition and select Delete.&#x20;
 
-2. **Resize Partitions**: To extend the root partition(vda1), right-click on it in GParted to root partition(vda1), and select “Resize/Move”. Then, drag the handles to include the unallocated space and click “Resize/Move”. In the field "Free space following" install the size of your future swap partition.
+2. **Resize Partitions**: To extend the root partition (vda1), right-click on it in GParted and select “Resize/Move”. Then, drag the handles to include the unallocated space and click “Resize/Move”. In the field "Free space following", enter the size of your future swap partition.
 
 3. **Apply Changes**: After arranging the partitions as desired, click the “Apply” button in GParted to apply the changes. Be aware that this process can take some time and may result in data loss if not done correctly.
 
-4. **Create a swap partition**. Right-click on unallocated space and select New. In the Field File system switch to Linux-swap and click Add button.
+4. **Create a swap partition**. Right-click on unallocated space and select New. In the File system field, select Linux-swap and click the Add button.
 
 ![Resize Linux Disk/Partition](/assets/13ePrT-SgVGNR1CSJAvv7_sysrescuecd5.png)
 
