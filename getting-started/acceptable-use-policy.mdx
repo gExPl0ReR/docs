@@ -60,11 +60,18 @@ Hosting any illegal content will result in account suspension.
 
 ### 🔢 IPv6 address usage
 
-* Maximum allowed IPv6 addresses per VPS: 20
+Each VPS may have a maximum of **20 IPv6 addresses configured simultaneously**. Use only addresses from the `/64`-equivalent allocation assigned to that VPS.
 
-* Using more addresses or creating connections with random IPv6 addresses constitutes flooding
+IPv6 proxy services that rotate addresses, automatically generate random IPv6 addresses, or otherwise cycle through large numbers of addresses are prohibited.
 
-* Flooding our router's IPv6 Neighbor Discovery Cache results in immediate account termination without refund
+The following activities will result in service suspension:
+
+- Configuring more than 20 IPv6 addresses simultaneously on one VPS
+- Using IPv6 addresses outside the allocation assigned to the VPS
+- Operating a rotating or random-address IPv6 proxy
+- Generating excessive IPv6 Neighbor Discovery activity
+
+Repeated violations will result in permanent account termination without refund. See [IPv6 Setup](/vps-management/ipv6-configuration) for the correct allocation and prefix-length configuration.
 
 ### 💬 IRC services
 
