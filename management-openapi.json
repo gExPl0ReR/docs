@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 49401)
-Total output lines: 5545
-
 {
   "openapi": "3.0.0",
   "info": {
@@ -1624,7 +1621,2228 @@ Total output lines: 5545
             }
           },
           "400": {
-            "description": "Bad Request - I…19401 tokens truncated…         "description": "Explanation of the server-side error.",
+            "description": "Bad Request - Invalid or missing parameters in the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_12"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session signature provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_11"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Access to the requested resource is denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_403_10"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected issue occurred on the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_11"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/set/vnc/enable": {
+      "post": {
+        "tags": [
+          "VNC Management"
+        ],
+        "summary": "Enable VNC access",
+        "description": "This endpoint enables VNC access for a specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and `vnc_pw` parameters to activate VNC.\n",
+        "operationId": "enableVnc",
+        "requestBody": {
+          "description": "Required parameters to enable VNC access.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/vnc_enable_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "VNC access enabled successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_17"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request contains invalid parameters or required fields are missing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_13"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - The provided session signature is invalid or has expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_12"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - The client does not have the required permissions to access this resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_403_11"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred on the server side.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_12"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/set/vnc/disable": {
+      "post": {
+        "tags": [
+          "VNC Management"
+        ],
+        "summary": "Disable VNC access",
+        "description": "This endpoint disables VNC access for a specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to disable VNC access.\n",
+        "operationId": "disableVnc",
+        "requestBody": {
+          "description": "Required parameters to disable VNC access.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/vnc_disable_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "VNC access disabled successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_18"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request contains invalid parameters or missing required fields.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_14"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - The session signature provided is invalid or has expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_13"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - The client does not have the required permissions to access this resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_403_12"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred on the server side.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_13"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get/ptr": {
+      "servers": [
+        {
+          "url": "https://dns-api.edisglobal.com",
+          "description": "Reverse DNS API Server"
+        }
+      ],
+      "post": {
+        "tags": [
+          "PTR"
+        ],
+        "summary": "Get PTR Records",
+        "description": "This endpoint retrieves the PTR (Reverse DNS) records for specified IP addresses.  \nProvide the `signature`, `kvm_id`, `valid_until`, `api_host`, and a JSON-encoded list of IP addresses to query their PTR records.\n",
+        "operationId": "getPTR",
+        "requestBody": {
+          "description": "Required parameters to retrieve PTR records.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_ptr_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "PTR records retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_19"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request contains missing or invalid parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_15"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - The provided session signature is invalid or has expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_14"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred on the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_14"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/del/ptr": {
+      "servers": [
+        {
+          "url": "https://dns-api.edisglobal.com",
+          "description": "Reverse DNS API Server"
+        }
+      ],
+      "post": {
+        "tags": [
+          "PTR"
+        ],
+        "summary": "Delete PTR Records",
+        "description": "This endpoint deletes PTR (Reverse DNS) records for specified IP addresses.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and a JSON-encoded list of IP addresses to delete their PTR records.\n",
+        "operationId": "deletePTR",
+        "requestBody": {
+          "description": "Required parameters to delete PTR records.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/del_ptr_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "PTR records deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_3"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - The request is missing required parameters or contains invalid values.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_16"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - The session signature provided is invalid or has expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_15"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred on the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_15"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/set/ptr": {
+      "servers": [
+        {
+          "url": "https://dns-api.edisglobal.com",
+          "description": "Reverse DNS API Server"
+        }
+      ],
+      "post": {
+        "tags": [
+          "PTR"
+        ],
+        "summary": "Set PTR Records",
+        "description": "This endpoint sets PTR (Reverse DNS) records for specified IP addresses.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and a JSON-encoded object of IP addresses and their associated hostnames to set PTR records.\n",
+        "operationId": "setPTR",
+        "requestBody": {
+          "description": "Required parameters to set PTR records.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_ptr_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "PTR records set successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_20"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_17"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_16"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_16"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/hooks/get": {
+      "post": {
+        "tags": [
+          "Hooks"
+        ],
+        "summary": "Get all webhooks",
+        "description": "This endpoint retrieves all webhooks configured for the specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, and `valid_until` parameters to fetch the list of webhooks.\n",
+        "operationId": "getAllHooks",
+        "requestBody": {
+          "description": "Required parameters to retrieve all webhooks for a KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/hooks_get_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Webhooks retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_21"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_18"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_17"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to access this resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_403_13"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_17"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/set/autohydration_enable": {
+      "post": {
+        "tags": [
+          "Traffic Pool"
+        ],
+        "summary": "Enable Auto-Hydration",
+        "description": "This endpoint enables Auto-Hydration for a specified KVM VPS. Select an automatic assignment increment of `100`, `200`, `300`, or `500` GB. When the VPS reaches 99% of its current traffic allowance, the selected amount is assigned from the existing Traffic Pool balance. Auto-Hydration does not purchase traffic, and no assignment occurs if the Pool balance is insufficient.\n\nUse the `api_host` from the 'Create AUTH-session' response to authenticate.\n\nRequired parameters:\n- `signature`: The session signature obtained from the 'Create AUTH-session' call.\n- `kvm_id`: The unique identifier of the KVM VPS.\n- `valid_until`: The expiration timestamp for the session.\n- `config`: A JSON object containing one supported Auto-Hydration value.\n\nExample using a 300 GB increment:\n```json\n{\"auto_hydration\":300}\n```",
+        "operationId": "enableAutoHydration",
+        "requestBody": {
+          "description": "Parameters required to enable auto hydration for a KVM VPS.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "signature": {
+                    "type": "string",
+                    "description": "The session signature obtained from the 'Create AUTH-session' call.",
+                    "example": "session_signature_12345"
+                  },
+                  "kvm_id": {
+                    "type": "string",
+                    "description": "The unique identifier of the KVM VPS.",
+                    "example": "kvm_xxxxx_yyyyy"
+                  },
+                  "valid_until": {
+                    "type": "string",
+                    "description": "The expiration timestamp for the session, obtained from the 'Create AUTH-session' call.",
+                    "example": "1737476000"
+                  },
+                  "config": {
+                    "type": "string",
+                    "description": "JSON object containing the Auto-Hydration configuration. Supported values are `100`, `200`, `300`, and `500`, representing the traffic assignment increment in GB.\n\nExample: `{\"auto_hydration\":300}`",
+                    "example": "{\"auto_hydration\":300}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auto hydration enabled successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid parameters provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid session"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/set/autohydration_disable": {
+      "post": {
+        "tags": [
+          "Traffic Pool"
+        ],
+        "summary": "Disable Auto Hydration",
+        "description": "This endpoint disables auto hydration for a specified KVM VPS, setting the hydration limit to 0 GB.\n\nThe `api_host` parameter, obtained from the 'Create AUTH-session' response, must be dynamically set in the URL.\n\n### Required Parameters:\n- **signature**: The session signature obtained from the 'Create AUTH-session' call.\n- **kvm_id**: The unique identifier of the KVM VPS.\n- **valid_until**: The expiration timestamp for the session.\n- **config**: A JSON object to disable auto hydration.\n  ```json\n  {\"auto_hydration\": 0}\n  ```",
+        "operationId": "disableAutoHydration",
+        "requestBody": {
+          "description": "Parameters required to disable auto hydration for a KVM VPS.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "signature": {
+                    "type": "string",
+                    "description": "The session signature obtained from the 'Create AUTH-session' call.",
+                    "example": "session_signature_12345"
+                  },
+                  "kvm_id": {
+                    "type": "string",
+                    "description": "The unique identifier of the KVM VPS.",
+                    "example": "kvm_123456_789012"
+                  },
+                  "valid_until": {
+                    "type": "string",
+                    "description": "The expiration timestamp for the session, obtained from the 'Create AUTH-session' call.",
+                    "example": "1737476000"
+                  },
+                  "config": {
+                    "type": "string",
+                    "description": "JSON object containing the auto hydration configuration.\n\nExample: `{\"auto_hydration\":0}`\n\n**Disable auto hydration**",
+                    "example": "{\"auto_hydration\":0}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auto hydration disabled successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid parameters provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid session"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/get/autohydration_status": {
+      "post": {
+        "tags": [
+          "Traffic Pool"
+        ],
+        "summary": "Get Auto Hydration Status",
+        "description": "This endpoint retrieves the current auto hydration status for a specified KVM VPS.\n\nThe `api_host` parameter, obtained from the **'Create AUTH-session'** response, must be included in the request to route the request correctly.\n\nProvide the `signature`, `kvm_id`, and `valid_until` parameters from the **'Create AUTH-session'** response to authenticate the request.",
+        "operationId": "getAutoHydrationStatus",
+        "requestBody": {
+          "description": "Parameters required to retrieve the auto hydration status of a KVM VPS.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "signature": {
+                    "type": "string",
+                    "description": "The session signature obtained from the 'Create AUTH-session' call.",
+                    "example": "session_signature_12345"
+                  },
+                  "kvm_id": {
+                    "type": "string",
+                    "description": "The unique identifier of the KVM VPS.",
+                    "example": "kvm_xxxxx_yyyyy"
+                  },
+                  "valid_until": {
+                    "type": "string",
+                    "description": "The expiration timestamp for the session, obtained from the 'Create AUTH-session' call.",
+                    "example": "1737476000"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auto hydration status retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response_1": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string",
+                          "example": "success"
+                        },
+                        "auto_hydration": {
+                          "type": "string",
+                          "example": "off"
+                        }
+                      }
+                    },
+                    "or": {
+                      "type": "string",
+                      "example": "OR"
+                    },
+                    "response_2": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string",
+                          "example": "success"
+                        },
+                        "auto_hydration": {
+                          "type": "string",
+                          "example": "100"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid parameters provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid session"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/get/pool_traffic": {
+      "post": {
+        "tags": [
+          "Traffic Pool"
+        ],
+        "summary": "Get Global Traffic Pool Size",
+        "description": "This endpoint retrieves the total size of the global traffic pool for a specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.\n",
+        "operationId": "getGlobalTrafficPoolSize",
+        "requestBody": {
+          "description": "Required parameters to retrieve the global traffic pool size.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_pool_traffic_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Global traffic pool size retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_22"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_19"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_18"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_17"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/get/refill_log": {
+      "post": {
+        "tags": [
+          "Traffic Pool"
+        ],
+        "summary": "Get Hydration Log",
+        "description": "This endpoint retrieves the hydration (refill) log for a specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nUse the `query` parameter to filter the log by `client` or `kvm`.\n",
+        "operationId": "getHydrationLog",
+        "requestBody": {
+          "description": "Required parameters to retrieve the hydration log.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/get_refill_log_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Hydration log retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_23"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_20"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_18"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_17"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/set/additional_pool_traffic": {
+      "post": {
+        "tags": [
+          "Traffic Pool"
+        ],
+        "summary": "Assign Traffic Resources from Global Pool",
+        "description": "This endpoint assigns additional traffic resources from the global pool to a specified KVM VPS.  \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response,  \nis dynamically set in the URL.  \nThe amount of traffic to assign is specified in the `traffic` parameter (in GB).\n",
+        "operationId": "assignTrafficFromPool",
+        "requestBody": {
+          "description": "Required parameters to assign traffic resources.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_additional_pool_traffic_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Traffic resources assigned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_24"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_21"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_18"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_17"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/hooks/del": {
+      "post": {
+        "tags": [
+          "Hooks"
+        ],
+        "summary": "Delete a webhook",
+        "description": "This endpoint deletes a specific webhook for a given KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and `id` of the webhook to delete.\n",
+        "operationId": "deleteHook",
+        "requestBody": {
+          "description": "Required parameters to delete a webhook for a KVM VPS.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/hooks_del_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_25"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid or missing parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_18"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_17"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Access denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_403_13"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_17"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/hooks/set": {
+      "post": {
+        "tags": [
+          "Hooks"
+        ],
+        "summary": "Set Webhook for Traffic Monitoring",
+        "description": "This endpoint allows setting up webhooks for traffic monitoring on a specified KVM VPS.  \nThe `api_host` parameter, obtained from the **\"Create AUTH-session\"** response,  \nis dynamically set in the URL.  \nProvide the `signature`, `kvm_id`, `valid_until`, and webhook configuration details.\n",
+        "operationId": "setKvmHooks",
+        "requestBody": {
+          "description": "Required parameters to set a webhook for traffic monitoring.  \nAll parameters must be passed in the request body as `application/x-www-form-urlencoded`.\n",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/hooks_set_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook set successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_26"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_7"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_17"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_403_14"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_18"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/example/callback": {
+      "post": {
+        "tags": [
+          "Hooks"
+        ],
+        "summary": "Example Callback Triggered",
+        "description": "This endpoint demonstrates the structure of a callback triggered when a specified traffic threshold is reached.  \nThe callback URL should be provided during webhook setup, and this request will be made when the traffic trigger value is reached.\n",
+        "operationId": "trafficHookCallbackExample",
+        "requestBody": {
+          "description": "Parameters sent to the callback URL when the webhook is triggered.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/example_callback_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Callback received and processed successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_22"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_19"
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://{callback_url}",
+            "description": "Callback Server - The `callback_url` parameter should be provided when setting up the webhook.\n",
+            "variables": {
+              "callback_url": {
+                "description": "The user-defined callback URL where webhook notifications are sent.",
+                "default": "your-callback-url.com"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "inline_response_401_3": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Description of the error.",
+            "example": "Invalid or expired session signature."
+          },
+          "code": {
+            "type": "integer",
+            "description": "HTTP status code.",
+            "example": 401
+          }
+        }
+      },
+      "get_config_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"Create AUTH-session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS whose configuration is being retrieved.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "1737476000"
+          }
+        }
+      },
+      "inline_response_401_2": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Description of the error.",
+            "example": "Invalid authentication token"
+          },
+          "code": {
+            "type": "integer",
+            "description": "HTTP status code.",
+            "example": 401
+          }
+        }
+      },
+      "inline_response_401_5": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Invalid or expired session signature."
+          },
+          "code": {
+            "type": "integer",
+            "example": 401
+          }
+        }
+      },
+      "inline_response_401_4": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Description of the error.",
+            "example": "Invalid or expired session signature."
+          },
+          "code": {
+            "type": "integer",
+            "example": 401
+          }
+        }
+      },
+      "inline_response_401_7": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Unauthorized request."
+          }
+        }
+      },
+      "inline_response_401_6": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Invalid session"
+          }
+        }
+      },
+      "inline_response_401_9": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Indicates the operation failed due to an unauthorized request.",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "description": "Explanation of the unauthorized error.",
+            "example": "Session signature expired or invalid"
+          }
+        }
+      },
+      "inline_response_401_18": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Unauthorized access, session expired."
+          }
+        }
+      },
+      "inline_response_401_8": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Operation status indicating unauthorized access.",
+            "example": "error"
+          },
+          "error": {
+            "type": "string",
+            "description": "Explanation of the unauthorized error.",
+            "example": "Invalid session signature"
+          }
+        }
+      },
+      "inline_response_401_17": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Unauthorized access."
+          }
+        }
+      },
+      "inline_response_401_16": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Operation status.",
+            "example": "error"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message for unauthorized access.",
+            "example": "Session expired."
+          }
+        }
+      },
+      "inline_response_401_15": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Indicates the status of the request.",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "description": "Explanation of authentication failure.",
+            "example": "Session expired. Please re-authenticate."
+          }
+        }
+      },
+      "inline_response_401_14": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Indicates the status of the request.",
+            "example": "error"
+          },
+          "error": {
+            "type": "string",
+            "description": "Explanation of the authentication failure.",
+            "example": "Session signature has expired."
+          }
+        }
+      },
+      "inline_response_401_13": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Indicates the operation status.",
+            "example": "error"
+          },
+          "error": {
+            "type": "string",
+            "description": "Explanation of the authentication failure.",
+            "example": "Invalid or expired session signature."
+          }
+        }
+      },
+      "inline_response_401_12": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Indicates the failure status.",
+            "example": "error"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "A code representing the authentication error.",
+            "example": "UNAUTHORIZED"
+          },
+          "message": {
+            "type": "string",
+            "description": "Explanation of the authentication failure.",
+            "example": "Invalid session signature. Please log in again."
+          }
+        }
+      },
+      "inline_response_401_11": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status of the request.",
+            "example": "error"
+          },
+          "error": {
+            "type": "string",
+            "description": "Explanation for the unauthorized access attempt.",
+            "example": "Session signature has expired"
+          }
+        }
+      },
+      "inline_response_401_10": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Indicates an authentication failure.",
+            "example": "error"
+          },
+          "error": {
+            "type": "string",
+            "description": "Explanation of the unauthorized request.",
+            "example": "Unauthorized: Session signature is invalid or expired"
+          }
+        }
+      },
+      "inline_response_401_1": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Invalid or expired session."
+          },
+          "code": {
+            "type": "integer",
+            "example": 401
+          }
+        }
+      },
+      "inline_response_200_22": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "msg": {
+            "type": "string",
+            "description": "Message indicating the status of the traffic pool.",
+            "example": "traffic_pool exists"
+          },
+          "available_pool_traffic": {
+            "type": "string",
+            "description": "The available traffic pool size in GB.",
+            "example": "5000"
+          }
+        }
+      },
+      "inline_response_200_21": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "hooks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_21_hooks"
+            }
+          }
+        }
+      },
+      "inline_response_200_24": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "assigned_traffic": {
+            "type": "integer",
+            "description": "The amount of traffic assigned (in GB).",
+            "example": 10
+          }
+        }
+      },
+      "inline_response_200_23": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "log": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inline_response_200_23_log"
+            }
+          }
+        }
+      },
+      "set_reinstall_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"Create AUTH-session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to reinstall.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "1737476000"
+          },
+          "image": {
+            "type": "string",
+            "description": "The name of the operating system image to install.  \nUse the `get autoinstall images` endpoint to retrieve available images.\n",
+            "example": "debian-bullseye"
+          },
+          "password": {
+            "type": "string",
+            "description": "The root password for the new installation.\n\n⚠️ If \"cloudinit_user_data\" is provided, this parameter may be ignored depending on the cloud-init configuration.",
+            "example": "your-password"
+          },
+          "cloudinit_user_data": {
+            "type": "string",
+            "description": "Optional cloud-init configuration for supported images.\n\nExample:\n```yaml\n#cloud-config\nwrite_files:\n  - path: /etc/apt/apt.conf.d/99force-ipv4\n    content: |\n      Acquire::ForceIPv4 'true';\n    owner: 'root:root'\n    permissions: '0644'\nset_hostname: kvmtest\nuser: root\npassword: YOUR_ROOT_PASSWORD\ndisable_root: false\ndisable_root_opts: ''\nssh_pwauth: False\nssh_authorized_keys:\n  - ssh-rsa YOUR_SSH_KEY\nmanage_etc_hosts: true\nexpire: False\nruncmd:\n  - chage -d 19000 root\n  - [ /usr/bin/sed, -i, -E, 's/disable_root:.*true/disable_root: false/i', /etc/cloud/cloud.cfg ]\n  - [ /usr/bin/sed, -i, -E, 's/PermitRootLogin.*/PermitRootLogin without-password/i', /etc/ssh/sshd_config ]\n  - [ /usr/bin/sed, -i, -E, 's/#PermitRootLogin.*/PermitRootLogin yes/i', /etc/ssh/sshd_config ]\nusers:\n  - default\npower_state:\n  delay: now\n  mode: reboot\n  message: Bye Bye\n  timeout: 30\n  condition: True\npackage_update: false\npackage_upgrade: false\n```\n\nRefer to the [Cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/reference/examples.html) for details."
+          }
+        }
+      },
+      "inline_response_200_20": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "description": "Confirmation message for set PTR records.",
+            "example": "PTR records set successfully."
+          }
+        }
+      },
+      "set_download_iso_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"Create AUTH-session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to which the ISO will be added.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "1737476000"
+          },
+          "url": {
+            "type": "string",
+            "description": "The URL of the ISO file to download.  \nThe provided URL must point to a valid ISO file accessible via HTTP or HTTPS.\n",
+            "example": "http://example.com/my-custom.iso"
+          }
+        }
+      },
+      "hooks_get_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"Create AUTH-session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS to retrieve webhooks for.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_123456_789012"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "1737476000"
+          }
+        }
+      },
+      "inline_response_200_26": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "hook_id": {
+            "type": "string",
+            "description": "The ID of the created webhook.",
+            "example": "123"
+          }
+        }
+      },
+      "inline_response_200_25": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the operation.",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "description": "Confirmation message indicating successful deletion.",
+            "example": "Webhook with ID 1 has been deleted."
+          }
+        }
+      },
+      "inline_response_200_27": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status of the callback handling.",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "description": "Confirmation message indicating successful processing.",
+            "example": "Callback received successfully."
+          }
+        }
+      },
+      "set_reset_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"Create AUTH-session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM to reset.",
+            "example": "kvm_123456_789012"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp of the session obtained from the \"Create AUTH-session\" call.",
+            "example": "1737476000"
+          }
+        }
+      },
+      "get_ptr_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"get session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM to query PTR records for.",
+            "example": "kvm_123456_789012"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp of the session obtained from the \"get session\" call.",
+            "example": "1737476000"
+          },
+          "api_host": {
+            "type": "string",
+            "description": "The API host URL obtained from the \"get session\" call.",
+            "example": "api_host.edisglobal.com"
+          },
+          "ip": {
+            "type": "array",
+            "description": "A JSON-encoded list of IP addresses to query their PTR records.",
+            "example": [
+              "192.168.1.1",
+              "192.168.1.2",
+              "2001:db8:abcd:0012::1"
+            ],
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "inline_response_200_23_log": {
+        "type": "object",
+        "properties": {
+          "ts": {
+            "type": "string",
+            "description": "The timestamp of the hydration event.",
+            "example": "2023-03-29 09:47:10"
+          },
+          "gbytes": {
+            "type": "string",
+            "description": "The amount of traffic hydrated (in GB).",
+            "example": "100"
+          },
+          "kvm": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_123456_789012"
+          }
+        }
+      },
+      "inline_response_400_4": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Description of the error.",
+            "example": "Invalid parameters provided."
+          },
+          "code": {
+            "type": "integer",
+            "example": 400
+          }
+        }
+      },
+      "inline_response_400_3": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Description of the error.",
+            "example": "Invalid parameters provided."
+          },
+          "code": {
+            "type": "integer",
+            "description": "HTTP status code.",
+            "example": 400
+          }
+        }
+      },
+      "inline_response_400_6": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Invalid parameters provided"
+          }
+        }
+      },
+      "inline_response_400_5": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Invalid parameters provided."
+          },
+          "code": {
+            "type": "integer",
+            "example": 400
+          }
+        }
+      },
+      "inline_response_400_8": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Operation status indicating an error occurred.",
+            "example": "error"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing the issue with the request.",
+            "example": "Missing required parameter: kvm_id"
+          }
+        }
+      },
+      "inline_response_400_7": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid parameters provided."
+          }
+        }
+      },
+      "inline_response_400_9": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Operation status indicating an error occurred.",
+            "example": "error"
+          },
+          "error": {
+            "type": "string",
+            "description": "Details about the missing or invalid parameters.",
+            "example": "Missing required parameter: kvm_id"
+          }
+        }
+      },
+      "hooks_set_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"Create AUTH-session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_123456_789012"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.",
+            "example": "1737476000"
+          },
+          "callback_method": {
+            "type": "string",
+            "description": "The HTTP method to use for the callback (`post` or `get`).",
+            "example": "post"
+          },
+          "callback_user": {
+            "type": "string",
+            "description": "(Optional) Username for callback authentication.",
+            "example": "callback_user"
+          },
+          "callback_pw": {
+            "type": "string",
+            "description": "(Optional) Password for callback authentication.",
+            "example": "callback_password"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of hook to create (only `traffic` is allowed).",
+            "example": "traffic"
+          },
+          "trigger_value": {
+            "type": "string",
+            "description": "Trigger value to activate the webhook.  \n- A percentage value for traffic usage (e.g., `80` for 80%).  \n- Set to `demo` for immediate unique call.\n",
+            "example": "80"
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "The callback URL (HTTP or HTTPS) that receives notifications  \nwhen the trigger value is reached.  \nExample: `https://example.com/yourcallback`.  \nSource IP: `149.154.154.251`\n",
+            "example": "https://example.com/yourcallback"
+          }
+        }
+      },
+      "get_all_details_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the **\"Create AUTH-session\"** call.",
+            "example": "session_signature_98765"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS whose details are being retrieved.  \nThis value is specific to your VPS.\n",
+            "example": "kvm_100200_300400"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, obtained from the **\"Create AUTH-session\"** call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "1737476000"
+          }
+        }
+      },
+      "inline_response_403": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "You do not have permission to access this resource."
+          },
+          "code": {
+            "type": "integer",
+            "example": 403
+          }
+        }
+      },
+      "inline_response_401": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Unauthorized"
+          },
+          "code": {
+            "type": "integer",
+            "example": 401
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid WHMCS credentials. Please provide correct credentials."
+          }
+        }
+      },
+      "inline_response_400_2": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Description of the error.",
+            "example": "Missing required parameter: kvm_id"
+          },
+          "code": {
+            "type": "integer",
+            "description": "HTTP status code.",
+            "example": 400
+          }
+        }
+      },
+      "inline_response_400": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Invalid credentials or missing parameters."
+          },
+          "code": {
+            "type": "integer",
+            "example": 400
+          },
+          "message": {
+            "type": "string",
+            "example": "Please check your input and try again."
+          }
+        }
+      },
+      "inline_response_400_1": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Missing or invalid parameters."
+          },
+          "code": {
+            "type": "integer",
+            "example": 400
+          }
+        }
+      },
+      "get_isos_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"Create AUTH-session\" call.\"",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM.\"",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp of the session obtained from the \"Create AUTH-session\" call.\"",
+            "example": "1737476000"
+          }
+        }
+      },
+      "set_poweron_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"Create AUTH-session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM to power on.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp of the session obtained from the \"Create AUTH-session\" call.",
+            "example": "1737476000"
+          }
+        }
+      },
+      "hooks_del_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"Create AUTH-session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_123456_789012"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.",
+            "example": "1737476000"
+          },
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the webhook to delete.",
+            "example": 1
+          }
+        }
+      },
+      "inline_response_200_data_kvm_234567_890123": {
+        "type": "object",
+        "properties": {
+          "api_host": {
+            "type": "string",
+            "description": "The API host URL for further operations.",
+            "example": "234567.edisglobal.com"
+          },
+          "api_rdns": {
+            "type": "string",
+            "description": "Reverse DNS API URL.",
+            "example": "dns-api.edis.at"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_234567_890123"
+          },
+          "valid_until": {
+            "type": "integer",
+            "description": "The expiration timestamp for the session.",
+            "example": 1737479000
+          },
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained.",
+            "example": "23456789012345678901234567890123456789012345678901"
+          },
+          "suspended": {
+            "type": "string",
+            "description": "Suspension status.",
+            "example": "n"
+          },
+          "description": {
+            "type": "string",
+            "description": "VPS description.",
+            "example": "test-vps-2"
+          },
+          "lps": {
+            "type": "string",
+            "description": "Location of the VPS.",
+            "example": "02"
+          },
+          "lps_ispremium": {
+            "type": "boolean",
+            "description": "Indicates if the location is premium.",
+            "example": true
+          }
+        }
+      },
+      "set_additional_pool_traffic_body": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"Create AUTH-session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_123456_789012"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, as obtained from the \"Create AUTH-session\" call.  \nEnsure that the session is valid and has not expired.\n",
+            "example": "1737476000"
+          },
+          "api_host": {
+            "type": "string",
+            "description": "The API host URL obtained from the \"Create AUTH-session\" call.",
+            "example": "xxxxx.edisglobal.com"
+          },
+          "traffic": {
+            "type": "integer",
+            "description": "The amount of traffic to assign from the global pool (in GB).",
+            "example": 10
+          }
+        }
+      },
+      "set_config_body": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "description": "The operation to perform.  \nAccepted values: `enable_auto_hydration`, `disable_auto_hydration`, `update_settings`.\n",
+            "example": "enable_auto_hydration"
+          },
+          "signature": {
+            "type": "string",
+            "description": "The session signature obtained from the \"Create AUTH-session\" call.",
+            "example": "session_signature_12345"
+          },
+          "kvm_id": {
+            "type": "string",
+            "description": "The unique identifier of the KVM VPS.",
+            "example": "kvm_xxxxx_yyyyy"
+          },
+          "valid_until": {
+            "type": "string",
+            "description": "The expiration timestamp for the session, obtained from the \"Create AUTH-session\" call.",
+            "example": "1737476000"
+          },
+          "config": {
+            "type": "string",
+            "description": "A JSON object containing the configuration settings.  \nExamples:  \n- **Enable Auto-Hydration:** `{\"auto_hydration\":300}` using one of `100`, `200`, `300`, or `500` GB  \n- **Disable Auto-Hydration:** `{\"auto_hydration\":0}`  \n- **Update Settings:** `{\"boot_timeout\":\"5000\", \"vnc_keymap\":\"en-us\"}`\n",
+            "example": "{\"auto_hydration\":300}"
+          }
+        }
+      },
+      "inline_response_403_1": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Description of the error.",
+            "example": "Access to this resource is denied"
+          },
+          "code": {
+            "type": "integer",
+            "description": "HTTP status code.",
+            "example": 403
+          }
+        }
+      },
+      "inline_response_500_12": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Indicates the failure status.",
+            "example": "error"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "A code representing the server error.",
+            "example": "INTERNAL_ERROR"
+          },
+          "message": {
+            "type": "string",
+            "description": "Explanation of the server-side error.",
             "example": "An unexpected error occurred. Please try again later."
           }
         }
