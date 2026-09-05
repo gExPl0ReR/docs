@@ -1,74 +1,72 @@
 ---
-title: How to Change VPS Server Location
-sidebarTitle: Change Server Location
-description: You may request a one-time free location change within 24 hours of ordering a VPS. After 24 hours, relocation requires ordering a new VPS.
+title: "How to Change VPS Server Location"
+sidebarTitle: "Change Server Location"
+description: "Change your VPS location free within 24 hours and receive a direct replacement with new login details and IP. Understand data and refund effects."
 ---
 
+## How a VPS location change works
 
+IP addresses and VPS resources are tied to a specific server location. EDIS Global therefore cannot physically move an existing VPS to another region.
 
-### Understanding VPS server location changes
+For an approved location change, we provision a **direct replacement VPS** in another available EDIS Global location of your choice. The replacement becomes a new VPS service with new access and network details.
 
-IP addresses are tied to specific server locations and cannot be transferred between geographical regions. Because of this technical limitation, an existing VPS cannot be physically moved to another location.
+## Free location change within 24 hours
 
-Instead, we perform a location change by reprovisioning the VPS in the new location.
+You may request **one free location change within 24 hours of the original VPS order**. This option is useful if you selected the wrong location, need lower latency, or require a different geographic presence.
 
----
+### What you receive
 
-### Free location change within 24 hours
+When EDIS Global completes the location change:
 
-You may request a **one-time free location change within 24 hours of the original VPS order**.
+- You receive a replacement VPS in another available location of your choice.
+- You receive new login details and a new IP address.
+- The replacement keeps the same VPS plan and billing cycle.
+- The new VPS service directly replaces the original service.
+- The original VPS, its IP addresses, and its data are permanently removed.
 
-This option is useful if you:
+### Additional free primary IPv4 change
 
-- selected the wrong location
-- need lower latency to a different region
-- require a different geographic presence
+The location replacement also includes the option of **one additional free change of the new VPS's primary IPv4 address** if required.
 
-When a location change is approved:
+After an IPv4 change, you must reinstall the VPS or configure the new address manually through VNC. See [Change IP Address](/faq/ip-addresses/change-ip-address) for the complete procedure.
 
-- The VPS will be reprovisioned in the new location
-- The billing cycle and plan remain unchanged
-- No refund is issued
-- The original VPS will be permanently deleted
-
-
-**Location change restrictions:**
-
-- Available only within 24 hours of the original order
-- Limited to one location change per VPS service
-- Additional IPv4 addresses are not automatically migrated and may require re-approval
-- Services flagged for abuse, spam, or policy violations are not eligible
-- Subject to resource availability in the requested location
-
-EDIS Global reserves the right to deny location change requests in cases of abuse prevention, fraud detection, or policy enforcement.
-
+### Refund eligibility after a location change
 
 <Warning>
-
-**Important:**  
-Location changes involve reprovisioning a new VPS. Data, IP addresses, and configuration are not migrated automatically. You are responsible for creating backups before requesting a location change.
-
+  A completed location change replaces the refund option. After EDIS Global provisions the replacement VPS, the original order and replacement service are no longer eligible for a refund.
 </Warning>
 
----
+A primary IPv4 change alone does not remove refund eligibility. A completed server location change does. See the [Cancellation and Refund Policy](/faq/billing-lifecycle/cancellation-and-refund-policy) for all conditions.
 
-### After 24 hours
+## Before requesting the location change
 
-After the initial 24-hour period, location changes are no longer available.
+<Warning>
+  Data, IP addresses, installed software, and configuration are not migrated to the replacement VPS. Back up everything you need before requesting the location change.
+</Warning>
 
-To use a different location, follow these steps:
+Location changes are:
+
+- available only within 24 hours of the original order;
+- limited to one location change per VPS service;
+- subject to resource availability in the requested location; and
+- unavailable for services flagged for abuse, spam, fraud, or other policy violations.
+
+Additional IPv4 addresses are not migrated automatically and may require a new order or approval. EDIS Global may decline a request for abuse prevention, fraud detection, resource availability, or policy enforcement reasons.
+
+## Changing location after 24 hours
+
+After the initial 24-hour period, the free location replacement is no longer available. To use a different location:
 
 <Steps>
-  <Step title='Order a New VPS:'>
-    Order a VPS in the desired location.
+  <Step title="Order a new VPS">
+    Choose and order a VPS in the required location.
   </Step>
 
-  <Step title='Migrate Your Data:'>
-    Transfer your data and configuration to the new VPS.
+  <Step title="Migrate your data">
+    Transfer the data and configuration from the existing VPS to the new service.
   </Step>
 
-  <Step title='Cancel the Old VPS:'>
-    Cancel the VPS in the previous location once migration is complete.
+  <Step title="Cancel the old VPS">
+    Cancel the previous VPS only after confirming that the new service works correctly.
   </Step>
 </Steps>
-

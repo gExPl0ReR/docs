@@ -7,63 +7,72 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 
 ## How to change your IP address
 
-### Free IP change (within 24 hours)
+### Free IP change within 24 hours
 
-You’re eligible for one **free IP change** if requested within the first 24 hours of your VPS purchase.
+You are eligible for one **free change of your primary IPv4 address** if you request it within the first 24 hours of purchasing the VPS.
 
-**Steps:**
+Changing the IP address keeps the same VPS service, server location, plan, and billing cycle.
 
-1. Log in to your EDIS Global [dashboard](https://manage.edisglobal.com/clientarea.php).
-2. Navigate to **Services** and locate your VPS.
-3. Click the ♻️ recycle icon next to your current IP to request the change.
+<Steps>
+  <Step title="Open your VPS">
+    Log in to the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), open **Services**, and select your VPS.
+  </Step>
 
-> **Note:** After the IP change, you will need to **reinstall your system or manually configure** the new IP using VNC. Once the new IP is activated, your old IP stops working immediately.
+  <Step title="Request the IP change">
+    Select the ♻️ recycle icon beside the current IP address.
+  </Step>
+
+  <Step title="Configure the new IP">
+    Reinstall the VPS or configure the new IP manually through VNC. The old address stops working immediately when the new IP is assigned.
+  </Step>
+</Steps>
 
 ![IP Change Recycle Icon](/assets/vps-change-ip-recycle-symbol.webp)
 
-> **Please note:** The free IP change applies only to your primary IPv4 address. If you need to change any additional IPv4 addresses, you can do so using our paid **Standard** or **Bespoke IP Change** services.
+<Info>
+  A free primary IPv4 change does **not** remove your refund eligibility. You may still request a refund within the original 24-hour window if all other [refund conditions](/faq/billing-lifecycle/cancellation-and-refund-policy) are met.
+</Info>
 
-## IP change after 24 hours (paid options)
+If you receive a free [location replacement](/faq/server-locations/change-server-location), the replacement VPS also includes the option of one additional free primary IPv4 change if required. Because the location has already changed, the replacement service is not eligible for a refund.
 
-If more than 24 hours have passed, IP changes incur a fee. You have two options:
+The free change applies only to the primary IPv4 address. Use the paid **Standard** or **Bespoke IP Change** service to change additional IPv4 addresses.
 
-| Option                 | Price   | Description                                                       |
-| ---------------------- | ------- | ----------------------------------------------------------------- |
-| **Standard IP Change** | **€5**  | A new IP is automatically assigned (random subnet; no selection). |
-| **Bespoke IP Change**  | **€10** | You choose an IP from a provided list of available addresses.     |
+## IP change after 24 hours
+
+After the first 24 hours, you can choose one of these paid options:
+
+| Option | Price | Description |
+| --- | --- | --- |
+| **Standard IP Change** | **EUR 5** | The system assigns an available IP automatically. You cannot select or guarantee a particular subnet. |
+| **Bespoke IP Change** | **EUR 10** | You choose an IP from a list of available addresses and prefixes. |
 
 ### Standard IP change
 
-After payment, the system assigns a random IP from a /24 subnet. You cannot influence the subnet selection.
-
-> **Note:** “Random” means you cannot pick the subnet or guarantee its prefix.
+After payment, the system assigns an available IP automatically. You cannot influence the subnet selection.
 
 <CtaButton label="Order Standard IP Change" link="https://manage.edisglobal.com/cart.php?gid=addons" />
 
 ### Bespoke IP change
 
-You will receive a list of available IPs (from varying prefixes) and can choose one.
-
-> **Note:** If you previously had an IP and it’s still unassigned, you may see it in this list.
+You receive a list of available IP addresses from different prefixes and select the one you prefer. If an IP previously assigned to you is still available, it may appear in the list.
 
 <CtaButton label="Order Bespoke IP Change" link="https://manage.edisglobal.com/cart.php?gid=addons" />
 
----
+## Configure the new IP after any change
 
-## Configure new IP after change (for ALL cases)
+<Warning>
+  Once EDIS Global assigns the new IP, the old IP stops working immediately. You must activate the new address by reinstalling the VPS or configuring it manually through VNC.
+</Warning>
 
-> **Important:** Once the new IP is assigned, the **old IP immediately stops working**. You must activate the new IP by either:
->
-> • **Reinstalling your VPS**, or • **Manually configuring** it using VNC
+<CtaButton label="Reinstall Linux or Windows" link="/vps-management/autoinstall-reinstall-install-vps-linux-windows" />
 
-<CtaButton label="(Re-) Install Linux/Windows" link="../../vps-management/autoinstall-reinstall-install-vps-linux-windows" />
+<CtaButton label="Enable VNC" link="/vps-management/enable-vnc-server" />
 
-<CtaButton label="Enable VNC server" link="../../vps-management/enable-vnc-server" />
+## Summary
 
----
-
-## Summary & recommendations
-
-- If within 24 hours → use the **free IP change**.
-- After 24 hours → choose **Standard** or **Bespoke**.
-- **Always** follow up by reinstalling or configuring your new IP (see above).
+- During the first 24 hours, you may change the primary IPv4 address once free of charge.
+- A primary IPv4 change does not remove refund eligibility during the original 24-hour window.
+- A free location replacement includes the option of one additional free primary IPv4 change if required.
+- After 24 hours, select a Standard or Bespoke paid IP change.
+- Reinstall the VPS or configure the new IP manually after every IP change.
+- A [server location change](/faq/server-locations/change-server-location) is a direct VPS replacement and follows different refund rules.
