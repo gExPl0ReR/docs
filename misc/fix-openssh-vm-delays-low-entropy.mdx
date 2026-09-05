@@ -1,5 +1,5 @@
 ---
-title: 'Fix OpenSSH Delays on VMs Caused by Low Entropy'
+title: 'Fix OpenSSH delays on VMs caused by low entropy'
 sidebarTitle: 'Fix OpenSSH Delays (Entropy)'
 description: "Fix OpenSSH startup delays on virtual machines caused by low entropy. Feed entropy from the host using VirtIO RNG or other methods to improve VM responsiveness."
 ---
@@ -30,7 +30,7 @@ By providing additional entropy sources, such as through VirtIO RNG or other met
 
 VirtIO provides an efficient way to supply entropy to a guest VM. Follow these steps to enable it:
 
-**Edit the QEMU Command Line**
+**Edit the QEMU command line**
 Add the following parameters to the QEMU command line for your VM:
 
 ```bash
@@ -44,7 +44,7 @@ Add the following parameters to the QEMU command line for your VM:
 
 *max-bytes* and *period*: Apply rate-limiting to prevent excessive CPU consumption by the entropy provider.
 
-**Ensure Compatibility**
+**Ensure compatibility**
 
 Guest systems with Linux kernels as old as version `2.6.32` can automatically use the VirtIO entropy source after a reboot. For older kernels or other OS types, ensure the VirtIO RNG driver is supported and enabled.
 

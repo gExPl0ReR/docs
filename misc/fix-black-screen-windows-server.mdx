@@ -1,5 +1,5 @@
 ---
-title: "Fix Black Screen When Connecting to Windows Server"
+title: "Fix black screen when connecting to Windows Server"
 description: "Fix the black screen issue when connecting to a Windows Server with Microsoft Remote Desktop. Modify the registry or use clients like MobaXterm or mRemoteNG."
 ---
 
@@ -27,7 +27,7 @@ Adjusting a specific registry setting can resolve the black screen issue.
 
    * Type `cmd` and press **Enter** to launch the Command Prompt.
 
-2. **Run the Registry Command**: Copy and paste the following command into the Command Prompt and press **Enter**:
+2. **Run the registry command**: Copy and paste the following command into the Command Prompt and press **Enter**:
 
 ```powershell
 reg add "HKLM\SOFTWARE\Microsoft\Terminal Server Client" /v "UseURCP" /t REG_DWORD /d 0 /f
