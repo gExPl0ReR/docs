@@ -1,75 +1,83 @@
 ---
-title: Port 25 SMTP Rate Limit Policy
-sidebarTitle: Port 25 Rate Limit Policy
-description: Learn about EDIS Global's SMTP port 25 policy, including the rate limit and how it protects network integrity while supporting regular email communication.
+title: "Port 25 SMTP policy and rate limits"
+sidebarTitle: "Port 25 Policy"
+description: "Understand how inbound and outbound SMTP Port 25 works on EDIS Global VPS services, including rate limits, exception reviews, and anti-spam enforcement."
 ---
 
-## Is port 25 open for outgoing email?
+## Is Port 25 available?
 
+Yes. EDIS Global permits SMTP traffic on TCP Port 25, subject to the following controls:
 
+| Direction | Policy |
+| --- | --- |
+| **Inbound TCP Port 25** | Unrestricted |
+| **Outbound TCP Port 25** | Open, with a default rate limit on VPS instances created on or after **February 24, 2025** |
 
-At **EDIS Global**, we know how important reliable email communication is for your business. That’s why **port 25 is open** for outbound SMTP traffic—so you can send emails without hassle.
+The outbound rate limit is **8 packets per second (pps)**, with an **initial burst of up to 16 packets**.
 
+<Note>
+  The effective date is based on the creation date of the individual VPS—not the
+  creation date of the customer account. VPS instances created before February
+  24, 2025 are not subject to this automatic default rate limit. Our
+  Acceptable Use Policy and anti-abuse controls apply to every VPS.
+</Note>
 
+This is a network packet rate limit, not an allowance for a specific number of email messages.
 
-To keep our network fast and secure for everyone, we apply a smart **rate limit of 8 packets per second (pps)**, with a **16 pps initial burst**. This ensures fair use and protects our network’s integrity.
+## Why outbound Port 25 is rate-limited
 
+The rate limit helps EDIS Global:
 
+- Protect the reputation of its IP address ranges
+- Reduce unsolicited email and compromised-server abuse
+- Preserve reliable email delivery for legitimate users
+- Respond quickly to abuse while keeping Port 25 available for normal use
 
-This limit is more than enough for **regular email use** and won’t affect your everyday sending. It simply helps prevent abuse while keeping your emails flowing smoothly.
+## Can the outbound rate limit be removed?
 
+The outbound Port 25 rate limit is **not a standard paid add-on**, and removal is not generally available.
 
-**EDIS Global gives you the freedom to send emails easily—on a network that’s secure, reliable, and built to perform.**
+EDIS Global may, at its sole discretion, approve an exception for an established and verifiable business operating a legitimate, consent-based email service. Contact [EDIS Global Support](https://www.edisglobal.com/contact) before beginning such activity.
 
+As part of the review, we may request:
 
+- The legal business name and responsible contact person
+- A public website and verifiable business presence
+- The sending domains and a detailed description of the use case
+- Expected sending and recipient volumes
+- An explanation of how recipients provide consent
+- Unsubscribe, suppression, bounce, and complaint-handling procedures
+- A working abuse contact
+- Correct rDNS, SPF, DKIM, and DMARC configuration
+- Confirmation that the VPS is not operating as an open relay
 
-## 🔒 Why do we rate-limit port 25?
+Any approval applies only to the **specific VPS reviewed**. It is not account-wide and may be revoked at any time.
 
-We apply this rate limit to protect both our network and our customers from the negative impacts of spamming activities. Here are some key reasons for this policy:
+<Warning>
+  Payment, account credit, identity verification, supporting documents, or the
+  submission of a request does not guarantee approval. Exceptions are not
+  approved for cold email, purchased or scraped recipient lists, unsolicited
+  bulk email, or other activity that violates our
+  [Acceptable Use Policy](/getting-started/acceptable-use-policy).
+</Warning>
 
-### 🛡️ Protecting IP reputation
+## What happens if spam is reported?
 
-Spam activity can result in our IP addresses being blacklisted by major email providers such as Gmail and Hotmail. Our rate-limiting strategy helps safeguard the reputation of our IP ranges, ensuring reliable email delivery for legitimate users.
+EDIS Global may immediately block **outbound TCP Port 25 for the entire VPS** if a credible complaint or other evidence indicates that unsolicited email was sent from any IP address assigned to that VPS.
 
-### 🚫 Reducing abuse risk
+The block applies to **all IPv4 and IPv6 addresses assigned to the VPS**, even if the complaint concerns only one IP address. Inbound TCP Port 25 remains unaffected.
 
-Spammers often target unrestricted SMTP services. By applying this limit, we make it less attractive for potential abusers to exploit our network for sending bulk spam emails.
+A single substantiated complaint may be sufficient. The customer must promptly:
 
-### ⚖️ Fair usage for all customers
+1. Investigate and stop the reported activity
+2. Secure any compromised accounts, credentials, applications, or software
+3. Address the cause of the incident
+4. Respond to EDIS Global with the remediation taken
 
-By limiting SMTP traffic evenly across all accounts created after February 24, 2025, we ensure that no individual client can consume disproportionate resources, protecting overall service quality.
+The outbound Port 25 block may remain in place indefinitely if the incident is not resolved satisfactorily. Repeated complaints, deliberate unsolicited mailing, or failure to cooperate may result in additional service restrictions, suspension, or account termination without refund.
 
-### 🔒 Simplifying compliance and reducing legal risks
+See our [Acceptable Use Policy](/getting-started/acceptable-use-policy) and [abuse-reporting requirements](/misc/reporting-abuse) for further information.
 
-While authorities may not directly intervene in spam complaints, a high volume of spam-related abuse can bring regulatory scrutiny and reputational harm. This policy helps mitigate those risks.
+## Need higher email capacity?
 
-
-
-## ⚙️ What does this mean for you?
-
-- **Port 25 is open by default** for outbound email traffic.
-- SMTP traffic is **rate-limited to 8 packets per second (pps)**, with an **initial burst of 16 pps**. This is more than enough for standard email usage and swift outbound email delivery.
-- This limit is automatically applied to all **newly generated accounts starting February 24, 2025**.
-
-
-
-## 🚫 Can the rate limit be lifted?
-
-No. The **rate limit on port 25 is permanent** and applies to all customers equally, regardless of payment method or account history. This policy ensures the stability and reputation of our services for all users.
-
-
-
-## ❓ Need higher email capacity?
-
-If your use case requires sending large volumes of email, we recommend using a specialized email delivery service that is designed for bulk mailing.
-
-
-
-## 📌 Important reminders
-
-- Be mindful of our strict **NO SPAM policy**.
-- Any spam complaints can result in **account termination without eligibility for a refund**.
-
-Thank you for your understanding and cooperation.
-
-— **EDIS Global Support Team**
+For high-volume transactional or marketing email, we recommend using a specialized, authenticated email delivery service with established bounce, suppression, and complaint management.

@@ -1,13 +1,21 @@
 ---
-title: Port 25 open for email?
-description: "Port 25 (SMTP) is open on all EDIS Global VPS services. Outbound email is allowed under our strict no-spam policy; abuse can lead to account termination."
+title: "Is Port 25 open for email?"
+description: "Inbound SMTP Port 25 is unrestricted on EDIS Global VPS services. Outbound Port 25 is open, with a default rate limit on newer VPS instances and strict anti-spam controls."
 ---
 
-## Does EDIS filter or block any ports?
+## Is Port 25 open?
 
-**EDIS doesn't have any ports filtered or closed.** Public IP addresses are configured directly on your VPS network interface. You decide which services to use and which firewall rules you wish to configure. From our side, there are no limits.
+Yes. EDIS Global permits SMTP traffic on TCP Port 25:
 
-<Note>
-  Please be mindful of our **strict NO SPAM policy**. Any SPAM complaints can
-  lead to account termination without eligibility for a refund.
-</Note>
+- **Inbound TCP Port 25 is unrestricted.**
+- **Outbound TCP Port 25 is open.** VPS instances created on or after **February 24, 2025** have a default limit of **8 packets per second**, with an **initial burst of up to 16 packets**.
+
+The effective date is based on the creation date of the individual VPS, not the creation date of your customer account.
+
+<Warning>
+  EDIS Global has a strict no-spam policy. If unsolicited email is sent from any
+  IP address assigned to a VPS, we may block outbound TCP Port 25 for the
+  entire VPS. The block covers all IP addresses assigned to that VPS.
+</Warning>
+
+For exception requirements and enforcement details, see our [Port 25 SMTP policy and rate limits](/faq/port-25-smtp-rate-limit-policy).
