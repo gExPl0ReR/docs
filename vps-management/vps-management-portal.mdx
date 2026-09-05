@@ -1,14 +1,14 @@
 ---
 title: "EDIS Global VPS Management Portal"
 sidebarTitle: "VPS Management Portal"
-description: "Control, configure and monitor your EDIS Global VPS from one portal. Reinstall operating systems, use VNC, manage traffic, configure rDNS and automate through the API."
+description: "Control, configure and monitor your EDIS Global VPS from one portal. Reinstall operating systems, change IP addresses, manage traffic, use VNC and automate through the API."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
 ## Complete control of your VPS
 
-The EDIS Global VPS Management Portal gives you direct control over your virtual servers from one convenient dashboard. Restart a server, deploy a new operating system, open a console, monitor resource usage, manage traffic and automate routine operations without waiting for manual assistance.
+The EDIS Global VPS Management Portal gives you direct control over your virtual servers from one convenient dashboard. Change an IP address, restart a server, deploy a new operating system, open a console, monitor resource usage, manage traffic and automate routine operations without waiting for manual assistance.
 
 ![EDIS Global VPS Management Portal with server controls, traffic management and monitoring](/images/edis-global-management-portal-demo.webp "EDIS Global VPS Management Portal")
 
@@ -48,19 +48,21 @@ _Portal shown with fictional demo data._
 
 ---
 
-## Configure networking and virtual hardware
+## Manage IP addresses and virtual hardware
+
+For VPN providers and other IP-sensitive workloads, the portal makes essential IP and system controls easy to find and use.
 
 <Columns cols={2}>
-  <Card title="Reverse DNS" icon="exchange-alt" href="../faq/ip-addresses/setting-up-reverse-pointers">
+  <Card title="Change IP address" icon="exchange-alt" href="../faq/ip-addresses/change-ip-address">
+    Request a new primary IPv4 address from the portal. One change is free within 24 hours of purchase, with Standard and Bespoke options available afterwards.
+  </Card>
+
+  <Card title="Reverse DNS" icon="at" href="../faq/ip-addresses/setting-up-reverse-pointers">
     Configure IPv4 and IPv6 PTR records for services that require accurate reverse DNS.
   </Card>
 
   <Card title="System configuration" icon="sliders" href="./system-configuration-dialog">
     Adjust virtual hardware settings such as display, boot timeout, network emulation and CPU topology.
-  </Card>
-
-  <Card title="Network information" icon="network-wired">
-    View the IPv4, IPv6 and network details required to configure your operating system.
   </Card>
 
   <Card title="Support PIN" icon="key" href="./your-support-pin">
@@ -84,7 +86,7 @@ Understand how your VPS is performing and stay ahead of traffic limits directly 
   </Card>
 </Columns>
 
-Traffic stored in your Traffic Pool does not expire. You can assign it to any VPS in your account. **Auto-Hydration** assigns additional traffic automatically when a VPS reaches 99% of its available allowance, provided sufficient Pool Traffic is available.
+Every newly purchased VPS adds **100 GB of complimentary traffic** to your shared Traffic Pool. Traffic stored in the pool does not expire and can be assigned to any VPS in your account. **Auto-Hydration** assigns additional traffic automatically when a VPS reaches 99% of its available allowance, provided sufficient Pool Traffic is available.
 
 <CtaButton label="Buy Pool Traffic" link="https://www.edisglobal.com/buy-traffic" />
 
@@ -106,15 +108,23 @@ Use the EDIS Global APIs to integrate VPS deployment and management into your ow
 
 ---
 
-## Manage renewals and billing cycles
+## Upgrade and renew your VPS
 
-Need to renew before the regular due date? Use the **Create Invoice / Renew** button to [renew a VPS immediately and select a new billing cycle](../faq/billing-lifecycle/how-vps-renewals-work#renew-instantly-from-the-portal).
+<Columns cols={2}>
+  <Card title="Upgrade your plan" icon="arrow-up" href="../faq/upgrades-downgrades/upgrade-plan">
+    Move to a larger VPS tier directly from the portal. You pay only the prorated price difference for the current billing period.
+  </Card>
+
+  <Card title="Renew early or change billing cycle" icon="file-invoice" href="../faq/billing-lifecycle/how-vps-renewals-work#renew-instantly-from-the-portal">
+    Create a renewal invoice before the regular due date and select the billing cycle that best fits your needs.
+  </Card>
+</Columns>
 
 ---
 
 ## Ready to get started?
 
-Already have an EDIS Global VPS? Open the portal and select your service. Looking for a new deployment? Compare our VPS plans and choose from more than 50 global locations.
+Already have an EDIS Global VPS? Open the portal and select your service. Looking for a new deployment? Compare our VPS plans and choose from 50 global locations.
 
 <CtaButton label="Open VPS Management Portal" link="https://manage.edisglobal.com/clientarea.php" />
 
