@@ -5,7 +5,7 @@ description: "Understand the VPS Traffic Information dashboard, how EDIS Global 
 
 ## All about VPS traffic, metering and refills
 
-This document explains how to access and interpret traffic information for a VPS through the VPS Management Portal. It includes details on total traffic used, available (remaining) traffic, and monthly reset/refills, as well as a chart showing cumulative traffic and days remaining until the next refill. You can also view daily traffic data for every VPS.
+This document explains how to access and interpret traffic information for a VPS through the VPS Management Portal. It covers total traffic used, available (remaining) traffic, and monthly reset/refills. It also describes a chart showing cumulative traffic and days remaining until the next refill. You can also view daily traffic data for every VPS.
 
 ### Access your VPS traffic information
 
@@ -59,7 +59,7 @@ EDIS Global sends an informational notice at **80%** and a warning at **90%** of
 
 At **99%**, Auto-Hydration assigns the selected **100 GB**, **200 GB**, **300 GB**, or **500 GB** increment, provided the Pool balance is sufficient. The current total allowance then increases by the assigned amount.
 
-EDIS Global provides an approximately **5% grace allowance** before rate-limiting. If no additional traffic becomes available, the VPS Ethernet interface is limited to about **64 kbit/s** at approximately **105% usage**. An action-required notification is sent when the rate limit is applied.
+EDIS Global provides an approximately **5% grace allowance** before rate-limiting. If no additional traffic becomes available, the VPS Ethernet interface is limited to about **64 kbit/s** at approximately **105% usage**. EDIS Global sends an action-required notification when the rate limit is applied.
 
 There is no automatic overage charge, and the VPS remains online. Review all [restoration options](/faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global) if the allowance has been exhausted.
 
@@ -67,7 +67,7 @@ There is no automatic overage charge, and the VPS remains online. Review all [re
 
 ### Exponential traffic chart
 
-We have a chart showing the **total (cumulated) traffic** since the last refill. VPS traffic meters are reset and refilled monthly on your product's key (renewal) date.
+The Traffic Information panel shows a chart of the **total (cumulative) traffic** since the last refill. VPS traffic meters are reset and refilled monthly on your product's key (renewal) date.
 
 There is a small indicator (red arrow below) showing how many days remain until the next monthly refill. This helps you decide whether to:
 
@@ -80,5 +80,5 @@ The red line represents the current total allowance for the VPS. It begins with 
 ![Detailed Traffic Information](/assets/lHUScqmop6d5_TFXKZlHt_cumulative-traffic-bc46ac6118.png)
 
 <Note>
-  In the panel, hover the mouse over any particular day to get more insights from the readings. Please note that the diagram is rendered exponentially and not linearly.
+  In the panel, hover over any particular day to see detailed readings. The diagram is rendered exponentially, not linearly.
 </Note>
