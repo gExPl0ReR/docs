@@ -87,13 +87,24 @@ Enable **Auto-Hydration** for an individual VPS and select an increment of **100
 
 ## Traffic Pool in the Traffic Information window
 
-The **Traffic Information** window shows current VPS usage, the next monthly refill, the shared Pool balance, and the available manual and automatic assignment controls.
+The **Traffic Information** window combines current-cycle traffic data for this VPS with the shared Traffic Pool balance and assignment controls for your account. Use it to see how close the VPS is to its allowance, when Plan Traffic will refill, and whether Pool Traffic is available to assign.
 
-![EDIS Global Traffic Pool manual assignment and Auto-Hydration controls](/images/edis-global-traffic-pool-controls.webp "EDIS Global Traffic Pool controls")
+![EDIS Global Traffic Information dashboard with usage charts and Traffic Pool controls](/images/edis-global-traffic-pool-controls.webp "EDIS Global Traffic Information and Traffic Pool controls")
 
 _Portal shown with fictional demo data._
 
-### Controls shown in the portal
+### Traffic data shown for this VPS
+
+- **Cumulative Traffic:** Shows traffic consumed during the current cycle against the VPS's total current allowance.
+- **Daily Traffic:** Shows traffic consumption by day so you can identify usage patterns and spikes.
+- **Traffic included in plan:** The Plan Traffic supplied with the VPS for each monthly cycle.
+- **Hydration level:** Additional Pool Traffic currently assigned to this VPS for the current cycle.
+- **Total traffic available:** The current allowance: Plan Traffic plus assigned Pool Traffic.
+- **Total traffic used:** Traffic consumed during the current cycle, shown in GB and as a percentage of the current allowance.
+- **Traffic reset/refill:** The number of days until Plan Traffic refills and the current-cycle allowance resets.
+- **Traffic Zone:** The pricing zone that applies to Traffic Pool assignments. EDIS Global uses one Global Traffic Zone across all locations.
+
+### Traffic Pool controls
 
 - **Traffic Pool:** Shows the unassigned traffic currently available across your account.
 - **Top up:** Opens the [Traffic Pool purchase page](https://edisglobal.com/buy-traffic).
