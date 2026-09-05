@@ -1,6 +1,6 @@
 ---
 title: "Install a VPS with a Cloud-Init qcow2 Image"
-sidebarTitle: Cloud-init Setup
+sidebarTitle: Cloud-Init Setup
 description: "Deploy a cloud-init .qcow2 image to an EDIS Global VPS with Oracle Linux 8, covering user-data, SSH keys, and first-boot configuration."
 ---
 
@@ -18,7 +18,7 @@ In this example, we show you how to install **Oracle Linux 8** from a .qcow2 clo
 2. Download <a href="https://yum.oracle.com/templates/OracleLinux/OL8/u10/x86_64/OL8U10_x86_64-kvm-b237.qcow2" target="_blank">Oracle Linux .qcow2</a> Cloud Image from the official <a href="https://yum.oracle.com/oracle-linux-templates.html" target="_blank">template page</a> to your computer.
 3. Open the VPS Management Portal, select **Reinstall OS**, then select **Custom Cloud-Init Images** (third tab).
 
-![Cloud-init Setup](/assets/y9B0AGVAxYeSyeZVyaDis-dAQWcYTrB4QhauH4Qy2B9-20240808-121621.png)
+![Cloud-Init Setup](/assets/y9B0AGVAxYeSyeZVyaDis-dAQWcYTrB4QhauH4Qy2B9-20240808-121621.png)
 
 1. Upload the .qcow2 image to your VPS by clicking the **Browse** button.&#x20;
 2. Select the previously downloaded .qcow2 file from your computer.
@@ -26,14 +26,13 @@ In this example, we show you how to install **Oracle Linux 8** from a .qcow2 clo
 4. Select the checkbox confirming "Uploading a qcow2 file erases all data on your VPS!"
 
 <Warning>
-  It is important to understand that **all data on your VPS will be wiped during
-  this process!**
+  This process **wipes all data on your VPS!**
 </Warning>
 
-![Cloud-init Setup](/assets/y9B0AGVAxYeSyeZVyaDis-CuF_QvIFjt7M_5iCgQ_O8-20240808-122136.png)
+![Cloud-Init Setup](/assets/y9B0AGVAxYeSyeZVyaDis-CuF_QvIFjt7M_5iCgQ_O8-20240808-122136.png)
 
 1. Click the **Proceed** button and wait until the file is fully uploaded.&#x20;
-   Cloud-Init deployment will kick in right after the upload has finished.
+   Cloud-Init deployment starts right after the upload finishes.
    Installation takes roughly 5-10 minutes.
 
    After the deployment is complete, you will be able to connect to the server using the password you specified during the installation process.
@@ -49,4 +48,4 @@ ssh root@IP_address_VPS
 cat /etc/oracle-release
 ```
 
-Congratulations. You installed Oracle Linux with Cloud-init. Well done.
+Congratulations. You installed Oracle Linux with Cloud-Init. Well done.
