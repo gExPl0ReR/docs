@@ -56,7 +56,13 @@ However, a **small group of resellers** have opted out of this automatic credit 
 ## ⚙️ Service suspension
 
 Service suspension (if related to non-payments) happens **during the billrun window**.\
-If your service is suspended for non-payment, it will automatically reactivate once an invoice gets paid. Once an invoice shows _cancelled_, it can no longer be paid, and the service no longer exists.
+A VPS suspended for non-payment is automatically reactivated once its outstanding renewal invoice is paid.
+
+A cancelled invoice cannot be paid, but its status alone does not establish whether VPS data has been deleted. If you requested immediate termination, the VPS stops, but its data remains stored for **six days after termination**. [Contact support](https://www.edisglobal.com/contact) promptly to request recovery or reactivation before permanent deletion.
+
+For a combined invoice, removing a terminated VPS's charges leaves the other services' charges in place. Paying those remaining charges does not reactivate the terminated VPS.
+
+See [Data Retention Periods](./data-retention-period) and the [VPS cancellation guide](./cancel-a-service) for immediate and end-of-term cancellation.
 
 📘 For full details, see:\
 [**VPS Billing Workflow → Automated Billing Lifecycle**](https://docs.edisglobal.com/faq/billing-lifecycle/automated-vps-billing-workflow)

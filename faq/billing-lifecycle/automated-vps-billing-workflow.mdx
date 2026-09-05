@@ -5,7 +5,9 @@ description: "How EDIS Global automated VPS billing works, from invoice generati
 
 ## ⏳ Simplified VPS billing workflow
 
-This timetable shows when we send invoices, reminders, when we suspend services, terminate plans, and when we delete VPS from our disks if an invoice does not receive its payment.
+**Automated billing workflow for non-payment.** This timetable shows when renewal invoices and reminders are sent, and when an unpaid VPS is suspended, terminated, and permanently deleted. Day 0 is the renewal due date.
+
+Customer-requested cancellation follows a different timeline. See the [VPS cancellation guide](./cancel-a-service) for immediate and end-of-term cancellation.
 
 | Days  | Event                 | Action                                                                                              |
 | ----- | --------------------- | --------------------------------------------------------------------------------------------------- |
@@ -18,25 +20,29 @@ This timetable shows when we send invoices, reminders, when we suspend services,
 | \+3d  | 🟡 Overdue Reminder 3 | Last overdue reminder                                                                               |
 | \+7d  | 🟠 Service Suspension | VPS service powers down                                                                             |
 | \+14d | 🔴 Termination        | VPS agreement ends <br />(service no longer active, data still present)                             |
-| \+20d | 🔴 Data Deletion      | System cancels invoice.<br />VPS data is permanently deleted.<br />Reactivation no longer possible. |
+| \+20d | 🔴 Data Deletion      | VPS data is permanently deleted 6 days after termination.<br />Reactivation no longer possible. |
 
 ## 🛠 Service recovery options
 
 ### ✅ Your invoice shows unpaid
 
-**Service recovery is possible!**
+If your VPS is suspended for non-payment, pay its outstanding renewal invoice to reactivate it automatically.
 
-Proceed with the payment of your invoice, and your service will reactivate automatically. <img src="/assets/invoice-status-unpaid-cropped.webp" alt="Billing WorkflowInvoice timing, payment reminders,..." />
+If the VPS has already been terminated, contact support promptly to request recovery or reactivation before its data is permanently deleted.
+
+<img src="/assets/invoice-status-unpaid-cropped.webp" alt="Unpaid renewal invoice" />
 
 ### ❌ If your invoice is cancelled
 
-#### Service recovery is not available
+A cancelled invoice does **not necessarily mean your VPS data has been deleted**.
 
-If your invoice shows as **CANCELLED**, **recovery is NOT possible**.
+If you requested immediate termination, the VPS stops and its outstanding renewal invoice is cancelled—or its charges are removed from a combined invoice. However, the VPS data remains stored for **six days after termination**.
 
-Your VPS and **all data have been deleted** **(6 days after termination)**
+During this retention period, [contact support](https://www.edisglobal.com/contact) promptly to request recovery or reactivation. Once the data has been permanently deleted, recovery is no longer possible.
 
-![Billing WorkflowInvoice timing, payment reminders,...](/assets/invoice-status-cancelled-cropped.webp)
+For end-of-term cancellation, the VPS continues running until its due date. The six-day retention period starts when the service terminates, not when the cancellation is requested or an invoice is cancelled. See [Data Retention Periods](./data-retention-period).
+
+![Cancelled invoice status; this alone does not confirm VPS data deletion](/assets/invoice-status-cancelled-cropped.webp)
 
 ---
 
