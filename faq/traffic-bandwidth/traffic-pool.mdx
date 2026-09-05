@@ -67,7 +67,7 @@ Your 100 GB starter credit:
 
 Choose the amount you need, from **1 TB** to **10 PB**. Larger bundles provide a lower price per TB. Purchased traffic is added to your shared Pool and does not expire while it remains there.
 
-### 2. [Assign traffic manually](#traffic-pool-in-the-traffic-information-window)
+### 2. [Assign Pool Traffic](#traffic-pool-in-the-traffic-information-window)
 
 Open the **Traffic Information** window for the VPS and select **+100 GB**, **+500 GB**, **+1 TB**, or **+10 TB**. The assigned amount is deducted immediately from your Pool balance and added to the current traffic allowance for that VPS.
 
@@ -87,32 +87,43 @@ Enable **Auto-Hydration** for an individual VPS and select an increment of **100
 
 ## Traffic Pool in the Traffic Information window
 
-The **Traffic Information** window combines current-cycle traffic data for this VPS with the shared Traffic Pool balance and assignment controls for your account. Use it to see how close the VPS is to its allowance, when Plan Traffic will refill, and whether Pool Traffic is available to assign.
+The **Traffic Information** window answers two questions: how much traffic this VPS can still use during the current cycle, and how to assign additional traffic from your shared Pool.
 
-![EDIS Global Traffic Information dashboard with usage charts and Traffic Pool controls](/images/edis-global-traffic-pool-controls.webp "EDIS Global Traffic Information and Traffic Pool controls")
+### Traffic usage and monthly refill
+
+![EDIS Global VPS traffic usage, current allowance, remaining traffic, and refill information](/images/edis-global-traffic-usage-and-refill.webp "EDIS Global VPS traffic usage and refill information")
 
 _Portal shown with fictional demo data._
 
-### Traffic data shown for this VPS
+<Info>
+  **Current Traffic Allowance** = **Plan Traffic** + **Assigned Pool Traffic**
 
-- **Cumulative Traffic:** Shows traffic consumed during the current cycle against the total current allowance for the VPS.
+  **Traffic Remaining** = **Current Traffic Allowance** - **Traffic Used This Cycle**
+</Info>
+
+- **Cumulative Traffic:** Shows traffic consumed during the current cycle against the **Current Traffic Allowance**. The chart uses a logarithmic scale.
 - **Daily Traffic:** Shows traffic consumption by day so you can identify usage patterns and spikes.
-- **Traffic included in plan:** The Plan Traffic supplied with the VPS for each monthly cycle.
-- **Hydration level:** Additional Pool Traffic currently assigned to this VPS for the current cycle.
-- **Total traffic available:** The current allowance: Plan Traffic plus assigned Pool Traffic.
-- **Total traffic used:** Traffic consumed during the current cycle, shown in GB and as a percentage of the current allowance.
-- **Traffic reset/refill:** The number of days until Plan Traffic refills and the current-cycle allowance resets.
-- **Traffic Zone:** The pricing zone that applies to Traffic Pool assignments. EDIS Global uses one Global Traffic Zone across all locations.
+- **Plan Traffic:** The traffic supplied with the VPS for each monthly cycle.
+- **Assigned Pool Traffic:** Additional Pool Traffic assigned to this VPS for the current cycle.
+- **Current Traffic Allowance:** Plan Traffic plus Assigned Pool Traffic for the current cycle.
+- **Traffic Used This Cycle:** Traffic consumed since the most recent monthly refill, shown in GB and as a percentage of the Current Traffic Allowance.
+- **Traffic Remaining:** The amount and percentage that can still be consumed before the Current Traffic Allowance is exhausted.
+- **Current cycle resets and Plan Traffic refills:** The countdown shows when the current usage cycle will reset and the VPS will receive its next Plan Traffic allowance.
 
-### Traffic Pool controls
+### Traffic Pool assignment controls
 
-- **Traffic Pool:** Shows the unassigned traffic currently available across your account.
-- **Top up:** Opens the [Traffic Pool purchase page](https://edisglobal.com/buy-traffic).
-- **Hydration log:** Shows manual and automatic traffic assignments.
-- **Manual Hydration:** Provides **+100 GB**, **+500 GB**, **+1 TB**, and **+10 TB** quick-assignment buttons.
-- **Auto-Hydration:** Provides **100 GB**, **200 GB**, **300 GB**, and **500 GB** automatic increments, configurable separately for every VPS.
+![EDIS Global shared Traffic Pool assignment and Auto-Hydration controls](/images/edis-global-traffic-pool-assignment-controls.webp "EDIS Global Traffic Pool assignment controls")
 
-Both manual and automatic assignments use the existing Pool balance. Auto-Hydration does not purchase additional traffic and runs only when the Pool contains enough traffic for the selected increment.
+_Portal shown with fictional demo data._
+
+- **Traffic Zone:** The pricing zone that applies to Pool Traffic. EDIS Global uses one Global Traffic Zone across all locations.
+- **Shared Traffic Pool Balance:** Unassigned Pool Traffic currently available across your account.
+- **Top Up:** Opens the [Traffic Pool purchase page](https://edisglobal.com/buy-traffic).
+- **Assignment History:** Shows manual and automatic Pool Traffic assignments.
+- **Assign Pool Traffic:** Provides **+100 GB**, **+500 GB**, **+1 TB**, and **+10 TB** quick-assignment buttons.
+- **Auto-Hydration:** Provides selectable **100 GB**, **200 GB**, **300 GB**, and **500 GB** increments and is configured separately for every VPS.
+
+Both manual assignment and Auto-Hydration use the existing Shared Traffic Pool Balance. Auto-Hydration does not purchase additional traffic and runs only when the Pool contains enough traffic for the selected increment.
 
 For custom monitoring, use the Management REST API callback feature to trigger notifications at a defined threshold.
 
