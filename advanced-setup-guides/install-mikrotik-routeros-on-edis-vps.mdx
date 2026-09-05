@@ -41,7 +41,7 @@ To install MikroTik on an EDIS Global VPS, you’ll need to adjust a few hardwar
 
 ## MikroTik CHR (cloud hosted router)
 
-If you want to give MikroTik CHR a try, you can download images from the official <a href="https://mikrotik.com/download" target="_blank">MikroTik download page</a>. To make life easy for you, we converted a couple of <a href="https://files.edisglobal.com/index.php/s/Jph4RkS7Cgw0ryY" target="_blank">cloud images</a> downloaded from the MikroTik website, which can be used with our Cloud-Init installer 😎
+If you want to give MikroTik CHR a try, you can download images from the official <a href="https://mikrotik.com/download" target="_blank">MikroTik download page</a>. To make life easy for you, we converted a couple of <a href="https://files.edisglobal.com/index.php/s/Jph4RkS7Cgw0ryY" target="_blank">cloud images</a> downloaded from the MikroTik website, which you can use with our Cloud-Init installer 😎
 
 <Steps>
   <Step title="Log in to your">
@@ -81,7 +81,7 @@ If you want to give MikroTik CHR a try, you can download images from the officia
 
 ## Configure static IPv4 in MikroTik
 
-Log into MikroTik Router:
+Log in to the MikroTik router:
 
 * Use a **VNC session** to connect to your MikroTik router.
 
@@ -91,7 +91,7 @@ Log into MikroTik Router:
 
 After logging into MikroTik, use the **Terminal** window and enter the following commands to configure the static IP:
 
-**Assign Static IP Address**:
+**Assign a static IP address**:
 Use this command to set a static IP on the interface you want (e.g., `ether1`):
 
 ```bash
@@ -102,7 +102,7 @@ ip/address/add address=192.168.1.100/24 interface=ether1
 
 * Replace `ether1` with the correct interface if it's different.
 
-**Set Gateway (Default Route)**:
+**Set the gateway (default route)**:
 To configure a default gateway, use the following command:
 
 ```bash
@@ -111,7 +111,7 @@ ip/route/add gateway=192.168.1.1
 
 * Replace `192.168.1.1` with your VPS default gateway IP address
 
-**Set DNS Servers**:
+**Set DNS servers**:
 To configure DNS servers (for example, using Google DNS), use:
 
 ```bash
@@ -122,7 +122,7 @@ ip/dns/set servers=8.8.8.8,8.8.4.4
 
 ### Verify your configuration
 
-Please reboot the server with the following command to apply the changes and set up the network:
+Reboot the server with the following command to apply the changes and set up the network:
 
 ```bash
 system/reboot
@@ -179,8 +179,8 @@ Display the default route:
 ```
 
 <Warning>
-  A maximum of 20 stable IPv6 addresses may be configured on one VPS at the same
-  time. IPv6 proxy services that rotate addresses, generate random addresses,
+  You may configure a maximum of 20 stable IPv6 addresses on one VPS at the
+  same time. IPv6 proxy services that rotate addresses, generate random addresses,
   or cycle through large numbers of addresses are prohibited under our
   [Acceptable Use Policy](/getting-started/acceptable-use-policy).
 </Warning>
