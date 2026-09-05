@@ -6,9 +6,13 @@ description: "Manage your EDIS Global VPS from the VPS Management Portal: power-
 
 ## VPS Management Portal overview
 
-![Edis Global Management Portal Demo](/images/edis-global-management-portal-demo.webp "Edis Global Management Portal Demo")
+import { CtaButton } from "/snippets/cta-button.mdx";
 
-Here is a short list of available features of our <a href="https://manage.edisglobal.com/clientarea.php" target="_blank">VPS Management Portal</a>.
+## Complete control of your VPS
+
+The EDIS Global VPS Management Portal gives you direct control over your virtual servers from one convenient dashboard. Restart a server, deploy a new operating system, open a console, monitor resource usage, manage traffic and automate routine operations without waiting for manual assistance.
+
+![EDIS Global VPS Management Portal with server controls, traffic management and monitoring](/images/edis-global-management-portal-demo.webp "EDIS Global VPS Management Portal")
 
 - [Power Cycle](/vps-management/power-cycle-or-reboot-a-vps) Start / Stop / Restart your service
 - [1-Click Installation](/vps-management/autoinstall-reinstall-install-vps-linux-windows) of common Linux distributions CentOS 9, CentOS 8, CentOS 7, Debian 13 (trixie), Debian 12 (Bookworm), Debian 11 (Bullseye), Ubuntu 24.04, Ubuntu 22.04, Ubuntu 18.04, Ubuntu 16.04
@@ -27,3 +31,111 @@ Here is a short list of available features of our <a href="https://manage.edisgl
 - [Order API](/order-api-reference/order-api-welcome) Automate the entire product lifecycle, including configuration, ordering and cancellations.
 - [Management API](/management-api-reference/authentication/create-auth-session) Automate and remote-control every technical aspect of your VPS hosting plans.
 - Your server's [Support PIN](/vps-management/your-support-pin)
+
+_Portal shown with fictional demo data._
+
+<CtaButton label="Open VPS Management Portal" link="https://manage.edisglobal.com/clientarea.php" />
+
+---
+
+## Control and deploy your server
+
+<Columns cols={2}>
+  <Card title="Power controls" icon="power-off" href="./power-cycle-or-reboot-a-vps">
+    Start, stop or restart your VPS directly from the portal.
+  </Card>
+
+  <Card title="One-click OS installation" icon="redo" href="./autoinstall-reinstall-install-vps-linux-windows">
+    Install or reinstall supported Linux distributions and Windows editions using the automated installer.
+  </Card>
+
+  <Card title="Custom and provided ISOs" icon="compact-disc" href="./bring-your-own-iso">
+    Mount a provided image or upload your own ISO for a fully customized deployment.
+  </Card>
+
+  <Card title="VNC and web console" icon="desktop" href="./enable-vnc-server">
+    Access the server through a desktop VNC client or the browser-based noVNC console—even when normal network access is unavailable.
+  </Card>
+
+  <Card title="Cloud-Init ready" icon="cloud" href="./edis-cloud-init-vps-installation">
+    Automate first-boot configuration, users, packages and repeatable deployments with Cloud-Init user data.
+  </Card>
+
+  <Card title="Live screenshot" icon="camera">
+    Check the current server display without opening a console or starting a VNC session.
+  </Card>
+</Columns>
+
+---
+
+## Configure networking and virtual hardware
+
+<Columns cols={2}>
+  <Card title="Reverse DNS" icon="exchange-alt" href="../faq/ip-addresses/setting-up-reverse-pointers">
+    Configure IPv4 and IPv6 PTR records for services that require accurate reverse DNS.
+  </Card>
+
+  <Card title="System configuration" icon="sliders" href="./system-configuration-dialog">
+    Adjust virtual hardware settings such as display, boot timeout, network emulation and CPU topology.
+  </Card>
+
+  <Card title="Network information" icon="network-wired">
+    View the IPv4, IPv6 and network details required to configure your operating system.
+  </Card>
+
+  <Card title="Support PIN" icon="key" href="./your-support-pin">
+    Find the server-specific PIN used when requesting account-sensitive support.
+  </Card>
+</Columns>
+
+---
+
+## Monitor performance and manage traffic
+
+Understand how your VPS is performing and stay ahead of traffic limits directly from the portal.
+
+<Columns cols={2}>
+  <Card title="Usage statistics" icon="chart-line" href="../faq/traffic-bandwidth/traffic-stats-refill-explained">
+    Review CPU and traffic charts, included plan traffic, current usage and the next refill date.
+  </Card>
+
+  <Card title="Global Traffic Pool" icon="globe" href="../faq/traffic-bandwidth/traffic-pool">
+    View your pool balance, assign traffic manually, configure Auto-Hydration and inspect the hydration history for each VPS.
+  </Card>
+</Columns>
+
+Traffic stored in your Traffic Pool does not expire and can be assigned to any VPS in your account. With **Auto-Hydration**, additional traffic can be assigned automatically when a VPS reaches 99% of its available allowance, provided sufficient Pool Traffic is available.
+
+<CtaButton label="Buy Pool Traffic" link="https://www.edisglobal.com/buy-traffic" />
+
+---
+
+## Automate your infrastructure
+
+Use the EDIS Global APIs to integrate VPS deployment and management into your own platform, provisioning system or customer portal.
+
+<Columns cols={2}>
+  <Card title="Order API" icon="shopping-cart" href="https://docs.edisglobal.com/order-api-reference/order-api-welcome">
+    Automate product configuration, ordering, upgrades and cancellations across the VPS lifecycle.
+  </Card>
+
+  <Card title="Management API" icon="code" href="https://docs.edisglobal.com/management-api-reference/authentication/create-auth-session">
+    Control technical VPS functions remotely and build repeatable management workflows at scale.
+  </Card>
+</Columns>
+
+---
+
+## Manage renewals and billing cycles
+
+Need to renew before the regular due date? Use the **Create Invoice / Renew** button to [renew a VPS immediately and select a new billing cycle](../faq/billing-lifecycle/how-vps-renewals-work#renew-instantly-from-the-portal).
+
+---
+
+## Ready to get started?
+
+Already have an EDIS Global VPS? Open the portal and select your service. Looking for a new deployment? Compare our VPS plans and choose from more than 50 global locations.
+
+<CtaButton label="Open VPS Management Portal" link="https://manage.edisglobal.com/clientarea.php" />
+
+<CtaButton label="Explore VPS Hosting Plans" link="https://www.edisglobal.com/vps-hosting" />
