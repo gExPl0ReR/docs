@@ -1,5 +1,5 @@
 ---
-title: "Resize Linux Disk After VPS Plan Upgrade"
+title: "Resize Linux disk after VPS plan upgrade"
 sidebarTitle: "Resize Linux Disk/Partition"
 description: "Manually resize disk space on a live Linux VPS after a plan upgrade using SystemRescueCD. Step-by-step guide to safely expand your root partition."
 ---
@@ -7,14 +7,14 @@ description: "Manually resize disk space on a live Linux VPS after a plan upgrad
 <Warning>
   ### Important notice: risks associated with resizing disk space
 
-  Resizing disks and partitions on production Linux operating systems is a complex and potentially hazardous process that should only be undertaken by experienced system administrators. There are significant risks involved, including the possibility of data loss. It is imperative to perform a complete backup of all data on the drive before attempting any resizing operations. Additionally, be aware that the process might not work as intended, and unforeseen issues could arise. **Please proceed with caution and use this guide at your own risk.**
+  Resizing disks and partitions on production Linux operating systems is a complex and potentially hazardous process. Only experienced system administrators should undertake it. There are significant risks involved, including the possibility of data loss. It is imperative to perform a complete backup of all data on the drive before attempting any resizing operations. Additionally, be aware that the process might not work as intended, and unforeseen issues could arise. **Please proceed with caution and use this guide at your own risk.**
 </Warning>
 
 It is not always possible to reinstall the operating system to automatically add disk space. With this guide, you can manually resize your disk and expand the existing root partition.
 
 To resize disk space and unallocated space on your disk, use SystemRescueCD. The SystemRescueCD is a Linux system rescue disk available as a bootable CD-ROM.&#x20;
 
-Remember, modifying disk partitions and file systems can be risky and may result in data loss, especially if there's a power interruption or if the operations are performed incorrectly. Always back up important data before proceeding.
+Remember, modifying disk partitions and file systems can be risky and may result in data loss, especially if there's a power interruption or if you perform the operations incorrectly. Always back up important data before proceeding.
 Here’s a general guide on how to resize disk space manually:
 
 ## Access the VPS management portal

@@ -1,5 +1,5 @@
 ---
-title: SSH Security Hardening Guide
+title: SSH security hardening guide
 sidebarTitle: SSH Hardening
 description: "Essential SSH hardening practices for your VPS: change default ports, enable key authentication and 2FA, restrict root access, and monitor SSH login logs."
 ---
@@ -16,19 +16,19 @@ This guide begins with foundational security practices and progresses to advance
 
 For those just starting, here are a few simple yet crucial steps to secure your SSH connection:
 
-**Change the Default SSH Port**:
+**Change the default SSH port**:
 
 * By default, SSH listens on port 22, a known target for attackers. Changing it to a non-standard port reduces the likelihood of brute-force attacks.
-  **Disable Root Login**:
+  **Disable root login**:
 
 * Direct root access is a significant risk. Use a regular user account with sudo privileges instead.
-  **Enable SSH Key Authentication**:
+  **Enable SSH key authentication**:
 
 * Replace password-based logins with SSH keys for enhanced security. This method ensures only users with the private key can access the server.
-  **Limit Failed Login Attempts**:
+  **Limit failed login attempts**:
 
 * Install tools like Fail2Ban to block IP addresses after a set number of unsuccessful login attempts.
-  **Keep Your System Updated**:
+  **Keep your system updated**:
 
 * Regularly update your server and SSH software to patch vulnerabilities and improve overall security.
 
