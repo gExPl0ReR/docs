@@ -10,7 +10,7 @@ metaDescription: "Learn how incoming and outgoing TCP/UDP ports work on EDIS Glo
 
 EDIS Global does not generally block, filter, or restrict incoming or outgoing TCP/UDP ports on VPS services.
 
-Your VPS is connected directly to the network through a virtual Ethernet interface and bridge. There is no general provider-side firewall or NAT layer requiring ports to be opened manually by EDIS Global staff.
+Your VPS is connected directly to the network through a virtual Ethernet interface and bridge. There is no general provider-side firewall or NAT layer, so EDIS Global staff do not need to open ports manually.
 
 If you need to use a specific port such as:
 
@@ -21,14 +21,13 @@ If you need to use a specific port such as:
 - `3389`
 - `51820`
 
-or any other TCP/UDP port, you simply need to configure your software or operating system to listen on that port.
+or any other TCP/UDP port, configure your software or operating system to listen on that port.
 
 <Note>
   **Exception: outbound TCP Port 25 (SMTP).** VPS instances created on or after
   February 24, 2025 have a default outbound rate limit of 8 packets per second,
   with an initial burst of up to 16 packets. Inbound TCP Port 25 is unrestricted.
-  Anti-spam enforcement may also result in outbound Port 25 being blocked for
-  an entire VPS. See our [Port 25 SMTP policy and rate
+  Anti-spam enforcement may also block outbound Port 25 for an entire VPS. See our [Port 25 SMTP policy and rate
   limits](/faq/port-25-smtp-rate-limit-policy).
 </Note>
 
@@ -36,7 +35,7 @@ or any other TCP/UDP port, you simply need to configure your software or operati
 
 ## ⚙️ What do you need to do?
 
-Port accessibility is entirely managed inside your VPS operating system.
+You manage port accessibility entirely inside your VPS operating system.
 
 Typical requirements include:
 
@@ -79,7 +78,7 @@ You may need to allow the desired port locally inside the VPS.
 
 ## 🌍 Government or ISP restrictions
 
-Please note that EDIS Global has no control over restrictions imposed by:
+EDIS Global has no control over restrictions imposed by:
 
 - Governments
 - National regulators
@@ -141,4 +140,4 @@ nc -zv your-ip-address 1080
 
 EDIS Global provides infrastructure-level connectivity only.
 
-Application setup, proxy configuration, firewall management, and software troubleshooting inside the VPS remain fully customer-managed. All network use remains subject to our [Acceptable Use Policy](/getting-started/acceptable-use-policy).
+You manage application setup, proxy configuration, firewall management, and software troubleshooting inside the VPS. All network use remains subject to our [Acceptable Use Policy](/getting-started/acceptable-use-policy).
