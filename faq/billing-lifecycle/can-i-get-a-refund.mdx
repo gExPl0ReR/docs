@@ -1,6 +1,6 @@
 ---
 title: "Can I get a refund?"
-description: "Check whether an EDIS Global VPS order qualifies for a 24-hour refund or free location change, including eligibility rules and exclusions."
+description: "Check whether an EDIS Global VPS order qualifies for a 24-hour refund, free primary IPv4 change, or free location replacement."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
@@ -13,11 +13,27 @@ You may request a refund for an eligible VPS order within **24 hours of purchase
   Only one refund is available per customer within any 12-month period.
 </Info>
 
-## Consider a free location change
+## Alternatives during the first 24 hours
+
+### Free primary IPv4 change
+
+If the assigned primary IPv4 address does not meet your needs, you may change it once free of charge during the first 24 hours.
+
+An IPv4 change does **not** remove your refund eligibility. You may still request a refund within the original 24-hour window if every other eligibility condition is met.
+
+After the address changes, the old IP stops working immediately. You must reinstall the VPS or configure the new IP manually through VNC.
+
+<CtaButton label="Change Your IP Address" link="/faq/ip-addresses/change-ip-address" />
+
+### Free location change
 
 If you selected the wrong location, experience unsuitable latency, or need a different geographic presence, you may request a **one-time free location change** within 24 hours instead of cancelling.
 
-A completed location change replaces the refund option. The VPS is no longer eligible for a refund after it has been reprovisioned in another location.
+EDIS Global provisions a direct replacement VPS in another available location of your choice. You receive a new VPS service, new login details, and a new IP address. The plan and billing cycle remain unchanged. If required, you may also request one additional free change of the replacement VPS's primary IPv4 address.
+
+<Warning>
+  A completed location change replaces the refund option. After EDIS Global provisions the replacement VPS, the order is no longer eligible for a refund.
+</Warning>
 
 <CtaButton label="Learn About Location Changes" link="/faq/server-locations/change-server-location" />
 
@@ -33,6 +49,10 @@ Your request must satisfy all of these conditions:
 - You have not added Pool Traffic to the VPS.
 - You have not ordered a plan or resource upgrade for the VPS.
 - The service was not closed for violating our terms or [Acceptable Use Policy](/getting-started/acceptable-use-policy).
+
+<Info>
+  A free change of the VPS's primary IPv4 address does not affect refund eligibility. A completed server location change does.
+</Info>
 
 ## What to do next
 
