@@ -6,8 +6,8 @@ description: "Both IPv4 and IPv6 addresses on an EDIS Global VPS are static and 
 ## Are VPS IP addresses static or dynamic?
 
 <Note>
-  Both the **IPv4 address and the IPv6 /64 prefix** assigned to your VPS **are
-  "static".**
+  Both the **IPv4 address and the /64-equivalent IPv6 allocation** assigned to
+  your VPS **are "static".**
 </Note>
 
 This means that they will not change for as long as you have the virtual server.
@@ -15,3 +15,10 @@ This means that they will not change for as long as you have the virtual server.
 The IP addresses also remain unchanged in case you need to reinstall your KVM virtual server, no matter how long the reinstall takes.
 
 **Bottom line:** An IP address assigned to your VPS remains yours till you cancel your server.
+
+<Note>
+  The IPv6 allocation is not routed as a separate `/64`. Configure IPv6
+  addresses with the required `/48` prefix length and use the location-specific
+  gateway shown in the VPS Management Portal. See [IPv6
+  Setup](/vps-management/ipv6-configuration).
+</Note>
