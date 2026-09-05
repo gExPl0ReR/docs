@@ -1,41 +1,79 @@
 ---
-title: Exceeding Monthly Traffic Limit
-sidebarTitle: Exceeding Traffic Limit
-description: Discover what happens when you exceed your monthly traffic limit on EDIS Global and the steps you can take to restore full ethernet speed.
+title: "Exceeding Your Monthly Traffic Limit"
+sidebarTitle: "Exceeding Traffic Limit"
+description: "Learn when an EDIS Global VPS is rate-limited and how a plan upgrade, Pool Traffic, Auto-Hydration, or the monthly refill restores full speed."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
-## What happens if I go beyond my traffic allowance?
+## What happens when the traffic allowance is exhausted?
 
-### Speed limitation
+Your VPS remains online when it reaches its current traffic allowance. EDIS Global provides an approximately **5% grace allowance**, so rate-limiting normally begins at around **105% usage**, rather than exactly 100%.
 
-We throttle your virtual private server's ethernet interface speed down to approximately 64kbit/s. We apply a 5% grace, so the throttling will only kick in at roughly 105% usage. However, rest assured that your machine will continue to remain online, ensuring there's no complete disruption.
+Once the grace allowance is exhausted, the VPS Ethernet interface is limited to approximately **64 kbit/s** until additional traffic becomes available or the next monthly refill occurs.
 
-### Options for restoration
+<Info>
+  There is no automatic overage charge. The VPS stays online, but services that depend on normal network speed may become effectively unavailable.
+</Info>
 
-**Plan Upgrade**: You can choose to upgrade to a higher tier/package. This is usually the most cost-effective solution to add more traffic to your current plan.
+## Restore full speed
 
-<CtaButton
-  label='Upgrade a VPS'
-  link='../upgrades-downgrades/upgrade-plan'
-/>
+### 1. Upgrade to a larger VPS plan
 
+A larger plan is generally the best value when the VPS regularly runs out of traffic. You pay only the **prorated price difference** for the remainder of the current billing period—not the full plan price—and receive the new plan's **full monthly traffic allowance** as soon as the upgrade completes.
 
+If you already use the largest available plan, use Pool Traffic instead.
 
-**Traffic Pool Top-Up**: If you don’t want to permanently upgrade, you have the option to augment your traffic quota. Top up your Traffic Pool and assign traffic to your service from that pool. An option for automatic refills ("Auto-Hydration") is available too. Auto-Hydration automatically adds 100GB Pool Traffic to your VPS at 99% traffic usage level.
+<CtaButton label="Upgrade Your VPS Plan" link="../upgrades-downgrades/upgrade-plan" />
 
-<CtaButton
-  label='Traffic Pool'
-  link='./traffic-pool'
-/>
+### 2. Assign or purchase Pool Traffic
 
+Pool Traffic is ideal for occasional traffic peaks and is the primary option for a VPS already on the largest plan.
 
+Every newly purchased VPS adds **100 GB of complimentary traffic** to your shared Traffic Pool. Check whether traffic is already available before purchasing more.
 
-**Wait it Out**: If neither of the above options is feasible or desired, you can simply wait. Your traffic will automatically reset and refill to its original limit on the server's monthly due date.
+In the VPS Management Portal, you can assign Pool Traffic manually with the **+100 GB**, **+500 GB**, **+1 TB**, or **+10 TB** quick buttons. If the Pool is empty, purchase additional traffic first and then assign the required amount to the affected VPS.
 
-<CtaButton label='Traffic explained' link='./traffic-stats-refill-explained' />
+<Warning>
+  Purchasing Pool Traffic alone does not restore full speed. The traffic must be assigned to the affected VPS manually or through Auto-Hydration.
+</Warning>
 
-### Instant restoration
+<CtaButton label="Buy Pool Traffic" link="https://www.edisglobal.com/buy-traffic" />
 
-Whether you choose to upgrade your plan or to top up your Traffic Pool and assign traffic to your service, we remove the imposed 64kbit/s speed limitation immediately. Your server's ethernet port returns to its original speed instantaneously.&#x20;
+<CtaButton label="How the Traffic Pool Works" link="./traffic-pool" />
+
+### 3. Enable Auto-Hydration for future traffic peaks
+
+Auto-Hydration can automatically assign **100 GB**, **200 GB**, **300 GB**, or **500 GB** to an individual VPS when it reaches **99%** of its current allowance.
+
+Auto-Hydration uses traffic already stored in your shared Pool. It does not purchase traffic automatically and cannot assign the selected increment if the Pool balance is insufficient.
+
+For a VPS that is already rate-limited, manual assignment is the clearest way to restore service immediately. You can then enable Auto-Hydration to handle future traffic peaks.
+
+### 4. Wait for the monthly refill
+
+If additional traffic is not required, you can wait until the monthly refill date for the VPS. The Plan Traffic allowance is replenished automatically and the usage counter begins a new monthly cycle.
+
+<Warning>
+  Unassigned Pool Traffic remains in your shared Pool and does not expire. Pool Traffic already assigned to the VPS does not roll over: any unused assigned amount expires at the monthly refill together with unused Plan Traffic.
+</Warning>
+
+## When is full speed restored?
+
+Full speed is restored automatically when:
+
+- additional Pool Traffic has been successfully assigned to the VPS;
+- a plan upgrade providing additional traffic has completed; or
+- the monthly Plan Traffic refill occurs.
+
+No VPS reboot is required to remove the traffic rate limit.
+
+## Traffic notifications
+
+EDIS Global sends advance notifications as usage approaches the current allowance:
+
+- an informational notice at **80%**;
+- a warning at **90%**, unless Auto-Hydration is enabled and the Pool balance can cover the next automatic assignment; and
+- an action-required notification when the VPS has exhausted the grace allowance and is rate-limited.
+
+<CtaButton label="Understand Traffic Statistics and Refills" link="./traffic-stats-refill-explained" />
