@@ -4,6 +4,18 @@ sidebarTitle: "Order API Complete Guide"
 description: "Order an EDIS Global VPS via the Order API with worked examples â€” a simple beginner guide, a developer reference, and a full end-to-end JSON walk-through."
 ---
 
+<Warning>
+  **Live ordering â€” no test environment**
+
+  EDIS Global does not provide a sandbox or test environment. Submitting a valid order to `POST /kvm/v2/add/order` creates a real VPS order and invoice.
+
+  If account credit is applied and covers the invoice, provisioning can begin automatically.
+
+  Setting `"applycredit": false` prevents account credit from being used for that order. It does not prevent the order from being created or make the request a test.
+
+  Requests that retrieve plans, locations, or account balances do not place orders.
+</Warning>
+
 <Tabs>
   <Tab title="Simple Guide">
     ## Letâ€™s keep this simple
@@ -166,7 +178,7 @@ description: "Order an EDIS Global VPS via the Order API with worked examples â€
 
     ## Final step: Send the order
 
-    Now you finally send the order:
+    This sends a real VPS order. The example omits `applycredit`, so available account credit is applied automatically:
 
     ```bash
     curl --request POST \
@@ -206,8 +218,9 @@ description: "Order an EDIS Global VPS via the Order API with worked examples â€
     That means:
 
     âœ… Order created\
-    âœ… Invoice created\
-    âœ… VPS is being deployed
+    âœ… Invoice created
+
+    Order creation does not by itself confirm payment or provisioning. If available account credit covers the invoice, provisioning can begin automatically. If the invoice remains unpaid, complete payment using the selected payment method.
 
     ---
 
@@ -230,7 +243,7 @@ description: "Order an EDIS Global VPS via the Order API with worked examples â€
 
       IDs can change, new locations can appear, stock can change, and new plans can appear.
 
-      Account credit will be applied automatically, regardless of the payment method you choose.
+      Available account credit is applied automatically when you omit `applycredit` or set it to `true`, regardless of the selected payment method. To place an order without using account credit, explicitly set `"applycredit": false` inside the `order` JSON.
     </Info>
 
     ---
@@ -285,20 +298,38 @@ description: "Order an EDIS Global VPS via the Order API with worked examples â€
     <Info>
       The selected `paymentmethod` defines how the **first invoice and all renewal invoices** are issued.
 
-      If account credit is available, it is **automatically applied**, and orders are typically delivered in near real-time.
+      Available account credit is applied automatically when `applycredit` is omitted or `true`. Explicitly setting `false` prevents account credit from being applied to this order. If applied credit covers the invoice, provisioning can begin automatically.
     </Info>
+
+    The optional `applycredit` field belongs inside the `order` JSON:
+
+    | `applycredit` | Behavior |
+    | --- | --- |
+    | Omitted | Available account credit is applied automatically. |
+    | `true` | Available account credit is applied. |
+    | `false` | Account credit is not applied to this order. |
+
+    To opt out of using account credit, add this field to your `order` JSON. Use the JSON boolean `false`:
+
+    ```json
+    {
+      "applycredit": false
+    }
+    ```
+
+    This is a field example, not a complete order payload. Setting `false` does not make an order a test.
 
     ---
 
     ## Try the API directly in the documentation
 
     <Info>
-      All endpoints can be tested directly in the documentation portal.
+      The documentation portal sends requests to the **production API**. There is no sandbox or test environment.
 
       You can execute live requests and switch between multiple programming languages such as cURL, Python, JavaScript, PHP, Go, Java, and Ruby.
     </Info>
 
-    This is the fastest way to validate your integration before writing code.
+    Use discovery endpoints to inspect plans, locations, and other available options. Order, upgrade, and cancellation requests perform real actions on your account.
 
     ### Available endpoints
 
@@ -322,13 +353,12 @@ description: "Order an EDIS Global VPS via the Order API with worked examples â€
     POST https://order.edisglobal.com/kvm/v2/add/order
     ```
 
-    Example payload:
+    This endpoint creates a real VPS order and invoice. The example omits `applycredit` to use the default automatic credit behavior:
 
     ```json
     {
       "billingcycle": "monthly",
       "paymentmethod": "paypal",
-      "applycredit": false,
       "item": [
         {
           "pid": 892,
@@ -344,6 +374,8 @@ description: "Order an EDIS Global VPS via the Order API with worked examples â€
     ---
 
     ## Example: Successful response
+
+    Example when available account credit covers the invoice:
 
     ```json
     {
@@ -506,11 +538,12 @@ description: "Order an EDIS Global VPS via the Order API with worked examples â€
 
     ## Step 5: Build order payload
 
+    This example omits `applycredit`, so available account credit is applied automatically. To opt out, add `"applycredit": false` inside the `order` JSON.
+
     ```json
     {
       "billingcycle": "monthly",
       "paymentmethod": "paypal",
-      "applycredit": false,
       "item": [
         {
           "pid": 892,
@@ -530,6 +563,8 @@ description: "Order an EDIS Global VPS via the Order API with worked examples â€
 
     ## Step 6: Submit order
 
+    **Live order:** Sending this request creates a real VPS order and invoice. It is not a test request.
+
     ```bash
     curl --request POST \
       --url https://order.edisglobal.com/kvm/v2/add/order \
@@ -541,6 +576,8 @@ description: "Order an EDIS Global VPS via the Order API with worked examples â€
     ---
 
     ## Successful response
+
+    In this example, available account credit covers the invoice:
 
     ```json
     {
@@ -558,8 +595,10 @@ description: "Order an EDIS Global VPS via the Order API with worked examples â€
 
     - Order was created
     - Invoice was generated
-    - Credit (if available) was applied automatically
-    - VPS provisioning started
+    - Account credit was applied automatically because `applycredit` was omitted
+    - In the response shown, `invoicepaid: true` confirms that the invoice is paid; provisioning can begin automatically
+
+    If `invoicepaid` is `false`, the invoice remains unpaid. That flag alone does not mean the order failed.
 
     ---
 
@@ -574,7 +613,7 @@ description: "Order an EDIS Global VPS via the Order API with worked examples â€
     ## Pro tip
 
     <Info>
-      Use the documentation portal to test each step before implementing your integration.
+      Use the documentation portal to inspect discovery responses before submitting an order. The Order VPS endpoint below creates real orders; use it only when you are ready to order.
 
       [https://docs.edisglobal.com/order-api-reference/order-vps](https://docs.edisglobal.com/order-api-reference/order-vps)
     </Info>

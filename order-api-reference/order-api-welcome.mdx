@@ -15,6 +15,14 @@ The **EDIS Global Order API** allows you to automate the full VPS lifecycle:
 
 It is designed for seamless integration into billing systems, automation workflows, and custom provisioning tools.
 
+<Warning>
+  **Production API — no test environment**
+
+  EDIS Global does not provide a sandbox or test environment. Submitting a valid order to `POST /kvm/v2/add/order` creates a real VPS order and invoice. Available account credit is applied by default unless you explicitly set `"applycredit": false` inside the `order` JSON.
+
+  Discovery requests, such as retrieving plans or locations, do not place orders.
+</Warning>
+
 ---
 
 ## 🚀 Start here
