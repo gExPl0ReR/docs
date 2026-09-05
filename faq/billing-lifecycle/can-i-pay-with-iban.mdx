@@ -1,14 +1,36 @@
 ---
 title: Can I pay with IBAN?
-description: We accept one-off payments for account top-ups or emergency payments if no other payment method is available, which must be coordinated with the team.
+description: "Use a manually processed SEPA or SWIFT bank transfer to fund at least EUR 250 in account credit, or arrange an emergency invoice payment with EDIS Global Support."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
 ## Is it possible to pay via bank transfer?
 
-The VPS platform operated by EDIS Global is designed for full automation, which currently does not extend to the processing of inbound payments via bank transfers.
+Yes, under specific conditions. The EDIS Global VPS platform is tightly automated, but inbound bank transfers are not connected to our billing system in real time.
 
-However, we accept payments through bank transfer (utilizing SWIFT/IBAN) under specific circumstances.
+<Info>
+  This article covers customer-initiated **SEPA Credit Transfers and SWIFT transfers**. These are not the same as SEPA or ACH Direct Debit, which are automated payment methods available by invitation only.
+</Info>
 
-<CtaButton label='Bank Payment Policies' link='./accepted-payment-methods' />
+## Recommended use: fund account credit
+
+Bank transfers are primarily intended for account-credit top-ups of at least **EUR 250**. Once our accounting team has received, identified and manually assigned the transfer, the amount becomes available as account credit. Available credit is then applied automatically to newly generated renewal invoices.
+
+<CtaButton label="Top Up Credit by Bank Transfer" link="./top-up-credit-balance-by-bank-transfer" />
+
+## Emergency invoice payments
+
+Direct payment of a service invoice by bank transfer is accepted only by prior agreement with EDIS Global Support and only when no automated payment method is available.
+
+We do not accept bank transfer as a routine monthly payment workflow. Use credit card, PayPal, cryptocurrency, an approved Direct Debit mandate, or account credit for recurring payments.
+
+<Warning>
+  Sending a bank transfer does not mark an invoice as paid or stop the automated non-payment workflow. The payment must arrive and be manually assigned before it affects the invoice.
+
+  If the transfer arrives late, contains an incorrect reference or cannot be assigned before the applicable deadline, the service may be suspended and subsequently terminated. VPS data is permanently deleted after the documented retention period. Never rely on a bank transfer for an urgent renewal or to restore an overdue service.
+</Warning>
+
+Review the [Automated VPS Billing Workflow](/faq/billing-lifecycle/automated-vps-billing-workflow) before using a bank transfer for any time-sensitive payment.
+
+<CtaButton label="View All Payment Methods" link="./accepted-payment-methods" />
