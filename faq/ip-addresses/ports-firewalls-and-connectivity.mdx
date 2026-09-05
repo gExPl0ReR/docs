@@ -1,18 +1,16 @@
 ---
 title: "Incoming and Outgoing Ports on EDIS Global VPS"
 sidebarTitle: "Ports & Firewalls"
-description: "EDIS Global VPS plans never block incoming or outgoing TCP/UDP ports. Configure firewall rules inside your VPS — no provider-side opening needed."
-metaTitle: "EDIS Global VPS Ports & Firewalls | No Port Blocking"
-metaDescription: "Learn how incoming and outgoing TCP/UDP ports work on EDIS Global VPS services. No provider-side port opening is required — configure ports directly inside your VPS operating system."
+description: "Most incoming and outgoing TCP/UDP ports are unrestricted on EDIS Global VPS services. Configure access inside your operating system and review the outbound SMTP Port 25 exception."
+metaTitle: "EDIS Global VPS Ports, Firewalls & SMTP Policy"
+metaDescription: "Learn how incoming and outgoing TCP/UDP ports work on EDIS Global VPS services, including operating system firewall configuration and the outbound SMTP Port 25 policy."
 ---
 
 ## 🔓 Does EDIS Global block or restrict ports?
 
-No.
+EDIS Global does not generally block, filter, or restrict incoming or outgoing TCP/UDP ports on VPS services.
 
-EDIS Global does not block, filter, or restrict incoming or outgoing TCP/UDP ports on VPS services.
-
-Your VPS is connected directly to the network through a virtual Ethernet interface and bridge. There are no provider-side firewalls, NAT layers, or port restrictions in between that would require ports to be "opened" manually by EDIS Global staff.
+Your VPS is connected directly to the network through a virtual Ethernet interface and bridge. There is no general provider-side firewall or NAT layer requiring ports to be opened manually by EDIS Global staff.
 
 If you need to use a specific port such as:
 
@@ -26,7 +24,12 @@ If you need to use a specific port such as:
 or any other TCP/UDP port, you simply need to configure your software or operating system to listen on that port.
 
 <Note>
-  **Exception: Port 25 (SMTP).** Outbound traffic on port `25` is rate-limited by default. We apply this rate limit to protect both our network and our customers from the negative impacts of spamming activities. For more details see our [Port 25 SMTP Rate Limit Policy](/faq/port-25-smtp-rate-limit-policy#port-25-smtp-rate-limit-policy).
+  **Exception: outbound TCP Port 25 (SMTP).** VPS instances created on or after
+  February 24, 2025 have a default outbound rate limit of 8 packets per second,
+  with an initial burst of up to 16 packets. Inbound TCP Port 25 is unrestricted.
+  Anti-spam enforcement may also result in outbound Port 25 being blocked for
+  an entire VPS. See our [Port 25 SMTP policy and rate
+  limits](/faq/port-25-smtp-rate-limit-policy).
 </Note>
 
 ---
@@ -49,7 +52,7 @@ Examples:
 - Configure WireGuard on port `51820`
 - Configure Remote Desktop on port `3389`
 
-No action from EDIS Global is required.
+For ports other than the outbound Port 25 exception described above, no action from EDIS Global is required.
 
 ---
 
@@ -138,4 +141,4 @@ nc -zv your-ip-address 1080
 
 EDIS Global provides infrastructure-level connectivity only.
 
-Application setup, proxy configuration, firewall management, and software troubleshooting inside the VPS remain fully customer-managed.
+Application setup, proxy configuration, firewall management, and software troubleshooting inside the VPS remain fully customer-managed. All network use remains subject to our [Acceptable Use Policy](/getting-started/acceptable-use-policy).
