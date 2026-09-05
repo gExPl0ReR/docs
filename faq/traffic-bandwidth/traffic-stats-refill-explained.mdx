@@ -12,11 +12,11 @@ This document explains how to access and interpret traffic information for a VPS
 To access your VPS traffic information:
 
 <Steps>
-  <Step title="Log in to your">
+  <Step title="Log in to the portal">
     [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
   </Step>
-  <Step title="Pick any VPS from the Services tab">
-    Review the "Traffic Information" window at the top right.
+  <Step title="Select a VPS">
+    Open a service from the **Services** tab and review its **Traffic Information** panel.
   </Step>
 </Steps>
 
@@ -28,11 +28,22 @@ The total amount of traffic (GB and percentage) consumed since the beginning of 
 
 ### Total traffic available
 
-The total amount of traffic included in your plan for a 1-month period.
+The VPS's current total traffic allowance for the monthly cycle. It consists of:
+
+- the monthly Plan Traffic included with the VPS; and
+- any Pool Traffic assigned manually or through Auto-Hydration during the current cycle.
+
+Assigning Pool Traffic increases this value immediately.
 
 ### Monthly traffic reset/refill
 
-Days remaining for monthly VPS traffic reset. Countdown to when your VPS traffic metrics will be reset and the traffic allocation for your plan is replenished (refill).
+The number of days until the VPS begins a new monthly traffic cycle. At the refill:
+
+- the usage counter resets;
+- the monthly Plan Traffic allowance is replenished; and
+- any unused Pool Traffic already assigned to the VPS expires.
+
+Traffic that remains unassigned in the shared Traffic Pool does not expire.
 
 ### How we meter traffic
 
@@ -42,11 +53,15 @@ Total traffic is calculated as the sum of **ingress (incoming)** and **egress (o
 
 $Total Traffic  =  \sum (\text{IN} + \text{OUT})$
 
-### What happens when all traffic is consumed?
+### What happens as traffic is consumed?
 
-We send warnings at 80%, 90%, and at 100% traffic usage levels. When all traffic is used, we throttle your Ethernet interface to about 64kbit/s. We apply a **5% grace** amount, so the throttling only happens at roughly 105% usage.
+EDIS Global sends an informational notice at **80%** and a warning at **90%** of the current allowance. The 90% warning is suppressed when Auto-Hydration is enabled and the Traffic Pool contains enough traffic for the next automatic assignment.
 
-There's no overage charge, ensuring your server remains online even if all traffic has been used. There are several options for [restoration](/faq/traffic-bandwidth/traffic-pool) when traffic has been used in full.
+At **99%**, Auto-Hydration assigns the selected **100 GB**, **200 GB**, **300 GB**, or **500 GB** increment, provided the Pool balance is sufficient. The current total allowance then increases by the assigned amount.
+
+EDIS Global provides an approximately **5% grace allowance** before rate-limiting. If no additional traffic becomes available, the VPS Ethernet interface is limited to about **64 kbit/s** at approximately **105% usage**. An action-required notification is sent when the rate limit is applied.
+
+There is no automatic overage charge, and the VPS remains online. Review all [restoration options](/faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global) if the allowance has been exhausted.
 
 ![Detailed Traffic Information](/assets/-n9f9xXjqDwmY3XgFkQUn_daily-traffic-432a39609a.png)
 
@@ -54,13 +69,13 @@ There's no overage charge, ensuring your server remains online even if all traff
 
 We have a chart showing the **total (cumulated) traffic** since the last refill. VPS traffic meters are reset and refilled monthly on your product's key (renewal) date.
 
-There is a small indicator (red arrow below) showing how many days until your VPS receives its next monthly traffic refill. This indicator helps you understand whether you should:
+There is a small indicator (red arrow below) showing how many days remain until the next monthly refill. This helps you decide whether to:
 
-- "Hydrate" your KVM with traffic from your <a href="/faq/traffic-bandwidth/traffic-pool" target="_blank">Traffic Pool</a>
-- Upgrade to a higher tier
-- Wait for the next refill
+- [assign Pool Traffic](/faq/traffic-bandwidth/traffic-pool);
+- upgrade to a higher VPS plan; or
+- wait for the next monthly refill.
 
-The red line represents the total amount of traffic available to your KVM. It usually shows the amount of traffic included in your plan. The line moves higher when you add traffic from the Traffic Pool.
+The red line represents the VPS's current total allowance. It begins with the monthly Plan Traffic and moves higher whenever Pool Traffic is assigned manually or through Auto-Hydration.
 
 ![Detailed Traffic Information](/assets/lHUScqmop6d5_TFXKZlHt_cumulative-traffic-bc46ac6118.png)
 

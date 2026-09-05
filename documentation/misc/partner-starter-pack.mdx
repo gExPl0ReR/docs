@@ -100,18 +100,21 @@ In addition to per‑VPS included bandwidth, EDIS Global offers a **Traffic Pool
 - Traffic can be assigned manually or automatically
 - Designed for high‑consumption or burst workloads
 - Just one global price across all 50 EDIS locations.
+- Unassigned Pool Traffic does not expire; unused traffic already assigned to a VPS expires at that VPS's next monthly refill
 
 #### Traffic assignment modes
 
 **Manual Hydration**
 
-- You assign traffic manually from the pool to a VPS
+- Portal quick-assignment buttons: **+100 GB**, **+500 GB**, **+1 TB**, and **+10 TB**
+- The selected amount is deducted from the shared Pool and added to that VPS's current allowance
 
 **Auto‑Hydration**
 
-- The system automatically assigns traffic increments (e.g. 100 GB)
-- Triggered when a VPS reaches ~99% of its included traffic
-- Requires sufficient pool balance
+- Selectable per-VPS increments: **100 GB**, **200 GB**, **300 GB**, or **500 GB**
+- Triggered when a VPS reaches **99%** of its current traffic allowance
+- Uses the existing Pool balance and does not purchase traffic automatically
+- Requires enough Pool Traffic to cover the selected increment
 
 Documentation: [https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-pool](https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-pool)
 

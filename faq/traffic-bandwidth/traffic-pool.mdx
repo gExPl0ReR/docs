@@ -10,7 +10,7 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 
 The EDIS Global Traffic Pool gives every VPS in your account access to one shared traffic reserve. Purchase traffic once and assign it to any VPS whenever you need additional traffic.
 
-Traffic that remains in your Pool **does not expire**. You can assign it manually or enable **Auto-Hydration** to assign a configured amount automatically when a VPS reaches **99%** of its current traffic allowance.
+Traffic that remains in your Pool **does not expire**. In the portal, use the **+100 GB**, **+500 GB**, **+1 TB**, or **+10 TB** quick buttons to assign traffic manually. Alternatively, enable **Auto-Hydration** and select an automatic assignment of **100 GB**, **200 GB**, **300 GB**, or **500 GB** for an individual VPS.
 
 🌍 **No traffic zones. One global price across all 50 EDIS locations.**
 
@@ -69,7 +69,7 @@ Choose the amount you need, from **1 TB** to **10 PB**. Larger bundles provide a
 
 ### 2. [Assign traffic manually](#traffic-pool-in-the-traffic-information-window)
 
-Open the **Traffic Information** window for the VPS and select one of the available assignment amounts. The assigned amount is deducted immediately from your Pool balance and added to that VPS's current traffic allowance.
+Open the **Traffic Information** window for the VPS and select **+100 GB**, **+500 GB**, **+1 TB**, or **+10 TB**. The assigned amount is deducted immediately from your Pool balance and added to that VPS's current traffic allowance.
 
 <Warning>
   Assigned Pool Traffic does not carry over beyond that VPS's next monthly refill. Check the refill date before assigning a large amount.
@@ -77,7 +77,7 @@ Open the **Traffic Information** window for the VPS and select one of the availa
 
 ### 3. [Enable Auto-Hydration](#traffic-pool-in-the-traffic-information-window)
 
-Enable **Auto-Hydration** for an individual VPS to automatically assign your configured amount from the Traffic Pool when the VPS reaches **99%** of its current allowance. The current allowance includes monthly Plan Traffic plus any Pool Traffic already assigned during the cycle.
+Enable **Auto-Hydration** for an individual VPS and select an increment of **100 GB**, **200 GB**, **300 GB**, or **500 GB**. When the VPS reaches **99%** of its current allowance, the selected amount is assigned automatically from your Traffic Pool. The current allowance includes monthly Plan Traffic plus any Pool Traffic already assigned during the cycle.
 
 <Note>
   Auto-Hydration uses your existing Traffic Pool balance. It does not automatically purchase additional traffic. If the Pool balance is insufficient, no further traffic can be assigned until the Pool is topped up.
@@ -89,15 +89,19 @@ Enable **Auto-Hydration** for an individual VPS to automatically assign your con
 
 The **Traffic Information** window shows current VPS usage, the next monthly refill, the shared Pool balance, and the available manual and automatic assignment controls.
 
-![Learn about Traffic Pool](/assets/_incGduwnwlN1t_FCJzrC_traffic-pool-edis-global-manual-auto-hydration.png)
+![EDIS Global Traffic Pool manual assignment and Auto-Hydration controls](/images/edis-global-traffic-pool-controls.webp "EDIS Global Traffic Pool controls")
 
-### Infographic key
+_Portal shown with fictional demo data._
 
-**A. Traffic Pool balance and Top Up:** Shows the traffic currently available in your shared Pool. Use **Top Up** to [purchase](https://edisglobal.com/buy-traffic) additional non-expiring Pool Traffic.
+### Controls shown in the portal
 
-**B. Manual assignment:** Moves the selected amount from your Pool to this VPS immediately. The amount is deducted from the Pool balance and becomes part of the VPS's current-cycle allowance.
+- **Traffic Pool:** Shows the unassigned traffic currently available across your account.
+- **Top up:** Opens the [Traffic Pool purchase page](https://edisglobal.com/buy-traffic).
+- **Hydration log:** Shows manual and automatic traffic assignments.
+- **Manual Hydration:** Provides **+100 GB**, **+500 GB**, **+1 TB**, and **+10 TB** quick-assignment buttons.
+- **Auto-Hydration:** Provides **100 GB**, **200 GB**, **300 GB**, and **500 GB** automatic increments, configurable separately for every VPS.
 
-**C. Auto-Hydration:** Automatically assigns the configured amount from your existing Pool balance when this VPS reaches 99% of its current traffic allowance. You can configure or disable Auto-Hydration individually for every VPS through the VPS Management Portal or API.
+Both manual and automatic assignments use the existing Pool balance. Auto-Hydration does not purchase additional traffic and runs only when the Pool contains enough traffic for the selected increment.
 
 For custom monitoring, use the Management REST API callback feature to trigger notifications at a defined threshold.
 
