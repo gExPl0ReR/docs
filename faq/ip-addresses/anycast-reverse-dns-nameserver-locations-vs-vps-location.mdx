@@ -37,8 +37,8 @@ Employing the power of Anycast DNS to resolve reverse pointers (PTR records), ED
 
 ### DNS locations:
 
-- **Cloud 1:** Amsterdam // Atlanta // Chicago // Dallas // Dublin // Frankfurt // Hong Kong // Johannesburg // London // Los Angeles  // Madrid // Melbourne // Miami  // Moscow // Mumbai // New York // Paris  // Reykjavik // Rheintal // Salzburg // Sao Paulo // Seattle // Singapore  // Stockholm // Tokyo // Warsaw  // Vienna // Zurich
-- **Cloud 2:** Amsterdam // Athens // Chicago // Dallas // Dubai // Frankfurt // Geneva // Hong Kong // Johannesburg // Ljubljana // London // Miami // Reston // San Jose // Sao Paulo // Seattle // Seoul // Sydney // Tampere // Tokyo // Toronto // Vienna
+- **Cloud 1:** Amsterdam // Atlanta // Chicago // Dallas // Dublin // Frankfurt // Hong Kong // Johannesburg // London // Los Angeles // Madrid // Melbourne // Miami // Moscow // Mumbai // New York // Paris // Reykjavik // Rheintal // Salzburg // Sao Paulo // Seattle // Singapore // Stockholm // Tokyo // Warsaw // Vienna // Zurich
+- **Cloud 2:** Amsterdam // Athens // Chicago // Dallas // Dubai // Frankfurt // Geneva // Hong Kong // Johannesburg // Ljubljana // London // Miami // Reston // San Jose // Sao Paulo // Seattle // Seoul // Sydney // Tampere // Tokyo // Toronto // Vienna
 
 ### Benefits of our anycast DNS system:
 
@@ -53,7 +53,7 @@ Employing the power of Anycast DNS to resolve reverse pointers (PTR records), ED
 
 ## Reverse PTR locations vs VPS location
 
-The DNS location is dynamic, depending on the user's (including test server's) location. For instance, a UK-based user will receive rDNS queries from UK nameservers, while a USA-based user will get results from USA nameservers. A China based test-script will indicate an Asian DNS location, independent of the VPS location itself.
+The DNS location is dynamic, depending on the user's (including test server's) location. For instance, a UK-based user will receive rDNS queries from UK nameservers, while a USA-based user will get results from USA nameservers. A China-based test-script will indicate an Asian DNS location, independent of the VPS location itself.
 
 **Important Takeaway:** The location of the reverse DNS is not indicative of the VPS location. While your VPS itself (the installed OS) might use Google- or Cloudflare DNS, the reverse PTR delegation for your IP addresses harnesses EDIS Global's ANYCAST DNS.
 
