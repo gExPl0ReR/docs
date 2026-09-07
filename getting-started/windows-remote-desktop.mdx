@@ -6,7 +6,15 @@ description: "Connect to a Windows Server VPS using Remote Desktop Protocol (RDP
 
 ## **How to connect to a remote system on Windows and Mac**
 
-This guide offers a clear procedure to connect to a Windows server via Remote Desktop Protocol (RDP). While the focus is on Windows, Mac users will find steps tailored for them, too. Please make sure you have Windows installed on your VPS. If you ordered a VPS with Linux installed, you can [reinstall the OS](https://docs.edisglobal.com/autoinstall-reinstall-install-vps-linux-windows) at any time with Windows.&#x20;
+This guide offers a clear procedure to connect to a Windows server via Remote Desktop Protocol (RDP). While the focus is on Windows, Mac users will find steps tailored for them, too. Please make sure you have Windows installed on your VPS. If you ordered a VPS with Linux installed, you can [reinstall the OS](/vps-management/autoinstall-reinstall-install-vps-linux-windows) at any time with Windows.&#x20;
+
+## Connection details
+
+- **Port:** RDP on EDIS Global Windows VPS uses the standard port **3389**. You don't need to append a port to the address. RDP clients use 3389 by default. To specify it explicitly, append it to the IP address, for example `203.0.113.10:3389`.
+- **Username:** `Administrator`
+- **Password:** your VPS password
+
+If the connection fails, check that port 3389 is reachable from your network. See [Ports, firewalls and connectivity](/faq/ip-addresses/ports-firewalls-and-connectivity) for details.
 
 ## **For Windows users**
 
