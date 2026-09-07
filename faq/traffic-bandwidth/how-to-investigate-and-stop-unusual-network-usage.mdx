@@ -194,7 +194,7 @@ After removing the rogue process, secure your server to prevent it from coming b
   sudo mount -o remount,noexec /var/tmp || true
   ```
 
-- **If you get “mount point not mounted” error:**  
+- **If you get a “mount point not mounted” error:**  
   it means `/tmp` isn’t a separate mount. Use this safer alternative:
   ```bash
   sudo mount -o bind /tmp /tmp
