@@ -8,7 +8,9 @@ metaDescription: "Step-by-step guide for automated installation of MikroTik Rout
 
 ## Introduction
 
-This guide simplifies the process of installing MikroTik Router OS on a VPS. By automating the installation with a script, there’s no need to manually enter commands in the MikroTik CLI console. Once complete, you’ll have a fully operational VPS running MikroTik Router OS.
+This guide shows how to install MikroTik RouterOS (CHR) on an EDIS Global VPS using a script. The installer automatically retrieves the **latest stable RouterOS v7 release available from MikroTik at installation time** and downloads the matching CHR disk image. You do not need to select a fixed version number.
+
+The latest-version selection applies when you run the installer; it does not enable ongoing automatic updates for an existing RouterOS installation. After installation, configure the administrator password and network settings as described below, then connect using Winbox.
 
 ## Getting started: prerequisites and VPS preparation
 
