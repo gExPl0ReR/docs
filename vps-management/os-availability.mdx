@@ -1,6 +1,6 @@
 ---
 title: "Operating systems availability on EDIS Global"
-description: "Understand which operating systems are available during order and which additional OS images can be selected later in the dashboard for auto-installation."
+description: "Compare VPS operating systems available when ordering and reinstalling, plus ISO installers, recovery tools and custom installation options."
 sidebarTitle: "Available OS Images"
 ---
 
@@ -184,6 +184,51 @@ Boot into any installer:
 - Custom Linux distributions
 - Security appliances
 - Custom ISO images
+
+---
+
+## ISO installation and recovery media
+
+ISO media are separate from the Auto-Install images listed above. An installation ISO lets you install a compatible operating system manually through the VNC console. Recovery media boot a temporary environment to troubleshoot an existing system or reset a password.
+
+The inventory below was reviewed on **10 September 2026**. The **Mount ISO** selector in your VPS control panel shows the media currently available for your server.
+
+### Installation ISOs
+
+| Operating system or appliance | ISO filename | Purpose |
+| --- | --- | --- |
+| Kali Linux 2021.1 | `Kali-linux-2021.1-installer-netinst-amd64.iso` | Manual network installation of Kali Linux. |
+| Linux Mint 20.3 Xfce | `LinuxMint-20.3-Desktop-xfce-64bit.iso` | Manual installation of Linux Mint with the Xfce desktop. |
+| MikroTik RouterOS 6.48.6 | `MikroTik-RouterOS-6.48.6.iso` | Manual RouterOS installation. |
+| MikroTik RouterOS 7.2 | `MikroTik-RouterOS-7.2.iso` | Manual RouterOS installation. |
+| pfSense 2.7 | `pfSense-2.7.iso` | Manual installation of the firewall/router system. |
+| Windows Server 2016 Evaluation | `Windows_Server_2016_RS1_EVAL_x64_ENG.iso` | Manual Windows Server evaluation installation. |
+| Windows Server 2019 Evaluation | `Windows_Server_2019_RS5_EVAL_x64_EN-US.iso` | Manual Windows Server evaluation installation. |
+| Windows Server 2022 Evaluation | `Windows_Server_2022_EVAL_x64_EN-US.iso` | Manual Windows Server evaluation installation. |
+
+These are version-specific media, including older releases retained for compatibility. Being listed does not mean a version is the latest release or still receives standard vendor security updates. For a new production deployment, check the vendor's support lifecycle and your application's requirements. You can [provide a compatible ISO of your own](https://docs.edisglobal.com/vps-management/bring-your-own-iso) when you need a different release.
+
+Windows Server 2016 is listed here as an **ISO option**, not as an Auto-Install image. Windows evaluation media do not include a paid Windows licence. You remain responsible for the licences required by your operating system and applications.
+
+The MikroTik ISOs above are distinct from the [MikroTik CHR installation workflow](https://docs.edisglobal.com/advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox). Choose the appropriate image and licensing model for your deployment.
+
+### Recovery tools
+
+| Recovery tool | ISO filename | When to use it |
+| --- | --- | --- |
+| SystemRescue 10.02 (AMD64) | `0_SystemRescue-10.02-amd64.iso` | Boot a rescue environment to inspect disks or troubleshoot a Linux system that will not boot or accept connections. See the [Linux rescue guide](https://docs.edisglobal.com/vps-management/linux-rescue-guide-and-troubleshoot). |
+| Password Reset Helper | `1_Password-Reset-Helper.iso` | Reset a Windows Administrator password using the [password-reset procedure](https://docs.edisglobal.com/vps-management/reset-windows-admin-password). |
+
+Recovery tools are used with an existing VPS; they are not replacements for the installed operating system. Follow the relevant guide and avoid formatting or reinstalling a disk when your goal is to recover the existing installation. After recovery, unmount the ISO and boot from the VPS disk.
+
+### How to use an ISO
+
+1. Back up any data you need before installing or changing disk partitions. A manual OS installation can overwrite the existing system and its data.
+2. Open your VPS in the [VPS Management Portal](https://manage.edisglobal.com), choose **Mount ISO**, and select the required media. Follow the [ISO mounting guide](https://docs.edisglobal.com/vps-management/mount-iso-image) to boot from it.
+3. Open the [VNC console](https://docs.edisglobal.com/vps-management/enable-vnc-server) and follow the installer or the relevant recovery procedure. Check the operating system's hardware, boot-mode and driver requirements.
+4. When finished, unmount the ISO and restart the VPS from its disk.
+
+Driver media, such as VirtIO drivers used during a Windows installation, support the installation process and are not operating-system installers or recovery environments.
 
 ---
 
