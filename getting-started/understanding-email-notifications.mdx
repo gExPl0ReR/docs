@@ -1,0 +1,79 @@
+---
+title: "Understanding EDIS Global email notifications"
+sidebarTitle: "Email Notifications"
+description: "Understand the symbols and subject lines in EDIS Global automated emails, including traffic warnings, upgrade activation, IP changes, and completed actions."
+---
+
+Our automated emails use a symbol and a descriptive subject line to help you recognise the type of notification. The subject identifies what happened; the email explains which service is affected and any next steps.
+
+You do not need to memorise the symbols. Read the wording alongside them and follow the instructions in the email. Symbols may look different depending on your email app.
+
+## What each symbol means
+
+| Symbol | Meaning | What to do |
+| --- | --- | --- |
+| 👋 | **New service** | Read your service details and follow the initial setup instructions. |
+| 🎁 | **Complimentary benefit** | Review the benefit added to your account and how to use it. |
+| ✅ | **Successfully completed** | The specific action named in the email is complete. Check the details for any separate next steps. |
+| 🔄 | **Ready on the EDIS side; activation or configuration required** | Complete the customer-side steps described in the email. |
+| ℹ️ | **Information** | Review the update and monitor the situation where relevant. |
+| ⚠️ | **Attention recommended** | Review the warning and take preventive action where needed. This does not by itself mean a restriction is already applied. |
+| ⛔ | **Restriction currently applied** | Read which restriction is in effect and follow the steps to resolve it. This does not necessarily mean the VPS or account is suspended. |
+
+## Examples of email subjects
+
+These examples show how the symbol, event, and any next step work together. Read the email body for the details that apply to your service.
+
+| Example subject | What it tells you |
+| --- | --- |
+| 👋 Your Linux VPS Credentials | Your new Linux VPS access details are available. Follow [Check Your Inbox](/getting-started/check-your-inbox) to get started. |
+| 🎁 Your complimentary 100 GB of Pool Traffic is ready | Starter credit has been added to your shared Traffic Pool. It is available for assignment to a VPS. |
+| ✅ Traffic Pool top-up confirmed | The top-up is complete and traffic has been added to your shared Pool. |
+| ℹ️ Traffic notice: 80% of VPS traffic used | The specified VPS has reached the usage level shown in the notice. Review its remaining allowance. |
+| ⚠️ Action recommended: 90% of VPS traffic used | The specified VPS is approaching its traffic allowance. Review the remaining traffic and arrange more if needed. |
+| ⚠️ Traffic Pool low: 20% low-balance threshold crossed | Your shared Pool has crossed its low-balance threshold. This refers to the Pool reserve, not the remaining allowance of an individual VPS. |
+| 🔄 RAM upgrade ready — activation required | EDIS has prepared the RAM upgrade. Follow the activation steps before expecting the new RAM to be available inside the VPS. |
+| 🔄 vCPU upgrade ready — activation required | EDIS has prepared the vCPU upgrade. Follow the activation steps before expecting the additional CPU resources to be available. |
+| 🔄 IPv4 address added — configuration required | An additional IPv4 address has been assigned. Configure it inside your operating system. |
+| 🔄 IPv4 address changed — configuration required | Your IPv4 address has changed. Update the operating-system network configuration as instructed. |
+| ⛔ Action required: VPS rate-limited — restore network speed | A network speed restriction is already in effect on the specified VPS. Follow the traffic restoration instructions. |
+
+## Traffic emails: Pool balance and VPS allowance are different
+
+Your **shared Traffic Pool** is an account-wide reserve. A VPS has its own **current traffic allowance**, made up of its Plan Traffic plus any Pool Traffic assigned to it.
+
+A complimentary credit or successful Pool top-up adds traffic to the reserve. It does **not** automatically assign that traffic to a VPS or, by itself, restore the speed of a rate-limited VPS.
+
+To use the reserve, assign Pool Traffic to the affected VPS manually, or use Auto-Hydration when it is enabled for that VPS and its conditions are met. Auto-Hydration uses the existing Pool balance; it does not purchase more traffic automatically.
+
+A low Pool warning means the reserve has crossed its low-balance threshold. The remaining balance may already be below 20%, or even zero, when the notification is sent. A VPS can still have available traffic even when the Pool is low or empty.
+
+- [Traffic Pool and Auto-Hydration](/faq/traffic-bandwidth/traffic-pool): top-ups, assignments, starter credit, and low-balance notifications.
+- [Traffic usage and monthly refill](/faq/traffic-bandwidth/traffic-stats-refill-explained): understand the allowance and cycle for an individual VPS.
+- [Traffic limits and restoring full speed](/faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global): what to do if your VPS is rate-limited.
+
+## Upgrade and IP emails: ready does not always mean active
+
+The 🔄 symbol means EDIS has completed its part, but you still need to activate or configure the change.
+
+For **RAM and vCPU upgrades**, follow the email's activation instructions. These upgrades require a **cold reboot**: shut down the VPS completely, then power it on again. See [Upgrade Resources](/faq/upgrades-downgrades/upgrade-resources) and [Power Cycle or Reboot a VPS](/vps-management/power-cycle-or-reboot-a-vps).
+
+For **IPv4 additions or changes**, configure the address inside the operating system. Restarting the VPS alone does not replace the required network configuration.
+
+- [Configure an additional IPv4 address on Linux](/faq/ip-addresses/configuring-additional-ip-address-linux).
+- [Change your IP address](/faq/ip-addresses/change-ip-address).
+- [Update the IP configuration on Ubuntu](/vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404).
+- [Update the IP configuration on Windows Server](/vps-management/how-to-change-ip-address-in-windows-server).
+
+<Warning>
+  When your primary IPv4 address is replaced, the old address stops working immediately. Use the configuration guidance linked above and VNC access where needed. Reinstallation is a separate option that deletes the VPS contents; it is not required when you configure the new address manually.
+</Warning>
+
+## How to act on a notification
+
+1. **Read the subject and email body.** Identify what happened and whether action is recommended or required.
+2. **Check the scope.** Confirm which VPS is affected using the service details in the email, or whether the message concerns your shared Traffic Pool.
+3. **Follow the relevant instructions.** A completed top-up, a prepared upgrade, and a removed restriction are different events.
+4. **Check the current state in the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).** An email describes the situation when it was sent; usage and service status may have changed since then.
+
+If you are unsure what a message means, [contact EDIS Global support](/getting-started/how-our-support-team-helps-you) and include the subject and affected service details. Do not include your VPS password.
