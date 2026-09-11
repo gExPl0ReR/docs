@@ -1,10 +1,10 @@
 ---
-title: "Order API Endpoints for Automating VPS Provisioning"
+title: "Order API endpoints for automating VPS provisioning"
 sidebarTitle: "Order API Overview"
 description: "Reference all Order API endpoints for ordering, configuring, upgrading, and canceling EDIS Global VPS services programmatically over HTTPS with JSON."
 ---
 
-## EDIS Global order API
+## EDIS Global Order API
 
 The **EDIS Global Order API** allows you to automate the full VPS lifecycle:
 
@@ -15,9 +15,17 @@ The **EDIS Global Order API** allows you to automate the full VPS lifecycle:
 
 It is designed for seamless integration into billing systems, automation workflows, and custom provisioning tools.
 
+<Warning>
+  **Production API — no test environment**
+
+  EDIS Global does not provide a sandbox or test environment. Submitting a valid order to `POST /kvm/v2/add/order` creates a real VPS order and invoice. Available account credit is applied by default unless you explicitly set `"applycredit": false` inside the `order` JSON.
+
+  Discovery requests, such as retrieving plans or locations, do not place orders.
+</Warning>
+
 ---
 
-## 🚀 Start Here
+## 🚀 Start here
 
 👉 New to the API?
 
@@ -35,7 +43,7 @@ This guide includes:
 
 ## Available API endpoints
 
-### Order & Lifecycle
+### Order & lifecycle
 
 - **Order VPS**\
   `POST /kvm/v2/add/order`\
@@ -48,7 +56,7 @@ This guide includes:
 
 ---
 
-### Configuration & Discovery
+### Configuration & discovery
 
 - **Get VPS Plans**\
   `POST /kvm/v2/get/products`\
@@ -62,13 +70,13 @@ This guide includes:
 - **Get Payment Methods**\
   `POST /kvm/v2/get/paymentmethods`\
   [https://docs.edisglobal.com/order-api-reference/get-payment-options](https://docs.edisglobal.com/order-api-reference/get-payment-options)
-- **Retrieve Account Credit Balance**\
+- **Get Account Balance**\
   `POST /kvm/v2/get/account-balance`\
   [https://docs.edisglobal.com/order-api-reference/get-accountbalance](https://docs.edisglobal.com/order-api-reference/get-accountbalance)
 
 ---
 
-### Service Mapping
+### Service mapping
 
 - **Get Service ID**\
   `POST /kvm/v2/get/serviceid`\
@@ -79,7 +87,7 @@ This guide includes:
 
 ---
 
-## How the API works (High-Level)
+## How the API works (high-level)
 
 <Info>
   All API operations follow the same pattern:

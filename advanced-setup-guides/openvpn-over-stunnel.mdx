@@ -1,9 +1,9 @@
 ---
-title: How to setup OpenVPN over Stunnel
+title: How to set up OpenVPN over Stunnel
 description: "Set up OpenVPN over Stunnel on Ubuntu 22.04 to disguise OpenVPN traffic as TLS. Step-by-step guide for stealth VPN deployment that bypasses DPI filters."
 ---
 
-## Guide Setting Up OpenVPN over Stunnel on Ubuntu 22.04 on your VPS
+## Guide setting up OpenVPN over Stunnel on Ubuntu 22.04 on your VPS
 
 ## Introduction
 
@@ -31,7 +31,7 @@ We will perform the following high-level steps:
 
 ---
 
-## Steps on the VPS Server
+## Steps on the VPS server
 
 ### 1. Update and upgrade system packages
 
@@ -45,7 +45,7 @@ sudo apt update && sudo apt upgrade -y
 
 ### 2. Install Stunnel
 
-Install Stunnel, which will be used to create an SSL tunnel for OpenVPN traffic.
+Install Stunnel, which you will use to create an SSL tunnel for OpenVPN traffic.
 
 ```bash
 sudo apt install stunnel4 -y
@@ -53,7 +53,7 @@ sudo apt install stunnel4 -y
 
 **Explanation:** Installs the Stunnel package, allowing you to encrypt arbitrary TCP connections inside SSL.
 
-### 3. Generate SSL certificates for stunnel
+### 3. Generate SSL certificates for Stunnel
 
 Navigate to the Stunnel configuration directory and generate a self-signed SSL certificate.
 
@@ -69,7 +69,7 @@ sudo openssl req -new -x509 -days 365 -nodes -out stunnel.pem -keyout stunnel.pe
 
 **Note:** You'll be prompted to enter information (Country, State, etc.). You can fill these out or leave them blank.
 
-### 4. Create a Log File for Stunnel
+### 4. Create a log file for Stunnel
 
 Create a log file for Stunnel to write logs.
 
@@ -115,7 +115,7 @@ cert = /etc/stunnel/stunnel.pem
 - `connect = 127.0.0.1:1194`: Forwards incoming connections to the local OpenVPN service.
 - `cert`: Specifies the SSL certificate file.
 
-### 6. Enable and start stunnel service
+### 6. Enable and start the Stunnel service
 
 Enable Stunnel to start on boot and start the service.
 
@@ -141,7 +141,7 @@ wget https://git.io/vpn -O openvpn-install.sh
 sudo bash openvpn-install.sh
 ```
 
-**Explanation:** This script automates OpenVPN installation and configuration. It will prompt for configuration options—choose settings that suit your needs.
+**Explanation:** This script automates OpenVPN installation and configuration. It will prompt for configuration options. Choose settings that suit your needs.
 
 ### 8. Modify OpenVPN server configuration
 
@@ -176,7 +176,7 @@ sudo systemctl status openvpn-server@server.service
 
 ---
 
-## Steps on the Client Machine
+## Steps on the client machine
 
 ### 1. Install Stunnel
 
@@ -213,7 +213,7 @@ connect = VPS_IP_ADDRESS:443
 
 **Note:** Replace `VPS_IP_ADDRESS` with your actual VPS server IP.
 
-### 3. Enable and start stunnel service
+### 3. Enable and start the Stunnel service
 
 Enable Stunnel to start on boot and start the service.
 
@@ -315,7 +315,7 @@ Before and after starting the VPN, check your public IP to ensure traffic is rou
 curl ifconfig.me
 ```
 
-### 2. Verify Services
+### 2. Verify services
 
 Check that Stunnel and OpenVPN services are running.
 
@@ -324,7 +324,7 @@ sudo systemctl status stunnel4
 sudo systemctl status openvpn-client@client.service
 ```
 
-### 3. Test Connectivity
+### 3. Test connectivity
 
 Ensure you can access internet resources and that traffic is routed through the VPN.
 

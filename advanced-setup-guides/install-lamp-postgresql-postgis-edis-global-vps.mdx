@@ -1,9 +1,9 @@
 ---
-title: How to Install LAMP with PostgreSQL and PostGIS
+title: How to install LAMP with PostgreSQL and PostGIS
 description: "Set up a LAMP stack with PostgreSQL and PostGIS on an EDIS Global VPS. Step-by-step guide combining traditional web hosting with spatial database support."
 ---
 
-**How to Install LAMP with PostgreSQL and PostGIS on Ubuntu**
+**How to install LAMP with PostgreSQL and PostGIS on Ubuntu**
 
 Welcome to EDIS Global VPS Hosting's comprehensive guide on setting up a LAMP environment but with a twist - we're swapping out the MySQL component for PostgreSQL and its spatial extension, PostGIS.
 
@@ -13,9 +13,9 @@ Welcome to EDIS Global VPS Hosting's comprehensive guide on setting up a LAMP en
 2. A VPS running Ubuntu 20.04 or later.
 3. Basic knowledge of terminal operations.
 
-### Step-by-step Installation:
+### Step-by-step installation:
 
-### 1. System Update:
+### 1. System update:
 
 Always ensure your server is up-to-date with the latest packages:
 
@@ -23,7 +23,7 @@ Always ensure your server is up-to-date with the latest packages:
 sudo apt update && sudo apt upgrade -y
 ```
 
-### 2. Apache Installation:
+### 2. Apache installation:
 
 Begin by installing the Apache web server:
 
@@ -37,7 +37,7 @@ To check Apache's status:
 sudo systemctl status apache2
 ```
 
-### 3. PHP Installation:
+### 3. PHP installation:
 
 To install PHP and necessary extensions:
 
@@ -73,7 +73,7 @@ sudo apt install postgis postgresql-<VERSION>-postgis-3 -y
 
 _Note:_ Replace `<VERSION>` with your PostgreSQL version, e.g., `13` for PostgreSQL 13.
 
-### 5. Database Setup:
+### 5. Database setup:
 
 Switch to the `postgres` user and enter the PostgreSQL environment:
 
@@ -101,7 +101,7 @@ GRANT ALL PRIVILEGES ON DATABASE your_database_name TO your_user_name;
 While setting up, always remember to secure your installations:
 
 - For Apache: Set up firewalls, disable directory listings, and use SSL certificates.
-- For PostgreSQL: Change default PostgreSQL user passwords, restrict remote access, and regularly backup your database.
+- For PostgreSQL: Change default PostgreSQL user passwords, restrict remote access, and regularly back up your database.
 - Regularly update all components of your stack.
 
 ### Conclusion:

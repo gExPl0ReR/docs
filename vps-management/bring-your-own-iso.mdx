@@ -1,42 +1,41 @@
 ---
-title: "Upload a Custom ISO image"
+title: "Upload a custom ISO image"
 sidebarTitle: Upload Custom ISO
-description: "EDIS allows users to bring their own .ISO files like custom distributions, basically any i386 or AMD64 compatible operating systems or appliances."
+description: "EDIS allows you to bring your own .ISO files like custom distributions, basically any i386 or AMD64 compatible operating systems or appliances."
 ---
 
-## EDIS allows you to upload and install your own .ISO
+## Upload and install your own ISO
 
-Boot up a bare-metal backup of any server on your KVM. You can also provide custom distributions. Any i386 or AMD64 compatible operating systems can be run on your KVM.
+Boot a bare-metal backup of any server on your KVM. You can also provide custom distributions. You can run any i386 or AMD64 compatible operating system on your KVM.
 
 Use your own custom ISO file to manually install your VPS from the KVM management panel.
 
 ![Upload Custom ISO](/assets/vps-upload-iso.webp)
 
-## Let's do it
+## Upload your ISO
 
 <Steps>
-  <Step title="Log in to your">
-    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
+  <Step title="Log in to your VPS Management Portal">
+    Open the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
   </Step>
 
   <Step title="Locate your VPS in the Services tab" />
 
-  <Step title="Click &#x22;Mount ISO&#x22;..." />
-  <Step title="Enter a valid (non redirecting) download URL ">
-  Please enter a direct HTTP or HTTPS link to your ISO file. <br />
-  For example: https://example.com/image.iso <br />
-  Non-Redirecting Link: This means the address points straight to the ISO file itself and does not redirect through any other pages or links. Using a direct link ensures a faster, more reliable download and easier verification.
-  </Step>
-  <Step title="Proceed to download">
-  Click “**Download ISO**” to start and wait until the download finishes completely.
+  <Step title='Click "Mount ISO"' />
+
+  <Step title="Enter a valid, non-redirecting download URL">
+    Enter a direct HTTP or HTTPS link to your ISO file. For example: `https://example.com/image.iso`
+
+    A non-redirecting link points straight to the ISO file and does not pass through any other pages or redirects. A direct link gives you a faster, more reliable download and easier verification.
   </Step>
 
-  
+  <Step title="Start the download">
+    Click **Download ISO** and wait until the download finishes completely.
+  </Step>
 </Steps>
 
-Once the download is completed, your .iso will be available and can be mounted from the "**Mount ISO**" dialogue. Please pay particular attention to the fact that the uploaded file changes its name and will be provided to you as **xxxx/iso/KVM\_xxxxx\_xxxxxx.iso.**
+Once the download completes, your ISO is available to mount from the **Mount ISO** dialog. The uploaded file is renamed and appears as `xxxx/iso/KVM_xxxxx_xxxxxx.iso`.
 
 <Note>
-  A custom ISO file will be available for 24 hours and will then be removed from
-  your account.
+  A custom ISO file is available for 24 hours and is then removed from your account.
 </Note>

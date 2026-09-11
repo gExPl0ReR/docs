@@ -16,11 +16,11 @@ This document provides a **complete technical and commercial overview** of EDIS 
 **Infrastructure Model:** 100% owned and operated by EDIS Global\
 **Reselling:** EDIS Global does not resell third-party infrastructure
 
-EDIS Global operates its own VPS infrastructure across multiple global locations. All services are provisioned and managed directly by EDIS Global.
+EDIS Global operates its own VPS infrastructure across multiple global locations. EDIS Global provisions and manages all services directly.
 
 ---
 
-## Locations & Availability
+## Locations & availability
 
 EDIS Global operates VPS infrastructure in **50\+ locations worldwide**.
 
@@ -45,7 +45,7 @@ All location feeds follow the same schema:
 https://www.edisglobal.com/location-data/<location-slug>/data.json
 ```
 
-### Example Locations
+### Example locations
 
 - [https://www.edisglobal.com/location-data/austria-graz/data.json](https://www.edisglobal.com/location-data/austria-graz/data.json)
 - [https://www.edisglobal.com/location-data/germany-frankfurt/data.json](https://www.edisglobal.com/location-data/germany-frankfurt/data.json)
@@ -59,12 +59,12 @@ https://www.edisglobal.com/location-data/<location-slug>/data.json
 
 ## Products
 
-### VPS Only
+### VPS only
 
 - ✅ Virtual Private Servers (KVM)
 - ❌ No Dedicated Servers
 
-### Operating Systems
+### Operating systems
 
 - Linux distributions (multiple)
 - Windows Server (180‑day trial images available)
@@ -88,7 +88,7 @@ Each VPS plan includes a **defined amount of monthly bandwidth**, depending on:
 - Location
 - Plan tier
 
-Products can be **upgraded at any time**.
+You can **upgrade products at any time**.
 
 ---
 
@@ -100,18 +100,21 @@ In addition to per‑VPS included bandwidth, EDIS Global offers a **Traffic Pool
 - Traffic can be assigned manually or automatically
 - Designed for high‑consumption or burst workloads
 - Just one global price across all 50 EDIS locations.
+- Unassigned Pool Traffic does not expire; unused traffic already assigned to a VPS expires at the next monthly refill for that VPS
 
 #### Traffic assignment modes
 
 **Manual Hydration**
 
-- Traffic is assigned manually from the pool to a VPS
+- Portal quick-assignment buttons: **+100 GB**, **+500 GB**, **+1 TB**, and **+10 TB**
+- The selected amount is deducted from the shared Pool and added to the current allowance of that VPS
 
 **Auto‑Hydration**
 
-- System automatically assigns traffic increments (e.g. 100 GB)
-- Triggered when a VPS reaches ~99% of its included traffic
-- Requires sufficient pool balance
+- Selectable per-VPS increments: **100 GB**, **200 GB**, **300 GB**, or **500 GB**
+- Triggered when a VPS reaches **99%** of its current traffic allowance
+- Uses the existing Pool balance and does not purchase traffic automatically
+- Requires enough Pool Traffic to cover the selected increment
 
 Documentation: [https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-pool](https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-pool)
 
@@ -127,7 +130,7 @@ Instant ⚡️ delivery details: [https://docs.edisglobal.com/faq/billing-lifecy
 
 ---
 
-## Snapshots & Backups
+## Snapshots & backups
 
 - ❌ Not self-service
 - ✅ Available on request (QCOW2 image export)
@@ -137,7 +140,7 @@ Snapshot documentation:\
 
 ---
 
-### Backup Responsibility
+### Backup responsibility
 
 🛡 **Customers are solely responsible for maintaining backups** of their servers and all stored data.
 
@@ -148,21 +151,23 @@ Backup best practices:\
 
 ---
 
-## IP Addresses
+## IP addresses
 
 - Additional IPv4: **€5 / IP**
 - Random IP change: **€5 (NRC)**
 - Bespoke IP change: **€10 (NRC)**
 
-IPv6 available where supported by location.
+Every VPS includes its own **/64-equivalent IPv6 allocation**. This is not a separately routed `/64`: addresses use a `/48` prefix length to reach the location-specific gateway, and up to 20 stable IPv6 addresses may be configured simultaneously.
 
-Documentation: [https://docs.edisglobal.com/faq/ip-addresses/change-ip-address](https://docs.edisglobal.com/faq/ip-addresses/change-ip-address)
+IP change documentation: [https://docs.edisglobal.com/faq/ip-addresses/change-ip-address](https://docs.edisglobal.com/faq/ip-addresses/change-ip-address)
+
+IPv6 configuration: [https://docs.edisglobal.com/vps-management/ipv6-configuration](https://docs.edisglobal.com/vps-management/ipv6-configuration)
 
 ---
 
 ## Billing
 
-### Billing Cycles
+### Billing cycles
 
 - Monthly
 - Quarterly
@@ -171,13 +176,20 @@ Documentation: [https://docs.edisglobal.com/faq/ip-addresses/change-ip-address](
 
 Hourly billing is **not** available.
 
-### Payment Methods
+### Payment methods
 
 - Credit Card
 - PayPal
-- Bank Transfer (account top‑ups \> €250)
 - Cryptocurrency
-- SEPA / ACH Direct Debit
+- Apple Pay, Google Pay and Alipay
+- SEPA / ACH Direct Debit (by invitation only)
+- SEPA / SWIFT bank transfer (manually processed; account-credit top-ups of at least EUR 250)
+
+<Warning>
+  Bank transfers are not suitable for recurring monthly payments, urgent renewals or immediate provisioning. Direct payment of an invoice by bank transfer requires prior agreement and is reserved for emergencies when no automated payment method is available.
+
+  Sending a transfer does not mark an invoice as paid. Until our accounting team has received, identified and manually assigned it, the normal non-payment workflow continues and can lead to service suspension, termination and permanent data deletion.
+</Warning>
 
 Accepted payment methods: [https://docs.edisglobal.com/faq/billing-lifecycle/accepted-payment-methods](https://docs.edisglobal.com/faq/billing-lifecycle/accepted-payment-methods)
 
@@ -218,7 +230,7 @@ Comprehensive technical documentation: [https://docs.edisglobal.com/getting-star
 
 ---
 
-## Reselling & Discounts
+## Reselling & discounts
 
 EDIS Global offers structured reseller discounts.
 
@@ -251,7 +263,7 @@ EDIS Global is designed for partners who value:
 
 For questions beyond this document, please contact the EDIS Global team or consult the documentation linked above.
 
-### Location Data Feeds - full list
+### Location data feeds - full list
 
 [https://www.edisglobal.com/location-data/austria-graz/data.json](https://www.edisglobal.com/location-data/austria-graz/data.json)
 

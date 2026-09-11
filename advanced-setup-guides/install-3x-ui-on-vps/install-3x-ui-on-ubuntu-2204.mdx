@@ -1,6 +1,6 @@
 ---
 title: "Install 3x-ui on VPS"
-sidebartitle: "Install 3x-ui on Ubuntu 22.04"
+sidebarTitle: "Install 3x-ui on Ubuntu 22.04"
 description: "Install 3x-ui on Ubuntu 22.04 VPS to run a VLESS proxy panel for privacy, DPI bypass, and access to restricted content with a managed web interface."
 ---
 
@@ -12,7 +12,7 @@ VLESS is a modern, lightweight protocol used to create fast, flexible VPN-like c
 
 3x-ui is a web panel (a control dashboard in your browser) for managing Xray-core. It lets you create and manage VLESS VPN accounts without touching complex config files. You can add users, generate VLESS links or QR codes, and see traffic usage in a few clicks. 3x-ui also supports other popular protocols like Trojan, Shadowsocks, and more, so you can choose what works best for your needs. Overall, it turns many “terminal-only” tasks into simple buttons and forms, which is much easier for beginners.
 
-## Installation 3x-ui on VPS
+## Install 3x-ui on a VPS
 
 <Steps>
   <Step title="Install Ubuntu 22.04 on your EDIS Global VPS">
@@ -56,12 +56,12 @@ VLESS is a modern, lightweight protocol used to create fast, flexible VPN-like c
         bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
     ```
   </Step>
-  <Step title="During the installation process script asked about change port">
+  <Step title="During the installation, the script asks about changing the port">
     ```bash
         Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]: 
     ```
 
-    Type **y** to set your own port. The port should use between 41000-65000 range. For example: 46522
+    Type **y** to set your own port. The port should be in the 41000-65000 range. For example: 46522
 
     At the end, you will see something like:
 
@@ -81,7 +81,7 @@ VLESS is a modern, lightweight protocol used to create fast, flexible VPN-like c
 
 ## Connect to the 3x-ui panel
 
-Never connect to 3x-ui over plain http – it’s not secure. Always access the panel via https or through an SSH tunnel. To secure your connection to 3x-ui, make sure at least one of the following is set up:
+Never connect to 3x-ui over plain http. It’s not secure. Always access the panel via https or through an SSH tunnel. To secure your connection to 3x-ui, make sure at least one of the following is set up:
 
 - Generate and assign a self-signed certificate for the panel
 - Use SSH port forwarding (access 3x-ui through an SSH tunnel)
@@ -89,7 +89,7 @@ Never connect to 3x-ui over plain http – it’s not secure. Always access the 
 
 <Tabs>
   <Tab title="Self-sign cert" icon="expeditedssl">
-    A self-signed certificate lets the 3x-ui panel use HTTPS, so all data between your browser and the panel is encrypted instead of sent in plain text. Your browser may show a warning because the cert isn’t from a public CA, but the connection is still secure—this helps prevent man-in-the-middle (MITM) attacks and is much safer than using HTTP, especially when entering your password or changing VPN settings.
+    A self-signed certificate lets the 3x-ui panel use HTTPS, so all data between your browser and the panel is encrypted instead of sent in plain text. Your browser may show a warning because the cert isn’t from a public CA, but the connection is still secure. This helps prevent man-in-the-middle (MITM) attacks. It is also much safer than using HTTP, especially when entering your password or changing VPN settings.
 
     Generate a self-signed certificate and apply it to 3x-ui:
 
@@ -126,9 +126,9 @@ Never connect to 3x-ui over plain http – it’s not secure. Always access the 
     Select option **13** to restart the panel. After that, the 3x-ui web interface will be served over HTTPS using your self-signed certificate.
   </Tab>
   <Tab title="SSH port forwarding" icon="left-right">
-    SSH port forwarding (SSH tunneling) lets you securely access a service on your VPS, like the 3x-ui web panel, without opening its port to the public internet. You create an encrypted SSH connection where your PC listens on a local port (for example `2222`) and forwards all traffic to the 3x-ui port on the server (for example `46522`), so when you open `http://127.0.0.1:2222/` in your browser, you’re safely talking to the panel through SSH.
+    SSH port forwarding (SSH tunneling) lets you securely access a service on your VPS, like the 3x-ui web panel, without opening its port to the public internet. You create an encrypted SSH connection where your PC listens on a local port (for example `2222`). The tunnel forwards all traffic to the 3x-ui port on the server (for example `46522`). When you open `http://127.0.0.1:2222/` in your browser, you’re safely talking to the panel through SSH.
 
-    Setup SSH port Forwarding on VPS:
+    Set up SSH port forwarding on the VPS:
 
     ```bash
        #Execute 3x-ui cli
@@ -159,13 +159,13 @@ Never connect to 3x-ui over plain http – it’s not secure. Always access the 
        http://localhost:2222/ZtvraBUmNK9NQj43ks/
     ```
 
-    You can also use these second example on how to connect to the server from your local machine, where port of 3x-ui is 46522:
+    You can also use this second example to connect to the server from your local machine, where the 3x-ui port is 46522:
 
     ```bash
        ssh -L 127.0.0.1:2222:127.0.0.1:46522 root@YOUR_SERVER_IP
     ```
 
-    Open URL in the browser on your local PC:
+    Open the URL in the browser on your local PC:
 
     ```text
        http://127.0.0.1:2222/ZtvraBUmNK9NQj43ks
@@ -175,7 +175,7 @@ Never connect to 3x-ui over plain http – it’s not secure. Always access the 
     To get a trusted HTTPS certificate from Let’s Encrypt for the 3x-ui panel, you need:
 
     - Domain name, e.g. vpn.example.com
-    - That domain’s A record pointing to your VPS IP(set in the hosting provider)
+    - That domain’s A record pointing to your VPS IP (set in the hosting provider)
     - Port 80 on the VPS open to the internet (for HTTP validation)
 
     Connect to the server via SSH and run these commands:
@@ -212,11 +212,11 @@ Never connect to 3x-ui over plain http – it’s not secure. Always access the 
 
 ## 3X-UI panel
 
-Login to the panel:
+Log in to the panel:
 
 ![3x-ui login](/assets/3x-ui-login.png)
 
-After logging into the 3X-UI panel, go to the Inbounds tab and click on the Add Inbound button:
+After logging into the 3X-UI panel, go to the Inbounds tab and click the Add Inbound button:
 
 ![inbounds](/assets/3x-ui-inbounds.png)
 
@@ -226,12 +226,8 @@ Fill in the following fields in the opened menu:
 - Protocol - select <b>vless</b>
 - Listen IP - leave the field blank;
 - Port - specify port <b>443</b>
-
-  .
-- Click on the Client drop-down list and click one by one to the Email, ID, Subscription to update.
-- For Flow settings choose <b>xtls-rprx-vision</b>
-
-  . The Flow will be visible after activation Reality for Security setting.
+- Click the Client drop-down list and click one by one to the Email, ID, Subscription to update.
+- For Flow settings select <b>xtls-rprx-vision</b>. The Flow will be visible after activating Reality for the Security setting.
 
 ![addinbound](/assets/3x-ui-addinbound.png)
 
@@ -251,13 +247,11 @@ Activate Sniffing, switch to enable:
 
 After entering the data, click the Create button.
 
-If configured correctly, you will have an entry with the protocol. Try to click on the <b>+</b>
-
- plus to show client settings for export:
+If configured correctly, you will have an entry with the protocol. Try to click the <b>+</b> plus to show client settings for export:
 
 ![inboundcreated](/assets/3x-ui-inboundcreated.png)
 
-In the drop down menu click to the QR code image:
+In the drop-down menu, click the QR code image:
 
 ![qrcodeclick1](/assets/3x-ui-qrcodeclick1.png)
 
@@ -265,7 +259,7 @@ In the pop-up window you’ll see two QR codes. Click the QR code on the right (
 
 ![QRcode2](/assets/3x-ui-QRcode2.png)
 
-## How to Connect to 3x-ui (PC, Android, iOS)
+## How to connect to 3x-ui (PC, Android, iOS)
 
 Description of 3X-UI clients for PC: **Hiddify**, **v2rayN**, **v2RayTun**, **v2RayNG**, **Nekoray** and others.
 

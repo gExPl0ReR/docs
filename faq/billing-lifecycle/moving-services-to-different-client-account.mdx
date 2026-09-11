@@ -1,5 +1,5 @@
 ---
-title: "Moving (transferring) Services to a different Client Account"
+title: "Moving (transferring) services to a different client account"
 sidebarTitle: Transferring Services
 description: "Why KVM VPS services cannot be transferred between EDIS Global client accounts due to security policies, and what options exist for ownership changes."
 ---
@@ -14,15 +14,15 @@ description: "Why KVM VPS services cannot be transferred between EDIS Global cli
 
 Transferring services between accounts is not possible because each **KVM ID** (the unique identifier for each virtual machine) is permanently tied to the account it was created under. This is not a matter of policy but rather a technical and security limitation of our system. Once a KVM ID is created, it cannot be reassigned to a different account without losing critical functionality.
 
-## Security and Functionality at the Core
+## Security and functionality at the core
 
 Our systems are designed to ensure the highest level of security for all our customers. The account-based attachment of KVM machines serves the following purposes:
 
-1. **Prevent Unauthorized Access:** By binding KVM IDs to a single account, we ensure that only the account owner has access to manage the virtual machines.
+1. **Prevent unauthorized access:** By binding KVM IDs to a single account, we ensure that only the account owner has access to manage the virtual machines.
 
-2. **Preserve System Integrity:** Moving a KVM ID to another account disrupts the linkage required for the service to function correctly.
+2. **Preserve system integrity:** Moving a KVM ID to another account disrupts the linkage required for the service to function correctly.
 
-3. **Maintain Service Reliability:** The connection between the account and its associated KVM IDs is critical for seamless operation and backend processes.
+3. **Maintain service reliability:** The connection between the account and its associated KVM IDs is critical for seamless operation and backend processes.
 
 ***
 

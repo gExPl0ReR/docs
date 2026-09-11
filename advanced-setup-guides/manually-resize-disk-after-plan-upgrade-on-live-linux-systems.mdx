@@ -1,27 +1,27 @@
 ---
-title: "Resize Linux Disk After VPS Plan Upgrade"
+title: "Resize Linux disk after VPS plan upgrade"
 sidebarTitle: "Resize Linux Disk/Partition"
 description: "Manually resize disk space on a live Linux VPS after a plan upgrade using SystemRescueCD. Step-by-step guide to safely expand your root partition."
 ---
 
 <Warning>
-  ### Important Notice: Risks Associated with Resizing Disk Space
+  ### Important notice: risks associated with resizing disk space
 
-  Resizing disks and partitions on production Linux operating systems is a complex and potentially hazardous process that should only be undertaken by experienced system administrators. There are significant risks involved, including the possibility of data loss. It is imperative to perform a complete backup of all data on the drive before attempting any resizing operations. Additionally, be aware that the process might not work as intended, and unforeseen issues could arise. **Please proceed with caution and use this guide at your own risk.**
+  Resizing disks and partitions on production Linux operating systems is a complex and potentially hazardous process. Only experienced system administrators should undertake it. There are significant risks involved, including the possibility of data loss. You must perform a complete backup of all data on the drive before attempting any resizing operations. Additionally, be aware that the process might not work as intended, and unforeseen issues could arise. **Please proceed with caution and use this guide at your own risk.**
 </Warning>
 
 It is not always possible to reinstall the operating system to automatically add disk space. With this guide, you can manually resize your disk and expand the existing root partition.
 
 To resize disk space and unallocated space on your disk, use SystemRescueCD. The SystemRescueCD is a Linux system rescue disk available as a bootable CD-ROM.&#x20;
 
-Remember, modifying disk partitions and file systems can be risky and may result in data loss, especially if there's a power interruption or if the operations are performed incorrectly. Always back up important data before proceeding.
+Remember, modifying disk partitions and file systems can be risky and may result in data loss, especially if there's a power interruption or if you perform the operations incorrectly. Always back up important data before proceeding.
 Here’s a general guide on how to resize disk space manually:
 
 ## Access the VPS management portal
 
-After the Upgrade was confirmed ...
+After the upgrade was confirmed ...
 
-* Login to your <a href="https://manage.edis.at/whmcs/clientarea.php" target="_blank">VPS Management Portal</a>
+* Log in to your <a href="https://manage.edis.at/whmcs/clientarea.php" target="_blank">VPS Management Portal</a>
 
 * Locate your VPS from the Services tab
 
@@ -59,19 +59,19 @@ After the Upgrade was confirmed ...
 
 * **Start the Graphical Interface**: If SystemRescueCD boots into a command line, you can start the graphical interface by typing: `startx`.
 
-* **Open GParted**: Once in the graphical interface, open GParted. GParted is a free partition editor for graphically managing your disk partitions. Press "**Fix**" button on "Libparted Warning" pop-up window.
+* **Open GParted**: Once in the graphical interface, open GParted. GParted is a free partition editor for graphically managing your disk partitions. Click the "**Fix**" button on the "Libparted Warning" pop-up window.
 
 ![Resize Linux Disk/Partition](/assets/-gvJtyF7VHSRiIGAeVws-_sysrescuecd3.png)
 
-In the GParted window that opens, you will see several partitions. There will be vda1 and vda2 partitions. You need to add unallocated space to vda1 (root) partition but you will not be able to expand space in the /dev/vda1 (root) partition without deleting /dev/vda2 (swap). &#x20;
+In the GParted window that opens, you will see several partitions. There will be vda1 and vda2 partitions. You need to add unallocated space to the vda1 (root) partition. However, you will not be able to expand space in the /dev/vda1 (root) partition without deleting /dev/vda2 (swap). &#x20;
 
-1. **Remove the swap partition**. The vda 2 (swap) partition will be located next to vda1 and the unallocated space. Right-click on this partition and set Delete.&#x20;
+1. **Remove the swap partition**. The vda2 (swap) partition will be located next to vda1 and the unallocated space. Right-click on this partition and select Delete.&#x20;
 
-2. **Resize Partitions**: To extend the root partition(vda1), right-click on it in GParted to root partition(vda1), and select “Resize/Move”. Then, drag the handles to include the unallocated space and click “Resize/Move”. In the field "Free space following" install the size of your future swap partition.
+2. **Resize Partitions**: To extend the root partition (vda1), right-click on it in GParted and select “Resize/Move”. Then, drag the handles to include the unallocated space and click “Resize/Move”. In the field "Free space following", enter the size of your future swap partition.
 
 3. **Apply Changes**: After arranging the partitions as desired, click the “Apply” button in GParted to apply the changes. Be aware that this process can take some time and may result in data loss if not done correctly.
 
-4. **Create a swap partition**. Right-click on unallocated space and select New. In the Field File system switch to Linux-swap and click Add button.
+4. **Create a swap partition**. Right-click on unallocated space and select New. In the File system field, select Linux-swap and click the Add button.
 
 ![Resize Linux Disk/Partition](/assets/13ePrT-SgVGNR1CSJAvv7_sysrescuecd5.png)
 
@@ -81,7 +81,7 @@ In the GParted window that opens, you will see several partitions. There will be
 
 ## Identify the new swap partition
 
-1. **Log into Your VPS:** Login to with root of the system.
+1. **Log into Your VPS:** Log in as the root user of the system.
 
 2. **List Current Partitions**: Use the command blkid to list all partitions and identify the swap partition and its UUID. Copy the UUID of a swap partition.
    `blkid`
@@ -100,7 +100,7 @@ In the GParted window that opens, you will see several partitions. There will be
 
 8. **Restart the VPS**: Finally, reboot the server to boot into your primary operating system. You can continue to monitor this process via the VNC connection until you have confirmed that the server boots correctly and the new disk settings are functioning as expected.
 
-9. **Verify Swap Status:** Ensure that the swap is active and using the new UUID by running "swapon -s" or "cat /proc/swaps"
+9. **Verify Swap Status:** Ensure that the swap is active and using the new UUID by running "swapon -s" or "cat /proc/swaps".
 
 **Final Steps**:
 

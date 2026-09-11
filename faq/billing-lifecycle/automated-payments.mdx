@@ -1,12 +1,12 @@
 ---
-title: "Automated Payments"
-description: "Configure automated payments at EDIS Global with credit card, PayPal, or account credit to avoid missed renewals, delays, and manual invoice payments."
+title: "Automated payments"
+description: "Configure automated payments at EDIS Global with credit card, PayPal, account credit, or invitation-only SEPA and ACH Direct Debit."
 sidebarTitle: "Automated Payments"
 ---
 
-## Build a reliable, Low-Maintenance payment workflow
+## Build a reliable, low-maintenance payment workflow
 
-At EDIS Global, we’ve worked with **tens of thousands of customers over more than two decades** — from single VPS users to large-scale infrastructures.
+At EDIS Global, we’ve worked with **tens of thousands of customers over more than two decades**, from single VPS users to large-scale infrastructures.
 
 This guide explains how to set up a **reliable, fully automated payment workflow** that minimizes manual work, avoids service interruptions, and keeps everything running smoothly.
 
@@ -20,17 +20,15 @@ EDIS Global supports multiple payment methods. Some are ideal for full automatio
 
 ## Credit cards (recommended)
 
-**Automation level:** ⭐⭐⭐\
-**Reliability:** ⭐⭐⭐\
-**Operational overhead:** ⭐ (lowest)
+**Automation level:** ⭐⭐⭐<br />**Reliability:** ⭐⭐⭐<br />**Operational overhead:** 🟢 Low
 
 Credit cards offer the **most reliable and maintenance-free payment experience**.
 
 When you pay by credit card:
 
 - Your card is securely stored with our payment provider **Stripe**
-- Only a reference token is stored in your account
-- Invoices are charged automatically when due
+- Only a reference token is stored in your EDIS Global account
+- Invoices are charged automatically (four days after receiving the invoice)
 
 ### Benefits
 
@@ -38,16 +36,13 @@ When you pay by credit card:
 - New orders are charged instantly
 - Services are provisioned in **near real-time**
 
-**Best for:**\
-Customers who want fully automated payment with immediate service delivery.
+**Best for:**<br />Customers who want fully automated payment with immediate service delivery.
 
 ---
 
 ## Account credit (highly recommended)
 
-**Automation level:** ⭐⭐⭐\
-**Reliability:** ⭐⭐⭐\
-**Operational overhead:** ⭐⭐
+**Automation level:** ⭐⭐⭐<br />**Reliability:** ⭐⭐⭐<br />**Operational overhead:** 🟡 Medium
 
 Account credit is a powerful option, especially for customers with multiple services.
 
@@ -65,50 +60,50 @@ You only need to ensure that **sufficient credit is available** in your account.
 
 - Credit card
 - PayPal
-- SEPA direct debit or Bank Transfer
-- Cryptocurrency payments
+- Cryptocurrency
+- SEPA or ACH Direct Debit, if enabled for your account
+- Bank transfer of at least EUR 250, processed manually
 
-**Best for:**\
-Businesses, resellers, or customers who prefer prepaid payments and predictable costs.
+<Note>
+  Bank transfers are not automated or credited in real time. Fund your account well before the credit is needed. Once the transfer has been manually assigned and appears as account credit, that credit can pay newly generated renewal invoices automatically.
+</Note>
+
+**Best for:**<br />Businesses, resellers, or customers who prefer prepaid payments and predictable costs.
 
 ---
 
-## SEPA direct debit
+## SEPA and ACH Direct Debit (invitation only)
 
-**Automation level:** ⭐⭐\
-**Reliability:** ⭐⭐\
-**Operational overhead:** ⭐⭐⭐
+**Automation level:** ⭐⭐<br />**Reliability:** ⭐⭐<br />**Operational overhead:** 🟡 Medium to 🔴 High
 
-SEPA direct debit allows invoices to be debited automatically from your bank account.
+SEPA and ACH Direct Debit allow EDIS Global to collect payments automatically from an approved bank account. These methods are available **by invitation only** and do not appear automatically in every customer account.
 
-### What to Know
+Contact EDIS Global Support to discuss eligibility and arrange mandate setup.
 
-- Funds usually settle **4–5 business days** (secure renewal is guaranteed)
+### What to know
+
+- Payments are not instant and may take several business days to settle
 - New services are delivered **after settlement**
 - Not ideal if you require immediate provisioning
 - Settlement is delayed by public holidays and weekends
+- A collection can be delayed, rejected or reversed, so sufficient time must be allowed
 
-### Recommended Use
+### Recommended use
 
-SEPA direct debit works best when used to **top up account credit**.\
-This combines automated payments with instant service delivery.
-
-We can assist with setting up the mandate and migrating your services smoothly to SEPA Direct Debit.
+For eligible customers, Direct Debit can be used for renewal invoices or to **top up account credit**. The appropriate setup is agreed with our support team. Maintaining account credit provides a buffer for future renewals once the collected funds have settled.
 
 ---
 
-## PayPal Subscriptions
+## PayPal subscriptions
 
-**Automation level:** ⭐\
-**Reliability:** ⭐\
-**Operational overhead:** ⭐⭐⭐⭐
+**Automation level:** ⭐<br />**Reliability:** ⭐<br />**Operational overhead:** 🔴 High
 
 PayPal subscriptions can work for:
 
 - Private users
 - A small number of static services
 
-However, they can become difficult to manage for business use cases involving frequent changes (upgrades, cancellation + re-orders)
+However, they can become difficult to manage for business use cases involving frequent changes (upgrades, cancellation \+ re-orders).
 
 ### How PayPal subscriptions work
 
@@ -121,23 +116,25 @@ A PayPal subscription is created and managed **inside your PayPal account**, not
 
 If you need help aligning an existing PayPal subscription with your current services, contact support.
 
-**Recommendation:**\
-For business customers, we strongly recommend **credit cards or account credit** instead. Both are managed directly in the EDIS Global client area and stay in sync with your services automatically.
+**Recommendation:**<br />For business customers, we strongly recommend **credit cards or account credit** instead. Both are managed directly in the EDIS Global client area and stay in sync with your services automatically.
 
 ---
 
-## Our Recommendation
+## Our recommendation
 
 For a smooth, fully automated payment experience, choose one of the following setups:
 
 - Credit card payment
 - Account credit funded by credit card
-- Account credit funded by SEPA direct debit, Bank Transfer or Crypto
+- Account credit funded by PayPal or cryptocurrency
+- For approved accounts, SEPA or ACH Direct Debit
+
+If you fund account credit by bank transfer, use a top-up of at least **EUR 250** and allow time for manual reconciliation. Do not use bank transfers for recurring monthly payments, urgent renewals or immediate provisioning.
 
 These setups consistently result in fewer payment issues and uninterrupted service.
 
 ---
 
-## Need Help?
+## Need help?
 
 If you’re unsure which option fits your use case, our support team is happy to help you choose the best setup.

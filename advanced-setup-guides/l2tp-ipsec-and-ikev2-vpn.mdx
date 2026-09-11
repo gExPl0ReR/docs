@@ -1,7 +1,7 @@
 ---
 title: "L2TP/IPsec and IKEv2 VPN"
-sidebartitle: "L2TP/IPsec & IKEv2 VPN"
-description: "Build an L2TP/IPsec and IKEv2 VPN server on Ubuntu 22.04 with the hw5ds2/setup-ipsec-vpn scripts for flexible, encrypted connections on an EDIS VPS."
+sidebarTitle: "L2TP/IPsec & IKEv2 VPN"
+description: "Build an L2TP/IPsec and IKEv2 VPN server on Ubuntu 22.04 with the hwdsl2/setup-ipsec-vpn scripts for flexible, encrypted connections on an EDIS VPS."
 ---
 
 ## Setting up L2TP/IPsec and IKEv2 VPN server on Ubuntu 22.04
@@ -46,7 +46,7 @@ We will perform the following high-level steps:
 
 ***
 
-## Steps on the VPS Server
+## Steps on the VPS server
 
 ### 1. Update and upgrade system packages
 
@@ -124,7 +124,7 @@ https://vpnsetup.net/clients
 ===============================================
 ```
 
-**Note:** Replace `x.x.x.x` with your server's public IP address. The script outputs important VPN credentials—keep them secure.
+**Note:** Replace `x.x.x.x` with your server's public IP address. The script outputs important VPN credentials. Keep them secure.
 
 ### 4. Managing VPN users
 
@@ -166,7 +166,7 @@ sudo delvpnuser.sh 'username_to_remove'
 
 ***
 
-## Steps on the Client Machine
+## Steps on the client machine
 
 ### Option 1: connect using L2TP/IPsec
 
@@ -192,7 +192,7 @@ Follow these steps to set up the VPN connection:
 
 2. **Select VPN Type:**
 
-   * Choose **Layer 2 Tunneling Protocol (L2TP)**.
+   * Select **Layer 2 Tunneling Protocol (L2TP)**.
 
 3. **General Configuration:**
 
@@ -208,9 +208,9 @@ Follow these steps to set up the VPN connection:
 
 4. **Configure IPsec Settings:**
 
-   * Click on **IPsec Settings...**.
+   * Click **IPsec Settings...**.
 
-   * **Enable IPsec tunnel to L2TP host:** Check this box.
+   * **Enable IPsec tunnel to L2TP host:** Select this checkbox.
 
    * **Pre-shared key:** Enter your IPsec PSK (`Your VPN IPsec PSK`).
 
@@ -297,7 +297,7 @@ rm ~/vpnclient.p12
 
 **Note:** If prompted for a password during extraction, simply press **Enter**.
 
-### 4. Secure the Certificate and Key Files
+### 4. Secure the certificate and key files
 
 It's important to protect these sensitive files.
 
@@ -341,7 +341,7 @@ Follow these steps to set up the IKEv2 VPN connection:
 
 2. **Select VPN Type:**
 
-   * Choose **IPsec/IKEv2 (strongSwan)**.
+   * Select **IPsec/IKEv2 (strongSwan)**.
 
 3. **General Configuration:**
 
@@ -355,7 +355,7 @@ Follow these steps to set up the IKEv2 VPN connection:
 
 5. **Client Authentication:**
 
-   * **Authentication:** Choose **Certificate (/private key)**.
+   * **Authentication:** Select **Certificate (/private key)**.
 
    * **Certificate (file):** Select the `client.cer` file.
 
@@ -363,11 +363,11 @@ Follow these steps to set up the IKEv2 VPN connection:
 
 6. **Options Configuration:**
 
-   * **Request an inner IP address:** Check this box.
+   * **Request an inner IP address:** Select this checkbox.
 
 7. **Cipher Proposals (Algorithms):**
 
-   * **Enable custom proposals:** Check this box.
+   * **Enable custom proposals:** Select this checkbox.
 
    * **IKE:** Leave this field blank.
 
