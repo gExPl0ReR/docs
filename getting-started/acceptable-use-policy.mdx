@@ -4,9 +4,9 @@ sidebarTitle: "Usage Policy (AUP)"
 description: "EDIS Global Acceptable Use Policy (AUP) outlines prohibited activities including illegal content, child sexual abuse material, spam, and abuse practices."
 ---
 
-## **🔒** Prohibited applications and activities
+## 🔒 Prohibited applications and activities
 
-Our **Acceptable Use Policy (AUP)** explains the terms of using our services. You must comply with these policies and engage only in legal activities. The following violations will result in account termination or legal action:
+Our **Acceptable Use Policy (AUP)** explains the terms of using our services. You must comply with these policies and engage only in legal activities. Violations may result in service restrictions, suspension, account termination, or legal action, depending on their nature and severity.
 
 ### 🚫 Child sexual abuse material (CSAM)
 
@@ -14,7 +14,13 @@ Our **Acceptable Use Policy (AUP)** explains the terms of using our services. Yo
 
 ### 📩 Unsolicited emails (SPAM)
 
-* We have zero tolerance for SPAM. Any complaints will result in account suspension. Repeated violations lead to permanent account termination without refunds.
+We have zero tolerance for unsolicited email (SPAM).
+
+If a credible complaint or other evidence indicates that unsolicited email was sent from any IP address assigned to a VPS, we may immediately block **outbound TCP Port 25 for the entire VPS**. The block applies to every IPv4 and IPv6 address assigned to that VPS, even if the complaint concerns only one IP address. A single substantiated complaint may be sufficient.
+
+You must promptly stop the activity, investigate its cause, secure any compromised systems or accounts, and respond with the remediation taken. The outbound Port 25 block may remain in place indefinitely if the incident is not resolved satisfactorily.
+
+Repeated complaints, deliberate unsolicited mailing, or failure to cooperate may result in additional restrictions, service suspension, or permanent account termination without refund. See our [Port 25 SMTP policy and rate limits](/faq/port-25-smtp-rate-limit-policy).
 
 ### 🌐 Network infrastructure interference
 
@@ -28,7 +34,7 @@ Our **Acceptable Use Policy (AUP)** explains the terms of using our services. Yo
 
 We have zero tolerance for DDoS attacks or other harmful network activities, including port scans.
 
-### 🕸️ TOR Usage
+### 🕸️ TOR usage
 
 * TOR Entry Nodes: Allowed
 
@@ -36,60 +42,63 @@ We have zero tolerance for DDoS attacks or other harmful network activities, inc
 
 * TOR Exit Nodes and I2P Outproxies: Prohibited
 
-### 💻 Malicious Software
+### 💻 Malicious software
 
 * Hosting Trojan Horses, Botnet Executables, Dropzones, or Botnet C2 Servers will result in immediate account termination and reporting to appropriate authorities.
 
-### ⛏️ Cryptocurrency Mining
+### ⛏️ Cryptocurrency mining
 
-* All cryptocurrency mining activities are prohibited (and no longer profitable anyway)
+* All cryptocurrency mining activities are prohibited (and no longer profitable anyway).
 
-### 🏷️ Counterfeit Websites
+### 🏷️ Counterfeit websites
 
 * Hosting websites selling counterfeit products (e.g., Nike, Adidas, Moncler) leads to account suspension.
 
-### ⚖️ Illegal Content
+### ⚖️ Illegal content
 
 Hosting any illegal content will result in account suspension.
 
 ### 🔢 IPv6 address usage
 
-* Maximum allowed IPv6 addresses per VPS: 20
+Each VPS may have a maximum of **20 IPv6 addresses configured simultaneously**. Use only addresses from the `/64`-equivalent allocation assigned to that VPS.
 
-* Using more addresses or creating connections with random IPv6 addresses constitutes flooding
+IPv6 proxy services that rotate addresses, automatically generate random IPv6 addresses, or otherwise cycle through large numbers of addresses are prohibited.
 
-* Flooding our router's IPv6 Neighbor Discovery Cache results in immediate account termination without refund
+The following activities will result in service suspension:
 
-### 💬 IRC Services
+- Configuring more than 20 IPv6 addresses simultaneously on one VPS
+- Using IPv6 addresses outside the allocation assigned to the VPS
+- Operating a rotating or random-address IPv6 proxy
+- Generating excessive IPv6 Neighbor Discovery activity
 
-IRC services are susceptible to denial of service attacks. Review our&#x20;
+Repeated violations will result in permanent account termination without refund. See [IPv6 Setup](/vps-management/ipv6-configuration) for the correct allocation and prefix-length configuration.
 
-<a href="https://docs.edisglobal.com/advisory-for-high-risk-clients" target="_blank">Advisory for High-Risk Clients</a>
+### 💬 IRC services
 
-&#x20;before proceeding.
+IRC services are susceptible to denial of service attacks. Review our [advisory for clients at high risk of DDoS attacks](/faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients) before proceeding.
 
-## **🔒** Prohibited content and conduct
+## 🔒 Prohibited content and conduct
 
-Users must respect the dignity, rights, and safety of others. The following activities are strictly forbidden and will result in immediate account termination:
+You must respect the dignity, rights, and safety of others. The following activities are strictly forbidden and will result in immediate account termination:
 
 ### 📜 Intellectual property violations
 
 * Distributing, hosting, or endorsing content that infringes on intellectual property rights, including copyrights, trademarks, and patents.
 
-### 🗨️ Defamatory Content
+### 🗨️ Defamatory content
 
 * Publishing or sharing false information that damages the reputation of individuals or organizations.
 
-### 🔒 Privacy Violations
+### 🔒 Privacy violations
 
 * Unauthorized sharing of private information, images, videos, or other content that violates personal privacy.
 
-### ❤️ Self-Harm Content
+### ❤️ Self-harm content
 
 * Hosting or promoting content that encourages, guides, or supports self-harm or suicide.
 
-### ⚠️ Extremist Content
+### ⚠️ Extremist content
 
 * Distributing or endorsing materials that promote radical ideologies, hate speech, or discrimination.
 
-Users must act responsibly and ensure all activities comply with these guidelines to maintain service access.
+You must act responsibly and ensure all activities comply with these guidelines to maintain service access.

@@ -1,42 +1,34 @@
 ---
-title: "How to Change IP Address in Windows Server"
+title: "How to change IP address in Windows Server"
 sidebarTitle: "Change IP (Windows)"
 description: "Change the IP address on a Windows Server VPS using Network Connections or PowerShell. Step-by-step guide covering static IP, gateway, and DNS configuration."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
-## Quick Guide on How to Change IP Address on Windows Server via VNC
+## Quick guide on how to change IP address on Windows Server via VNC
 
-Here’s a revised guide on how to change the IP address on Windows Server, specifically tailored for users who are connected via VNC.
+This guide shows you how to change the IP address on Windows Server while you're connected via VNC.
 
-## Change IP address on Windows server
+## Change IP address on Windows Server
 
-Enable your VNC server: Follow the instructions <a href="https://docs.edisglobal.com/enable-vnc-server" target="_blank">
-here</a>
-
-.
-
-### **Step 1: connect to your Windows server via VNC**
+### Step 1: connect to your Windows Server via VNC
 
 <Steps>
-  <Step title="Log in to your">
-    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
+  <Step title="Log in to the VPS Management Portal">
+    Open the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
   </Step>
   <Step title="Enable your VNC server">
-    Follow the instructions
-    [here](https://docs.edisglobal.com/enable-vnc-server)
+    Follow the instructions in [Enable VNC server](/vps-management/enable-vnc-server).
   </Step>
   <Step title="Open VNC">
-    - Press `Ctrl + Alt + Delete` to open the Windows login page. Also you can
-      Use the top key.(send CtrlAltDelete) - Enter your username and
-      password.
+    - Press `Ctrl + Alt + Delete` to open the Windows login page. You can also use the top key (send CtrlAltDelete). Enter your username and password.
   </Step>
 </Steps>
 
 ---
 
-### **Step 2: open network connections**
+### Step 2: open network connections
 
 1. Once connected, right-click on the **Start** button and select **Run**.
 2. Type `ncpa.cpl` and press **Enter**. This will open the **Network Connections** window.
@@ -45,7 +37,7 @@ here</a>
 
 ---
 
-### **Step 3: access properties of the network adapter;**
+### Step 3: access properties of the network adapter
 
 1. In the Network Connections window, find the network adapter you wish to configure (e.g., Ethernet).
 2. Right-click on the adapter and select **Properties** from the context menu.
@@ -54,7 +46,7 @@ here</a>
 
 ---
 
-### **Step 4: select internet protocol version**
+### Step 4: select internet protocol version
 
 1. In the Properties window, locate and select **Internet Protocol Version 4 (TCP/IPv4)**.
 2. Click the **Properties** button.
@@ -63,7 +55,7 @@ here</a>
 
 ---
 
-### **Step 5: change the IP address**
+### Step 5: change the IP address
 
 1. In the TCP/IPv4 Properties window, select **Use the following IP address**.
 2. Enter your desired **IP address**, **Subnet mask**, and **Default gateway**. For example:
@@ -75,7 +67,7 @@ here</a>
 
 ---
 
-### **Step 6: configure DNS servers (optional)**
+### Step 6: configure DNS servers (optional)
 
 1. If needed, select **Use the following DNS server addresses**.
 2. Enter your preferred **DNS server** (e.g., `8.8.8.8` for Google DNS) and an **alternate DNS server** (e.g., `8.8.4.4`).
@@ -84,27 +76,26 @@ here</a>
 
 ---
 
-### **Step 7: save changes**
+### Step 7: save changes
 
 1. Click **OK** to close the TCP/IPv4 Properties window.
 2. Click **Close** in the Network Adapter Properties window.
 
 ---
 
-### **Step 8: verify the changes**
+### Step 8: verify the changes
 
 1. Open **Command Prompt** or **PowerShell** by right-clicking the Start button and selecting it from the menu.
 2. Type the following command and press **Enter**:
-
    `ipconfig`
 3. Check the output to confirm that your new IP address is correctly set for the network adapter.
 
 ---
 
-### Important Notes
+### Important notes
 
-- **Admin Privileges**: Changing network settings requires administrative privileges. Ensure you have the necessary permissions.
-- **Backup Settings**: Always note your previous network settings before making changes, in case you need to revert back.
+- **Admin privileges**: Changing network settings requires administrative privileges. Ensure you have the necessary permissions.
+- **Backup settings**: Always note your previous network settings before making changes, in case you need to revert.
 
 ---
 

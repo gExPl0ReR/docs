@@ -1,5 +1,5 @@
 ---
-title: "Manual MikroTik RouterOS Installation on EDIS Global VPS"
+title: "Manual MikroTik RouterOS installation on EDIS Global VPS"
 sidebarTitle: "Install MikroTik manually"
 description: "Manually install MikroTik RouterOS on an EDIS Global VPS. Step-by-step instructions covering hardware adjustments, ISO mounting, and initial setup."
 ---
@@ -7,19 +7,19 @@ description: "Manually install MikroTik RouterOS on an EDIS Global VPS. Step-by-
 import { CtaButton } from "/snippets/cta-button.mdx";
 
 NEW: Script-based MikroTik CHR installation&#x20;
-![Mikrotik RouterOS on EDIS KVM](/assets/09LZQI22gA6fwQ5vkQmgu_mikrotik-chr-installer-in-novnc.png)
+![MikroTik RouterOS on EDIS KVM](/assets/09LZQI22gA6fwQ5vkQmgu_mikrotik-chr-installer-in-novnc.png)
 ----------------------------------------------------------------------
 
 
 
 
-<CtaButton label="Mikrotik CHR installation script" link="../advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox" />
+<CtaButton label="MikroTik CHR installation script" link="../advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox" />
 
 ... or continue below for the **classic, manual installation:**
 
-## How to install Mikrotik on your VPS
+## How to install MikroTik on your VPS
 
-To install Mikrotik on an EDIS Global VPS, you’ll need to adjust a few hardware settings first, after which the installation will run smoothly.
+To install MikroTik on an EDIS Global VPS, you’ll need to adjust a few hardware settings first, after which the installation will run smoothly.
 
 <Steps>
   <Step title="Log in to your">
@@ -39,9 +39,9 @@ To install Mikrotik on an EDIS Global VPS, you’ll need to adjust a few hardwar
   </Step>
 </Steps>
 
-## Mikrotik CHR (cloud hosted router)
+## MikroTik CHR (cloud hosted router)
 
-If you want to give Mikrotik CHR a try, you can download images from the official <a href="https://mikrotik.com/download" target="_blank">Mikrotik download page</a>. To make life easy for you, we converted a couple of <a href="https://files.edisglobal.com/index.php/s/Jph4RkS7Cgw0ryY" target="_blank">cloud images</a> downloaded from the Mikrotik website, which can be used with our Cloud-Init installer 😎
+If you want to give MikroTik CHR a try, you can download images from the official <a href="https://mikrotik.com/download" target="_blank">MikroTik download page</a>. To make life easy for you, we converted a couple of <a href="https://files.edisglobal.com/index.php/s/Jph4RkS7Cgw0ryY" target="_blank">cloud images</a> downloaded from the MikroTik website, which you can use with our Cloud-Init installer 😎
 
 <Steps>
   <Step title="Log in to your">
@@ -56,7 +56,7 @@ If you want to give Mikrotik CHR a try, you can download images from the officia
 
   <Step title="Change Network Driver to E100" />
 
-  <Step title="Click on Reinstall OS (button)" />
+  <Step title="Click Reinstall OS (button)" />
 
   <Step title="Proceed to Custom Cloud-Init Images (tab)" />
 
@@ -71,27 +71,27 @@ If you want to give Mikrotik CHR a try, you can download images from the officia
     start a VNC session, start noVNC, click into the noVNC window (set focus)
     and finish the installation.
 
-    Mikrotik username: admin
-    
-    Mikrotik password: no password, leave field empty, just press Enter
+    MikroTik username: admin
+
+    MikroTik password: no password, leave field empty, just press Enter
   </Step>
 </Steps>
 
-![Mikrotik RouterOS on EDIS KVM](/assets/09LZQI22gA6fwQ5vkQmgu_mikrotik-chr-installer-in-novnc.png)
+![MikroTik RouterOS on EDIS KVM](/assets/09LZQI22gA6fwQ5vkQmgu_mikrotik-chr-installer-in-novnc.png)
 
 ## Configure static IPv4 in MikroTik
 
-Log into MikroTik Router:
+Log in to the MikroTik router:
 
 * Use a **VNC session** to connect to your MikroTik router.
 
 * Log in with your credentials (by default, the username is `admin`, and there is no password unless you changed it).
 
-### Set static IPv4 address:
+### Set static IPv4 address
 
 After logging into MikroTik, use the **Terminal** window and enter the following commands to configure the static IP:
 
-**Assign Static IP Address**:
+**Assign a static IP address**:
 Use this command to set a static IP on the interface you want (e.g., `ether1`):
 
 ```bash
@@ -102,16 +102,16 @@ ip/address/add address=192.168.1.100/24 interface=ether1
 
 * Replace `ether1` with the correct interface if it's different.
 
-**Set Gateway (Default Route)**:
+**Set the gateway (default route)**:
 To configure a default gateway, use the following command:
 
 ```bash
 ip/route/add gateway=192.168.1.1
 ```
 
-* Replace `192.168.1.1` with your VPS default gateway IP address
+* Replace `192.168.1.1` with your VPS default gateway IP address.
 
-**Set DNS Servers**:
+**Set DNS servers**:
 To configure DNS servers (for example, using Google DNS), use:
 
 ```bash
@@ -120,56 +120,69 @@ ip/dns/set servers=8.8.8.8,8.8.4.4
 
 * You can use any DNS servers, such as `1.1.1.1` and `1.0.0.1` for Cloudflare’s public DNS resolvers.
 
-### Verify your configuration:
+### Verify your configuration
 
-Please reboot the server with the following command to apply the changes and set up the network:
+Reboot the server with the following command to apply the changes and set up the network:
 
 ```bash
 system/reboot
 ```
 
-* After the server has rebooted, you can connect to the server via **Winbox**, the **web interface**, or **SSH** using the IP address you configured.
+* After the server has rebooted, you can connect to the server via **WinBox**, the **web interface**, or **SSH** using the IP address you configured.
 
-## Configure IPv6 address in MikroTik
+## Configure IPv6 in MikroTik
 
-To configure the imaginary IPv6 address **2a03:f80:22:4198::1** on a **MikroTik CHR** device, follow these steps. Always refer to your VPS dashboard for the correct IPv6 /64 address assignment.
+Every EDIS Global VPS receives its own **IPv6 allocation equivalent in size to a /64**. It is not routed as a separate `/64` subnet.
 
-### **Assign the IPv6 address**
+Each server location uses a shared `/48` IPv6 network and a location-specific gateway. You must therefore configure the assigned IPv6 address in MikroTik with a **`/48` prefix length**. This setting does not allocate the complete location `/48` to your VPS.
 
-1. **Open your MikroTik terminal** or connect via **Winbox**.
+The following commands use these example values:
 
-2. **Add the IPv6 address** to the desired interface (e.g., ether1).
+- IPv6 address: `2a03:f80:22:4198::1`
+- Default gateway: `2a03:f80:22::1`
+- Interface: `ether1`
+
+Use the exact address and gateway shown under **Network Info** in the [VPS Management Portal](/vps-management/ip-address-information).
+
+### Assign the IPv6 address
+
+Open the MikroTik terminal or connect through WinBox, then run:
 
 ```bash
 /ipv6 address add address=2a03:f80:22:4198::1/48 interface=ether1
 ```
 
-• Replace ether1 with the actual interface you are using. Replace `2a03:f80:22:4198::` with your own VPS IPv6 range.
-
-Remember that the **subnet mask is configured as /48** while the size of your allocation remains /64.
+Replace the example address and interface with the values for your VPS. Use only addresses from the `/64`-equivalent allocation assigned to that VPS.
 
 ### Configure the IPv6 default route
 
-1. **Add the default route** for IPv6 to allow external communication.
+Add the exact location-specific gateway shown in the VPS Management Portal:
 
 ```bash
 /ipv6 route add dst-address=::/0 gateway=2a03:f80:22::1
 ```
 
-• **Note**: This example uses 2a03:f80:22::1 as the gateway. Your gateway consists of the first three segments of your IP address and ::1
+Do not derive or guess the gateway from the example address. Every EDIS Global server location has its own gateway.
 
-### **Verify the Configuration**
+### Verify the configuration
 
-1. **Check the assigned IPv6 address**:
+Display the assigned IPv6 addresses:
 
 ```bash
 /ipv6 address print
 ```
 
-1. **Check the default route**:
+Display the default route:
 
 ```bash
 /ipv6 route print
 ```
 
-This configuration will allow your MikroTik CHR to use the imaginary IPv6 address **2a03:f80:22:4198::1** and establish external connectivity via the default gateway. Remember that the **subnet mask is configured as /48**, not /64.
+<Warning>
+  You may configure a maximum of 20 stable IPv6 addresses on one VPS at the
+  same time. IPv6 proxy services that rotate addresses, generate random addresses,
+  or cycle through large numbers of addresses are prohibited under our
+  [Acceptable Use Policy](/getting-started/acceptable-use-policy).
+</Warning>
+
+For a complete explanation of the `/64`-equivalent allocation and required `/48` interface prefix, see [IPv6 Setup](/vps-management/ipv6-configuration).

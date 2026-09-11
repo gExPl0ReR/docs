@@ -1,5 +1,5 @@
 ---
-title: CPU Cores vs. CPU Sockets in VPS Environments
+title: CPU cores vs. CPU sockets in VPS environments
 description: "How CPU cores differ from CPU sockets in a VPS environment, why virtualization exposes both, and how to adjust the layout in the VPS Management Portal."
 sidebarTitle: Understanding CPU Cores vs. Sockets
 ---
@@ -10,7 +10,7 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 
 Virtualization technology has transformed the landscape of modern computing, especially in server environments. Within a Virtual Private Server (VPS) environment, understanding the difference between CPU cores and CPU sockets can be critical to optimizing performance. This article will detail these distinctions, describe how virtualization technology can render vCPU cores, and guide you through adjusting these settings in the VPS management dashboard.
 
-<CtaButton label="fast forward to guide" link="#3-adjusting-cpu-settings-in-kvm-management-dashboard" />
+<CtaButton label="fast forward to guide" link="#3-adjusting-cpu-settings-in-vps-management-portal" />
 
 ### 1. CPU cores vs. CPU sockets: what's the difference?
 
@@ -18,9 +18,9 @@ Virtualization technology has transformed the landscape of modern computing, esp
 
 * **CPU Socket**: A CPU socket, often just referred to as a socket, is the physical slot on the computer's motherboard that holds the CPU. Each socket can hold one CPU chip, and that chip can contain one or more cores. When a VPS environment refers to 'sockets,' it often means virtual representations of these physical slots.
 
-### 2. Virtualization Capabilities
+### 2. Virtualization capabilities
 
-In the world of virtualization, technology can mimic hardware behavior. This means that a vCPU core can be rendered either as a representation of a CPU socket or as a direct CPU core. While the underlying physical hardware might have a fixed number of sockets and cores, virtualization can manipulate these representations to suit software requirements, like operating system limitations or specific software constraints.
+In the world of virtualization, technology can mimic hardware behavior. This means that a vCPU core can be rendered either as a representation of a CPU socket or as a direct CPU core. While the underlying physical hardware might have a fixed number of sockets and cores, virtualization can manipulate these representations to suit software requirements. Examples include operating system limitations or specific software constraints.
 
 ### 3. Adjusting CPU settings in VPS Management Portal
 
@@ -36,17 +36,17 @@ If you're using the VPS Management Portal, here's how to access and modify the v
 
 2. Locate your VPS in the Services tab
 
-3. Click on **KVM Settings**
+3. Click **KVM Settings**
 
 4. Within the settings, you'll find options to switch between "multiple sockets" and "multiple cores".
 
-5. Choose the desired configuration based on your requirements.
+5. Select the desired configuration based on your requirements.
 
-6. Power-Cycle your VPS (shutdown in the OS, power off, power-on)
+6. Power-cycle your VPS (shutdown in the OS, power off, power-on)
 
 ![CPU Cores vs. CPU Sockets](/assets/huaNpFAxK5PVCl_NLo3ID-tcYuoIemRB1MLqTyqaz6a-20240806-114542.png)
 
-### 4. When to Change the Settings
+### 4. When to change the settings
 
 Typically, you might need to adjust these settings based on the operating system or specific software you are running on your VPS. For example, Microsoft Windows is designed to recognize only two sockets but can handle multiple cores. Hence, if you're running Windows on your VPS, you'll want to ensure your vCPU cores are represented as "multiple cores" rather than "multiple sockets".
 

@@ -1,5 +1,5 @@
 ---
-title: How to Extend Hard Drive in Windows
+title: How to extend hard drive in Windows
 sidebarTitle: Extend Windows Hard Drive
 description: "Extend or resize a hard drive in Windows Server using Server Manager, Disk Management, or DiskPart with this step-by-step disk space expansion guide."
 ---
@@ -17,24 +17,24 @@ Keep in mind, the additional space will remain unavailable until you resize your
 
 ---
 
-## How to Resize a Hard Drive
+## How to resize a hard drive
 
-## Step 1: accessing server manager
+## Step 1: accessing Server Manager
 
 1. **Log in to the Server:**
    Access your server via Remote Desktop or the local console.
 2. **Open Server Manager:**
-   - Click on the **Start** button and select **Server Manager.**
+   - Click the **Start** button and select **Server Manager.**
    - If it doesn’t open automatically, search for `ServerManager.exe` and run it.
 
 ![Extend Windows Hard Drive](/assets/1sSq3fI0sZJj8Zc4RoSr4-PVF-RTHQ6AszvmHN_-Td3-20241120-081714.png)
 
 ---
 
-## Step 2: navigate to file and storage services
+## Step 2: navigate to File and Storage Services
 
 1. In the Server Manager dashboard, select **File and Storage Services** from the left-hand panel.
-2. Click on **Volumes** to display all configured drives on your server.
+2. Click **Volumes** to display all configured drives on your server.
 
 ![Extend Windows Hard Drive](/assets/1sSq3fI0sZJj8Zc4RoSr4-8X555kOnJsLqoBn3kc8Hy-20241120-082712.png)
 
@@ -43,7 +43,7 @@ Keep in mind, the additional space will remain unavailable until you resize your
 ## Step 3: select the target volume
 
 1. In the **Volumes** section, locate the drive you want to resize.
-2. Right-click the drive and choose:
+2. Right-click the drive and select:
    - **Extend Volume** to increase its size.
    - **Shrink Volume** to reduce its size.
 
@@ -80,7 +80,7 @@ Keep in mind, the additional space will remain unavailable until you resize your
 
 ---
 
-## Important Notes
+## Important notes
 
 - **Backup Data:** Always back up important data before making any changes to the disk.
 - **Unallocated Space Requirement:** To extend a volume, unallocated space must exist on the same disk and be contiguous with the target volume.
@@ -99,7 +99,7 @@ Keep in mind, the additional space will remain unavailable until you resize your
 
 ---
 
-## Alternative Tools
+## Alternative tools
 
 If File and Storage Services cannot meet your requirements:
 

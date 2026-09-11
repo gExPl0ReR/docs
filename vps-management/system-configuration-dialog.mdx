@@ -1,10 +1,10 @@
 ---
-title: "System Configuration Dialog for EDIS Global VPS"
+title: "System Configuration dialog for EDIS Global VPS"
 sidebarTitle: "System Configuration"
 description: "Configure CPU, disk, network, video, and VLAN settings in the EDIS Global VPS System Configuration dialog for optimal performance, compatibility, and stability."
 ---
 
-## ⚙️ System configuration dialog in VPS Management Portal
+## ⚙️ System configuration dialog in the VPS Management Portal
 
 The **System Configuration** dialog in your VPS management interface allows you to customize important hardware emulation settings. These options help optimize performance and ensure compatibility with your operating system and workloads.
 
@@ -56,7 +56,7 @@ The System Configuration allows you to control:
 
 ## 🧠 CPU cores vs. sockets
 
-This setting controls how CPU resources are presented to your VPS (only valid if you have more than one vCPU)
+This setting controls how CPU resources are presented to your VPS (only valid if you have more than one vCPU).
 
 - **Multiple Sockets**: Emulates multiple physical CPUs. Useful for certain legacy systems but can introduce overhead.
 - **Multiple Cores**: Emulates multiple cores within a single CPU socket. This is more efficient and recommended for most modern systems.
@@ -65,19 +65,19 @@ This setting controls how CPU resources are presented to your VPS (only valid if
 
 ---
 
-## 🧩 CPU Model
+## 🧩 CPU model
 
 This determines how the CPU is presented to the guest operating system:
 
 - **default** – A generic, highly compatible CPU model that works well with most operating systems.
-- **Host CPU Passthrough** – Passes the host's actual CPU features (like AES, SSE3, SSE4.1, SSE4.2, etc.) to the VPS for better performance, especially with workloads that can utilize advanced instruction sets.
+- **Host CPU Passthrough** – Passes the host's actual CPU features (like AES, SSE3, SSE4.1, SSE4.2, etc.) to the VPS for better performance. This especially benefits workloads that can utilize advanced instruction sets.
 
 **Recommendation:**\
 For maximum performance and compatibility, use **Host CPU Passthrough** unless your operating system has specific requirements.
 
 ---
 
-## 🖥️ Video Driver
+## 🖥️ Video driver
 
 This defines the virtual display adapter used for the VNC remote console:
 
@@ -88,7 +88,7 @@ For most users, **Cirrus** is sufficient. Windows might perform slightly better 
 
 ---
 
-## 💾 Disk Driver
+## 💾 Disk driver
 
 The disk driver determines how your VPS’s storage device is presented to the guest operating system:
 
@@ -102,7 +102,7 @@ The disk driver determines how your VPS’s storage device is presented to the g
 
 ---
 
-## 🌐 Network Driver
+## 🌐 Network driver
 
 Controls the emulated network interface:
 
@@ -116,7 +116,7 @@ Controls the emulated network interface:
 
 ---
 
-## 🌍 VNC Keymap
+## 🌍 VNC keymap
 
 The VNC Keymap ensures that the keyboard layout in your remote VNC session matches your physical keyboard. Common options include:
 
@@ -138,7 +138,7 @@ Example: pro-webserver-ffm
 
 ---
 
-## 🔒 VLAN Settings
+## 🔒 VLAN settings
 
 If you have purchased the **Private VLAN** option, this dropdown lets you assign your VPS to a private VLAN. This provides secure, isolated networking between your VPS instances on the same host.
 
@@ -148,7 +148,7 @@ The dropdown will show the VLAN IDs available to your account.
 
 ---
 
-## ⚠️ Important Notes:
+## ⚠️ Important notes
 
 - Changing any of these settings requires a **power-cycle** of your VPS to apply the changes.
 - Use the recommended drivers for best performance unless specific compatibility (like with Mikrotik) is required.

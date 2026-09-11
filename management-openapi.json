@@ -960,7 +960,7 @@
                   },
                   "config": {
                     "type": "string",
-                    "description": "JSON object containing configuration settings.\n\nSupported values:\n\n- `boot_timeout`: Boot menu timeout in milliseconds (example: `5000`, `10000`)\n- `uefi`: `enabled` or `disabled`\n- `tpm`: `enabled` or `disabled`\n- `vnc_keymap`: Keyboard layout such as `en-us`, `en-gb`, `de`, `de-ch`, `fr`, `fr-be`, `fr-ch`, `es`, `it`, `nl`, `pt`, `sv`, `ru`, `tr`, and other layouts available in the control panel\n- `cpu_set_cores`: `core` or `socket`\n- `cpu_model`: `default` or `passthrough`\n- `disk_driver`: `virtio`, `ide`, or `scsi`\n- `nw_driver`: `virtio`, `e1000`, or `rtl8139`\n- `video_driver`: `cirrus` or `qxl`\n- `description`: Custom VPS description\n- `assigned_vlan`: VLAN ID if VLAN service is enabled\n- `auto_hydration`: `off`, `100`, `500`, or `1000` depending on available hydration packages\n\nExample Configuration:\n\n```json\n{\"boot_timeout\":\"10000\",\"vnc_keymap\":\"en-us\",\"cpu_model\":\"passthrough\",\"disk_driver\":\"virtio\",\"nw_driver\":\"virtio\",\"video_driver\":\"cirrus\",\"assigned_vlan\":\"\",\"cpu_set_cores\":\"core\",\"auto_hydration\":\"off\",\"tpm\":\"disabled\",\"uefi\":\"disabled\",\"description\":\"fortest\"}\n```\n\n⚠️ Compatibility Notice\n\n- UEFI is disabled by default. A value of `uefi=disabled` means the VPS will boot using legacy BIOS mode. \nSetting `uefi=enabled` switches the VPS to UEFI boot mode. \n- TPM is disabled by default. Setting `tpm` to `enabled` enables a Software TPM (vTPM) device for the VPS.",
+                    "description": "JSON object containing configuration settings.\n\nSupported values:\n\n- `boot_timeout`: Boot menu timeout in milliseconds (example: `5000`, `10000`)\n- `uefi`: `enabled` or `disabled`\n- `tpm`: `enabled` or `disabled`\n- `vnc_keymap`: Keyboard layout such as `en-us`, `en-gb`, `de`, `de-ch`, `fr`, `fr-be`, `fr-ch`, `es`, `it`, `nl`, `pt`, `sv`, `ru`, `tr`, and other layouts available in the control panel\n- `cpu_set_cores`: `core` or `socket`\n- `cpu_model`: `default` or `passthrough`\n- `disk_driver`: `virtio`, `ide`, or `scsi`\n- `nw_driver`: `virtio`, `e1000`, or `rtl8139`\n- `video_driver`: `cirrus` or `qxl`\n- `description`: Custom VPS description\n- `assigned_vlan`: VLAN ID if VLAN service is enabled\n- `auto_hydration`: `off`, `100`, `200`, `300`, or `500`\n\nExample Configuration:\n\n```json\n{\"boot_timeout\":\"10000\",\"vnc_keymap\":\"en-us\",\"cpu_model\":\"passthrough\",\"disk_driver\":\"virtio\",\"nw_driver\":\"virtio\",\"video_driver\":\"cirrus\",\"assigned_vlan\":\"\",\"cpu_set_cores\":\"core\",\"auto_hydration\":\"off\",\"tpm\":\"disabled\",\"uefi\":\"disabled\",\"description\":\"fortest\"}\n```\n\n⚠️ Compatibility Notice\n\n- UEFI is disabled by default. A value of `uefi=disabled` means the VPS will boot using legacy BIOS mode. \nSetting `uefi=enabled` switches the VPS to UEFI boot mode. \n- TPM is disabled by default. Setting `tpm` to `enabled` enables a Software TPM (vTPM) device for the VPS.",
                     "default": "{\"boot_timeout\":\"5000\",\"vnc_keymap\":\"en-us\",\"cpu_model\":\"passthrough\",\"disk_driver\":\"virtio\",\"nw_driver\":\"virtio\",\"video_driver\":\"cirrus\",\"description\":\"fortest\",\"assigned_vlan\":\"\",\"cpu_set_cores\":\"core\",\"auto_hydration\":\"off\",\"tpm\":\"disabled\",\"uefi\":\"disabled\"}"
                   }
                 }
@@ -2094,8 +2094,8 @@
         "tags": [
           "Traffic Pool"
         ],
-        "summary": "Enable Auto Hydration",
-        "description": "This endpoint enables auto hydration for a specified KVM VPS, setting the hydration limit to 100 GB. \n\nUse the `api_host` from the 'Create AUTH-session' response to authenticate. \n\nRequired parameters:\n- `signature`: The session signature obtained from the 'Create AUTH-session' call.\n- `kvm_id`: The unique identifier of the KVM VPS.\n- `valid_until`: The expiration timestamp for the session.\n\nTo activate auto hydration, set the `config` parameter to:\n```json\n{\"auto_hydration\":100}\n```",
+        "summary": "Enable Auto-Hydration",
+        "description": "This endpoint enables Auto-Hydration for a specified KVM VPS. Select an automatic assignment increment of `100`, `200`, `300`, or `500` GB. When the VPS reaches 99% of its current traffic allowance, the selected amount is assigned from the existing Traffic Pool balance. Auto-Hydration does not purchase traffic, and no assignment occurs if the Pool balance is insufficient.\n\nUse the `api_host` from the 'Create AUTH-session' response to authenticate.\n\nRequired parameters:\n- `signature`: The session signature obtained from the 'Create AUTH-session' call.\n- `kvm_id`: The unique identifier of the KVM VPS.\n- `valid_until`: The expiration timestamp for the session.\n- `config`: A JSON object containing one supported Auto-Hydration value.\n\nExample using a 300 GB increment:\n```json\n{\"auto_hydration\":300}\n```",
         "operationId": "enableAutoHydration",
         "requestBody": {
           "description": "Parameters required to enable auto hydration for a KVM VPS.",
@@ -2121,8 +2121,8 @@
                   },
                   "config": {
                     "type": "string",
-                    "description": "JSON object containing the auto hydration configuration.\n\nExample: `{\"auto_hydration\":100}`\n\n**Set autohydration to 100GByte**",
-                    "example": "{\"auto_hydration\":100}"
+                    "description": "JSON object containing the Auto-Hydration configuration. Supported values are `100`, `200`, `300`, and `500`, representing the traffic assignment increment in GB.\n\nExample: `{\"auto_hydration\":300}`",
+                    "example": "{\"auto_hydration\":300}"
                   }
                 }
               }
@@ -3807,8 +3807,8 @@
           },
           "config": {
             "type": "string",
-            "description": "A JSON object containing the configuration settings.  \nExamples:  \n- **Enable Auto Hydration:** `{\"auto_hydration\":100}`  \n- **Disable Auto Hydration:** `{\"auto_hydration\":0}`  \n- **Update Settings:** `{\"boot_timeout\":\"5000\", \"vnc_keymap\":\"en-us\"}`\n",
-            "example": "{\"auto_hydration\":100}"
+            "description": "A JSON object containing the configuration settings.  \nExamples:  \n- **Enable Auto-Hydration:** `{\"auto_hydration\":300}` using one of `100`, `200`, `300`, or `500` GB  \n- **Disable Auto-Hydration:** `{\"auto_hydration\":0}`  \n- **Update Settings:** `{\"boot_timeout\":\"5000\", \"vnc_keymap\":\"en-us\"}`\n",
+            "example": "{\"auto_hydration\":300}"
           }
         }
       },

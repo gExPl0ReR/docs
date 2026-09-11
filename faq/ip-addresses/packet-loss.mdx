@@ -1,10 +1,12 @@
 ---
-title: "Packet Loss in Traceroute and MTR on Virtual Machines"
+title: "Packet loss in traceroute and MTR on virtual machines"
 description: "Why traceroute and MTR may show packet loss on virtualized hops without a real network problem, and how to identify true loss versus ICMP rate limiting."
 sidebarTitle: "Packet Loss"
 icon: "head-side-brain"
 keywords: ["packet loss"]
 ---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
 
 Customers often report packet loss after running traceroute or MTR tests and seeing **80% or even 100% loss on intermediate hops**. In many cases, however, the **final destination shows no packet loss at all**.
 
@@ -31,7 +33,7 @@ Think of traceroute and MTR as asking every router along the path:
 
 > "Can you reply to me right now?"
 
-Some routers choose not to answer — **but they still forward real application traffic perfectly.**
+Some routers choose not to answer, **but they still forward real application traffic perfectly.**
 
 Important: routers are optimized to **forward traffic**, not to respond to diagnostic probes. When under load, they may:
 
@@ -45,7 +47,7 @@ This can appear as packet loss in MTR even when real user traffic flows normally
 
 ## How to run proper tests
 
-Before interpreting packet loss, make sure the test was run correctly.
+Before interpreting packet loss, make sure you ran the test correctly.
 
 ### Using traceroute and MTR
 
@@ -168,4 +170,4 @@ MTR is a powerful tool, but it is often misunderstood.
 👉 **Packet loss on intermediate hops alone is not a reliable indicator of network problems.**\
 👉 The final destination’s statistics are what truly matter.
 
-If the destination sho
+If the destination shows stable latency and no loss, your connection is healthy, **even if earlier hops look alarming.**

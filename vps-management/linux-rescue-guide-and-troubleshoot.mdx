@@ -1,10 +1,10 @@
 ---
-title: "Linux Rescue CD Guide: Fix Network, Firewall, and SSH Issues"
+title: "Linux rescue CD guide: fix network, firewall, and SSH issues"
 sidebarTitle: "Rescue CD Troubleshooting"
 description: "Recover a Linux VPS that fails to boot or has connectivity issues using SystemRescueCD to fix network configurations, firewall rules, and SSH problems."
 ---
 
-# What is rescue CD and why use it? 💡
+## What is a rescue CD and why use it?
 
 **SystemRescueCD** is a Linux-based live environment used for troubleshooting and maintenance. It allows you to:
 - Access and repair non-booting systems  
@@ -14,9 +14,9 @@ description: "Recover a Linux VPS that fails to boot or has connectivity issues 
 
 ---
 
-## Mount and Boot the SystemRescueCD
+## Mount and boot the SystemRescueCD
 
-1. Login to your [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).  
+1. Log in to your [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).  
 2. From your VPS dashboard, click **Mount ISO**.  
 3. In the ISO list, select **System-Rescue-CD-6-x86.iso**.  
 4. Enable the **force reset & boot** option and click **Mount ISO** to start the process.  
@@ -36,7 +36,7 @@ description: "Recover a Linux VPS that fails to boot or has connectivity issues 
 
 ---
 
-## Configure network in rescue mode 🌐
+## Configure network in rescue mode
 
 You can configure networking via the GUI (simplest) or command line.
 
@@ -55,8 +55,7 @@ You can configure networking via the GUI (simplest) or command line.
 5. **DNS**: e.g., `1.1.1.1, 1.0.0.1` → **Save**.  
 ![IPv4 Manual Settings/DNS](/assets/IPv4ManualSettingsandDNS.png)
 
-You can find your assigned IP information here:  
-👉 [VPS IP Address Settings](https://docs.edisglobal.com/vps-management/ip-address-information)
+You can find your assigned IP information at [VPS IP address settings](/vps-management/ip-address-information).
 
 **Quick connectivity checks:**
 
@@ -94,7 +93,7 @@ ping -c 4 google.com
 
 ---
 
-## Checking firewall from rescue mode 🧱
+## Check the firewall from rescue mode
 
 If you are in the graphical environment, open a **Terminal** first.
 
@@ -131,7 +130,7 @@ chroot /mnt/system systemctl stop iptables
 
 ---
 
-## Check SSH configuration and service 🔐
+## Check SSH configuration and service
 
 If you are in the graphical environment, open a **Terminal** first.
 
@@ -181,4 +180,4 @@ nc -zv <your-server-ip> 22
 
 ---
 
-✅ Rescue mode gives you full control to recover your server — from fixing network issues and firewall rules to restoring SSH access and checking essential system settings.
+Rescue mode gives you full control to recover your server. You can fix network issues and firewall rules, restore SSH access, and check essential system settings.

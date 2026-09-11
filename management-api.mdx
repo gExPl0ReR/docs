@@ -1,12 +1,12 @@
 ---
-title: "How to Use the EDIS Global Management API"
+title: "How to use the EDIS Global Management API"
 sidebarTitle: "Management API Guide"
 description: "Authenticate, manage, monitor, and control your EDIS Global VPS via the Management API with a beginner guide, developer reference, and end-to-end examples."
 ---
 
 ## Manage your VPS the right way
 
-**EDIS Global Management API** is used to manage active VPS services in your account.
+The **EDIS Global Management API** lets you manage active VPS services in your account.
 
 Use it to:
 
@@ -30,7 +30,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
 <Tabs>
   <Tab title="Simple Guide">
-    ## Let’s Keep This Simple
+    ## Let’s keep this simple
 
     Think of the Management API like a secure remote control for a VPS you already own.
 
@@ -41,7 +41,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## The Basic Idea
+    ## The basic idea
 
     The workflow is always the same:
 
@@ -62,7 +62,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Step-by-Step Overview
+    ## Step-by-step overview
 
     <Steps>
       <Step title="Enable API Access">
@@ -86,7 +86,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Create an Auth Session
+    ## Create an auth session
 
     ```bash
     curl --request POST \
@@ -101,7 +101,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Example Auth Response
+    ## Example auth response
 
     ```json
     {
@@ -120,7 +120,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## What Do These Values Mean?
+    ## What do these values mean?
 
     - **`api_host`** → the VPS-specific API host you will call next
     - **`kvm_id`** → the VPS you want to manage
@@ -131,7 +131,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Example: Check Power State
+    ## Example: Check power state
 
     ```bash
     curl --request POST \
@@ -182,11 +182,11 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Pro Tip
+    ## Pro tip
 
     Avoid hardcoding values. Always create a fresh auth session and fetch current parameters before performing actions.
 
-    ## Key Takeaway
+    ## Key takeaway
 
     The Management API is simple once you understand this pattern:
 
@@ -198,7 +198,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
     That’s the core principle.
   </Tab>
   <Tab title="Developer Version">
-    ## Management API Workflow
+    ## Management API workflow
 
     Use this order when working with the API:
 
@@ -223,7 +223,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Common Parameters Used Across the Management API
+    ## Common parameters used across the Management API
 
     Most management endpoints use the same core parameters:
 
@@ -250,7 +250,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ## Authentication
 
-    ### Create Auth Session
+    ### Create auth session
 
     Creates a temporary authentication session for one VPS or for all VPS services on the account.
 
@@ -294,7 +294,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Pro Tip
+    ## Pro tip
 
     Avoid hardcoding API values.
 
@@ -304,16 +304,16 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Full Endpoint List
+    ## Full endpoint list
 
-    ### Session & Authentication
+    ### Session & authentication
 
     - [Create AUTH Session](https://docs.edisglobal.com/management-api-reference/authentication/create-auth-session)\
       Creates a temporary authenticated management session and returns the required parameters (`api_host`, `signature`, `kvm_id`, `valid_until`) for all subsequent Management API requests.
 
     ---
 
-    ### Power Management
+    ### Power management
 
     - [HARD RESET](https://docs.edisglobal.com/management-api-reference/power-management/hard-reset)\
       Performs an immediate hard reboot of the VPS (restarts hypervisor process)
@@ -326,7 +326,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ### Installation & Recovery
+    ### Installation & recovery
 
     - [List Available ISO images for installation](https://docs.edisglobal.com/management-api-reference/installation/iso-installation)\
       Returns a list of ISO images available for manual installation, recovery, or rescue environments.
@@ -348,7 +348,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
     ### Traffic Pool
 
     - [Enable Auto-Hydration](https://docs.edisglobal.com/management-api-reference/traffic-pool/enable-auto-hydration)\
-      Enables automatic traffic assignment from the traffic pool when VPS traffic is depleted.
+      Selects a **100 GB**, **200 GB**, **300 GB**, or **500 GB** automatic assignment for one VPS. The assignment runs at 99% usage and requires a sufficient Traffic Pool balance.
     - [Disable Auto-Hydration](https://docs.edisglobal.com/management-api-reference/traffic-pool/disable-auto-hydration)\
       Disables automatic traffic assignment.
     - [Auto-Hydration Status](https://docs.edisglobal.com/management-api-reference/traffic-pool/get-auto-hydration-status)\
@@ -371,7 +371,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ### Monitoring & Information
+    ### Monitoring & information
 
     - [Pull a VNC screenshot](https://docs.edisglobal.com/management-api-reference/collect-information/get-vps-screenshot)\
       Captures and returns a screenshot of the VPS console via VNC.
@@ -388,7 +388,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ### VNC Management
+    ### VNC management
 
     - [VNC Keymap](https://docs.edisglobal.com/management-api-reference/vnc-management/set-vnc-keyboard-language)\
       Sets the keyboard layout for the VNC console.
@@ -424,7 +424,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
       Shows an example payload of a webhook callback.
   </Tab>
   <Tab title="Full End-2-End Example">
-    ## Full Example: Authenticate, Check Status, Reinstall, and Verify Mount
+    ## Full example: Authenticate, check status, reinstall, and verify mount
 
     This example shows a realistic workflow for managing one existing VPS.
 
@@ -441,7 +441,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Step 1: Create the Auth Session
+    ## Step 1: Create the auth session
 
     ```bash
     curl --request POST \
@@ -483,7 +483,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Step 2: Check Power State
+    ## Step 2: Check power state
 
     ```bash
     curl --request POST \
@@ -506,7 +506,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Step 3: Get Available Autoinstall Images
+    ## Step 3: Get available autoinstall images
 
     ```bash
     curl --request POST \
@@ -563,12 +563,12 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
     ```
 
     <Info>
-      A Linux reinstall usually finishes in about 5 minutes. No email with credentials is being sent.
+      A Linux reinstall usually finishes in about 5 minutes. No email with credentials is sent.
     </Info>
 
     ---
 
-    ## Step 5: Get Available ISO Images
+    ## Step 5: Get available ISO images
 
     ```bash
     curl --request POST \
@@ -625,7 +625,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Step 7: Verify the Current Mount
+    ## Step 7: Verify the current mount
 
     ```bash
     curl --request POST \
@@ -647,7 +647,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## What This Example Shows
+    ## What this example shows
 
     This end-to-end example used the Management API to:
 
@@ -670,7 +670,7 @@ Each auth request returns temporary session values (`api_host`, `kvm_id`, `signa
 
     ---
 
-    ## Final Takeaway
+    ## Final takeaway
 
     The Management API always starts with **auth session first**.
 
