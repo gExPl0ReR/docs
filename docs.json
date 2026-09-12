@@ -75,6 +75,7 @@
             "pages": [
               "vps-management/api-for-management-and-ordering",
               "vps-management/vps-management-portal",
+              "vps-management/ai-assisted-vps-management",
               "vps-management/autoinstall-reinstall-install-vps-linux-windows",
               "vps-management/os-availability",
               "vps-management/edis-cloud-init-vps-installation",
