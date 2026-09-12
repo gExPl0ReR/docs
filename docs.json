@@ -58,6 +58,7 @@
             "group": "Getting Started",
             "pages": [
               "getting-started/everything-vps",
+              "getting-started/common-vps-tasks",
               "getting-started/check-your-inbox",
               "getting-started/understanding-email-notifications",
               "getting-started/no-email-received",
