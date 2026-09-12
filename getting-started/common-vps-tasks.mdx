@@ -1,0 +1,266 @@
+---
+title: "Common VPS Tasks: Reinstall, Change IP, Manage Billing and Protect Your Data"
+sidebarTitle: "Common VPS Tasks"
+description: "Manage everyday EDIS Global VPS tasks: reinstall an OS, change IP addresses, activate upgrades, handle renewals and protect your data with backups."
+---
+
+Need a fresh operating system, more resources or help with an unpaid invoice? This guide explains the everyday tasks you can manage on your EDIS Global VPS, what each action changes, and where to find detailed instructions.
+
+Start in the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), open **Services**, and select the correct VPS. Check its KVM ID, description and IP address before making changes, especially if you manage several servers.
+
+## Find the task you need
+
+| I want to… | Start here |
+| --- | --- |
+| Restart a VPS or activate new hardware resources | [Restart, reset or cold boot](#restart-reset-or-cold-boot) |
+| Start fresh or switch between Linux and Windows | [Reinstall or change operating system](#reinstall-or-change-operating-system) |
+| Replace an IP address | [Choose a Standard or Bespoke IP change](#choose-a-standard-or-bespoke-ip-change) |
+| Understand invoices, reminders and non-payment | [Manage billing and renewals](#manage-billing-and-renewals) |
+| Protect files, databases and configuration | [Create backups you can restore](#create-backups-you-can-restore) |
+| Add RAM, vCPU or storage | [Upgrade your VPS](#upgrade-your-vps) |
+| Add traffic or restore network speed | [Manage traffic and monthly refills](#manage-traffic-and-monthly-refills) |
+| Recover SSH, RDP or a forgotten password | [Recover access](#recover-access) |
+| Connect servers privately or use another location | [Networking and location changes](#networking-and-location-changes) |
+| Stop paying for a service you no longer need | [Cancel a VPS correctly](#cancel-a-vps-correctly) |
+
+<Note>
+  An EDIS Global VPS is unmanaged: you remain responsible for its operating system, applications, security and backups. EDIS Global support can help with infrastructure, account and billing issues and point you to the appropriate configuration guides.
+</Note>
+
+## Restart, reset or cold boot
+
+**For a routine restart, use the operating system when it is responding.** This gives applications a chance to close and finish pending writes.
+
+In the portal, **Restart** opens a menu with two different actions:
+
+| Action | What happens | When to use it |
+| --- | --- | --- |
+| Restart inside Linux or Windows | The operating system shuts down and boots again. | Routine maintenance when the OS responds. |
+| **Restart → Reset VPS** | Resets the guest while keeping the underlying virtual machine process and VNC server running. | The preferred portal restart when the underlying process is responsive. |
+| **Restart → Power Cycle VPS** | Stops the virtual machine process and starts a new one. VNC also stops. | A stuck VM process, a failed reset, or a required hardware-configuration reload. |
+| **Stop → Start** | Completely stops the VM process before starting it again. | A cold boot, including activation of hardware changes. |
+
+Reset VPS keeping VNC available does **not** mean the operating system shuts down gracefully. Save your work first whenever possible. SSH, RDP and hosted services disconnect while the operating system restarts.
+
+### Activate hardware changes with a cold boot
+
+When your upgrade or configuration instructions require a cold boot:
+
+1. Save your work and shut down the operating system from inside the VPS.
+2. In the portal, if the VPS still shows **RUNNING**, select **Stop** after the OS has finished shutting down.
+3. Wait until the VPS shows **SHUTDOWN**, then select **Start**.
+
+Use these commands for the first step:
+
+**Linux, as root:**
+
+```bash
+shutdown -h now
+```
+
+**Windows, from an Administrator command prompt:**
+
+```powershell
+shutdown /s /t 0
+```
+
+Alternatively, after a clean operating-system shutdown, **Restart → Power Cycle VPS** performs the full stop/start operation. If the VPS is already stopped, select **Start**.
+
+**Reset VPS and an operating-system reboot do not replace the cold boot required for these hardware changes.** If you were using VNC/noVNC, start VNC again after the full stop/start.
+
+[Detailed restart and power-cycle guide](/vps-management/power-cycle-or-reboot-a-vps#start-stop-restart)
+
+## Reinstall or change operating system
+
+**Reinstall OS** replaces the existing installation with a clean system. Use it to start fresh or switch to another available Linux or Windows image.
+
+<Warning>
+  Reinstallation erases the existing installation and its data. Download and check your backups before you begin. Do not use reinstallation as the first response to a forgotten password or an SSH problem.
+</Warning>
+
+1. Check the [available operating systems](/vps-management/os-availability) and the requirements of your chosen image.
+2. Open your VPS in the portal and select **Reinstall OS**.
+3. Choose the operating system and set a new root or Administrator password.
+4. Save the password securely: no confirmation email is sent for a reinstall.
+5. Wait for installation to finish before connecting or making further changes.
+
+Installation typically takes around **5 minutes for Linux** or **15 minutes for Windows**. Do not stop or restart the VPS while setup is running.
+
+Reinstalling alone [does not change the VPS's assigned IP addresses](/faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall). To replace an address, request an IP change separately.
+
+[Reinstallation walkthrough](/vps-management/autoinstall-reinstall-install-vps-linux-windows) · [Install or recover using an ISO](/vps-management/mount-iso-image)
+
+## Choose a Standard or Bespoke IP change
+
+An IP change replaces an address while keeping the same VPS, location, plan and billing cycle.
+
+| Option | How the replacement is chosen |
+| --- | --- |
+| **One free primary IPv4 change within 24 hours of purchase** | Request it using the recycle icon beside the current IP in the portal. |
+| **Standard IP Change — EUR 5** | An available address is assigned automatically; you cannot choose or guarantee a particular subnet. |
+| **Bespoke IP Change — EUR 10** | Select from the available addresses and prefixes offered to you. |
+
+The free option applies to the **primary IPv4 address**. For paid changes, open [Product Addons](https://manage.edisglobal.com/cart.php?gid=addons), choose the appropriate service and follow the ordering instructions. Check the current price in the order form.
+
+Before the change, make sure you can use [VNC/noVNC](/vps-management/enable-vnc-server). **The old IP stops working immediately when the new address is assigned**, so an existing SSH or RDP connection will no longer reach the VPS.
+
+After assignment:
+
+1. Configure the new IP inside the operating system through VNC. Follow the [Ubuntu](/vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404) or [Windows Server](/vps-management/how-to-change-ip-address-in-windows-server) instructions.
+2. Update relevant DNS records, VPN endpoints and any firewall rules or allowlists that use the old address.
+3. Test access and your applications using the new address.
+
+Reinstallation is an alternative way to configure the assigned address, but it erases your data. Manual network configuration preserves the existing installation.
+
+An IP replacement cannot guarantee access to a particular platform, ISP or country: filtering can affect entire prefixes or protocols. Choosing another IP also does not move the VPS to another country.
+
+[Full IP-change procedure](/faq/ip-addresses/change-ip-address) · [Add an extra IP instead of replacing one](/faq/ip-addresses/order-additional-ip-address)
+
+## Manage billing and renewals
+
+Your VPS renews automatically unless you cancel it. **Auto-renewal and successful payment are separate things:** keep your payment method current and check that the renewal invoice is paid.
+
+EDIS Global sends a renewal pro-forma invoice **seven days before the due date**. After payment, a tax invoice is issued. You can also open the service and select **Create Invoice / Renew** to generate a renewal invoice earlier.
+
+### When invoices and reminders are sent
+
+The following is the **automated non-payment workflow**. Day 0 means the renewal invoice's due date, not the date you ordered the VPS.
+
+| Relative to the due date | What happens |
+| --- | --- |
+| **7 days before** | Renewal invoice is created and emailed. |
+| **3 days before** | Automatic credit-card payment is attempted, where applicable. |
+| **2 days before** | A friendly reminder is sent if payment is still outstanding. |
+| **Due date — day 0** | Payment is due. |
+| **1 day after** | First overdue reminder. |
+| **2 days after** | Second overdue reminder. |
+| **3 days after** | Final overdue reminder. |
+| **7 days after** | The unpaid VPS is suspended and powered down. |
+| **14 days after** | The service is terminated. Its data is still present temporarily. |
+| **20 days after** | Data is permanently deleted, six days after termination. The renewal invoice is cancelled. Recovery is no longer possible. |
+
+This timetable follows the [VPS billing workflow](/faq/billing-lifecycle/automated-vps-billing-workflow). It is not an extension of the payment deadline.
+
+### What to do if payment is late
+
+**If the VPS is suspended:** pay its outstanding renewal invoice. The documented workflow reactivates suspended services automatically after payment.
+
+**If the VPS is already terminated:** contact support promptly to request recovery or reactivation before permanent deletion. Do not assume that paying an old invoice alone will recover a terminated service.
+
+**If the data has been deleted:** it cannot be recovered from the VPS. You need your own backup.
+
+<Warning>
+  The six-day retention period after termination is temporary storage of the terminated VPS's data, not a backup service. For non-payment, deletion occurs on day 20 after the due date. Customer-requested cancellation follows a different schedule, explained below.
+</Warning>
+
+To reduce payment problems, use a supported automatic payment method and monitor invoice status. If you use a PayPal subscription, review it after changes: its amount and schedule do not automatically follow VPS upgrades or cancellation.
+
+[Renewals](/faq/billing-lifecycle/how-vps-renewals-work) · [Automatic payments](/faq/billing-lifecycle/automated-payments) · [Find and download invoices](/faq/billing-lifecycle/find-and-download-invoices) · [Data retention](/faq/billing-lifecycle/data-retention-period)
+
+## Create backups you can restore
+
+**You are responsible for backing up your VPS.** Do not assume that EDIS Global automatically keeps a recoverable copy of your files or applications.
+
+A useful starting routine is:
+
+1. **List what you need to recover.** Include website files, databases, application configuration, uploaded files and any keys needed to restore the service.
+2. **Create a consistent backup.** Use your application's export or database-backup function for live databases; copying their working files while they change may not produce a usable backup.
+3. **Copy the backup outside the VPS.** For a small setup, download the exported files to your computer through SFTP. For recurring backups, configure a scheduled backup to separate storage.
+4. **Keep several dated versions.** A single synchronised copy may also reflect accidental deletion or corrupted files.
+5. **Test restoration.** Restore sample files or an application backup into a separate test location and verify that it works.
+
+For example, a small website may need its files **and** a database export. Saving only the web directory could leave you without the content or settings needed to rebuild it.
+
+Use [SFTP and other file-transfer methods](/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods) to download data, or follow the [Linux backup and restore guide](/faq/upgrades-downgrades/backup-restore-data-linux) for command examples. Store sensitive backups securely and keep recovery credentials somewhere you can access without the VPS.
+
+### Can EDIS Global provide a complete disk image?
+
+You can request a downloadable **QCOW2 virtual-drive image** through support. The documented service fee is **EUR 25**, and the download is available for **30 days**. Download it and store your own copy before the link expires.
+
+This is a requested image export, not an automatic scheduled backup or instant snapshot.
+
+[Backup responsibilities](/getting-started/backups) · [Request a QCOW2 image](/faq/upgrades-downgrades/requesting-qcow2-image-backup)
+
+## Upgrade your VPS
+
+You can move to a higher plan or add individual resources such as RAM, vCPU cores or storage. An upgrade does not require reinstalling the operating system.
+
+Follow the activation instructions in your upgrade notification:
+
+- **Traffic increases** are available immediately.
+- **Additional RAM and vCPU cores** require a full cold boot.
+- **An expanded virtual drive** requires the specified cold boot, followed by checking and extending the partition and filesystem inside the operating system where necessary.
+
+EDIS Global expands the virtual drive; it does not resize your partitions or filesystem. Back up your data before making those changes.
+
+[Choose an upgrade](/faq/upgrades-downgrades/upgrades) · [Extend Linux storage](/advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems) · [Extend Windows storage](/advanced-setup-guides/extend-hard-drive-windows-guide)
+
+## Manage traffic and monthly refills
+
+Open **Traffic Information** for your VPS to check usage, the current allowance and the next monthly refill. Traffic includes both incoming and outgoing data.
+
+If you need more traffic, assign it from your shared **Traffic Pool**, or enable **Auto-Hydration** for that VPS. At 99% usage, Auto-Hydration assigns the selected increment when your Pool has sufficient balance. It does not buy traffic automatically.
+
+Keep these balances separate:
+
+- **Unassigned Pool Traffic** does not expire.
+- **Traffic already assigned to a VPS** expires if unused at that VPS's next monthly refill.
+- **Plan Traffic** refills each monthly service cycle; unused allowance does not carry forward.
+
+If you run out of traffic, the VPS remains online but can be rate-limited. Check the traffic panel before treating a very slow connection as a server failure.
+
+[Traffic Pool and Auto-Hydration](/faq/traffic-bandwidth/traffic-pool) · [Monthly traffic refills](/faq/traffic-bandwidth/traffic-stats-refill-explained) · [Restore full speed](/faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global)
+
+## Recover access
+
+If SSH or RDP fails, first check that the VPS is running and look for a relevant incident on the [Status Page](https://status.edis.global).
+
+Then open [VNC/noVNC](/vps-management/enable-vnc-server). The console can help you see whether the operating system has booted even when its own network configuration or remote-access service is broken.
+
+Choose the guide that matches the problem:
+
+- [Reset a Linux root password](/vps-management/reset-root-password-linux).
+- [Reset a Windows Administrator password](/vps-management/reset-windows-admin-password).
+- [Recover a locked Windows account: RDP error 0xd07](/vps-management/rdp-error-0xd07-user-account-locked).
+- [Use Linux rescue tools for boot, network or SSH problems](/vps-management/linux-rescue-guide-and-troubleshoot).
+
+Reinstall only when you intend to replace the installation and have backed up anything you need.
+
+## Networking and location changes
+
+**Private networking between VPS services:** a Private VLAN connects VPS services in the same server location. Assign it under **System Configuration → VLAN Settings**, apply the settings and complete a cold boot. Then configure unique private IP addresses from the same subnet on the secondary interfaces. Keep the public network configuration on the primary interfaces unchanged.
+
+[Private VLAN setup](/faq/upgrades-downgrades/private-vlan-option)
+
+**Reverse DNS:** use the portal's reverse-DNS controls to set the PTR record for an address. A PTR record is separate from the forward DNS record that points a domain to your VPS.
+
+[Reverse-DNS instructions](/faq/ip-addresses/setting-up-reverse-pointers)
+
+**A different server location:** changing location is a VPS replacement, not a simple IP edit. An eligible free replacement within 24 hours removes the original VPS and its data; back up first. After that window, order a VPS in the new location, migrate and test your services, then cancel the old VPS.
+
+Review the [location-change conditions](/faq/server-locations/change-server-location), including availability and the effect on refund eligibility, before requesting a replacement.
+
+## Cancel a VPS correctly
+
+**Stopping the VPS does not cancel it or stop renewal billing.**
+
+Before cancelling, download your backups and confirm that you no longer need the service. Open the VPS under **Services** and select **Request Cancellation**:
+
+- **End of the billing period:** the VPS continues running until its due date, then terminates.
+- **Immediate cancellation:** the VPS stops when termination is processed.
+
+For these customer-requested cancellations, data is retained for **six days after the actual termination date**, then permanently deleted. The retention period starts at termination, not when you submit an end-of-term cancellation request.
+
+If you made a mistake, contact support promptly before deletion. Do not use the retention period instead of backing up before cancellation.
+
+An invoice being cancelled does not by itself prove that VPS data has been deleted: customer-requested cancellation and the automated non-payment workflow handle invoices differently.
+
+If you use a PayPal subscription, [cancel that subscription in PayPal too](/faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account).
+
+[Cancellation instructions](/faq/billing-lifecycle/cancel-a-service) · [Data retention policy](/faq/billing-lifecycle/data-retention-period)
+
+## Get help with the right details
+
+Contact [EDIS Global support](https://www.edisglobal.com/contact) with your VPS identifier or IP address, a short description of the problem, when it started and what you have already tried. For billing questions, include the invoice number.
+
+Keep your [Support PIN](/vps-management/your-support-pin) private and provide it directly to EDIS Global support when requested. Do not post passwords, private keys or the Support PIN publicly.
