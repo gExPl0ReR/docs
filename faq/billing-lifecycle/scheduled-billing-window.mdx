@@ -19,26 +19,31 @@ The billing window occurs **daily between midnight and 05:15 CET (Central Europe
 | Process                     | CET Time   | UTC Time   |
 | --------------------------- | ---------- | ---------- |
 | Pre-billing procedures      | 00:01 CET  | 23:01 UTC  |
-| Credit Manipulation – Start | 03:58 CET  | 02:58 UTC  |
+| Optional credit hold – Start | 03:58 CET  | 02:58 UTC  |
 | Billrun – Start             | 04:00 CET  | 03:00 UTC  |
 | Billrun – End               | ~05:00 CET | ~04:00 UTC |
-| Credit Manipulation – End   | 05:15 CET  | 04:15 UTC  |
+| Optional credit hold – End   | 05:15 CET  | 04:15 UTC  |
 
-⚠️ **Do not place new orders or modify services** between **00:00 CET and 05:15 CET**, as transactions may be delayed or temporarily locked during this period. During this time, **account credit may be applied to scheduled invoices**, which might not be desirable if you have **credit manipulation** enabled on your account.
+⚠️ **Do not place new orders or modify services** between **00:00 CET and 05:15 CET**, as transactions may be delayed or temporarily locked during this period. If support has configured your account to disable automatic credit application during invoice creation, your **credit balance is temporarily unavailable** during the optional credit hold described below.
 
 ---
 
-## 💰 Credit Manipulation
+<span id="-credit-manipulation" />
+<span id="credit-manipulation" />
 
-These are **special pre-billrun procedures** designed to protect billing integrity and prevent unwanted automatic renewals.
+## Optional credit handling during invoice creation
 
-At **Credit Manipulation Start**, the system safely **backs up account credit** and temporarily sets it to zero.\
-At **Credit Manipulation End**, after the billrun has finished, the **full account credit is restored** to the client account.
+**By default**, available account credit is automatically applied when renewal invoices are created. If you prefer to review invoices before paying, [contact support](https://www.edisglobal.com/contact). We can disable this automatic credit application during scheduled invoice creation through an **account-level billing arrangement**.
+
+For accounts with this arrangement, the system **backs up the credit balance and temporarily sets it to zero at 03:58 CET**, before the billrun starts. After invoice creation has finished, the **full credit balance is restored at 05:15 CET**.
+
+Your balance may therefore temporarily show zero during this period. The credit is held for the billing window and restored afterward, so you can review invoices and manually apply credit once the window has ended.
 
 ### Important
 
-By default, **99% of customers have their account credit automatically applied** to renewal invoices.\
-However, a **small group of resellers** have opted out of this automatic credit application. For these resellers, account credit is locked during the billing window and restored afterward. If you are interested in this billing behaviour, please get in touch with our support team.
+This arrangement affects **automatic credit application during invoice creation**. Renewal invoices continue to be issued and must be paid by their due dates. Other automatic payment arrangements, such as credit card payments or PayPal subscriptions, are managed separately.
+
+For most customers, we recommend keeping automatic credit application enabled and requesting cancellation when a VPS is no longer needed. See [Can I disable automatic credit application to renewal invoices?](/faq/billing-lifecycle/pay-invoices-from-credit-balance#can-i-disable-automatic-credit-application-to-renewal-invoices).
 
 ---
 
@@ -46,7 +51,7 @@ However, a **small group of resellers** have opted out of this automatic credit 
 
 1. **Invoice Generation** – Renewal invoices are created for upcoming services.
 2. **Credit Card Charges** – Automatic payment attempts are processed.
-3. **Credit Manipulation** – Credits are temporarily locked to ensure billing accuracy (if configured).
+3. **Optional credit hold** – Account credit is temporarily set to zero before invoice creation and restored afterward, if support has configured this arrangement.
 4. **Service Suspension** – Non-paid services are automatically suspended.
 5. **Service Termination** – Terminations are processed.
 6. **Finalization** – After 05:15 CET, all billing operations resume as normal.
@@ -73,11 +78,10 @@ See [Data Retention Periods](/faq/billing-lifecycle/data-retention-period) and t
 
 - The billing window ensures accurate renewals and payment processing.
 - Do not place orders or top up your account between **00:00–05:15 CET**.
-- Account credit is backed up, temporarily locked, and restored automatically \
-  (if configured for your account).
+- If support has configured the optional credit hold, account credit is temporarily set to zero during invoice creation and restored afterward.
 - Automatic attempts to charge your saved payment method (via our payment provider).
 - Service suspensions and terminations are handled during the billrun.
 
 ---
 
-**Last updated:** November 2025
+**Last updated:** September 2026
