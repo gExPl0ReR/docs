@@ -309,6 +309,10 @@ description: "Order an EDIS Global VPS via the Order API with worked examples â€
     | `true` | Available account credit is applied. |
     | `false` | Account credit is not applied to this order. |
 
+    <Note>
+      `applycredit` controls credit use for **this order only**. It does not change how credit is applied to future renewal invoices. To disable automatic credit application during scheduled invoice creation, contact support about the [account-level billing arrangement](/faq/billing-lifecycle/pay-invoices-from-credit-balance#can-i-disable-automatic-credit-application-to-renewal-invoices).
+    </Note>
+
     To opt out of using account credit, add this field to your `order` JSON. Use the JSON boolean `false`:
 
     ```json
