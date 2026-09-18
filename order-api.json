@@ -891,12 +891,7 @@
                   },
                   "newbillingcycle": {
                     "type": "string",
-                    "enum": [
-                      "monthly",
-                      "quarterly",
-                      "semi-annually",
-                      "annually"
-                    ],
+                    "enum": ["monthly", "quarterly", "semi-annually", "annually"],
                     "example": "monthly",
                     "description": "Billing cycle for the upgraded product. Please select from the dropdown list."
                   },
@@ -1160,11 +1155,7 @@
           },
           "status": {
             "type": "string",
-            "enum": [
-              "active",
-              "suspended",
-              "terminated"
-            ],
+            "enum": ["active", "suspended", "terminated"],
             "example": "active",
             "description": "Service lifecycle status. Possible values: `active`, `suspended`, `terminated`."
           },
@@ -1218,6 +1209,7 @@
           }
         }
       },
+
       "get_services_response_200": {
         "type": "object",
         "properties": {
@@ -1235,6 +1227,7 @@
           }
         }
       },
+
       "get_services_response_400": {
         "type": "object",
         "properties": {
@@ -1249,6 +1242,7 @@
           }
         }
       },
+
       "get_services_response_401": {
         "type": "object",
         "properties": {
@@ -1262,6 +1256,7 @@
           }
         }
       },
+
       "get_services_response_500": {
         "type": "object",
         "properties": {
@@ -1301,6 +1296,7 @@
           }
         }
       },
+
       "get_account_balance_response_400": {
         "type": "object",
         "properties": {
@@ -1314,6 +1310,7 @@
           }
         }
       },
+
       "get_account_balance_response_401": {
         "type": "object",
         "properties": {
@@ -1327,6 +1324,7 @@
           }
         }
       },
+
       "get_account_balance_response_500": {
         "type": "object",
         "properties": {
