@@ -236,7 +236,7 @@
           {
             "group": "Abuse and Complaints",
             "pages": [
-              "misc/reporting-abuse",
+              "reporting-abuse",
               "responding-to-abuse-complaints"
             ]
           },
@@ -1032,8 +1032,14 @@
       "permanent": true
     },
     {
-      "source": "/reporting-abuse",
-      "destination": "/misc/reporting-abuse"
+      "source": "/misc/reporting-abuse",
+      "destination": "/reporting-abuse",
+      "permanent": true
+    },
+    {
+      "source": "/misc/reporting-abuse.md",
+      "destination": "/reporting-abuse.md",
+      "permanent": true
     },
     {
       "source": "/fix-for-realvnc-closing-connection",
