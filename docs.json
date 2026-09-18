@@ -226,6 +226,14 @@
             ]
           },
           {
+            "group": "Providers & Resellers",
+            "pages": [
+              "partner-starter-pack",
+              "faq/commercial-vpn-hosting",
+              "reselling-and-discounts"
+            ]
+          },
+          {
             "group": "Join Our Team",
             "pages": [
               "join-our-team/jobs-edisglobal-support-agent-non-voice",
@@ -300,9 +308,6 @@
             "pages": [
               "misc/extending-180-day-trial-version-of-windows",
               "misc/fix-openssh-vm-delays-low-entropy",
-              "faq/commercial-vpn-hosting",
-              "misc/edis-global-vps-reselling-and-discount-structure",
-              "documentation/misc/partner-starter-pack",
               "misc/reporting-abuse",
               "misc/security-compliance",
               "misc/fix-black-screen-windows-server",
@@ -1017,7 +1022,8 @@
     },
     {
       "source": "/edis-global-vps-reselling-and-discount-structure",
-      "destination": "/misc/edis-global-vps-reselling-and-discount-structure"
+      "destination": "/reselling-and-discounts",
+      "permanent": true
     },
     {
       "source": "/reporting-abuse",
@@ -1034,6 +1040,31 @@
     {
       "source": "/rnir-fix-remote-desktop-credssp-encryption-oracle-remediation-error",
       "destination": "/misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error"
+    },
+    {
+      "source": "/misc/edis-global-vps-reselling-and-discount-structure",
+      "destination": "/reselling-and-discounts",
+      "permanent": true
+    },
+    {
+      "source": "/misc/edis-global-vps-reselling-and-discount-structure.md",
+      "destination": "/reselling-and-discounts.md",
+      "permanent": true
+    },
+    {
+      "source": "/edis-global-vps-reselling-and-discount-structure.md",
+      "destination": "/reselling-and-discounts.md",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/misc/partner-starter-pack",
+      "destination": "/partner-starter-pack",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/misc/partner-starter-pack.md",
+      "destination": "/partner-starter-pack.md",
+      "permanent": true
     }
   ],
   "metadata": {
