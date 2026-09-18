@@ -798,7 +798,7 @@
     "/kvm/v2/add/order": {
       "post": {
         "summary": "Order-VPS.",
-        "description": "Place a new VPS order by authenticating with your WHMCS credentials and specifying the order details in JSON format.\n\n> **Live ordering — no test environment**\n>\n> EDIS Global does not provide a sandbox or test environment. Submitting a valid order to this endpoint creates a real VPS order and invoice. If account credit is applied and covers the invoice, provisioning can begin automatically.\n>\n> Setting `\"applycredit\": false` prevents account credit from being used for that order. It does not prevent the order from being created or make the request a test.\n\n### JSON Parameters:\n- **billingcycle**: Specifies the billing cycle, e.g., 'monthly' or 'yearly'.\n- **paymentmethod**: Specifies the payment method, e.g., 'paypal'.\n- **applycredit**: Optional JSON boolean inside the `order` JSON. Omit it or set it to `true` to apply available account credit automatically. Set it explicitly to `false` to prevent account credit from being applied to this order, regardless of the selected payment method.\n- **item**: An array of product configurations:\n  - **pid**: Product ID.\n  - **os**: Operating System ID.\n  - **hostname**: Hostname for the VPS.\n  - **additional_ram**: Additional RAM requested (optional).\n  - **additional_vcpu**: Additional vCPU requested (optional).\n  - **additional_ip**: Additional IPs requested (optional).\n  - **additional_diskboost**: Additional disk boost requested (optional).\n  - **ssh_pubkey**: Public SSH key for access.\n\n### Account credit behavior\n\n| `applycredit` | Behavior |\n| --- | --- |\n| Omitted | Available account credit is applied automatically. |\n| `true` | Available account credit is applied. |\n| `false` | Account credit is not applied to this order. |\n\n### **Response Behavior:**\n\n`invoicepaid` reports whether the invoice has been paid. Order creation and payment are separate outcomes.\n\n- If `applycredit` is omitted or set to `true`, available account credit is applied automatically. If it covers the invoice, the response includes:\n  ```json\n  { \"invoicepaid\": true }\n  ```\n- If the invoice has not been paid, the response includes:\n  ```json\n  { \"invoicepaid\": false }\n  ```\n  The invoice may remain unpaid because account credit was explicitly disabled or because available credit did not cover it. The `invoicepaid` flag alone does not mean the order failed; check `status` and the returned order and invoice IDs as well.\n\n**Example JSON (automatic credit by default):**\n\nThis example omits `applycredit`. Available account credit will therefore be applied automatically.\n\n```json\n{\n  \"billingcycle\": \"monthly\",\n  \"paymentmethod\": \"paypal\",\n  \"item\": [\n    {\n      \"pid\": 1814,\n      \"os\": 92,\n      \"hostname\": \"kvmtest\",\n      \"additional_ram\": 467,\n      \"additional_vcpu\": 467,\n      \"additional_ip\": 467,\n      \"additional_diskboost\": 615,\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    },\n    {\n      \"pid\": 1814,\n      \"os\": 88,\n      \"hostname\": \"kvmtest2\",\n      \"additional_ram\": \"\",\n      \"additional_vcpu\": \"\",\n      \"additional_ip\": \"\",\n      \"additional_driveboost\": \"\",\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    }\n  ]\n}\n```\n\n⚠️ **Note:**\nIf you receive a response like `\"status\": \"failed\"` along with an `orderid`, it may indicate that the VPS could not be provisioned due to the product being **out of stock** in the selected location.\n\n**Example Failed Response:**\n```json\n{\n  \"status\": \"failed\",\n  \"orderid\": 241158\n}\n```",
+        "description": "Place a new VPS order by authenticating with your WHMCS credentials and specifying the order details in JSON format.\n\n> **Live ordering — no test environment**\n>\n> EDIS Global does not provide a sandbox or test environment. Submitting a valid order to this endpoint creates a real VPS order and invoice. If account credit is applied and covers the invoice, provisioning can begin automatically.\n>\n> Setting `\"applycredit\": false` prevents account credit from being used for that order. It does not prevent the order from being created or make the request a test.\n\n### JSON Parameters:\n- **billingcycle**: Specifies the billing cycle, e.g., 'monthly' or 'yearly'.\n- **paymentmethod**: Specifies the payment method, e.g., 'paypal'.\n- **applycredit**: Optional JSON boolean inside the `order` JSON. Omit it or set it to `true` to apply available account credit automatically. Set it explicitly to `false` to prevent account credit from being applied to this order, regardless of the selected payment method.\n- **item**: An array of product configurations:\n  - **pid**: Product ID.\n  - **os**: Operating System ID.\n  - **hostname**: Hostname for the VPS.\n  - **additional_ram**: Additional RAM requested (optional).\n  - **additional_vcpu**: Additional vCPU requested (optional).\n  - **additional_ip**: Additional IPs requested (optional).\n  - **additional_diskboost**: Additional disk boost requested (optional).\n  - **ssh_pubkey**: Public SSH key for access.\n\n### Account credit behavior\n\n| `applycredit` | Behavior |\n| --- | --- |\n| Omitted | Available account credit is applied automatically. |\n| `true` | Available account credit is applied. |\n| `false` | Account credit is not applied to this order. |\n\n### **Response Behavior:**\n\n`invoicepaid` reports whether the invoice has been paid. Order creation and payment are separate outcomes.\n\n- If `applycredit` is omitted or set to `true`, available account credit is applied automatically. If it covers the invoice, the response includes:\n  ```json\n  { \"invoicepaid\": true }\n  ```\n- If the invoice has not been paid, the response includes:\n  ```json\n  { \"invoicepaid\": false }\n  ```\n  The invoice may remain unpaid because account credit was explicitly disabled or because available credit did not cover it. The `invoicepaid` flag alone does not mean the order failed; check `status` and the returned order and invoice IDs as well.\n\n**Example JSON (automatic credit by default):**\n\nThis example omits `applycredit`. Available account credit will therefore be applied automatically.\n\n```json\n{\n  \"billingcycle\": \"monthly\",\n  \"paymentmethod\": \"paypal\",\n  \"item\": [\n    {\n      \"pid\": 1814,\n      \"os\": 92,\n      \"hostname\": \"kvmtest\",\n      \"additional_ram\": 467,\n      \"additional_vcpu\": 467,\n      \"additional_ip\": 467,\n      \"additional_diskboost\": 615,\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    },\n    {\n      \"pid\": 1814,\n      \"os\": 88,\n      \"hostname\": \"kvmtest2\",\n      \"additional_ram\": \"\",\n      \"additional_vcpu\": \"\",\n      \"additional_ip\": \"\",\n      \"additional_diskboost\": \"\",\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    }\n  ]\n}\n```\n\n⚠️ **Note:**\nIf you receive a response like `\"status\": \"failed\"` along with an `orderid`, it may indicate that the VPS could not be provisioned due to the product being **out of stock** in the selected location.\n\n**Example Failed Response:**\n```json\n{\n  \"status\": \"failed\",\n  \"orderid\": 241158\n}\n```",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -891,7 +891,12 @@
                   },
                   "newbillingcycle": {
                     "type": "string",
-                    "enum": ["monthly", "quarterly", "semi-annually", "annually"],
+                    "enum": [
+                      "monthly",
+                      "quarterly",
+                      "semi-annually",
+                      "annually"
+                    ],
                     "example": "monthly",
                     "description": "Billing cycle for the upgraded product. Please select from the dropdown list."
                   },
@@ -1155,7 +1160,11 @@
           },
           "status": {
             "type": "string",
-            "enum": ["active", "suspended", "terminated"],
+            "enum": [
+              "active",
+              "suspended",
+              "terminated"
+            ],
             "example": "active",
             "description": "Service lifecycle status. Possible values: `active`, `suspended`, `terminated`."
           },
@@ -1209,7 +1218,6 @@
           }
         }
       },
-
       "get_services_response_200": {
         "type": "object",
         "properties": {
@@ -1227,7 +1235,6 @@
           }
         }
       },
-
       "get_services_response_400": {
         "type": "object",
         "properties": {
@@ -1242,7 +1249,6 @@
           }
         }
       },
-
       "get_services_response_401": {
         "type": "object",
         "properties": {
@@ -1256,7 +1262,6 @@
           }
         }
       },
-
       "get_services_response_500": {
         "type": "object",
         "properties": {
@@ -1296,7 +1301,6 @@
           }
         }
       },
-
       "get_account_balance_response_400": {
         "type": "object",
         "properties": {
@@ -1310,7 +1314,6 @@
           }
         }
       },
-
       "get_account_balance_response_401": {
         "type": "object",
         "properties": {
@@ -1324,7 +1327,6 @@
           }
         }
       },
-
       "get_account_balance_response_500": {
         "type": "object",
         "properties": {
@@ -2204,7 +2206,7 @@
           "order": {
             "type": "string",
             "description": "JSON-encoded string that includes order details such as billing cycle, payment method, apply credit, and VPS item configurations. Each item specifies properties like product ID (pid), operating system (os), hostname, additional resources (RAM, vCPU, IP), and an optional SSH public key. The optional `applycredit` field belongs inside this JSON and accepts a JSON boolean: omit it or set it to `true` to apply available account credit automatically; explicitly set it to `false` to prevent credit from being applied to this order. This endpoint creates real orders; disabling account credit does not make the request a test.",
-            "example": "{\n  \"billingcycle\": \"monthly\",\n  \"paymentmethod\": \"paypal\",\n  \"item\": [\n    {\n      \"pid\": 1814,\n      \"os\": 92,\n      \"hostname\": \"kvmtest\",\n      \"additional_ram\": 467,\n      \"additional_vcpu\": 467,\n      \"additional_ip\": 467,\n      \"additional_diskboost\": 615,\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    },\n    {\n      \"pid\": 1814,\n      \"os\": 88,\n      \"hostname\": \"kvmtest2\",\n      \"additional_ram\": \"\",\n      \"additional_vcpu\": \"\",\n      \"additional_ip\": \"\",\n      \"additional_driveboost\": \"\",\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    }\n  ]\n}\n"
+            "example": "{\"billingcycle\":\"monthly\",\"paymentmethod\":\"paypal\",\"item\":[{\"pid\":1814,\"os\":92,\"hostname\":\"kvmtest\",\"additional_ram\":467,\"additional_vcpu\":467,\"additional_ip\":467,\"additional_diskboost\":615,\"ssh_pubkey\":\"ssh-rsa. ...\"}]}"
           }
         }
       },
