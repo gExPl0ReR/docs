@@ -1,12 +1,14 @@
 ---
 title: How to extend hard drive in Windows
 sidebarTitle: Extend Windows Hard Drive
-description: "Extend or resize a hard drive in Windows Server using Server Manager, Disk Management, or DiskPart with this step-by-step disk space expansion guide."
+description: "Extend a Windows Server volume after a VPS plan upgrade or Drive Size Boost using Server Manager, Disk Management, or DiskPart."
 ---
 
 ## Introduction
 
 Managing disk space effectively is a crucial task on Windows Server. The **File and Storage Services** feature in **Server Manager** provides an intuitive way to resize volumes, whether you need to expand or shrink a drive. This guide walks you through the process.
+
+Use this guide after a VPS plan upgrade or after adding up to **400 GB** with Drive Size Boost. EDIS Global enlarges the virtual drive; Windows does not automatically extend the existing partition.
 
 <Note>
 NOTE: To fully apply your upgrade, first shut down your OS, power off the server from the portal, and then power it back on through the portal. This process ensures the system recognizes the updated drive specifications.

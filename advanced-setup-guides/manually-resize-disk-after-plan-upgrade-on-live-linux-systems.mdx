@@ -1,7 +1,7 @@
 ---
-title: "Resize Linux disk after VPS plan upgrade"
+title: "Resize Linux disk after a VPS upgrade"
 sidebarTitle: "Resize Linux Disk/Partition"
-description: "Manually resize disk space on a live Linux VPS after a plan upgrade using SystemRescueCD. Step-by-step guide to safely expand your root partition."
+description: "Manually resize disk space on a live Linux VPS after a plan upgrade or Drive Size Boost using SystemRescueCD."
 ---
 
 <Warning>
@@ -10,7 +10,7 @@ description: "Manually resize disk space on a live Linux VPS after a plan upgrad
   Resizing disks and partitions on production Linux operating systems is a complex and potentially hazardous process. Only experienced system administrators should undertake it. There are significant risks involved, including the possibility of data loss. You must perform a complete backup of all data on the drive before attempting any resizing operations. Additionally, be aware that the process might not work as intended, and unforeseen issues could arise. **Please proceed with caution and use this guide at your own risk.**
 </Warning>
 
-It is not always possible to reinstall the operating system to automatically add disk space. With this guide, you can manually resize your disk and expand the existing root partition.
+This guide applies after a VPS plan upgrade or after adding **Drive Size Boost**. It is not always possible to reinstall the operating system to automatically add disk space. With this guide, you can manually resize your disk and expand the existing root partition.
 
 To resize disk space and unallocated space on your disk, use SystemRescueCD. The SystemRescueCD is a Linux system rescue disk available as a bootable CD-ROM.&#x20;
 
@@ -21,7 +21,7 @@ Here’s a general guide on how to resize disk space manually:
 
 After the upgrade was confirmed ...
 
-* Log in to your <a href="https://manage.edis.at/whmcs/clientarea.php" target="_blank">VPS Management Portal</a>
+* Log in to your <a href="https://manage.edisglobal.com/clientarea.php" target="_blank">VPS Management Portal</a>
 
 * Locate your VPS from the Services tab
 

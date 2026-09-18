@@ -1,7 +1,7 @@
 ---
 title: "EDIS Global VPS Management Portal"
 sidebarTitle: "VPS Management Portal"
-description: "Control your EDIS Global VPS from one portal: reinstall the OS, change IP addresses, manage Traffic Pool usage, open a VNC console and automate via API."
+description: "Control your EDIS Global VPS from one portal: reinstall the OS, upgrade resources, manage IP addresses and traffic, open a VNC console and automate via API."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
@@ -110,9 +110,13 @@ Use the EDIS Global APIs to integrate VPS deployment and management into your ow
 
 ---
 
-## Upgrade and renew your VPS
+## Upgrade resources, plans and billing
 
 <Columns cols={2}>
+  <Card title="Upgrade individual resources" icon="sliders" href="../faq/upgrades-downgrades/upgrade-resources">
+    Keep the current plan and add up to 24 GB RAM, 8 vCPU cores, 400 GB of Drive Size Boost, or 10 additional IPv4 addresses. Charges are prorated for the current billing period.
+  </Card>
+
   <Card title="Upgrade your plan" icon="arrow-up" href="../faq/upgrades-downgrades/upgrade-plan">
     Move to a larger VPS tier directly from the portal. You pay only the prorated price difference for the current billing period.
   </Card>
@@ -121,6 +125,17 @@ Use the EDIS Global APIs to integrate VPS deployment and management into your ow
     Create a renewal invoice before the regular due date and select the billing cycle that best fits your needs.
   </Card>
 </Columns>
+
+Open the VPS under **Services**, go to **Configurable Options**, and select **Upgrade Resources**. Available resource additions are shown for that VPS:
+
+| Resource | Maximum configurable addition |
+| --- | ---: |
+| RAM | +24 GB |
+| vCPU | +8 cores |
+| Drive Size Boost | +400 GB |
+| Additional IPv4 addresses | 10 |
+
+Drive Size Boost is added to the plan's existing disk allocation. After storage, RAM or vCPU changes are activated, follow the provided cold-boot instructions. For storage, you must also extend the partition and filesystem inside the guest operating system.
 
 ---
 

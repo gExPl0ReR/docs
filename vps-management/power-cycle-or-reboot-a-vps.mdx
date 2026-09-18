@@ -1,28 +1,87 @@
 ---
-title: "Power cycle or reboot a VPS"
+title: "Restart, reset or power cycle your VPS"
 sidebarTitle: "Reboot VPS"
-description: "Power-cycle or reboot a VPS through the EDIS Global VPS Management Portal, or use a shutdown command followed by a power-on action from the dashboard."
+description: "Choose between an operating-system restart, Reset VPS and Power Cycle VPS. Learn which option preserves VNC and when a full power cycle is needed."
 ---
 
-## Always give your operating system a clean shutdown
+## Which restart option should I use?
 
-Before restarting your VPS, always perform a proper shutdown from within the operating system.
+For routine maintenance, restart from inside Linux or Windows whenever the operating system is responding. This lets the operating system close applications and finish pending writes before rebooting.
 
-- **Linux:** Run `shutdown -h now` or `halt` from the command line.
-- **Windows:** Select **Start → Power → Shut down**, or run `shutdown /s /t 0` from **Command Prompt** or **PowerShell**.
+If you need to restart through the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), open the **Restart** dropdown:
 
-Once the operating system has shut down completely, start the VPS again using the **START** button in the VPS Management Portal. This is the preferred way to perform a clean cold boot and helps prevent filesystem corruption or data loss.
+- **Reset VPS** is the preferred portal option when the virtual machine's underlying process is still responding. It resets the VPS while keeping that process and the VNC server running.
+- **Power Cycle VPS** stops the underlying process and starts a new one. Use it when Reset VPS does not work or the underlying process is stuck.
+
+<Note>
+  **Reset VPS preserves the VNC server; it does not mean applications keep running.** The guest operating system restarts, interrupting SSH, RDP and hosted services until they come back online.
+</Note>
 
 ## Start. Stop. Restart.
 
-If your service is currently in **SHUTDOWN** state, you can **Start** your VPS. You always have the option to **Restart** your VPS. Restart fires a Stop, followed by a Start command, regardless of the machine's state. 
+Open your VPS in the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php) and locate **Server management**. The **Restart** dropdown contains **Reset VPS** and **Power Cycle VPS**.
 
-![Reboot VPS](/assets/vps-start-restart.webp)
+| Control | What it does | When to use it |
+| --- | --- | --- |
+| **Start** | Starts a stopped VPS. | Your VPS is in the **SHUTDOWN** state and you want to turn it on. |
+| **Stop** | Stops the process running your virtual machine, including its VNC server. | You want to leave the VPS powered off. Shut down the operating system first whenever possible. |
+| **Restart → Reset VPS** | Resets the VPS without terminating its underlying process. The VNC server stays running. | Your preferred portal restart option when the underlying process is responsive. |
+| **Restart → Power Cycle VPS** | Stops the virtual machine process and starts a new one. The existing VNC server is stopped too. | Reset VPS has not resolved the problem, or the underlying process is unresponsive. |
 
-If your service is currently in **RUNNING** state, you can **Stop** (Shutdown) your VPS. You always have the option to **Restart** your VPS. Restart fires a Stop, followed by a Start command, regardless of the machine's state. 
+The former **Restart** action performed a Stop followed by a Start. That behaviour is now available as **Power Cycle VPS**; **Reset VPS** provides the option that keeps the VNC server running.
 
-![Reboot VPS](/assets/vps-stop-restart.webp)
+<Warning>
+  Keeping the virtual machine process running is different from a clean shutdown inside the operating system. Do not assume that a portal reset gives applications time to save their work. For a graceful restart, use the operating system's restart command whenever possible. Save your work and keep current backups before restarting.
+</Warning>
 
-## Stop and Restart from a technical perspective
+## Restart gracefully from Linux or Windows
 
-Both the **Stop** and **Restart** buttons terminate the hypervisor process that manages your VPS. In addition, a Restart also initiates a fresh start of your virtual machine on a new hypervisor process. If you had a VNC/noVNC console open, you need to restart the VNC/noVNC console too. Always perform a clean shutdown from within your operating system before stopping or restarting your virtual machine.
+### Linux
+
+Connect through SSH or the console and run:
+
+```bash
+sudo shutdown -r now
+```
+
+If you are logged in as root, omit `sudo`. The SSH session disconnects during the restart. Wait for the operating system to boot before reconnecting.
+
+### Windows
+
+Save your work and select **Start → Power → Restart** inside Windows.
+
+Your Remote Desktop session disconnects while Windows restarts. Reconnect once the operating system and Remote Desktop service are available.
+
+## Reset the VPS while keeping VNC available
+
+1. Open your VPS in the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
+2. If you want to watch the boot process, open the [VNC/noVNC console](/vps-management/enable-vnc-server).
+3. Open the **Restart** dropdown and choose **Reset VPS**.
+4. Watch the operating system boot and wait for your services to become available.
+
+The VNC server remains running because Reset VPS keeps the underlying virtual machine process alive. You can use the console to follow the boot process; SSH and RDP reconnect only after their services are ready.
+
+Reset VPS does not reinstall the operating system or intentionally erase your disk. However, interrupting applications or pending disk writes can still cause data loss.
+
+## Power cycle an unresponsive VPS
+
+Use **Restart → Power Cycle VPS** when Reset VPS does not work or the process running the virtual machine has become stuck.
+
+A power cycle terminates that process and starts a fresh one. It also stops the VNC server, so you will need to start VNC again and reopen the console if you were using it.
+
+If the operating system is still accessible, shut it down cleanly before power cycling:
+
+- **Linux:** Run `sudo shutdown -h now`.
+- **Windows:** Select **Start → Power → Shut down**.
+
+Wait for shutdown to complete. If the VPS is already stopped, use **Start** to turn it on again.
+
+If neither Reset VPS nor Power Cycle VPS restores access, contact support with your VPS identifier or IP address, the time of the problem and what you can see in the console.
+
+## Restarting, reinstalling and billing are separate actions
+
+**Reset VPS and Power Cycle VPS restart the existing installation.** To install a different operating system or start with a clean installation, use [Reinstall OS](/vps-management/autoinstall-reinstall-install-vps-linux-windows). Reinstallation overwrites the existing system and its data, so back up anything you need first.
+
+Stopping a VPS is not a cancellation request. To end the service, follow the cancellation procedure in your client account.
+
+Keep backups outside the VPS and check that you can restore them. See the [backup guide](/getting-started/backups) for responsibilities and available approaches.

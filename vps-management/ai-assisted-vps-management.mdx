@@ -1,0 +1,421 @@
+---
+title: "How to Use AI to Manage a VPS Safely: Setup, Monitoring and Log Analysis"
+sidebarTitle: "AI-assisted VPS management"
+description: "A beginner-friendly guide to using AI for VPS administration with restricted SSH access, monitoring, log analysis, human approval and safe recovery."
+---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+AI can make an unmanaged VPS much easier to understand. It can explain unfamiliar commands, turn an error message into a troubleshooting plan, summarize logs, compare configuration files, prepare scripts and help document how a server works.
+
+It can also make a serious mistake very quickly if it receives more access than it needs.
+
+This guide shows a practical starting point for AI-assisted VPS administration. It focuses on Linux because its permission model and command-line tools make the examples easy to reproduce. A Windows starting point is included later in the guide.
+
+<Warning>
+  **You remain responsible for every action performed with your VPS credentials.** This includes commands, file changes, package installations, service restarts and data operations initiated or suggested by an AI agent. AI assistance does not transfer responsibility to the AI provider or turn an unmanaged VPS into a managed service.
+</Warning>
+
+## What AI can help you accomplish
+
+AI is most useful when it receives a small, relevant set of facts and the result can be checked. It can help you:
+
+<Columns cols={2}>
+  <Card title="Understand your server" icon="server">
+    Explain running services, listening ports, resource usage and unfamiliar configuration files in plain language.
+  </Card>
+
+  <Card title="Investigate incidents" icon="magnifying-glass">
+    Build a timeline from logs, rank likely causes and suggest the next read-only diagnostic command.
+  </Card>
+
+  <Card title="Watch capacity" icon="chart-line">
+    Interpret CPU, memory, disk and network measurements and identify trends that deserve attention.
+  </Card>
+
+  <Card title="Review changes" icon="code">
+    Compare a proposed configuration with the current version and prepare a rollback and verification checklist.
+  </Card>
+
+  <Card title="Create repeatable work" icon="gear">
+    Turn a successful manual procedure into a reviewed shell script, systemd service or Ansible playbook.
+  </Card>
+
+  <Card title="Build documentation" icon="book-open">
+    Create an inventory, maintenance checklist, incident report or recovery runbook from verified information.
+  </Card>
+</Columns>
+
+For example, an assistant can notice that a filesystem is filling up, identify which directories grew, explain which files are probably logs or caches, and propose safe checks. It can correlate an application deployment with new HTTP 502 errors, or turn a collection of commands you run every week into a documented maintenance routine.
+
+AI should not be the final authority for destructive or ambiguous work. Disk partitioning, firewall replacement, database migrations, authentication changes, package removal and recovery operations can cause downtime or data loss even when the proposed command is syntactically correct.
+
+## Choose where the AI works
+
+There are three common ways to use AI with a VPS. Start with the first method and increase access only when you understand exactly why it is needed.
+
+| Access model | How it works | Risk | Best starting use |
+| --- | --- | --- | --- |
+| **No server access** | You copy a small, sanitized command output or log excerpt into a chat and run approved commands yourself. | Lowest | Learning, sensitive systems and first investigations |
+| **AI on your own computer** | A terminal agent runs on your workstation and connects through SSH using a restricted VPS account. | Moderate | Repeated diagnostics with human command approval |
+| **AI installed on the VPS** | The agent and its credentials are stored on the server and it can act within that account's permissions. | Highest | Test environments or experienced teams with strong controls |
+
+<Info>
+  A written instruction such as “do not use sudo” is useful, but it is not a security boundary. Linux permissions, a separate account, a separate SSH key and the absence of `sudo` are the controls that limit what the agent can actually do.
+</Info>
+
+## Prepare the VPS before using AI
+
+Before an AI tool receives operational information or access, make sure you have:
+
+- a recent backup stored outside the VPS;
+- tested a restore procedure at least once;
+- SSH key authentication and a secured administrative account;
+- external uptime monitoring that works even when the VPS is offline;
+- access to the [EDIS Global VPS Management Portal](https://manage.edisglobal.com/clientarea.php) and its VNC console for recovery;
+- a record of the current firewall, application and network configuration;
+- a clear rule about which actions require your approval.
+
+The safest place to learn is a new test VPS without customer data. Deliberately stop a harmless test service, collect evidence, ask the AI to diagnose it and verify the proposed recovery steps. This makes the workflow familiar before a real incident occurs.
+
+## Install an AI terminal tool on your computer
+
+A terminal agent can inspect local files, prepare commands and, when allowed, use the SSH client already installed on your computer. Keeping the tool on your workstation means its credentials and working files do not have to be stored on the VPS.
+
+One option is Codex CLI. On macOS or Linux, the current standalone installer is:
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+Create a dedicated working directory, start Codex and review its permissions before connecting to a server:
+
+```bash
+mkdir -p "$HOME/ai-vps-work"
+cd "$HOME/ai-vps-work"
+codex
+```
+
+Use `/permissions` in Codex CLI to inspect or change what the agent is allowed to do. Other terminal agents can be used, but they should provide an equivalent way to review commands and restrict execution.
+
+<Note>
+  Installation and authentication methods can change. Check the tool vendor's current documentation before installing it. Do not install a terminal agent as `root` merely because it will be used for server administration.
+</Note>
+
+## Start without direct server access
+
+You can get useful assistance without allowing the AI to connect to the VPS. Run a few read-only commands yourself:
+
+```bash
+date --iso-8601=seconds
+uptime
+free -h
+df -hT -x tmpfs -x devtmpfs
+systemctl --failed --no-pager
+ss -s
+```
+
+Review the output and remove public IP addresses, usernames or other information you do not want to share. Then ask the AI to explain what looks normal, what deserves attention and which read-only command would provide the next missing fact.
+
+A useful first prompt is:
+
+```text
+I am learning to administer an Ubuntu VPS. Treat the attached output as
+diagnostic evidence, not permission to change the server.
+
+1. Explain each section in beginner-friendly language.
+2. Separate confirmed facts from possible explanations.
+3. Identify anything that may need attention.
+4. Suggest only read-only commands for the next step.
+5. Explain what each command will reveal before I run it.
+```
+
+This approach is slower than direct access, but it keeps every action visible and teaches you what the server is doing.
+
+## Give an AI agent restricted SSH access
+
+If you want a terminal agent to collect evidence directly, create a separate Linux account for it. The following example is suitable for Debian and Ubuntu.
+
+<Steps>
+  <Step title="Create a dedicated SSH key on your computer">
+    Do not reuse your root key or personal administrator key.
+
+    ```bash
+    ssh-keygen -t ed25519 -f "$HOME/.ssh/aiops_ed25519" -C "AI-assisted VPS diagnostics"
+    ```
+
+    This creates a private key and a public key ending in `.pub`. Keep the private key on the approved workstation.
+  </Step>
+
+  <Step title="Create a passwordless diagnostic account on the VPS">
+    Log in with your normal administrative account, then run:
+
+    ```bash
+    sudo adduser --disabled-password --gecos "" aiops
+    sudo install -d -m 700 -o aiops -g aiops /home/aiops/.ssh
+    sudoedit /home/aiops/.ssh/authorized_keys
+    ```
+
+    Paste the content of `aiops_ed25519.pub`, save the file, and set the correct ownership and permissions:
+
+    ```bash
+    sudo chown aiops:aiops /home/aiops/.ssh/authorized_keys
+    sudo chmod 600 /home/aiops/.ssh/authorized_keys
+    ```
+  </Step>
+
+  <Step title="Allow access to the system journal only if required">
+    This group lets the account read many systemd service logs without granting `sudo`:
+
+    ```bash
+    sudo usermod -aG systemd-journal aiops
+    ```
+
+    Logs can contain URLs, email addresses, customer data, tokens or other sensitive information. Skip this step if the agent does not need log access.
+  </Step>
+
+  <Step title="Restrict the account's SSH session">
+    Create `/etc/ssh/sshd_config.d/90-aiops.conf` with:
+
+    ```text
+    Match User aiops
+        PasswordAuthentication no
+        KbdInteractiveAuthentication no
+        AllowAgentForwarding no
+        AllowTcpForwarding no
+        X11Forwarding no
+    ```
+
+    Validate the configuration before reloading SSH:
+
+    ```bash
+    sudo sshd -t
+    sudo systemctl reload ssh
+    ```
+  </Step>
+
+  <Step title="Test the restricted login">
+    Keep your existing administrative session open and connect in a second terminal:
+
+    ```bash
+    ssh -i "$HOME/.ssh/aiops_ed25519" aiops@SERVER_IP
+    ```
+
+    Confirm that the account can perform the intended read-only checks but cannot use `sudo`.
+  </Step>
+</Steps>
+
+The `aiops` account should **not** be added to `sudo`, `docker`, `lxd`, `disk` or another privileged group. Membership in some of these groups can effectively provide root access even when `sudo` is unavailable.
+
+Follow the complete [SSH security hardening guide](/getting-started/ssh-security-hardening-guide) before exposing a new VPS to production traffic.
+
+## Set rules for the first AI session
+
+Tell the agent what it may inspect and what it must never change. This is an operating rule in addition to the technical account restrictions.
+
+```text
+This is a production VPS. Connect only as aiops and begin in read-only mode.
+
+Do not use sudo, modify or delete files, install packages, restart services,
+change users, change SSH, change the firewall, or expose credentials.
+
+Before every command:
+1. show the exact command;
+2. explain what it reads;
+3. explain any possible side effect;
+4. wait for my approval.
+
+Separate confirmed facts from hypotheses. If a change appears necessary,
+prepare a proposed command or diff, rollback steps and a verification test.
+Do not apply the change.
+```
+
+Approval settings in the AI tool should also require confirmation before shell commands run. The VPS account permissions remain the final boundary if the instruction is misunderstood or ignored.
+
+## Build monitoring before automation
+
+AI should not be the component that decides whether the VPS is online. Use conventional monitoring to collect measurements and raise alerts; use AI to interpret the evidence after an alert.
+
+A simple stack might include:
+
+- **systemd and journald** for service state and logs;
+- **an external uptime monitor** for HTTP, TCP and availability checks;
+- **Netdata** for an approachable single-server dashboard;
+- **Prometheus Node Exporter and Grafana** when you need longer-term metrics;
+- **Git and Ansible** for reviewable, repeatable configuration;
+- **restic, BorgBackup or another off-server backup tool** for recovery.
+
+Run the availability monitor outside the VPS. A monitor hosted only on the server cannot alert you when that server or its network path is unavailable.
+
+The restricted account can create a small health report in its home directory:
+
+```bash
+mkdir -p "$HOME/aiops-reports"
+
+{
+  date --iso-8601=seconds
+  printf '\n## Uptime and load\n'
+  uptime
+  printf '\n## Memory\n'
+  free -h
+  printf '\n## Filesystems\n'
+  df -hT -x tmpfs -x devtmpfs
+  printf '\n## Failed services\n'
+  systemctl --failed --no-pager
+  printf '\n## Socket summary\n'
+  ss -s
+  printf '\n## Recent warnings and errors\n'
+  journalctl -p warning..alert --since "-60 minutes" --no-pager
+} > "$HOME/aiops-reports/health-$(date +%Y%m%d-%H%M%S).txt"
+```
+
+AI can compare successive reports and point out changes such as increasing disk use, a failed service or unusual load. Verify every conclusion against the live server and your monitoring history.
+
+## Analyse logs without sharing everything
+
+Do not export every log on the server. Collect the shortest useful time window for the affected service.
+
+For Nginx managed by systemd:
+
+```bash
+systemctl status nginx --no-pager
+journalctl -u nginx --since "-30 minutes" --no-pager
+journalctl -p err..alert --since "-2 hours" --no-pager
+```
+
+Give the AI the operating system, the symptom, when it started and the last known change. Ask for evidence, not certainty:
+
+```text
+System: Ubuntu 24.04 with Nginx as a reverse proxy.
+Symptom: Requests began returning HTTP 502 at 14:20 UTC.
+Last known change: The application was deployed at 14:05 UTC.
+Evidence: The attached logs cover 14:00–14:35 UTC.
+
+Build a timestamped incident sequence. Rank the three most likely causes and
+cite the evidence for each. Identify missing evidence and propose read-only
+commands for the next check. Do not recommend a restart yet. For any later
+change, include its impact, rollback method and verification test.
+```
+
+Before sharing logs with an external AI service, remove credentials, authorization headers, session identifiers, private customer data and unrelated entries. Automated redaction is useful but can miss secrets. Review the AI provider's data-handling terms for operational information.
+
+## Let AI propose changes, not silently apply them
+
+When a fix is required, ask the agent to prepare the change as text, a patch or an automation file. Require these seven items:
+
+1. the exact problem being addressed;
+2. the exact command or file diff;
+3. the expected result;
+4. possible side effects;
+5. a rollback command or restoration method;
+6. a verification test;
+7. a condition that means the change should be abandoned.
+
+For configuration stored in Git, review the proposed difference:
+
+```bash
+git status --short
+git diff --check
+git diff
+```
+
+For Ansible, check a playbook before applying it:
+
+```bash
+ansible-playbook --check --diff site.yml
+```
+
+Check mode cannot predict every side effect, but it creates an important review step. Apply high-risk changes to a test VPS first. Use your normal administrative account—not the AI's diagnostic account—to apply an approved production change.
+
+## A beginner-friendly Windows workflow
+
+For Windows VPS systems, begin with an AI tool on your own computer and paste selected PowerShell output into it. Do not give the agent an Administrator or Domain Administrator account.
+
+These commands create a useful read-only snapshot:
+
+```powershell
+Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion, OsLastBootUpTime
+Get-Volume | Select-Object DriveLetter, FileSystemLabel, SizeRemaining, Size
+Get-Service | Where-Object Status -eq 'Stopped'
+Get-NetTCPConnection -State Listen | Select-Object LocalAddress, LocalPort, OwningProcess
+Get-WinEvent -FilterHashtable @{LogName='System'; Level=1,2,3; StartTime=(Get-Date).AddHours(-1)} |
+  Select-Object -First 100 TimeCreated, Id, ProviderName, LevelDisplayName, Message
+```
+
+Windows Event Logs can contain sensitive data. Review and shorten the output before sharing it. Ask the AI to explain each finding and propose diagnostic steps; make system changes through your normal approved Windows administration process.
+
+## What not to automate unattended
+
+Do not give an agent unrestricted `NOPASSWD: ALL` sudo access. Avoid unattended AI control of:
+
+- disk partitioning, filesystem formatting or storage deletion;
+- firewall replacement or SSH authentication changes;
+- database migrations or bulk data modification;
+- package removal, distribution upgrades or kernel changes;
+- user accounts, SSH keys, passwords and API credentials;
+- backup deletion or retention-policy changes;
+- production reboots and service restarts without health checks;
+- payment data, cryptocurrency wallets or customer secrets.
+
+Do not rely on the agent asking for confirmation as the only safeguard. Enforce restrictions through operating-system permissions, separate accounts, separate keys, network policy and an audit trail.
+
+## Remove access when the task is finished
+
+An AI-specific key should not remain active indefinitely. Remove its line from `/home/aiops/.ssh/authorized_keys` when direct access is no longer required. Revoke any API tokens created for the tool, archive the approved report or change record, and review the authentication log for unexpected sessions.
+
+Keep the account only if you have an ongoing process for key rotation, access reviews and monitoring. Otherwise, create fresh time-limited access for the next approved task.
+
+## A practical AI-assisted routine
+
+<Steps>
+  <Step title="Detect the problem">
+    Let monitoring record the start time and affected service.
+  </Step>
+  <Step title="Collect a small amount of evidence">
+    Gather relevant status, metrics and a narrow log window using read-only commands.
+  </Step>
+  <Step title="Remove sensitive data">
+    Exclude secrets, customer information and unrelated log entries.
+  </Step>
+  <Step title="Ask AI to structure the investigation">
+    Require facts, hypotheses, missing evidence and the next safe check.
+  </Step>
+  <Step title="Review a proposed change">
+    Require the exact command or diff, impact, rollback and verification method.
+  </Step>
+  <Step title="Apply through an administrator">
+    Test first where possible, then apply only the approved change with the appropriate account.
+  </Step>
+  <Step title="Verify from outside the VPS">
+    Confirm that the service works for users and that monitoring has recovered.
+  </Step>
+  <Step title="Document what happened">
+    Record the cause, change, result and anything that should be added to the runbook.
+  </Step>
+</Steps>
+
+## Final responsibility checklist
+
+Before each AI-assisted session, confirm that:
+
+- [ ] the task and allowed actions are clearly defined;
+- [ ] the agent uses a separate account and SSH key;
+- [ ] privileged groups and unrestricted `sudo` are unavailable;
+- [ ] backups exist outside the VPS and can be restored;
+- [ ] logs and configuration are reviewed for sensitive data;
+- [ ] commands and file changes require human approval;
+- [ ] every change has a rollback and verification plan;
+- [ ] the AI access can be revoked quickly;
+- [ ] you understand that the VPS owner remains responsible for the outcome.
+
+AI can make VPS administration more approachable and turn confusing evidence into a structured plan. The goal is not to create an invisible root user. The goal is to give a capable assistant enough verified information to help—while your permissions, backups and approval process keep you in control.
+
+## Further reading
+
+- [Codex CLI documentation](https://developers.openai.com/codex/cli)
+- [EDIS Global SSH security hardening guide](/getting-started/ssh-security-hardening-guide)
+- [EDIS Global backup guide](/getting-started/backups)
+- [Available VPS operating-system images](/vps-management/os-availability)
+- [EDIS Global VPS Management Portal](/vps-management/vps-management-portal)
+
+<CtaButton label="Explore VPS Hosting Plans" link="https://www.edisglobal.com/vps-hosting" />

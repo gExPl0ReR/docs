@@ -158,7 +158,9 @@ description: "Order an EDIS Global VPS via the Order API with worked examples �
 
     - plan IDs → `pid`
     - OS IDs → `os`
-    - addon IDs → RAM, IPs, etc.
+        - addon IDs → RAM, vCPU, IPs and Drive Size Boost
+
+        Always use the addon IDs returned for the selected product and location. Do not hard-code IDs from documentation examples because configurable-option IDs can differ or change.
 
     ---
 
@@ -169,10 +171,12 @@ description: "Order an EDIS Global VPS via the Order API with worked examples �
     - plan → `pid`
     - OS → `os`
     - optional:
-      - RAM
-      - CPU
-      - IPs
-      - disk 👉 Everything is just IDs.
+      - RAM: up to +24 GB
+      - CPU: up to +8 vCPU cores
+      - IPs: up to 10 additional IPv4 addresses
+      - Drive Size Boost: +10, +20, +30, +40, +50, +100, +200, +300 or +400 GB
+
+    Everything is submitted using the option ID returned by `POST /kvm/v2/get/products`. Drive Size Boost is added to the plan's included storage, so a 100 GB plan with the 400 GB option provides a 500 GB virtual drive.
 
     ---
 
@@ -308,6 +312,10 @@ description: "Order an EDIS Global VPS via the Order API with worked examples �
     | Omitted | Available account credit is applied automatically. |
     | `true` | Available account credit is applied. |
     | `false` | Account credit is not applied to this order. |
+
+    <Note>
+      `applycredit` controls credit use for **this order only**. It does not change how credit is applied to future renewal invoices. To disable automatic credit application during scheduled invoice creation, contact support about the [account-level billing arrangement](/faq/billing-lifecycle/pay-invoices-from-credit-balance#can-i-disable-automatic-credit-application-to-renewal-invoices).
+    </Note>
 
     To opt out of using account credit, add this field to your `order` JSON. Use the JSON boolean `false`:
 
