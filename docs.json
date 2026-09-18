@@ -234,6 +234,13 @@
             ]
           },
           {
+            "group": "Abuse and Complaints",
+            "pages": [
+              "misc/reporting-abuse",
+              "responding-to-abuse-complaints"
+            ]
+          },
+          {
             "group": "Join Our Team",
             "pages": [
               "join-our-team/jobs-edisglobal-support-agent-non-voice",
@@ -308,7 +315,6 @@
             "pages": [
               "misc/extending-180-day-trial-version-of-windows",
               "misc/fix-openssh-vm-delays-low-entropy",
-              "misc/reporting-abuse",
               "misc/security-compliance",
               "misc/fix-black-screen-windows-server",
               "misc/why-has-windows-server-slowed-down",
