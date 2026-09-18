@@ -16,6 +16,31 @@ description: "Order an EDIS Global VPS via the Order API with worked examples �
   Requests that retrieve plans, locations, or account balances do not place orders.
 </Warning>
 
+## Before you automate
+
+| Requirement | Current behavior |
+| --- | --- |
+| Order API access | Available immediately after registration, subject to normal account verification; no separate reseller enrolment or manual API activation. |
+| Order API authentication | Use your Client Portal email and password as `email` and `pw`; no separately issued API token is required. |
+| Management API access | Requires at least one VPS on the account. Create a session using email and password, then use the returned `signature`, `valid_until` and `kvm_id` values. |
+| Two-factor authentication | Applies to control-panel login. API requests and Management API session creation do not require a 2FA code. |
+| Request volume | No API request limits are currently enforced, but keep request volume reasonable and avoid aggressive polling. This is not a commitment to permanently unlimited requests. |
+
+Keep account credentials and session values in your server-side integration; do not expose them to subscribers or browser code. See [API access](/vps-management/api-for-management-and-ordering) and [Management API authentication](/management-api-reference/authentication/create-auth-session).
+
+### From order to a ready VPS
+
+1. Fetch current locations with `POST /kvm/v2/get/locations`, check `out_of_stock`, then retrieve the available products. Availability is not a reservation.
+2. Submit the order once and retain the returned `orderid`, `serviceids` and `invoiceid`. Order creation, payment and provisioning are separate stages; `invoicepaid: false` alone does not mean the order failed.
+3. After provisioning starts, use a returned service ID with `POST /kvm/v2/get/kvmid`. The response field is `kvmid`; obtaining it does not mean OS installation has completed.
+4. Allow for Linux installation, normally another 3–5 minutes after provisioning, then verify OS and application readiness. Configure a standard image over SSH, or supply `cloudinit_user_data` through the Management API's `set/reinstall` operation with a supported image. Custom Cloud-Init user data is not supported in the initial order.
+
+<Warning>
+  A timeout or HTTP 500 can leave the order outcome unknown. Do not automatically submit the order again. Reconcile orders, invoices and services using any returned identifiers, and contact support if the outcome remains unclear. A single service-list response without the VPS is not proof that no order was created.
+</Warning>
+
+For a practical VPN workflow, see [Deploying a VPN endpoint](/commercial-vpn-hosting#deploying-a-vpn-endpoint).
+
 <Tabs>
   <Tab title="Simple Guide">
     ## Let’s keep this simple

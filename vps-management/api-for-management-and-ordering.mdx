@@ -44,8 +44,18 @@ Automate VPS provisioning, plan changes, and service cancellations with ease.
 
 ## 🔐 Authentication & integration
 
-Both APIs use **RESTful architecture** and require an authentication token.  
-Refer to the API reference for details on session creation and token handling.
+The two APIs have different access and authentication requirements:
+
+| API | Access | Authentication |
+| --- | --- | --- |
+| **Order API** | Available after registration, subject to normal account verification. No separate reseller enrolment or manual activation is required. | Client Portal email and password (`email`, `pw`), with no separately issued API token. |
+| **Management API** | Requires at least one VPS on the account. | Create a session with your email and password, then use the returned session values, including `signature`, `valid_until` and `kvm_id`. |
+
+Two-factor authentication applies to control-panel login; the APIs do not require a 2FA code. Keep credentials and session values private in your server-side integration.
+
+No API request limits are currently enforced, but request volume must remain reasonable. Avoid aggressive polling and coordinate large rollouts with support.
+
+Start with [Before you automate](/order-api-reference/order-api#before-you-automate) for stock checks, payment, provisioning, Cloud-Init and handling uncertain order outcomes. The current APIs operate on live services; there is no ordering sandbox.
 
 > For implementation guidance or advanced integration scenarios, contact **EDIS Global Support**.
 

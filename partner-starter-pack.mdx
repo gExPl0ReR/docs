@@ -90,6 +90,10 @@ Each VPS plan includes a **defined amount of monthly bandwidth**, depending on:
 
 You can **upgrade products at any time**.
 
+Traffic allowances measure **incoming plus outgoing traffic**. For example, a VPN that receives and forwards 100 GB uses approximately 200 GB of allowance, plus overhead. See [traffic accounting](/faq/traffic-bandwidth/traffic-stats-refill-explained).
+
+Connectivity is shared between VPS instances. Host uplink speed is not a dedicated per-VPS throughput commitment. Dedicated Internet access and custom committed-bandwidth arrangements are not available for VPS deployments; discuss large rollout quantities and timing before ordering.
+
 ---
 
 ### Traffic pool model (additional bandwidth)
@@ -122,7 +126,8 @@ Documentation: [https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-pool](
 
 ## Provisioning
 
-- **Provisioning Speed:** Instant ⚡️ (after payment confirmation)
+- **Provisioning:** Starts near-real-time after payment confirmation.
+- **Linux installation:** Normally another 3–5 minutes, including updates from distribution mirrors. Application configuration and custom image transfers add time.
 - **Reinstallations:** Self‑service, no cost
 - **Upgrades:** Instant ⚡️ - IP does not change, no reinstall required
 
@@ -210,6 +215,10 @@ Create, manage, and list services programmatically.
 Perform VPS lifecycle and management actions.
 
 [https://docs.edisglobal.com/management-api-reference/authentication/create-auth-session](https://docs.edisglobal.com/management-api-reference/authentication/create-auth-session)
+
+The Order API is available after registration, subject to normal account verification, using Client Portal email and password. Management API access requires one VPS and uses a session created with email and password. Control-panel 2FA does not require an additional code for API requests.
+
+Custom Cloud-Init user data is supported on reinstall, not in the initial order. For prerequisites, stock checks and readiness checks, see [Before you automate](/order-api-reference/order-api#before-you-automate). VPN operators can follow [Deploying a VPN endpoint](/commercial-vpn-hosting#deploying-a-vpn-endpoint).
 
 ---
 

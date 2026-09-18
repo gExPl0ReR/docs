@@ -1,27 +1,60 @@
 ---
-title: Reporting abuse
-description: EDIS abuse department handles and responds to abuse notifications to stop abuse. Learn how to create an abuse report and where to send it to.
+title: "Reporting abuse"
+description: "Report abuse involving EDIS Global VPS services: where to send evidence, what to include, and how account holders and VPN providers should respond."
 ---
 
 ## How to correctly report abuse
 
-EDIS Global abuse department is responsible for handling and responding to abuse notifications, taking appropriate measures to stop abuse, and communicating with authorities. 
+Report suspected abuse involving EDIS Global VPS services to **[abuse@edisglobal.com](mailto:abuse@edisglobal.com)**. Include enough evidence to identify the affected service, understand what happened and investigate it. Examples include spam, phishing, malware, network attacks and intellectual-property complaints.
+
+This page covers EDIS Global VPS services. An IP registration may still show EDIS GmbH, so include the actual IP address and evidence rather than relying on a company-name match alone. For EDIS GmbH webhosting or domain services, use the contacts on [edis.at](https://www.edis.at/).
 
 ### Where to submit abuse reports
 
-If you notice that EDIS services are being used in a way that goes against our policies or any applicable law, please let us know. Send an abuse notification to **abuse@edisglobal.com**. EDIS abuse department makes sure to act promptly on all notifications it receives.
+Email **abuse@edisglobal.com** from an address that can receive replies. Please write in English, send one IP address per notification and use a clear subject such as `Abuse report: 192.0.2.10 — phishing — 2026-09-18 12:00 UTC`.
+
+For an existing report, reply in the same email thread and retain its reference number, if one was provided. Ordinary billing, login and configuration questions belong with [support](https://www.edisglobal.com/contact).
 
 ### How to create an abuse report
 
-Please include the following information in your report.
+Include:
 
-- Submit your notification in English.
-- To report abuse, please email abuse@edisglobal.com
-- Do not send notifications from an address that cannot be replied to (no-reply@)
-- Include your name, address, telephone number and email address.
-- All notifications must include the IP address where the reported content is located, or from where the conduct occurred, plus a timestamp including timezone (preferably UTC). The IP address must be registered to EDIS GmbH or EDIS Global. (spam: mail-headers, timestamp, or a full spam mail as attachment)
-- The notification should have a reference to a static URL where the content that is being reported can be accessed, or where the conduct occurred. This URL should be assigned to an IP address registered to EDIS GmbH or EDIS Global.
-- Include one IP address per notification. If you would like to submit a notification for more than one IP address, please send multiple notifications.
-- Please describe the content or behavior that you wish to report. Explain why it is inappropriate, how it is infringing your rights, violating applicable law, netiquette or the terms of service.
-- For trademark infringement notifications: Please include the registration details (including registration number) of the infringed trademark.
-- If you believe your copyright has been infringed, please include a description of your work. Also include either a copy of the work or a web page address where the original content can be located.
+- **The EDIS Global IP address** involved, and whether it is the source of traffic or the address hosting the reported content.
+- **The date and time**, with timezone or UTC offset; UTC is preferred. Include the start and end of a repeated incident if known.
+- **A factual description** of the activity and why you believe it breaches our [Acceptable Use Policy](/getting-started/acceptable-use-policy), infringes your rights or is unlawful.
+- **Relevant evidence**, such as exact URLs, original email headers or timestamped log excerpts. Include source and destination IP addresses, ports and protocol where relevant.
+- **A reply-capable contact email** and your name or organisation where relevant. Rights holders or representatives should explain their relationship to the complaint and provide the details needed to assess it.
+
+A static URL is useful for hosted content but is not required for network attacks or spam. A screenshot or IP-reputation score alone may not contain enough detail; include the underlying URLs, headers or logs where possible.
+
+## Evidence by incident type
+
+| Incident | Useful evidence |
+| --- | --- |
+| Spam | Original message with full headers, receiving timestamp and timezone. Attach the original email as an `.eml` file where possible. |
+| Phishing or malicious content | Exact page or download URL, observed IP address, time of access and a brief explanation. Provide the URL instead of attaching executable malware. |
+| Scanning, brute-force attempts or attacks | Timestamped log excerpts showing source and destination IPs, relevant ports, protocol and the observed behavior. State whether the activity is continuing. |
+| Copyright complaint | Identify the protected work and rights holder, provide a source or description of the original work, list the specific reported URLs, and explain your authority to report. |
+| Trademark complaint | Identify the trademark, registration details and number where applicable, the specific URLs and how the use infringes your rights. |
+| VPN exit traffic | Provide the observed public source IP, accurate timestamps and connection details. The IP may identify a VPN endpoint rather than the originating subscriber; do not assume the content is hosted on that VPS. |
+
+Include only evidence relevant to the incident. Do not send passwords, private keys or unrelated personal data. Do not download or attach suspected child sexual abuse material; report its location and your observations.
+
+## What happens after a report?
+
+EDIS Global reviews the report and may request further information. Valid complaints are normally forwarded to the account holder for investigation and remediation. Depending on the incident, we may take action to protect affected parties and the network.
+
+Serious or ongoing attacks, phishing, malware, scanning, spam or immediate network risk may require **immediate filtering, port blocking, suspension or other restrictions** under the AUP. Submitting a complaint does not itself establish a violation, and the action taken depends on the evidence and circumstances.
+
+The reseller requirement to act within 24 hours is **not a guaranteed grace period** and is not a promised response or resolution time for reporters.
+
+## If you receive an abuse notice
+
+As the account holder, you are responsible for traffic and activity originating from your VPS, including activity generated by VPN subscribers or reseller customers.
+
+1. Investigate promptly and stop the prohibited activity. Where necessary, disable the affected account or service while investigating.
+2. Identify and address the cause, including compromised credentials, vulnerable software or an abusive subscriber.
+3. Reply to the notice with the action taken, when it was completed and how recurrence will be prevented. If you believe the report is incorrect, explain why and provide relevant evidence.
+4. Keep your contact details current and monitor the address used for abuse notices. Resellers must act within **24 hours**; immediate restrictions can still be necessary.
+
+For VPN services, we recommend blocking outbound TCP port 25, including forwarded subscriber traffic, unless there is a legitimate requirement for it. See the [Port 25 policy](/faq/port-25-smtp-rate-limit-policy), [reseller responsibilities](/reselling-and-discounts#reseller-responsibilities) and [commercial VPN guide](/commercial-vpn-hosting).

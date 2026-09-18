@@ -38,6 +38,12 @@ Cloud-Init is an industry standard for automated cloud instance initialization. 
 
 ## Understanding `cloudinit_user_data`
 
+### When to supply custom user data
+
+Custom `cloudinit_user_data` is currently supported through the Management API's [`set/reinstall` operation](/management-api-reference/installation/reinstall) with a supported image. It is **not supported in the initial Order API request**. Reinstallation replaces the existing operating system and data; back up anything you need first.
+
+To configure a new VPS without an additional reinstall, order a standard OS with an SSH public key and apply your configuration over SSH, for example with Ansible. See [the API deployment workflow](/order-api-reference/order-api#before-you-automate).
+
 `cloudinit_user_data` is a powerful feature of Cloud-Init that allows you to provide custom configurations and scripts that the system will execute upon initialization. This data is in the format of `#cloud-config`, which is a YAML-based configuration file.
 
 **Example Configuration Explanation:**

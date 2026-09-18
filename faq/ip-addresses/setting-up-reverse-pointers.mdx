@@ -1,6 +1,6 @@
 ---
 title: Setting up reverse pointers
-description: "Configure reverse DNS (PTR) records for IPv4 and IPv6 addresses through the EDIS Global VPS Management Portal. Step-by-step guide for mail and SSL setup."
+description: "Manage IPv4 and IPv6 reverse DNS (PTR) records through the EDIS Global portal or API, and understand external delegation and VPN endpoint requirements."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
@@ -22,6 +22,18 @@ You can configure reverse DNS or PTR records for both IPv4 and IPv6 addresses in
     "**Set**" configures and "**Unset**" removes a record from our DNS.
   </Step>
 </Steps>
+
+## Automate PTR management
+
+Use the Management API to [retrieve](/management-api-reference/ptr/get-ptr-records), [set](/management-api-reference/ptr/set-ptr-records) or [delete](/management-api-reference/ptr/delete-ptr-records) PTR records.
+
+## External reverse-DNS delegation
+
+EDIS Global hosts reverse DNS on the rCodezero Anycast DNS infrastructure. PTR management remains on that infrastructure; individual IP addresses and parts of networks are not subdelegated to external authoritative nameservers. Setting a PTR record is different from delegating a reverse-DNS zone.
+
+## Does a VPN endpoint need a custom PTR?
+
+A custom PTR is normally unnecessary for VPN connectivity. If your application requires a particular reverse hostname, configure its PTR through the portal or API. Contact support with the technical requirement if you need help.
 
 Get more in-depth background information in our PTR Record blog post:
 
