@@ -300,119 +300,119 @@ Use it to:
 
     ### Session & authentication
 
-    - [Create AUTH Session](https://docs.edisglobal.com/management-api-reference/authentication/create-auth-session)\
+    - [Create AUTH Session](/management-api-reference/authentication/create-auth-session)\
       Creates a temporary authenticated management session and returns the required parameters (`api_host`, `signature`, `kvm_id`, `valid_until`) for all subsequent Management API requests.
 
     ---
 
     ### Power management
 
-    - [HARD RESET](https://docs.edisglobal.com/management-api-reference/power-management/hard-reset)\
+    - [HARD RESET](/management-api-reference/power-management/hard-reset)\
       Performs an immediate hard reboot of the VPS (restarts hypervisor process)
-    - [POWER STATE](https://docs.edisglobal.com/management-api-reference/power-management/power-state)\
+    - [POWER STATE](/management-api-reference/power-management/power-state)\
       Returns the current power state of the VPS (e.g., powered on or powered off).
-    - [POWER ON](https://docs.edisglobal.com/management-api-reference/power-management/power-on)\
+    - [POWER ON](/management-api-reference/power-management/power-on)\
       Powers on a VPS that is currently shut down.
-    - [POWER OFF](https://docs.edisglobal.com/management-api-reference/power-management/power-off)\
+    - [POWER OFF](/management-api-reference/power-management/power-off)\
       Powers off a running VPS.
 
     ---
 
     ### Installation & recovery
 
-    - [List Available ISO images for installation](https://docs.edisglobal.com/management-api-reference/installation/iso-installation)\
+    - [List Available ISO images for installation](/management-api-reference/installation/iso-installation)\
       Returns a list of ISO images available for manual installation, recovery, or rescue environments.
-    - [List of Autoinstall OS Images](https://docs.edisglobal.com/management-api-reference/installation/get-autoinstall-images)\
+    - [List of Autoinstall OS Images](/management-api-reference/installation/get-autoinstall-images)\
       Returns available operating system images for automated installation.
-    - [Reinstall fresh OS](https://docs.edisglobal.com/management-api-reference/installation/reinstall)\
+    - [Reinstall fresh OS](/management-api-reference/installation/reinstall)\
       Reinstalls the VPS using an autoinstall operating system image.
-    - [Mount ISO](https://docs.edisglobal.com/management-api-reference/installation/mount-iso)\
+    - [Mount ISO](/management-api-reference/installation/mount-iso)\
       Mounts an ISO image to the VPS for manual installation or recovery.
-    - [Umount ISO](https://docs.edisglobal.com/management-api-reference/installation/unmount-iso)\
+    - [Umount ISO](/management-api-reference/installation/unmount-iso)\
       Removes the currently mounted ISO from the VPS.
-    - [Provide Custom ISO](https://docs.edisglobal.com/management-api-reference/installation/download-custom-iso)\
+    - [Provide Custom ISO](/management-api-reference/installation/download-custom-iso)\
       Downloads and mounts a custom ISO image from a specified URL.
-    - [Upload and Replace QCOW2](https://docs.edisglobal.com/management-api-reference/installation/upload-and-replace-qcow2)\
+    - [Upload and Replace QCOW2](/management-api-reference/installation/upload-and-replace-qcow2)\
       Replaces the VPS disk with a provided QCOW2 image
 
     ---
 
     ### Traffic Pool
 
-    - [Enable Auto-Hydration](https://docs.edisglobal.com/management-api-reference/traffic-pool/enable-auto-hydration)\
+    - [Enable Auto-Hydration](/management-api-reference/traffic-pool/enable-auto-hydration)\
       Selects a **100 GB**, **200 GB**, **300 GB**, or **500 GB** automatic assignment for one VPS. The assignment runs at 99% usage and requires a sufficient Traffic Pool balance.
-    - [Disable Auto-Hydration](https://docs.edisglobal.com/management-api-reference/traffic-pool/disable-auto-hydration)\
+    - [Disable Auto-Hydration](/management-api-reference/traffic-pool/disable-auto-hydration)\
       Disables automatic traffic assignment.
-    - [Auto-Hydration Status](https://docs.edisglobal.com/management-api-reference/traffic-pool/get-auto-hydration-status)\
+    - [Auto-Hydration Status](/management-api-reference/traffic-pool/get-auto-hydration-status)\
       Returns the current auto-hydration status for the VPS.
-    - [Traffic Pool balance](https://docs.edisglobal.com/management-api-reference/traffic-pool/get-global-traffic-pool-size)\
+    - [Traffic Pool balance](/management-api-reference/traffic-pool/get-global-traffic-pool-size)\
       Returns the available balance in the global traffic pool.
-    - [Hydration Log](https://docs.edisglobal.com/management-api-reference/traffic-pool/get-hydration-log)\
+    - [Hydration Log](/management-api-reference/traffic-pool/get-hydration-log)\
       Returns a log of traffic assignments (automatic and manual).
-    - [Manually Assign Traffic (Manual Hydration)](https://docs.edisglobal.com/management-api-reference/traffic-pool/assign-traffic-resources-from-global-pool)\
+    - [Manually Assign Traffic (Manual Hydration)](/management-api-reference/traffic-pool/assign-traffic-resources-from-global-pool)\
       Manually assigns traffic from the traffic pool to a VPS.
 
     ---
 
     ### Settings
 
-    - [Retrieve Hardware Settings](https://docs.edisglobal.com/management-api-reference/settings/get-configuration)\
+    - [Retrieve Hardware Settings](/management-api-reference/settings/get-configuration)\
       Returns the current configurable hardware settings of the VPS.
-    - [Save changes Hardware Settings](https://docs.edisglobal.com/management-api-reference/settings/configure-settings)\
+    - [Save changes Hardware Settings](/management-api-reference/settings/configure-settings)\
       Applies updated hardware configuration settings.
 
     ---
 
     ### Monitoring & information
 
-    - [Pull a VNC screenshot](https://docs.edisglobal.com/management-api-reference/collect-information/get-vps-screenshot)\
+    - [Pull a VNC screenshot](/management-api-reference/collect-information/get-vps-screenshot)\
       Captures and returns a screenshot of the VPS console via VNC.
-    - [VPS Details](https://docs.edisglobal.com/management-api-reference/collect-information/get-all-vps-details)\
+    - [VPS Details](/management-api-reference/collect-information/get-all-vps-details)\
       Returns full VPS details, including configuration, usage, network data, and metadata.
-    - [Traffic Usage](https://docs.edisglobal.com/management-api-reference/collect-information/get-traffic-usage)\
+    - [Traffic Usage](/management-api-reference/collect-information/get-traffic-usage)\
       Returns traffic usage statistics for the VPS.
-    - [CPU Usage](https://docs.edisglobal.com/management-api-reference/collect-information/get-cpu-usage)\
+    - [CPU Usage](/management-api-reference/collect-information/get-cpu-usage)\
       Returns current or recent CPU usage data.
-    - [Basic Details](https://docs.edisglobal.com/management-api-reference/collect-information/get-basic-details)\
+    - [Basic Details](/management-api-reference/collect-information/get-basic-details)\
       Returns a simplified set of VPS information.
-    - [Mount Details](https://docs.edisglobal.com/management-api-reference/collect-information/get-mount-details)\
+    - [Mount Details](/management-api-reference/collect-information/get-mount-details)\
       Shows which ISO (if any) is currently mounted.
 
     ---
 
     ### VNC management
 
-    - [VNC Keymap](https://docs.edisglobal.com/management-api-reference/vnc-management/set-vnc-keyboard-language)\
+    - [VNC Keymap](/management-api-reference/vnc-management/set-vnc-keyboard-language)\
       Sets the keyboard layout for the VNC console.
-    - [VNC Status](https://docs.edisglobal.com/management-api-reference/vnc-management/get-vnc-status)\
+    - [VNC Status](/management-api-reference/vnc-management/get-vnc-status)\
       Returns the current VNC access status.
-    - [Enable VNC](https://docs.edisglobal.com/management-api-reference/vnc-management/enable-vnc-access)\
+    - [Enable VNC](/management-api-reference/vnc-management/enable-vnc-access)\
       Enables VNC access to the VPS.
-    - [Disable VNC](https://docs.edisglobal.com/management-api-reference/vnc-management/disable-vnc-access)\
+    - [Disable VNC](/management-api-reference/vnc-management/disable-vnc-access)\
       Disables VNC access.
 
     ---
 
     ### PTR (rDNS)
 
-    - [Get PTR](https://docs.edisglobal.com/management-api-reference/ptr/get-ptr-records)\
+    - [Get PTR](/management-api-reference/ptr/get-ptr-records)\
       Returns current reverse DNS (PTR) records.
-    - [Delete PTR](https://docs.edisglobal.com/management-api-reference/ptr/delete-ptr-records)\
+    - [Delete PTR](/management-api-reference/ptr/delete-ptr-records)\
       Deletes a PTR record.
-    - [Set PTR](https://docs.edisglobal.com/management-api-reference/ptr/set-ptr-records)\
+    - [Set PTR](/management-api-reference/ptr/set-ptr-records)\
       Creates or updates a PTR record.
 
     ---
 
     ### Webhooks
 
-    - [Get all Webhooks](https://docs.edisglobal.com/management-api-reference/hooks/get-all-webhooks)\
+    - [Get all Webhooks](/management-api-reference/hooks/get-all-webhooks)\
       Returns all configured webhooks for the VPS.
-    - [Delete Webhook](https://docs.edisglobal.com/management-api-reference/hooks/delete-a-webhook)\
+    - [Delete Webhook](/management-api-reference/hooks/delete-a-webhook)\
       Deletes a webhook.
-    - [Traffic Monitor Webhook](https://docs.edisglobal.com/management-api-reference/hooks/set-webhook-for-traffic-monitoring)\
+    - [Traffic Monitor Webhook](/management-api-reference/hooks/set-webhook-for-traffic-monitoring)\
       Creates a webhook that triggers when a traffic threshold is reached.
-    - [Callback example](https://docs.edisglobal.com/management-api-reference/hooks/example-callback-triggered)\
+    - [Callback example](/management-api-reference/hooks/example-callback-triggered)\
       Shows an example payload of a webhook callback.
   </Tab>
   <Tab title="Full End-2-End Example">
