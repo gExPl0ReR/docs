@@ -2203,11 +2203,8 @@
           },
           "order": {
             "type": "string",
-            "description": "JSON-encoded string that includes order details such as billing cycle, payment method, apply credit, and VPS item configurations. Each item specifies properties like product ID (pid), operating system (os), hostname, additional resources (RAM, vCPU, IP), and an optional SSH public key. The optional `applycredit` field belongs inside this JSON and accepts a JSON boolean: omit it or set it to `true` to apply available account credit automatically; explicitly set it to `false` to prevent credit from being applied to this order. This endpoint creates real orders; disabling account credit does not make the request a test.",
-            "example": "{\n  \"billingcycle\": \"monthly\",\n  \"paymentmethod\": \"paypal\",\n  \"item\": [\n    {\n      \"pid\": 1814,\n      \"os\": 92,\n      \"hostname\": \"kvmtest\",\n      \"additional_ram\": 467,\n      \"additional_vcpu\": 467,\n      \"additional_ip\": 467,\n      \"additional_diskboost\": 615,\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    },\n    {\n      \"pid\": 1814,\n      \"os\": 88,\n      \"hostname\": \"kvmtest2\",\n      \"additional_ram\": \"\",\n      \"additional_vcpu\": \"\",\n      \"additional_ip\": \"\",\n      \"additional_driveboost\": \"\",\n      \"ssh_pubkey\": \"ssh-rsa. ...\"\n    }\n  ]\n}\n"
-          }
-        }
-      },
+            "description": "JSON-encoded string that includes order details such as billing cycle, payment method, apply credit, and VPS item configurations. Each item specifies properties like product ID (pid), operating system (os), hostname, additional resources (RAM, vCPU, IP), and an optional SSH public key. The optional `applycredit` field belongs inside this JSON and accepts a JSON boolean: omit it or set it to `true` to apply available account credit automatically; explicitly set it to `false` to prevent credit from being applied to this order. This endpoint creates real orders; disabling account credit does not make the request a test.\n\nSee the **Example JSON (automatic credit by default)** section above for a formatted example."
+          },
       "inline_response_200_6": {
         "type": "object",
         "properties": {
