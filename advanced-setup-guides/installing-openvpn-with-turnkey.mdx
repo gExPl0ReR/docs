@@ -3,43 +3,33 @@ title: "Turnkey images for OpenVPN on EDIS VPS (deprecated)"
 description: "Turnkey image installations are no longer supported on EDIS Global VPS platforms. Learn the supported alternatives for OpenVPN and other applications."
 ---
 
-# Turnkey images (deprecated)
+<Note>
+  **This article is deprecated.** Turnkey Linux images are no longer supported on EDIS Global VPS platforms.
+</Note>
 
-> ⚠️ **This article is deprecated.**  
-> Turnkey Linux images are **no longer supported** on EDIS Global VPS platforms.
+Turnkey-based installations were previously used to deploy pre-configured virtual appliances such as **OpenVPN**, **WordPress** and similar systems. These images have been discontinued due to compatibility and stability issues with current virtualization environments.
 
-Turnkey-based installations were previously used to deploy pre-configured virtual appliances such as **OpenVPN**, **WordPress**, and similar systems.  
-These images have been discontinued due to compatibility and stability issues with current virtualization environments.
+## Recommended alternatives
 
----
+To install applications or operating systems on your VPS, use one of the supported deployment methods below.
 
-## 🧭 Recommended alternatives
+### Auto-install a supported OS
 
-To install applications or operating systems on your VPS, use one of the supported deployment methods below:
+Reinstall your VPS with a clean Linux or Windows image using the **Reinstall OS** feature in your [EDIS Global Control Panel](https://manage.edisglobal.com/clientarea.php). This ensures full compatibility with current hosting infrastructure and networking configurations.
 
-### 1. Auto-Install a supported OS
-Reinstall your VPS with a clean Linux or Windows image using the **Reinstall OS** feature in your [EDIS Global Control Panel](https://manage.edisglobal.com/clientarea.php).  
-This ensures full compatibility with current hosting infrastructure and networking configurations.
+See [Reinstalling your VPS with Linux or Windows](/vps-management/autoinstall-reinstall-install-vps-linux-windows).
 
-→ See: [Reinstalling Your VPS with Linux or Windows](../vps-management/autoinstall-reinstall-install-vps-linux-windows)
+### Bring your own image (Cloud-Init)
 
----
+If you need a specific configuration or custom distribution, you can upload your own `.qcow2` image and automate setup using **Cloud-Init user-data scripts**. This method replaces the old Turnkey workflow and gives you full control over system initialization.
 
-### 2. Bring your own image (Cloud-Init)
-If you need a specific configuration or custom distribution, you can upload your own **.qcow2 image** and automate setup using **Cloud-Init user-data scripts**.  
-This method replaces the old Turnkey workflow and gives full control over system initialization.
+See [Installing a VPS using Cloud-Init](/advanced-setup-guides/installing-a-vps-using-cloud-init).
 
-→ See: [Installing a VPS Using Cloud-Init](../advanced-setup-guides/installing-a-vps-using-cloud-init)
+## Why Turnkey was removed
 
----
+- Frequent version mismatches and outdated software stacks.
+- Inconsistent network configuration on newer KVM nodes.
+- Lack of long-term maintenance from upstream Turnkey Linux.
+- Improved reliability and automation via Cloud-Init.
 
-## 🔒 Why turnkey was removed
-
-- Frequent version mismatches and outdated software stacks  
-- Inconsistent network configuration on newer KVM nodes  
-- Lack of long-term maintenance from upstream Turnkey Linux  
-- Improved reliability and automation via Cloud-Init  
-
----
-
-If you previously relied on Turnkey images for fast deployments, we recommend switching to **Cloud-Init templates** or the **Reinstall OS** feature. Both offer faster, more reliable, and up-to-date installations.
+If you previously relied on Turnkey images for fast deployments, switch to **Cloud-Init templates** or the **Reinstall OS** feature. Both offer faster, more reliable and up-to-date installations.

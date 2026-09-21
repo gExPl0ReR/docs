@@ -4,3 +4,6 @@ title: Create Auth Session
 sidebarTitle: Create Auth Session
 ---
 
+Management API access requires at least one VPS on your account. Create a session with your Client Portal email and password, then use the returned authentication values (`signature`, `valid_until`, `kvm_id`) for management calls.
+
+Control-panel 2FA does not add a 2FA-code requirement to API session creation. Store credentials and session values securely in your server-side integration. See [API access and prerequisites](/vps-management/api-for-management-and-ordering).

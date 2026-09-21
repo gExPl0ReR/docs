@@ -53,7 +53,7 @@ flowchart TD
 - Over time, customers also make **manual PayPal or credit card payments**
 - Forgotten PayPal subscriptions continue to send funds
 - Duplicate payments are added to **account credit**
-- Account credit is applied automatically to new invoices
+- By default, account credit is applied automatically to new renewal invoices
 - Accounting visibility decreases as services grow
 
 ---
@@ -79,7 +79,7 @@ This ensures no automated payments continue to be sent unexpectedly. EDIS Global
 
 ## Understanding account credit during the transition
 
-Account credit is applied automatically to new invoices and can also be used for new orders. Your credit balance is displayed in the control panel.
+By default, account credit is applied automatically to new renewal invoices and can also be used for new orders. Your credit balance is displayed in the control panel.
 
 https://docs.edisglobal.com/faq/billing-lifecycle/pay-invoices-from-credit-balance
 
@@ -123,9 +123,9 @@ Important notes:
 
 ## Optional: locking account credit during billing
 
-For approved accounts, EDIS Global can lock account credit during the billing window to avoid automatic application. This can be useful when combining Direct Debit with account credit. Renewal invoices are collected through the agreed Direct Debit workflow, while the account credit balance remains available for new purchases with near real-time delivery.
+For approved accounts, support can configure an account-level arrangement that disables automatic credit application during scheduled invoice creation. Credit is temporarily set to zero before the billrun and restored afterward. This can be useful when combining Direct Debit with account credit. Renewal invoices are collected through the agreed Direct Debit workflow, while restored account credit can be used for new purchases with near real-time delivery.
 
-https://docs.edisglobal.com/faq/billing-lifecycle/scheduled-billing-window
+See [Optional credit handling during invoice creation](/faq/billing-lifecycle/scheduled-billing-window#optional-credit-handling-during-invoice-creation) for timing and [the account-credit guide](/faq/billing-lifecycle/pay-invoices-from-credit-balance#can-i-disable-automatic-credit-application-to-renewal-invoices) for how to request this arrangement. Other automatic payment methods are managed separately.
 
 ---
 
