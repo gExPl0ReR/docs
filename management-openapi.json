@@ -198,7 +198,7 @@
         }
       }
     },
-    "/kvm/v2/set/soft-reset": {
+    "/kvm/v2/set/soft_reset": {
       "post": {
         "tags": [
           "Power Management"
