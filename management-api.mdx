@@ -60,7 +60,7 @@ Use it to:
       <Step title="Enable API Access">
         Open the VPS Management Portal for one of your VPS services and enable API access. \
         \
-        API access is account-wide — enabling it for one VPS activates it for all existing and future VPS in your account until it is disabled.
+        API access is account-wide. Enabling it for one VPS activates it for all existing and future VPS in your account until you disable it.
       </Step>
       <Step title="Create auth session">
         Call the auth endpoint with your Client Portal email and password.
@@ -197,7 +197,7 @@ Use it to:
     <Steps>
       <Step title="Enable API Access">
         Enable API access in the VPS Management Portal of one of your VPS services.\
-        API access is a global setting — enabling it for one VPS activates it for all existing and future VPS in your account until it is disabled.
+        API access is a global setting. Enabling it for one VPS activates it for all existing and future VPS in your account until you disable it.
       </Step>
       <Step title="Create auth session">
         Call the authentication endpoint and retrieve temporary session values.
@@ -290,7 +290,7 @@ Use it to:
 
     Avoid hardcoding API values.
 
-    Autoinstall images are subject to change, and api\_host is not static — it may change when a VPS is migrated to a different host node.
+    Autoinstall images are subject to change, and `api_host` is not static. It may change when EDIS Global migrates a VPS to a different host node.
 
     Always generate a new auth session and retrieve current parameters before calling management endpoints.
 
@@ -300,20 +300,20 @@ Use it to:
 
     ### Session & authentication
 
-    - [Create AUTH Session](/management-api-reference/authentication/create-auth-session)\
+    - [Create Auth Session](/management-api-reference/authentication/create-auth-session)\
       Creates a temporary authenticated management session and returns the required parameters (`api_host`, `signature`, `kvm_id`, `valid_until`) for all subsequent Management API requests.
 
     ---
 
     ### Power management
 
-    - [HARD RESET](/management-api-reference/power-management/hard-reset)\
-      Performs an immediate hard reboot of the VPS (restarts hypervisor process)
-    - [POWER STATE](/management-api-reference/power-management/power-state)\
+    - [Hard Reset](/management-api-reference/power-management/hard-reset)\
+      Performs an immediate hard reboot of the VPS (restarts the hypervisor process).
+    - [Power State](/management-api-reference/power-management/power-state)\
       Returns the current power state of the VPS (e.g., powered on or powered off).
-    - [POWER ON](/management-api-reference/power-management/power-on)\
+    - [Power On](/management-api-reference/power-management/power-on)\
       Powers on a VPS that is currently shut down.
-    - [POWER OFF](/management-api-reference/power-management/power-off)\
+    - [Power Off](/management-api-reference/power-management/power-off)\
       Powers off a running VPS.
 
     ---
@@ -333,7 +333,7 @@ Use it to:
     - [Provide Custom ISO](/management-api-reference/installation/download-custom-iso)\
       Downloads and mounts a custom ISO image from a specified URL.
     - [Upload and Replace QCOW2](/management-api-reference/installation/upload-and-replace-qcow2)\
-      Replaces the VPS disk with a provided QCOW2 image
+      Replaces the VPS disk with a provided QCOW2 image.
 
     ---
 
@@ -420,7 +420,7 @@ Use it to:
 
     This example shows a realistic workflow for managing one existing VPS.
 
-    We will:
+    In this example, you:
 
     1. create an auth session
     2. collect the session values
@@ -525,7 +525,7 @@ Use it to:
     }
     ```
 
-    For this example, we will use:
+    For this example, use:
 
     ```text
     cloudinit_ubuntu-lts-22-04
@@ -586,7 +586,7 @@ Use it to:
     }
     ```
 
-    For this example, we will mount:
+    For this example, mount:
 
     ```text
     Windows_Server_2022_EVAL_x64_EN-US.iso
