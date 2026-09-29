@@ -16,7 +16,7 @@ The **EDIS Global Order API** allows you to automate the full VPS lifecycle:
 It is designed for seamless integration into billing systems, automation workflows, and custom provisioning tools.
 
 <Warning>
-  **Production API — no test environment**
+  **Production API: no test environment**
 
   EDIS Global does not provide a sandbox or test environment. Submitting a valid order to `POST /kvm/v2/add/order` creates a real VPS order and invoice. Available account credit is applied by default unless you explicitly set `"applycredit": false` inside the `order` JSON.
 
@@ -31,7 +31,7 @@ It is designed for seamless integration into billing systems, automation workflo
 
 👉 **Start with the full guide:**
 
-➡️ [**Order a VPS with the EDIS Global API (Complete Guide)**](/order-api-reference/order-api)
+➡️ [**Order a VPS with the EDIS Global API (complete guide)**](/order-api-reference/order-api)
 
 This guide includes:
 
@@ -58,19 +58,19 @@ This guide includes:
 
 ### Configuration & discovery
 
-- **Get VPS Plans**\
+- **Get VPS plans**\
   `POST /kvm/v2/get/products`\
   [https://docs.edisglobal.com/order-api-reference/get-vps-plans](https://docs.edisglobal.com/order-api-reference/get-vps-plans)
-- **Get VPS Locations**\
+- **Get VPS locations**\
   `POST /kvm/v2/get/locations`\
   [https://docs.edisglobal.com/order-api-reference/get-vps-locations](https://docs.edisglobal.com/order-api-reference/get-vps-locations)
-- **Get Billing Cycles**\
+- **Get billing cycles**\
   `POST /kvm/v2/get/billingcycles`\
   [https://docs.edisglobal.com/order-api-reference/get-billing-cycles](https://docs.edisglobal.com/order-api-reference/get-billing-cycles)
-- **Get Payment Methods**\
+- **Get payment methods**\
   `POST /kvm/v2/get/paymentmethods`\
   [https://docs.edisglobal.com/order-api-reference/get-payment-options](https://docs.edisglobal.com/order-api-reference/get-payment-options)
-- **Get Account Balance**\
+- **Get account balance**\
   `POST /kvm/v2/get/account-balance`\
   [https://docs.edisglobal.com/order-api-reference/get-accountbalance](https://docs.edisglobal.com/order-api-reference/get-accountbalance)
 
@@ -78,7 +78,7 @@ This guide includes:
 
 ### Service mapping
 
-- **Get Service ID**\
+- **Get service ID**\
   `POST /kvm/v2/get/serviceid`\
   [https://docs.edisglobal.com/order-api-reference/get-service-id](https://docs.edisglobal.com/order-api-reference/get-service-id)
 - **Get KVM ID**\
@@ -107,4 +107,4 @@ Use this page to:
 - understand API capabilities
 - navigate to specific endpoint documentation
 
-👉 For actual implementation, always start with the [Complete Guide](/order-api-reference/order-api)
+👉 For actual implementation, always start with the [complete guide](/order-api-reference/order-api)

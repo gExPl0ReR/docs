@@ -12,7 +12,7 @@ This guide shows you how to change the IP address on Windows Server while you're
 
 ## Change IP address on Windows Server
 
-### Step 1: connect to your Windows Server via VNC
+### Step 1: Connect to your Windows Server via VNC
 
 <Steps>
   <Step title="Log in to the VPS Management Portal">
@@ -28,7 +28,7 @@ This guide shows you how to change the IP address on Windows Server while you're
 
 ---
 
-### Step 2: open network connections
+### Step 2: Open network connections
 
 1. Once connected, right-click on the **Start** button and select **Run**.
 2. Type `ncpa.cpl` and press **Enter**. This will open the **Network Connections** window.
@@ -37,7 +37,7 @@ This guide shows you how to change the IP address on Windows Server while you're
 
 ---
 
-### Step 3: access properties of the network adapter
+### Step 3: Access properties of the network adapter
 
 1. In the Network Connections window, find the network adapter you wish to configure (e.g., Ethernet).
 2. Right-click on the adapter and select **Properties** from the context menu.
@@ -46,7 +46,7 @@ This guide shows you how to change the IP address on Windows Server while you're
 
 ---
 
-### Step 4: select internet protocol version
+### Step 4: Select internet protocol version
 
 1. In the Properties window, locate and select **Internet Protocol Version 4 (TCP/IPv4)**.
 2. Click the **Properties** button.
@@ -55,7 +55,7 @@ This guide shows you how to change the IP address on Windows Server while you're
 
 ---
 
-### Step 5: change the IP address
+### Step 5: Change the IP address
 
 1. In the TCP/IPv4 Properties window, select **Use the following IP address**.
 2. Enter your desired **IP address**, **Subnet mask**, and **Default gateway**. For example:
@@ -67,7 +67,7 @@ This guide shows you how to change the IP address on Windows Server while you're
 
 ---
 
-### Step 6: configure DNS servers (optional)
+### Step 6: Configure DNS servers (optional)
 
 1. If needed, select **Use the following DNS server addresses**.
 2. Enter your preferred **DNS server** (e.g., `8.8.8.8` for Google DNS) and an **alternate DNS server** (e.g., `8.8.4.4`).
@@ -76,14 +76,14 @@ This guide shows you how to change the IP address on Windows Server while you're
 
 ---
 
-### Step 7: save changes
+### Step 7: Save changes
 
 1. Click **OK** to close the TCP/IPv4 Properties window.
 2. Click **Close** in the Network Adapter Properties window.
 
 ---
 
-### Step 8: verify the changes
+### Step 8: Verify the changes
 
 1. Open **Command Prompt** or **PowerShell** by right-clicking the Start button and selecting it from the menu.
 2. Type the following command and press **Enter**:

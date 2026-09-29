@@ -8,18 +8,18 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 
 ## Why KVM virtual private servers are superior
 
-**KVM** are virtual machines based on the KVM hypervisor and provide full hardware virtualization (sometimes called "bare metal virtualization"). Almost every operating system that runs on x86 or AMD64 hardware (Linux distributions, FreeBSD, Microsoft Windows Server, …) can be run inside an EDIS Global KVM.
+**KVM** are virtual machines based on the KVM hypervisor and provide full hardware virtualization (sometimes called "bare metal virtualization"). Almost every operating system that runs on x86 or AMD64 hardware (Linux distributions, FreeBSD, Microsoft Windows Server, …) can run inside an EDIS Global KVM.
 
 ### Key features that differentiate EDIS Global KVM from a standard VPS:
 
 - TUN/TAP device is available (required for VPN)
-- HostCPU passthrough is available (provides hardware functions of Intel processors, e.g. AES-NI for encryption — important for VPN throughput with low CPU impact)
+- HostCPU passthrough is available (provides hardware functions of Intel processors, e.g. AES-NI for encryption, which is important for VPN throughput with low CPU impact)
 - Runs all kinds of networking services
 - Runs all kinds of admin panels like cPanel, DirectAdmin, Odin Plesk panel, and many more
-- Additional virtual NICs can be added
-- VLAN tagging within a particular location can be activated
+- You can add additional virtual NICs
+- You can activate VLAN tagging within a particular location
 - KVM can be compared to a dedicated server, with all the benefits of a virtual machine
-- Operating systems can be installed at the touch of a button via one-click installation
+- Install operating systems at the touch of a button via one-click installation
 - Manually install or debug inside a noVNC session (comparable to a remote desktop)
 - Bring your own .ISO and boot up a bare-metal backup of any server inside an EDIS KVM
 
@@ -46,7 +46,7 @@ Beyond hosting websites and running admin panels, a KVM VPS opens the door to so
 ## KVM VPS FAQ
 
 **Is a KVM VPS like a dedicated server?**\
-Almost — you get the same flexibility as a dedicated server, but at a fraction of the cost. 
+Almost. You get the same flexibility as a dedicated server, but at a fraction of the cost. 
 
 **Can I install my own operating system?**\
 Yes. You can upload and boot from your own ISO image or QCOW2 images.
