@@ -1088,6 +1088,11 @@
       "source": "/faq/commercial-vpn-hosting.md",
       "destination": "/commercial-vpn-hosting.md",
       "permanent": true
+    },
+    {
+      "source": "/management-api-reference/power-management/soft_reset",
+      "destination": "/management-api-reference/power-management/soft-reset",
+      "permanent": true
     }
   ],
   "metadata": {
