@@ -9,13 +9,13 @@ Encountering a black screen without a cursor when connecting to a Windows Server
 
 ***
 
-## Issue: black screen after connecting via Remote Desktop (RDP)
+## Issue: Black screen after connecting via Remote Desktop (RDP)
 
 When connecting to your Windows Server using RDP, you may experience a black screen with no visible cursor or mouse. This issue is commonly caused by a configuration mismatch in the RDP client or the server.
 
 ***
 
-## Solution 1: modify the Windows registry
+## Solution 1: Modify the Windows registry
 
 Adjusting a specific registry setting can resolve the black screen issue.
 
@@ -38,7 +38,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Terminal Server Client" /v "UseURCP" /t REG_DWO
 Once the command has executed, restart your machine.&#x20;
 After the restart, try to connect again using RDP to see if the black screen issue is resolved.
 
-## Solution 2: use alternative RDP clients
+## Solution 2: Use alternative RDP clients
 
 If the above fix doesn't work for you, consider using alternative remote desktop clients to connect to your Windows Server. These alternative tools might bypass the issue you’re facing with the native RDP client.
 

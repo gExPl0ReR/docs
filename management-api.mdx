@@ -300,29 +300,29 @@ Use it to:
 
     ### Session & authentication
 
-    - [Create Auth Session](/management-api-reference/authentication/create-auth-session)\
+    - [Create auth session](/management-api-reference/authentication/create-auth-session)\
       Creates a temporary authenticated management session and returns the required parameters (`api_host`, `signature`, `kvm_id`, `valid_until`) for all subsequent Management API requests.
 
     ---
 
     ### Power management
 
-    - [Hard Reset](/management-api-reference/power-management/hard-reset)\
+    - [Hard reset](/management-api-reference/power-management/hard-reset)\
       Performs an immediate hard reboot of the VPS (restarts the hypervisor process).
-    - [Power State](/management-api-reference/power-management/power-state)\
+    - [Power state](/management-api-reference/power-management/power-state)\
       Returns the current power state of the VPS (e.g., powered on or powered off).
-    - [Power On](/management-api-reference/power-management/power-on)\
+    - [Power on](/management-api-reference/power-management/power-on)\
       Powers on a VPS that is currently shut down.
-    - [Power Off](/management-api-reference/power-management/power-off)\
+    - [Power off](/management-api-reference/power-management/power-off)\
       Powers off a running VPS.
 
     ---
 
     ### Installation & recovery
 
-    - [List Available ISO images for installation](/management-api-reference/installation/iso-installation)\
+    - [List available ISO images for installation](/management-api-reference/installation/iso-installation)\
       Returns a list of ISO images available for manual installation, recovery, or rescue environments.
-    - [List of Autoinstall OS Images](/management-api-reference/installation/get-autoinstall-images)\
+    - [List of autoinstall OS images](/management-api-reference/installation/get-autoinstall-images)\
       Returns available operating system images for automated installation.
     - [Reinstall fresh OS](/management-api-reference/installation/reinstall)\
       Reinstalls the VPS using an autoinstall operating system image.
@@ -330,35 +330,35 @@ Use it to:
       Mounts an ISO image to the VPS for manual installation or recovery.
     - [Umount ISO](/management-api-reference/installation/unmount-iso)\
       Removes the currently mounted ISO from the VPS.
-    - [Provide Custom ISO](/management-api-reference/installation/download-custom-iso)\
+    - [Provide custom ISO](/management-api-reference/installation/download-custom-iso)\
       Downloads and mounts a custom ISO image from a specified URL.
-    - [Upload and Replace QCOW2](/management-api-reference/installation/upload-and-replace-qcow2)\
+    - [Upload and replace QCOW2](/management-api-reference/installation/upload-and-replace-qcow2)\
       Replaces the VPS disk with a provided QCOW2 image.
 
     ---
 
     ### Traffic Pool
 
-    - [Enable Auto-Hydration](/management-api-reference/traffic-pool/enable-auto-hydration)\
+    - [Enable auto-hydration](/management-api-reference/traffic-pool/enable-auto-hydration)\
       Selects a **100 GB**, **200 GB**, **300 GB**, or **500 GB** automatic assignment for one VPS. The assignment runs at 99% usage and requires a sufficient Traffic Pool balance.
-    - [Disable Auto-Hydration](/management-api-reference/traffic-pool/disable-auto-hydration)\
+    - [Disable auto-hydration](/management-api-reference/traffic-pool/disable-auto-hydration)\
       Disables automatic traffic assignment.
-    - [Auto-Hydration Status](/management-api-reference/traffic-pool/get-auto-hydration-status)\
+    - [Auto-hydration status](/management-api-reference/traffic-pool/get-auto-hydration-status)\
       Returns the current auto-hydration status for the VPS.
     - [Traffic Pool balance](/management-api-reference/traffic-pool/get-global-traffic-pool-size)\
       Returns the available balance in the global traffic pool.
-    - [Hydration Log](/management-api-reference/traffic-pool/get-hydration-log)\
+    - [Hydration log](/management-api-reference/traffic-pool/get-hydration-log)\
       Returns a log of traffic assignments (automatic and manual).
-    - [Manually Assign Traffic (Manual Hydration)](/management-api-reference/traffic-pool/assign-traffic-resources-from-global-pool)\
+    - [Manually assign traffic (manual hydration)](/management-api-reference/traffic-pool/assign-traffic-resources-from-global-pool)\
       Manually assigns traffic from the traffic pool to a VPS.
 
     ---
 
     ### Settings
 
-    - [Retrieve Hardware Settings](/management-api-reference/settings/get-configuration)\
+    - [Retrieve hardware settings](/management-api-reference/settings/get-configuration)\
       Returns the current configurable hardware settings of the VPS.
-    - [Save changes Hardware Settings](/management-api-reference/settings/configure-settings)\
+    - [Save hardware settings changes](/management-api-reference/settings/configure-settings)\
       Applies updated hardware configuration settings.
 
     ---
@@ -367,24 +367,24 @@ Use it to:
 
     - [Pull a VNC screenshot](/management-api-reference/collect-information/get-vps-screenshot)\
       Captures and returns a screenshot of the VPS console via VNC.
-    - [VPS Details](/management-api-reference/collect-information/get-all-vps-details)\
+    - [VPS details](/management-api-reference/collect-information/get-all-vps-details)\
       Returns full VPS details, including configuration, usage, network data, and metadata.
-    - [Traffic Usage](/management-api-reference/collect-information/get-traffic-usage)\
+    - [Traffic usage](/management-api-reference/collect-information/get-traffic-usage)\
       Returns traffic usage statistics for the VPS.
-    - [CPU Usage](/management-api-reference/collect-information/get-cpu-usage)\
+    - [CPU usage](/management-api-reference/collect-information/get-cpu-usage)\
       Returns current or recent CPU usage data.
-    - [Basic Details](/management-api-reference/collect-information/get-basic-details)\
+    - [Basic details](/management-api-reference/collect-information/get-basic-details)\
       Returns a simplified set of VPS information.
-    - [Mount Details](/management-api-reference/collect-information/get-mount-details)\
+    - [Mount details](/management-api-reference/collect-information/get-mount-details)\
       Shows which ISO (if any) is currently mounted.
 
     ---
 
     ### VNC management
 
-    - [VNC Keymap](/management-api-reference/vnc-management/set-vnc-keyboard-language)\
+    - [VNC keymap](/management-api-reference/vnc-management/set-vnc-keyboard-language)\
       Sets the keyboard layout for the VNC console.
-    - [VNC Status](/management-api-reference/vnc-management/get-vnc-status)\
+    - [VNC status](/management-api-reference/vnc-management/get-vnc-status)\
       Returns the current VNC access status.
     - [Enable VNC](/management-api-reference/vnc-management/enable-vnc-access)\
       Enables VNC access to the VPS.
@@ -406,11 +406,11 @@ Use it to:
 
     ### Webhooks
 
-    - [Get all Webhooks](/management-api-reference/hooks/get-all-webhooks)\
+    - [Get all webhooks](/management-api-reference/hooks/get-all-webhooks)\
       Returns all configured webhooks for the VPS.
-    - [Delete Webhook](/management-api-reference/hooks/delete-a-webhook)\
+    - [Delete webhook](/management-api-reference/hooks/delete-a-webhook)\
       Deletes a webhook.
-    - [Traffic Monitor Webhook](/management-api-reference/hooks/set-webhook-for-traffic-monitoring)\
+    - [Traffic monitor webhook](/management-api-reference/hooks/set-webhook-for-traffic-monitoring)\
       Creates a webhook that triggers when a traffic threshold is reached.
     - [Callback example](/management-api-reference/hooks/example-callback-triggered)\
       Shows an example payload of a webhook callback.
@@ -433,7 +433,7 @@ Use it to:
 
     ---
 
-    ## Step 1: create the auth session
+    ## Step 1: Create the auth session
 
     ```bash
     curl --request POST \
@@ -475,7 +475,7 @@ Use it to:
 
     ---
 
-    ## Step 2: check power state
+    ## Step 2: Check power state
 
     ```bash
     curl --request POST \
@@ -498,7 +498,7 @@ Use it to:
 
     ---
 
-    ## Step 3: get available autoinstall images
+    ## Step 3: Get available autoinstall images
 
     ```bash
     curl --request POST \
@@ -533,7 +533,7 @@ Use it to:
 
     ---
 
-    ## Step 4: reinstall the VPS
+    ## Step 4: Reinstall the VPS
 
     ```bash
     curl --request POST \
@@ -560,7 +560,7 @@ Use it to:
 
     ---
 
-    ## Step 5: get available ISO images
+    ## Step 5: Get available ISO images
 
     ```bash
     curl --request POST \
@@ -594,7 +594,7 @@ Use it to:
 
     ---
 
-    ## Step 6: mount the ISO
+    ## Step 6: Mount the ISO
 
     ```bash
     curl --request POST \
@@ -617,7 +617,7 @@ Use it to:
 
     ---
 
-    ## Step 7: verify the current mount
+    ## Step 7: Verify the current mount
 
     ```bash
     curl --request POST \

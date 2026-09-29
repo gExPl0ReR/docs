@@ -16,9 +16,9 @@ SeaBIOS is an open-source implementation of the traditional BIOS (Basic Input/Ou
 
 When you start your VPS and connect via VNC, SeaBIOS is responsible for:
 
-- **Initializing Virtual Hardware**: It sets up essential virtual components like the CPU, memory, and storage devices.
+- **Initializing virtual hardware**: It sets up essential virtual components like the CPU, memory, and storage devices.
 
-- **Boot Device Selection**: SeaBIOS determines which device (e.g., virtual hard disk, CD-ROM, network) to boot from.
+- **Boot device selection**: SeaBIOS determines which device (e.g., virtual hard disk, CD-ROM, network) to boot from.
 
 - **Loading the Operating System**: It locates and loads the bootloader, which then starts your operating system.
 
@@ -28,19 +28,19 @@ Seeing the SeaBIOS screen is a normal part of the VPS boot process.
 
 If you need to change the boot device or access the boot menu:
 
-1. **Access the Boot Menu**: Press the `ESC` or `F12` key during the SeaBIOS screen to enter the boot menu. [Source](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/6.7_technical_notes/package-seabios)
+1. **Access the boot menu**: Press the `ESC` or `F12` key during the SeaBIOS screen to enter the boot menu. [Source](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/6.7_technical_notes/package-seabios)
 
-2. **Select Boot Device**: Use the arrow keys to select the desired boot device (e.g., CD-ROM, hard disk) and press `Enter`.
+2. **Select boot device**: Use the arrow keys to select the desired boot device (e.g., CD-ROM, hard disk) and press `Enter`.
 
 This is particularly useful if you're installing a new operating system or booting from a recovery image.
 
 ## Troubleshooting tips
 
-- **Boot Failures**: If your VPS doesn't boot correctly, ensure that the boot order is configured properly in your VPS settings.
+- **Boot failures**: If your VPS doesn't boot correctly, ensure that the boot order is configured properly in your VPS settings.
 
 - **No Bootable Device Found**: This message indicates that SeaBIOS couldn't find a device with a valid operating system. Verify that your virtual hard disk is correctly attached and contains a bootable OS.
 
-- **Persistent Boot Menu**: If the boot menu appears every time you start your VPS, check the boot order settings to prioritize the correct device.
+- **Persistent boot menu**: If the boot menu appears every time you start your VPS, check the boot order settings to prioritize the correct device.
 
 ## Summary
 

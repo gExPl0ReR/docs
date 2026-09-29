@@ -55,7 +55,7 @@ $Total Traffic  =  \sum (\text{IN} + \text{OUT})$
 
 ### What happens as traffic is consumed?
 
-EDIS Global sends an informational notice at **80%** and a warning at **90%** of the current allowance. The 90% warning is suppressed when Auto-Hydration is enabled and the Traffic Pool contains enough traffic for the next automatic assignment.
+EDIS Global sends an informational notice at **80%** and a warning at **90%** of the current allowance. EDIS Global suppresses the 90% warning when Auto-Hydration is enabled and the Traffic Pool contains enough traffic for the next automatic assignment.
 
 At **99%**, Auto-Hydration assigns the selected **100 GB**, **200 GB**, **300 GB**, or **500 GB** increment, provided the Pool balance is sufficient. The current total allowance then increases by the assigned amount.
 
