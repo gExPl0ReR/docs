@@ -130,8 +130,8 @@
         "tags": [
           "Power Management"
         ],
-        "summary": "hard reset",
-        "description": "This endpoint performs a hard reset on the specified KVM VPS. \nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response, \nis dynamically set in the URL. \nProvide the `signature`, `kvm_id`, and `valid_until` parameters from \nthe same response to authenticate the request.\n",
+        "summary": "hard reset (cold boot)",
+        "description": "This endpoint performs a hard reset by power-cycling the specified KVM VPS: powering it off and back on to perform a cold boot.\nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.\nProvide the `signature`, `kvm_id`, and `valid_until` parameters from the same response to authenticate the request.",
         "operationId": "performHardReset",
         "requestBody": {
           "description": "Required parameters to execute the hard reset.",
@@ -147,6 +147,79 @@
         "responses": {
           "200": {
             "description": "The KVM VPS was successfully reset.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_1"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400_1"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or expired session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_1"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to access this resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_403"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500_1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kvm/v2/set/soft-reset": {
+      "post": {
+        "tags": [
+          "Power Management"
+        ],
+        "summary": "soft reset",
+        "description": "This endpoint performs a soft reset of the specified KVM VPS. It restarts the server without power-cycling it and does not perform a cold boot.\nThe `api_host` parameter, obtained from the \"Create AUTH-session\" response, is dynamically set in the URL.\nProvide the `signature`, `kvm_id`, and `valid_until` parameters from the same response to authenticate the request.",
+        "operationId": "performSoftReset",
+        "requestBody": {
+          "description": "Required parameters to execute the soft reset.",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/set_reset_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The KVM VPS was successfully soft-reset without a power cycle.",
             "content": {
               "application/json": {
                 "schema": {
