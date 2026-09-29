@@ -364,6 +364,7 @@
             "group": "Power Management",
             "pages": [
               "management-api-reference/power-management/hard-reset",
+              "management-api-reference/power-management/soft-reset",
               "management-api-reference/power-management/power-state",
               "management-api-reference/power-management/power-on",
               "management-api-reference/power-management/power-off"
