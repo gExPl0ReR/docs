@@ -8,32 +8,38 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 
 ## Adding additional IP addresses
 
-Our standard IP address product allows you to add up to 10 additional, randomly assigned IPv4 addresses to your VPS.
+Add up to **10 additional IPv4 addresses** to your VPS. With the standard option, the system selects the addresses randomly. For a choice from available addresses, see [Bespoke IP addresses](/faq/ip-addresses/order-bespoke-ip-address).
 
-You can add up to 10 additional IP addresses to your VPS. Our standard product assigns a clean, **random IP address** to your service.
-
-
-
-| Service                                | Price         |
-| :------------------------------------- | :------------ |
-| System assigns a **random** IP address | Included      |
-| Monthly fee for an IPv4 address        | **€5** /month |
-
-
+| Service | Price |
+| --- | --- |
+| Random address assignment | Included |
+| Additional IPv4 address | **€5 per month, per address** |
 
 ## Ordering an additional IPv4 address
 
-If you are interested in adding IP addresses to your VPS
+<Steps>
+  <Step title="Open your VPS and find its identifier">
+    In the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), open **Services → My Services** and select the VPS. Under **Server Information**, find **ID** or **Primary IP** above the management buttons.
+  </Step>
+  <Step title="Contact support through the messenger">
+    Open the chat bubble at the bottom right of the portal. Provide the VPS's **ID (KVM_ID)** or **Primary IP**, and say how many additional IPv4 addresses you need. The recycle icon beside Primary IPv4 replaces the primary address; it does not order an additional address.
+  </Step>
+  <Step title="Order and pay using the link provided">
+    We will send you an order link. Follow its ordering, checkout, and payment steps. After payment, the system provisions the additional randomly assigned IPv4 address to your service.
+  </Step>
+</Steps>
 
-* Reach out to us via messenger
-* Provide the **primary IP address** or **KVM_ID** of your VPS
+<Frame caption="Anonymized portal example. Send support the ID or Primary IP; the example VPS currently has one assigned address.">
+  <img src="/images/portal-ip-service-details.png" alt="Server Information showing the ID, Primary IP, Assigned IPs and Network Info button" style={{ maxWidth: "600px", margin: "0 auto" }} />
+</Frame>
 
+## Find and configure the assigned address
 
-**We'll send you a link to place the order.** 
-Our system will guide you through the ordering, checkout and payment process.
+Return to the VPS's **Server Information** tab after provisioning. **Assigned IPs** lists the service's addresses. Open **Network Info** for the assigned network settings.
 
-Once the payment has gone through, our system will provision an additional, randomly assigned IPv4 address to your service. After provisioning, the VPS Management Portal displays all IP addresses. 
+The additional address must also be configured inside the operating system before it can be used. Keep the primary address in place when adding another address.
 
-You need to manually configure additional IP addresses in your operating system.
+- [Configure additional IPv4 addresses on Linux](/faq/ip-addresses/configuring-additional-ip-address-linux)
+- [View your VPS network settings](/vps-management/ip-address-information)
 
-<CtaButton label="Pick IP yourself" link="./order-bespoke-ip-address" />
+<CtaButton label="Pick IP yourself" link="/faq/ip-addresses/order-bespoke-ip-address" />

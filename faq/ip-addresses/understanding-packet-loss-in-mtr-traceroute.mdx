@@ -21,7 +21,7 @@ This article explains how to correctly interpret MTR results and how to distingu
 - Many routers **de-prioritize or rate-limit ICMP responses**
 - Virtualized environments add additional layers where diagnostic ICMP traffic may be handled differently from normal application traffic
 
-**If the final destination shows 0% packet loss and stable latency, your connection is usually healthy.**
+**Start with the final destination, then check the application.** Zero destination loss in one probe sample is reassuring, but it does not rule out intermittent problems or issues affecting other protocols.
 
 ---
 
@@ -69,61 +69,73 @@ This helps confirm whether an issue is local or global.
 
 ## How to interpret MTR output
 
+The examples below are **illustrative**, shortened to the columns that matter. Each row represents **100 probes**; latency is in milliseconds. Read the **destination row first**, then compare the earlier hops.
+
 ### Scenario 1: Loss on intermediate hops only
 
-Example:
+<Card title="01 · No destination loss observed" icon="circle-check">
 
-```text
-Hop 1   80% loss
-Hop 2   100% loss
-Hop 3   0% loss
-Final   0% loss
-```
+<Tip>
+  **Destination: 0% loss.** Earlier missing replies do not carry through to the destination in this test.
+</Tip>
 
-This usually means:
+| Hop | Loss | Sent | Average latency |
+| --- | ---: | ---: | ---: |
+| Router 1 | 80% | 100 | 2 ms |
+| Router 2 | 100% | 100 | — |
+| Router 3 | 0% | 100 | 18 ms |
+| **Destination** | **0%** | **100** | **20 ms** |
 
-- Intermediate routers are rate-limiting ICMP
-- Traffic forwarding is unaffected
-- There is **no real packet loss** to the destination
+**What stands out:** Router 2 does not reply at all, but later hops and the destination do. Its silence is not evidence that it drops all forwarded traffic.
 
-If the final hop shows **0% loss**, the connection is working.
+**What to do:** If the application also works normally, intermediate-hop loss alone is not a reason to report an outage. Routers may filter or rate-limit diagnostic replies.
 
-**If packet loss does not reach the final hop, your VPS is not losing packets.**
-
----
+</Card>
 
 ### Scenario 2: Loss continues to the final hop
 
-Example:
+<Card title="02 · Destination loss needs investigation" icon="triangle-exclamation">
 
-```text
-Hop 1   0% loss
-[..]
-Hop 3   10% loss
-Hop 4   10% loss
-Final   10% loss
-```
+<Warning>
+  **Destination: 10% loss.** The test is missing replies from the destination too. Repeat the test and compare it with the affected application.
+</Warning>
 
-This indicates **real packet loss**, because it propagates to the destination.
+| Hop | Loss | Sent | Average latency |
+| --- | ---: | ---: | ---: |
+| Router 1 | 0% | 100 | 2 ms |
+| Router 2 | 0% | 100 | 8 ms |
+| **Router 3** | **10%** | 100 | 18 ms |
+| **Router 4** | **10%** | 100 | 20 ms |
+| **Destination** | **10%** | **100** | **22 ms** |
 
-Possible causes:
+**What stands out:** The loss persists through the destination, so it cannot be dismissed as one intermediate router not answering.
 
-- Network congestion
-- Faulty links
-- Host or hypervisor issues
+**What to do:** Save the complete report, repeat from another source or in the reverse direction where possible, and test the application's protocol and port. Congestion, a faulty link, host issues, or filtering/rate-limiting of probes may be involved. This pattern alone does not identify the exact faulty link or prove that application traffic loses the same percentage.
 
-This is when investigation is required, because real traffic is affected.
-
----
+</Card>
 
 ### Scenario 3: High latency spikes without final loss
 
-Occasional latency spikes on intermediate hops are common and often harmless if:
+<Card title="03 · An intermediate spike is not the end-to-end delay" icon="stopwatch">
 
-- The final hop latency is stable
-- There is no packet loss at the destination
+<Note>
+  **Router 2 peaks at 250 ms; the destination peaks at 23 ms.** The spike is not visible at the destination in this sample.
+</Note>
 
-Routers may prioritize forwarding over responding to probes.
+| Hop | Loss | Sent | Average | Worst |
+| --- | ---: | ---: | ---: | ---: |
+| Router 1 | 0% | 100 | 2 ms | 3 ms |
+| **Router 2** | 0% | 100 | 80 ms | **250 ms** |
+| Router 3 | 0% | 100 | 18 ms | 21 ms |
+| **Destination** | **0%** | **100** | **20 ms** | **23 ms** |
+
+**What stands out:** Later hops respond faster than the router with the spike. Each row measures separate probe replies; hop timings are not added together.
+
+**What to do:** Judge latency at the destination and in the application. Routers may answer probes slowly while forwarding traffic normally. If the destination also slows down, investigate that separately.
+
+</Card>
+
+For background on probe responses and router rate limits, see the [MTR project](https://github.com/traviscross/mtr) and [Cloudflare's explanation of MTR](https://www.cloudflare.com/learning/network-layer/what-is-mtr/).
 
 ---
 
@@ -170,4 +182,4 @@ MTR is a powerful tool, but it is often misunderstood.
 👉 **Packet loss on intermediate hops alone is not a reliable indicator of network problems.**\
 👉 The final destination’s statistics are what truly matter.
 
-If the destination shows stable latency and no loss, your connection is healthy, **even if earlier hops look alarming.**
+If the destination shows stable latency and no loss, the test shows no destination loss during that sample, **even if earlier hops look alarming**. Check application behavior before drawing a broader conclusion.

@@ -1,14 +1,20 @@
 ---
 title: "How to change IP address in Windows Server"
 sidebarTitle: "Change IP (Windows)"
-description: "Change the IP address on a Windows Server VPS using Network Connections or PowerShell. Step-by-step guide covering static IP, gateway, and DNS configuration."
+description: "Change the IP address on a Windows Server VPS using Network Connections. Step-by-step guide covering static IP, gateway, and DNS configuration."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
 ## Quick guide on how to change IP address on Windows Server via VNC
 
-This guide shows you how to change the IP address on Windows Server while you're connected via VNC.
+This guide shows you how to configure an already assigned IPv4 address on Windows Server through VNC.
+
+<Warning>
+  Use the IP address, subnet mask, gateway, and DNS settings from your VPS's [Network Info](/vps-management/ip-address-information). Keep VNC open: changing the address interrupts RDP. The screenshots below are reconstructed examples with documentation-only addresses; do not copy them as your VPS settings.
+</Warning>
+
+Record your current settings before editing them. Windows versions and adapter names may look slightly different.
 
 ## Change IP address on Windows Server
 
@@ -22,7 +28,7 @@ This guide shows you how to change the IP address on Windows Server while you're
     Follow the instructions in [Enable VNC server](/vps-management/enable-vnc-server).
   </Step>
   <Step title="Open VNC">
-    - Press `Ctrl + Alt + Delete` to open the Windows login page. You can also use the top key (send CtrlAltDelete). Enter your username and password.
+    Use the VNC toolbar’s **Send CtrlAltDelete** control if Windows requests it, then sign in with an administrator account.
   </Step>
 </Steps>
 
@@ -33,7 +39,7 @@ This guide shows you how to change the IP address on Windows Server while you're
 1. Once connected, right-click on the **Start** button and select **Run**.
 2. Type `ncpa.cpl` and press **Enter**. This will open the **Network Connections** window.
 
-![Change IP (Windows)](/assets/1sSq3fI0sZJj8Zc4RoSr4-9mrOC1yNl1bI3VFtxq2NR-20241106-143431.png)
+
 
 ---
 
@@ -42,7 +48,9 @@ This guide shows you how to change the IP address on Windows Server while you're
 1. In the Network Connections window, find the network adapter you wish to configure (e.g., Ethernet).
 2. Right-click on the adapter and select **Properties** from the context menu.
 
-![Change IP (Windows)](/assets/1sSq3fI0sZJj8Zc4RoSr4-DMYYt30jBazsPxUj7AJlB-20241106-143450.png)
+<Frame caption="Reconstructed example: open Properties for the adapter connected to your VPS network.">
+  <img src="/images/windows-ip-adapter.png" alt="Network Connections with the Ethernet adapter Properties menu item highlighted" />
+</Frame>
 
 ---
 
@@ -51,28 +59,31 @@ This guide shows you how to change the IP address on Windows Server while you're
 1. In the Properties window, locate and select **Internet Protocol Version 4 (TCP/IPv4)**.
 2. Click the **Properties** button.
 
-![Change IP (Windows)](/assets/1sSq3fI0sZJj8Zc4RoSr4-aKYYiaZFGWrDXcuNvHt2Q-20241106-143634.png)
+<Frame caption="Select the IPv4 row, then Properties. Leave the protocol checkbox enabled.">
+  <img src="/images/windows-ipv4-select.png" alt="Ethernet Properties with Internet Protocol Version 4 and the Properties button highlighted" style={{ maxWidth: "520px", margin: "0 auto" }} />
+</Frame>
 
 ---
 
 ### Step 5: Change the IP address
 
 1. In the TCP/IPv4 Properties window, select **Use the following IP address**.
-2. Enter your desired **IP address**, **Subnet mask**, and **Default gateway**. For example:
-   - **IP address**: `192.168.1.100`
-   - **Subnet mask**: `255.255.255.0`
-   - **Default gateway**: `192.168.1.1`
+2. Enter the **IP address**, **Subnet mask**, and **Default gateway** assigned to your VPS. Read all three from **Network Info**; do not assume the gateway or mask.
 
-![Change IP (Windows)](/assets/1sSq3fI0sZJj8Zc4RoSr4-7e4qsQlMtqcneRYQoPZQp-20241106-143711.png)
+The illustration in the next step uses `192.0.2.20`, `255.255.255.0`, and `192.0.2.1` solely to show where each value goes.
+
+
 
 ---
 
 ### Step 6: Configure DNS servers (optional)
 
 1. If needed, select **Use the following DNS server addresses**.
-2. Enter your preferred **DNS server** (e.g., `8.8.8.8` for Google DNS) and an **alternate DNS server** (e.g., `8.8.4.4`).
+2. Enter the DNS servers appropriate for your VPS. The illustration uses `1.1.1.1` and `1.0.0.1` as public-resolver examples. If this server belongs to an Active Directory domain, retain its required domain DNS servers.
 
-![Change IP (Windows)](/assets/1sSq3fI0sZJj8Zc4RoSr4-4BhxXEhIHXelTu7FLG9lc-20241106-143733.png)
+<Frame caption="Documentation-only IP values. Enter the settings assigned to your VPS.">
+  <img src="/images/windows-ipv4-settings.png" alt="IPv4 Properties showing example address, subnet mask, gateway and DNS settings" style={{ maxWidth: "540px", margin: "0 auto" }} />
+</Frame>
 
 ---
 
@@ -88,7 +99,8 @@ This guide shows you how to change the IP address on Windows Server while you're
 1. Open **Command Prompt** or **PowerShell** by right-clicking the Start button and selecting it from the menu.
 2. Type the following command and press **Enter**:
    `ipconfig`
-3. Check the output to confirm that your new IP address is correctly set for the network adapter.
+3. Check the adapter’s IPv4 address, subnet mask, and default gateway against **Network Info**.
+4. From your computer, start a new RDP connection to the new IP address. Keep VNC open until the connection works. Update DNS records or application settings that still reference the old IP.
 
 ---
 

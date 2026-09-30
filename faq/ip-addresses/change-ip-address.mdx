@@ -19,7 +19,11 @@ Changing the IP address keeps the same VPS service, server location, plan, and b
   </Step>
 
   <Step title="Request the IP change">
-    Click the ♻️ recycle icon beside the current IP address.
+    In the **Information** panel, find **Primary IPv4** and click the small **♻ recycle icon** beside the address.
+  </Step>
+
+  <Step title="Review and confirm">
+    Read the **Permanent IPv4 Address Change** dialog. Selecting **Change IP now** replaces the address; **Close** leaves it unchanged. The dialog warns that the old address cannot be restored through this action and that allocation is random.
   </Step>
 
   <Step title="Configure the new IP">
@@ -27,7 +31,13 @@ Changing the IP address keeps the same VPS service, server location, plan, and b
   </Step>
 </Steps>
 
-![IP Change Recycle Icon](/assets/vps-change-ip-recycle-symbol.webp)
+<Frame caption="Fresh portal view, cropped and anonymized. Look beside Primary IPv4 in the Information panel.">
+  <img src="/images/portal-ip-change-icon.png" alt="Information panel with the recycle icon beside Primary IPv4 highlighted" style={{ maxWidth: "620px", margin: "0 auto" }} />
+</Frame>
+
+<Frame caption="Read the confirmation before replacing the IP address.">
+  <img src="/images/portal-ip-change-confirmation.png" alt="Permanent IPv4 Address Change dialog with the irreversible-change warning and Change IP now button highlighted" style={{ maxWidth: "560px", margin: "0 auto" }} />
+</Frame>
 
 <Info>
   A free primary IPv4 change does **not** remove your refund eligibility. You may still request a refund within the original 24-hour window if all other [refund conditions](/faq/billing-lifecycle/cancellation-and-refund-policy) are met.
@@ -67,6 +77,8 @@ You receive a list of available IP addresses from different prefixes and select 
 <CtaButton label="Reinstall Linux or Windows" link="/vps-management/autoinstall-reinstall-install-vps-linux-windows" />
 
 <CtaButton label="Enable VNC" link="/vps-management/enable-vnc-server" />
+
+To keep the installed operating system, follow the manual configuration guide for [Ubuntu](/vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404) or [Windows Server](/vps-management/how-to-change-ip-address-in-windows-server). Read the new address, mask or prefix, and gateway from **Network Info**.
 
 ## Connectivity and repeated changes
 

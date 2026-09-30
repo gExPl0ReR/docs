@@ -35,14 +35,14 @@ Then replace `eth0` in the commands below with your interface name:
 
 ```bash
 sudo apt install iftop nload -y
-sudo iftop -i eth0
+sudo iftop -n -i eth0
 ```
 
-In **iftop**, you’ll see source/destination IPs, ports, and data rates.  
-Look for unknown or suspicious external IPs constantly sending or receiving data.
+In **iftop**, compare source/destination addresses and traffic rates. The `-n` option keeps addresses numeric so you can match them with `ss` output. Check whether the busiest connections belong to expected activity; an unfamiliar address alone does not establish abuse.
 
-![iftop top talkers](/assets/iftop-test.png)
-*iftop: quick view of top talkers (IP + rate).*
+<Frame caption="Reconstructed example with fictional addresses and rates. The 2s, 10s and 40s columns are averaging windows.">
+  <img src="/images/network-usage-iftop.png" alt="Illustrative iftop output highlighting the busiest outgoing connection" />
+</Frame>
 
 If you want a simpler graph view:
 
@@ -50,7 +50,9 @@ If you want a simpler graph view:
 sudo nload eth0
 ```
 
-![nload graph](/assets/nload-test.png)
+<Frame caption="Reconstructed example. Compare incoming and outgoing rates; these totals do not identify a process.">
+  <img src="/images/network-usage-nload.png" alt="Illustrative nload display comparing incoming and outgoing interface traffic" />
+</Frame>
 
 ---
 
@@ -70,11 +72,13 @@ sudo apt install net-tools -y
 sudo netstat -tupn
 ```
 
-Based on the screenshot below, you can see how each process (identified by its **PID**) connects to remote hosts.  
-For example, a process like `xray-linux-amd6` with PID `28799` is making outbound connections to multiple external IPs. This identifies a process with network connections; it does not measure its traffic rate or prove that it is malicious. VPN software such as Xray may legitimately open many connections. Correlate the PID with `iftop` or `nethogs` and the services you intended to run.
+In the example below, the peer `198.51.100.40` from the traffic view appears in a connection owned by PID **28799**. The process name is shown as `xray-linux-amd6`; a process name can be truncated in this view.
 
-![ss and netstat example screenshot](/assets/tunpn-tests.png)
-💡 *`ss` / `netstat` output shows which PIDs are opening remote connections and potentially causing abnormal network usage.*
+<Frame caption="Reconstructed, wrapped ss output with fictional addresses. Match the remote address, then note the PID.">
+  <img src="/images/network-usage-ss.png" alt="Illustrative ss output highlighting a peer address and its owning PID 28799" />
+</Frame>
+
+`ss` identifies sockets and their processes; it does not measure their live traffic rates. VPN software such as Xray can legitimately open these connections. Use `nethogs` below to compare rates per process, and check the services you intended to run. See the [ss manual](https://man7.org/linux/man-pages/man8/ss.8.html).
 
 ---
 
@@ -90,12 +94,11 @@ sudo cat /proc/28799/cmdline | tr '\0' ' '
 
 💡 *Replace **`28799`** with the PID of the process you found suspicious in the previous step.*
 
-If you notice the executable path pointing to directories like **`/tmp/`**, **`/dev/shm/`**, or **`/var/tmp/`**,  
-it’s often a rogue or crypto-mining script. Legitimate system services rarely run from those paths.
+Compare the executable path and arguments with software you installed. A path under `/tmp`, `/dev/shm`, or `/var/tmp` deserves investigation, but its location alone does not prove a compromise.
 
-| ![proc exe](/assets/proc-exe.png) | ![proc cmdline](/assets/proc-cmdline.png) |
-|:--:|:--:|
-|Check process binary path.|Check full cmdline for execution arguments.|
+<Frame caption="One process, two checks: executable location and launch arguments. This example is not a malware verdict.">
+  <img src="/images/network-usage-process.png" alt="Illustrative readlink and proc cmdline output for PID 28799" />
+</Frame>
 
 ---
 
@@ -165,8 +168,11 @@ sudo nethogs
 
 You’ll see a live list of processes with **sent** and **received** rates. This is perfect for spotting anomalies before they grow.
 
-![nethogs live view](/assets/nethogs-test.png)
-*nethogs: per-process network usage in real time.*
+<Frame caption="Reconstructed example with fictional rates in KB/sec. A high rate identifies what to investigate, not whether it is malicious.">
+  <img src="/images/network-usage-nethogs.png" alt="Illustrative NetHogs output highlighting PID 28799 and its sent and received rates" />
+</Frame>
+
+Compare the PID with the earlier `ss` output. Note the units: **KB/sec is bytes per second**, whereas iftop normally shows rates in bits per second. See the [NetHogs project](https://github.com/raboof/nethogs).
 
 ---
 
