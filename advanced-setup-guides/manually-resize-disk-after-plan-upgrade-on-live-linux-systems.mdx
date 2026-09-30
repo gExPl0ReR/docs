@@ -1,6 +1,6 @@
 ---
 title: "Resize Linux disk after a VPS upgrade"
-sidebarTitle: "Resize Linux Disk/Partition"
+sidebarTitle: "Resize Linux disk/partition"
 description: "Expand a Linux partition after a VPS disk upgrade using an offline SystemRescue session, with disk-layout checks and swap configuration guidance."
 ---
 
@@ -61,7 +61,7 @@ After the upgrade was confirmed ...
 
 ## Resize partition
 
-* **Start the Graphical Interface**: If SystemRescueCD boots into a command line, you can start the graphical interface by typing: `startx`.
+* **Start the graphical interface**: If SystemRescueCD boots into a command line, you can start the graphical interface by typing: `startx`.
 
 * **Open GParted**: Once in the graphical interface, open GParted. GParted is a free partition editor for graphically managing your disk partitions. Click the "**Fix**" button on the "Libparted Warning" pop-up window.
 
@@ -105,7 +105,7 @@ If you did not recreate swap, skip this section.
 4. If your installation has a resume/hibernation setting that references the old swap UUID, update it using your distribution's procedure before rebooting.
 5. Save the file, leave directories under `/mnt/system`, and unmount the root filesystem with `umount /mnt/system`. If it is busy, close the processes using it first.
 
-**Final Steps**:
+**Final steps**:
 
 1. <a href="https://docs.edisglobal.com/mount-iso-image" target="_blank">
      **Unmount SystemRescueCD**

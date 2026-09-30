@@ -12,13 +12,13 @@ This guide provides detailed instructions for setting up a VPN server on Ubuntu 
 
 ## Prerequisites
 
-* **VPS Server:**
+* **VPS server:**
 
   * An <a href="https://www.edisglobal.com" target="_blank">EDIS Global VPS</a> running Ubuntu 22.04.
 
   * Root or sudo access.
 
-* **Client Machine:**
+* **Client machine:**
 
   * A computer running Ubuntu or any Linux distribution compatible with L2TP/IPsec and IKEv2.
 
@@ -28,7 +28,7 @@ This guide provides detailed instructions for setting up a VPN server on Ubuntu 
 
 We will perform the following high-level steps:
 
-1. **On the VPS Server:**
+1. **On the VPS server:**
 
    * Update system packages.
 
@@ -38,7 +38,7 @@ We will perform the following high-level steps:
 
    * Manage VPN users (add or remove).
 
-2. **On the Client Machine:**
+2. **On the client machine:**
 
    * Install VPN client software.
 
@@ -86,7 +86,7 @@ sudo VPN_DNS_SRV1=1.1.1.1 VPN_DNS_SRV2=1.0.0.1 sh vpn.sh
 
 * The script will prompt you to enter VPN credentials (IPsec PSK, username, password). If not, it will generate them automatically.
 
-**Script Output Example:**
+**Script output example:**
 
 ```plaintext
 ===============================================
@@ -184,7 +184,7 @@ sudo apt install network-manager-l2tp-gnome -y
 
 Follow these steps to set up the VPN connection:
 
-1. **Access VPN Settings:**
+1. **Access VPN settings:**
 
    * Go to **Settings** > **Network** > **VPN**.
 
@@ -194,7 +194,7 @@ Follow these steps to set up the VPN connection:
 
    * Select **Layer 2 Tunneling Protocol (L2TP)**.
 
-3. **General Configuration:**
+3. **General configuration:**
 
    * **Name:** Enter a name for your VPN connection (e.g., `My L2TP VPN`).
 
@@ -206,7 +206,7 @@ Follow these steps to set up the VPN connection:
 
    * **NT Domain:** Leave this field blank.
 
-4. **Configure IPsec Settings:**
+4. **Configure IPsec settings:**
 
    * Click **IPsec Settings...**.
 
@@ -214,7 +214,7 @@ Follow these steps to set up the VPN connection:
 
    * **Pre-shared key:** Enter your IPsec PSK (`Your VPN IPsec PSK`).
 
-   * **Advanced Settings:**
+   * **Advanced settings:**
 
      * Expand the **Advanced** section.
 
@@ -222,7 +222,7 @@ Follow these steps to set up the VPN connection:
 
      * **Phase2 Algorithms:** Enter `aes128-sha1`.
 
-5. **Save and Connect:**
+5. **Save and connect:**
 
    * Click **OK** to close the IPsec settings.
 
@@ -333,7 +333,7 @@ sudo yum --enablerepo=epel install NetworkManager-strongswan-gnome
 
 Follow these steps to set up the IKEv2 VPN connection:
 
-1. **Access VPN Settings:**
+1. **Access VPN settings:**
 
    * Go to **Settings** > **Network** > **VPN**.
 
@@ -343,17 +343,17 @@ Follow these steps to set up the IKEv2 VPN connection:
 
    * Select **IPsec/IKEv2 (strongSwan)**.
 
-3. **General Configuration:**
+3. **General configuration:**
 
    * **Name:** Enter a name for your VPN connection (e.g., `My IKEv2 VPN`).
 
-4. **Gateway Configuration:**
+4. **Gateway configuration:**
 
    * **Address:** Enter your VPN server's IP address or domain name (`Your VPN Server IP`).
 
    * **Certificate:** Select the `ca.cer` file you extracted earlier.
 
-5. **Client Authentication:**
+5. **Client authentication:**
 
    * **Authentication:** Select **Certificate (/private key)**.
 
@@ -361,11 +361,11 @@ Follow these steps to set up the IKEv2 VPN connection:
 
    * **Private key:** Select the `client.key` file.
 
-6. **Options Configuration:**
+6. **Options configuration:**
 
    * **Request an inner IP address:** Select this checkbox.
 
-7. **Cipher Proposals (Algorithms):**
+7. **Cipher proposals (algorithms):**
 
    * **Enable custom proposals:** Select this checkbox.
 
@@ -373,7 +373,7 @@ Follow these steps to set up the IKEv2 VPN connection:
 
    * **ESP:** Enter `aes128gcm16`.
 
-8. **Save and Connect:**
+8. **Save and connect:**
 
    * Click **Add** to save the VPN connection.
 
@@ -381,9 +381,9 @@ Follow these steps to set up the IKEv2 VPN connection:
 
 **Explanation:**
 
-* **Certificates and Keys:** The client certificate and private key authenticate your device to the VPN server.
+* **Certificates and keys:** The client certificate and private key authenticate your device to the VPN server.
 
-* **Cipher Proposals:** Setting custom proposals ensures that the encryption algorithms match those expected by the VPN server.
+* **Cipher proposals:** Setting custom proposals ensures that the encryption algorithms match those expected by the VPN server.
 
 ### 7. Verify the VPN connection
 
@@ -397,23 +397,23 @@ curl ifconfig.me
 
 ## Troubleshooting
 
-* **Failed to Establish VPN Connection:**
+* **Failed to establish VPN connection:**
 
   * Ensure that your server's firewall allows necessary VPN ports (e.g., UDP ports 500 and 4500 for IPsec).
 
   * Verify that VPN services are running on the server.
 
-* **Authentication Errors:**
+* **Authentication errors:**
 
   * Double-check the VPN credentials (IPsec PSK, username, password).
 
   * Ensure that the certificates and keys are correctly installed and permissions are properly set.
 
-* **DNS Issues:**
+* **DNS issues:**
 
   * If you cannot resolve domain names after connecting, specify DNS servers in your VPN client settings or update the VPN server configuration to push DNS settings to clients.
 
-* **StrongSwan Configuration Errors:**
+* **StrongSwan configuration errors:**
 
   * Check logs for errors: `/var/log/syslog` or use `journalctl -xe`.
 
