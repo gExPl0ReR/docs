@@ -39,7 +39,7 @@ Learn how to start the reinstall, set your administrator password, and re-enable
 ## Step-by-step reinstallation
 
 <Steps>
-  <Step title="Log in to your Control Panel">
+  <Step title="Log in to your control panel">
     Go to your [VPS Management Portal](https://manage.edisglobal.com/clientarea.php) and open **Services → My Services**.
   </Step>
   <Step title="Locate your VPS">
@@ -49,7 +49,7 @@ Learn how to start the reinstall, set your administrator password, and re-enable
     Select the operating-system family, then its version. Review the optional SSH public-key field where available and set a new password.\
     This will be your Linux **root** or Windows **Administrator** password.
 
-    > ⚠️ **Note:** No confirmation email is sent when reinstalling. Keep your new password safe!
+    > ⚠️ **Note:** EDIS Global doesn't send a confirmation email when you reinstall. Keep your new password safe!
   </Step>
   <Step title="Start installation">
     Once you have checked the selected VPS, saved your new password and backed up your data, click **Start installation**. Wait for the process to finish before reconnecting.
@@ -96,7 +96,7 @@ These times are approximate. SSH or RDP being unavailable while setup runs is ex
   **Do not power off, reboot, or start another reinstall while installation is in progress.** Interrupting setup can leave the operating system incomplete.
 </Warning>
 
-Once setup finishes, connect using [SSH for Linux](/getting-started/linux-secure-shell-ssh) or [Remote Desktop for Windows](/getting-started/windows-remote-desktop), with the password you chose during reinstallation. No new credentials email is sent.
+Once setup finishes, connect using [SSH for Linux](/getting-started/linux-secure-shell-ssh) or [Remote Desktop for Windows](/getting-started/windows-remote-desktop), with the password you chose during reinstallation. EDIS Global doesn't send a new credentials email.
 
 <Tip>
   Reinstalling Linux can change its SSH host key. If your client reports **“REMOTE HOST IDENTIFICATION HAS CHANGED”**, follow the [host-key verification steps](/getting-started/linux-secure-shell-ssh#remote-host-identification-has-changed) before accepting the new key.

@@ -1,6 +1,6 @@
 ---
 title: Linux Secure Shell (SSH)
-sidebarTitle: SSH Guide
+sidebarTitle: SSH guide
 description: "What Secure Shell (SSH) is and how to use it to connect to your remote Linux VPS, including key generation, basic commands, and authentication options."
 ---
 
@@ -12,7 +12,7 @@ SSH, or Secure Shell, is a secure network protocol that enables remote control o
 
 ### How to use SSH to connect to your remote VPS
 
-To use SSH to connect to your remote VPS, follow these steps: Open a terminal or command prompt on your local machine and type:
+Open a terminal or command prompt on your local machine and type:
 
 ```shell
 ssh username@remote-host
@@ -30,13 +30,13 @@ Match the key type and fingerprint shown by your SSH client. Once verified, type
 
 
 
-If the connection is successful, you'll see a welcome message from the remote server, and you'll be presented with a command prompt in the remote server's shell. You can then run remote commands and upload/download files as needed using the SSH connection.
+If the connection is successful, you'll see a welcome message from the remote server, and you'll get a command prompt in the remote server's shell. You can then run remote commands and upload/download files as needed using the SSH connection.
 
 _Make sure you have SSH access enabled and have the correct user credentials to log in to the VPS._
 
 For a custom SSH port, use `ssh -p 2222 username@remote-host`, replacing `2222` with the configured port. If authentication fails, check the username and password or use the [Linux password-reset guide](/vps-management/reset-root-password-linux). For a timeout, follow [network troubleshooting](/faq/ip-addresses/network-is-down).
 
-After you are finished with any tasks with the remote server you can simply type:
+When you finish working on the remote server, type:
 
 ```shell
 exit
@@ -46,7 +46,7 @@ This logs you out of the VPS.
 
 ## Remote host identification has changed
 
-This warning means the host key presented by the server differs from the key your SSH client saved for that address. It can happen after you reinstall the VPS, but it can also indicate that you are connecting to the wrong server or that the connection is being intercepted.
+This warning means the host key presented by the server differs from the key your SSH client saved for that address. It can happen after you reinstall the VPS, but it can also indicate that you are connecting to the wrong server or that someone is intercepting the connection.
 
 <Frame caption="Illustrative OpenSSH warning. The IP address, username, fingerprint, and file path are fictional; wording may vary by SSH client.">
   <img src="/images/ssh-host-identification-changed.png" alt="Terminal showing WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED, an offending known_hosts entry, and Host key verification failed" />
