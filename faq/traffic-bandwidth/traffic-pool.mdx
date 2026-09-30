@@ -6,6 +6,10 @@ description: "Buy traffic once, keep it in a non-expiring shared pool, and assig
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
+<Tip>
+  **Looking for your Traffic Pool balance sheet?** Open any VPS → **Traffic Information** → **Assignment History** → **pool log**. [Follow the steps with screenshots](#how-to-access-the-balance-sheet).
+</Tip>
+
 ## One traffic pool. One global price.
 
 The EDIS Global Traffic Pool gives every VPS in your account access to one shared traffic reserve. Purchase traffic once and assign it to any VPS whenever you need additional traffic.
@@ -119,7 +123,7 @@ _Portal shown with fictional demo data._
 - **Traffic Zone:** The pricing zone that applies to Pool Traffic. EDIS Global uses one Global Traffic Zone across all locations.
 - **Shared Traffic Pool Balance:** Unassigned Pool Traffic currently available across your account.
 - **Top Up:** Opens the [Traffic Pool purchase page](https://edisglobal.com/buy-traffic).
-- **Assignment History:** Shows manual and automatic Pool Traffic assignments.
+- **Assignment History:** Shows manual and automatic Pool Traffic assignments. Click **pool log** in that window to open the [account-wide accounting balance sheet](#how-to-access-the-balance-sheet).
 - **Assign Pool Traffic:** Provides **+100 GB**, **+500 GB**, **+1 TB**, and **+10 TB** quick-assignment buttons.
 - **Auto-Hydration:** Provides selectable **100 GB**, **200 GB**, **300 GB**, and **500 GB** increments and is configured separately for every VPS.
 
@@ -134,6 +138,28 @@ For custom monitoring, use the Management REST API callback feature to trigger n
 ## Traffic Pool accounting balance sheet
 
 The balance sheet records every Traffic Pool transaction chronologically, including purchases, complimentary starter credits, manual or automatic assignments to VPS services, and the resulting Pool balance.
+
+### How to access the balance sheet
+
+You can open the account-wide Traffic Pool balance sheet from **any VPS in your account**.
+
+1. Sign in to the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), open **Services → My Services**, and select any VPS.
+2. On the **Server Information** tab, scroll to **Traffic Information**. Click **Assignment History** beside or below **Shared Traffic Pool Balance**.
+3. In the **Assignment History** window, click the blue **pool log** button below the transaction list.
+
+<Frame caption="Step 2: In Traffic Information, click Assignment History. Customer usage and balances are hidden.">
+  <img src="/images/traffic-pool-assignment-history-anonymized.png" alt="Anonymized Traffic Information panel with the Assignment History link highlighted below Shared Traffic Pool Balance." style={{ width: "100%", maxWidth: "440px", display: "block", margin: "0 auto" }} />
+</Frame>
+
+<Frame caption="Step 3: Click pool log below the transaction list. Transaction details are hidden and the VPS ID is fictional.">
+  <img src="/images/traffic-pool-log-button-anonymized.png" alt="Anonymized Assignment History window with the pool log button highlighted beside the VPS-specific Assignment History button." />
+</Frame>
+
+**pool log** shows the shared Pool's transactions across your account, including traffic purchases, credits and assignments to different VPS services. The button labelled with your **VPS ID + Assignment History** switches back to assignments for that VPS.
+
+<Note>
+  Viewing Assignment History or pool log does not assign traffic, purchase traffic or change Auto-Hydration settings.
+</Note>
 
 ### How to read the balance sheet
 
