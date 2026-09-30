@@ -4,7 +4,23 @@ sidebarTitle: 'Fix OpenSSH Delays (Entropy)'
 description: "Fix OpenSSH startup delays on virtual machines caused by low entropy. Feed entropy from the host using VirtIO RNG or other methods to improve VM responsiveness."
 ---
 
-## How to feed a guest VM with sufficient entropy from /dev/urandom
+<Note>
+  The QEMU options later in this article are **hypervisor administrator settings**. They cannot be applied from inside an EDIS Global VPS. For a hosted VPS, start with the guest-side checks below and contact support if the evidence points to a missing virtual RNG device.
+</Note>
+
+## Check the cause before changing anything
+
+A slow SSH connection is not necessarily an entropy problem. Separate a delay during boot or host-key generation from a delay during an ordinary login. On Debian/Ubuntu, inspect:
+
+```bash
+sudo journalctl -b -u ssh --no-pager
+sudo journalctl -b -k --no-pager
+cat /sys/class/misc/hw_random/rng_available
+```
+
+The last file lists RNG drivers exposed to the guest when available; its absence alone does not prove the cause of an SSH delay. Include relevant timestamps and log messages when asking support to investigate.
+
+## How a host can provide an entropy device
 
 ## Problem: OpenSSH delays system startup
 
@@ -35,7 +51,7 @@ Add the following parameters to the QEMU command line for your VM:
 
 ```bash
 -object rng-random,id=rng0,filename=/dev/urandom \
--device virtio-rng-pci,bus=pci.0,addr=0x1e,max-bytes=1024,period=1000
+-device virtio-rng-pci,rng=rng0,max-bytes=1024,period=1000
 ```
 
 *rng-random:* Specifies the entropy source (`/dev/urandom`) from the host.
@@ -43,6 +59,8 @@ Add the following parameters to the QEMU command line for your VM:
 *virtio-rng-pci:* Passes the entropy source to the guest using the VirtIO interface.
 
 *max-bytes* and *period*: Apply rate-limiting to prevent excessive CPU consumption by the entropy provider.
+
+See [QEMU invocation documentation](https://qemu-project.gitlab.io/qemu/system/invocation.html) for RNG backends and virtual devices.
 
 **Ensure compatibility**
 
@@ -52,7 +70,7 @@ Guest systems with Linux kernels as old as version `2.6.32` can automatically us
 
 ### 2. Install a PRNG on the guest (optional)
 
-If adding the VirtIO RNG interface is not feasible, install a pseudo-random number generator (PRNG) on the guest:
+For an older installation with a confirmed entropy-related problem, evaluate `haveged` according to your distribution's documentation. Do not install an extra entropy daemon solely because SSH feels slow. If you determine it is appropriate for your system:
 
 ```bash
 sudo apt update
