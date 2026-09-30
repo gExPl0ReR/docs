@@ -85,7 +85,7 @@ Keep in mind, the additional space will remain unavailable until you resize your
 ## Important notes
 
 - **Backup Data:** Always back up important data before making any changes to the disk.
-- **Unallocated Space Requirement:** To extend a volume, unallocated space must exist on the same disk and be contiguous with the target volume.
+- **Unallocated Space Requirement:** For a basic volume, free space must be on the same disk and immediately **after** the target volume. An intervening recovery or other partition blocks a normal extension.
 - **In-Use Volumes:** If the volume is in use by active services or applications, a restart may be required.
 
 ---
@@ -94,7 +94,7 @@ Keep in mind, the additional space will remain unavailable until you resize your
 
 1. **Extend Volume is Grayed Out:**
    This occurs when there’s no contiguous unallocated space next to the volume.
-   - Consider using advanced tools to move or merge partitions.
+   - Inspect the layout in **Disk Management** (`diskmgmt.msc`). Do not delete a recovery, EFI, or data partition just to enable the button. Back up first and use a procedure appropriate to the layout. Microsoft explains the supported options in [Extend a volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume?tabs=disk-management).
 2. **Limited Shrink Volume:**
    - System files or reserved partitions can limit how much space you can shrink.
    - Use advanced tools like **Diskpart** for further management.

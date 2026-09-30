@@ -9,6 +9,10 @@ This article explains how to back up and restore data on Linux systems. We cover
 
 ---
 
+<Note>
+  Keep a copy outside this VPS and test restoring it. Files copied to another directory on the same virtual disk do not protect you against disk erasure or service deletion. Stop application writes or use an application-consistent backup method; databases should use their supported dump or backup tools.
+</Note>
+
 ## 1. Backup using `tar`
 
 One of the most commonly used tools for backing up files and directories in Linux is the `tar` command. It allows you to easily compress files and store them in an archive, helping you save important files and directories for later restoration.
@@ -46,7 +50,7 @@ To restore data from a `.tar.gz` archive file, use the following command:
 tar -xzvf backup.tar.gz -C /destination/directory
 ```
 
-This restoration process with tar will return your files to a previous state by extracting them from the backup archive. Restoring from a tar archive replaces any existing files in the destination directory with the versions from the backup. This effectively reverts the system or files to their earlier configuration.
+Extract into an empty test directory first and inspect the result. Extraction can overwrite matching destination files, but an ordinary archive does not remove newer files that are absent from the archive, so it is not an exact system rollback. See the [GNU tar manual](https://www.gnu.org/software/tar/manual/tar.html).
 
 ### Restore steps
 
@@ -117,7 +121,13 @@ rsync -avz user@remote_server:/path/to/backup/ /path/to/restore/
 
 ## 3. Backup using `dd`
 
-The **dd** tool is used for making **complete backups of disks** or partitions (for example, for backing up an operating system or a specific partition). dd is commonly used for cloning entire disks or partitions, making an exact clone of a machine or host. It supports backing up the entire file system, including important system directories and logs. You can also use dd to create an ISO image of a disk for backup or migration purposes. Before starting the backup process, ensure proper setup to avoid data loss and ensure a reliable restore. You can use dd to back up the entire computer for disaster recovery or migration to new hardware. When handling disk images, consider security, as these images may contain sensitive data from your system.
+`dd` copies raw blocks. Its output is a **raw disk image**, not a bootable ISO installer or a QCOW2 image.
+
+<Warning>
+  Boot a rescue environment before imaging or restoring the system disk, and keep the source filesystems unmounted so they cannot change during the copy. Store the image on a separate disk or remote storage with enough free space, never on the source disk. During restoration, `of=` is the disk that will be overwritten completely.
+</Warning>
+
+Run `lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINT` and positively identify the source, destination, and their sizes before either command. `/dev/sda` below is a placeholder example; an EDIS VPS may use `/dev/vda` or another name. The restore target must be at least as large as the original disk.
 
 ### Backup steps
 
@@ -125,7 +135,7 @@ The **dd** tool is used for making **complete backups of disks** or partitio
 2. To create a backup of a disk, use:
 
 ```bash Bash
-dd if=/dev/sda of=/path/to/backup/backup.img bs=64K
+sudo dd if=/dev/sda of=/path/to/backup/backup.img bs=4M status=progress conv=fsync
 ```
 
 Explanation:
@@ -146,7 +156,7 @@ To restore data from a disk or partition backup created with **dd**, use the fo
 2. To restore data to the target disk, run:
 
 ```bash Bash
-dd if=/path/to/backup/backup.img of=/dev/sda bs=64K
+sudo dd if=/path/to/backup/backup.img of=/dev/sda bs=4M status=progress conv=fsync
 ```
 
 ---
@@ -174,3 +184,5 @@ rclone copy /path/to/data remote:backup_folder
 ```bash Bash
 rclone copy remote:backup_folder /path/to/restore/
 ```
+
+For the block-copy options used here, see the [GNU dd reference](https://man7.org/linux/man-pages/man1/dd.1.html).

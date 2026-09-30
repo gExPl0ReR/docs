@@ -1,7 +1,7 @@
 ---
 title: "How to investigate and stop unusual network usage on Linux"
 sidebarTitle: "Detect Unusual Network Usage"
-description: "Diagnose and stop unusual network usage on a Linux VPS caused by hidden processes, rogue scripts, crypto miners, or misbehaving cron jobs before it scales."
+description: "Identify Linux processes using network traffic, distinguish expected activity from problems, preserve evidence, and stop confirmed unwanted activity."
 slug: "investigate-stop-unusual-network-usage-linux"
 ---
 
@@ -71,7 +71,7 @@ sudo netstat -tupn
 ```
 
 Based on the screenshot below, you can see how each process (identified by its **PID**) connects to remote hosts.  
-For example, a process like `xray-linux-amd6` with PID `28799` is making outbound connections to multiple external IPs. This is a strong sign of a background service or script consuming network bandwidth.
+For example, a process like `xray-linux-amd6` with PID `28799` is making outbound connections to multiple external IPs. This identifies a process with network connections; it does not measure its traffic rate or prove that it is malicious. VPN software such as Xray may legitimately open many connections. Correlate the PID with `iftop` or `nethogs` and the services you intended to run.
 
 ![ss and netstat example screenshot](/assets/tunpn-tests.png)
 💡 *`ss` / `netstat` output shows which PIDs are opening remote connections and potentially causing abnormal network usage.*
@@ -83,9 +83,9 @@ For example, a process like `xray-linux-amd6` with PID `28799` is making outboun
 Now that you’ve identified the suspicious PID from **`ss`** or **`netstat`**, check what it actually is and where it’s running from.
 
 ```bash
-ps aux | grep 28799
-ls -l /proc/28799/exe
-strings /proc/28799/cmdline
+ps -p 28799 -o pid,ppid,user,lstart,args
+sudo readlink /proc/28799/exe
+sudo cat /proc/28799/cmdline | tr '\0' ' '
 ```
 
 💡 *Replace **`28799`** with the PID of the process you found suspicious in the previous step.*
@@ -99,24 +99,19 @@ it’s often a rogue or crypto-mining script. Legitimate system services rarely 
 
 ---
 
-## 4) Kill and quarantine the script
+## 4) Record evidence, then stop confirmed unwanted activity
 
-Stop the suspicious process immediately (replace **28799** with your PID):
+A process name, an unfamiliar IP, or a path under `/tmp` is a reason to investigate, not proof of compromise. First establish what the process does and whether it belongs to software you installed.
 
-```bash
-sudo kill -9 28799
-```
+Record the PID, executable path, command line, start time, connections, and relevant logs **before** stopping the process. If you need to preserve its executable for analysis, do that while it still exists: `/proc/PID/exe` may be unavailable after the process exits. Do not execute a suspicious binary. See the [Linux `/proc/PID/exe` reference](https://man7.org/linux/man-pages/man5/proc_pid_exe.5.html).
 
-Before deleting, back up the executable for later analysis:
+If you confirm the activity is unwanted:
 
-```bash
-sudo cp /proc/28799/exe /root/suspicious_exe_backup || true
-sudo rm -rf /usr/local/x-ui/bin/xray-linux-amd64 /tmp/.miner /var/tmp/.hidden || true
-```
+- Stop it through its application or service manager when possible. A supervisor may otherwise restart a killed process.
+- For a standalone process, `sudo kill -TERM 28799` requests a normal shutdown. Replace the example PID with the one you have just verified. Check whether it exited before considering a forced stop.
+- Disable only the confirmed unwanted startup entry after preserving a copy for investigation.
 
-| ![network before](/assets/iftop-test.png) | ![network after](/assets/after-kill.png) |
-|:--:|:--:|
-|Network usage before stopping process.|Network usage after stopping: activity drops.|
+Do not delete an Xray installation, cron job, or executable merely because it matches an example in this article. If the server is compromised, stopping one process is containment, not proof that the system is clean.
 
 ---
 
@@ -153,7 +148,7 @@ or something referencing temporary paths:
 @reboot /tmp/.miner/start.sh
 ```
 
-remove it immediately, as it will automatically restart the rogue process every time the system boots.
+verify whether it belongs to an expected service. If it is confirmed unwanted, preserve a copy and remove or disable that specific startup entry. The Xray example can also be a legitimate VPN configuration.
 
 💡 *Tip:* Legitimate cron jobs usually run system maintenance tasks (like backups or log rotations). Anything starting from `/tmp`, `/dev/shm`, or `/var/tmp` is highly suspicious.
 
@@ -184,39 +179,12 @@ It shows **total monthly usage**, **daily graphs**, and **refill times**.
 
 ---
 
-## 8) Harden the system against rogue scripts 🛡️
+## 8) Recover and prevent recurrence
 
-After removing the rogue process, secure your server to prevent it from coming back.
+For an application fault, fix its configuration or update it, then monitor whether traffic returns to the expected rate.
 
-- **If `/tmp` or `/var/tmp` are separate mounts, disable script execution:**
-  ```bash
-  sudo mount -o remount,noexec /tmp
-  sudo mount -o remount,noexec /var/tmp || true
-  ```
+If you confirm a compromise, preserve the evidence you need, contain the affected service, rotate exposed credentials from a trusted device, and plan a clean rebuild from known-good software and data. A reduced traffic graph does not establish that all unauthorized access has been removed.
 
-- **If you get a “mount point not mounted” error:**  
-  it means `/tmp` isn’t a separate mount. Use this safer alternative:
-  ```bash
-  sudo mount -o bind /tmp /tmp
-  sudo mount -o remount,noexec,nosuid /tmp
-  ```
+Review updates, exposed services, and [SSH access controls](/getting-started/ssh-security-hardening-guide). Firewall rules should target the traffic you actually intend to allow; UFW does not identify a malicious process by name. Changes such as `noexec` mounts are not a substitute for investigating how the activity began.
 
-- **Limit outbound connections:**  
-  Use `ufw` or `iptables` to block unknown processes from sending data.
-
-- **Find recently changed files (possible rogue scripts):**
-  ```bash
-  sudo find / -mtime -1 -type f 2>/dev/null
-  ```
-
-- **Check SSH login attempts:**
-  ```bash
-  sudo journalctl -u ssh | grep "Failed password"
-  ```
-
-💡 *Tip:* You can also follow our detailed [SSH Security Hardening Guide](https://docs.edisglobal.com/getting-started/ssh-security-hardening-guide)  
-for advanced protection steps such as disabling root login, changing default SSH ports, and setting up fail2ban.
-
----
-
-✅ Following these steps ensures your VPS stays stable, secure, and free from hidden processes consuming network resources or performance.
+For cumulative usage, refills, and the shared reserve, see [Traffic statistics](/faq/traffic-bandwidth/traffic-stats-refill-explained) and [Traffic Pool](/faq/traffic-bandwidth/traffic-pool).

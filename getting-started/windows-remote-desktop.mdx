@@ -48,13 +48,13 @@ In the opened menu, you can check the box to prompt for new login credentials ev
 
 **Authenticate:**
 
-Click the **Connect** button. Enter the server password and check the box "Remember me".
+Click **Connect** and enter the server password. Saving credentials with **Remember me** is optional; do so only on a trusted computer you control.
 
 ![Remote Desktop (RDP)](/assets/1sSq3fI0sZJj8Zc4RoSr4-mlWVL7VFqr35TTENbhrJz-20241202-113311.png)
 
 **Establish the connection:**
 
-After successful authentication, Windows shows a prompt confirming the connection to the server. **Check the box** to ensure the prompt doesn’t appear again, then click **Yes** to continue.
+If Windows shows a certificate warning, check that the destination and certificate belong to the VPS you intended to reach. Do not dismiss an unexpected certificate change automatically. Continue only after you have verified the server identity; remembering that decision is optional.
 
 ![Remote Desktop (RDP)](/assets/1sSq3fI0sZJj8Zc4RoSr4-AGGOxauevnKCyRuSL3vFW-20241202-113527.png)
 
@@ -84,13 +84,13 @@ Download "Windows App" (formerly Remote Desktop) from the [Mac App Store](https:
 
 2. Enter the **IP address** of the remote system (PC name) and name your connection (Friendly Name).
 
-3. Under Credentials, select **Administrator**.
+3. Under Credentials, add the VPS username **Administrator**, or select an existing saved credential for that account.
 
 4. Click **Add** to save the new connection.
 
 ![Remote Desktop (RDP)](/assets/huaNpFAxK5PVCl_NLo3ID-rbCU-h7FzGiJeIcW7xO1y-20241202-160642.png)
 
-Double-click the newly created connection (tile), then confirm the certificate warning (**Continue**).
+Double-click the connection tile. If a certificate warning appears, verify the server identity before selecting **Continue**.
 
 ![Remote Desktop (RDP)](/assets/bYb9Hny4tfRDK5FcumtQA_screenshot-2024-12-02-at-171013.png)
 
@@ -98,7 +98,7 @@ Enter your password and **Continue** to connect.
 
 ![Remote Desktop (RDP)](/assets/vI9GQIvvP61Ayho-Uhrnj_screenshot-2024-12-02-at-171118.png)
 
-You might see another warning. It is related to keychain access on your Mac. You can safely ignore it and click **Continue** to connect.
+macOS may ask for Keychain access to use saved credentials. Read the requesting app and item, and approve only if they match the Windows App connection you initiated.
 
 ![Remote Desktop (RDP)](/assets/QxA-hYPd04kMS6eAOPuZD_screenshot-2024-12-02-at-171343.png)
 

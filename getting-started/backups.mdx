@@ -6,7 +6,7 @@ description: "Manage your EDIS Global VPS responsibly and back up server data re
 
 ## Backup responsibility for your VPS
 
-At EDIS Global, we take data security very seriously. However, due to the nature of KVM technology, **EDIS does not provide any backup services for VPS**. It is important that you manage your own backups to protect your data.
+At EDIS Global, we take data security very seriously. **EDIS Global does not provide automatic VPS backups or instant snapshots.** It is important that you manage your own backups to protect your data.
 
 ### What this means for you
 
@@ -14,13 +14,19 @@ At EDIS Global, we take data security very seriously. However, due to the nature
 
 🛡We recommend regularly scheduling backups to ensure your data is safe.
 
+### Keep a recoverable copy outside the VPS
+
+Store at least one backup on another system or storage provider. A copy on the same virtual disk is lost if that disk is erased or the VPS is deleted. Keep more than one dated version, protect access to the backup, and regularly test restoration into a separate directory or test system.
+
+For databases, use the database's supported backup or dump procedure. Copying live database files alone may produce an inconsistent backup.
+
 ### Why regular backups are essential for your VPS data protection
 
 Regular backups are essential for protecting your data against hardware failures, accidental deletions, or cyber threats. Without proper backups, you risk losing critical data, leading to costly downtime or permanent data loss. By scheduling regular backups, you safeguard your systems, enabling quick recovery and uninterrupted operations, minimizing significant disruptions.
 
 ### How to back up and restore your data
 
-While EDIS Global does not provide backup services, we highly recommend taking proactive steps to secure your data. Our detailed guide, **“**[**Backup and Restore Data on Linux**](https://docs.edisglobal.com/backup-restore-data-linux)**”**, walks you through various methods to efficiently back up and restore your VPS data. The guide covers tools like **tar**, **rsync**, **dd**, and **rclone** for cloud backups, offering step-by-step instructions to ensure your data is safe and recoverable.
+For routine backups, use your own backup tools and storage. Our detailed guide, **“**[**Backup and Restore Data on Linux**](https://docs.edisglobal.com/backup-restore-data-linux)**”**, walks you through various methods to efficiently back up and restore your VPS data. The guide covers tools like **tar**, **rsync**, **dd**, and **rclone** for cloud backups, offering step-by-step instructions to ensure your data is safe and recoverable.
 
 ### Requesting a downloadable .qcow2 image backup
 

@@ -38,15 +38,22 @@ sftp username@hostname_or_ip
 
 Once connected, you can use the following commands to transfer files:
 
-* **Download a file from the server**:
+Run these commands at the `sftp>` prompt after connecting:
 
-* **Upload a file to the server**:
+| Task | Command |
+| --- | --- |
+| Download a remote file | `get /remote/path/file.txt /local/path/` |
+| Upload a local file | `put /local/path/file.txt /remote/path/` |
+| List remote files | `ls` |
+| Change remote directory | `cd /remote/path/` |
+| Show remote directory | `pwd` |
+| Change local directory | `lcd /local/path/` |
+| Show local directory | `lpwd` |
+| End the session | `bye` |
 
-* **List files in the remote directory**:
+Replace the example paths with existing directories you can access. Transfers can overwrite an existing destination file with the same name.
 
-* **Change the remote directory**:
-
-* **Exit the SFTP session**:
+For a custom SSH port, connect from your local terminal with `sftp -P 2222 username@hostname_or_ip`. The port option is uppercase `-P`. See the [OpenSSH SFTP manual](https://man.openbsd.org/sftp).
 
 ***
 

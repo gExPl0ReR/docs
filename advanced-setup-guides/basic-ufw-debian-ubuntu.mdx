@@ -40,8 +40,9 @@ sudo ufw status verbose
   to prevent being locked out of your server.
 </Warning>
 
-To enable UFW:
+Allow your **actual SSH TCP port first** (replace `22` if needed), then enable UFW:
 ```bash
+sudo ufw allow 22/tcp
 sudo ufw enable
 ```
 
@@ -67,6 +68,8 @@ sudo ufw allow ssh
 sudo ufw allow http
 sudo ufw allow https
 ```
+
+After activation, verify a new SSH connection before closing your current session. See the [UFW walkthrough](/advanced-setup-guides/ufw-uncomplicated-firewall-howto) for a complete sequence.
 
 ### Deny incoming connections
 
@@ -138,7 +141,7 @@ sudo ufw default allow outgoing
 4. **Backup Rules**
    Backup your UFW rules periodically:
    ```bash
-   sudo cp /etc/ufw/user.rules /etc/ufw/user.rules.backup
+   sudo cp -a /etc/ufw /root/ufw-backup
    ```
 
 ## Common configuration examples
@@ -178,7 +181,7 @@ If you encounter issues:
    ```
 
 3. **Reset UFW**
-   If needed, reset UFW to default settings:
+   Resetting UFW deletes configured rules and disables it. Use this only when deliberately rebuilding the firewall with console access available:
    ```bash
    sudo ufw reset
    ```

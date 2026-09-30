@@ -23,7 +23,7 @@ description: "Recover a Linux VPS that fails to boot or has connectivity issues 
 
    ![Mount ISO Dialog](/assets/Ijip8O_qmSgr6LR-nJvf5_sysrescuecd1.png)
 
-5. Once mounted, click **Enable VNC Server**, then open **noVNC** to access the console.  
+5. Once mounted, click **Start VNC**, then **Open Console** to access the console.  
 6. In the boot menu, select **Boot SystemRescueCd using default options** and press **Enter**.  
 
    ![noVNC Boot Screen](/assets/vg4lijwNdjgyOUDN05SQD_sysrescuecd2.png)
@@ -62,7 +62,7 @@ You can find your assigned IP information at [VPS IP address settings](/vps-mana
 ~~~bash
 ping -c 3 8.8.8.8
 ping -c 3 1.1.1.1
-ping -c 3 <your-gateway>   # replace with your real gateway
+ping -c 3 YOUR_GATEWAY   # replace with your real gateway
 ping -c 3 google.com       # DNS + outbound test
 ~~~
 
@@ -80,18 +80,22 @@ If you’re in command-line mode:
 
 ~~~bash
 ip a                            # identify the interface (eth0 / ens3)
-ip addr add <your-ip>/<subnet> dev eth0
-ip route add default via <your-gateway>
+ip addr add YOUR_IP/PREFIX_LENGTH dev eth0
+ip route add default via YOUR_GATEWAY
 
 echo "nameserver 1.1.1.1" > /etc/resolv.conf
 echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 
 ping -c 4 8.8.8.8
-ping -c 4 <your-gateway>
+ping -c 4 YOUR_GATEWAY
 ping -c 4 google.com
 ~~~
 
 ---
+
+<Note>
+  Networking configured in the rescue environment is temporary. It does not repair the installed OS configuration on disk. Identify the installed system's root filesystem before editing files there; `/dev/vda1` below is an example, not a guaranteed layout.
+</Note>
 
 ## Check the firewall from rescue mode
 
@@ -121,12 +125,9 @@ cat /mnt/system/etc/ufw/user.rules
 cat /mnt/system/etc/iptables/rules.v4
 ~~~
 
-4. Temporarily disable firewall (for testing):
-~~~bash
-chroot /mnt/system ufw disable
-# or
-chroot /mnt/system systemctl stop iptables
-~~~
+4. Back up any configuration file before editing it. Inspect both IPv4 and IPv6 rules (`user.rules` and `user6.rules` for UFW, or `rules.v4` and `rules.v6` for iptables-persistent).
+
+The installed OS is not running while you are booted into rescue mode. `chroot` changes the filesystem view; it does not boot that OS or start its service manager. Running `systemctl stop` in a chroot therefore does not stop the installed system's firewall. Use the rescue environment to inspect and repair its **persistent files**, then boot the installed OS and verify the firewall from the VNC console. Avoid flushing rules or disabling protection as a generic fix.
 
 ---
 
@@ -139,7 +140,7 @@ To review or fix the SSH configuration of your **main system**, follow these ste
 
 To troubleshoot SSH from the Rescue environment:
 
-1. Mount the main system partition first:
+1. Mount the main system partition if it is not already mounted from the firewall checks:
 ~~~bash
 lsblk
 mkdir -p /mnt/system
@@ -157,26 +158,36 @@ ls /mnt/system/etc/
 ~~~bash
 cd /mnt/system/etc/ssh
 cat sshd_config
+ls -la sshd_config.d/
 ~~~
 
-3. Check if the SSH service is installed and enabled:
+Read applicable configuration snippets as well as the main file; their settings can take precedence.
+
+3. Inspect installed SSH unit files without trying to start the installed OS:
 ~~~bash
-chroot /mnt/system bash
-ls /etc/systemd/system/ | grep ssh
-exit
+systemctl --root=/mnt/system list-unit-files 'ssh*'
 ~~~
+
+Look for `ssh.service`, `sshd.service`, or `ssh.socket`, depending on the distribution. This reports unit-file configuration, not whether the installed OS is currently running. See [systemctl's offline root option](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
 4. (Optional) Edit SSH settings:
 ~~~bash
 nano /mnt/system/etc/ssh/sshd_config
 ~~~
 
-5. Test port reachability:
+5. Finish recovery and test the installed OS:
+
+- Leave any shell whose working directory is inside `/mnt/system`, and unmount any filesystems you mounted. Do not force-unmount a busy filesystem; first close processes using it.
+- [Unmount the rescue ISO](/vps-management/mount-iso-image), then reboot from the virtual disk.
+- In the VNC console, check SSH syntax with `sudo /usr/sbin/sshd -t`, inspect the SSH service and firewall, and confirm the assigned network settings.
+- From a terminal on **your own computer**, test the VPS's actual SSH port and attempt a fresh login:
+
 ~~~bash
-nc -zv <your-server-ip> 22
-# Replace 22 with your custom SSH port if changed.
-# "open" means reachable; otherwise check firewall/network.
+nc -zv YOUR_VPS_IP 22
+ssh username@YOUR_VPS_IP
 ~~~
+
+Replace the placeholders and port. Testing while still booted into rescue mode only tests the rescue environment, not the installed system. Stop VNC after recovery is complete.
 
 ---
 

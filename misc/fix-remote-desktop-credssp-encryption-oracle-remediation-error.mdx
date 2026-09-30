@@ -1,27 +1,33 @@
 ---
 title: Fix Remote Desktop CredSSP Encryption Oracle Remediation
-description: "Fix the CredSSP Encryption Oracle Remediation error in Windows 10 Home Edition with a registry tweak from an elevated command prompt followed by a reboot."
+description: "Resolve the RDP CredSSP error by updating Windows on both ends and removing an insecure registry workaround after patching."
 ---
 
-## Fix CredSSP encryption oracle remediation error in Windows 10 Home Edition
+An RDP connection can fail with **“This could be due to CredSSP encryption oracle remediation”** when the client and server have incompatible security updates or policy settings.
 
-![Fix Remote Desktop CredSSP Encryption Oracle Remediation...](/assets/iYmlnKKkGu7hz93ByFxM6_cred-ssp-encryption-oracle-remediation-error-23ae56892c.png)
+![CredSSP encryption oracle remediation error](/assets/iYmlnKKkGu7hz93ByFxM6_cred-ssp-encryption-oracle-remediation-error-23ae56892c.png)
 
-This is how you get rid of the **CredSSP Encryption Oracle Remediation** Error in Windows 10 Home Edition:
+## Recommended fix
 
-<Steps>
-    <Step title="Type `cmd` in the search bar of your Windows 10"/>
-    <Step title="Right click on cmd and `run as Administrator`"/>
-    <Step title="Copy/paste the following code and confirm with `Enter`">
+1. Install the applicable Windows security updates on the computer running your RDP client.
+2. Open your VPS through **Start VNC → Open Console** in the [VPS Management Portal](/vps-management/enable-vnc-server). This gives you a way to work on Windows when RDP is unavailable.
+3. Install the applicable Windows security updates on the VPS. Use a supported Windows release and restart when required.
+4. Retry Remote Desktop after both systems have completed their updates.
 
-        ```shell Shell
-        REG ADD HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\CredSSP\Parameters\ /v AllowEncryptionOracle /t REG_DWORD /d 2
-        ```
-    </Step>
-    <Step title="Reboot. After the reboot, the RDP connection should be easy to establish."/>
+Microsoft recommends updating **both client and server** to restore a secure connection. See [Microsoft's CredSSP troubleshooting guide](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/credssp-encryption-oracle-remediation).
 
-</Steps>
+## If you previously applied the registry workaround
 
-<Warning>
-_An authentication error has occurred. The function requested is not supported. Remote computer: \<IP or name of computer>. This could be due to CredSSP encryption oracle remediation. For more information, see https://go.microsoft.com/fwlink/?linkid=866660 ._
-</Warning>
+Older instructions set `AllowEncryptionOracle` to `2`. This selects the **Vulnerable** policy and permits insecure CredSSP compatibility; it is not a permanent fix.
+
+After updating both systems, restore the organization's intended policy. On a personal, unmanaged client where this registry value was added solely for the workaround, remove that override from an **Administrator Command Prompt**:
+
+```cmd
+reg delete "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\CredSSP\Parameters" /v AllowEncryptionOracle /f
+```
+
+If the value does not exist, there is no local override to remove. For a company-managed computer, ask the administrator to review the policy instead. Microsoft documents the protection levels in [Encryption Oracle Remediation](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-admx-credssp).
+
+## Still unable to connect?
+
+Confirm the exact error message. A timeout, incorrect password, or [locked account](/vps-management/rdp-error-0xd07-user-account-locked) requires different troubleshooting. Use the [RDP connection guide](/getting-started/windows-remote-desktop) and include the error text and Windows versions when contacting support.

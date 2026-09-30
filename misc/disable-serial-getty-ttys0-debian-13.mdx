@@ -23,11 +23,11 @@ EDIS Global automatically disables the unnecessary serial getty service during f
 
 ## Existing systems
 
-If you already have a running Debian 13 system affected by this issue, you can silence the logging noise with the following commands:
+If your Debian 13 system shows this repeated failure and you do not use a serial console on `ttyS0`, stop the service and prevent it from starting again:
 
 ```bash
-systemctl disable serial-getty@ttyS0.service
-systemctl mask serial-getty@ttyS0.service
+sudo systemctl disable --now serial-getty@ttyS0.service
+sudo systemctl mask serial-getty@ttyS0.service
 ```
 
 ## Optional verification
@@ -37,6 +37,15 @@ You can verify the service status with:
 ```bash
 systemctl status serial-getty@ttyS0.service
 ```
+
+The expected state is **inactive** and **masked**. If you later need this serial console, reverse the change with:
+
+```bash
+sudo systemctl unmask serial-getty@ttyS0.service
+sudo systemctl enable --now serial-getty@ttyS0.service
+```
+
+The browser VNC console is separate from the `ttyS0` serial console. See the [systemctl reference](https://man7.org/linux/man-pages/man1/systemctl.1.html) for the difference between stopping, disabling, and masking a service.
 
 ## Additional information
 

@@ -20,11 +20,21 @@ ssh username@remote-host
 
 Replace **"username"** with your VPS username (_generally root and emailed to you after a VPS purchase_) and **"remote-host"** with the public IPv4 address of your VPS.&#x20;
 
-If this is the first time you are connecting, SSH prompts you to accept the remote server's public key. Type "yes" and press Enter, then enter your VPS password when prompted.
+On the first connection, SSH displays the server's host-key fingerprint. Verify it before accepting. You can inspect the corresponding public host key from the [VNC console](/vps-management/enable-vnc-server), for example:
+
+```bash
+sudo ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub
+```
+
+Match the key type and fingerprint shown by your SSH client. Once verified, type `yes`, then enter the VPS password. Password input normally shows no characters; this is expected.
+
+If SSH later reports **REMOTE HOST IDENTIFICATION HAS CHANGED**, investigate first. A reinstall can legitimately change the host key, but an unexpected change should not be ignored. After verifying the new key through the console, remove the old entry on your computer with `ssh-keygen -R YOUR_VPS_IP`, then reconnect. See the [OpenSSH key-management manual](https://man.openbsd.org/ssh-keygen).
 
 If the connection is successful, you'll see a welcome message from the remote server, and you'll be presented with a command prompt in the remote server's shell. You can then run remote commands and upload/download files as needed using the SSH connection.
 
 _Make sure you have SSH access enabled and have the correct user credentials to log in to the VPS._
+
+For a custom SSH port, use `ssh -p 2222 username@remote-host`, replacing `2222` with the configured port. If authentication fails, check the username and password or use the [Linux password-reset guide](/vps-management/reset-root-password-linux). For a timeout, follow [network troubleshooting](/faq/ip-addresses/network-is-down).
 
 After you are finished with any tasks with the remote server you can simply type:
 

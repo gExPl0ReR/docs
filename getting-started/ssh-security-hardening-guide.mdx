@@ -1,263 +1,106 @@
 ---
 title: SSH security hardening guide
 sidebarTitle: SSH Hardening
-description: "Essential SSH hardening practices for your VPS: change default ports, enable key authentication and 2FA, restrict root access, and monitor SSH login logs."
+description: "Harden SSH on Debian and Ubuntu without losing access: test a sudo account and keys, validate configuration, restrict login methods, and verify reconnects."
 ---
 
-## SSH security hardening guide
+Harden SSH in stages: establish a working administrator account and SSH key first, then restrict login methods. The commands below target **Debian and Ubuntu**.
 
-## Strengthening SSH security
+<Warning>
+  Keep your existing SSH session open and have the [VNC console](/vps-management/enable-vnc-server) available. Test a second, independent login after each change. Do not disable your only working way to sign in.
+</Warning>
 
-Secure Shell (SSH) is a fundamental tool for server management, providing encrypted communication for remote access. However, it’s also a common target for cyberattacks. Implementing basic SSH security measures is essential to protect your server from unauthorized access and brute-force attacks.
+## 1. Update OpenSSH
 
-This guide begins with foundational security practices and progresses to advanced techniques for a comprehensive approach to hardening your SSH setup. Whether you’re a beginner or an experienced administrator, this guide will help you secure your server effectively.
+Use the distribution's packages; security fixes may be backported without changing the upstream version number. Follow [Update SSHD](/advanced-setup-guides/security-advisories/update-sshd-debian-ubuntu-redhat).
 
-## Basic SSH security measures
+## 2. Create and test an administrator account
 
-For those just starting, here are a few simple yet crucial steps to secure your SSH connection:
-
-**Change the default SSH port**:
-
-* By default, SSH listens on port 22, a known target for attackers. Changing it to a non-standard port reduces the likelihood of brute-force attacks.
-  **Disable root login**:
-
-* Direct root access is a significant risk. Use a regular user account with sudo privileges instead.
-  **Enable SSH key authentication**:
-
-* Replace password-based logins with SSH keys for enhanced security. This method ensures only users with the private key can access the server.
-  **Limit failed login attempts**:
-
-* Install tools like Fail2Ban to block IP addresses after a set number of unsuccessful login attempts.
-  **Keep your system updated**:
-
-* Regularly update your server and SSH software to patch vulnerabilities and improve overall security.
-
-By starting with these basic practices, you’ll lay a strong foundation for SSH security. The following sections will build on these principles with advanced strategies to further harden your server against sophisticated threats.
-
-## 1. Change the default SSH port
-
-The default SSH port (port 22) is one of the primary targets for brute-force attacks. Changing the port can be the first step to improving security.
-
-Steps:
-
-**Edit the SSH configuration file:**
-
-`sudo nano /etc/ssh/sshd_config`
-
-**Find the line Port 22 and change it to a different port (e.g., 2222):**
-
-` Port 2222`
-
-**Restart SSH to apply the changes:**
-
-` sudo systemctl restart sshd`
-
-**Before disconnecting, check if the new port is open:**
+On the VPS, create an account if you do not already have one. Replace `adminuser` throughout this guide with your chosen username:
 
 ```bash
-sudo ufw allow 2222/tcp
-sudo ufw enable
+sudo adduser adminuser
+sudo usermod -aG sudo adminuser
 ```
 
-## 2. Use SSH key authentication instead of passwords
-
-SSH key authentication is much more secure than using passwords, as it prevents brute-force attacks.
-
-Steps:
-
-**Generate an SSH key pair (if you don't already have one):**
-
-` ssh-keygen -t rsa -b 4096`
-
-**Copy the public key to the server:**
-
-` ssh-copy-id user@your_server_ip`
-
-**Disable password authentication in the SSH config file:**
-
-` sudo nano /etc/ssh/sshd_config`
-
-**Set the following:**
-
-` PasswordAuthentication no`
-
-**Restart SSH:**
-
-` sudo systemctl restart sshd`
-
-## 3. Install and configure Fail2Ban to prevent brute force attacks
-
-**Fail2Ban** is a tool that detects brute-force attacks and blocks suspicious IP addresses.
-
-Steps:
-
-**Install Fail2Ban:**
-
-` sudo apt-get install fail2ban`
-
-**Configure Fail2Ban for SSH:**
-
-* Edit the jail.local file:
-
-`sudo nano /etc/fail2ban/jail.local`
-
-* Add or edit the \[sshd] section as follows:
+In a **new terminal on your computer**, connect as that user and verify administrative access:
 
 ```bash
-[sshd]
-enabled = true
-port = 2222
-filter = sshd
-logpath = /var/log/auth.log
-maxretry = 3
-bantime = 600
+ssh adminuser@YOUR_VPS_IP
+sudo -v
 ```
 
-* Set the correct port for SSH (e.g., 2222).
+Keep the original session open until both commands work.
 
-**Restart Fail2Ban:**
+## 3. Configure SSH key authentication
 
-` sudo systemctl restart fail2ban`
-
-**Check Fail2Ban status:**
-
-` sudo fail2ban-client status sshd`
-
-## 4. Disable root login via SSH
-
-Allowing root login via SSH is a security risk. It's better to disable root login and use a regular user account with sudo privileges.
-
-Steps:
-
-**Edit the SSH config file:**
-
-` sudo nano /etc/ssh/sshd_config`
-
-**Find the PermitRootLogin line and set it to no:**
-
-` PermitRootLogin no`
-
-**Restart SSH:**
-
-` sudo systemctl restart sshd`
-
-## 5. Enable two-factor authentication (2FA) for SSH
-
-Adding two-factor authentication (2FA) to SSH adds an extra layer of security. Even if an attacker guesses your password, they will need an additional code to log in.
-
-Steps:
-
-**Install pam\_google\_authenticator:**
-
-` sudo apt-get install libpam-google-authenticator`
-
-**Run google-authenticator for each user:**
-
-` google-authenticator`
-
-**Edit the PAM configuration file for SSH:**
-
-` sudo nano /etc/pam.d/sshd`
-
-**Add the following line at the end:**
-
-` auth required pam_google_authenticator.so`
-
-**Then, edit the SSH config file to enable 2FA:**
-
-` sudo nano /etc/ssh/sshd_config`
-
-**Set the following:**
-
-` ChallengeResponseAuthentication yes`
-
-**Restart SSH:**
-
-` sudo systemctl restart sshd`
-
-## 6. Restrict SSH access to specific IP addresses
-
-Limiting SSH access to specific IP addresses greatly improves security.
-
-Steps:
-
-**Use iptables to allow SSH access only from a specific IP address:**
+On **your computer**, generate a key if you do not already have one. Protect it with a passphrase and do not overwrite an existing key you still use:
 
 ```bash
-sudo iptables -A INPUT -p tcp -s YOUR_TRUSTED_IP --dport 2222 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 2222 -j DROP
+ssh-keygen -t ed25519
+ssh-copy-id adminuser@YOUR_VPS_IP
 ```
 
-**To make iptables rules persistent:**
+`ssh-copy-id` copies the public key; keep the private key on your computer. If your client does not include this tool, use its public-key installation instructions. See the [OpenSSH key-generation manual](https://man.openbsd.org/ssh-keygen).
 
-` sudo apt-get install iptables-persistent`
-
-## 7. Monitor SSH logs and status
-
-Regularly checking SSH logs and monitoring the status can help you detect any suspicious activity.
-
-Steps:
-
-**Check SSH logs:**
-
-` sudo tail -f /var/log/auth.log`
-
-**Use logwatch for enhanced monitoring:**
+Test a fresh connection that permits **only public-key authentication**:
 
 ```bash
-sudo apt-get install logwatch
-sudo logwatch --detail High --service sshd --range today
+ssh -o PreferredAuthentications=publickey -o PasswordAuthentication=no adminuser@YOUR_VPS_IP
 ```
 
-## 8. Use security tools to scan for threats
+A prompt for the private key's passphrase is normal. Confirm that `sudo -v` also works in this new session.
 
-Tools like **Lynis** and **RKHunter** can help detect security vulnerabilities and threats.
+## 4. Restrict login methods
 
-Steps:
+Back up `/etc/ssh/sshd_config` and any files you will edit in `/etc/ssh/sshd_config.d/`. Inspect the existing configuration before adding settings: included snippets can take precedence over the main file.
 
-**Install Lynis:**
+For a **key-only setup without PAM-based MFA**, configure:
+
+```text
+PubkeyAuthentication yes
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+PermitRootLogin no
+```
+
+Do this only after the non-root administrator and key login work. These settings do not disable the account's password for console login or `sudo`.
+
+Check syntax and the effective configuration:
 
 ```bash
-sudo apt-get install lynis
-sudo lynis audit system
+sudo /usr/sbin/sshd -t
+sudo /usr/sbin/sshd -T | grep -E '^(pubkeyauthentication|passwordauthentication|kbdinteractiveauthentication|permitrootlogin) '
 ```
 
-**Install RKHunter:**
+If you use `Match` blocks, effective settings can differ by user and connection. Resolve unexpected values before proceeding. OpenSSH generally uses the first value found for each setting; see [Ubuntu's OpenSSH configuration guide](https://ubuntu.com/server/docs/how-to/security/openssh-server/) and the [OpenSSH configuration reference](https://man.openbsd.org/sshd_config).
+
+If validation passes, reload SSH on Debian/Ubuntu:
 
 ```bash
-sudo apt-get install rkhunter
-sudo rkhunter --check
+sudo systemctl reload ssh
 ```
 
-## 9. Limit SSH authentication retries
+Open another new connection and verify key login and `sudo` before closing your original session.
 
-Limiting the number of failed SSH login attempts can prevent brute-force attacks.
+## 5. Apply firewall rules before enabling the firewall
 
-Steps:
+Allow the **actual SSH TCP port** before enabling UFW. Port 22 is the default; replace it if you changed it. Follow the [UFW setup guide](/advanced-setup-guides/ufw-uncomplicated-firewall-howto), including its reconnect test.
 
-**Edit the sshd\_config file:**
+A custom port can reduce automated login noise, but it is not a substitute for authentication or access controls. Port changes also require matching firewall, client, and sometimes `ssh.socket` configuration. They are optional and are not part of the key-only procedure above.
 
-` sudo nano /etc/ssh/sshd_config`
+## 6. Monitor access and consider additional controls
 
-**Set the following:**
-
-` MaxAuthTries 3`
-
-**Restart SSH:**
-
-` sudo systemctl restart sshd`
-
-## 10. Use SSH key agent
-
-To avoid repeatedly entering passwords or SSH keys when connecting, you can use **SSH Key Agent**, which automatically loads your SSH keys.
-
-Steps:
-
-**Add your SSH keys to the agent:**
+Inspect recent SSH events on Debian/Ubuntu:
 
 ```bash
-eval $(ssh-agent)
-ssh-add ~/.ssh/id_rsa
+sudo journalctl -u ssh --since '1 hour ago'
 ```
 
-By following these steps, you can significantly improve the security of your SSH connections and protect your server from unauthorized access.
+Fail2Ban can add temporary bans for repeated failed logins. Configure its SSH port and log backend to match the server; do not assume `/var/log/auth.log` exists on a journal-only installation.
+
+For MFA, use a complete procedure for your distribution and authentication provider. Enabling keyboard-interactive authentication alone does **not** require a second factor. An MFA configuration must combine the intended methods and enroll all affected users; it also differs from the key-only settings above. See [OpenSSH AuthenticationMethods](https://man.openbsd.org/sshd_config#AuthenticationMethods).
+
+## If a new login fails
+
+Keep the existing session open, review the SSH journal, and restore the configuration files you changed. Validate with `sshd -t` before reloading. If all SSH access is lost, use the [VNC console](/vps-management/enable-vnc-server) to repair the configuration.

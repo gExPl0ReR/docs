@@ -10,6 +10,10 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 
 Learn how to update your IP address without server reinstallation. Follow these step-by-step instructions to manually configure the network settings in Ubuntu.
 
+<Warning>
+  Use only the IP address, prefix length, gateway, and DNS settings assigned to your VPS in [Network Info](/vps-management/ip-address-information). The addresses in the screenshots are examples. Keep the VNC console open because changing an IP address interrupts SSH connections.
+</Warning>
+
 ### Access portal and launch VNC
 
 <Steps>
@@ -60,6 +64,13 @@ Take note of your interface name (e.g., `ens3` or `eth0`).
 cd /etc/netplan/
 ```
 
+Before editing, save a copy of the current Netplan configuration outside `/etc/netplan/`:
+
+```bash
+sudo cp -a /etc/netplan /root/netplan-before-ip-change
+ls /etc/netplan/
+```
+
 **Open the configuration file** (e.g., `50-cloud-init.yaml`):
 
 ```bash
@@ -106,11 +117,16 @@ addresses:
 
 ### Apply network changes
 
-Execute the following command to apply your new network configuration:
+First validate the YAML, then try the configuration with a confirmation timeout:
 
 ```bash
-sudo netplan apply
+sudo netplan generate
+sudo netplan try --timeout 120
 ```
+
+If validation reports an error, fix it before continuing. During the trial, test connectivity to the new IP from your computer and check the gateway and DNS from the VPS. Confirm in the VNC console only when the configuration works.
+
+If you do not confirm, Netplan attempts to roll back. Keep VNC available and verify that both the running network and the files on disk are correct before rebooting; rollback has documented limitations. See [Netplan's `try` reference](https://netplan.readthedocs.io/en/stable/netplan-try/).
 
 ---
 

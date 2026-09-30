@@ -34,13 +34,9 @@ Common causes include:
 
 ### 1. Wait and try again
 
-Most Windows systems automatically unlock the account after:
+The waiting time depends on the server's **Account lockout duration** policy. A value of `0` means an administrator must unlock the account; waiting alone will not resolve it. See [Microsoft's account lockout documentation](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/account-lockout-duration).
 
-- 15 minutes
-- 30 minutes
-- or according to local Windows security policies
-
-Wait a little while and try connecting again.
+Stop repeated connection attempts and check for old saved credentials before trying again. If you have another working administrator account, use the [VNC console](/vps-management/enable-vnc-server) to inspect the local account and lockout policy.
 
 ### 2. Verify username and password
 

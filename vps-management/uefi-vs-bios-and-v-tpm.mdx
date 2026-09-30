@@ -27,10 +27,10 @@ Open your VPS under **Services → My Services**, then select **Server Informati
 
 - Legacy boot mode
 - Maximum compatibility
-- Works with all supported operating systems
+- Use with operating-system images installed for legacy BIOS boot
 - Recommended for most Linux installations
 
-👉 **Default setting on all VPS**
+The installed OS and deployment method determine the appropriate setting. Auto-installers can select a different boot mode.
 
 ---
 
@@ -40,10 +40,9 @@ Open your VPS under **Services → My Services**, then select **Server Informati
 - Required for newer operating systems
 - Supports advanced features like Secure Boot
 
-Required for:
+Windows 11 requires UEFI with Secure Boot capability and TPM 2.0; see [Microsoft's Windows 11 requirements](https://support.microsoft.com/en-US/Windows/Experience/Compatibility/windows-11-system-requirements).
 
-- Windows 11
-- Windows Server 2025
+Windows Server 2025 lists UEFI and TPM as requirements for **certain features**, rather than every installation. Check the requirements of your image and security features in [Microsoft's Windows Server hardware guide](https://learn.microsoft.com/en-us/windows-server/get-started/hardware-requirements). Selecting UEFI alone does not prove that Secure Boot is enabled.
 
 ---
 
@@ -113,7 +112,7 @@ Manual BIOS / UEFI / TPM settings are relevant when:
 
 ### OS compatibility
 
-- A significant number of operating systems are **not UEFI-compatible**
+- An image must include a bootloader compatible with the selected firmware mode
 - Switching from BIOS → UEFI on an existing installation will usually result in:
   - ❌ Boot failure
 
@@ -138,11 +137,9 @@ Manual BIOS / UEFI / TPM settings are relevant when:
 
 ## 🧾 Quick recommendations
 
-- Use **BIOS \+ no TPM** for:
-  - Linux servers
-  - General-purpose workloads
-- Use **UEFI \+ TPM** only for:
-  - Windows 11 / modern Windows deployments
+- Keep the existing boot mode for an installed system.
+- For a new custom image, follow its BIOS/UEFI and TPM requirements. Linux images may support either mode.
+- For Windows 11, select UEFI and Software TPM; check the remaining OS requirements as well.
 
 ---
 

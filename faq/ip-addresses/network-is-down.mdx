@@ -3,76 +3,66 @@ title: Network is down (Linux server)
 description: "When your Linux VPS appears unreachable or the network seems down, connect via VNC and follow these steps to diagnose and restore network connectivity."
 ---
 
-## How to connect to the server via VNC
+If SSH or an application is unreachable, first check [service status](https://status.edis.global) and whether the VPS is running. A failed ping alone does not prove the server is offline.
 
-1. Log in to the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
-2. Locate your VPS in the Services tab.
-3. Click **Start VNC**, then use **noVNC** to connect to the console of your server.
+## Open the console
 
-## What to check once connected via VNC
+1. Open your VPS under **Services → My Services** in the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
+2. Select **Start VNC**, then **Open Console**.
+3. Log in to Linux. The console remains useful even when networking inside the VPS is misconfigured.
 
-If your server's operating system is **Linux**:
+See [VNC access](/vps-management/enable-vnc-server) for details.
 
-1. **Check the network interfaces:**
+## Check the interface and assigned settings
 
-   ```bash
-   ip a
-   ```
+```bash
+ip -br address
+ip route
+ip -6 route
+```
 
-   - Make sure the network interface (e.g., `eth0`, `ens3`) is UP and has a valid IP address.
+Compare the interface, addresses, prefix lengths, and gateway with **Network Info** in the portal. Use your own assigned values, not values from a screenshot. For IPv6, follow the [IPv6 troubleshooting guide](/vps-management/basic-ipv6-troubleshooting).
 
-2. **Check the gateway and ping it:**
+## Separate routing from DNS problems
 
-   ```bash
-   ip route
-   ```
+Replace `YOUR_GATEWAY` with the gateway shown in Network Info:
 
-   - Identify the gateway address (look for the line `default via ...`).
-   - Then ping the gateway:
+```bash
+ping -c 4 YOUR_GATEWAY
+ping -c 4 1.1.1.1
+getent ahosts example.com
+```
 
-     ```bash
-     ping -c 4 <IP_GATEWAY>
-     ```
+- An IP test working while name resolution fails points toward a resolver problem.
+- A nonresponsive gateway may simply filter ICMP; compare multiple tests and actual application connectivity.
+- If the interface lacks its assigned address or default route, inspect its persistent network configuration.
 
-3. **Ping local addresses:**
+## Check the affected service and firewall
 
-   - Ensure the local network stack is working:
+For SSH on Debian or Ubuntu:
 
-     ```bash
-     ping -c 4 127.0.0.1
-     ping -c 4 $(hostname -I)
-     ```
+```bash
+sudo systemctl status ssh --no-pager
+sudo journalctl -u ssh -n 50 --no-pager
+sudo ss -lntp
+```
 
-4. **Check the SSH service:**
+On distributions such as RHEL, the service is usually named `sshd`. If socket activation is configured, also inspect `ssh.socket`. In the listener output, check the actual port and address on which SSH or your application is listening.
 
-   - Verify if the SSH service is running:
+If you use UFW:
 
-     ```bash
-     systemctl status sshd
-     ```
+```bash
+sudo ufw status verbose
+```
 
-5. **Check the web server (if applicable):**
+Correct the specific rule that blocks the required service. See [Ports, firewalls and connectivity](/faq/ip-addresses/ports-firewalls-and-connectivity).
 
-   - If nginx or apache is installed:
+## Apply the right network fix
 
-     ```bash
-     systemctl status nginx
-     # or
-     systemctl status apache2
-     ```
+Network management varies by installation. Do not assume `systemctl restart networking` applies to every Linux system. For Ubuntu using Netplan, follow [Change IP on Ubuntu](/vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404), including backup, validation, and `netplan try`.
 
-6. **Review recent logs:**
+If Linux cannot boot, continue with the [rescue CD guide](/vps-management/linux-rescue-guide-and-troubleshoot).
 
-   - Check for any recent system or network errors:
+## What to send support
 
-     ```bash
-     journalctl -xe
-     ```
-
-7. **Restart the networking service if necessary:**
-
-   - If there are issues with the network interfaces or configuration:
-
-     ```bash
-     systemctl restart networking
-     ```
+Include the service identifier, source and destination IPs, time and timezone of the failure, exact error, and relevant command output. Remove passwords and private keys. Explain whether VNC works and whether the failure affects one service or all connectivity. Stop VNC after troubleshooting.

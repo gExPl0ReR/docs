@@ -1,7 +1,7 @@
 ---
 title: "Resize Linux disk after a VPS upgrade"
 sidebarTitle: "Resize Linux Disk/Partition"
-description: "Manually resize disk space on a live Linux VPS after a plan upgrade or Drive Size Boost using SystemRescueCD."
+description: "Expand a Linux partition after a VPS disk upgrade using an offline SystemRescue session, with disk-layout checks and swap configuration guidance."
 ---
 
 <Warning>
@@ -16,6 +16,10 @@ To resize disk space and unallocated space on your disk, use SystemRescueCD. The
 
 Remember, modifying disk partitions and file systems can be risky and may result in data loss, especially if there's a power interruption or if you perform the operations incorrectly. Always back up important data before proceeding.
 Here’s a general guide on how to resize disk space manually:
+
+<Note>
+  This is an **offline procedure**: the normal operating system and its services are stopped while the rescue ISO runs. The screenshots show one layout only. Before changing partitions, inspect `lsblk -f` and identify the root filesystem, swap, any EFI or boot partition, and any LVM or encrypted volumes. Do not apply the example partition names to a different layout.
+</Note>
 
 ## Access the VPS management portal
 
@@ -43,9 +47,9 @@ After the upgrade was confirmed ...
 
 ![Resize Linux Disk/Partition](/assets/Ijip8O_qmSgr6LR-nJvf5_sysrescuecd1.png)
 
-## Launch noVNC
+## Open the browser console
 
-1. Click "**Launch noVNC**" to see console output
+1. Click **Start VNC**, then **Open Console** to see console output
 
 2. Click into the noVNC browser window to set focus
 
@@ -63,7 +67,11 @@ After the upgrade was confirmed ...
 
 ![Resize Linux Disk/Partition](/assets/-gvJtyF7VHSRiIGAeVws-_sysrescuecd3.png)
 
-In the GParted window that opens, you will see several partitions. There will be vda1 and vda2 partitions. You need to add unallocated space to the vda1 (root) partition. However, you will not be able to expand space in the /dev/vda1 (root) partition without deleting /dev/vda2 (swap). &#x20;
+In the screenshot's example, `/dev/vda1` contains the root filesystem and `/dev/vda2` is swap between the root partition and the new unallocated space. **Your layout may differ.**
+
+If free space already follows the partition you want to grow, skip swap deletion and recreation. If a partition blocks expansion, identify its purpose first. Never delete an EFI, boot, recovery, LVM, or data partition because its number matches this example. Encrypted and LVM layouts need procedures appropriate to those storage layers.
+
+The following swap steps apply only when you have confirmed the intervening partition is disposable swap. If it is active in the rescue environment, use GParted's **Swapoff** action before modifying it. See the [GParted manual](https://gparted.org/display-doc.php?name=help-manual).
 
 1. **Remove the swap partition**. The vda2 (swap) partition will be located next to vda1 and the unallocated space. Right-click on this partition and select Delete.&#x20;
 
@@ -71,36 +79,31 @@ In the GParted window that opens, you will see several partitions. There will be
 
 3. **Apply changes**: After arranging the partitions as desired, click the “Apply” button in GParted to apply the changes. Be aware that this process can take some time and may result in data loss if not done correctly.
 
-4. **Create a swap partition**. Right-click on unallocated space and select New. In the File system field, select Linux-swap and click the Add button.
+4. **Create a swap partition**. Right-click on unallocated space and select New. In the File system field, select Linux-swap and click the Add button. Apply this queued operation before continuing.
 
 ![Resize Linux Disk/Partition](/assets/13ePrT-SgVGNR1CSJAvv7_sysrescuecd5.png)
 
 1. **Check and repair file systems**: Once the partitioning is complete, it's a good idea to check the file systems for errors. You can do this from GParted by right-clicking on each partition and selecting “Check”.
 
-2. **Exit and Reboot**: After completing the partitioning and checks, exit GParted and the graphical interface, then reboot your system.
+2. **Update swap before rebooting**: If you recreated swap, complete the next section while still in rescue mode. A recreated swap partition may have a new UUID.
 
-## Identify the new swap partition
+## Update the installed system's swap reference
 
-1. **Log into Your VPS:** Log in as the root user of the system.
+If you did not recreate swap, skip this section.
 
-2. **List Current Partitions**: Use the command blkid to list all partitions and identify the swap partition and its UUID. Copy the UUID of a swap partition.
-   `blkid`
+1. Run `lsblk -f` and `blkid` to identify the new swap UUID and the installed root filesystem.
+2. Mount the installed root filesystem at `/mnt/system`. For the confirmed example layout only:
 
-3. **Edit FSTAB** **config:** Before editing /etc/fstab, it’s a good idea to back it up. Use:
-   `cp /etc/fstab /etc/fstab.backup`
+   ```bash
+   mkdir -p /mnt/system
+   mount /dev/vda1 /mnt/system
+   cp /mnt/system/etc/fstab /mnt/system/etc/fstab.before-resize
+   nano /mnt/system/etc/fstab
+   ```
 
-4. **Edit fstab**: Open the /etc/fstab file in a text editor:
-   `nano /etc/fstab`
-
-5. **Locate Swap Entry**: Find the line in fstab that corresponds to the swap partition. It will have 'swap' in the type field.
-
-6. **Update UUID**: Replace the old UUID with the new one you noted earlier. Be careful to only change the UUID in the swap line.
-
-7. **Save and Close:** Save the changes using CTRL+O combination and close the editor.
-
-8. **Restart the VPS**: Finally, reboot the server to boot into your primary operating system. You can continue to monitor this process via the VNC connection until you have confirmed that the server boots correctly and the new disk settings are functioning as expected.
-
-9. **Verify Swap Status:** Ensure that the swap is active and using the new UUID by running "swapon -s" or "cat /proc/swaps".
+3. Replace the old UUID **only in the swap entry** with the new swap UUID. Do not change the root filesystem or EFI entries.
+4. If your installation has a resume/hibernation setting that references the old swap UUID, update it using your distribution's procedure before rebooting.
+5. Save the file, leave directories under `/mnt/system`, and unmount the root filesystem with `umount /mnt/system`. If it is busy, close the processes using it first.
 
 **Final Steps**:
 
@@ -108,10 +111,7 @@ In the GParted window that opens, you will see several partitions. There will be
      **Unmount SystemRescueCD**
    </a>
 
-2. <a href="https://docs.edisglobal.com/enable-vnc-server" target="_blank">
-     **Disable VNC access**
-   </a>
+2. Reboot from the virtual disk and verify the larger filesystem with `df -hT` and `lsblk -f`. If swap was recreated, check `swapon --show`.
 
-**Congrats!**
+3. Confirm normal services work, then [stop VNC access](/vps-management/enable-vnc-server).
 
-Congratulations on completing the manual disk resizing process using the SystemRescueCD! Navigating the complexities of SystemRescueCD and ensuring the safety of your data throughout this delicate procedure is no small feat. Well done on achieving this significant milestone in system management! 🌟 Well done on enhancing your system's capabilities! 🎉👍

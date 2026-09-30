@@ -11,7 +11,7 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 If you cannot find the original VPS deployment email, EDIS Global cannot resend that message or recover the initial password.
 
 <Info>
-  EDIS Global generates VPS passwords during deployment and does not retain them in a recoverable form in its management or support systems. You can regain access by reinstalling the VPS and selecting a new password.
+  EDIS Global generates VPS passwords during deployment and does not retain them in a recoverable form in its management or support systems. You can set a new password using the recovery guides below, or reinstall a new VPS if it contains no data you need to keep.
 </Info>
 
 ## Before you reinstall
@@ -26,7 +26,18 @@ If you cannot find the original VPS deployment email, EDIS Global cannot resend 
 
 <CtaButton label="Open VPS Management Portal" link="https://manage.edisglobal.com/clientarea.php" />
 
-## Restore access to your VPS
+## Choose a recovery method
+
+If the VPS already contains data or configuration you want to keep, start with the password-reset guide for its operating system:
+
+- [Reset a Linux root password](/vps-management/reset-root-password-linux)
+- [Reset a Windows Administrator password](/vps-management/reset-windows-admin-password)
+
+These procedures set a new password; they do not retrieve the original one. Read the prerequisites and limitations in the relevant guide before proceeding.
+
+For a newly deployed VPS with nothing to preserve, you can instead reinstall it as described below.
+
+## Reinstall an empty VPS
 
 <Warning>
   Reinstalling permanently deletes the operating system, configuration, and all data currently stored on the VPS. Continue only if there is no data you need to preserve.
@@ -37,7 +48,7 @@ If you cannot find the original VPS deployment email, EDIS Global cannot resend 
     In the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), open **Services** and select the affected VPS.
   </Step>
   <Step title="Start the reinstallation">
-    Open the operating-system installation or reinstallation option.
+    On **Server Information**, click **Reinstall OS** in **Server management**.
   </Step>
   <Step title="Select an operating system and password">
     Select Linux or Windows and enter a strong new password when prompted.
@@ -60,7 +71,7 @@ If you cannot find the original VPS deployment email, EDIS Global cannot resend 
 
 EDIS Global generates the initial password during VPS deployment and configures it directly on the server. EDIS Global does not retain a recoverable copy in its management or support systems, so our team cannot retrieve or resend it later.
 
-This reduces the risk of a VPS password being disclosed through those systems. If the initial password is unavailable, reinstalling the VPS and selecting a new password is the supported way to regain access.
+This reduces the risk of a VPS password being disclosed through those systems. If the initial password is unavailable, use the appropriate password-reset guide above or reinstall a VPS whose contents you no longer need.
 
 ## Still need help?
 
