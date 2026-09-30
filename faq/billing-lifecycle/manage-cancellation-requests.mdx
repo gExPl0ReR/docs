@@ -1,14 +1,29 @@
 ---
 title: "Manage VPS cancellation requests"
 sidebarTitle: "Manage Cancellations"
-description: "Changed your mind about cancelling your VPS? Find cancellation requests in the EDIS Global portal and revoke an end-of-term cancellation yourself."
+description: "Withdraw a VPS cancellation before server deletion, up to six days after termination. Use the EDIS Global portal and check re-issued renewal invoices."
 ---
 
-Changed your mind and want to keep your VPS? You can **revoke an end-of-term cancellation request yourself** in the VPS Management Portal while the service is **active or suspended**.
+Changed your mind and want to keep your VPS? You can **withdraw a cancellation request as long as the server has not been deleted** — including after termination, for up to **six days after the termination date**. This applies to both **immediate** and **end-of-term** cancellations. Open **Manage Cancellations** in the VPS Management Portal to revoke the request or restore the VPS.
 
 <Tip>
   **Quick route:** [Portal Home](https://manage.edisglobal.com/clientarea.php) → **VPS Cancellation Requests** → **Manage Cancellations** → **Revoke Cancellation**.
 </Tip>
+
+## How long can I withdraw a cancellation?
+
+**Deletion is the cutoff, not termination.** You can withdraw the request before the VPS is permanently deleted. The retention window lasts up to **six days after the actual termination date**, not six days after you submitted the cancellation request.
+
+- **End-of-term cancellation:** The VPS terminates on its due date. The six-day window starts on that termination date.
+- **Immediate cancellation:** The VPS terminates immediately. The six-day window starts then.
+
+Act before deletion: once the server has been permanently deleted, withdrawal and data recovery are no longer possible.
+
+<Frame caption="The billing workflow highlights the six days between termination and deletion. This non-payment example counts days from the renewal due date; customer-requested cancellations use their actual termination date.">
+  <img src="/images/cancellation-withdrawal-window.png" alt="Annotated billing workflow table highlighting termination at day 14 and permanent deletion at day 20, a six-day interval." />
+</Frame>
+
+See the [VPS billing workflow](/faq/billing-lifecycle/automated-vps-billing-workflow) for the full non-payment timetable and [Data Retention Periods](/faq/billing-lifecycle/data-retention-period) for the deletion policy.
 
 ## Find an outstanding cancellation request
 
@@ -34,7 +49,7 @@ On the main dashboard, find **VPS Cancellation Requests** and click **Manage Can
 
 You can also open the [Manage VPS cancellations page directly](https://manage.edisglobal.com/index.php?m=vpsrecovery) after signing in.
 
-## Revoke an end-of-term cancellation
+## Revoke a scheduled end-of-term cancellation
 
 1. Find the VPS in the list. If needed, enter its **service ID, hostname or IP** in the search field and click **Search**.
 2. Check the **Service**, **IP / Hostname**, **Cancellation**, **Current Status** and **Deadline / Due Date** columns to make sure you have found the correct VPS. The **Cancellation** column shows a scheduled end-of-term request as **End of Billing Period**.
@@ -55,13 +70,19 @@ Revoking withdraws the scheduled cancellation request so the VPS is no longer sc
   Revoking a cancellation request makes that VPS ineligible for a refund under the [24-hour cancellation and refund policy](/faq/billing-lifecycle/cancellation-and-refund-policy).
 </Note>
 
-## If you cancelled with immediate effect
+## If the VPS has already been terminated
 
-The same **Manage VPS cancellations** page also lets you restore an **eligible VPS within six days of termination**, before its data is permanently deleted. Open the page promptly and review the action available for that service.
+You can still withdraw an **immediate or end-of-term cancellation** while the server has not been deleted, for up to **six days after termination**.
 
-This is different from withdrawing an end-of-term request while the VPS is still active or suspended. Availability depends on the service's current status and eligibility. If the VPS is not listed or no suitable action is available, [contact support](https://www.edisglobal.com/contact) promptly.
+Open **Manage VPS cancellations**, find the VPS and follow the available recovery action. If the VPS is not listed or no suitable action is available, [contact support](https://www.edisglobal.com/contact) promptly, before deletion.
 
-After permanent deletion, the VPS data cannot be recovered. See [Data Retention Periods](/faq/billing-lifecycle/data-retention-period) for the deletion timeline.
+## Check your re-issued renewal invoices
+
+When you withdraw a cancellation, **renewal invoices will be re-issued to ensure correct renewal and continuation of the service**.
+
+Open **Billing → My Invoices** in the portal and check your invoices folder or billing email for the re-issued invoice. Review its amount, due date and payment status, and pay any amount due. Do not rely on an earlier invoice marked **Cancelled**.
+
+If you are unsure which invoice to pay or whether renewal is in order, [ask our support team](https://www.edisglobal.com/contact). See [How to find and download your invoices](/faq/billing-lifecycle/find-and-download-invoices) for help locating them.
 
 ## Want to cancel a VPS instead?
 
