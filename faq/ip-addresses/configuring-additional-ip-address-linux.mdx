@@ -9,11 +9,11 @@ When you order an additional IP address for your VPS, it will not be added to yo
 
 Below are instructions on how to add a secondary IPv4 address to your VPS. Let's break down how to add an additional IP to the major Linux distributions:
 
-## Debian/Ubuntu:
+## Debian/Ubuntu
 
 Debian and Ubuntu use the same network configuration method.
 
-### 1. Edit the network configuration file:
+### 1. Edit the network configuration file
 
 - Open the terminal.
 - Edit the network interfaces file using the nano editor (or any other editor you prefer):
@@ -33,21 +33,21 @@ up ip addr add [YOUR-SECOND-IP]/24 dev eth0
 
 - Save the file and exit (for nano, it's `CTRL + X`, press `Y` and then `Enter`).
 
-### 2. Restart the networking service:
+### 2. Restart the networking service
 
 ```shell
 sudo systemctl restart networking
 ```
 
-## CentOS:
+## CentOS
 
-### 1. Navigate to the network scripts directory:
+### 1. Navigate to the network scripts directory
 
 ```shell
 cd /etc/sysconfig/network-scripts/
 ```
 
-### 2. Create a clone file for your interface:
+### 2. Create a clone file for your interface
 
 If your main interface is `eth0`, the clone would be named `eth0:0`.
 
@@ -55,7 +55,7 @@ If your main interface is `eth0`, the clone would be named `eth0:0`.
 sudo cp ifcfg-eth0 ifcfg-eth0:0
 ```
 
-### 3. Edit the clone configuration:
+### 3. Edit the clone configuration
 
 - Open the new configuration file in an editor:
 
@@ -73,7 +73,7 @@ DEVICE=eth0:0
 - Make sure you remove or comment out the `UUID` line.
 - Save and exit.
 
-### 4. Restart the network service:
+### 4. Restart the network service
 
 ```shell
 sudo systemctl restart network

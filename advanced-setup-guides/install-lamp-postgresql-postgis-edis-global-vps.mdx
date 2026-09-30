@@ -7,15 +7,15 @@ description: "Set up a LAMP stack with PostgreSQL and PostGIS on an EDIS Global 
 
 Welcome to EDIS Global VPS Hosting's comprehensive guide on setting up a LAMP environment, but with a twist: we're swapping out the MySQL component for PostgreSQL and its spatial extension, PostGIS.
 
-### Prerequisites:
+### Prerequisites
 
 1. An active EDIS Global VPS Hosting account.
 2. A VPS running Ubuntu 20.04 or later.
 3. Basic knowledge of terminal operations.
 
-### Step-by-step installation:
+### Step-by-step installation
 
-### 1. System update:
+### 1. System update
 
 Always ensure your server is up-to-date with the latest packages:
 
@@ -23,7 +23,7 @@ Always ensure your server is up-to-date with the latest packages:
 sudo apt update && sudo apt upgrade -y
 ```
 
-### 2. Apache installation:
+### 2. Apache installation
 
 Begin by installing the Apache web server:
 
@@ -37,7 +37,7 @@ To check Apache's status:
 sudo systemctl status apache2
 ```
 
-### 3. PHP installation:
+### 3. PHP installation
 
 To install PHP and necessary extensions:
 
@@ -51,7 +51,7 @@ Verify the PHP installation:
 php -v
 ```
 
-### 4. PostgreSQL and PostGIS installation:
+### 4. PostgreSQL and PostGIS installation
 
 Install PostgreSQL along with some contrib packages:
 
@@ -73,7 +73,7 @@ sudo apt install postgis postgresql-<VERSION>-postgis-3 -y
 
 _Note:_ Replace `<VERSION>` with your PostgreSQL version, e.g., `13` for PostgreSQL 13.
 
-### 5. Database setup:
+### 5. Database setup
 
 Switch to the `postgres` user and enter the PostgreSQL environment:
 
@@ -96,7 +96,7 @@ CREATE USER your_user_name WITH ENCRYPTED PASSWORD 'your_password';
 GRANT ALL PRIVILEGES ON DATABASE your_database_name TO your_user_name;
 ```
 
-### 6. Securing your installation:
+### 6. Securing your installation
 
 While setting up, always remember to secure your installations:
 
@@ -104,7 +104,7 @@ While setting up, always remember to secure your installations:
 - For PostgreSQL: Change default PostgreSQL user passwords, restrict remote access, and regularly back up your database.
 - Regularly update all components of your stack.
 
-### Conclusion:
+### Conclusion
 
 You've successfully set up a LAMP stack with PostgreSQL and PostGIS on your EDIS Global VPS! This hybrid setup allows you to harness the power of traditional web hosting with the spatial capabilities of PostGIS. Always ensure to monitor, maintain, and back up your server for optimal performance and safety.
 
