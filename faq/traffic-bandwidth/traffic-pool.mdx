@@ -14,7 +14,7 @@ import { CtaButton } from "/snippets/cta-button.mdx";
 
 The EDIS Global Traffic Pool gives every VPS in your account access to one shared traffic reserve. Purchase traffic once and assign it to any VPS whenever you need additional traffic.
 
-Traffic that remains in your Pool **does not expire**. In the portal, use the **+100 GB**, **+500 GB**, **+1 TB**, or **+10 TB** quick buttons to assign traffic manually. Alternatively, enable **Auto-Hydration** for an individual VPS and select a **100 GB**, **200 GB**, **300 GB**, or **500 GB** increment. Each time the VPS reaches **99%** of its current traffic allowance, the selected increment is assigned automatically from the shared Traffic Pool.
+Traffic that remains in your Pool **does not expire**. In the portal, use the **+100 GB**, **+500 GB**, **+1 TB**, or **+10 TB** quick buttons to assign traffic manually. Alternatively, enable **Auto-Hydration** for an individual VPS and select a **100 GB**, **200 GB**, **300 GB**, or **500 GB** increment. Each time the VPS reaches **99%** of its current traffic allowance, Auto-Hydration assigns the selected increment from the shared Traffic Pool.
 
 🌍 **No traffic zones. One global price across all 50 EDIS locations.**
 
@@ -73,7 +73,7 @@ Select the amount you need, from **1 TB** to **10 PB**. Larger bundles provide a
 
 ### 2. [Assign Pool Traffic](#traffic-pool-in-the-traffic-information-window)
 
-Open the **Traffic Information** window for the VPS and select **+100 GB**, **+500 GB**, **+1 TB**, or **+10 TB**. The assigned amount is deducted immediately from your Pool balance and added to the current traffic allowance for that VPS.
+Open the **Traffic Information** window for the VPS and click **+100 GB**, **+500 GB**, **+1 TB**, or **+10 TB**. EDIS Global immediately deducts the assigned amount from your Pool balance and adds it to the current traffic allowance for that VPS.
 
 <Warning>
   Assigned Pool Traffic does not carry over beyond the next monthly refill for that VPS. Check the refill date before assigning a large amount.
@@ -81,10 +81,10 @@ Open the **Traffic Information** window for the VPS and select **+100 GB**, **+5
 
 ### 3. [Enable Auto-Hydration](#traffic-pool-in-the-traffic-information-window)
 
-Enable **Auto-Hydration** for an individual VPS and select an increment of **100 GB**, **200 GB**, **300 GB**, or **500 GB**. When the VPS reaches **99%** of its current allowance, the selected amount is assigned automatically from your Traffic Pool. The current allowance includes monthly Plan Traffic plus any Pool Traffic already assigned during the cycle.
+Enable **Auto-Hydration** for an individual VPS and select an increment of **100 GB**, **200 GB**, **300 GB**, or **500 GB**. When the VPS reaches **99%** of its current allowance, Auto-Hydration assigns the selected amount from your Traffic Pool. The current allowance includes monthly Plan Traffic plus any Pool Traffic already assigned during the cycle.
 
 <Note>
-  Auto-Hydration uses your existing Traffic Pool balance. It does not automatically purchase additional traffic. If the Pool balance is insufficient, no further traffic can be assigned until the Pool is topped up.
+  Auto-Hydration uses your existing Traffic Pool balance. It does not automatically purchase additional traffic. If the Pool balance is insufficient, you can't assign further traffic until you top up the Pool.
 </Note>
 
 ---
@@ -155,10 +155,10 @@ You can open the account-wide Traffic Pool balance sheet from **any VPS in your 
   <img src="/images/traffic-pool-log-button-anonymized.png" alt="Anonymized Assignment History window with the pool log button highlighted beside the VPS-specific Assignment History button." />
 </Frame>
 
-**pool log** shows the shared Pool's transactions across your account, including traffic purchases, credits and assignments to different VPS services. The button labelled with your **VPS ID + Assignment History** switches back to assignments for that VPS.
+**pool log** shows the shared Pool's transactions across your account, including traffic purchases, credits, and assignments to different VPS services. The button labelled with your **VPS ID + Assignment History** switches back to assignments for that VPS.
 
 <Note>
-  Viewing Assignment History or pool log does not assign traffic, purchase traffic or change Auto-Hydration settings.
+  Viewing Assignment History or pool log does not assign traffic, purchase traffic, or change Auto-Hydration settings.
 </Note>
 
 ### How to read the balance sheet
