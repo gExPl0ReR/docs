@@ -50,7 +50,7 @@ To restore data from a `.tar.gz` archive file, use the following command:
 tar -xzvf backup.tar.gz -C /destination/directory
 ```
 
-Extract into an empty test directory first and inspect the result. Extraction can overwrite matching destination files, but an ordinary archive does not remove newer files that are absent from the archive, so it is not an exact system rollback. See the [GNU tar manual](https://www.gnu.org/software/tar/manual/tar.html).
+Extract into an empty test directory first and inspect the result. Extraction can overwrite matching destination files. However, an ordinary archive does not remove newer files that are absent from the archive, so it is not an exact system rollback. See the [GNU tar manual](https://www.gnu.org/software/tar/manual/tar.html).
 
 ### Restore steps
 
@@ -163,7 +163,7 @@ sudo dd if=/path/to/backup/backup.img of=/dev/sda bs=4M status=progress conv=fsy
 
 ## 4. Backup using cloud services with `rclone`
 
-If you use cloud services like Google Drive, Amazon S3, or Dropbox for storing backups, the **rclone** tool supports backing up and restoring data to/from these services for off-site backups. Rclone can sync and copy files between your local system and remote locations, and it supports encrypted backups to enhance data security through encryption. When configuring cloud backups, make sure to specify the correct location for your data.
+If you use cloud services like Google Drive, Amazon S3, or Dropbox for storing backups, you can use the **rclone** tool. It supports backing up and restoring data to/from these services for off-site backups. Rclone can sync and copy files between your local system and remote locations, and it supports encrypted backups to enhance data security through encryption. When configuring cloud backups, make sure to specify the correct location for your data.
 
 If you prefer a graphical interface, GUI programs like Deja Dup are available. Deja Dup (a graphical interface for Duplicity) supports incremental and encrypted backups, and integrates with cloud storage.
 
