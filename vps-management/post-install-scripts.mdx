@@ -80,7 +80,7 @@ ufw allow 443/tcp
 ufw enable
 ```
 
-The length of our Post Install Scripts is unrestricted. You can combine and tailor them to create intricate setup processes and streamline your deployment.
+The length of our Post-Install Scripts is unrestricted. You can combine and tailor them to create intricate setup processes and streamline your deployment.
 
 ### For RPM-based OS (CentOS, Rocky Linux, ...)
 
@@ -88,10 +88,10 @@ _(archived example)_
 
 The following script performs several actions on an RPM-based OS (RHEL, Fedora, CentOS, openSUSE, SLES, Oracle Linux, Rocky Linux, AlmaLinux)
 
-1. **SSH Configuration**
+1. **SSH configuration**
 
    It restricts root login to SSH key authentication only, disabling password access. It then restarts the SSH daemon to apply these changes.
-2. **LAMP Stack Installation**:
+2. **LAMP stack installation**:
    Updates the system packages.
    Installs necessary utilities: curl, wget, and unzip.
    Installs and starts the Apache web server, and ensures it starts on boot.
@@ -128,54 +128,54 @@ curl -s --form-string $token --form-string $user --form-string 'message=Post ins
 
 ### Use cases for post-install scripts
 
-The above scripts serve as illustrative examples, showcasing how you can leverage the Post Install Script feature. The potential applications are boundless.
+The above scripts serve as illustrative examples, showcasing how you can leverage the Post-Install Script feature. The potential applications are boundless.
 
 Here are some more examples of tasks you can automate with post-install scripts:
 
-**User and Security Configuration**:
+**User and security configuration**:
 
 - Creating user accounts and setting permissions.
 - Configuring firewalls and security groups.
 - Setting up SSH keys and disabling root login.
 - Installing and configuring security software like Fail2Ban.
 
-**Networking Configuration**:
+**Networking configuration**:
 
 - Configuring routing rules and network interfaces.
 - Setting up VPNs or other networking services.
 
-**Software Installation and Configuration**:
+**Software installation and configuration**:
 
 - Installing and configuring web servers like Nginx or Apache.
 - Setting up databases like MySQL, PostgreSQL, or MongoDB.
 - Installing and configuring caching servers like Redis or Memcached.
 - Deploying your application and its dependencies.
 
-**Monitoring and Logging**:
+**Monitoring and logging**:
 
 - Installing and configuring monitoring solutions like Zabbix, Prometheus, or Nagios.
 - Setting up logging solutions like ELK stack (Elasticsearch, Logstash, Kibana).
 - Configuring notifications for monitoring and logging alerts.
 
-**Backup and Recovery**:
+**Backup and recovery**:
 
 - Setting up automated backups for your system and databases.
 - Configuring replication for databases.
 - Setting up disaster recovery solutions.
 
-**Custom Scripting**:
+**Custom scripting**:
 
 - Running custom scripts to meet your particular needs.
 - Automating routine maintenance tasks.
 - Running data processing or analysis scripts.
 
-**Cloud Services Integration**:
+**Cloud services integration**:
 
 - Configuring integration with cloud services like AWS, GCP, or Azure.
 - Setting up cloud-based storage solutions.
 - Configuring cloud-based monitoring and logging solutions.
 
-**Container Orchestration**:
+**Container orchestration**:
 
 - Installing and configuring Docker.
 - Setting up Kubernetes or other container orchestration systems.

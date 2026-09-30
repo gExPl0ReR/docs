@@ -120,26 +120,26 @@ sudo ufw default allow outgoing
 
 ## Best practices
 
-1. **Always Allow SSH First**
+1. **Always allow SSH first**
    Before enabling UFW, ensure SSH access is allowed:
    ```bash
    sudo ufw allow ssh
    ```
 
-2. **Use Specific Rules**
+2. **Use specific rules**
    Instead of allowing all traffic to a port, specify the service and protocol:
    ```bash
    sudo ufw allow 80/tcp
    ```
 
-3. **Regular Audits**
+3. **Regular audits**
    Regularly review your firewall rules:
    ```bash
    sudo ufw status verbose
    ```
 
-4. **Backup Rules**
-   Backup your UFW rules periodically:
+4. **Back up rules**
+   Back up your UFW rules periodically:
    ```bash
    sudo cp -a /etc/ufw /root/ufw-backup
    ```
@@ -170,12 +170,12 @@ sudo ufw limit ssh
 
 If you encounter issues:
 
-1. **Check UFW Status**
+1. **Check UFW status**
    ```bash
    sudo ufw status verbose
    ```
 
-2. **View UFW Logs**
+2. **View UFW logs**
    ```bash
    sudo tail -f /var/log/ufw.log
    ```
