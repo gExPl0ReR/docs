@@ -11,8 +11,8 @@ description: "Find the Restart menu in your VPS dashboard and choose between Res
 | Situation | What to do |
 | --- | --- |
 | Linux or Windows is responding and you need a routine reboot. | **Restart from inside the operating system.** This lets it close applications and finish pending writes. |
-| You need to restart from the dashboard. | Choose **Restart → Restart VPS** first. |
-| Restart VPS did not help, or the VPS is stuck. | Choose **Restart → Power Cycle VPS** to power it off and back on. |
+| You need to restart from the dashboard. | Select **Restart → Restart VPS** first. |
+| Restart VPS did not help, or the VPS is stuck. | Select **Restart → Power Cycle VPS** to power it off and back on. |
 | The VPS is already stopped. | Click **Start**. |
 
 <Warning>
@@ -30,7 +30,7 @@ description: "Find the Restart menu in your VPS dashboard and choose between Res
   <img src="/assets/vps-restart-button-highlight.png" alt="VPS server management panel with the yellow Restart dropdown button highlighted." style={{ width: "100%", maxWidth: "420px", display: "block", margin: "0 auto" }} />
 </Frame>
 
-The menu contains **Restart VPS** and **Power Cycle VPS**. Opening the menu does not restart the server; you still need to choose an action.
+The menu contains **Restart VPS** and **Power Cycle VPS**. Opening the menu does not restart the server; you still need to select an action.
 
 <Frame caption="Choose Restart VPS first. Use Power Cycle VPS if a restart does not resolve the problem.">
   <img src="/assets/vps-restart-menu-highlight.png" alt="Expanded Restart menu showing Restart VPS — Restart the virtual machine, and Power Cycle VPS — Power off, then power on." style={{ width: "100%", maxWidth: "420px", display: "block", margin: "0 auto" }} />
@@ -38,12 +38,12 @@ The menu contains **Restart VPS** and **Power Cycle VPS**. Opening the menu does
 
 ## Restart VPS
 
-Choose **Restart → Restart VPS** to reset the virtual machine without a full power-off/power-on cycle.
+Select **Restart → Restart VPS** to reset the virtual machine without a full power-off/power-on cycle.
 
 The operating system reboots, but the process hosting the virtual machine and its VNC server stay running. If VNC is already enabled, you can follow the boot process in the console.
 
 1. To watch the reboot, click **Start VNC** if VNC is disabled, then click **Open Console**. See the [VNC guide](/vps-management/enable-vnc-server).
-2. Open **Restart** and choose **Restart VPS**.
+2. Open **Restart** and select **Restart VPS**.
 3. Wait for the operating system to boot, then reconnect to SSH or Remote Desktop.
 
 <Note>
@@ -52,7 +52,7 @@ The operating system reboots, but the process hosting the virtual machine and it
 
 ## Power Cycle VPS
 
-If **Restart VPS** does not resolve the problem, choose **Restart → Power Cycle VPS**.
+If **Restart VPS** does not resolve the problem, select **Restart → Power Cycle VPS**.
 
 This powers the virtual machine off and back on, starting a new virtual machine process. It also stops the existing VNC server. If you were using VNC, use **Start VNC** again and reopen **Open Console** after the power cycle.
 

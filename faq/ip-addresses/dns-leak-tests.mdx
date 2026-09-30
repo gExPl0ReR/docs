@@ -1,7 +1,7 @@
 ---
 title: "DNS leak tests and Anycast DNS on EDIS Global VPS"
 description: "Why DNS leak tests may show unexpected DNS server locations on an EDIS Global VPS, how Anycast DNS works, and why this does not change your geo-location."
-sidebarTitle: DNS Leak Tests
+sidebarTitle: DNS leak tests
 ---
 
 
@@ -12,7 +12,7 @@ When running DNS leak tests like **dnsleaktest.com** or **whoer.net**, you may s
 
 ### 🛡️ Why is this happening?
 
-At **EDIS Global**, we use **fast and secure Anycast DNS servers** provided by **Cloudflare**—specifically **1.1.1.1** and **1.0.0.1**—to handle DNS resolution on our VPS.  
+At **EDIS Global**, we use **fast and secure Anycast DNS servers** provided by **Cloudflare**, specifically **1.1.1.1** and **1.0.0.1**, to handle DNS resolution on our VPS.  
 
 With **Anycast technology**, your DNS requests are routed to the **closest and fastest available server**. This means your DNS traffic might be handled by a server **outside your VPS location**, even in a neighboring country.  
 

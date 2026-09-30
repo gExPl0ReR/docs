@@ -1,7 +1,7 @@
 ---
 title: Understanding DNS systems at EDIS Global
 description: Learn how EDIS Global uses separate Anycast DNS systems for reverse DNS and domain resolution to ensure speed, security, and redundancy.
-sidebarTitle: DNS Systems at EDIS Global
+sidebarTitle: DNS systems at EDIS Global
 ---
 
 # 🌐 Understanding the different DNS systems at EDIS Global
@@ -9,7 +9,7 @@ sidebarTitle: DNS Systems at EDIS Global
 At **EDIS Global**, we operate different DNS systems for different purposes to give you maximum speed, security, and resilience. Here's an overview of how DNS is handled within our infrastructure.
 
 
-## 🔄 Reverse DNS (rDNS) resolution — EDIS Global Anycast DNS
+## 🔄 Reverse DNS (rDNS) resolution: EDIS Global Anycast DNS
 
 When someone performs a **reverse DNS lookup** (trying to find the domain name behind your IP address), EDIS Global handles these queries through our **own global Anycast DNS network**:
 
@@ -39,7 +39,7 @@ Amsterdam, Athens, Bangalore, Chicago, Dallas, Dubai, Frankfurt, Geneva, Hong Ko
 
 ---
 
-## 🌐 Forward DNS resolution (resolvers) — Cloudflare Anycast DNS
+## 🌐 Forward DNS resolution (resolvers): Cloudflare Anycast DNS
 
 When your VPS needs to resolve a domain name (like `example.com`) into an IP address, we use **Cloudflare’s Anycast DNS resolvers**:
 

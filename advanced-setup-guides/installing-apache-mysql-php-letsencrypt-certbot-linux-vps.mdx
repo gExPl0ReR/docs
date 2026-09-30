@@ -1,6 +1,6 @@
 ---
 title: Installing Apache, MySQL, PHP, and SSL on Linux VPS
-sidebarTitle: Install LAMP Stack on Linux
+sidebarTitle: Install LAMP stack on Linux
 description: "Set up Apache, MySQL, and PHP for a custom domain on a Linux VPS, secured with a Let's Encrypt SSL certificate using Certbot on ports 80 and 443."
 ---
 
@@ -18,7 +18,7 @@ Detailed guide on setting up Apache, MySQL, and PHP for `mydomain.com`, secured 
 sudo apt update && sudo apt upgrade -y
 ```
 
-**Install Apache Web Server**
+**Install Apache web server**
 
 ```shell
 sudo apt install apache2 -y
@@ -52,13 +52,13 @@ sudo a2ensite mydomain.com.conf
 sudo systemctl restart apache2
 ```
 
-**Install MySQL Database Server**
+**Install MySQL database server**
 
 ```shell
 sudo apt install mysql-server -y
 ```
 
-**Secure MySQL Installation**
+**Secure MySQL installation**
 Run the security script:
 
 ```shell
@@ -77,7 +77,7 @@ sudo apt install php libapache2-mod-php php-mysql -y
 sudo apt install certbot python3-certbot-apache -y
 ```
 
-**Obtain Let's Encrypt SSL Certificate for mydomain.com**
+**Obtain Let's Encrypt SSL certificate for mydomain.com**
 
 ```shell
 sudo certbot --apache -d mydomain.com -d www.mydomain.com
@@ -85,7 +85,7 @@ sudo certbot --apache -d mydomain.com -d www.mydomain.com
 
 Certbot will automatically configure the Apache virtual host for SSL (port 443).
 
-**Confirm Port 443 Configuration**
+**Confirm port 443 configuration**
 
 Your configuration should have been updated to include a `<VirtualHost _:443>` block for SSL. Confirm by:
 
@@ -93,7 +93,7 @@ Your configuration should have been updated to include a `<VirtualHost _:443>` b
 cat /etc/apache2/sites-available/mydomain.com-le-ssl.conf
 ```
 
-**Automatic Certificate Renewal**
+**Automatic certificate renewal**
 
 ```shell
 sudo systemctl enable certbot.timer
@@ -106,7 +106,7 @@ Test renewal:
 sudo certbot renew --dry-run
 ```
 
-**Finalize Configuration & Restart Apache**
+**Finalize configuration & restart Apache**
 
 ```shell
 sudo systemctl restart apache2

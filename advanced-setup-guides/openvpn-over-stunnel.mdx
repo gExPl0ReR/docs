@@ -11,10 +11,10 @@ This guide provides a step-by-step walkthrough on how to set up OpenVPN over Stu
 
 ## Prerequisites
 
-- **VPS Server:**
+- **VPS server:**
   - An <a href="https://www.edisglobal.com" target="_blank">EDIS Global VPS</a> running Ubuntu 22.04.
   - Root or sudo access.
-- **Client Machine:**
+- **Client machine:**
   - A computer running Ubuntu or any Linux distribution compatible with OpenVPN and Stunnel.
   - Root or sudo access.
 
@@ -22,10 +22,10 @@ This guide provides a step-by-step walkthrough on how to set up OpenVPN over Stu
 
 We will perform the following high-level steps:
 
-1. **On the VPS Server:**
+1. **On the VPS server:**
    - Install and configure Stunnel.
    - Install and configure OpenVPN.
-2. **On the Client Machine:**
+2. **On the client machine:**
    - Install and configure Stunnel.
    - Configure OpenVPN to connect through Stunnel.
 
@@ -337,16 +337,16 @@ traceroute google.com
 
 ## Troubleshooting
 
-- **Stunnel Connection Refused:**
+- **Stunnel connection refused:**
   - Ensure the VPS firewall allows incoming connections on port 443.
   - Verify Stunnel is running on the VPS: `sudo systemctl status stunnel4`.
-- **OpenVPN Authentication Failed:**
+- **OpenVPN authentication failed:**
   - Check that client and server certificates match.
   - Review OpenVPN logs on both client and server for errors.
-- **Routing Issues:**
+- **Routing issues:**
   - Verify the `routing.sh` script has the correct server IP.
   - Ensure the script is executable and the path is correct in the OpenVPN config.
-- **Service Fails to Start:**
+- **Service fails to start:**
   - Review logs: `journalctl -xe` or specific service logs.
   - Check for typos or syntax errors in configuration files.
 
