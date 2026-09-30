@@ -65,16 +65,42 @@ Learn how to start the reinstall, set your administrator password, and re-enable
 
 ## Installation time and port behavior
 
-Once the reinstallation starts, your VPS will go through the automated setup process. The image below shows the typical duration and port behavior for each operating system:
+Allow the automated setup to finish before connecting. Typical installation times are:
 
-![Installation times for Linux and Windows](/assets/windows-linux-install-time-ports-closed.png)
+<Columns cols={2}>
+  <Card title="Linux" icon="terminal">
+    <div style={{ display: "flex", alignItems: "baseline", gap: "8px", margin: "8px 0 16px" }}>
+      <span style={{ fontSize: "2.5rem", lineHeight: 1.1, fontWeight: 700, color: "#F96002" }}>≈ 5</span>
+      <span>minutes</span>
+    </div>
 
-<Note>
-  During reinstallation, **remote access (SSH/RDP)** is temporarily disabled while your VPS is being rebuilt.\
-  You can connect again once the installation finishes, typically after **≈ 5 minutes for Linux** or **≈ 15 minutes for Windows**.
+    **SSH · TCP port 22**
 
-  ⚠️ **Do not power off or reboot your VPS** during this time, as it may interrupt the OS setup.
-</Note>
+    Unavailable during installation.
+  </Card>
+  <Card title="Windows" icon="desktop">
+    <div style={{ display: "flex", alignItems: "baseline", gap: "8px", margin: "8px 0 16px" }}>
+      <span style={{ fontSize: "2.5rem", lineHeight: 1.1, fontWeight: 700, color: "#F96002" }}>≈ 15</span>
+      <span>minutes</span>
+    </div>
+
+    **Remote Desktop · TCP port 3389**
+
+    Unavailable during installation.
+  </Card>
+</Columns>
+
+These times are approximate. SSH or RDP being unavailable while setup runs is expected and does not, by itself, mean the installation has failed.
+
+<Warning>
+  **Do not power off, reboot, or start another reinstall while installation is in progress.** Interrupting setup can leave the operating system incomplete.
+</Warning>
+
+Once setup finishes, connect using [SSH for Linux](/getting-started/linux-secure-shell-ssh) or [Remote Desktop for Windows](/getting-started/windows-remote-desktop), with the password you chose during reinstallation. No new credentials email is sent.
+
+<Tip>
+  Reinstalling Linux can change its SSH host key. If your client reports **“REMOTE HOST IDENTIFICATION HAS CHANGED”**, follow the [host-key verification steps](/getting-started/linux-secure-shell-ssh#remote-host-identification-has-changed) before accepting the new key.
+</Tip>
 
 ---
 

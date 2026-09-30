@@ -28,7 +28,7 @@ sudo ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub
 
 Match the key type and fingerprint shown by your SSH client. Once verified, type `yes`, then enter the VPS password. Password input normally shows no characters; this is expected.
 
-If SSH later reports **REMOTE HOST IDENTIFICATION HAS CHANGED**, investigate first. A reinstall can legitimately change the host key, but an unexpected change should not be ignored. After verifying the new key through the console, remove the old entry on your computer with `ssh-keygen -R YOUR_VPS_IP`, then reconnect. See the [OpenSSH key-management manual](https://man.openbsd.org/ssh-keygen).
+
 
 If the connection is successful, you'll see a welcome message from the remote server, and you'll be presented with a command prompt in the remote server's shell. You can then run remote commands and upload/download files as needed using the SSH connection.
 
@@ -43,6 +43,48 @@ exit
 ```
 
 This logs you out of the VPS.
+
+## Remote host identification has changed
+
+This warning means the host key presented by the server differs from the key your SSH client saved for that address. It can happen after you reinstall the VPS, but it can also indicate that you are connecting to the wrong server or that the connection is being intercepted.
+
+<Frame caption="Illustrative OpenSSH warning. The IP address, username, fingerprint, and file path are fictional; wording may vary by SSH client.">
+  <img src="/images/ssh-host-identification-changed.png" alt="Terminal showing WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED, an offending known_hosts entry, and Host key verification failed" />
+</Frame>
+
+### Verify the new key first
+
+Open the VPS through the [VNC console](/vps-management/enable-vnc-server) and display the fingerprint of the key type named in the warning. For ED25519:
+
+```bash
+sudo ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub
+```
+
+Compare the complete `SHA256:` fingerprint with the one shown by your SSH client. For an RSA or ECDSA warning, inspect the corresponding `ssh_host_rsa_key.pub` or `ssh_host_ecdsa_key.pub` file instead.
+
+<Warning>
+  If the fingerprints do not match, or you cannot verify the change, stop and investigate. Do not disable host-key checking or remove saved keys merely to dismiss the warning.
+</Warning>
+
+### Remove the old entry on your computer
+
+**Only after verifying the new host key**, run this on the computer from which you connect:
+
+```bash
+ssh-keygen -R YOUR_VPS_IP
+ssh root@YOUR_VPS_IP
+```
+
+Replace `YOUR_VPS_IP` with your VPS address and `root` with your login username if different. If you connect using a hostname, use that hostname instead. This removes the saved host key for that destination; it does not change the VPS password.
+
+For a custom port such as `2222`, use the bracketed host-and-port form:
+
+```bash
+ssh-keygen -R "[YOUR_VPS_IP]:2222"
+ssh -p 2222 root@YOUR_VPS_IP
+```
+
+At the next connection, check that the displayed fingerprint matches the one you verified in VNC before accepting it. If the warning names a different known-hosts file, specify that file with `ssh-keygen -f /path/to/known_hosts -R YOUR_VPS_IP`. See the [OpenSSH key-management manual](https://man.openbsd.org/ssh-keygen).
 
 <CtaButton
   label='Blog Post: Are SSH Connections Truly Secure?'
