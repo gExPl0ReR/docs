@@ -8,6 +8,17 @@ description: "Configure CPU, disk, network, video, and VLAN settings in the EDIS
 
 The **System Configuration** dialog in your VPS management interface allows you to customize important hardware emulation settings. These options help optimize performance and ensure compatibility with your operating system and workloads.
 
+### Open the dialog
+
+In the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), choose **Services → My Services**, select your VPS, then open **Server Information → System Configuration**.
+
+
+<Frame caption="Example selections, not recommended settings for every operating system.">
+  <img src="/images/portal-system-configuration-dialog.png" alt="System Configuration dialog showing boot settings and the power-cycle notice" style={{ maxWidth: "520px", margin: "0 auto" }} />
+</Frame>
+
+Review your changes and click **Apply**. Follow the dialog's instruction to **power-cycle the VPS** before expecting the new virtual-hardware settings to take effect. See the [power-cycle guide](/vps-management/power-cycle-or-reboot-a-vps).
+
 Below you'll find a detailed explanation of each setting:
 
 ---
@@ -132,7 +143,7 @@ Select the layout that corresponds to your local keyboard.
 
 ## 📝 Description
 
-This is a free-text field where you can label your VPS with a custom name or note. It helps you organize and identify your servers in the Client Portal.
+The description is edited using the pencil beside **Description** in the service's **Information** panel. You can label your VPS with a custom name or note. It helps you organize and identify your servers in the Client Portal.
 
 Example: pro-webserver-ffm
 

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1000" viewBox="0 0 1100 1000">
+<rect width="1100" height="1000" rx="24" fill="#f4f5f6"/>
+<rect x="14" y="14" width="1072" height="972" rx="20" fill="white" stroke="#fa8b2c" stroke-width="3"/>
+<style>text{font-family:Arial,sans-serif;fill:#273a4a} .title{font-size:24px;font-weight:600} .tick{font-size:16px} .label{font-size:18px}</style>
+<text x="550" y="58" class="title" text-anchor="middle" >Illustrative demo data</text>
+<text x="550" y="86" class="label" text-anchor="middle" >Fictional usage • 15 days • 1,100 GB total</text>
+<text x="105" y="135" class="title" text-anchor="start" >Cumulative Traffic [GB]</text>
+<line x1="105" y1="430.0" x2="980" y2="430.0" stroke="#dce9db" stroke-width="1" />
+<text x="93" y="435.0" class="tick" text-anchor="end" >1</text>
+<line x1="105" y1="362.5" x2="980" y2="362.5" stroke="#dce9db" stroke-width="1" />
+<text x="93" y="367.5" class="tick" text-anchor="end" >10</text>
+<line x1="105" y1="295.0" x2="980" y2="295.0" stroke="#dce9db" stroke-width="1" />
+<text x="93" y="300.0" class="tick" text-anchor="end" >100</text>
+<line x1="105" y1="227.5" x2="980" y2="227.5" stroke="#dce9db" stroke-width="1" />
+<text x="93" y="232.5" class="tick" text-anchor="end" >1,000</text>
+<line x1="105" y1="160.0" x2="980" y2="160.0" stroke="#dce9db" stroke-width="1" />
+<text x="93" y="165.0" class="tick" text-anchor="end" >10,000</text>
+<line x1="105.0" y1="160" x2="105.0" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="105.0" y="458" class="tick" text-anchor="middle" >01</text>
+<line x1="167.5" y1="160" x2="167.5" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="167.5" y="458" class="tick" text-anchor="middle" >02</text>
+<line x1="230.0" y1="160" x2="230.0" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="230.0" y="458" class="tick" text-anchor="middle" >03</text>
+<line x1="292.5" y1="160" x2="292.5" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="292.5" y="458" class="tick" text-anchor="middle" >04</text>
+<line x1="355.0" y1="160" x2="355.0" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="355.0" y="458" class="tick" text-anchor="middle" >05</text>
+<line x1="417.5" y1="160" x2="417.5" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="417.5" y="458" class="tick" text-anchor="middle" >06</text>
+<line x1="480.0" y1="160" x2="480.0" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="480.0" y="458" class="tick" text-anchor="middle" >07</text>
+<line x1="542.5" y1="160" x2="542.5" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="542.5" y="458" class="tick" text-anchor="middle" >08</text>
+<line x1="605.0" y1="160" x2="605.0" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="605.0" y="458" class="tick" text-anchor="middle" >09</text>
+<line x1="667.5" y1="160" x2="667.5" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="667.5" y="458" class="tick" text-anchor="middle" >10</text>
+<line x1="730.0" y1="160" x2="730.0" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="730.0" y="458" class="tick" text-anchor="middle" >11</text>
+<line x1="792.5" y1="160" x2="792.5" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="792.5" y="458" class="tick" text-anchor="middle" >12</text>
+<line x1="855.0" y1="160" x2="855.0" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="855.0" y="458" class="tick" text-anchor="middle" >13</text>
+<line x1="917.5" y1="160" x2="917.5" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="917.5" y="458" class="tick" text-anchor="middle" >14</text>
+<line x1="980.0" y1="160" x2="980.0" y2="430" stroke="#dce9db" stroke-width="1" />
+<text x="980.0" y="458" class="tick" text-anchor="middle" >15</text>
+<text x="550" y="487" class="label" text-anchor="middle" >September (example cycle)</text>
+<line x1="105" y1="160" x2="105" y2="430" stroke="#607080" stroke-width="1" />
+<line x1="105" y1="430" x2="980" y2="430" stroke="#607080" stroke-width="1" />
+<polygon points="105,430 105.00,342.18 167.50,312.53 230.00,295.00 292.50,281.22 355.00,269.34 417.50,266.43 480.00,257.05 542.50,246.95 605.00,243.72 667.50,239.90 730.00,235.74 792.50,233.32 855.00,229.31 917.50,226.78 980.00,224.71 980,430" fill="#2d86bc" opacity=".2"/>
+<polyline points="105.00,342.18 167.50,312.53 230.00,295.00 292.50,281.22 355.00,269.34 417.50,266.43 480.00,257.05 542.50,246.95 605.00,243.72 667.50,239.90 730.00,235.74 792.50,233.32 855.00,229.31 917.50,226.78 980.00,224.71" fill="none" stroke="#1268a4" stroke-width="3"/>
+<circle cx="105.0" cy="342.18047529268125" r="4" fill="#1268a4"/>
+<circle cx="167.5" cy="312.52551845913854" r="4" fill="#1268a4"/>
+<circle cx="230.0" cy="295.0" r="4" fill="#1268a4"/>
+<circle cx="292.5" cy="281.2219011707251" r="4" fill="#1268a4"/>
+<circle cx="355.0" cy="269.3357411844666" r="4" fill="#1268a4"/>
+<circle cx="417.5" cy="266.4309035092655" r="4" fill="#1268a4"/>
+<circle cx="480.0" cy="257.04523164918794" r="4" fill="#1268a4"/>
+<circle cx="542.5" cy="246.9530120397196" r="4" fill="#1268a4"/>
+<circle cx="605.0" cy="243.72242048344992" r="4" fill="#1268a4"/>
+<circle cx="667.5" cy="239.90371225055463" r="4" fill="#1268a4"/>
+<circle cx="730.0" cy="235.73858076502978" r="4" fill="#1268a4"/>
+<circle cx="792.5" cy="233.31756496409912" r="4" fill="#1268a4"/>
+<circle cx="855.0" cy="229.31386988202033" r="4" fill="#1268a4"/>
+<circle cx="917.5" cy="226.77613908605534" r="4" fill="#1268a4"/>
+<circle cx="980.0" cy="224.70599375181982" r="4" fill="#1268a4"/>
+<line x1="105" y1="206.48522821949396" x2="980" y2="206.48522821949396" stroke="#d84b40" stroke-width="1" stroke-dasharray="8 5"/>
+<text x="980" y="196.48522821949396" class="tick" text-anchor="end" >Allowance: 2,048 GB</text>
+<text x="980" y="249.70599375181982" class="tick" text-anchor="end" >1,100 GB</text>
+<text x="105" y="595" class="title" text-anchor="start" >Daily Traffic [GB]</text>
+<line x1="105" y1="890.0" x2="980" y2="890.0" stroke="#dce9db" stroke-width="1" />
+<text x="93" y="895.0" class="tick" text-anchor="end" >0</text>
+<line x1="105" y1="822.5" x2="980" y2="822.5" stroke="#dce9db" stroke-width="1" />
+<text x="93" y="827.5" class="tick" text-anchor="end" >50</text>
+<line x1="105" y1="755.0" x2="980" y2="755.0" stroke="#dce9db" stroke-width="1" />
+<text x="93" y="760.0" class="tick" text-anchor="end" >100</text>
+<line x1="105" y1="687.5" x2="980" y2="687.5" stroke="#dce9db" stroke-width="1" />
+<text x="93" y="692.5" class="tick" text-anchor="end" >150</text>
+<line x1="105" y1="620.0" x2="980" y2="620.0" stroke="#dce9db" stroke-width="1" />
+<text x="93" y="625.0" class="tick" text-anchor="end" >200</text>
+<line x1="105.0" y1="620" x2="105.0" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="105.0" y="918" class="tick" text-anchor="middle" >01</text>
+<line x1="167.5" y1="620" x2="167.5" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="167.5" y="918" class="tick" text-anchor="middle" >02</text>
+<line x1="230.0" y1="620" x2="230.0" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="230.0" y="918" class="tick" text-anchor="middle" >03</text>
+<line x1="292.5" y1="620" x2="292.5" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="292.5" y="918" class="tick" text-anchor="middle" >04</text>
+<line x1="355.0" y1="620" x2="355.0" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="355.0" y="918" class="tick" text-anchor="middle" >05</text>
+<line x1="417.5" y1="620" x2="417.5" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="417.5" y="918" class="tick" text-anchor="middle" >06</text>
+<line x1="480.0" y1="620" x2="480.0" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="480.0" y="918" class="tick" text-anchor="middle" >07</text>
+<line x1="542.5" y1="620" x2="542.5" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="542.5" y="918" class="tick" text-anchor="middle" >08</text>
+<line x1="605.0" y1="620" x2="605.0" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="605.0" y="918" class="tick" text-anchor="middle" >09</text>
+<line x1="667.5" y1="620" x2="667.5" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="667.5" y="918" class="tick" text-anchor="middle" >10</text>
+<line x1="730.0" y1="620" x2="730.0" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="730.0" y="918" class="tick" text-anchor="middle" >11</text>
+<line x1="792.5" y1="620" x2="792.5" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="792.5" y="918" class="tick" text-anchor="middle" >12</text>
+<line x1="855.0" y1="620" x2="855.0" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="855.0" y="918" class="tick" text-anchor="middle" >13</text>
+<line x1="917.5" y1="620" x2="917.5" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="917.5" y="918" class="tick" text-anchor="middle" >14</text>
+<line x1="980.0" y1="620" x2="980.0" y2="890" stroke="#dce9db" stroke-width="1" />
+<text x="980.0" y="918" class="tick" text-anchor="middle" >15</text>
+<text x="550" y="947" class="label" text-anchor="middle" >September (example cycle)</text>
+<line x1="105" y1="620" x2="105" y2="890" stroke="#607080" stroke-width="1" />
+<line x1="105" y1="890" x2="980" y2="890" stroke="#607080" stroke-width="1" />
+<rect x="91.0" y="863.0" width="28" height="27.0" rx="2" fill="#3a87b5"/>
+<text x="105.0" y="854.0" class="tick" text-anchor="middle" >20</text>
+<rect x="153.5" y="842.75" width="28" height="47.25" rx="2" fill="#3a87b5"/>
+<text x="167.5" y="833.75" class="tick" text-anchor="middle" >35</text>
+<rect x="216.0" y="829.25" width="28" height="60.75" rx="2" fill="#3a87b5"/>
+<text x="230.0" y="820.25" class="tick" text-anchor="middle" >45</text>
+<rect x="278.5" y="809.0" width="28" height="81.0" rx="2" fill="#3a87b5"/>
+<text x="292.5" y="800.0" class="tick" text-anchor="middle" >60</text>
+<rect x="341.0" y="782.0" width="28" height="108.0" rx="2" fill="#3a87b5"/>
+<text x="355.0" y="773.0" class="tick" text-anchor="middle" >80</text>
+<rect x="403.5" y="856.25" width="28" height="33.75" rx="2" fill="#3a87b5"/>
+<text x="417.5" y="847.25" class="tick" text-anchor="middle" >25</text>
+<rect x="466.0" y="755.0" width="28" height="135.0" rx="2" fill="#3a87b5"/>
+<text x="480.0" y="746.0" class="tick" text-anchor="middle" >100</text>
+<rect x="528.5" y="687.5" width="28" height="202.5" rx="2" fill="#3a87b5"/>
+<text x="542.5" y="678.5" class="tick" text-anchor="middle" >150</text>
+<rect x="591.0" y="809.0" width="28" height="81.0" rx="2" fill="#3a87b5"/>
+<text x="605.0" y="800.0" class="tick" text-anchor="middle" >60</text>
+<rect x="653.5" y="782.0" width="28" height="108.0" rx="2" fill="#3a87b5"/>
+<text x="667.5" y="773.0" class="tick" text-anchor="middle" >80</text>
+<rect x="716.0" y="755.0" width="28" height="135.0" rx="2" fill="#3a87b5"/>
+<text x="730.0" y="746.0" class="tick" text-anchor="middle" >100</text>
+<rect x="778.5" y="802.25" width="28" height="87.75" rx="2" fill="#3a87b5"/>
+<text x="792.5" y="793.25" class="tick" text-anchor="middle" >65</text>
+<rect x="841.0" y="728.0" width="28" height="162.0" rx="2" fill="#3a87b5"/>
+<text x="855.0" y="719.0" class="tick" text-anchor="middle" >120</text>
+<rect x="903.5" y="775.25" width="28" height="114.75" rx="2" fill="#3a87b5"/>
+<text x="917.5" y="766.25" class="tick" text-anchor="middle" >85</text>
+<rect x="966.0" y="788.75" width="28" height="101.25" rx="2" fill="#3a87b5"/>
+<text x="980.0" y="779.75" class="tick" text-anchor="middle" >75</text>
+<text x="550" y="963" class="tick" text-anchor="middle" >Example charts for explanation; not customer measurements.</text>
+</svg>

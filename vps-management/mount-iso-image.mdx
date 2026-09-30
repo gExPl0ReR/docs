@@ -4,24 +4,24 @@ sidebarTitle: Mount ISO
 description: "Mount a custom ISO image to your EDIS Global VPS through the VPS Management Portal to install a custom OS or run live recovery and rescue environments."
 ---
 
-import { CtaButton } from "/snippets/cta-button.mdx";
-
 ## Mount an ISO image on your VPS
 
-<Steps>
-  <Step title="Log in to your VPS Management Portal">
-    Open the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
-  </Step>
+1. Open the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), then **Services → My Services**.
+2. Select your VPS and open **Server Information → Mount ISO**.
+3. Choose an image from the dropdown. You can select a provided image or an ISO you [uploaded yourself](/vps-management/bring-your-own-iso).
+4. Decide whether to attach the image only or also restart into it, then click **Mount ISO**.
 
-  <Step title="Locate your VPS in the Services tab" />
 
-  <Step title='Click "Mount ISO"' />
-</Steps>
+<Frame caption="Example: the Password Reset Helper image is selected; force reset is not selected.">
+  <img src="/images/portal-mount-iso-dialog.png" alt="Mount ISO dialog showing the image selector and optional force reset checkbox" style={{ maxWidth: "520px", margin: "0 auto" }} />
+</Frame>
 
-To select and attach an ISO file, either pick an ISO from the EDIS Global ISO library or upload a personalized ISO with the Custom ISO feature. Once mounted, select the boot device inside a noVNC session and proceed with the installation.
 
-<CtaButton label="VNC, noVNC" link="./enable-vnc-server" />
+### Attach only or boot immediately?
 
-<CtaButton label="Custom ISO" link="./bring-your-own-iso" />
+- Leave **force reset & boot from the selected ISO** unchecked to attach the image without requesting an immediate reset.
+- Select it when you are ready to reset the VPS and boot the ISO. This interrupts the running operating system and its connections; save your work first.
 
-![Mount ISO](/assets/vps-mount-iso.webp)
+Open [VNC / Open Console](/vps-management/enable-vnc-server) to follow boot output and use the installer or rescue environment. If you attach the image without resetting, restart when ready and use the boot menu to select the virtual CD-ROM.
+
+Mounting an ISO alone does not reinstall the VPS. Follow the selected image's instructions, and unmount the image when finished so the VPS can boot from its normal disk.

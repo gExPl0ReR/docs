@@ -5,7 +5,7 @@ description: "Understand the VPS Traffic Information dashboard, how EDIS Global 
 
 ## All about VPS traffic, metering and refills
 
-This document explains how to access and interpret traffic information for a VPS through the VPS Management Portal. It covers total traffic used, available (remaining) traffic, and monthly reset/refills. It also describes a chart showing cumulative traffic and days remaining until the next refill. You can also view daily traffic data for every VPS.
+This document explains how to access and interpret traffic information for a VPS through the VPS Management Portal. It covers total traffic used, available (remaining) traffic, and monthly reset/refills. It also explains the cumulative traffic chart and where to find the next refill. You can also view daily traffic data for every VPS.
 
 ### Access your VPS traffic information
 
@@ -16,7 +16,7 @@ To access your VPS traffic information:
     [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
   </Step>
   <Step title="Select a VPS">
-    Open a service from the **Services** tab and review its **Traffic Information** panel.
+    Open a service under **Services → My Services** and review its **Traffic Information** panel.
   </Step>
 </Steps>
 
@@ -63,22 +63,19 @@ EDIS Global provides an approximately **5% grace allowance** before rate-limitin
 
 There is no automatic overage charge, and the VPS remains online. Review all [restoration options](/faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global) if the allowance has been exhausted.
 
-![Detailed Traffic Information](/assets/-n9f9xXjqDwmY3XgFkQUn_daily-traffic-432a39609a.png)
 
-### Exponential traffic chart
+### Cumulative and daily traffic charts
 
-The Traffic Information panel shows a chart of the **total (cumulative) traffic** since the last refill. VPS traffic meters are reset and refilled monthly on your product's key (renewal) date.
+On **Server Information**, scroll below the management panels to find the charts:
 
-There is a small indicator (red arrow below) showing how many days remain until the next monthly refill. This helps you decide whether to:
+- **Cumulative Traffic** shows the total used during the displayed cycle. Its vertical scale is logarithmic: equal spacing can represent 1, 10, 100 or 1,000 GB, rather than equal increases in usage.
+- **Daily Traffic** shows how much traffic was used on each day, helping you spot busy days.
+- The red allowance line in the cumulative chart shows the current traffic allowance. It moves higher when Pool Traffic is assigned.
 
-- [assign Pool Traffic](/faq/traffic-bandwidth/traffic-pool);
-- upgrade to a higher VPS plan; or
-- wait for the next monthly refill.
 
-The red line represents the current total allowance for the VPS. It begins with the monthly Plan Traffic and moves higher whenever Pool Traffic is assigned manually or through Auto-Hydration.
+<Frame caption="Illustrative demo data, not measured customer traffic. The example totals 1,100 GB over 15 days.">
+  <img src="/images/portal-traffic-charts-demo.svg" alt="Illustrative cumulative and daily traffic charts with a rising usage total and varied daily traffic" />
+</Frame>
 
-![Detailed Traffic Information](/assets/lHUScqmop6d5_TFXKZlHt_cumulative-traffic-bc46ac6118.png)
 
-<Note>
-  In the panel, hover over any particular day to see detailed readings. The diagram is rendered exponentially, not linearly.
-</Note>
+For the next refill date or countdown, check the **Traffic Information** panel. Use the remaining allowance and time until refill to decide whether to [assign Pool Traffic](/faq/traffic-bandwidth/traffic-pool), upgrade the VPS plan, or wait for the next refill. Hover over the live charts in the portal for detailed readings.

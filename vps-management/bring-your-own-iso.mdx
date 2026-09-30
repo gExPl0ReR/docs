@@ -4,38 +4,40 @@ sidebarTitle: Upload Custom ISO
 description: "EDIS allows you to bring your own .ISO files like custom distributions, basically any i386 or AMD64 compatible operating systems or appliances."
 ---
 
-## Upload and install your own ISO
+## Upload your own ISO
 
-Boot a bare-metal backup of any server on your KVM. You can also provide custom distributions. You can run any i386 or AMD64 compatible operating system on your KVM.
+Use a custom ISO to install an operating system manually or boot a recovery environment.
 
-Use your own custom ISO file to manually install your VPS from the KVM management panel.
+1. Open the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
+2. Choose **Services → My Services**, then select your VPS.
+3. On **Server Information**, click **Upload ISO** in **Server management**. The dialog is titled **Download ISO**.
 
-![Upload Custom ISO](/assets/vps-upload-iso.webp)
+## Option 1: download from a URL
 
-## Upload your ISO
+Select **HTTP Upload**, enter a direct HTTP or HTTPS URL to the ISO file, and click **Download ISO from another server**. Use a link to the file itself, not a download page. Wait until the download finishes.
 
-<Steps>
-  <Step title="Log in to your VPS Management Portal">
-    Open the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
-  </Step>
 
-  <Step title="Locate your VPS in the Services tab" />
+<Frame caption="The server downloads the ISO from the URL you provide.">
+  <img src="/images/portal-upload-http-dialog.png" alt="HTTP Upload tab with ISO URL field and Download ISO from another server button" style={{ maxWidth: "520px", margin: "0 auto" }} />
+</Frame>
 
-  <Step title='Click "Mount ISO"' />
 
-  <Step title="Enter a valid, non-redirecting download URL">
-    Enter a direct HTTP or HTTPS link to your ISO file. For example: `https://example.com/image.iso`
+## Option 2: upload from your computer
 
-    A non-redirecting link points straight to the ISO file and does not pass through any other pages or redirects. A direct link gives you a faster, more reliable download and easier verification.
-  </Step>
+Select **Local Upload**, click **Choose file**, and select the `.iso` file on your computer. Then click **Upload ISO** and wait for the transfer to finish. The button remains disabled until a file is selected.
 
-  <Step title="Start the download">
-    Click **Download ISO** and wait until the download finishes completely.
-  </Step>
-</Steps>
 
-Once the download completes, your ISO is available to mount from the **Mount ISO** dialog. The uploaded file is renamed and appears as `xxxx/iso/KVM_xxxxx_xxxxxx.iso`.
+<Frame caption="Choose an ISO file to enable Upload ISO.">
+  <img src="/images/portal-upload-local-dialog.png" alt="Local Upload tab showing the file chooser before a file has been selected" style={{ maxWidth: "520px", margin: "0 auto" }} />
+</Frame>
+
+
+## Mount and boot the uploaded image
+
+After the transfer completes, close this dialog and open **Mount ISO**. Select the custom ISO filename shown for your VPS, then follow the [mount and boot instructions](/vps-management/mount-iso-image). Use [VNC / Open Console](/vps-management/enable-vnc-server) to work through the installer.
+
+Uploading or attaching an ISO does not install an operating system by itself. An installer can erase the VPS disk when you choose its installation or partitioning actions, so back up any data you want to keep first.
 
 <Note>
-  A custom ISO file is available for 24 hours and is then removed from your account.
+  A custom ISO is available for **24 hours** and is then removed. The portal assigns it a filename based on your VPS ID; it may differ from the original filename on your computer.
 </Note>

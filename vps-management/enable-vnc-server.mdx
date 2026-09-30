@@ -4,40 +4,30 @@ sidebarTitle: "VPS VNC Access"
 description: "Enable VNC for an individual VPS in the EDIS Global VPS Management Portal to control the server graphically through noVNC or a desktop VNC client."
 ---
 
-## VNC, remote console with graphical interface
+## Open the VPS console
 
-### Understanding VNC
+VNC lets you see the VPS display and use its keyboard even when SSH or RDP is unavailable. **Open Console** launches noVNC in your browser; a desktop VNC client is another option.
 
-Imagine if you could sit in front of a remote computer from anywhere in the world and use it as if you're right there. That's VNC. It lets you see and interact with your VPS even if the normal ways of connecting (like SSH or RDP) are broken.
+1. Open the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
+2. Select **Services → My Services**, open your VPS, and select **Server Information**.
+3. In **Server management**, click **Start VNC**.
+4. Wait for **VNC: ENABLED** in the **Information** panel and for **Open Console** to become available.
+5. Click **Open Console**, then click inside the console window to give it keyboard focus.
 
-### Understanding noVNC (console)
 
-noVNC provides a convenient way to access VNC servers from any device through almost any modern web browser, with no dedicated client software needed. It has some limitations compared to a desktop VNC client, though.
+<Frame caption="Connection details are anonymized and the VNC password is masked.">
+  <img src="/images/portal-vnc-controls.png" alt="Server management and Information panels showing enabled VNC and the Open Console button" />
+</Frame>
 
-### How to activate VNC in the control panel
 
-Through the VPS Management Portal, you can enable VNC for each VPS individually. Once VNC is turned on, you can connect using **noVNC** or a **desktop VNC client**.
+## Log in through the browser console
 
-<Steps>
-  <Step title="Step 1">
-    Start VNC 
-  </Step>
-  <Step title="Step 2">
-    Open Console once button turns green (and click into the window to set focus\!)
-  </Step>
-</Steps>
+At the operating system's login screen, use your Linux or Windows username and password. The separate **VNC password** is for desktop VNC connections; it is not your operating-system password and is not required to open the browser console.
 
-![Enable VNC](/assets/vps-start-vnc-open-console.webp)
+## Connect with a desktop VNC client
 
-### noVNC console instructions
+With VNC enabled, the **Information** panel shows the VNC hostname, port and password. Use those values in your preferred desktop VNC client, then log in to the operating system when prompted.
 
-This opens a **virtual console** for your server. The VNC password is for Desktop VNC Client connections only. The VNC password is not required for noVNC Console access. Click into the noVNC window to set focus. Use your OS username & password to log in to your OS once you are presented with the login-screen. 
+## Stop VNC when finished
 
-### Desktop VNC client instructions
-
-Open a connection with your preferred Desktop VNC Client: RealVNC Viewer, TightVNC Viewer, UltraVNC, ...\
-Use the password indicated in Step 1 (Start VNC)\
-Use VNC Server hostname and port from the Information window on the right side.\
-Establish your connection.
-
-![Enable VNC](/assets/vnc-stop-open-console-hostname.webp)
+Close the console or desktop client and click **Stop VNC** in the portal. The panel returns to **VNC: DISABLED** and **Open Console** becomes unavailable. Stopping VNC disconnects console access; it does not stop the VPS.

@@ -4,18 +4,18 @@ description: "EDIS VPS Management Portal allows you to view and manage your VPS'
 sidebarTitle: "VPS IP Settings"
 ---
 
-## IP settings, network info
+## Find your VPS network settings
 
-You can view and manage your VPS's IP address settings in the VPS Management Portal. This is where you will find the IPv4 and IPv6 addresses, gateway, subnet, and DNS servers.
+1. Open the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
+2. Choose **Services → My Services** and select your VPS.
+3. On **Server Information**, click **Network Info** in **Server management**.
 
-<Steps>
-  <Step title="Log in to your">
-    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
-  </Step>
-  <Step title="Locate your VPS in the Services tab">
-  </Step>
-  <Step title='Click "Network info"'>
-  </Step>
-</Steps>
 
-![IP Address Settings](/assets/vps-network-info.webp)
+<Frame caption="Addresses are anonymized. Use the values shown for your own VPS.">
+  <img src="/images/portal-network-info-dialog.png" alt="Network Information dialog showing IPv4 and IPv6 allocation, gateways and DNS servers" style={{ maxWidth: "520px", margin: "0 auto" }} />
+</Frame>
+
+
+The dialog lists the allocated IPv4 address and netmask, IPv6 prefix, gateways, and DNS servers. Refer to these values when configuring or repairing the network inside your operating system.
+
+Viewing this dialog does not change the guest operating system's network configuration. Additional IP addresses must also be configured inside the VPS. See [setting up reverse DNS](/faq/ip-addresses/setting-up-reverse-pointers) to manage the hostnames returned for your addresses.

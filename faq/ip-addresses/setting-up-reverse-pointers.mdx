@@ -5,23 +5,72 @@ description: "Manage IPv4 and IPv6 reverse DNS (PTR) records through the EDIS Gl
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
-## Configure PTR records (rDNS)&#x20;
+## Configure PTR records (reverse DNS)
 
-You can configure reverse DNS or PTR records for both IPv4 and IPv6 addresses in the VPS Management Portal.
+A PTR record maps an IP address to a hostname. You can manage IPv4 and IPv6 PTR records for your VPS directly in the portal.
 
-![Setting up Reverse Pointers](/assets/vps-reverse-dns.webp)
+### Open Reverse DNS
 
-<Steps>
-  <Step title="Log in to your">
-    [VPS Management Portal](https://manage.edisglobal.com/clientarea.php)
-  </Step>
+1. Log in to the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
+2. Open **Services → My Services** and select your VPS.
+3. On **Server Information**, select **Reverse DNS** in the **Server management** panel.
 
-  <Step title="Locate your VPS in the Services tab" />
+### Set or change an IPv4 PTR
 
-  <Step title="Click Reverse DNS to administer PTR records ">
-    "**Set**" configures and "**Unset**" removes a record from our DNS.
-  </Step>
-</Steps>
+Find the IPv4 address in the dialog, enter your fully qualified hostname (for example, `vps4.example.com`), and click **set** beside that row. To remove a custom record, click **unset** on the same row.
+
+### Add an IPv6 PTR
+
+The last row shows your allocated IPv6 prefix followed by two input fields:
+
+1. Enter the remaining part of the IPv6 address in the first field.
+2. Enter the hostname in the second field.
+3. Click **add**. The saved address appears as its own row, where **set** updates it and **unset** removes it.
+
+For example, when the displayed prefix ends with a single colon:
+
+| Displayed prefix | Enter in address field | Complete IPv6 address | Example hostname |
+| --- | --- | --- | --- |
+| `2001:db8:1234:5678:` | `:10` | `2001:db8:1234:5678::10` | `vps6.example.com` |
+| `2001:db8:1234:5678:` | `:20` | `2001:db8:1234:5678::20` | `mail.example.com` |
+
+
+<Frame caption="Example addresses and hostnames. Use your own allocated prefix and hostname.">
+  <img src="/images/portal-ipv6-ptr-dialog.png" alt="Reverse DNS dialog highlighting the IPv6 address suffix, hostname and add button" />
+</Frame>
+
+
+<Note>
+  These addresses and example.com hostnames are for documentation. Use an address allocated to your VPS and a hostname under a domain you control. Adding a PTR does not configure the address inside your operating system or create a forward DNS record. For matching forward and reverse DNS, configure the hostname's A record (IPv4) or AAAA record (IPv6) with your domain's DNS provider.
+</Note>
+
+## Verify the PTR from a terminal
+
+Run `host` on a Linux or macOS machine, or in a remote shell such as a Termius session. Replace the example address with your VPS address:
+
+```bash
+# IPv4
+host -t PTR 192.0.2.10
+
+# IPv6
+host -t PTR 2001:db8:1234:5678::10
+```
+
+A successful response ends with `domain name pointer vps6.example.com.` (or the hostname you configured). The long name ending in `ip6.arpa` is the reverse-DNS form of the IPv6 address.
+
+
+<Frame caption="Anonymized from a successful live IPv6 lookup.">
+  <img src="/images/portal-ptr-terminal.png" alt="Terminal showing host -t PTR for an IPv6 address and the returned hostname" />
+</Frame>
+
+
+If you see the old hostname or `NXDOMAIN` immediately after saving, allow time for the DNS update and cached answers to expire, then repeat the lookup. Check the exact address and the saved portal row as well. To compare with another resolver:
+
+```bash
+host -t PTR 2001:db8:1234:5678::10 1.1.1.1
+```
+
+For command options, see the [ISC BIND host manual](https://bind9.readthedocs.io/en/latest/manpages.html#host-dns-lookup-utility).
 
 ## Automate PTR management
 
@@ -38,7 +87,3 @@ A custom PTR is normally unnecessary for VPN connectivity. If your application r
 Get more in-depth background information in our PTR Record blog post:
 
 <CtaButton label="PTR Record blog post" link="https://www.edisglobal.com/blog/ptr-record" openInNewTab={true} />
-
-***
-
-![setting\_up\_reverse\_pointers](/assets/TCG6ACbswUaDAL8763RqX_setting-up-reverse-pointers-1c968b9006.png "Setting up Reverse Pointers")
