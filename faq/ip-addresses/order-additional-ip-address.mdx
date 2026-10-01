@@ -56,12 +56,35 @@ You can order up to **10 additional IPv4 addresses** yourself in the [VPS Manage
 
 ## Find your assigned network settings
 
-On **Server Information**, **Assigned IPs** lists the service's addresses. **Network Info** provides the settings needed to configure them. Provisioning an address to your service does not configure it inside the operating system.
+### Identify the primary and additional IPv4 addresses
 
-<Frame caption="Anonymized example showing Assigned IPs and Network Info. This example has one assigned address.">
-  <img src="/images/portal-ip-service-details.png" alt="Server Information showing Assigned IPs and the Network Info button" style={{ maxWidth: "600px", margin: "0 auto" }} />
+Open **Server Information** and compare the two fields above the management buttons:
+
+1. **Primary IP** identifies the VPS's main IPv4 address.
+2. **Assigned IPs** lists **all assigned IPv4 addresses, including the primary address**.
+3. Match the address shown under **Primary IP** to its entry in **Assigned IPs**. The other IPv4 entries are your additional addresses.
+
+**Three assigned IPv4 addresses means one primary address plus two additional addresses.** The repeated primary address is not an additional IP.
+
+<Frame caption="Anonymized example: blue identifies the same primary address in both fields; orange identifies the two additional IPv4 addresses. Highlights and labels are added for this guide.">
+  <img src="/images/portal-primary-additional-ip-list.png" alt="Primary IP 192.0.2.10 highlighted in blue, including its repeated entry under Assigned IPs. The two additional addresses 198.51.100.20 and 192.0.2.30 are highlighted in orange." />
 </Frame>
 
-See [View your VPS network settings](/vps-management/ip-address-information) for details.
+Additional addresses may be in a different subnet. Identify the primary address using the **Primary IP** field, rather than guessing from the address prefix or its position in the list.
+
+### Check the addresses and settings in Network Info
+
+Click **Network Info** in the **Server management** panel. The **Network Information** dialog lists the addresses with their netmasks. Match the primary address you identified above; the other IPv4 addresses are additional ones. The IPv6 prefix is separate from your additional IPv4 addresses.
+
+<Frame caption="The same example addresses in Network Info: one primary IPv4 address and two additional IPv4 addresses. Addresses are anonymized; highlights are added for this guide.">
+  <img src="/images/portal-network-info-additional-ips.png" alt="Network Information dialog: 192.0.2.10 is marked Primary IP, while 198.51.100.20 and 192.0.2.30 are marked as two additional IPs. Each IPv4 row includes its netmask; the IPv6 prefix is shown separately." />
+</Frame>
+
+Use **your own addresses and network settings from Network Info**, not the example values in these screenshots. The lower **Network Configuration (Details)** section contains the gateway and DNS settings.
+
+Provisioning an address to your service does not configure it inside the operating system. **Keep the primary address configured and add the additional addresses** to the OS and any services that need them.
+
+- [Configure additional IPv4 addresses on Linux](/faq/ip-addresses/configuring-additional-ip-address-linux)
+- [View your VPS network settings](/vps-management/ip-address-information)
 
 <CtaButton label="Open VPS Management Portal" link="https://manage.edisglobal.com/clientarea.php" />
