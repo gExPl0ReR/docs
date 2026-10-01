@@ -1,45 +1,67 @@
 ---
 title: Order additional IP address
 sidebarTitle: Additional IP (random)
-description: "Order additional, randomly assigned IPv4 addresses for your EDIS Global VPS. Step-by-step guide covering pricing, ordering, and assignment to your server."
+description: "Add IPv4 addresses yourself in the VPS portal: Configurable Options, Upgrade Resources, choose the quantity, pay the invoice, and configure the delivered addresses."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
-## Adding additional IP addresses
+## Add IPv4 addresses through the portal
 
-Add up to **10 additional IPv4 addresses** to your VPS. With the standard option, the system selects the addresses randomly. For a choice from available addresses, see [Bespoke IP addresses](/faq/ip-addresses/order-bespoke-ip-address).
+You can order up to **10 additional IPv4 addresses** yourself in the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php). The system assigns available addresses randomly.
+
+**Ordering route: Configurable Options → Upgrade Resources → Additional IPs → invoice → payment → delivery.**
 
 | Service | Price |
 | --- | --- |
 | Random address assignment | Included |
 | Additional IPv4 address | **€5 per month, per address** |
 
+If you want to choose a specific address from an available list, use the [support-assisted bespoke IP process](/faq/ip-addresses/order-bespoke-ip-address).
+
 ## Ordering an additional IPv4 address
 
 <Steps>
-  <Step title="Open your VPS and find its identifier">
-    In the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), open **Services → My Services** and select the VPS. Under **Server Information**, find **ID** or **Primary IP** above the management buttons.
+  <Step title="Open your VPS">
+    Log in to the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), open **Services → My Services**, and select the VPS that needs additional addresses.
   </Step>
-  <Step title="Contact support through the messenger">
-    Open the chat bubble at the bottom right of the portal. Provide the VPS's **ID (KVM_ID)** or **Primary IP**, and say how many additional IPv4 addresses you need. The recycle icon beside Primary IPv4 replaces the primary address; it does not order an additional address.
+  <Step title="Open Configurable Options">
+    Select the **Configurable Options** tab, then click **Upgrade Resources**.
+
+    <Frame caption="The Configurable Options tab and Upgrade Resources button. Portal screenshot cropped and enhanced for readability.">
+      <img src="/images/portal-additional-ip-upgrade-resources.png" alt="Configurable Options tab and green Upgrade Resources button highlighted in the VPS portal" />
+    </Frame>
   </Step>
-  <Step title="Order and pay using the link provided">
-    We will send you an order link. Follow its ordering, checkout, and payment steps. After payment, the system provisions the additional randomly assigned IPv4 address to your service.
+  <Step title="Choose the number of additional IPs">
+    On the **Upgrade/Downgrade** page, find the **Additional IPs** row. Under **New Configuration**, choose the required number of additional addresses. Compare it with **Current Configuration**, especially if you already have additional IPs.
+
+    Leave other resources at **No Change** unless you also intend to upgrade them. Click **Click to Continue >>**, review the order and amount, and complete the upgrade request to create the invoice.
+  </Step>
+  <Step title="Pay the invoice">
+    Pay the generated invoice. After payment is confirmed, the additional addresses are provisioned to your VPS.
+  </Step>
+  <Step title="Find the delivered addresses">
+    The assigned IP addresses are confirmed **by email** and in the portal. Return to the VPS, open **Server Information**, and click **Network Info** for the assigned addresses and network settings.
+  </Step>
+  <Step title="Configure the addresses in your operating system">
+    Add the delivered addresses to your VPS operating system and configure the services that should use them. Keep the existing primary address in place when adding an additional address.
+
+    For Linux, follow [Configure additional IPv4 addresses](/faq/ip-addresses/configuring-additional-ip-address-linux).
   </Step>
 </Steps>
 
-<Frame caption="Anonymized portal example. Send support the ID or Primary IP; the example VPS currently has one assigned address.">
-  <img src="/images/portal-ip-service-details.png" alt="Server Information showing the ID, Primary IP, Assigned IPs and Network Info button" style={{ maxWidth: "600px", margin: "0 auto" }} />
+<Info>
+  The **♻ recycle icon** beside Primary IPv4 replaces the primary address. To **add** addresses, use **Configurable Options → Upgrade Resources**.
+</Info>
+
+## Find your assigned network settings
+
+On **Server Information**, **Assigned IPs** lists the service's addresses. **Network Info** provides the settings needed to configure them. Provisioning an address to your service does not configure it inside the operating system.
+
+<Frame caption="Anonymized example showing Assigned IPs and Network Info. This example has one assigned address.">
+  <img src="/images/portal-ip-service-details.png" alt="Server Information showing Assigned IPs and the Network Info button" style={{ maxWidth: "600px", margin: "0 auto" }} />
 </Frame>
 
-## Find and configure the assigned address
+See [View your VPS network settings](/vps-management/ip-address-information) for details.
 
-Return to the VPS's **Server Information** tab after provisioning. **Assigned IPs** lists the service's addresses. Open **Network Info** for the assigned network settings.
-
-The additional address must also be configured inside the operating system before it can be used. Keep the primary address in place when adding another address.
-
-- [Configure additional IPv4 addresses on Linux](/faq/ip-addresses/configuring-additional-ip-address-linux)
-- [View your VPS network settings](/vps-management/ip-address-information)
-
-<CtaButton label="Pick IP yourself" link="/faq/ip-addresses/order-bespoke-ip-address" />
+<CtaButton label="Open VPS Management Portal" link="https://manage.edisglobal.com/clientarea.php" />

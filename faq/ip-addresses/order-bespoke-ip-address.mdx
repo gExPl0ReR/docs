@@ -1,50 +1,72 @@
 ---
 title: Order your bespoke IPv4 address
 sidebarTitle: Bespoke IP address
-description: "Hand-pick your own IPv4 addresses and IP ranges with the EDIS Global Bespoke IP Address service. Step-by-step ordering process and pricing details inside."
+description: "Choose additional IPv4 addresses with support: request available IPs, select your addresses, pay the invoice, receive delivery, and configure them in your VPS."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
 ## Bespoke IP address service
 
-Our premium IP address product allows you to **hand-pick from a provided list of prefixes and IP addresses**. You can add up to 10 additional IPv4 addresses to your VPS. 
+**Bespoke additional IPv4 addresses are ordered through our support team by messenger or email.** Support sends you the available addresses, you choose, and the team adds your selection to your VPS after payment.
 
-A one-off fee per IP address applies on top of the monthly fee for the IP address.
+You can add up to **10 additional IPv4 addresses** to your VPS. For randomly assigned addresses you can order yourself, use the [self-service additional IP guide](/faq/ip-addresses/order-additional-ip-address).
 
-Choices depend on the addresses and prefixes available at the VPS location. If you need a particular number of distinct `/24` prefixes, confirm inventory before ordering. Ordinary IP allocation and standard replacements are random; they do not guarantee a different subnet.
+| Service | Price per address |
+| --- | --- |
+| Bespoke address selection | **€10 one-time** |
+| Additional IPv4 address | **€5 per month** |
 
-Selecting an address does not guarantee access from a particular country or to a particular platform, residential IP classification, or a particular reputation-list status. See [connectivity and IP expectations](/commercial-vpn-hosting#connectivity-and-ip-expectations).
-
-
-
-
-
-| Service                                                      | Price            |
-| :----------------------------------------------------------- | :--------------- |
-| Choose from a hand-selected list of IPs from various /24 prefixes. | **€10** one-time |
-| Monthly fee for an IPv4 address                              | **€5** /month    |
-
-
+The one-time selection fee is charged in addition to the recurring IP address fee.
 
 ## Ordering a bespoke IPv4 address
 
-If you are interested in ordering bespoke IP addresses
+<Frame caption="Request → choose → pay → receive → configure.">
+  <img src="/images/bespoke-additional-ip-process.png" alt="Five steps: message or email support, choose from the available IP list, pay the invoice, support adds the chosen IP to the VPS, then configure it in the operating system and services" style={{ maxWidth: "480px", margin: "0 auto" }} />
+</Frame>
 
-* Reach out to us via messenger
-* Provide the **primary IP address** or **KVM_ID** of your VPS
-* Indicate the **number of additional bespoke IP addresses** you'd like to order
+<Steps>
+  <Step title="Request bespoke additional IPs">
+    Open the **messenger** using the chat bubble at the bottom right of the portal, or email our [support team](https://www.edisglobal.com/contact).
 
+    Include your VPS's **primary IP address or KVM_ID**, the **number of additional addresses** you need, and any prefix requirements. State that you want **bespoke additional IPv4 addresses**.
+  </Step>
+  <Step title="Choose from the available addresses">
+    Support sends you a list of available IP addresses for your VPS location, **from multiple /24 prefixes where possible**. Reply with the address or addresses you want.
 
+    The choices depend on current inventory. If you require addresses from distinct /24 prefixes, ask support to confirm availability before proceeding.
+  </Step>
+  <Step title="Receive and pay the invoice">
+    Once your selection is agreed, support creates the invoice. Review it and pay. The team waits for payment confirmation before delivering the selected addresses.
+  </Step>
+  <Step title="Receive your chosen addresses">
+    After payment is confirmed, the team adds the chosen additional IP address or addresses to your VPS service and confirms delivery.
 
-**We'll take care of the ordering process and send you an invoice.**
-We'll provide you with a list of IP addresses in multiple prefixes available in the server location where your VPS is hosted.
+    Open the VPS in the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php), select **Server Information**, and open **Network Info** to find the assigned network settings.
+  </Step>
+  <Step title="Configure your operating system and services">
+    Add the delivered IP addresses inside your VPS operating system, then configure the services that should use them. Keep the existing primary address in place.
 
-Once the payment has gone through, our team will provision the IPv4 address you picked. 
-After provisioning, the VPS Management Portal displays all IP addresses. 
+    For Linux, follow [Configure additional IPv4 addresses](/faq/ip-addresses/configuring-additional-ip-address-linux). For the assigned settings, see [VPS network information](/vps-management/ip-address-information).
+  </Step>
+</Steps>
 
-You need to manually configure additional IP addresses in your operating system.
+## What to send support
 
+You can use this message:
 
+```text
+I would like to order bespoke additional IPv4 addresses.
+VPS primary IP or KVM_ID: [your VPS identifier]
+Number of additional IPs: [quantity]
+Prefix requirements, if any: [your requirements]
+Please send me the available addresses before issuing the invoice.
+```
 
-<CtaButton label="Be lazy" link="./order-additional-ip-address" />
+<CtaButton label="Contact support about bespoke IPs" link="https://www.edisglobal.com/contact" />
+
+## Availability and IP expectations
+
+Selecting an address does not guarantee access from a particular country or to a particular platform, residential IP classification, or a particular reputation-list status. See [connectivity and IP expectations](/commercial-vpn-hosting#connectivity-and-ip-expectations).
+
+Bespoke ordering adds addresses to your service. Replacing the existing primary address is a separate [IP change](/faq/ip-addresses/change-ip-address).
