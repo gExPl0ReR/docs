@@ -53,7 +53,7 @@ Employing the power of Anycast DNS to resolve reverse pointers (PTR records), ED
 
 ## Reverse PTR locations vs VPS location
 
-The DNS location is dynamic, depending on the user's (including test server's) location. For instance, a UK-based user will receive rDNS queries from UK nameservers, while a USA-based user will get results from USA nameservers. A China-based test-script will indicate an Asian DNS location, independent of the VPS location itself.
+The DNS location is dynamic and depends on your location (or the test server's location). For instance, if you're based in the UK, you receive rDNS queries from UK nameservers, while if you're based in the USA, you get results from USA nameservers. A China-based test-script will indicate an Asian DNS location, independent of the VPS location itself.
 
 **Important takeaway:** The location of the reverse DNS is not indicative of the VPS location. While your VPS itself (the installed OS) might use Google- or Cloudflare DNS, the reverse PTR delegation for your IP addresses harnesses EDIS Global's ANYCAST DNS.
 
