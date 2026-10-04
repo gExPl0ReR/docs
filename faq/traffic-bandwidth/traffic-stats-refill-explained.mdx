@@ -50,11 +50,11 @@ The number of days until the VPS begins a new monthly traffic cycle. At the refi
 
 Traffic that remains unassigned in the shared Traffic Pool does not expire.
 
-### How we meter traffic
+### How EDIS Global meters traffic
 
 EDIS Global measures traffic usage directly on the Ethernet interfaces of your Virtual Private Servers in real time.
 
-Total traffic is calculated as the sum of **ingress (incoming)** and **egress (outgoing)** traffic across the measured period.
+EDIS Global calculates total traffic as the sum of **ingress (incoming)** and **egress (outgoing)** traffic across the measured period.
 
 $Total Traffic  =  \sum (\text{IN} + \text{OUT})$
 
@@ -64,7 +64,7 @@ EDIS Global sends an informational notice at **80%** and a warning at **90%** of
 
 At **99%**, Auto-Hydration assigns the selected **100 GB**, **200 GB**, **300 GB**, or **500 GB** increment, provided the Pool balance is sufficient. The current total allowance then increases by the assigned amount.
 
-EDIS Global provides an approximately **5% grace allowance** before rate-limiting. If no additional traffic becomes available, the VPS Ethernet interface is limited to about **1 Mbps** at approximately **105% usage**. EDIS Global sends an action-required notification when the rate limit is applied.
+EDIS Global provides an approximately **5% grace allowance** before rate-limiting. If no additional traffic becomes available, the VPS Ethernet interface is limited to approximately **1 Mbps** at approximately **105% usage**. EDIS Global sends an action-required notification when it applies the rate limit.
 
 There is no automatic overage charge, and the VPS remains online. Review all [restoration options](/faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global) if the allowance has been exhausted.
 
