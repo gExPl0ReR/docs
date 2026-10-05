@@ -76,7 +76,6 @@
             "pages": [
               "vps-management/api-for-management-and-ordering",
               "vps-management/vps-management-portal",
-              "vps-management/portal-buttons-not-loading",
               "vps-management/ai-assisted-vps-management",
               "vps-management/autoinstall-reinstall-install-vps-linux-windows",
               "vps-management/os-availability",
@@ -325,7 +324,8 @@
               "misc/manual-windows-server-installation-on-kvm",
               "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error",
               "misc/what-is-seabios",
-              "misc/disable-serial-getty-ttys0-debian-13"
+              "misc/disable-serial-getty-ttys0-debian-13",
+              "misc/portal-buttons-not-loading"
             ]
           }
         ]
@@ -1094,6 +1094,11 @@
     {
       "source": "/management-api-reference/power-management/soft_reset",
       "destination": "/management-api-reference/power-management/soft-reset",
+      "permanent": true
+    },
+    {
+      "source": "/vps-management/portal-buttons-not-loading",
+      "destination": "/misc/portal-buttons-not-loading",
       "permanent": true
     }
   ],
