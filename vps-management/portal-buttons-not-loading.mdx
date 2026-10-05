@@ -1,0 +1,79 @@
+---
+title: "VPS management buttons are greyed out or not loading"
+sidebarTitle: "Portal buttons not loading"
+description: "Troubleshoot greyed-out VPS controls when the EDIS Global portal cannot retrieve server status. Test another connection, check VNC separately, and contact support."
+---
+
+If **Stop**, **Restart**, **Reinstall OS**, or **Screenshot** stay greyed out after you open your VPS, the portal may be unable to retrieve its current status.
+
+**Try another internet connection, switch your VPN server or provider, or review local firewall rules that may block access to EDIS Global servers.** Reload the portal after each change to check whether the controls become available.
+
+## Why the page loads but some buttons do not
+
+The [VPS Management Portal](/vps-management/vps-management-portal) loads account information and requests live server information from the EDIS Global management API.
+
+Your browser may load the portal itself while requests to the API fail. When the portal cannot confirm the current VPS state, it keeps affected controls unavailable. For example, it needs server status before it can offer a reinstall.
+
+This can leave the page partially usable: some buttons appear normally while several management controls remain grey. A visible **ACTIVE** service label or **RUNNING** status does not, by itself, confirm that every live request has succeeded.
+
+<Note>
+  Greyed-out portal controls do not, on their own, mean that your VPS is offline or that you need to reinstall it.
+</Note>
+
+## Restore access to the controls
+
+<Steps>
+  <Step title="Reload the service page">
+    Open the [Client Portal](https://manage.edisglobal.com/clientarea.php), select **Services → My Services**, open your VPS, and select **Server Information**.
+
+    Reload the page once and allow the status information to load. Check whether several controls remain greyed out.
+  </Step>
+
+  <Step title="Try another connection">
+    Open the same VPS page through a different internet connection, such as a mobile hotspot.
+
+    If you already use a VPN, try a different VPN server or provider, or test without the VPN if your network permits it. If you do not use a VPN, a trusted VPN provides another connection to test.
+
+    Reload the portal after changing your VPN or internet connection.
+
+    If the controls become available, the result points to a connection-dependent problem reaching the management API. It does not identify the exact cause by itself.
+  </Step>
+
+  <Step title="Check browser and network filtering">
+    Review the firewall on your computer, router, or company network for rules or blocked-connection logs involving EDIS Global servers. A local firewall, proxy, or network filter may allow the portal page while blocking the requests that retrieve VPS status.
+
+    Ask your network administrator or internet provider to investigate if another connection works. Support can help identify the affected requests so you can review the relevant rules while keeping your firewall enabled.
+
+    To check whether the problem is specific to your browser, try another up-to-date browser on the same connection.
+  </Step>
+
+  <Step title="Check the result">
+    Return to **Server Information** and confirm that the status loads and the controls needed for your task become available.
+
+    You do not need to click **Stop**, **Restart**, or **Reinstall OS** just to test a button. Only run an action when you intend to make that change.
+  </Step>
+</Steps>
+
+## If only Open Console is greyed out
+
+**Open Console** also depends on VNC availability. A grey console button alone does not establish that the portal has the broader connection problem described above.
+
+Follow the [VNC access guide](/vps-management/enable-vnc-server) to enable VNC and wait for **Open Console** to become available. If VNC shows as enabled but the console remains unavailable, contact support with a screenshot of the controls and the **Information** panel.
+
+## If the problem continues
+
+[Contact EDIS Global support](https://www.edisglobal.com/contact) if the controls stay unavailable across different connections or browsers.
+
+Include:
+
+- The affected VPS service ID.
+- Which buttons stay greyed out and whether the status information loads.
+- Your browser and operating system.
+- Whether you use a VPN, proxy, or managed network.
+- The approximate time of the problem, including your time zone.
+- Whether another connection or browser changes the result.
+- A screenshot of the affected controls.
+
+Hide passwords and your Support PIN in screenshots. Share account-specific details only through your support conversation.
+
+See [how our support team can help](/getting-started/how-our-support-team-helps-you) for support options.
