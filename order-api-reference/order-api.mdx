@@ -110,8 +110,8 @@ For a practical VPN workflow, see [Deploying a VPN endpoint](/commercial-vpn-hos
     ```bash
     curl --request POST \
       --url https://order.edisglobal.com/kvm/v2/get/billingcycles \
-      --data email=YOUR_EMAIL \
-      --data pw=YOUR_PASSWORD
+      --data-urlencode 'email=YOUR_EMAIL' \
+      --data-urlencode 'pw=YOUR_PASSWORD'
     ```
 
     You’ll get something like:
@@ -129,8 +129,8 @@ For a practical VPN workflow, see [Deploying a VPN endpoint](/commercial-vpn-hos
     ```bash
     curl --request POST \
       --url https://order.edisglobal.com/kvm/v2/get/paymentmethods \
-      --data email=YOUR_EMAIL \
-      --data pw=YOUR_PASSWORD
+      --data-urlencode 'email=YOUR_EMAIL' \
+      --data-urlencode 'pw=YOUR_PASSWORD'
     ```
 
     Example result:
@@ -148,8 +148,8 @@ For a practical VPN workflow, see [Deploying a VPN endpoint](/commercial-vpn-hos
     ```bash
     curl --request POST \
       --url https://order.edisglobal.com/kvm/v2/get/locations \
-      --data email=YOUR_EMAIL \
-      --data pw=YOUR_PASSWORD
+      --data-urlencode 'email=YOUR_EMAIL' \
+      --data-urlencode 'pw=YOUR_PASSWORD'
     ```
 
     You’ll see something like:
@@ -174,9 +174,9 @@ For a practical VPN workflow, see [Deploying a VPN endpoint](/commercial-vpn-hos
     ```bash
     curl --request POST \
       --url https://order.edisglobal.com/kvm/v2/get/products \
-      --data email=YOUR_EMAIL \
-      --data pw=YOUR_PASSWORD \
-      --data location_id=94
+      --data-urlencode 'email=YOUR_EMAIL' \
+      --data-urlencode 'pw=YOUR_PASSWORD' \
+      --data-urlencode 'location_id=94'
     ```
 
     Now you get everything:
@@ -208,9 +208,9 @@ For a practical VPN workflow, see [Deploying a VPN endpoint](/commercial-vpn-hos
     ```bash
     curl --request POST \
       --url https://order.edisglobal.com/kvm/v2/add/order \
-      --data email=YOUR_EMAIL \
-      --data pw=YOUR_PASSWORD \
-      --data 'order={
+      --data-urlencode 'email=YOUR_EMAIL' \
+      --data-urlencode 'pw=YOUR_PASSWORD' \
+      --data-urlencode 'order={
         "billingcycle": "monthly",
         "paymentmethod": "paypal",
         "item": [
@@ -450,214 +450,251 @@ For a practical VPN workflow, see [Deploying a VPN endpoint](/commercial-vpn-hos
   </Tab>
   <Tab title="Full Example">
     ## Full example (end-to-end)
-
-    This example walks through the complete workflow:
-
-    👉 collect all required values\
-    👉 build the payload\
-    👉 submit the order
-
-    ---
-
+    
+    Order one **KVM SMART in Schiphol-Rijk (Amsterdam), Netherlands**, with **Debian 13 (Trixie) 64Bit**, monthly billing and Credit Card payment. The base configuration is 1 GB RAM, 1 vCPU, 15 GB disk and 1 TB traffic, with no paid upgrades.
+    
+    <Info>
+      The location, product, OS, no-upgrade options and payment-method values below were verified through read-only discovery calls on **6 October 2026**. The final order request was not executed during verification. Re-fetch the options before ordering: IDs, prices and availability can change.
+    </Info>
+    
+    Replace `YOUR_EMAIL` and `YOUR_PASSWORD` with your Client Portal credentials locally. All credentials shown here are placeholders. Use `--data-urlencode` so characters such as `+` in email addresses and `&` in passwords are encoded correctly.
+    
+    **Steps 1–4 are read-only.** Preparing the payload in step 5 also makes no account changes. Only step 6 submits a real order.
+    
     ## Step 1: Get billing cycle
-
+    
     ```bash
     curl --request POST \
       --url https://order.edisglobal.com/kvm/v2/get/billingcycles \
-      --data email=YOUR_EMAIL \
-      --data pw=YOUR_PASSWORD
+      --data-urlencode 'email=YOUR_EMAIL' \
+      --data-urlencode 'pw=YOUR_PASSWORD'
     ```
-
-    Example result:
-
-    ```json
-    {
-      "billingcycle": ["monthly", "quarterly", "annually"]
-    }
-    ```
-
-    👉 We choose: `monthly`
-
-    ---
-
+    
+    Choose `monthly` from the returned billing cycles. If it is not available, stop and check the current options.
+    
     ## Step 2: Get payment method
-
+    
     ```bash
     curl --request POST \
       --url https://order.edisglobal.com/kvm/v2/get/paymentmethods \
-      --data email=YOUR_EMAIL \
-      --data pw=YOUR_PASSWORD
+      --data-urlencode 'email=YOUR_EMAIL' \
+      --data-urlencode 'pw=YOUR_PASSWORD'
     ```
-
-    Example result:
-
+    
+    Verified response:
+    
     ```json
     {
-      "paymentmethods": ["paypal", "creditcard"]
+      "paymentmethods": [
+        "paypal",
+        "alipay",
+        "creditcard",
+        "cryptomus"
+      ],
+      "status": "success"
     }
     ```
-
-    👉 We choose: `paypal`
-
-    ---
-
+    
+    Choose `creditcard` for Credit Card. Always use an identifier returned by this endpoint.
+    
     ## Step 3: Get VPS locations
-
+    
     ```bash
     curl --request POST \
       --url https://order.edisglobal.com/kvm/v2/get/locations \
-      --data email=YOUR_EMAIL \
-      --data pw=YOUR_PASSWORD
+      --data-urlencode 'email=YOUR_EMAIL' \
+      --data-urlencode 'pw=YOUR_PASSWORD'
     ```
-
-    Example result:
-
+    
+    Response excerpt (other locations omitted):
+    
     ```json
     {
-      "KVM Greece": {
-        "id": 94,
-        "out_of_stock": false
-      }
+      "locations": {
+        "KVM Netherlands": {
+          "id": 157,
+          "headline": "KVM vps in Schiphol-Rijk (Amsterdam), Netherlands",
+          "name": "Netherlands",
+          "country": "nl",
+          "out_of_stock": false
+        }
+      },
+      "status": "success"
     }
     ```
-
-    👉 We choose: `location_id = 94`
-
-    ---
-
+    
+    Use `location_id=157` for the next lookup. Check that `out_of_stock` is `false`; this lookup does not reserve capacity.
+    
     ## Step 4: Get VPS products in location
-
+    
     ```bash
     curl --request POST \
       --url https://order.edisglobal.com/kvm/v2/get/products \
-      --data email=YOUR_EMAIL \
-      --data pw=YOUR_PASSWORD \
-      --data location_id=94
+      --data-urlencode 'email=YOUR_EMAIL' \
+      --data-urlencode 'pw=YOUR_PASSWORD' \
+      --data-urlencode 'location_id=157'
     ```
-
-    Example result (simplified):
-
+    
+    Response excerpt showing only the selected product, monthly product price and relevant options. Other products, billing cycles, OS choices and upgrade options are omitted; optional option-price details are also omitted.
+    
     ```json
     {
-      "KVM STARTER": {
-        "id": 892,
-        "addons": {
-          "operating system": {
-            "208": "Debian 12"
+      "products": {
+        "KVM SMART": {
+          "id": 1502,
+          "description": {
+            "disk": {
+              "size": 15,
+              "unit": "GByte"
+            },
+            "ram": {
+              "size": 1024,
+              "unit": "MByte"
+            },
+            "cpu": {
+              "size": 1,
+              "unit": "core/socket"
+            },
+            "traffic": {
+              "size": 1,
+              "unit": "TByte"
+            },
+            "price": {
+              "monthly": {
+                "amount": "4.99",
+                "currency": "EUR"
+              }
+            }
           },
-          "additional ram": {
-            "396": "+1GB"
-          },
-          "additional ip": {
-            "10": "2 IPs"
+          "addons": {
+            "operating system": {
+              "626": {
+                "id": 626,
+                "description": "Debian 13 (Trixie) 64Bit"
+              }
+            },
+            "additional ram": {
+              "416": {
+                "id": 416,
+                "description": "no"
+              }
+            },
+            "additional vcpu": {
+              "437": {
+                "id": 437,
+                "description": "no"
+              }
+            },
+            "additional ip": {
+              "8": {
+                "id": 8,
+                "description": "no additional IPs"
+              }
+            },
+            "additional drive boost": {
+              "198": {
+                "id": 198,
+                "description": "no upgrade selected"
+              }
+            }
           }
         }
-      }
+      },
+      "status": "success"
     }
     ```
-
-    👉 We choose:
-
-    - `pid = 892`
-    - `os = 208`
-    - `additional_ram = 396`
-    - `additional_ip = 10`
-
-    ---
-
+    
+    The OS mapping is `products["KVM SMART"].addons["operating system"]["626"].id`. Its description is `Debian 13 (Trixie) 64Bit`, so the order uses `os: 626` alongside `pid: 1502`. This is an **Order API option ID**; do not substitute a Management API image ID.
+    
+    | Selection | Response value | Order field |
+    | --- | --- | --- |
+    | KVM SMART | Product `id: 1502` | `pid: 1502` |
+    | Debian 13 (Trixie) 64Bit | OS option `id: 626` | `os: 626` |
+    | No additional RAM | `id: 416` | `additional_ram: 416` |
+    | No additional vCPU | `id: 437` | `additional_vcpu: 437` |
+    | No additional IPv4 | `id: 8` | `additional_ip: 8` |
+    | No disk upgrade | `id: 198` | `additional_diskboost: 198` |
+    
+    These add-on values are **option IDs, not quantities**. In particular, `additional_ip: 8` selects “no additional IPs”; it does not request eight IP addresses. The response group `additional drive boost` maps to the order field `additional_diskboost`.
+    
+    <Note>
+      EUR 4.99 is the listed monthly product price in this response, not an account-specific, tax-inclusive final quote. This lookup alone does not establish the total first charge, applicable tax or any other mandatory charges. Confirm the complete payable amount before submitting an order if you have a fixed spending limit.
+    </Note>
+    
     ## Step 5: Build order payload
-
-    This example omits `applycredit`, so available account credit is applied automatically. To opt out, add `"applycredit": false` inside the `order` JSON.
-
+    
+    Prepare the following JSON using the values from your current discovery responses. One entry in `item` requests one VPS. `hostname` is your chosen server name.
+    
     ```json
     {
       "billingcycle": "monthly",
-      "paymentmethod": "paypal",
+      "paymentmethod": "creditcard",
+      "applycredit": false,
       "item": [
         {
-          "pid": 892,
-          "os": 208,
-          "hostname": "example-greece-server",
-          "additional_ram": 396,
-          "additional_vcpu": "",
-          "additional_ip": 10,
-          "additional_diskboost": "",
-          "ssh_pubkey": ""
+          "pid": 1502,
+          "os": 626,
+          "hostname": "example-nl-debian13",
+          "additional_ram": 416,
+          "additional_vcpu": 437,
+          "additional_ip": 8,
+          "additional_diskboost": 198
         }
       ]
     }
     ```
-
-    ---
-
+    
+    This example explicitly sets `applycredit: false` to prevent available account credit from being applied to this order. It does not make the request a test. Omitting this field or setting it to `true` enables automatic credit application, which can start provisioning if the credit covers the invoice.
+    
     ## Step 6: Submit order
-
-    **Live order:** Sending this request creates a real VPS order and invoice. It is not a test request.
-
+    
+    <Warning>
+      **Live order:** Run the command below only when you intend to buy this VPS. It creates a real order and invoice. There is no sandbox or dry-run mode. For read-only inspection, stop before this step.
+    </Warning>
+    
     ```bash
     curl --request POST \
       --url https://order.edisglobal.com/kvm/v2/add/order \
-      --data email=YOUR_EMAIL \
-      --data pw=YOUR_PASSWORD \
-      --data 'order={...}'
+      --data-urlencode 'email=YOUR_EMAIL' \
+      --data-urlencode 'pw=YOUR_PASSWORD' \
+      --data-urlencode 'order={
+      "billingcycle": "monthly",
+      "paymentmethod": "creditcard",
+      "applycredit": false,
+      "item": [
+        {
+          "pid": 1502,
+          "os": 626,
+          "hostname": "example-nl-debian13",
+          "additional_ram": 416,
+          "additional_vcpu": 437,
+          "additional_ip": 8,
+          "additional_diskboost": 198
+        }
+      ]
+    }'
     ```
-
-    ---
-
+    
+    Submit once and retain the response. If the request times out or returns an ambiguous error, do not automatically repeat it: an order may already exist. Contact support if you cannot reconcile the result.
+    
     ## Successful response
-
-    In this example, available account credit covers the invoice:
-
+    
+    Illustrative response for a created order whose invoice is still unpaid. The IDs below are fictional; use the IDs from your own response.
+    
     ```json
     {
       "status": "success",
-      "orderid": 264401,
-      "serviceids": "356728",
-      "invoiceid": 1764460,
-      "invoicepaid": true
+      "orderid": 123456,
+      "serviceids": "123456",
+      "invoiceid": 654321,
+      "invoicepaid": false
     }
     ```
-
-    ---
-
-    ## What just happened
-
-    - Order was created
-    - Invoice was generated
-    - Account credit was applied automatically because `applycredit` was omitted
-    - In the response shown, `invoicepaid: true` confirms that the invoice is paid; provisioning can begin automatically
-
-    If `invoicepaid` is `false`, the invoice remains unpaid. That flag alone does not mean the order failed.
-
-    ---
-
-    ## Key insight
-
-    👉 Every value used in the final request comes from previous API calls
-
-    There are **no hardcoded values**.
-
-    ---
-
-    ## Pro tip
-
-    <Info>
-      Use the documentation portal to inspect discovery responses before submitting an order. The Order VPS endpoint below creates real orders; use it only when you are ready to order.
-
-      [Order VPS](/order-api-reference/order-vps)
-    </Info>
-
-    ---
-
-    ## Final summary
-
-    1. get billing cycles
-    2. get payment methods
-    3. get locations
-    4. get products
-    5. collect IDs
-    6. submit order
-
-    👉 This is the complete workflow.
+    
+    `status: "success"` confirms order creation. `invoicepaid: false` means the invoice remains unpaid; it does not mean the order failed. Complete payment through the Client Portal as required. Order creation, payment, provisioning and OS installation are separate stages.
+    
+    After provisioning starts, use the returned service ID with [Get KVM ID](/order-api-reference/get-kvm-id), then follow the [order-to-ready workflow](/order-api-reference/order-api#from-order-to-a-ready-vps).
+    
+    See [Order VPS](/order-api-reference/order-vps) for the endpoint reference and [Get VPS plans](/order-api-reference/get-vps-plans#how-to-find-the-ordering-os-id) for the product-to-OS mapping.
   </Tab>
 </Tabs>
