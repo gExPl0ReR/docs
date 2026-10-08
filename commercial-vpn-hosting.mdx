@@ -14,7 +14,9 @@ EDIS Global supplies the infrastructure. You operate the VPN service and remain 
 
 ## Operating model
 
-You can keep multiple VPS services under one EDIS Global account and assign a separate VPS with its own dedicated static IPv4 address to each paying VPN subscriber. Subscribers connect to your VPN service and do not need access to the EDIS Global control panel.
+You can serve multiple paying subscribers from one VPS, or assign a separate VPS with its own dedicated static IPv4 address to each subscriber. Both models are permitted on standard KVM plans, subject to the AUP and the resources available to each VPS.
+
+Keep the VPS services under your provider account. Subscribers connect to your VPN service and do not need access to the EDIS Global control panel.
 
 You remain the contractual customer and handle payment, server administration, subscriber support and abuse response. Order production VPS under the intended account: existing VPS cannot be transferred between accounts.
 
@@ -94,6 +96,45 @@ Provide accurate contact and billing details. Account verification and payment-p
 - The Order API's `applycredit: false` setting affects that order only. A renewal-credit opt-out is a [support-configured account-level arrangement](/faq/billing-lifecycle/pay-invoices-from-credit-balance#can-i-disable-automatic-credit-application-to-renewal-invoices).
 - Services renew unless cancelled. We recommend automatic renewal and [cancelling services no longer required](/faq/billing-lifecycle/cancel-a-service).
 - EDIS Global adds no cryptocurrency-payment surcharge. Wallet, exchange and network fees may still apply; required payment confirmations must complete before provisioning.
+
+## Frequently asked questions
+
+### Can multiple paying subscribers share one VPS?
+
+**Yes.** You may sell VPN subscriptions to multiple users on one VPS, or use a separate VPS for each subscriber. You manage user accounts, authentication, quotas and subscription expiry in your own software. There is no published fixed subscriber limit; choose resources for your actual workload and test before scaling. You remain responsible for subscriber support and abuse response in either model.
+
+### Can I use Xray, VLESS with REALITY, Marzban or 3X-UI?
+
+**Yes.** You may install VPN software such as Xray-core or V2Ray, use VLESS with REALITY where supported by your chosen software, and manage subscribers with panels such as Marzban or 3X-UI, subject to the AUP. No additional authorisation is required solely for choosing these applications.
+
+You install, configure, update and secure the software. Permission to use it does not guarantee compatibility with every version, access through a particular ISP, or managed application support. See our [3X-UI installation guide](/advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204), [port policy](/faq/ip-addresses/ports-firewalls-and-connectivity) and [support scope](/getting-started/how-our-support-team-helps-you).
+
+### Do different locations provide different ASNs and independent networks?
+
+**Different locations or IP prefixes do not necessarily mean different origin ASNs or fully independent networks.** The origin ASN announces a prefix in BGP; it may differ from the upstream provider supplying connectivity. Different locations can share an origin ASN, an upstream or other dependencies.
+
+If ASN diversity is essential, identify the specific prefixes and origin ASNs before ordering. A carrier list does not guarantee a direct local connection or a particular route to every destination. Use the published test addresses and Looking Glass on our [location pages](https://www.edisglobal.com/vps-hosting) to evaluate routes. Geographic distribution alone does not establish physically diverse fibre paths or the absence of shared failure points.
+
+### What happens if my VPN server is attacked?
+
+Our [DDoS measures](/faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview) protect the infrastructure and other customers. We do not provide service-specific DDoS protection that guarantees your VPN remains reachable during an attack. If necessary, we may null-route the attacked IP, making it unreachable while the restriction is in place.
+
+An incoming attack and abuse originating from your subscribers are separate situations. For subscriber abuse, investigate valid complaints, stop prohibited activity and reply with the action taken. Using VPN or P2P software does not authorise copyright infringement. Restrictions depend on the incident and the [AUP](/getting-started/acceptable-use-policy); an abuse-response deadline does not guarantee uninterrupted access. See [responding to abuse complaints](/responding-to-abuse-complaints).
+
+### What backups, availability and recovery arrangements are included?
+
+**Automatic VPS backups and instant snapshots are not provided.** Keep regular, recoverable backups outside the VPS and test restoration. A downloadable QCOW2 disk image is available on request as a one-off paid service; see the [backup guide](/getting-started/backups) and [QCOW2 export procedure and fee](/faq/upgrades-downgrades/requesting-qcow2-image-backup).
+
+Published uptime figures do not create a contractual SLA or a guaranteed application recovery time. Running VPS instances in several locations does not automatically replicate your data or provide application failover. You are responsible for your application's monitoring, replication, failover and recovery plan. Do not assume a particular host-recovery sequence or complete independence between locations. Assess your requirements against our [Terms of Service](https://www.edisglobal.com/terms) and [infrastructure support scope](/getting-started/how-our-support-team-helps-you).
+
+### What should I know before testing, paying for or cancelling several VPS instances?
+
+Check the [current location plans and prices](https://www.edisglobal.com/vps-hosting), and test connectivity from your subscribers' networks. Ordering several servers does not create an unconditional trial or a separate refund allowance for each server.
+
+- **Refunds:** the [24-hour refund policy](/faq/billing-lifecycle/cancellation-and-refund-policy) allows one eligible refund per customer in any 12-month period. Complete requests must reach support within the deadline and meet all conditions, including restrictions relating to discounts, upgrades and assigned Pool Traffic. Crypto refunds are possible when eligible and require the recipient information specified in that policy.
+- **Location changes:** an eligible [free location replacement](/faq/server-locations/change-server-location) creates a fresh VPS and deletes the original VPS and its data. A completed location change removes refund eligibility. A primary IPv4 change alone does not remove it.
+- **Payments and verification:** [cryptocurrency payments](/faq/billing-lifecycle/accepted-payment-methods) can be used for purchases and renewals, but do not guarantee anonymous service or exemption from account or payment checks. Provide accurate account details and follow any [payment-provider verification requirements](/faq/billing-lifecycle/handling-blocked-cryptocurrency-payments-cryptomus). [VAT treatment](/faq/billing-lifecycle/eu-vat-explained-if-and-how-much) depends on the applicable customer details, not on choosing cryptocurrency.
+- **Renewals and cancellation:** services renew unless cancelled. You can [fund account credit in advance](/faq/billing-lifecycle/how-to-add-account-credit); credit added after an invoice exists must be applied manually. Review the [billing and non-payment timeline](/faq/billing-lifecycle/automated-vps-billing-workflow) and use the [cancellation procedure](/faq/billing-lifecycle/cancel-a-service) for services you no longer need. Immediate cancellation and cancellation at the end of the paid period have different effects.
 
 ## Plan your deployment
 
