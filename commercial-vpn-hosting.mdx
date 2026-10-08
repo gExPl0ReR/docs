@@ -40,7 +40,7 @@ Review the [network port policy](/faq/ip-addresses/ports-firewalls-and-connectiv
 
 ### Shared connectivity and bandwidth
 
-Host connectivity is shared between VPS instances. A host uplink speed is not a dedicated per-VPS throughput commitment; actual VPN performance depends on resources, encryption, load and the complete network path. Dedicated Internet access and custom committed-bandwidth arrangements are **not available for VPS deployments**.
+Host connectivity is shared between VPS instances. A host uplink speed is not a dedicated per-VPS throughput commitment. Actual VPN performance depends on resources, encryption, load and the complete network path. Dedicated Internet access and custom committed-bandwidth arrangements are **not available for VPS deployments**.
 
 For a large rollout, agree locations, quantities and timing with us in advance. Public stock information does not reserve capacity or establish a guaranteed deployment rate.
 
@@ -51,9 +51,9 @@ For a large rollout, agree locations, quantities and timing with us in advance. 
 - [Bespoke IPv4 selection](/faq/ip-addresses/order-bespoke-ip-address) lets you choose from available addresses and prefixes. Tell us your required number of distinct /24 prefixes before ordering; inventory varies by location.
 - Test connectivity using the published addresses and Looking Glass on our [location pages](https://www.edisglobal.com/vps-hosting).
 
-An IP replacement cannot guarantee reachability through a particular ISP or country. External filtering can affect addresses, entire prefixes or protocols. When the primary IP is replaced, the old address stops working immediately; configure the replacement inside the VPS and update your VPN endpoint settings.
+An IP replacement cannot guarantee reachability through a particular ISP or country. External filtering can affect addresses, entire prefixes or protocols. When EDIS Global replaces the primary IP, the old address stops working immediately. Configure the replacement inside the VPS and update your VPN endpoint settings.
 
-Standard paid primary-IP changes are processed automatically in real time once the request and payment are complete. Ordinary allocation is random; choose the Bespoke service if you need to select from available prefixes. Repeated changes remain subject to inventory, account review and the AUP.
+EDIS Global processes standard paid primary-IP changes automatically in real time once the request and payment are complete. Ordinary allocation is random; choose the Bespoke service if you need to select from available prefixes. Repeated changes remain subject to inventory, account review and the AUP.
 
 ## Connectivity and IP expectations
 
@@ -65,7 +65,7 @@ Use stable addresses within your assigned allocation. [Rotating or random-addres
 
 ### Reverse DNS and outbound email
 
-PTR records can be managed through the portal or API. Reverse DNS remains on EDIS Global's Anycast DNS infrastructure; individual IPs and parts of networks are not delegated to external nameservers. A custom PTR is normally unnecessary for a VPN endpoint. See [reverse DNS management](/faq/ip-addresses/setting-up-reverse-pointers).
+You can manage PTR records through the portal or API. Reverse DNS remains on EDIS Global's Anycast DNS infrastructure. EDIS Global does not delegate individual IPs or parts of networks to external nameservers. A custom PTR is normally unnecessary for a VPN endpoint. See [reverse DNS management](/faq/ip-addresses/setting-up-reverse-pointers).
 
 We recommend blocking outbound TCP port 25 in your VPN configuration or firewall, including forwarded subscriber traffic, unless you have a legitimate requirement for it. The platform's default rate limit is not a complete block. See [Port 25 guidance for VPN operators](/faq/port-25-smtp-rate-limit-policy#recommendation-for-vpn-operators).
 
@@ -85,14 +85,14 @@ Maintain a monitored contact address and a process for promptly stopping prohibi
 
 This is not a guaranteed grace period. Serious incidents may require immediate restrictions, suspension or termination under the AUP. You remain responsible for abuse originating from your customers.
 
-Valid complaints are normally forwarded to the account holder for investigation. Stop the activity, investigate the cause and reply with the action taken. See [Responding to an abuse complaint](/responding-to-abuse-complaints) for the response process and [Reporting abuse](/reporting-abuse) for evidence requirements.
+EDIS Global normally forwards valid complaints to the account holder for investigation. Stop the activity, investigate the cause and reply with the action taken. See [Responding to an abuse complaint](/responding-to-abuse-complaints) for the response process and [Reporting abuse](/reporting-abuse) for evidence requirements.
 
 ## Registration and payment
 
 Provide accurate contact and billing details. Account verification and payment-provider checks may apply. Consult the [accepted payment methods](/faq/billing-lifecycle/accepted-payment-methods) guide and contact support with account-specific eligibility questions.
 
 - [Reseller discounts](/reselling-and-discounts) depend on active VPS count. After tier confirmation, use the issued coupon for future orders; discounts are not automatically applied retrospectively.
-- Available credit is applied to newly generated renewal invoices by default. Credit added after an invoice exists must be [applied manually](/faq/billing-lifecycle/pay-invoices-from-credit-balance).
+- By default, EDIS Global applies available credit to newly generated renewal invoices. Credit added after an invoice exists must be [applied manually](/faq/billing-lifecycle/pay-invoices-from-credit-balance).
 - The Order API's `applycredit: false` setting affects that order only. A renewal-credit opt-out is a [support-configured account-level arrangement](/faq/billing-lifecycle/pay-invoices-from-credit-balance#can-i-disable-automatic-credit-application-to-renewal-invoices).
 - Services renew unless cancelled. We recommend automatic renewal and [cancelling services no longer required](/faq/billing-lifecycle/cancel-a-service).
 - EDIS Global adds no cryptocurrency-payment surcharge. Wallet, exchange and network fees may still apply; required payment confirmations must complete before provisioning.
@@ -101,11 +101,11 @@ Provide accurate contact and billing details. Account verification and payment-p
 
 ### Can multiple paying subscribers share one VPS?
 
-**Yes.** You may sell VPN subscriptions to multiple users on one VPS, or use a separate VPS for each subscriber. You manage user accounts, authentication, quotas and subscription expiry in your own software. There is no published fixed subscriber limit; choose resources for your actual workload and test before scaling. You remain responsible for subscriber support and abuse response in either model.
+**Yes.** You may sell VPN subscriptions to multiple users on one VPS, or use a separate VPS for each subscriber. You manage user accounts, authentication, quotas and subscription expiry in your own software. There is no published fixed subscriber limit. Choose resources for your actual workload and test before scaling. You remain responsible for subscriber support and abuse response in either model.
 
 ### Can I use Xray, VLESS with REALITY, Marzban or 3X-UI?
 
-**Yes.** You may install VPN software such as Xray-core or V2Ray, use VLESS with REALITY where supported by your chosen software, and manage subscribers with panels such as Marzban or 3X-UI, subject to the AUP. No additional authorisation is required solely for choosing these applications.
+**Yes.** You may install VPN software such as Xray-core or V2Ray and use VLESS with REALITY where your chosen software supports it. You may also manage subscribers with panels such as Marzban or 3X-UI, subject to the AUP. No additional authorisation is required solely for choosing these applications.
 
 You install, configure, update and secure the software. Permission to use it does not guarantee compatibility with every version, access through a particular ISP, or managed application support. See our [3X-UI installation guide](/advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204), [port policy](/faq/ip-addresses/ports-firewalls-and-connectivity) and [support scope](/getting-started/how-our-support-team-helps-you).
 
