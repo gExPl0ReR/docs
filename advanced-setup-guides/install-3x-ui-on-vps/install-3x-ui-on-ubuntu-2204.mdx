@@ -18,7 +18,7 @@ For this guide, use a **KVM Linux VPS with Ubuntu 22.04**, root access and a pub
 
 **KVM Starter with 2 GB RAM** is a practical starting point for a small personal setup. For several active users or a commercial service, compare vCPU resources and monthly traffic as well as RAM, then test with your expected workload. There is no fixed number of users or guaranteed throughput associated with a RAM size.
 
-Choose a location close to your users or with a suitable route to their networks. Test the location's Looking Glass before ordering. The plan comparison shows the CPU type, storage, traffic allowance, host uplink and current price for each location; host uplink speed is not a per-VPS throughput guarantee.
+Choose a location close to your users or with a suitable route to their networks. Test the location's Looking Glass before ordering. The plan comparison shows the CPU type, storage, traffic allowance, host uplink and current price for each location. Host uplink speed is not a per-VPS throughput guarantee.
 
 <CardGroup cols={2}>
   <Card title="Compare 2 GB VPS plans" icon="server" href="https://www.edisglobal.com/vps-hosting/2gb-vps?utm_source=edis-docs&utm_medium=referral&utm_campaign=vpn-guides&utm_content=3x-ui-prerequisites">
@@ -35,7 +35,7 @@ Choose a location close to your users or with a suitable route to their networks
   <Step title="Install Ubuntu 22.04 on your EDIS Global VPS">
     Choose a location and plan above, then select Ubuntu 22.04 as your operating system.
   </Step>
-  <Step title="Connect to the VPS server using the SSH protocol:">
+  <Step title="Connect to the VPS using SSH">
     ```bash
         ssh root@VPS_IP_address
         Enter root password:
@@ -46,12 +46,12 @@ Choose a location close to your users or with a suitable route to their networks
         apt update && apt upgrade -y 
     ```
   </Step>
-  <Step title="Install curl package:">
+  <Step title="Install the curl package">
     ```bash
         apt install curl -y
     ```
   </Step>
-  <Step title="Disable IPv6 on Ubuntu 22.04:">
+  <Step title="Disable IPv6 on Ubuntu 22.04">
     ```bash
         #Create file 99-disable-ipv6.conf
         sudo nano /etc/sysctl.d/99-disable-ipv6.conf
@@ -73,7 +73,9 @@ Choose a location close to your users or with a suitable route to their networks
         bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
     ```
   </Step>
-  <Step title="During the installation, the script asks about changing the port">
+  <Step title="Set the panel port">
+    During the installation, the script asks whether you want to change the port:
+
     ```bash
         Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]: 
     ```
@@ -98,15 +100,15 @@ Choose a location close to your users or with a suitable route to their networks
 
 ## Connect to the 3x-ui panel
 
-Never connect to 3x-ui over plain http. It’s not secure. Always access the panel via https or through an SSH tunnel. To secure your connection to 3x-ui, make sure at least one of the following is set up:
+Never connect to 3x-ui over plain HTTP. It’s not secure. Always access the panel via HTTPS or through an SSH tunnel. To secure your connection to 3x-ui, make sure at least one of the following is set up:
 
 - Generate and assign a self-signed certificate for the panel
 - Use SSH port forwarding (access 3x-ui through an SSH tunnel)
 - Use a Let’s Encrypt SSL certificate if you have a registered domain
 
 <Tabs>
-  <Tab title="Self-sign cert" icon="expeditedssl">
-    A self-signed certificate lets the 3x-ui panel use HTTPS, so all data between your browser and the panel is encrypted instead of sent in plain text. Your browser may show a warning because the cert isn’t from a public CA, but the connection is still secure. This helps prevent man-in-the-middle (MITM) attacks. It is also much safer than using HTTP, especially when entering your password or changing VPN settings.
+  <Tab title="Self-signed cert" icon="expeditedssl">
+    A self-signed certificate lets the 3x-ui panel use HTTPS, so all data between your browser and the panel is encrypted instead of sent in plain text. Your browser may show a warning because the certificate isn’t from a public certificate authority (CA), but the connection is still secure. This helps prevent man-in-the-middle (MITM) attacks. It is also much safer than using HTTP, especially when entering your password or changing VPN settings.
 
     Generate a self-signed certificate and apply it to 3x-ui:
 
@@ -140,7 +142,7 @@ Never connect to 3x-ui over plain http. It’s not secure. Always access the pan
     sudo x-ui
     ```
 
-    Select option **13** to restart the panel. After that, the 3x-ui web interface will be served over HTTPS using your self-signed certificate.
+    Select option **13** to restart the panel. After that, 3x-ui serves the web interface over HTTPS using your self-signed certificate.
   </Tab>
   <Tab title="SSH port forwarding" icon="left-right">
     SSH port forwarding (SSH tunneling) lets you securely access a service on your VPS, like the 3x-ui web panel, without opening its port to the public internet. You create an encrypted SSH connection where your PC listens on a local port (for example `2222`). The tunnel forwards all traffic to the 3x-ui port on the server (for example `46522`). When you open `http://127.0.0.1:2222/` in your browser, you’re safely talking to the panel through SSH.
@@ -160,7 +162,7 @@ Never connect to 3x-ui over plain http. It’s not secure. Always access the pan
        Select an option (1 or 2): 1
     ```
 
-    When you select option 1, 3x-ui will show you sample commands for creating an SSH tunnel from your local machine.
+    When you select option 1, 3x-ui shows sample commands for creating an SSH tunnel from your local machine.
 
     <b>Create an SSH tunnel from your PC:</b>
 
@@ -188,7 +190,7 @@ Never connect to 3x-ui over plain http. It’s not secure. Always access the pan
        http://127.0.0.1:2222/ZtvraBUmNK9NQj43ks
     ```
   </Tab>
-  <Tab title="Let's encrypt SSL cert" icon="certificate">
+  <Tab title="Let's Encrypt SSL cert" icon="certificate">
     To get a trusted HTTPS certificate from Let’s Encrypt for the 3x-ui panel, you need:
 
     - Domain name, e.g. vpn.example.com
@@ -227,24 +229,24 @@ Never connect to 3x-ui over plain http. It’s not secure. Always access the pan
   Great, you’re now securely connected and logged in to the 3x-ui panel. Next, you’ll create a new inbound and connect to your server from your client apps.
 </Check>
 
-## 3x-ui panel
+## Create an inbound in the 3x-ui panel
 
 Log in to the panel:
 
 ![3x-ui login](/assets/3x-ui-login.png)
 
-After logging in to the 3x-ui panel, go to the Inbounds tab and click the Add Inbound button:
+After logging in to the 3x-ui panel, go to the **Inbounds** tab and click **Add Inbound**:
 
 ![inbounds](/assets/3x-ui-inbounds.png)
 
-Fill in the following fields in the opened menu:
+Fill in the following fields in the menu that opens:
 
 - Remark - name the connection
 - Protocol - select <b>vless</b>
-- Listen IP - leave the field blank;
+- Listen IP - leave the field blank
 - Port - specify port <b>443</b>
-- Click the Client drop-down list and click one by one to the Email, ID, Subscription to update.
-- For Flow settings select <b>xtls-rprx-vision</b>. The Flow will be visible after activating Reality for the Security setting.
+- Click the **Client** drop-down list, then click **Email**, **ID** and **Subscription** one by one to update them.
+- For **Flow**, select <b>xtls-rprx-vision</b>. The **Flow** field appears after you set **Security** to **Reality**.
 
 ![addinbound](/assets/3x-ui-addinbound.png)
 
@@ -253,18 +255,18 @@ Fill in the following fields in the opened menu:
 - uTLS - chrome or firefox
 - Target - google.com:443
 - SNI - google.com,[www.google.com](http://www.google.com)
-- Short IDs click to update
-- Click to Generate New Cert
+- Short IDs - click to update
+- Click **Generate New Cert**
 
 ![addinbound2](/assets/3x-ui-addinbound2.png)
 
-Activate Sniffing, switch to enable:
+Enable **Sniffing** by turning on the switch:
 
 ![addinbound3snifingenable](/assets/3x-ui-addinbound3snifingenable.png)
 
-After entering the data, click the Create button.
+After entering the data, click **Create**.
 
-If configured correctly, you will have an entry with the protocol. Try to click the <b>+</b> plus to show client settings for export:
+If you configured the inbound correctly, it appears in the list. Click the <b>+</b> icon to show client settings for export:
 
 ![inboundcreated](/assets/3x-ui-inboundcreated.png)
 
@@ -278,7 +280,7 @@ In the pop-up window you’ll see two QR codes. Click the QR code on the right (
 
 ## How to connect to 3x-ui (PC, Android, iOS)
 
-Description of 3x-ui clients for PC: **Hiddify**, **v2rayN**, **v2RayTun**, **v2RayNG**, **Nekoray** and others.
+Compatible 3x-ui clients include **Hiddify**, **v2rayN**, **v2RayTun**, **v2RayNG**, **Nekoray** and others.
 
 | Client        | Mobile (Android / iOS)                                                                       | PC (Windows / Linux / macOS)                                                                                                                             | Notes                                                                  |
 | ------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
