@@ -16,9 +16,26 @@ Amnezia VPN is a project developed by Russian internet activists focused on find
 
 **AmneziaWG VPN** specifically refers to the **WireGuard protocol** implementation in Amnezia. Amnezia introduced **AmneziaWG**, an enhanced version of WireGuard designed for use in the most restrictive internet environments. **AmneziaWG** is optimized for environments with extreme censorship and can bypass sophisticated blocking mechanisms better than a standard WireGuard installation.
 
+## Choose a VPS for AmneziaWG
+
+Use a KVM Linux VPS with root access, a public IPv4 address and **Ubuntu 22.04** for the steps below.
+
+For a small personal VPN, **KVM Starter with 2 GB RAM** is a practical starting point. Compare the vCPU, storage, monthly traffic allowance and price for your chosen location. Capacity depends on active devices, traffic and encryption workload; a RAM size alone does not guarantee a user count or connection speed.
+
+Choose a location by testing the route from the networks where you will use the VPN. [Tallinn](https://www.edisglobal.com/vps-hosting/estonia-tallinn) and [Amsterdam](https://www.edisglobal.com/vps-hosting/netherlands-amsterdam) are options to compare; use the Looking Glass on each location page before ordering.
+
+<CardGroup cols={2}>
+  <Card title="Compare 2 GB VPS plans" icon="server" href="https://www.edisglobal.com/vps-hosting/2gb-vps?utm_source=edis-docs&utm_medium=referral&utm_campaign=vpn-guides&utm_content=amneziawg-prerequisites">
+    Choose a location and compare its current KVM Starter configuration and monthly price.
+  </Card>
+  <Card title="Browse all VPS locations" icon="globe" href="https://www.edisglobal.com/vps-hosting?utm_source=edis-docs&utm_medium=referral&utm_campaign=vpn-guides&utm_content=amneziawg-locations">
+    Compare other locations and larger plans for your expected traffic.
+  </Card>
+</CardGroup>
+
 ## Installing AmneziaWG VPN on a VPS
 
-1. Install Ubuntu 22.04 on your EDIS Global VPS. [VPS in Estonia](https://www.edisglobal.com/vps-hosting/estonia-tallinn) works great from and to Russia. [VPS in Amsterdam](https://www.edisglobal.com/vps-hosting/netherlands-amsterdam) works well in Iran. [Many other VPS locations](https://www.edisglobal.com) like Cyprus, Moldova, Hungary or Austria will deliver great results too.
+1. Install Ubuntu 22.04 on the VPS you selected above.
 2. Connect to the VPS server using the SSH protocol:
 
 ```bash
@@ -174,7 +191,7 @@ You can now copy the generated client configurations (my\_amneziawg\_client1, my
 <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
   <CtaButton label="Install AmneziaWG client on Keenetic router" link="./install-amneziawg-on-keenetic-router" openInNewTab={true} />
 
-  <CtaButton label="Install on Ubuntu" link="./install-amneziawg-on-ubuntu-2204" openInNewTab={true} />
+  <CtaButton label="Connect an Ubuntu client" link="./install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg" openInNewTab={true} />
 
   <CtaButton label="Install AmneziaWG client on Windows" link="./install-amneziawg-client-on-windows" openInNewTab={true} />
 </div>
@@ -193,3 +210,7 @@ Platform-specific guides:
 - [Windows Guide](https://github.com/amnezia-vpn/awg-windows)
 - [MacOS and iOS Guide](https://github.com/amnezia-vpn/awg-apple)
 - [WireGuard Guide](https://github.com/amnezia-vpn/amnezia-wg-tools)
+
+## Plan your next deployment
+
+[Choose an AmneziaWG VPS location and plan](https://www.edisglobal.com/vps-hosting/2gb-vps?utm_source=edis-docs&utm_medium=referral&utm_campaign=vpn-guides&utm_content=amneziawg-next-steps). For a service with paying subscribers, read our [commercial VPN hosting guide](/commercial-vpn-hosting) and size the VPS for measured CPU usage, active connections and monthly traffic.

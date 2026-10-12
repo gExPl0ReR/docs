@@ -12,11 +12,28 @@ VLESS is a modern, lightweight protocol used to create fast, flexible VPN-like c
 
 3x-ui is a web panel (a control dashboard in your browser) for managing Xray-core. It lets you create and manage VLESS VPN accounts without touching complex config files. You can add users, generate VLESS links or QR codes, and see traffic usage in a few clicks. 3x-ui also supports other popular protocols like Trojan, Shadowsocks, and more, so you can choose what works best for your needs. Overall, it turns many “terminal-only” tasks into simple buttons and forms, which is much easier for beginners.
 
+## Choose a VPS for 3x-ui
+
+For this guide, use a **KVM Linux VPS with Ubuntu 22.04**, root access and a public IPv4 address. You will install and manage 3x-ui yourself.
+
+**KVM Starter with 2 GB RAM** is a practical starting point for a small personal setup. For several active users or a commercial service, compare vCPU resources and monthly traffic as well as RAM, then test with your expected workload. There is no fixed number of users or guaranteed throughput associated with a RAM size.
+
+Choose a location close to your users or with a suitable route to their networks. Test the location's Looking Glass before ordering. The plan comparison shows the CPU type, storage, traffic allowance, host uplink and current price for each location; host uplink speed is not a per-VPS throughput guarantee.
+
+<CardGroup cols={2}>
+  <Card title="Compare 2 GB VPS plans" icon="server" href="https://www.edisglobal.com/vps-hosting/2gb-vps?utm_source=edis-docs&utm_medium=referral&utm_campaign=vpn-guides&utm_content=3x-ui-prerequisites">
+    Select your location and compare current KVM Starter plans.
+  </Card>
+  <Card title="Browse all VPS locations" icon="globe" href="https://www.edisglobal.com/vps-hosting?utm_source=edis-docs&utm_medium=referral&utm_campaign=vpn-guides&utm_content=3x-ui-locations">
+    Find other locations and larger plans for your deployment.
+  </Card>
+</CardGroup>
+
 ## Install 3x-ui on a VPS
 
 <Steps>
   <Step title="Install Ubuntu 22.04 on your EDIS Global VPS">
-    [Purchase a VPS](https://www.edisglobal.com/) in your preferred location through our website.
+    Choose a location and plan above, then select Ubuntu 22.04 as your operating system.
   </Step>
   <Step title="Connect to the VPS server using the SSH protocol:">
     ```bash
@@ -279,3 +296,7 @@ Links:
 - https://github.com/MHSanaei/3x-ui/wiki/Installation#docker-recommended
 - https://github.com/XTLS/Xray-core
 - https://xtls.github.io/en/config/inbounds/vless.html
+
+## Plan your next deployment
+
+[Choose a VPS location and plan for 3x-ui](https://www.edisglobal.com/vps-hosting/2gb-vps?utm_source=edis-docs&utm_medium=referral&utm_campaign=vpn-guides&utm_content=3x-ui-next-steps). If you sell access to paying subscribers, read our [commercial VPN hosting guide](/commercial-vpn-hosting) for deployment, traffic planning and abuse-handling responsibilities.
