@@ -50,10 +50,23 @@ VLESS is a modern, lightweight protocol used to create fast, flexible VPN-like c
         ip a
         ip a | grep inet6
     ```
+
+    These settings turn off IPv6 on all network interfaces, so the VPS uses IPv4 only. After `sysctl --system`, `ip a | grep inet6` returns no output.
+
+    <Note>
+      If you connected over SSH using the VPS IPv6 address, your session drops with `client_loop: send disconnect: Connection reset`. Reconnect using the IPv4 address (`ssh root@VPS_IPv4_address`) and continue with the next step.
+    </Note>
   </Step>
   <Step title="Install 3x-ui panel">
     ```bash
         bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+    ```
+
+    Run this command as `root` in a `bash` shell. If you see `bash: /dev/fd/63: No such file or directory`, your shell can't use process substitution. This happens, for example, when you prefix the command with `sudo` or run it with `sh`. Download the script first, then run it:
+
+    ```bash
+        curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh -o install.sh
+        bash install.sh
     ```
   </Step>
   <Step title="During the installation, the script asks about changing the port">
@@ -108,6 +121,8 @@ Never connect to 3x-ui over plain http. It’s not secure. Always access the pan
         -out /root/cert/cert.crt \
         -subj "/C=EE/ST=Harjumaa/L=Tallinn/O=Org/OU=site/CN=localhost"
     ```
+
+    The `-subj` value sets the certificate subject: `C` is the two-letter country code, `ST` is the state or region, `L` is the city, `O` is the organization, `OU` is the organizational unit, and `CN` is the common name. The example values are placeholders. You can replace them with your own, and they don't affect how the self-signed certificate works.
 
     3. Assign the certificate to the 3x-ui web panel:
 
