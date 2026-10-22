@@ -28,7 +28,7 @@
         },
         "responses": {
           "200": {
-            "description": "A list of available payment methods.",
+            "description": "Payment method identifiers currently available to the authenticated account. The example is illustrative; use the live response rather than a hard-coded list or a checkout display name.",
             "content": {
               "application/json": {
                 "schema": {
@@ -262,7 +262,7 @@
                           },
                           "creation_date": "2025-03-11",
                           "key_date": "2025-04-11",
-                          "paymentmethod": "cryptomus",
+                          "paymentmethod": "creditcard",
                           "plan": "KVM BASIC",
                           "location": "Austria, Vienna"
                         }
@@ -1109,8 +1109,7 @@
             "example": [
               "paypal",
               "alipay",
-              "creditcard",
-              "cryptomus"
+              "creditcard"
             ],
             "items": {
               "type": "string"
@@ -1194,7 +1193,7 @@
           },
           "paymentmethod": {
             "type": "string",
-            "example": "cryptomus",
+            "example": "creditcard",
             "description": "Payment method assigned to the service."
           },
           "plan": {
