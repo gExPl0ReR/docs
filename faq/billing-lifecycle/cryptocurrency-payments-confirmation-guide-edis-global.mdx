@@ -1,122 +1,57 @@
 ---
-title: Confirmation requirements for cryptocurrency payments
-sidebarTitle: Blockchain confirmations
-description: "Confirmation requirements for cryptocurrency payments at EDIS Global. Learn how many blockchain confirmations are needed for Bitcoin, Ethereum, and others."
+title: "Blockchain confirmations for cryptocurrency payments"
+sidebarTitle: "Blockchain confirmations"
+description: "Confirmation delays for Bitcoin, Ethereum, Tron and BNB Smart Chain payments through Crypto by EDIS Global, plus how to check a pending payment."
 ---
 
-## Introduction
+Cryptocurrency payments through **Crypto by EDIS Global** must be confirmed on the selected blockchain before they can be credited to your invoice. A transaction appearing in your wallet or on an explorer does not necessarily mean the payment is complete.
 
-At EDIS Global, we offer our valued customers the flexibility to pay for Virtual Private Server (VPS) services using various cryptocurrencies. This article outlines the importance of blockchain confirmations and what you need to expect when making a payment. It helps you understand our payment process and how your invoices are marked as paid.
+## Confirmation delays
 
-## What is a blockchain confirmation?
+Our gateway uses Dfns blockchain infrastructure to detect confirmed incoming payments. Dfns defines **confirmation delay** as the number of additional blocks after the block containing the transaction, before the transaction is indexed.
 
-When you make a payment using cryptocurrency, the transaction is initially unconfirmed and pending. It becomes confirmed once it's included in a block on the blockchain. Each additional block that is added on top of this block is another confirmation, which further secures the transaction against reversals like double-spending.
+The table below covers only the blockchains and currencies accepted by EDIS Global:
 
-## Why confirmations matter
+| Blockchain | Accepted currencies | Additional blocks after inclusion |
+| --- | --- | --- |
+| Bitcoin | BTC | 2 |
+| Ethereum | ETH, USDC (ERC-20), USDT (ERC-20) | 12 |
+| Tron | TRX, USDT (TRC-20) | 19 |
+| BNB Smart Chain (BSC) | BNB, Binance-Peg USDC and USDT (BEP-20) | 5 |
 
-Confirmations are essential for the security of blockchain transactions. The number of confirmations required varies by cryptocurrency. It is set to mitigate the risks associated with each blockchain's unique characteristics, including the likelihood of transaction reversal and the average time to mine a block.
+Source: [Dfns supported networks](https://docs.dfns.co/networks), checked **22 October 2026**. These indexing delays may change.
 
-## Confirmation requirements
+### Why Bitcoin shows 3 confirmations
 
-When you pay your invoice with cryptocurrency, the transaction must meet a certain number of confirmations before we mark your invoice as paid. Here’s a breakdown:
+For Bitcoin, the block containing the transaction counts as its first confirmation. The **2 additional blocks** in the table therefore correspond to **3 confirmations in total**. This matches the payment behavior observed with our gateway.
 
-- **Fast confirmations (1 block):** For most cryptocurrencies, including AVAX, DAI, SHIB, SOL, TON, USDC, USDT, and VERSE, only one confirmation is needed. This means your payment will typically be recognized quickly.
-- **Moderate confirmations (2-6 blocks):** Currencies like BCH and LTC require more confirmations, which means it might take slightly longer for your payment to be acknowledged.
-- **Increased confirmations (10-19 blocks):** TRX, USDT on Tron, and XMR require a higher number of confirmations. This ensures enhanced security but means that payment recognition can take longer.
+The table gives blocks after inclusion, not a universal wallet confirmation counter. The invoice is marked as paid once the confirmed, credited amount covers the outstanding balance.
 
-Please note that the number of confirmations required is subject to change based on the evolving security landscape of each cryptocurrency network.
+## How long does confirmation take?
 
-## Payment processing times
+Confirmation time depends on the blockchain, network conditions and the sending wallet or exchange. An exchange may also delay broadcasting a withdrawal. A block count does not guarantee payment within a fixed number of minutes.
 
-The time it takes for a transaction to confirm depends on the cryptocurrency chosen and its blockchain network:
+Allow time for both blockchain indexing and the invoice status to update. New-service provisioning begins after payment confirmation.
 
-- **Quick networks:** Transactions on networks like Ethereum or Solana may confirm within seconds to minutes.
-- **Slower networks:** Transactions on Bitcoin or Monero might take longer, depending on network congestion and block time intervals.
+## Check your payment
 
-## Checking your transaction status
+1. Open the invoice and its cryptocurrency checkout to check the payment status, credited amount and any remaining balance.
+2. Find the transaction ID (TXID) in your wallet or exchange withdrawal history.
+3. Check the transaction on an explorer for the selected network:
 
-You can check the status of your transactions using a blockchain explorer for the respective cryptocurrency (blockchain). Enter your transaction ID (TXID) into the explorer to see how many confirmations your transaction has.
+| Blockchain | Explorer |
+| --- | --- |
+| Bitcoin | [Blockchain.com](https://www.blockchain.com/explorer) |
+| Ethereum | [Etherscan](https://etherscan.io) |
+| Tron | [Tronscan](https://tronscan.org) |
+| BNB Smart Chain | [BscScan](https://bscscan.com) |
 
-## List of coins and their blockchain explorers
+Check the destination, currency or token, network, amount and transaction status. A completed withdrawal to the wrong address, token or network cannot automatically pay the invoice.
 
-Below, you can find a list of coins, their blockchain explorer URLs, and the coins' confirmation requirements before a payment is accepted and an invoice can be marked as PAID.
+## Confirmed transaction, but the invoice is still unpaid?
 
-**AVAX (Avalanche C-Chain)**: SnowTrace - [snowtrace.io](https://snowtrace.io/) - 1 block
+A short payment leaves an ordinary service invoice unpaid until its remaining balance is covered. A late payment or a payment sent using superseded instructions may need manual review.
 
-**BCH (Bitcoin Cash)**: Blockchair - [blockchair.com/bitcoin-cash](https://blockchair.com/bitcoin-cash) - 6 blocks
+If the transaction has confirmed and the invoice has not updated, contact EDIS Global Support with your invoice number, TXID, currency and blockchain. Check the [payment help guide](/faq/billing-lifecycle/cryptocurrency-payment-help) before sending another payment.
 
-**BNB (Binance Smart Chain)**: BscScan - [bscscan.com](https://bscscan.com/) - 5 blocks
-
-**BTC (Bitcoin)**: Blockchain.com - [blockchain.com/explorer](https://www.blockchain.com/explorer) - 1 confirmation
-
-**CGPT (on Binance Smart Chain)**: BscScan - [bscscan.com](https://bscscan.com/) - 5 blocks
-
-**DAI (on Polygon)**: PolygonScan - [polygonscan.com](https://polygonscan.com/) - 1 block
-
-**DAI (on Ethereum)**: Etherscan - [etherscan.io](https://etherscan.io/) - 1 block
-
-**DAI (on Binance Smart Chain)**: BscScan - [bscscan.com](https://bscscan.com/) - 5 blocks
-
-**DASH**: Dash Blockchain Explorer - [explorer.dash.org](https://explorer.dash.org/) - 2 confirmations
-
-**DOGE (Doge)**: Dogechain - [dogechain.info](https://dogechain.info/) - 1 block
-
-**ETH (Arbitrum One)**: Arbiscan - [arbiscan.io](https://arbiscan.io/) - 1 block
-
-**ETH (Ethereum)**: Etherscan - [etherscan.io](https://etherscan.io/) - 1 block
-
-**ETH (Binance Smart Chain)**: BscScan - [bscscan.com](https://bscscan.com/) - 5 blocks
-
-**LTC (Litecoin)**: Blockchair - [blockchair.com/litecoin](https://blockchair.com/litecoin) - 2 confirmations
-
-**MATIC (on Ethereum)**: Etherscan - [etherscan.io](https://etherscan.io/) - 1 block
-
-**MATIC (on Polygon)**: PolygonScan - [polygonscan.com](https://polygonscan.com/) - 1 block
-
-**SHIB (Ethereum)**: Etherscan - [etherscan.io](https://etherscan.io/) - 1 block
-
-**SOL (Solana)**: Solscan - [solscan.io](https://solscan.io/) - 1 block
-
-**TON (TON)**: TON Live - [ton.live](https://ton.live/) - 1 block
-
-**TRX (Tron)**: Tronscan - [tronscan.org](https://tronscan.org/) - 19 blocks
-
-**USDC (on Ethereum)**: Etherscan - [etherscan.io](https://etherscan.io/) - 1 block
-
-**USDC (on Arbitrum One)**: Arbiscan - [arbiscan.io](https://arbiscan.io/) - 1 block
-
-**USDC (on Avalanche C-Chain)**: SnowTrace - [snowtrace.io](https://snowtrace.io/) - 1 block
-
-**USDC (on Binance Smart Chain)**: BscScan - [bscscan.com](https://bscscan.com/) - 5 blocks
-
-**USDC (on Polygon)**: PolygonScan - [polygonscan.com](https://polygonscan.com/) - 1 block
-
-**USDT (on Polygon)**: PolygonScan - [polygonscan.com](https://polygonscan.com/) - 1 block
-
-**USDT (on Arbitrum One)**: Arbiscan - [arbiscan.io](https://arbiscan.io/) - 1 block
-
-**USDT (on Ethereum)**: Etherscan - [etherscan.io](https://etherscan.io/) - 1 block
-
-**USDT (on Binance Smart Chain)**: BscScan - [bscscan.com](https://bscscan.com/) - 5 blocks
-
-**USDT (on Tron)**: Tronscan - [tronscan.org](https://tronscan.org/) - 19 blocks
-
-**USDT (on Solana)**: Solscan - [solscan.io](https://solscan.io/) - 1 block
-
-**USDT (on Avalanche C-Chain)**: SnowTrace - [snowtrace.io](https://snowtrace.io/) - 1 block
-
-**VERSE (Ethereum)**: Etherscan - [etherscan.io](https://etherscan.io/) - 1 block
-
-**XMR (Monero)**: Monero Blocks - [moneroblocks.info](https://moneroblocks.info/) - 10 blocks
-
-## Conclusion
-
-We at EDIS Global are committed to providing secure and convenient payment options. Understanding the confirmation process helps ensure a smooth and secure transaction experience. If you have any questions or need assistance with your cryptocurrency payment, please contact our support team.
-
-Thank you for choosing EDIS Global for your VPS needs!
-
----
-
-For customer support, please reach out via our website messenger.
-
-© \[2026] EDIS Global. All rights reserved.
+For the complete list of accepted combinations, see [supported currencies and blockchains](/faq/billing-lifecycle/cryptocurrency-payments#supported-currencies-and-blockchains).

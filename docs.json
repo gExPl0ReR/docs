@@ -161,6 +161,7 @@
                   "faq/billing-lifecycle/how-vps-renewals-work",
                   "faq/billing-lifecycle/accidental-renewal-convert-payment-to-credit",
                   "faq/billing-lifecycle/accepted-payment-methods",
+                  "faq/billing-lifecycle/cryptocurrency-payments",
                   "faq/billing-lifecycle/automatic-currency-conversion",
                   "faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global",
                   "faq/billing-lifecycle/how-fast-instant-delivery",
@@ -179,7 +180,7 @@
                   "faq/billing-lifecycle/how-to-pay-paypal-use-different-currency",
                   "faq/billing-lifecycle/add-contact-receive-invoices-different-email",
                   "faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account",
-                  "faq/billing-lifecycle/handling-blocked-cryptocurrency-payments-cryptomus",
+                  "faq/billing-lifecycle/cryptocurrency-payment-help",
                   "faq/billing-lifecycle/reset-2fa"
                 ]
               },
@@ -508,7 +509,7 @@
     },
     {
       "source": "/faq/billing-lifecycle/handling-locked-cryptocurrency-payments-cryptomus",
-      "destination": "/faq/billing-lifecycle/handling-blocked-cryptocurrency-payments-cryptomus"
+      "destination": "/faq/billing-lifecycle/cryptocurrency-payment-help"
     },
     {
       "source": "/linux-secure-shell-ssh",
@@ -776,11 +777,11 @@
     },
     {
       "source": "/btc-payment-arrived-after-the-payment-window",
-      "destination": "/faq/billing-lifecycle/accepted-payment-methods"
+      "destination": "/faq/billing-lifecycle/cryptocurrency-payment-help#the-payment-window-expired"
     },
     {
       "source": "/faq/billing-lifecycle/btc-payment-arrived-after-the-payment-window",
-      "destination": "/faq/billing-lifecycle/accepted-payment-methods"
+      "destination": "/faq/billing-lifecycle/cryptocurrency-payment-help#the-payment-window-expired"
     },
     {
       "source": "/how-to-pay-paypal-use-different-currency",
@@ -804,7 +805,7 @@
     },
     {
       "source": "/handling-locked-cryptocurrency-payments-cryptomus",
-      "destination": "/faq/billing-lifecycle/handling-blocked-cryptocurrency-payments-cryptomus"
+      "destination": "/faq/billing-lifecycle/cryptocurrency-payment-help"
     },
     {
       "source": "/traffic-vs-bandwidth",
@@ -1101,6 +1102,14 @@
       "source": "/vps-management/portal-buttons-not-loading",
       "destination": "/misc/portal-buttons-not-loading",
       "permanent": true
+    },
+    {
+      "source": "/faq/billing-lifecycle/handling-blocked-cryptocurrency-payments-cryptomus",
+      "destination": "/faq/billing-lifecycle/cryptocurrency-payment-help"
+    },
+    {
+      "source": "/handling-blocked-cryptocurrency-payments-cryptomus",
+      "destination": "/faq/billing-lifecycle/cryptocurrency-payment-help"
     }
   ],
   "metadata": {
