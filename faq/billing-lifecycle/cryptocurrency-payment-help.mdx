@@ -4,17 +4,21 @@ sidebarTitle: "Crypto payment help"
 description: "Resolve pending, late, short or duplicate payments through Crypto by EDIS Global, and find help with payments made before our gateway migration."
 ---
 
-**Crypto by EDIS Global** is our own cryptocurrency payment gateway. Contact EDIS Global Support for help with these payments. Any necessary, proportionate verification follows our [incoming and outgoing payments policy](/faq/billing-lifecycle/incoming-and-outgoing-payments).
+EDIS Global operates both **Crypto by EDIS Global** and our separate **Monero (XMR)** payment integration. Our Monero integration runs on our own infrastructure without a third-party payment processor. Contact EDIS Global Support for help with either payment option. Any necessary, proportionate verification follows our [incoming and outgoing payments policy](/faq/billing-lifecycle/incoming-and-outgoing-payments).
 
 ## Payment sent, but the invoice is unpaid
 
 Open the invoice and check its cryptocurrency checkout. Confirm that you sent the selected currency on the selected network to the address shown for that payment. Then check the amount that actually reached the address after withdrawal fees.
 
-A payment must be confirmed before EDIS Global credits it. **Bitcoin currently requires 3 confirmations**. See [blockchain confirmation delays](/faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global) for all four supported networks.
+A payment must be confirmed before EDIS Global credits it. **Monero (XMR) requires 10 confirmations; Bitcoin currently requires 3 confirmations**. For XMR, a detected payment can leave the invoice unpaid while these confirmations accumulate. Once the confirmed amount covers the invoice balance, EDIS Global marks it paid automatically. Confirmation time varies with the network.
+
+See [blockchain confirmation requirements](/faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global) for all five supported networks.
 
 If the transaction has confirmed but the invoice has not updated, contact support before paying again.
 
 ## I sent less than the requested amount
+
+The partial-payment behavior below applies to **Crypto by EDIS Global**. For a short Monero payment, check the Monero checkout and contact support before sending more.
 
 For an ordinary service invoice, confirmed partial payments reduce the amount due. The invoice remains unpaid until its remaining balance is covered. Open the current checkout and follow its instructions for the remaining amount; cover sending fees separately.
 
@@ -28,7 +32,7 @@ Contact support with the details of every transfer. After review, support can ar
 
 ## The payment window expired
 
-Checkout instructions and the quoted exchange rate are valid for **12 hours**. If you have not sent funds, reopen the invoice and obtain fresh instructions.
+For **Crypto by EDIS Global**, checkout instructions and the quoted exchange rate are valid for **12 hours**. For **Monero (XMR)**, follow the expiry time shown in its separate checkout. If you have not sent funds, reopen the invoice and obtain fresh instructions.
 
 If you already sent funds, keep the TXID and contact support. A payment arriving after expiry, after a change of currency or network, or after cancellation may require manual review. Expiry of the checkout window does not itself cancel the invoice or erase a payment already recorded.
 
@@ -44,7 +48,7 @@ Eligible service refunds follow our [cancellation and refund policy](/faq/billin
 
 ## Payments made before the gateway migration
 
-An older transaction may still belong to an earlier payment gateway's records. Send EDIS Global Support the original invoice number, TXID and any payment reference or blocked-payment message so we can investigate. For a new payment, open the current invoice and select **Crypto by EDIS Global**. Do not reuse an old checkout link or payment address.
+An older transaction may still belong to an earlier payment gateway's records. Send EDIS Global Support the original invoice number, TXID and any payment reference or blocked-payment message so we can investigate. For a new payment, open the current invoice and select **Monero (XMR)** for XMR, or **Crypto by EDIS Global** for the other supported currencies. Do not reuse an old checkout link or payment address.
 
 ## Contact support
 
