@@ -4,7 +4,7 @@ sidebarTitle: "Blockchain confirmations"
 description: "Monero (XMR) requires 10 confirmations. Learn about confirmation delays for Bitcoin, Ethereum, Tron and BNB Smart Chain and how to check pending payments."
 ---
 
-Cryptocurrency payments through **Monero (XMR)** or **Crypto by EDIS Global** must be confirmed on the selected blockchain before they can be credited to your invoice. A transaction appearing in your wallet or on an explorer does not necessarily mean the payment is complete.
+Cryptocurrency payments through **Monero (XMR)** or **Crypto by EDIS Global** must be confirmed on the selected blockchain before EDIS Global can credit them to your invoice. A transaction appearing in your wallet or on an explorer does not necessarily mean the payment is complete.
 
 ## Monero (XMR): 10 confirmations
 
@@ -14,7 +14,7 @@ EDIS Global now runs its own Monero payment integration on its own infrastructur
 | --- | --- | --- |
 | Monero | XMR | **10 confirmations** |
 
-The Monero checkout can detect a payment before it is ready to be credited. During this time, the invoice may still show as unpaid. Once the payment has reached **10 confirmations** and the confirmed amount covers the invoice balance, the invoice is marked paid automatically.
+The Monero checkout can detect a payment before it is ready to be credited. During this time, the invoice may still show as unpaid. Once the payment has reached **10 confirmations** and the confirmed amount covers the invoice balance, EDIS Global marks the invoice paid automatically.
 
 This is a total confirmation requirement, not the “additional blocks after inclusion” convention used in the Dfns table below. The time required varies with the network; 10 confirmations does not mean 10 minutes. Sending the transaction or seeing it in your wallet does not by itself complete the payment.
 
@@ -39,13 +39,13 @@ Source: [Dfns supported networks](https://docs.dfns.co/networks), checked **22 O
 
 For Bitcoin, the block containing the transaction counts as its first confirmation. The **2 additional blocks** in the table therefore correspond to **3 confirmations in total**. This matches the payment behavior observed with our gateway.
 
-The table gives blocks after inclusion, not a universal wallet confirmation counter. The invoice is marked as paid once the confirmed, credited amount covers the outstanding balance.
+The table gives blocks after inclusion, not a universal wallet confirmation counter. EDIS Global marks the invoice as paid once the confirmed, credited amount covers the outstanding balance.
 
 ## How long does confirmation take?
 
 Confirmation time depends on the blockchain, network conditions and the sending wallet or exchange. An exchange may also delay broadcasting a withdrawal. A block count does not guarantee payment within a fixed number of minutes.
 
-Allow time for both blockchain indexing and the invoice status to update. New-service provisioning begins after payment confirmation.
+Allow time for both blockchain indexing and the invoice status to update. EDIS Global begins provisioning new services after payment confirmation.
 
 ## Check your payment
 
