@@ -292,7 +292,7 @@ ssh -N -T -o ExitOnForwardFailure=yes -o ServerAliveInterval=30 \
 
 If SSH uses a custom port, add `-p YOUR_SSH_PORT`. Leave this terminal running while using the wallet. A successful tunnel usually shows no further output.
 
-In **Monero Wallet GUI**, use Advanced mode and open **Settings → Node**. Choose a remote node and enter:
+In **Monero Wallet GUI**, use Advanced mode and open **Settings → Node**. Select a remote node and enter:
 
 | Field | Value |
 | --- | --- |
@@ -301,7 +301,7 @@ In **Monero Wallet GUI**, use Advanced mode and open **Settings → Node**. Choo
 | Username and password | Leave blank for this configuration |
 | SSL | Not required inside this SSH tunnel |
 
-Select the node and connect. Here, `127.0.0.1` refers to the local end of the tunnel on your computer. SSH carries the connection to your VPS. The wallet will still need to scan its own transaction history after the daemon has synchronized.
+Select the node and connect. Here, `127.0.0.1` refers to the local end of the tunnel on your computer. SSH carries the connection to your VPS. After the daemon has synchronized, the wallet still needs to scan its own transaction history.
 
 For a connection check, run this on your computer while the tunnel is open:
 
@@ -334,7 +334,7 @@ Never expose unrestricted daemon RPC or `monero-wallet-rpc` to the public intern
     With `enable-dns-blocklist=1`, the daemon uses Monero's DNS blocklist. Peer bans can also result from peer behaviour. These messages alone do not mean your server is failing. Check synchronization and healthy peer connections before treating them as an incident.
   </Accordion>
   <Accordion title="The service fails with a permissions error">
-    Check that `/etc/monero` is owned by `root:monero` with mode `0750`, and `monerod.conf` by `root:monero` with mode `0640`. `/var/lib/monero` and `/var/log/monero` must be writable by `monero`. Read the journal for the exact path; avoid making these directories world-writable.
+    Check that `/etc/monero` is owned by `root:monero` with mode `0750`, and `monerod.conf` by `root:monero` with mode `0640`. The `monero` user must be able to write to `/var/lib/monero` and `/var/log/monero`. Read the journal for the exact path; avoid making these directories world-writable.
   </Accordion>
   <Accordion title="Disk space or traffic usage is growing">
     Pruned databases still grow. Monitor `df`, database size and the EDIS Global traffic dashboard. Adding pruning to a previously unpruned database does not immediately shrink its existing file. Do not delete the database as a first troubleshooting step; consult the official pruning documentation and plan additional storage if needed.
