@@ -44,7 +44,21 @@ EDIS Global accepts only the currency and network combinations offered in checko
 1. Sign in to the [Client Portal](https://manage.edisglobal.com/clientarea.php) and open your unpaid invoice.
 2. Select **Monero (XMR)** and open **Pay with Monero (XMR)**.
 3. Send the exact XMR amount to the Monero address or QR code shown for this invoice. Cover sending fees separately and follow the expiry time displayed in the Monero checkout. Do not reuse an address or quote from an earlier invoice.
-4. Keep the checkout open or return to it to check the payment status. **XMR payments require 10 blockchain confirmations before EDIS Global credits them.** Once the confirmed payment covers the amount due, EDIS Global marks the invoice paid automatically.
+4. Keep the checkout open or return to it to check the payment status. **XMR payments require at least 10 blockchain confirmations and must be unlocked before EDIS Global credits them.** Once the confirmed payment covers the amount due, EDIS Global marks the invoice paid automatically.
+
+<Frame caption="Illustration based on the Monero invoice and checkout screens. Values are examples; the address and QR code are placeholders. Always use your own invoice's checkout.">
+  <img src="/assets/monero-xmr-payment-walkthrough.png" alt="Two-step Monero payment illustration: select Monero (XMR) on the invoice and click Pay with Monero (XMR), then use the checkout amount, address controls, expiry timer and payment status." />
+</Frame>
+
+### Understanding the Monero checkout
+
+| Field | What it means |
+| --- | --- |
+| **XMR remaining** | The amount still requested by this checkout. Send XMR on the Monero mainnet and cover your wallet's network fee separately. |
+| **Copy address / Open wallet** | Use the address or wallet link from your current invoice. The illustration above contains no usable address or QR code. |
+| **Quote expires in** | Time remaining to use this payment quote. Follow the countdown in your own checkout. If you have already sent funds when it expires, contact support before sending another payment. |
+| **Detected** | Funds seen by the integration, which may still be awaiting confirmations or unlock. Detection alone does not mark the invoice paid. |
+| **Confirmed and eligible** | Funds that have met the confirmation and eligibility checks. The full requested amount must have at least **10 confirmations** and be **unlocked** before the invoice can be marked paid. |
 
 A detected payment can still be awaiting confirmations. Confirmation time depends on the Monero network and is not a fixed number of minutes. If you have already sent the payment, check its status or contact support before paying again.
 
