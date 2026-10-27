@@ -1,16 +1,30 @@
 ---
 title: "Blockchain confirmations for cryptocurrency payments"
 sidebarTitle: "Blockchain confirmations"
-description: "Confirmation delays for Bitcoin, Ethereum, Tron and BNB Smart Chain payments through Crypto by EDIS Global, plus how to check a pending payment."
+description: "Monero (XMR) requires 10 confirmations. Learn about confirmation delays for Bitcoin, Ethereum, Tron and BNB Smart Chain and how to check pending payments."
 ---
 
-Cryptocurrency payments through **Crypto by EDIS Global** must be confirmed on the selected blockchain before they can be credited to your invoice. A transaction appearing in your wallet or on an explorer does not necessarily mean the payment is complete.
+Cryptocurrency payments through **Monero (XMR)** or **Crypto by EDIS Global** must be confirmed on the selected blockchain before they can be credited to your invoice. A transaction appearing in your wallet or on an explorer does not necessarily mean the payment is complete.
 
-## Confirmation delays
+## Monero (XMR): 10 confirmations
 
-Our gateway uses Dfns blockchain infrastructure to detect confirmed incoming payments. Dfns defines **confirmation delay** as the number of additional blocks after the block containing the transaction, before the transaction is indexed.
+EDIS Global now runs its own Monero payment integration on its own infrastructure, without a third-party payment processor for XMR payments. It is separate from the Dfns-based gateway described below.
 
-The table below covers only the blockchains and currencies accepted by EDIS Global:
+| Blockchain | Currency | Required confirmations |
+| --- | --- | --- |
+| Monero | XMR | **10 confirmations** |
+
+The Monero checkout can detect a payment before it is ready to be credited. During this time, the invoice may still show as unpaid. Once the payment has reached **10 confirmations** and the confirmed amount covers the invoice balance, the invoice is marked paid automatically.
+
+This is a total confirmation requirement, not the “additional blocks after inclusion” convention used in the Dfns table below. The time required varies with the network; 10 confirmations does not mean 10 minutes. Sending the transaction or seeing it in your wallet does not by itself complete the payment.
+
+Use the payment status in your Monero checkout to follow progress. If you have already paid, do not send another payment just because the invoice is waiting for confirmations.
+
+## Confirmation delays for Crypto by EDIS Global
+
+For Bitcoin, Ethereum, Tron and BNB Smart Chain, our gateway uses Dfns blockchain infrastructure to detect confirmed incoming payments. Dfns defines **confirmation delay** as the number of additional blocks after the block containing the transaction, before the transaction is indexed.
+
+The table below covers the four blockchains accepted through **Crypto by EDIS Global**. It does not apply to Monero:
 
 | Blockchain | Accepted currencies | Additional blocks after inclusion |
 | --- | --- | --- |
@@ -37,7 +51,7 @@ Allow time for both blockchain indexing and the invoice status to update. New-se
 
 1. Open the invoice and its cryptocurrency checkout to check the payment status, credited amount and any remaining balance.
 2. Find the transaction ID (TXID) in your wallet or exchange withdrawal history.
-3. Check the transaction on an explorer for the selected network:
+3. For Monero, use the invoice's Monero checkout to check payment progress. For the other supported networks, check the transaction on the corresponding explorer:
 
 | Blockchain | Explorer |
 | --- | --- |
