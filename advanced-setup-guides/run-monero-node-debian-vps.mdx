@@ -331,7 +331,7 @@ Never expose unrestricted daemon RPC or `monero-wallet-rpc` to the public intern
     Check `in-peers`, `hide-my-port`, the listening address and both the VPS and upstream firewalls. A newly started node may need time to attract incoming connections. From a different machine, `nc -vz YOUR_VPS_IP 18080` can test TCP reachability; this is not a wallet RPC test.
   </Accordion>
   <Accordion title="The logs show blocked or unblocked hosts">
-    With `enable-dns-blocklist=1`, the daemon uses Monero's DNS blocklist. Peer bans can also result from peer behaviour. These messages alone do not mean your server is failing. Check synchronization and healthy peer connections before treating them as an incident.
+    With `enable-dns-blocklist=1`, the daemon uses Monero's DNS blocklist. Peer bans can also result from peer behavior. These messages alone do not mean your server is failing. Check synchronization and healthy peer connections before treating them as an incident.
   </Accordion>
   <Accordion title="The service fails with a permissions error">
     Check that `/etc/monero` is owned by `root:monero` with mode `0750`, and `monerod.conf` by `root:monero` with mode `0640`. The `monero` user must be able to write to `/var/lib/monero` and `/var/log/monero`. Read the journal for the exact path; avoid making these directories world-writable.
@@ -357,7 +357,7 @@ The RAID comparison helps explain one aspect: different Monero nodes can retain 
 | How is missing data obtained? | Parity allows reconstruction after one disk fails | It must be downloaded from a peer that still retains it |
 | Is coverage guaranteed? | A defined array has a defined failure tolerance | Nodes can retain overlapping portions; any eight pruned nodes are not guaranteed to cover everything |
 
-A useful analogy is a network of libraries: **every library keeps the essential records, while different libraries keep different sections of the detailed historical archive**. Some libraries—the unpruned nodes—keep the entire archive. A library cannot recreate a missing section merely from the sections it already has.
+A useful analogy is a network of libraries: **every library keeps the essential records, while different libraries keep different sections of the detailed historical archive**. Some libraries, which represent the unpruned nodes, keep the entire archive. A library cannot recreate a missing section merely from the sections it already has.
 
 The **1/8 applies only to the prunable data**, not to the whole blockchain. That is why pruning saves roughly two-thirds of total storage rather than seven-eighths. Keeping complementary portions lets pruned nodes help other peers synchronize; it does not turn the network into a storage array or replace backups.
 
