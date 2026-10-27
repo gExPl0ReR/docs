@@ -1,0 +1,354 @@
+---
+title: "Run a Monero node on a Debian 13 VPS"
+sidebarTitle: "Run a Monero node"
+description: "Set up a pruned Monero node on an EDIS Global VPS with Debian 13, verified downloads, systemd, public P2P connectivity and private wallet access over SSH."
+---
+
+Run your own Monero node to keep a copy of the blockchain, relay transactions and blocks, and connect your wallet to infrastructure you control. This guide uses **Debian 13** on an **EDIS Global VPS** and enables pruning to reduce disk usage.
+
+EDIS Global operates a pruned node for its own [Monero payment integration](/faq/billing-lifecycle/cryptocurrency-payments). The setup below draws on that deployment, adapted for a standalone customer VPS.
+
+<Note>
+  **Allow plenty of time for the first synchronization.** Our own pruned node took almost a day to synchronize with the Monero network. Your result may be faster or slower depending on CPU, storage performance, peers and network conditions. Pruning reduces storage requirements; it does not make the initial synchronization instant.
+</Note>
+
+## What you will set up
+
+The VPS runs `monerod`, the Monero node software, as a background service. It starts automatically after a reboot and accepts connections from other nodes. Your wallet stays on your own computer and connects through an encrypted SSH tunnel.
+
+| Connection | Port | Access in this guide |
+| --- | --- | --- |
+| Monero P2P: communication with other nodes | TCP 18080 | Public IPv4 |
+| Administrative daemon RPC | TCP 18081 | VPS localhost only |
+| Restricted daemon RPC for your wallet | TCP 18089 | VPS localhost, reached through SSH |
+| SSH | Your SSH port, usually TCP 22 | Your normal administrative access |
+
+**No wallet seed, private spend key or view key is needed on the VPS.** This guide installs a node, not a payment gateway or a wallet service.
+
+<Warning>
+  Running a node is different from mining and does not automatically earn XMR. Cryptocurrency mining is prohibited under the [EDIS Global Acceptable Use Policy](/getting-started/acceptable-use-policy). Leave all mining features disabled.
+</Warning>
+
+## Before you begin
+
+Use a fresh **Debian 13 x86-64 VPS**, with root access and an SSH client on your computer. Keep the VPS console available in the EDIS Global control panel while configuring the firewall.
+
+For a pruned node, our suggested starting point is:
+
+| Resource | Starting point |
+| --- | --- |
+| CPU | 2 vCPU or more |
+| Memory | At least 4 GB RAM |
+| Storage | 300 GB SSD/NVMe or more, with room for growth |
+| Network | A traffic allowance that covers initial sync and ongoing uploads to peers |
+
+These are planning recommendations, not a guarantee of synchronization speed or future capacity. Check the [current Monero storage guidance](https://docs.getmonero.org/running-node/monerod-systemd/#assumptions) before ordering. Leave space for Debian, logs, updates and blockchain growth; do not size a VPS to the database's current size alone.
+
+A pruned node retains the information needed for normal wallet use while discarding much of the historical signature data. It still contributes to the network, although an unpruned node can serve more historical data to other peers. See [Monero's explanation of pruning](https://www.getmonero.org/resources/moneropedia/pruning.html).
+
+## 1. Prepare Debian
+
+Run the server commands below as **root**, or enter a root shell with `sudo -i` first. They are intended for a new installation; do not overwrite an existing node configuration.
+
+```bash
+apt update
+apt install -y ca-certificates curl bzip2 gnupg jq
+
+uname -m
+df -h /
+free -h
+```
+
+`uname -m` should report `x86_64` for the download used below. Install Debian security updates before proceeding and reboot first if an update requires it.
+
+## 2. Download and verify Monero
+
+Use the **CLI** archive from the [official Monero downloads page](https://www.getmonero.org/downloads/); it includes `monerod`. This example uses **v0.18.5.4**, the release checked when this guide was written on **27 October 2026**. Check for a newer stable release before installing and adjust the version and archive name accordingly.
+
+```bash
+install -d -m 0700 /root/monero-download
+cd /root/monero-download
+
+MONERO_VERSION=0.18.5.4
+MONERO_ARCHIVE="monero-linux-x64-v${MONERO_VERSION}.tar.bz2"
+
+curl --fail --location --output "$MONERO_ARCHIVE" \
+  "https://downloads.getmonero.org/cli/$MONERO_ARCHIVE"
+curl --fail --location --output hashes.txt \
+  https://www.getmonero.org/downloads/hashes.txt
+curl --fail --location --output binaryfate.asc \
+  https://raw.githubusercontent.com/monero-project/monero/master/utils/gpg_keys/binaryfate.asc
+
+gpg --show-keys --with-fingerprint binaryfate.asc
+```
+
+Compare the signing key fingerprint with the one published in the [official verification guide](https://www.getmonero.org/resources/user-guides/verification-allos-advanced.html). At the time of writing it is:
+
+```text
+81AC 591F E9C4 B65C 5806 AFC3 F0AF 4D46 2A0B DF92
+```
+
+**Stop if the fingerprint differs.** Once it matches, import the key and verify the signed hash list:
+
+```bash
+gpg --import binaryfate.asc
+gpg --verify hashes.txt
+```
+
+Continue only after a valid signature from the verified key. A warning about the key not being certified in your personal trust database is different from a bad signature.
+
+Select the hash for the exact archive and verify it:
+
+```bash
+awk -v file="$MONERO_ARCHIVE" '$2 == file {print}' hashes.txt > selected-hash.txt
+test "$(wc -l < selected-hash.txt)" -eq 1 && sha256sum --check selected-hash.txt
+```
+
+Proceed only if the output names your archive and reports **OK**. If no matching entry exists, the release and hash list may no longer match: return to the official downloads page. Never skip verification to work around an error.
+
+Extract the verified archive and install only the daemon:
+
+```bash
+tar -xjf "$MONERO_ARCHIVE"
+install -d -o root -g root -m 0755 /opt/monero
+install -o root -g root -m 0755 \
+  "monero-x86_64-linux-gnu-v${MONERO_VERSION}/monerod" /opt/monero/monerod
+
+/opt/monero/monerod --version
+```
+
+## 3. Create the service account and configuration
+
+Give the daemon its own account and writable data directories:
+
+```bash
+useradd --system --user-group --home-dir /var/lib/monero \
+  --no-create-home --shell /usr/sbin/nologin monero
+
+install -d -o root -g monero -m 0750 /etc/monero
+install -d -o monero -g monero -m 0750 /var/lib/monero /var/log/monero
+```
+
+Create `/etc/monero/monerod.conf`:
+
+```bash
+cat > /etc/monero/monerod.conf <<'EOF'
+data-dir=/var/lib/monero
+log-file=/var/log/monero/monerod.log
+log-level=0
+max-log-file-size=20971520
+max-log-files=5
+
+prune-blockchain=1
+sync-pruned-blocks=1
+max-concurrency=2
+
+p2p-bind-ip=0.0.0.0
+p2p-bind-port=18080
+hide-my-port=0
+in-peers=32
+out-peers=12
+igd=disabled
+
+rpc-bind-ip=127.0.0.1
+rpc-bind-port=18081
+rpc-restricted-bind-ip=127.0.0.1
+rpc-restricted-bind-port=18089
+no-zmq=1
+
+enable-dns-blocklist=1
+check-updates=disabled
+limit-rate-down=32768
+limit-rate-up=1024
+EOF
+
+chown root:monero /etc/monero/monerod.conf
+chmod 0640 /etc/monero/monerod.conf
+runuser -u monero -- test -r /etc/monero/monerod.conf
+```
+
+The last command should finish without an error. The daemon must be able to read this file, but only root should be able to change it.
+
+This configuration uses mainnet and IPv4 P2P connectivity. Both RPC listeners remain on localhost. `max-concurrency=2` limits parallel worker threads; adjust it to suit your VPS. Update checking is disabled here, so you must track new Monero releases yourself.
+
+The upload setting is approximately 1 MiB/s. Sustained at that rate for 30 days, uploads alone would approach **2.7 TB**. Actual usage varies, and this setting is not a monthly traffic cap. Monitor your [VPS traffic](/faq/traffic-bandwidth/traffic-stats-refill-explained) and adjust the rate to your allowance.
+
+## 4. Configure the firewall
+
+Allow inbound **TCP 18080** so other Monero nodes can connect. Keep **18081** and **18089** closed to the internet; the wallet connection in this guide uses SSH.
+
+If you already manage the VPS with nftables, iptables or another firewall, add the P2P rule through that existing system. **Do not install a second firewall manager or replace an existing ruleset.** Include any upstream firewall in your checks.
+
+<Warning>
+  Replace `22` below with your actual SSH port **before** enabling UFW. Keep your current session open and verify a second SSH connection before closing it. If you have other services on the VPS, add their required rules first. See our [UFW walkthrough](/advanced-setup-guides/ufw-uncomplicated-firewall-howto).
+</Warning>
+
+For a fresh VPS with no existing firewall policy, this UFW example permits SSH and P2P:
+
+```bash
+apt install -y ufw
+ufw allow 22/tcp comment 'SSH'
+ufw allow 18080/tcp comment 'Monero P2P'
+ufw default deny incoming
+ufw default allow outgoing
+ufw enable
+ufw status verbose
+```
+
+The outgoing policy above is for a new standalone node. On systems with restricted outbound access, preserve that policy and arrange the required DNS, time synchronization, downloads and peer connectivity separately. Peers can advertise ports other than 18080.
+
+## 5. Run the node with systemd
+
+Create a service that runs as `monero` and stores its data outside the installation directory:
+
+```bash
+cat > /etc/systemd/system/monerod.service <<'EOF'
+[Unit]
+Description=Monero node
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=monero
+Group=monero
+WorkingDirectory=/var/lib/monero
+ExecStart=/opt/monero/monerod --config-file /etc/monero/monerod.conf --non-interactive
+Restart=on-failure
+RestartSec=15
+KillSignal=SIGINT
+TimeoutStopSec=300
+LimitNOFILE=65536
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/monero /var/log/monero
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+systemd-analyze verify /etc/systemd/system/monerod.service
+systemctl daemon-reload
+systemctl enable --now monerod.service
+systemctl status monerod.service --no-pager
+```
+
+Check that P2P listens publicly and RPC only on localhost:
+
+```bash
+ss -lntp | grep -E ':(18080|18081|18089)\b'
+```
+
+Expect `0.0.0.0:18080`, `127.0.0.1:18081` and `127.0.0.1:18089`. There should be no public RPC listener.
+
+## 6. Let the initial synchronization finish
+
+The service continues running when you disconnect from SSH. Watch its progress with:
+
+```bash
+tail -f /var/log/monero/monerod.log
+```
+
+Press **Ctrl+C** to leave the log view; this does not stop the node. For startup errors, use:
+
+```bash
+journalctl -u monerod.service -n 50 --no-pager
+```
+
+Query the local daemon for a compact status report:
+
+```bash
+curl --fail --silent --show-error http://127.0.0.1:18081/get_info \
+  | jq '{status, height, target_height, synchronized, busy_syncing,
+         incoming_connections_count, outgoing_connections_count}'
+```
+
+Wait for `status` to be `OK` and `synchronized` to be `true`. Check again later if peers have not connected yet. `target_height` is not always populated once the node is caught up; it is not a fixed target to enter manually.
+
+**Plan for a long first sync, even with pruning.** Our initial synchronization took almost a day. Progress is not uniform, so an early percentage or estimated completion time may be misleading. Subsequent starts normally catch up from the saved database instead of downloading everything again.
+
+Check free space and memory during synchronization:
+
+```bash
+df -h /var/lib/monero
+du -sh /var/lib/monero/lmdb
+free -h
+```
+
+Messages about an **LMDB mapsize increase** are normally database growth, not a failure. Investigate actual errors, exhausted disk space, repeated restarts or a height that stops advancing for a prolonged period.
+
+## 7. Connect your wallet privately
+
+On **your own computer**, open an SSH tunnel to the restricted RPC listener. Replace `YOUR_SSH_USER` and `YOUR_VPS_IP` with your normal SSH login details:
+
+```bash
+ssh -N -T -o ExitOnForwardFailure=yes -o ServerAliveInterval=30 \
+  -L 127.0.0.1:18089:127.0.0.1:18089 YOUR_SSH_USER@YOUR_VPS_IP
+```
+
+If SSH uses a custom port, add `-p YOUR_SSH_PORT`. Leave this terminal running while using the wallet. A successful tunnel usually shows no further output.
+
+In **Monero Wallet GUI**, use Advanced mode and open **Settings → Node**. Choose a remote node and enter:
+
+| Field | Value |
+| --- | --- |
+| Address | `127.0.0.1` |
+| Port | `18089` |
+| Username and password | Leave blank for this configuration |
+| SSL | Not required inside this SSH tunnel |
+
+Select the node and connect. Here, `127.0.0.1` refers to the local end of the tunnel on your computer. SSH carries the connection to your VPS. The wallet will still need to scan its own transaction history after the daemon has synchronized.
+
+For a connection check, run this on your computer while the tunnel is open:
+
+```bash
+curl --fail --silent --show-error http://127.0.0.1:18089/get_info
+```
+
+The response should include `"restricted": true`. Do not use **18080** in the wallet: that port speaks the P2P protocol, not wallet RPC.
+
+Your wallet files and keys remain on your computer or hardware wallet. The SSH tunnel encrypts the wallet-to-VPS connection; it does not make the VPS anonymous or hide its public IP from Monero peers.
+
+## Public P2P versus public wallet access
+
+With TCP 18080 reachable, your node already helps other Monero nodes. You do **not** need to offer public wallet RPC to contribute.
+
+Serving wallets for everyone is a separate operating choice. It requires a public **restricted** RPC listener, connection limits, bandwidth planning, monitoring and an appropriate TLS configuration. It can generate considerably more load. For a node that also supports business payments, we recommend placing a public wallet service on a separate VPS.
+
+Never expose unrestricted daemon RPC or `monero-wallet-rpc` to the public internet. This guide deliberately keeps wallet access behind SSH. See the [Monero RPC configuration reference](https://docs.getmonero.org/interacting/monerod-reference/#node-rpc-api) if you plan a dedicated public service.
+
+## Maintenance and troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The wallet cannot connect">
+    Confirm that the SSH tunnel is running and that the wallet uses `127.0.0.1:18089`. Test `/get_info` from your computer. If SSH reports that the local port is already in use, use a different local port, such as `28089`, in the first half of `-L` and in the wallet; keep the VPS destination at `127.0.0.1:18089`.
+  </Accordion>
+  <Accordion title="There are no incoming peers">
+    Check `in-peers`, `hide-my-port`, the listening address and both the VPS and upstream firewalls. A newly started node may need time to attract incoming connections. From a different machine, `nc -vz YOUR_VPS_IP 18080` can test TCP reachability; this is not a wallet RPC test.
+  </Accordion>
+  <Accordion title="The logs show blocked or unblocked hosts">
+    With `enable-dns-blocklist=1`, the daemon uses Monero's DNS blocklist. Peer bans can also result from peer behaviour. These messages alone do not mean your server is failing. Check synchronization and healthy peer connections before treating them as an incident.
+  </Accordion>
+  <Accordion title="The service fails with a permissions error">
+    Check that `/etc/monero` is owned by `root:monero` with mode `0750`, and `monerod.conf` by `root:monero` with mode `0640`. `/var/lib/monero` and `/var/log/monero` must be writable by `monero`. Read the journal for the exact path; avoid making these directories world-writable.
+  </Accordion>
+  <Accordion title="Disk space or traffic usage is growing">
+    Pruned databases still grow. Monitor `df`, database size and the EDIS Global traffic dashboard. Adding pruning to a previously unpruned database does not immediately shrink its existing file. Do not delete the database as a first troubleshooting step; consult the official pruning documentation and plan additional storage if needed.
+  </Accordion>
+  <Accordion title="How do I update the node?">
+    Follow official Monero release announcements. Download and verify the new release as in step 2 before stopping anything. Back up the configuration and service file, stop the service with `systemctl stop monerod`, replace `/opt/monero/monerod` with the verified binary, then run `systemctl start monerod`. Verify the version, service status and synchronization afterward. Keep `/var/lib/monero` intact and review release-specific upgrade instructions first.
+  </Accordion>
+</AccordionGroup>
+
+## Related documentation
+
+- [Paying EDIS Global invoices with cryptocurrency](/faq/billing-lifecycle/cryptocurrency-payments)
+- [VPS traffic statistics and refills](/faq/traffic-bandwidth/traffic-stats-refill-explained)
+- [UFW firewall walkthrough](/advanced-setup-guides/ufw-uncomplicated-firewall-howto)
+- [Official Monero downloads](https://www.getmonero.org/downloads/)
+- [Official download verification guide](https://www.getmonero.org/resources/user-guides/verification-allos-advanced.html)
+- [Monero pruning explained](https://www.getmonero.org/resources/moneropedia/pruning.html)

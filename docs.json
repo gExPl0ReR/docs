@@ -256,6 +256,7 @@
           {
             "group": "Advanced Setup Guides",
             "pages": [
+              "advanced-setup-guides/run-monero-node-debian-vps",
               {
                 "group": "File Transfer Methods",
                 "pages": [
