@@ -44,7 +44,7 @@ For a pruned node, our suggested starting point is:
 
 These are planning recommendations, not a guarantee of synchronization speed or future capacity. Check the [current Monero storage guidance](https://docs.getmonero.org/running-node/monerod-systemd/#assumptions) before ordering. Leave space for Debian, logs, updates and blockchain growth; do not size a VPS to the database's current size alone.
 
-A pruned node retains the information needed for normal wallet use while discarding much of the historical signature data. It still contributes to the network, although an unpruned node can serve more historical data to other peers. See [Monero's explanation of pruning](https://www.getmonero.org/resources/moneropedia/pruning.html).
+A pruned node retains the information needed for normal wallet use while discarding much of the historical signature data. It still contributes to the network, although an unpruned node can serve more historical data to other peers. For a practical comparison, see [Understanding pruning: is it like RAID 5?](#understanding-pruning-is-it-like-raid-5) below, or read [Monero's explanation of pruning](https://www.getmonero.org/resources/moneropedia/pruning.html).
 
 ## 1. Prepare Debian
 
@@ -343,6 +343,25 @@ Never expose unrestricted daemon RPC or `monero-wallet-rpc` to the public intern
     Follow official Monero release announcements. Download and verify the new release as in step 2 before stopping anything. Back up the configuration and service file, stop the service with `systemctl stop monerod`, replace `/opt/monero/monerod` with the verified binary, then run `systemctl start monerod`. Verify the version, service status and synchronization afterward. Keep `/var/lib/monero` intact and review release-specific upgrade instructions first.
   </Accordion>
 </AccordionGroup>
+
+## Understanding pruning: is it like RAID 5?
+
+A **pruned node keeps the essential transaction history while discarding much of the older signature and proof data**. It can still support normal wallet use, validate new blocks and relay transactions. An unpruned node retains the complete historical data.
+
+The RAID comparison helps explain one aspect: different Monero nodes can retain different portions of the historical data. However, **pruning does not use RAID 5's parity or recovery mechanism**.
+
+| Question | RAID 5 | Monero pruning |
+| --- | --- | --- |
+| What is distributed? | Data and parity across a coordinated set of disks | Different portions of older, prunable data across independent nodes |
+| What remains on each member? | That disk's share of data and parity | Essential blockchain data, complete recent blocks and about 1/8 of the older prunable data |
+| How is missing data obtained? | Parity allows reconstruction after one disk fails | It must be downloaded from a peer that still retains it |
+| Is coverage guaranteed? | A defined array has a defined failure tolerance | Nodes can retain overlapping portions; any eight pruned nodes are not guaranteed to cover everything |
+
+A useful analogy is a network of libraries: **every library keeps the essential records, while different libraries keep different sections of the detailed historical archive**. Some libraries—the unpruned nodes—keep the entire archive. A library cannot recreate a missing section merely from the sections it already has.
+
+The **1/8 applies only to the prunable data**, not to the whole blockchain. That is why pruning saves roughly two-thirds of total storage rather than seven-eighths. Keeping complementary portions lets pruned nodes help other peers synchronize; it does not turn the network into a storage array or replace backups.
+
+See [Monero's pruning overview](https://www.getmonero.org/resources/moneropedia/pruning.html) and its [explanation of how pruned nodes share historical data](https://www.getmonero.org/2019/02/01/pruning.html).
 
 ## Related documentation
 
