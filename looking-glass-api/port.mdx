@@ -1,0 +1,67 @@
+---
+title: "TCP port check API"
+sidebarTitle: "TCP port check"
+description: "Check whether a single TCP port accepts a connection from an EDIS Global Looking Glass location."
+---
+
+`GET /api/v1/port` · `POST /api/v1/port`
+
+Attempts one TCP connection with a three-second connection timeout, then closes it. It does not send application data, perform a TLS handshake or inspect a banner. An open TCP port does not establish that the application is healthy.
+
+## Parameters
+
+| Field | Type | Required | Meaning |
+| --- | --- | --- | --- |
+| `target` | string | Yes | Public IPv4/IPv6 address or DNS hostname |
+| `port` | integer | Yes | One port from 1 through 65535; no ranges, lists or service names |
+| `family` | string | No | `"auto"` (default), `"4"` or `"6"` |
+
+For GET, use decimal digits for `port`. For POST, send a JSON number, not a quoted string, and use no query string.
+
+```bash
+curl --max-time 15 --get 'https://at.edisglobal.com/api/v1/port' \
+  --data-urlencode 'target=1.1.1.1' \
+  --data-urlencode 'port=443' \
+  --data-urlencode 'family=4'
+```
+
+```bash
+curl --max-time 15 'https://at.edisglobal.com/api/v1/port' \
+  -H 'Content-Type: application/json' \
+  --data '{"target":"1.1.1.1","port":443,"family":"4"}'
+```
+
+## Response
+
+Illustrative successful connection:
+
+```json
+{
+  "source": "Vienna NDC2",
+  "sourceHost": "at.edisglobal.com",
+  "target": "1.1.1.1",
+  "resolved": "1.1.1.1",
+  "family": "4",
+  "protocol": "tcp",
+  "port": 443,
+  "status": "open",
+  "connectTimeMs": 2.5,
+  "started": "2026-10-28T12:00:00Z",
+  "durationMs": 3
+}
+```
+
+| `status` | Interpretation |
+| --- | --- |
+| `open` | TCP connection established; `connectTimeMs` is present |
+| `closed` | Connection refused |
+| `timeout` | Connection did not complete within the allowed time |
+| `unreachable` | Network or host reported unreachable |
+| `cancelled` | Connection attempt was cancelled |
+| `unavailable` | Another connection or execution failure |
+
+A completed check returns HTTP 200 even when the result is `closed`, `timeout` or `unreachable`. `connectTimeMs` is omitted when a connection was not established. DNS resolution and HTTP overhead are additional to the connection timeout.
+
+## Rate limits
+
+**120 requests per minute and 8 concurrent requests per client, per node, shared with `/api/v1/probes`.** GET and POST share this budget. See [rate limits and errors](/looking-glass-api/rate-limits).

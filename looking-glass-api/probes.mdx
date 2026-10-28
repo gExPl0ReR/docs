@@ -1,0 +1,94 @@
+---
+title: "Detailed ping, MTR and traceroute API"
+sidebarTitle: "Detailed probes"
+description: "Run four-packet ping, MTR or UDP traceroute from a regional EDIS Global Looking Glass node."
+---
+
+`POST /api/v1/probes`
+
+Runs a detailed measurement from the regional node receiving the request. This route has a different contract from the hub's `/api/v1/probes` route.
+
+## Parameters
+
+Send a JSON object with `Content-Type: application/json`.
+
+| Field | Type | Required | Meaning |
+| --- | --- | --- | --- |
+| `target` | string | Yes | Public IPv4/IPv6 address or DNS hostname |
+| `test` | string | Yes | `"ping"`, `"mtr"` or `"traceroute"` |
+| `family` | string | Yes | `"auto"`, `"4"` or `"6"`; include explicitly on this endpoint |
+
+| Test | Measurement |
+| --- | --- |
+| `ping` | Four ICMP packets, 0.5-second interval, two-second reply timeout and 12-second overall ping deadline |
+| `mtr` | Five report cycles with a one-second interval and a maximum of 24 hops |
+| `traceroute` | UDP traceroute, one probe per hop, one-second wait per probe and a maximum of 24 hops |
+
+Packet counts, intervals and hop limits are fixed; they are not request parameters. The regional request handler has a 35-second execution budget including target resolution. Allow additional time for HTTP and network transit in your client.
+
+## Examples
+
+Four-packet ping:
+
+```bash
+curl --max-time 45 'https://at.edisglobal.com/api/v1/probes' \
+  -H 'Content-Type: application/json' \
+  --data '{"target":"1.1.1.1","test":"ping","family":"4"}'
+```
+
+MTR:
+
+```bash
+curl --max-time 45 'https://at.edisglobal.com/api/v1/probes' \
+  -H 'Content-Type: application/json' \
+  --data '{"target":"1.1.1.1","test":"mtr","family":"4"}'
+```
+
+UDP traceroute:
+
+```bash
+curl --max-time 45 'https://at.edisglobal.com/api/v1/probes' \
+  -H 'Content-Type: application/json' \
+  --data '{"target":"1.1.1.1","test":"traceroute","family":"4"}'
+```
+
+## Response
+
+Responses contain measurement identity, source, resolved target, address family, `status`, `started`, `durationMs` and `raw` output. Ping adds a `summary`; MTR and traceroute add a `hops` array when available. MTR can also include a destination `summary` when it reaches the target. See the [full response field reference](/looking-glass-api/results).
+
+Illustrative MTR `hops` excerpt, not a complete response:
+
+```json
+{
+  "hops": [
+    {
+      "number": 1,
+      "address": "192.0.2.1",
+      "loss": 0,
+      "sent": 5,
+      "averageMs": 0.5,
+      "minimumMs": 0.4,
+      "maximumMs": 0.7,
+      "destination": false
+    },
+    {
+      "number": 2,
+      "address": "1.1.1.1",
+      "loss": 0,
+      "sent": 5,
+      "averageMs": 2.5,
+      "minimumMs": 2.3,
+      "maximumMs": 2.8,
+      "destination": true
+    }
+  ]
+}
+```
+
+The documentation address in the excerpt is illustrative and cannot be used as a probe target. A non-responsive intermediate router does not by itself prove forwarding loss. Interpret loss at later hops and the destination; see [understanding MTR and traceroute](/faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute).
+
+Detailed probes can report `partial`, `timeout`, `unavailable` or `output_limit` within an HTTP 200 response. Check the result's `status` as well as the HTTP status.
+
+## Rate limits
+
+**120 requests per minute and 8 concurrent requests per client, per node, shared with TCP port checks.** These limits count requests, not the individual packets inside each measurement. See [rate limits and errors](/looking-glass-api/rate-limits).

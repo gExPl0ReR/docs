@@ -1,0 +1,68 @@
+---
+title: "Fast ping API"
+sidebarTitle: "Fast ping"
+description: "Send one ICMP echo request from any EDIS Global Looking Glass node using GET or POST /api/v1/ping."
+---
+
+`GET /api/v1/ping` · `POST /api/v1/ping`
+
+Runs one ICMP echo request with a one-second probe timeout. Use this endpoint for a quick reachability and latency observation. Use [detailed probes](/looking-glass-api/probes) for four-packet ping or route diagnostics.
+
+## Parameters
+
+| Field | Type | Required | Meaning |
+| --- | --- | --- | --- |
+| `target` | string | Yes | Public IPv4/IPv6 address or DNS hostname |
+| `family` | string | No | `"auto"` (default), `"4"` or `"6"` |
+
+For GET, send query parameters. For POST, send JSON with no query string.
+
+```bash
+curl --max-time 15 'https://at.edisglobal.com/api/v1/ping' \
+  -H 'Content-Type: application/json' \
+  --data '{"target":"1.1.1.1","family":"4"}'
+```
+
+IPv6 example:
+
+```bash
+curl --max-time 15 --get 'https://at.edisglobal.com/api/v1/ping' \
+  --data-urlencode 'target=2606:4700:4700::1111' \
+  --data-urlencode 'family=6'
+```
+
+## Response
+
+Illustrative response; IDs, timestamps, timing and raw output vary:
+
+```json
+{
+  "id": "0123456789abcdef01234567",
+  "source": "Vienna NDC2",
+  "sourceHost": "at.edisglobal.com",
+  "target": "1.1.1.1",
+  "resolved": "1.1.1.1",
+  "test": "ping",
+  "family": "4",
+  "status": "complete",
+  "started": "2026-10-28T12:00:00Z",
+  "durationMs": 7,
+  "summary": {
+    "sent": 1,
+    "received": 1,
+    "loss": 0,
+    "averageMs": 2.5,
+    "minimumMs": 2.5,
+    "maximumMs": 2.5
+  },
+  "raw": "PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.\n64 bytes from 1.1.1.1: icmp_seq=1 ttl=58 time=2.50 ms\n\n--- 1.1.1.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 2.500/2.500/2.500/0.000 ms\n"
+}
+```
+
+`status: "no_reply"` with `summary.received: 0` means no echo reply arrived during this observation. ICMP may be filtered even when TCP services work. Timing fields can be absent when no reply is available. One packet does not establish a reliable long-term packet-loss rate.
+
+The one-second probe timeout is not an end-to-end HTTP latency guarantee: DNS resolution and network transit add time. See [response fields and interpretation](/looking-glass-api/results).
+
+## Rate limits
+
+**600 requests per minute and 16 concurrent requests per client, per regional node.** GET and POST share this allowance. On nodes using the Go legacy handler, `/API_ping.php` shares it too. Read [shared-IP limits, global capacity and retry handling](/looking-glass-api/rate-limits).

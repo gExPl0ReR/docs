@@ -1,0 +1,49 @@
+---
+title: "Current Looking Glass location API"
+sidebarTitle: "Current location"
+description: "Get a regional Looking Glass node's location details, IPv4 and IPv6 addresses, hostname and software version."
+---
+
+`GET /api/v1/location`
+
+Returns information about the regional node receiving the request. No parameters or authentication are required.
+
+```bash
+curl --max-time 15 'https://at.edisglobal.com/api/v1/location'
+```
+
+## Response fields
+
+| Field | Meaning |
+| --- | --- |
+| `id` | Location ID, also usable in hub requests |
+| `city`, `country`, `facility` | Location and facility descriptions |
+| `address`, `gpsCoordinates` | Published facility address and coordinate string |
+| `hostname` | Regional Looking Glass hostname |
+| `ipv4`, `ipv6` | Node's published IP addresses |
+| `productUrl` | Related VPS location page |
+| `speedtestUrl` | Speed-test information link |
+| `mtrHelpUrl` | Help with interpreting MTR results |
+| `version` | Deployed software version string; do not use it as a location identifier |
+| `preview` | Boolean indicating preview mode |
+
+Illustrative excerpt, not a complete response:
+
+```json
+{
+  "id": "at",
+  "city": "Vienna NDC2",
+  "country": "Austria",
+  "hostname": "at.edisglobal.com",
+  "ipv4": "149.154.154.90",
+  "ipv6": "2a03:f80:ed15:435a::1",
+  "version": "20261028-rates1",
+  "preview": false
+}
+```
+
+This describes the measurement source, not the target you are diagnosing. It is distinct from the [location directory](/looking-glass-api/locations).
+
+## Rate limits
+
+This read-only metadata route does not consume the application's diagnostic request budgets. It is not a promise of unlimited throughput; normal edge protections and service capacity still apply. See [rate limits and errors](/looking-glass-api/rate-limits).
