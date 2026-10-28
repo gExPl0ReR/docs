@@ -52,7 +52,7 @@ Cache-Control: no-store
 3. Reduce concurrency and use a queue. Share the pause across workers using the same egress IP.
 4. If a retry is still rejected, back off again with a bounded retry count.
 
-`Retry-After: 30` is a retry hint, not an exact quota-reset timestamp or a guarantee that a slot will be available after 30 seconds. Do not retry in a tight loop. If no retry header is supplied by an intermediary, use a bounded backoff instead of an immediate retry.
+`Retry-After: 30` is a retry hint, not an exact quota-reset timestamp or a guarantee that a slot will be available after 30 seconds. Do not retry in a tight loop. If an intermediary does not supply a retry header, use a bounded backoff instead of an immediate retry.
 
 As a conservative starting point, use at most four concurrent requests to a single regional node and eight to the hub, then adjust within the documented ceilings. These are integration recommendations, not additional enforced quotas.
 
