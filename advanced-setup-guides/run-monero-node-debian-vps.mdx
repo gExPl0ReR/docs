@@ -325,7 +325,7 @@ Never expose unrestricted daemon RPC or `monero-wallet-rpc` to the public intern
 
 <AccordionGroup>
   <Accordion title="The wallet cannot connect">
-    Confirm that the SSH tunnel is running and that the wallet uses `127.0.0.1:18089`. Test `/get_info` from your computer. If SSH reports that the local port is already in use, use a different local port, such as `28089`, in the first half of `-L` and in the wallet; keep the VPS destination at `127.0.0.1:18089`.
+    Confirm that the SSH tunnel is running and that the wallet uses `127.0.0.1:18089`. Test `/get_info` from your computer. If SSH reports that the local port is already in use, use a different local port, such as `28089`, in the first half of `-L` and in the wallet. Keep the VPS destination at `127.0.0.1:18089`.
   </Accordion>
   <Accordion title="There are no incoming peers">
     Check `in-peers`, `hide-my-port`, the listening address and both the VPS and upstream firewalls. A newly started node may need time to attract incoming connections. From a different machine, `nc -vz YOUR_VPS_IP 18080` can test TCP reachability; this is not a wallet RPC test.
