@@ -12,7 +12,7 @@ Limits below reflect the release deployed on **28 October 2026**.
 
 | Scope and shared budget | Requests per minute per client | Active requests per client | Shared active capacity |
 | --- | ---: | ---: | --- |
-| Regional `/api/v1/ping` and Go `/API_ping.php` | 600 | 16 | 16 total diagnostic requests per node, across both regional budgets and all clients |
+| Regional `/api/v1/ping` | 600 | 16 | 16 total diagnostic requests per node, across both regional budgets and all clients |
 | Regional `/api/v1/probes` and `/api/v1/port` | 120 | 8 | The same 16-request regional cap |
 | Hub `/api/v1/probes` | 6,000 | 32 | 128 requests across all hub clients; regional caps also apply |
 
@@ -30,7 +30,7 @@ These are admission ceilings, not reserved capacity or guaranteed throughput. Ot
 
 Limits count admitted requests, not individual ICMP packets or MTR cycles. A failed target lookup or failed measurement can still consume a request allowance once admitted. Minute windows begin with the client's admitted traffic; do not assume they reset at a wall-clock minute boundary.
 
-The quick-ping budget is separate from the detailed/TCP budget, but both share the node's 16 active slots. Unchanged legacy PHP handlers can have different behavior; the Go compatibility allowance above applies only where the legacy URL is served by Go.
+The quick-ping budget is separate from the detailed/TCP budget, but both share the node's 16 active slots.
 
 ## Handling HTTP 429
 

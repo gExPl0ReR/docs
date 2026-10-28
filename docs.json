@@ -471,8 +471,7 @@
             "group": "Integration guides",
             "pages": [
               "looking-glass-api/global-hub",
-              "looking-glass-api/results",
-              "looking-glass-api/legacy-migration"
+              "looking-glass-api/results"
             ]
           }
         ]
