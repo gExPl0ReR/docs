@@ -447,6 +447,37 @@
         ]
       },
       {
+        "tab": "Looking Glass API",
+        "groups": [
+          {
+            "group": "Get started",
+            "pages": [
+              "looking-glass-api/overview",
+              "looking-glass-api/rate-limits"
+            ]
+          },
+          {
+            "group": "Regional endpoints",
+            "pages": [
+              "looking-glass-api/ping",
+              "looking-glass-api/port",
+              "looking-glass-api/probes",
+              "looking-glass-api/location",
+              "looking-glass-api/locations",
+              "looking-glass-api/client"
+            ]
+          },
+          {
+            "group": "Integration guides",
+            "pages": [
+              "looking-glass-api/global-hub",
+              "looking-glass-api/results",
+              "looking-glass-api/legacy-migration"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Changelog",
         "groups": [
           {

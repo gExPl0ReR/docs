@@ -1,0 +1,52 @@
+---
+title: "Looking Glass API responses and interpretation"
+sidebarTitle: "Response fields"
+description: "Interpret ping summaries, route hops, measurement status and timing fields without confusing HTTP success with target health."
+---
+
+## Ping, MTR and traceroute result fields
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `id` | string | Measurement identifier; there is no result-retrieval route associated with it |
+| `source` | string | Source location's city label |
+| `sourceHost` | string | Regional hostname that ran the measurement |
+| `target` | string | Target supplied in the request |
+| `resolved` | string | Numeric destination selected for this measurement |
+| `test` | string | `ping`, `mtr` or `traceroute` |
+| `family` | string | Actual destination family: `"4"` or `"6"` |
+| `status` | string | Measurement outcome, described below |
+| `started` | string | UTC timestamp in RFC 3339 format |
+| `durationMs` | number | Measurement duration in milliseconds, after target resolution |
+| `summary` | object, optional | Packet counts, loss and available RTT statistics for ping or a reached MTR destination |
+| `hops` | array, optional | Parsed MTR or traceroute hops |
+| `raw` | string | Diagnostic tool output; use structured fields for integrations |
+
+Unknown future response fields should not break your client. Optional fields can be absent; absence is not equivalent to zero.
+
+## Ping summary
+
+`summary.sent` and `summary.received` are packet counts. `summary.loss` is a percentage. `averageMs`, `minimumMs` and `maximumMs` are RTT values in milliseconds and may be absent without replies. Quick ping sends one packet; detailed ping sends four.
+
+`complete` means the ping was parsed and at least one reply arrived; inspect packet counts and loss because a detailed ping can be `complete` with fewer than four replies. `no_reply` means no reply arrived in the observation window. Neither result alone establishes application health or long-term availability.
+
+## Route hops
+
+Each hop includes `number`, `address` and `destination`. MTR can include `sent`, `loss`, `averageMs`, `minimumMs` and `maximumMs`; traceroute does not provide all MTR statistics. Missing parsed replies may appear as `No reply` (traceroute) or `???` (MTR), with unavailable timing fields omitted. Raw traceroute output may use `*`.
+
+For route tests, `complete` indicates that the parsed route reached the destination; `partial` means it did not establish a complete route. Intermediate-hop loss can reflect ICMP response limiting rather than lost forwarded traffic. Compare later hops and the destination. See [how to interpret MTR](/faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute).
+
+## Execution statuses
+
+Depending on the endpoint, detailed results may report `timeout`, `unavailable` or `output_limit`. These describe a measurement or execution limitation, not proof that the destination is offline. Quick ping execution failures may instead return an HTTP error. TCP uses its own [status values and response fields](/looking-glass-api/port).
+
+## Timing and address families
+
+- RTT measures an ICMP round trip.
+- `connectTimeMs` measures the successful TCP connection establishment.
+- `durationMs` measures the regional diagnostic operation after target resolution.
+- Client-observed elapsed time also includes DNS, HTTP/TLS setup, network transit and any hub forwarding overhead.
+
+The requested `family` selects the **target address family**, not the family used to connect to the API hostname. With `auto`, the service prefers an available IPv4 destination. A single request tests one resolved address, not every address returned by DNS.
+
+Store `sourceHost`, `resolved`, `family`, `started` and the result alongside an automated conclusion. Treat returned `raw` text as untrusted display content and escape it if displaying it in a portal. All API JSON responses use `Cache-Control: no-store`.

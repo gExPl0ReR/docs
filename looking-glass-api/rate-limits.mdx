@@ -1,0 +1,76 @@
+---
+title: "Looking Glass API rate limits and errors"
+sidebarTitle: "Rate limits & errors"
+description: "Understand per-minute and concurrent-request limits, shared public IP and IPv6 /64 budgets, HTTP 429 and retry behavior."
+---
+
+Limits protect diagnostic capacity while allowing multiple users behind a shared public IP. Both request volume and concurrency matter: you can receive HTTP 429 before reaching a per-minute limit.
+
+## Current diagnostic limits
+
+Limits below reflect the release deployed on **28 October 2026**.
+
+| Scope and shared budget | Requests per minute per client | Active requests per client | Shared active capacity |
+| --- | ---: | ---: | --- |
+| Regional `/api/v1/ping` and Go `/API_ping.php` | 600 | 16 | 16 total diagnostic requests per node, across both regional budgets and all clients |
+| Regional `/api/v1/probes` and `/api/v1/port` | 120 | 8 | The same 16-request regional cap |
+| Hub `/api/v1/probes` | 6,000 | 32 | 128 requests across all hub clients; regional caps also apply |
+
+These are admission ceilings, not reserved capacity or guaranteed throughput. Other users can occupy shared slots. The service's client-tracking capacity and edge protections can also reject requests.
+
+`/api/v1/location`, `/api/v1/locations` and `/api/v1/client` do not consume these application diagnostic budgets. They remain subject to normal edge protections and service capacity.
+
+## What counts as one client?
+
+- A public **IPv4 address** shares one allowance. Colleagues using the same office NAT, or customers using the same integration backend, share that address's budget.
+- IPv6 addresses within the same **/64 prefix** share one allowance.
+- Regional budgets are separate on each node. Within a node, GET and POST use the same relevant allowance.
+- All hub test types and locations share the hub allowance.
+- Hub requests retain the caller's identity at the regional node. A direct TCP request and a hub TCP request to the same node count against the same detailed/TCP budget.
+
+Limits count admitted requests, not individual ICMP packets or MTR cycles. A failed target lookup or failed measurement can still consume a request allowance once admitted. Minute windows begin with the client's admitted traffic; do not assume they reset at a wall-clock minute boundary.
+
+The quick-ping budget is separate from the detailed/TCP budget, but both share the node's 16 active slots. Unchanged legacy PHP handlers can have different behavior; the Go compatibility allowance above applies only where the legacy URL is served by Go.
+
+## Handling HTTP 429
+
+Application rate or concurrency rejection returns:
+
+```http
+HTTP/1.1 429 Too Many Requests
+Content-Type: application/json; charset=utf-8
+Retry-After: 30
+Cache-Control: no-store
+```
+
+```json
+{"error":"rate_limited"}
+```
+
+1. Pause requests for the affected budget and wait at least the number of seconds in `Retry-After`.
+2. Add a small random delay so several workers do not all retry together.
+3. Reduce concurrency and use a queue. Share the pause across workers using the same egress IP.
+4. If a retry is still rejected, back off again with a bounded retry count.
+
+`Retry-After: 30` is a retry hint, not an exact quota-reset timestamp or a guarantee that a slot will be available after 30 seconds. Do not retry in a tight loop. If no retry header is supplied by an intermediary, use a bounded backoff instead of an immediate retry.
+
+As a conservative starting point, use at most four concurrent requests to a single regional node and eight to the hub, then adjust within the documented ceilings. These are integration recommendations, not additional enforced quotas.
+
+## HTTP errors
+
+Application errors normally use `{"error":"code"}`. An edge or proxy can return HTML or another format, so inspect HTTP status and `Content-Type` before parsing JSON.
+
+| HTTP status | Typical error codes | What to do |
+| --- | --- | --- |
+| 400 | `invalid_request`, `invalid_target`, `invalid_family`, `family_unavailable`, `dns_failed`, `invalid_port`, `invalid_test` | Correct the request, select an available address family or investigate DNS. An unknown hub location also returns `invalid_target`. |
+| 403 | `origin_not_allowed`, `invalid_gateway`, `invalid_client` | Check the request context. Use a backend for integrations; do not add internal gateway identity/signature headers. An edge rejection may have a different body. |
+| 404 | `not_found`, `ip_unavailable` | Check the route; on `/client`, the service could not determine an acceptable public IP. |
+| 405 | `method_not_allowed` | Use the endpoint's documented HTTP method. |
+| 415 | `invalid_request` | Use `Content-Type: application/json` for POST. Some endpoints return 400 instead for an invalid content type. |
+| 429 | `rate_limited` | Respect `Retry-After`, pause and reduce concurrency. |
+| 500, 502, 503 | `unavailable` | Service, probe or upstream failure. Retry sparingly; do not classify the target as down solely from this response. |
+| 504 | `timeout` | The request or upstream operation exceeded its execution deadline. |
+
+## HTTP success is not a health verdict
+
+HTTP 200 means you received a result, not necessarily that the destination replied or its TCP port opened. Inspect `status`, `summary.received` and the relevant result fields. Detailed probes may return execution statuses such as `timeout` or `unavailable` inside a 200 response. See [result interpretation](/looking-glass-api/results).

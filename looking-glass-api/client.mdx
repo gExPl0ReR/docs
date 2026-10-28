@@ -1,0 +1,31 @@
+---
+title: "Public client IP API"
+sidebarTitle: "Client IP"
+description: "Retrieve the public IP address seen by an EDIS Global Looking Glass node or the global ping hub."
+---
+
+`GET /api/v1/client`
+
+Returns the public address seen for the caller. This route is available on regional nodes and the global hub. No parameters or authentication are required.
+
+```bash
+curl --max-time 15 'https://at.edisglobal.com/api/v1/client'
+```
+
+```bash
+curl --max-time 15 'https://ping.edisglobal.com/api/v1/client'
+```
+
+Response shape, using a documentation address as a placeholder:
+
+```json
+{"ip":"203.0.113.10"}
+```
+
+The actual value is a public IPv4 or IPv6 address. If the service cannot determine an acceptable public address, it returns HTTP 404 with `{"error":"ip_unavailable"}`.
+
+When you call from a backend, this identifies the backend's public egress address, not your customer's browser. NAT, VPNs and proxies can affect the address seen by the service. It does not return the caller's private LAN address or geolocation. Client-supplied forwarding headers are not a mechanism for choosing another rate-limit identity.
+
+## Rate limits
+
+This lookup does not consume the application's diagnostic budgets. Use it to understand which public address your integration presents; see [shared-IP rate limits](/looking-glass-api/rate-limits). Normal edge protections and service capacity still apply.

@@ -1,0 +1,70 @@
+---
+title: "Looking Glass API: network diagnostics from 50 locations"
+sidebarTitle: "Overview & quick start"
+description: "Run IPv4 and IPv6 ping, TCP port checks, MTR and traceroute from EDIS Global Looking Glass nodes using a public JSON API."
+---
+
+Use the Looking Glass API to add network diagnostics to support tools, reseller workflows and automation. All six regional endpoints are available on every one of the 50 EDIS Global Looking Glass nodes.
+
+No API key or VPS account credentials are required. Requests use HTTPS and return JSON. These endpoints perform network measurements; they do not order, restart or configure a VPS.
+
+## Choose where the test runs
+
+A request to `https://at.edisglobal.com` runs from Vienna NDC2. Replace that hostname with one returned by the [location directory](/looking-glass-api/locations) to test from another region.
+
+For a single API hostname with a location selector, use the [global hub](/looking-glass-api/global-hub) at `https://ping.edisglobal.com`. Its routes and request format differ from the regional API.
+
+## Your first request
+
+```bash
+curl --max-time 15 --get 'https://at.edisglobal.com/api/v1/ping' \
+  --data-urlencode 'target=1.1.1.1' \
+  --data-urlencode 'family=4'
+```
+
+This sends one ICMP echo request from Austria. Read `summary.received` and `status` to determine whether a reply arrived; `summary.averageMs` is the round-trip time when available. A successful HTTP request can still report `no_reply`.
+
+For TCP connectivity to a particular service:
+
+```bash
+curl --max-time 15 --get 'https://at.edisglobal.com/api/v1/port' \
+  --data-urlencode 'target=1.1.1.1' \
+  --data-urlencode 'port=443'
+```
+
+## Regional endpoints
+
+| Endpoint | Method | Function |
+| --- | --- | --- |
+| [`/api/v1/ping`](/looking-glass-api/ping) | GET, POST | One ICMP packet, with a one-second probe timeout |
+| [`/api/v1/port`](/looking-glass-api/port) | GET, POST | One TCP port, with a three-second connection timeout |
+| [`/api/v1/probes`](/looking-glass-api/probes) | POST | Four-packet ping, MTR or UDP traceroute |
+| [`/api/v1/location`](/looking-glass-api/location) | GET | Current node's location, IP addresses and software version |
+| [`/api/v1/locations`](/looking-glass-api/locations) | GET | Looking Glass location directory |
+| [`/api/v1/client`](/looking-glass-api/client) | GET | Public IP address seen for the caller |
+
+## Rate limits at a glance
+
+| Diagnostic workload | Requests per minute per client | Concurrent requests per client |
+| --- | ---: | ---: |
+| Regional quick ping | 600 | 16 |
+| Regional detailed probes and TCP checks, combined | 120 | 8 |
+| Global hub probes, across all locations and test types | 6,000 | 32 |
+
+Clients sharing a public IPv4 address share these allowances; IPv6 addresses within one /64 also share an allowance. Regional limits apply separately on each node. Hub requests also consume the selected node's allowance. Shared service capacity can cause HTTP 429 below these limits. Read [rate limits and errors](/looking-glass-api/rate-limits) before integrating.
+
+## Request conventions
+
+- `target` is a public IPv4 address, public IPv6 address or public DNS hostname. Supply a bare address or hostname, without a URL scheme, path, port, IPv6 brackets or CIDR suffix.
+- `family` is the string `"4"`, `"6"` or `"auto"`. Auto prefers IPv4 when available. For `/api/v1/probes`, include `family` explicitly; quick ping, TCP and hub requests default to `"auto"`.
+- Private, loopback, link-local and other reserved destinations are rejected. Hostnames with a mixture of public and non-public DNS answers are also rejected.
+- For POST, send `Content-Type: application/json` and a JSON object. Do not add undocumented fields. Diagnostic JSON bodies are limited to 1,024 bytes. For GET diagnostics, use query parameters without a request body; duplicate and unknown parameters are rejected.
+- Results are returned after the measurement finishes, not as a background job. Probe timeouts do not include all DNS, HTTP and network overhead.
+
+## Integrating into a reseller portal
+
+Call the API from your backend, queue requests and share results between users where appropriate. Diagnostic endpoints restrict cross-site browser requests and do not provide a general cross-origin browser API. A backend's public egress IP shares one client budget across the users it serves. Do not send VPS passwords, Order API credentials or Management API tokens.
+
+Use tests for systems you operate or are authorized to diagnose, in accordance with the [acceptable use policy](/getting-started/acceptable-use-policy). For a manual multi-location test, open [ping.edisglobal.com](https://ping.edisglobal.com).
+
+Continue with [result interpretation](/looking-glass-api/results) or [legacy API migration](/looking-glass-api/legacy-migration).

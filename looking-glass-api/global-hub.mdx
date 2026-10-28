@@ -1,0 +1,69 @@
+---
+title: "Global ping service and hub API"
+sidebarTitle: "Global ping service"
+description: "Run ping, MTR and TCP checks from a selected EDIS Global location through ping.edisglobal.com."
+---
+
+[ping.edisglobal.com](https://ping.edisglobal.com) provides a browser interface for running diagnostics from selected EDIS Global locations. It displays results as they arrive and supports JSON downloads.
+
+For integrations, the hub provides one API hostname. Each probe request selects **one location**; an all-location run consists of one request for each selected location.
+
+## Hub routes
+
+| Endpoint | Method | Function |
+| --- | --- | --- |
+| `/api/v1/probes` | POST | Run quick ping, MTR or a TCP port check from one selected location |
+| `/api/v1/locations` | GET | Discover valid location IDs and hostnames |
+| `/api/v1/client` | GET | Retrieve the public IP address seen for the caller |
+
+The six regional routes are not all exposed on the hub. In particular, do not call hub `/api/v1/ping`, `/api/v1/port` or `/api/v1/location` as if it were a regional node.
+
+## Probe parameters
+
+Send JSON to `https://ping.edisglobal.com/api/v1/probes` with no query string.
+
+| Field | Type | Required | Meaning |
+| --- | --- | --- | --- |
+| `location` | string | Yes | An `id` from `/api/v1/locations`, for example `"at"` |
+| `target` | string | Yes | Public IPv4/IPv6 address or DNS hostname |
+| `test` | string | Yes | `"ping"`, `"mtr"` or `"port"` |
+| `family` | string | No | `"auto"` (default), `"4"` or `"6"` |
+| `port` | integer | For `test: "port"` | A single TCP port, 1 through 65535; omit for other tests |
+
+Hub `test: "ping"` uses the regional **one-packet quick ping API**. It does not run the regional four-packet ping. Hub `mtr` uses regional detailed probes, and `port` uses the regional TCP API. UDP traceroute and four-packet ping are available through the [regional probes endpoint](/looking-glass-api/probes).
+
+## Examples
+
+Quick ping from Austria:
+
+```bash
+curl --max-time 50 'https://ping.edisglobal.com/api/v1/probes' \
+  -H 'Content-Type: application/json' \
+  --data '{"location":"at","target":"1.1.1.1","test":"ping","family":"4"}'
+```
+
+TCP check from Hungary:
+
+```bash
+curl --max-time 50 'https://ping.edisglobal.com/api/v1/probes' \
+  -H 'Content-Type: application/json' \
+  --data '{"location":"hu","target":"1.1.1.1","test":"port","port":443,"family":"4"}'
+```
+
+MTR from Austria:
+
+```bash
+curl --max-time 50 'https://ping.edisglobal.com/api/v1/probes' \
+  -H 'Content-Type: application/json' \
+  --data '{"location":"at","target":"1.1.1.1","test":"mtr","family":"4"}'
+```
+
+The response uses the corresponding regional [ping](/looking-glass-api/ping), [TCP](/looking-glass-api/port) or [detailed-probe](/looking-glass-api/probes) result format. `sourceHost` identifies the node that actually performed the test. There is no additional job-polling endpoint or bulk-result wrapper. The hub has a 40-second upstream request deadline; total client time also includes network overhead.
+
+## Rate limits
+
+**6,000 probe requests per minute and 32 concurrent requests per client across the whole hub**, shared by all test types and locations. The hub also has a shared cap of **128 active requests across all clients**.
+
+Regional per-client and shared node limits still apply. The hub preserves the caller's IP identity when forwarding a test, so direct calls and hub calls to the same node share that node's relevant budget. A 50-location run consumes 50 hub requests and one regional request at each selected node.
+
+Queue work instead of launching every request at once. Handle HTTP 429 and respect `Retry-After`; see [rate limits and errors](/looking-glass-api/rate-limits). For reseller applications, call from your backend rather than cross-site browser JavaScript.

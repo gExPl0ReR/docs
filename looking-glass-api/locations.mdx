@@ -1,0 +1,41 @@
+---
+title: "Looking Glass location directory API"
+sidebarTitle: "Location directory"
+description: "Discover the EDIS Global Looking Glass location IDs and regional hostnames for direct API calls and hub requests."
+---
+
+`GET /api/v1/locations`
+
+Returns a JSON array of Looking Glass locations. No parameters or authentication are required. The directory is available on every regional node and on the global hub.
+
+```bash
+curl --max-time 15 'https://at.edisglobal.com/api/v1/locations'
+```
+
+```bash
+curl --max-time 15 'https://ping.edisglobal.com/api/v1/locations'
+```
+
+## Response
+
+Each entry contains `id`, `label` and `hostname`. Entries can also include `countryCode`, `city` and `productUrl`.
+
+Illustrative one-entry excerpt from the array:
+
+```json
+[
+  {
+    "id": "at",
+    "label": "Austria (Vienna NDC2)",
+    "hostname": "at.edisglobal.com"
+  }
+]
+```
+
+Use `hostname` to construct a regional HTTPS base URL and `id` as the `location` value in a [hub request](/looking-glass-api/global-hub). Treat IDs as opaque strings: some countries have multiple locations, so do not derive IDs from country codes.
+
+The current registry contains 50 locations. It is a directory, not a live health report or VPS stock list. Retrieve current entries instead of hard-coding the location count, ordering or labels.
+
+## Rate limits
+
+Directory requests do not consume the application's diagnostic budgets. Fetch the directory as needed instead of before every probe. Normal edge protections and service capacity still apply; see [rate limits and errors](/looking-glass-api/rate-limits).
