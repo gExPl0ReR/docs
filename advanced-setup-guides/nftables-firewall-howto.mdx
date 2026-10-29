@@ -1,0 +1,113 @@
+---
+title: nftables firewall
+description: "Configure a basic nftables firewall on a Linux VPS. Covers inspecting the ruleset, writing /etc/nftables.conf, checking syntax, applying rules, and recovering from a lockout."
+---
+
+nftables is the packet filtering framework in current Linux kernels. Debian ships it as the default firewall backend. This guide covers a basic Debian/Ubuntu server managed over SSH.
+
+<Warning>
+  A wrong ruleset can drop your SSH connection. Allow your actual SSH port in the ruleset and keep the [VNC console](/vps-management/enable-vnc-server) available until you have tested a new login.
+</Warning>
+
+## Before you start
+
+- Use only one firewall manager. Do not manage rules with nftables directly while UFW or firewalld is active. If you prefer a simpler tool, see [UFW (Uncomplicated Firewall)](/advanced-setup-guides/ufw-uncomplicated-firewall-howto).
+- Software such as Docker, WireGuard, or VPN panels may add their own rules. The example below starts with `flush ruleset`, which removes those rules until the software adds them again.
+
+## Install and inspect nftables
+
+```bash
+sudo apt update
+sudo apt install nftables
+sudo nft list ruleset
+```
+
+Review any existing rules before you replace them.
+
+## Write a basic ruleset
+
+Back up the current configuration file:
+
+```bash
+sudo cp /etc/nftables.conf /etc/nftables.conf.bak
+```
+
+Edit `/etc/nftables.conf`:
+
+```bash
+sudo nano /etc/nftables.conf
+```
+
+The following example drops incoming traffic except SSH, HTTP, HTTPS, ICMP, and replies to connections the VPS opened. It covers IPv4 and IPv6 through the `inet` table:
+
+```text
+#!/usr/sbin/nft -f
+
+flush ruleset
+
+table inet filter {
+  chain input {
+    type filter hook input priority filter; policy drop;
+
+    ct state established,related accept
+    ct state invalid drop
+    iif "lo" accept
+    meta l4proto { icmp, ipv6-icmp } accept
+
+    tcp dport 22 accept
+    tcp dport { 80, 443 } accept
+  }
+
+  chain forward {
+    type filter hook forward priority filter; policy drop;
+  }
+
+  chain output {
+    type filter hook output priority filter; policy accept;
+  }
+}
+```
+
+Replace `22` with your actual SSH port. Add or remove service ports as needed. Keep the ICMP rule because IPv6 requires ICMPv6 to work.
+
+<Note>
+  The `forward` chain drops routed traffic. If the VPS routes traffic for a VPN or containers, add forward rules for that traffic or use the rules your VPN guide provides.
+</Note>
+
+## Check and apply the ruleset
+
+Check the syntax without applying it:
+
+```bash
+sudo nft -c -f /etc/nftables.conf
+```
+
+Apply the ruleset and load it at boot:
+
+```bash
+sudo nft -f /etc/nftables.conf
+sudo systemctl enable --now nftables
+sudo nft list ruleset
+```
+
+Open a **second SSH connection** from your computer and confirm it works before closing your original session. Also test the application ports you allowed.
+
+## Restrict a service to a trusted address
+
+For example, replace the SSH rule with one that allows SSH only from a known administrator address:
+
+```text
+ip saddr 203.0.113.10 tcp dport 22 accept
+```
+
+Replace the documentation address and port with your own. Use `ip6 saddr` for an IPv6 address. Remove the broader `tcp dport 22 accept` rule only after you have tested access from the trusted address.
+
+## Recover from a blocked connection
+
+1. Log in through the [VNC console](/vps-management/enable-vnc-server).
+2. Correct `/etc/nftables.conf`, or restore your backup with `sudo cp /etc/nftables.conf.bak /etc/nftables.conf`.
+3. Reload the rules with `sudo nft -f /etc/nftables.conf`.
+
+If the VPS does not boot or you cannot log in through VNC, follow the [Linux rescue CD guide](/vps-management/linux-rescue-guide-and-troubleshoot) to mount the installed system and repair its firewall configuration.
+
+For full syntax, see the [nftables wiki](https://wiki.nftables.org/).
