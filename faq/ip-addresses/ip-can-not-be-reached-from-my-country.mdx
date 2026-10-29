@@ -1,37 +1,38 @@
 ---
 title: IP address cannot be reached from my country
-description: "What to do when your VPS IP address cannot be reached from your country. EDIS Global offers a free IP address change within 24 hours of purchase."
+description: "How to report regional VPS connectivity problems, interpret reachability tests, and check IP-change eligibility."
 ---
 
 import { CtaButton } from "/snippets/cta-button.mdx";
 
-## How to figure out if IP is blocked in your country
+## Check where and how the connection fails
 
-You ordered a new VPS, just received login credentials and figured out that your server's IP address does not seem to be reachable from your country.
+If your VPS or application cannot be reached from a particular country, ISP, mobile network or other connection, compare the affected connection with another available network. A difference between networks can help narrow down the problem, but does not by itself prove government filtering or an EDIS infrastructure fault.
 
-You can test whether your IP address can be reached from other countries. We recommend the <a href="https://tools.keycdn.com/ping" target="_blank">KeyCDN pingtool</a> for this particular purpose.
+Use the **current IP address**, especially if support has already changed it. Note your source country and ISP, the affected application or port, the exact error and the time of the test, preferably in UTC. The language you speak and the VPS location do not identify the network you are connecting from.
 
-If the IP address assigned to your server works from other countries, but cannot be reached from your ISP/network/country, EDIS offers a free IP address change. This offer applies within 24 hours from the time of purchase.
+You can use the <a href="https://tools.keycdn.com/ping" target="_blank">KeyCDN ping tool</a> to compare ICMP reachability from other locations. A successful ping only confirms an ICMP response from that probe at that time. An open TCP port does not prove that SSH negotiation, RDP login, HTTPS downloads or sustained application traffic works from your network.
+
+If an application connects and then stalls or disconnects, include that detail. For example, an SSH log showing `Connection established` followed by a key-exchange error is different from a TCP connection timeout. Repeated download stalls at a similar size are useful evidence, but do not establish the cause on their own.
+
+## IP address changes
+
+EDIS Global offers a free IP address change within 24 hours of purchase when the assigned IP works from other networks but cannot be reached from your network. Check the current eligibility and process in the IP-change guide.
 
 <CtaButton label='IP Address Change' link='./change-ip-address' />
 
 <Note>
-  Some countries (Turkmenistan, China, Iran, Vietnam, Russia, ...) detect and
-  block VPN after 1 or 2 hours of usage. Use "stealth mode" (openvpn + stunnel)
-  or consider using v2ray (ideally behind an nginx reverse proxy) to avoid
-  getting blocked.
+  A replacement IP or a different VPS location cannot guarantee access through every country or external network. If a replacement has already failed, provide the current and previous IPs to support so the case can be reviewed before considering further paid changes.
 </Note>
 
-<CtaButton
-  label='OpenVPN + stunnel'
-  link='https://www.perfect-privacy.com/en/manuals/linux_openvpn_stealth_stunnel'
-  openInNewTab={true}
-/>
+Changing the assigned IP may require updating the network configuration inside the VPS. Follow the IP-change guide. Reinstalling erases data and is not a required first step for investigating regional connectivity.
 
-<CtaButton label='v2ray' link='https://www.v2ray.com' openInNewTab={true} />
+## What support can review
 
-<CtaButton
-  label='nginx reverse proxy'
-  link='https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/'
-  openInNewTab={true}
-/>
+Send support the current VPS IP, your source network, affected application, exact error, timestamps and any results already collected. Keep these in the same support conversation so you do not need to repeat completed tests. Do not send passwords, private keys or API tokens.
+
+EDIS Global can review its infrastructure and service status. We cannot guarantee reachability through external networks, and our support does not provide traffic analysis, assistance to circumvent government filtering, or mitigation of such filtering. Self-service VPN documentation does not extend this support scope or guarantee connectivity from Russia or any other country.
+
+If portal buttons, VNC activation, reboot or power controls also fail, report those errors separately. An ACTIVE or RUNNING status does not establish that management operations succeeded. See [Portal buttons not loading](/misc/portal-buttons-not-loading).
+
+For interpreting network traces, see [Understanding packet loss in MTR and traceroute](/faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute).
