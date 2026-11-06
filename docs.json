@@ -103,6 +103,7 @@
           {
             "group": "FAQ",
             "pages": [
+              "faq/data-processing-agreement",
               "faq/what-is-a-virtual-private-server",
               "faq/what-is-a-kvm-vps",
               "faq/free-trials-available",
