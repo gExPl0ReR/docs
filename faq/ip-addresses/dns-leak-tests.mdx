@@ -74,6 +74,17 @@ If you want to influence the test results or use different DNS resolvers, you ca
 
 ---
 
+## Can I use encrypted DNS?
+
+Cloudflare supports two ways to encrypt DNS queries between your device and its resolver. Enable one in a compatible browser, operating system, or local DNS resolver. Entering 1.1.1.1 as a DNS server address alone leaves ordinary DNS queries unencrypted.
+
+- **DNS over HTTPS (DoH)** sends DNS queries over HTTPS. A browser can use its own DoH resolver for browser lookups, independently of the VPS system DNS settings. [Configure DoH in your browser](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/encrypted-dns-browsers/).
+- **DNS over TLS (DoT)** sends DNS queries over a dedicated TLS connection, typically on port 853. You can configure it in a compatible operating system or local DNS resolver. [Set up Cloudflare DNS over TLS](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-tls/).
+
+A browser-based DNS leak test can show a different resolver if the browser uses its own DoH settings. The result shows which resolver the test observed. To confirm encryption or check whether DNS traffic stayed inside your VPN tunnel, verify the DNS settings and traffic path separately.
+
+---
+
 ## 📝 Summary
 - **EDIS Global** uses **Cloudflare Anycast DNS (1.1.1.1 and 1.0.0.1)** to ensure **fast, secure DNS resolution**.
 - DNS leak test results showing locations different from your VPS location are **expected**.
