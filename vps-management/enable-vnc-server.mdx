@@ -16,11 +16,11 @@ VNC lets you see the VPS display and use its keyboard even when SSH or RDP is un
 
 
 <Frame caption="To enable VNC, click Start VNC in Server management.">
-  <img src="/images/vnc-start-controls.png" alt="Server management with Start VNC available and Open Console disabled" />
+  <img src="/images/vnc-start-highlight.png" width="519" alt="Server management with Start VNC available and Open Console disabled" />
 </Frame>
 
 <Frame caption="When VNC is enabled, Open Console becomes available.">
-  <img src="/images/vnc-enabled-controls.png" alt="Server management with Stop VNC and Open Console available" />
+  <img src="/images/vnc-console-highlight.png" width="519" alt="Server management with Stop VNC and Open Console available" />
 </Frame>
 
 ## Can I copy and paste text?
@@ -35,7 +35,11 @@ At the operating system's login screen, use your Linux or Windows username and p
 
 ## Connect with a desktop VNC client
 
-With VNC enabled, the **Information** panel shows the VNC hostname, port and password. Enter the VNC hostname and port shown there in your desktop client. When the client asks for a password, enter the VNC password from the panel. Once connected, use your operating-system credentials at the VPS login screen.
+With VNC enabled, the **Information** panel shows the VNC hostname, port and password. The port appears after the colon in **VNC Hostname**. If your desktop client has separate fields, enter the hostname and port separately. When the client asks for a password, enter the VNC password from the panel. Once connected, use your operating-system credentials at the VPS login screen.
+
+<Frame caption="Example values shown. Use the hostname, port and VNC password displayed in your own portal.">
+  <img src="/images/vnc-desktop-details.png" width="485" alt="Information panel highlighting the VNC hostname and port, with the VNC password masked" />
+</Frame>
 
 ## Stop VNC when finished
 
