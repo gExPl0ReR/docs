@@ -20,13 +20,19 @@ VNC lets you see the VPS display and use its keyboard even when SSH or RDP is un
 </Frame>
 
 
+## Can I copy and paste text?
+
+**The EDIS Global browser console (noVNC) does not support clipboard transfer between your computer and the VPS.** Click inside the console and type directly if you need to enter text there.
+
+**Desktop VNC clients support text copy and paste** when clipboard sharing is enabled in the client and the guest session supports it. Clipboard sharing may be unavailable at a login prompt, in a text-only console, or during boot.
+
 ## Log in through the browser console
 
 At the operating system's login screen, use your Linux or Windows username and password. The separate **VNC password** is for desktop VNC connections; it is not your operating-system password and is not required to open the browser console.
 
 ## Connect with a desktop VNC client
 
-With VNC enabled, the **Information** panel shows the VNC hostname, port and password. Use those values in your preferred desktop VNC client, then log in to the operating system when prompted.
+With VNC enabled, the **Information** panel shows the VNC hostname, port and password. Enter the VNC hostname and port shown there in your desktop client. When the client asks for a password, enter the VNC password from the panel. Once connected, use your operating-system credentials at the VPS login screen.
 
 ## Stop VNC when finished
 
