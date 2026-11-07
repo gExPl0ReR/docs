@@ -1,0 +1,123 @@
+---
+title: Геолокация и базы GeoIP
+description: "Как EDIS Global обеспечивает точную геолокацию VPS с помощью локального размещения, региональных аплинков и регистрации в базах GeoIP."
+---
+
+## EDIS Global уделяет приоритетное внимание точной геолокации услуг {#edis-global-prioritizes-precise-geolocation-of-its-services}
+
+Мы придаём большое значение точной геолокации. Наши услуги <a href="https://www.edisglobal.com/" target="_blank">VPS-хостинга</a> размещаются именно в указанной серверной локации. Они подключены к интернету через несколько международных магистральных провайдеров и локальные точки обмена трафиком.
+
+## Где хранится информация GeoIP? {#where-is-geoip-information-stored}
+
+Информация о географическом расположении IP-адреса прежде всего поступает из сетевых координационных центров, распределяющих адреса. Для Европы, Ближнего Востока и части Центральной Азии за соответствующие записи отвечает RIPE NCC (Réseaux IP Européens Network Coordination Centre).
+
+Другие организации и их регионы: AFRINIC — Африка, ARIN — Северная Америка/США, APNIC — Азиатско-Тихоокеанский регион, LACNIC — Латинская Америка и Карибский бассейн.
+
+## Базы WHOIS {#whois-databases}
+
+Эти сетевые координационные центры ведут базы WHOIS. В них хранятся владельцы IP-диапазонов — операторы услуг — и контакты для сообщений о нарушениях. Также сохраняются сведения о геолокации: где анонсируется диапазон, адрес, долгота и широта.
+
+Пример:
+
+```shell WHOIS
+inetnum: 158.255.208.0 - 158.255.208.255
+netname: EDIS-HK-NET
+descr: EDIS Infrastructure in Hong Kong
+remarks: Central, Hong Kong
+country: HK
+geoloc: 22.2793278 114.1628131
+geofeed: https://www.edis.at/geofeed.txt
+language: EN
+language: ZH
+```
+
+## Что такое геолокация? {#what-is-geolocation}
+
+Геолокация — **любые данные, позволяющие с разумной точностью определить местоположение человека или устройства на Земле**.
+Для быстрой проверки GeoIP мы используем агрегаторы, например [https://www.iplocation.net](https://www.iplocation.net/ip-lookup/158.255.208.0). На сайте можно ввести любой IP и узнать его географическое расположение. Он запрашивает несколько баз, включая MaxMind, DB-IP и IP2Location, что даёт хороший обзор согласованности данных.
+
+## Всё больше, всё быстрее — но точнее ли? {#ever-more-ever-faster-ever-more-accurate}
+
+Спрос на более точные данные геолокации пользователей и быстрые API-запросы постоянно растёт. Это привело к появлению множества поставщиков поиска геолокации. Некоторые получают данные, по крайней мере основу, из справочных баз RIPE, ARIN, APNIC, LACNIC и AFRINIC. Другие позволяют конечным пользователям менять привязку GeoIP-адресов. Последнее приводит к непредсказуемому качеству данных.
+
+## Коммерческие сервисы поиска {#commercial-lookup-providers}
+
+Большинство сервисов поиска имеют коммерческий интерес. Ограничениями количества запросов они побуждают покупать корпоративные подписки. Некоторые предоставляют **бесплатный доступ к старым базам**, чтобы заинтересовать клиентов покупкой актуальных и, главное, точных корпоративных данных. **Некоторые владельцы сайтов не знают**, что **проверяют пользователей по устаревшим GeoIP-базам**. Другие **находят старые базы геолокации в интернете** и используют их в рабочих системах с тем же результатом.
+
+## Команда whois в Linux {#the-whois-command-in-linux}
+
+Инструмент whois позволяет запрашивать регистрационные сведения о доменах и IP прямо из терминала. **Он получает данные из официальных интернет-реестров, таких как RIPE, ARIN и APNIC**, показывая организацию, контакты и иногда метаданные местоположения IP-блока.
+
+В некоторых результатах есть поле страны, но **whois не является инструментом GeoIP**.
+**Если нужен именно поиск GeoIP**, используйте:
+
+- geoiplookup — на основе старой базы MaxMind GeoIP;
+- mmdblookup — для новых баз MaxMind GeoLite2 .mmdb;
+- API IPinfo, ip-api или собственные сервисы MaxMind.
+
+## Каналы данных GeoIP EDIS Global {#edis-global-geoip-data-feeds}
+
+Как отмечалось выше, **EDIS Global придаёт большое значение правильной геолокации IPv4, IPv6 и услуг**. Поэтому мы предоставили свои каналы данных GeoIP IPv4 и IPv6 многим сервисам поиска. Это позволяет им получать информацию о возможных изменениях из первых рук.
+
+EDIS Global сотрудничает со следующими известными сервисами и предоставляет им GeoIP-данные.
+
+<a href='https://google.com/' target='_blank'>
+  https://google.com
+</a>
+
+<a href='https://ipapi.com/' target='_blank'>
+  https://ipapi.com
+</a>
+
+<a href='https://ipapi.co/' target='_blank'>
+  https://ipapi.co
+</a>
+
+<a href='https://ipdata.co/' target='_blank'>
+  https://ipdata.co
+</a>
+
+<a href='https://ipinfo.io/' target='_blank'>
+  https://ipinfo.io
+</a>
+
+<a href='https://ip2location.com/' target='_blank'>
+  https://ip2location.com
+</a>
+
+<a href='https://www.ipqualityscore.com/' target='_blank'>
+  https://www.ipqualityscore.com
+</a>
+
+<a href='https://www.maxmind.com/en/geoip-demo' target='_blank'>
+  https://www.maxmind.com/en/geoip-demo
+</a>
+
+<a href='https://extreme-ip-lookup.com/' target='_blank'>
+  https://extreme-ip-lookup.com/
+</a>
+
+<a href='https://ipgeolocation.io/' target='_blank'>
+  https://ipgeolocation.io
+</a>
+
+<a href='https://db-ip.com/' target='_blank'>
+  https://db-ip.com
+</a>
+
+<a href='https://www.home.neustar/resources/tools/ip-geolocation-lookup-tool' target='_blank'>
+  https://www.home.neustar/resources/tools/ip-geolocation-lookup-tool
+</a>
+
+<a href='https://ipregistry.co/' target='_blank'>
+  https://ipregistry.co
+</a>
+
+<a
+  href='https://www.digitalelement.com/solutions/ip-location-targeting/' target='_blank'>
+  https://www.digitalelement.com/solutions/ip-location-targeting/
+</a>
+
+<a href='https://www.bigdatacloud.com/' target='_blank'>
+  https://www.bigdatacloud.com
+</a>

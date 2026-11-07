@@ -1,5 +1,5 @@
 {
-  "translated": 86,
+  "translated": 113,
   "total": 183,
   "pages": [
     {
@@ -353,6 +353,132 @@
       "mdx_checked": true
     },
     {
+      "source": "faq/ip-addresses/setting-up-reverse-pointers.mdx",
+      "target": "ru/faq/ip-addresses/setting-up-reverse-pointers.mdx",
+      "source_sha": "7b48f4e548e3b3f495102593dc702f42e65b8fab",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall.mdx",
+      "target": "ru/faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall.mdx",
+      "source_sha": "4c8e1dd01e41a3154b45187111409058bd228962",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/ip-can-not-be-reached-from-my-country.mdx",
+      "target": "ru/faq/ip-addresses/ip-can-not-be-reached-from-my-country.mdx",
+      "source_sha": "bb267e766772b1cb1a449eb7cda3e8eda4a07e4d",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/geolocation-geoip-databases.mdx",
+      "target": "ru/faq/ip-addresses/geolocation-geoip-databases.mdx",
+      "source_sha": "b18b0322bea90844b3a25ebecf0bb996dd417102",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/ip-location-incorrect-on-whatismyipaddresscom.mdx",
+      "target": "ru/faq/ip-addresses/ip-location-incorrect-on-whatismyipaddresscom.mdx",
+      "source_sha": "da2b854bce4bcc5c13ce9a16616b6bcffbb3ab4b",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/dns-leak-tests.mdx",
+      "target": "ru/faq/ip-addresses/dns-leak-tests.mdx",
+      "source_sha": "5103f6bc5aa4bdbfeb230a1353c7630b832a103f",
+      "headings": 14,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/understanding-ip-address-location.mdx",
+      "target": "ru/faq/ip-addresses/understanding-ip-address-location.mdx",
+      "source_sha": "59e42427455f8b87d42054f3bdd43eb3df985983",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location.mdx",
+      "target": "ru/faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location.mdx",
+      "source_sha": "b7273b3900a97048d3e6cc63e215c0ad616d0e5b",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/static-ip-addresses.mdx",
+      "target": "ru/faq/ip-addresses/static-ip-addresses.mdx",
+      "source_sha": "3c456782c684c2b74dd2c49f045dfea3dcfd9433",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/bring-your-own-ipv4-prefix.mdx",
+      "target": "ru/faq/ip-addresses/bring-your-own-ipv4-prefix.mdx",
+      "source_sha": "d64a2d38b763593ed774a26d848c2ca5b880ce7c",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance.mdx",
+      "target": "ru/faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance.mdx",
+      "source_sha": "ff05ec9dc09195a30e64f160352a0bd22e9a2652",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/network-is-down.mdx",
+      "target": "ru/faq/ip-addresses/network-is-down.mdx",
+      "source_sha": "91a5a7c03abe7d0062de2bf11689d63ef8aca7ea",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute.mdx",
+      "target": "ru/faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute.mdx",
+      "source_sha": "8618d76a9d9db54684ebe473e24a9370f37ef391",
+      "headings": 12,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows.mdx",
+      "target": "ru/faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows.mdx",
+      "source_sha": "2fda7248c5320e4168dce5404f57c223048c8454",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/ping-pe-connectivity-check.mdx",
+      "target": "ru/faq/ip-addresses/ping-pe-connectivity-check.mdx",
+      "source_sha": "b9e45c1ff8bc135906507326ab2bdb3c3b73b05c",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/ports-firewalls-and-connectivity.mdx",
+      "target": "ru/faq/ip-addresses/ports-firewalls-and-connectivity.mdx",
+      "source_sha": "70035fa826255e2ec07b0e90b14910856c4b4434",
+      "headings": 11,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/server-locations/list-of-edis-global-server-locations-by-continent-region.mdx",
+      "target": "ru/faq/server-locations/list-of-edis-global-server-locations-by-continent-region.mdx",
+      "source_sha": "a142a9322da25c66ee27e28e2e5056502a13d266",
+      "headings": 18,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/server-locations/change-server-location.mdx",
+      "target": "ru/faq/server-locations/change-server-location.mdx",
+      "source_sha": "ca2e3b1c91ce69963f2985f1128ec0a503feb642",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
       "source": "faq/billing-lifecycle/automated-payments.mdx",
       "target": "ru/faq/billing-lifecycle/automated-payments.mdx",
       "source_sha": "91e8fa6973e7a61c66372fa0a3e1a0275e9724fa",
@@ -584,6 +710,69 @@
       "mdx_checked": true
     },
     {
+      "source": "faq/traffic-bandwidth/traffic-vs-bandwidth.mdx",
+      "target": "ru/faq/traffic-bandwidth/traffic-vs-bandwidth.mdx",
+      "source_sha": "45c3c2c37bd5b6beba202cbe88b35e65d218d919",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/traffic-stats-refill-explained.mdx",
+      "target": "ru/faq/traffic-bandwidth/traffic-stats-refill-explained.mdx",
+      "source_sha": "a61fb2504d9d5eb5681cfa1b160e46ce81da5514",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/traffic-pool.mdx",
+      "target": "ru/faq/traffic-bandwidth/traffic-pool.mdx",
+      "source_sha": "79c366de954827ff64cf7cbad04482abe53428b7",
+      "headings": 16,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/speed-test.mdx",
+      "target": "ru/faq/traffic-bandwidth/speed-test.mdx",
+      "source_sha": "b42cfd3212b34c97cf65a2099ea465fd4081d8ae",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-network-usage.mdx",
+      "target": "ru/faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-network-usage.mdx",
+      "source_sha": "80c355a9bad9520e8a43c2b727bc6a9d9edae2d4",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global.mdx",
+      "target": "ru/faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global.mdx",
+      "source_sha": "bb073177fff76e53656662a9709a7182923966e8",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview.mdx",
+      "target": "ru/faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview.mdx",
+      "source_sha": "197be75e9e714800c7415ddbdbc7097b5a1eb463",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients.mdx",
+      "target": "ru/faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients.mdx",
+      "source_sha": "4682dabdca49811a9ee6cf0ee4bd0533ef55eba4",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/upgrades.mdx",
+      "target": "ru/faq/upgrades-downgrades/upgrades.mdx",
+      "source_sha": "f96a32ee69afa08ba4f5b0a9a47da867e5de032f",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
       "source": "changelog/product.mdx",
       "target": "ru/changelog/product.mdx",
       "source_sha": "a661848d6d6692c05c39ded64f4bfe5ceb11eb3e",
@@ -606,33 +795,6 @@
     }
   ],
   "pending": [
-    "faq/ip-addresses/setting-up-reverse-pointers.mdx",
-    "faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall.mdx",
-    "faq/ip-addresses/ip-can-not-be-reached-from-my-country.mdx",
-    "faq/ip-addresses/geolocation-geoip-databases.mdx",
-    "faq/ip-addresses/ip-location-incorrect-on-whatismyipaddresscom.mdx",
-    "faq/ip-addresses/dns-leak-tests.mdx",
-    "faq/ip-addresses/understanding-ip-address-location.mdx",
-    "faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location.mdx",
-    "faq/ip-addresses/static-ip-addresses.mdx",
-    "faq/ip-addresses/bring-your-own-ipv4-prefix.mdx",
-    "faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance.mdx",
-    "faq/ip-addresses/network-is-down.mdx",
-    "faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute.mdx",
-    "faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows.mdx",
-    "faq/ip-addresses/ping-pe-connectivity-check.mdx",
-    "faq/ip-addresses/ports-firewalls-and-connectivity.mdx",
-    "faq/server-locations/list-of-edis-global-server-locations-by-continent-region.mdx",
-    "faq/server-locations/change-server-location.mdx",
-    "faq/traffic-bandwidth/traffic-vs-bandwidth.mdx",
-    "faq/traffic-bandwidth/traffic-stats-refill-explained.mdx",
-    "faq/traffic-bandwidth/traffic-pool.mdx",
-    "faq/traffic-bandwidth/speed-test.mdx",
-    "faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-network-usage.mdx",
-    "faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global.mdx",
-    "faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview.mdx",
-    "faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients.mdx",
-    "faq/upgrades-downgrades/upgrades.mdx",
     "faq/upgrades-downgrades/upgrade-plan.mdx",
     "faq/upgrades-downgrades/upgrade-resources.mdx",
     "faq/upgrades-downgrades/upgrade-disk-drive-boost.mdx",

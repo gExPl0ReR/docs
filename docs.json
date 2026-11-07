@@ -586,7 +586,31 @@
                       "ru/faq/ip-addresses/change-ip-address",
                       "ru/faq/ip-addresses/order-additional-ip-address",
                       "ru/faq/ip-addresses/order-bespoke-ip-address",
-                      "ru/faq/ip-addresses/configuring-additional-ip-address-linux"
+                      "ru/faq/ip-addresses/configuring-additional-ip-address-linux",
+                      "ru/faq/ip-addresses/setting-up-reverse-pointers",
+                      "ru/faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall",
+                      "ru/faq/ip-addresses/ip-can-not-be-reached-from-my-country",
+                      "ru/faq/ip-addresses/geolocation-geoip-databases",
+                      "ru/faq/ip-addresses/ip-location-incorrect-on-whatismyipaddresscom",
+                      "ru/faq/ip-addresses/dns-leak-tests",
+                      "ru/faq/ip-addresses/understanding-ip-address-location",
+                      "ru/faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location",
+                      "ru/faq/ip-addresses/static-ip-addresses",
+                      "ru/faq/ip-addresses/bring-your-own-ipv4-prefix",
+                      "ru/faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance",
+                      "ru/faq/ip-addresses/network-is-down",
+                      "ru/faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute",
+                      "ru/faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows",
+                      "ru/faq/ip-addresses/ping-pe-connectivity-check",
+                      "ru/faq/ip-addresses/ports-firewalls-and-connectivity"
+                    ]
+                  },
+                  {
+                    "group": "Локации серверов",
+                    "icon": "globe",
+                    "pages": [
+                      "ru/faq/server-locations/list-of-edis-global-server-locations-by-continent-region",
+                      "ru/faq/server-locations/change-server-location"
                     ]
                   },
                   {
@@ -626,6 +650,32 @@
                       "ru/faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account",
                       "ru/faq/billing-lifecycle/cryptocurrency-payment-help",
                       "ru/faq/billing-lifecycle/reset-2fa"
+                    ]
+                  },
+                  {
+                    "group": "Трафик и пропускная способность",
+                    "icon": "display-chart-up",
+                    "pages": [
+                      "ru/faq/traffic-bandwidth/traffic-vs-bandwidth",
+                      "ru/faq/traffic-bandwidth/traffic-stats-refill-explained",
+                      "ru/faq/traffic-bandwidth/traffic-pool",
+                      "ru/faq/traffic-bandwidth/speed-test",
+                      "ru/faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-network-usage",
+                      "ru/faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global",
+                      {
+                        "group": "DOS Attacks",
+                        "pages": [
+                          "ru/faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview",
+                          "ru/faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Изменение тарифа и ресурсов",
+                    "icon": "gear",
+                    "pages": [
+                      "ru/faq/upgrades-downgrades/upgrades"
                     ]
                   }
                 ]

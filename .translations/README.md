@@ -27,11 +27,12 @@ Use the existing `preview/russian-card-reservation` branch and draft PR #242. Pr
 
 ## Current state
 - Russian translation is being written directly through ChatGPT and GitHub; Mintlify AI has not been used.
-- 86 of 183 pages are translated: all 12 Getting Started pages, all 24 VPS Management pages, all eight general FAQs, six IP-address guides, all 33 Billing & Lifecycle pages, and all three changelogs.
-- 97 source pages remain. See ru-progress.json for the exact completed and pending lists.
+- 113 of 183 pages are translated: all 12 Getting Started pages, all 24 VPS Management pages, all eight general FAQs, all 22 IP-address guides, both server-location guides, all 33 Billing & Lifecycle pages, all eight traffic guides, the upgrades overview, and all three changelogs.
+- 70 source pages remain. See ru-progress.json for the exact completed and pending lists.
 - English documentation, API references, specifications, and original URLs are preserved.
 - Russian navigation lists only existing translations. The API links and the complete English documentation remain accessible.
 - Internal links use Russian when the target is translated; otherwise they retain the working English target until that translation is available.
 - Translated headings use Mintlify's explicit {#original-english-id} syntax. For IDs containing an ampersand, which Mintlify strips from Markdown custom IDs, an explicit ID is set directly on the heading element instead. IDs were extracted from all 183 published English pages and matched against all 1,286 source headings. Existing legacy aliases already present in the English source are preserved.
-- Local checks passed for all 86 pages: MDX syntax, frontmatter, heading counts, protected executable code, Russian routes and linked section anchors.
+- Local checks passed for all 113 pages: MDX syntax, frontmatter, heading counts, protected executable code, Russian routes and linked section anchors.
 - Full-site translation is not complete. This draft is not ready to merge into production.
+

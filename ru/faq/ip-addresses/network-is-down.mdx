@@ -1,0 +1,68 @@
+---
+title: Сеть не работает (Linux-сервер)
+description: "Если Linux VPS недоступен или сеть не работает, подключитесь через VNC и выполните диагностику для восстановления соединения."
+---
+
+Если SSH или приложение недоступны, сначала проверьте [состояние услуг](https://status.edis.global) и убедитесь, что VPS работает. Неудачный ping сам по себе не доказывает, что сервер отключён.
+
+## Откройте консоль {#open-the-console}
+
+1. Откройте VPS в **Services → My Services** [панели управления VPS](https://manage.edisglobal.com/clientarea.php).
+2. Нажмите **Start VNC**, затем **Open Console**.
+3. Войдите в Linux. Консоль полезна даже при неправильной настройке сети внутри VPS.
+
+Подробнее — [Доступ VNC](/ru/vps-management/enable-vnc-server).
+
+## Проверьте интерфейс и назначенные параметры {#check-the-interface-and-assigned-settings}
+
+```bash
+ip -br address
+ip route
+ip -6 route
+```
+
+Сравните интерфейс, адреса, длины префиксов и шлюз с **Network Info** в панели. Используйте собственные назначенные значения, а не данные снимков. Для IPv6 следуйте [руководству по диагностике](/ru/vps-management/basic-ipv6-troubleshooting).
+
+## Отличите проблемы маршрутизации от DNS {#separate-routing-from-dns-problems}
+
+Замените `YOUR_GATEWAY` шлюзом из Network Info:
+
+```bash
+ping -c 4 YOUR_GATEWAY
+ping -c 4 1.1.1.1
+getent ahosts example.com
+```
+
+- Успешная проверка IP при неработающем разрешении имён указывает на проблему DNS-резолвера.
+- Не отвечающий шлюз может просто фильтровать ICMP; сравните несколько тестов и фактическое подключение приложения.
+- Если у интерфейса нет назначенного адреса или маршрута по умолчанию, проверьте постоянную сетевую конфигурацию.
+
+## Проверьте затронутую службу и межсетевой экран {#check-the-affected-service-and-firewall}
+
+Для SSH в Debian или Ubuntu:
+
+```bash
+sudo systemctl status ssh --no-pager
+sudo journalctl -u ssh -n 50 --no-pager
+sudo ss -lntp
+```
+
+В дистрибутивах вроде RHEL служба обычно называется `sshd`. Если настроена активация через сокет, также проверьте `ssh.socket`. В списке прослушивания проверьте фактический порт и адрес SSH или приложения.
+
+Если используется UFW:
+
+```bash
+sudo ufw status verbose
+```
+
+Исправьте конкретное правило, блокирующее нужную службу. См. [Порты, межсетевые экраны и подключение](/ru/faq/ip-addresses/ports-firewalls-and-connectivity).
+
+## Примените подходящее исправление сети {#apply-the-right-network-fix}
+
+Управление сетью зависит от установки. Не предполагайте, что `systemctl restart networking` подходит любой Linux-системе. Для Ubuntu с Netplan следуйте [руководству по смене IP в Ubuntu](/ru/vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404), включая резервную копию, проверку и `netplan try`.
+
+Если Linux не загружается, перейдите к [руководству по Rescue CD](/ru/vps-management/linux-rescue-guide-and-troubleshoot).
+
+## Что отправить в поддержку {#what-to-send-support}
+
+Укажите идентификатор услуги, исходный и целевой IP, время и часовой пояс сбоя, точную ошибку и относящийся к ней вывод команд. Удалите пароли и закрытые ключи. Объясните, работает ли VNC и затронута ли одна служба или все подключения. После диагностики остановите VNC.
