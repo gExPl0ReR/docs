@@ -1,5 +1,5 @@
 {
-  "translated": 38,
+  "translated": 49,
   "total": 183,
   "pages": [
     {
@@ -7,6 +7,83 @@
       "target": "ru/getting-started/everything-vps.mdx",
       "source_sha": "54a2a77a8f08c25e6707426b7f46a8b8e02ae9b0",
       "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/common-vps-tasks.mdx",
+      "target": "ru/getting-started/common-vps-tasks.mdx",
+      "source_sha": "c17896075892f637d60322a9e161b5867a763102",
+      "headings": 16,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/check-your-inbox.mdx",
+      "target": "ru/getting-started/check-your-inbox.mdx",
+      "source_sha": "7f4198de783b092c619c86cc92597f7f15fe43de",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/understanding-email-notifications.mdx",
+      "target": "ru/getting-started/understanding-email-notifications.mdx",
+      "source_sha": "f8766b60c1fd23b456717b0a437c0176b68c0a51",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/no-email-received.mdx",
+      "target": "ru/getting-started/no-email-received.mdx",
+      "source_sha": "ff3dbbb5c7c869fe668f925bba10f9a37cdba74f",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/statuspage-subscribe.mdx",
+      "target": "ru/getting-started/statuspage-subscribe.mdx",
+      "source_sha": "9b09ac303282a44bc4c3cb33a59274a3e5b57b68",
+      "headings": 13,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/how-our-support-team-helps-you.mdx",
+      "target": "ru/getting-started/how-our-support-team-helps-you.mdx",
+      "source_sha": "9c92888b87cb0350d99badbbaa23b5fb988495a4",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/linux-secure-shell-ssh.mdx",
+      "target": "ru/getting-started/linux-secure-shell-ssh.mdx",
+      "source_sha": "6076b8c31f662daa155b36794ce0e3653eb4ac3e",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/ssh-security-hardening-guide.mdx",
+      "target": "ru/getting-started/ssh-security-hardening-guide.mdx",
+      "source_sha": "37051c0f65adcc84f91684367ece85879913dff9",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/windows-remote-desktop.mdx",
+      "target": "ru/getting-started/windows-remote-desktop.mdx",
+      "source_sha": "d9b21856880c0d41a72fb29586cf22b3af467bc2",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/backups.mdx",
+      "target": "ru/getting-started/backups.mdx",
+      "source_sha": "b2f7fd21bcf06e577e6835c23f2fbc37440f1fc6",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/acceptable-use-policy.mdx",
+      "target": "ru/getting-started/acceptable-use-policy.mdx",
+      "source_sha": "098c9f5d74d23659129ba9a5c57f141c5ad5b7b9",
+      "headings": 19,
       "mdx_checked": true
     },
     {
@@ -270,17 +347,6 @@
     }
   ],
   "pending": [
-    "getting-started/common-vps-tasks.mdx",
-    "getting-started/check-your-inbox.mdx",
-    "getting-started/understanding-email-notifications.mdx",
-    "getting-started/no-email-received.mdx",
-    "getting-started/statuspage-subscribe.mdx",
-    "getting-started/how-our-support-team-helps-you.mdx",
-    "getting-started/linux-secure-shell-ssh.mdx",
-    "getting-started/ssh-security-hardening-guide.mdx",
-    "getting-started/windows-remote-desktop.mdx",
-    "getting-started/backups.mdx",
-    "getting-started/acceptable-use-policy.mdx",
     "vps-management/api-for-management-and-ordering.mdx",
     "vps-management/vps-management-portal.mdx",
     "vps-management/understanding-vps-status.mdx",

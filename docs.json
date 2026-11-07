@@ -523,7 +523,18 @@
               {
                 "group": "Начало работы",
                 "pages": [
-                  "ru/getting-started/everything-vps"
+                  "ru/getting-started/everything-vps",
+                  "ru/getting-started/common-vps-tasks",
+                  "ru/getting-started/check-your-inbox",
+                  "ru/getting-started/understanding-email-notifications",
+                  "ru/getting-started/no-email-received",
+                  "ru/getting-started/statuspage-subscribe",
+                  "ru/getting-started/how-our-support-team-helps-you",
+                  "ru/getting-started/linux-secure-shell-ssh",
+                  "ru/getting-started/ssh-security-hardening-guide",
+                  "ru/getting-started/windows-remote-desktop",
+                  "ru/getting-started/backups",
+                  "ru/getting-started/acceptable-use-policy"
                 ]
               },
               {
