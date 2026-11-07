@@ -34,7 +34,7 @@ Use the existing `preview/russian-card-reservation` branch and draft PR #242. Pr
 - Translated headings use Mintlify's explicit {#original-english-id} syntax. For IDs containing an ampersand, which Mintlify strips from Markdown custom IDs, an explicit ID is set directly on the heading element instead. IDs were extracted from all 183 published English pages and matched against all 1,286 source headings. Existing legacy aliases already present in the English source are preserved.
 - Local checks passed for all 183 pages: MDX syntax, frontmatter, heading counts, protected executable code, Russian routes, redirect-aware internal links, self-links and linked section anchors. Image paths and source links are preserved. Numeric differences were reviewed for translated formatting, spelled-out numbers and repeated context; no policy amounts or deadlines were changed.
 - English sentences remaining in the Russian prose are actual interface labels, error messages, product names or technical identifiers. Existing English screenshots and command output are reused.
-- The complete preview is undergoing final rendered-page and navigation verification. Production is unchanged; this PR is for review before merging.
+- The complete 183-page preview passed HTTP and rendered-heading verification: all 1,286 original English heading IDs are present. Mintlify deployment and link-rot checks passed. Final visual and navigation review is underway. Production is unchanged; this PR is for review before merging.
 
 ## Existing source issues for a separate editorial review
 These are present in the original English documentation and are faithfully retained in this translation, rather than silently changing the English source or policy:

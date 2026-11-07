@@ -831,7 +831,21 @@
               }
             ]
           }
-        ]
+        ],
+        "global": {
+          "anchors": [
+            {
+              "anchor": "Тарифы VPS и локации",
+              "icon": "server",
+              "href": "https://www.edisglobal.com/vps-hosting"
+            },
+            {
+              "anchor": "Особенности нашей инфраструктуры VPS",
+              "icon": "user",
+              "href": "https://www.edisglobal.com/why-edis-global"
+            }
+          ]
+        }
       }
     ]
   },
