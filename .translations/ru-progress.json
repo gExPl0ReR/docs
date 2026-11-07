@@ -1,5 +1,5 @@
 {
-  "translated": 72,
+  "translated": 86,
   "total": 183,
   "pages": [
     {
@@ -252,6 +252,104 @@
       "target": "ru/vps-management/your-support-pin.mdx",
       "source_sha": "e05426ef95d75aac726a769937b8bef6c66c75a1",
       "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/data-processing-agreement.mdx",
+      "target": "ru/faq/data-processing-agreement.mdx",
+      "source_sha": "57801a0a8dff76e3289aac090b6806e223de1592",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/what-is-a-virtual-private-server.mdx",
+      "target": "ru/faq/what-is-a-virtual-private-server.mdx",
+      "source_sha": "a4c1b5aea0b5e1f5360c4a26e5c8f8c29f2bf653",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/what-is-a-kvm-vps.mdx",
+      "target": "ru/faq/what-is-a-kvm-vps.mdx",
+      "source_sha": "bf5509f93ed46f708d406f520581d10909043926",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/free-trials-available.mdx",
+      "target": "ru/faq/free-trials-available.mdx",
+      "source_sha": "91b7f21efc9ebc243dd005431a3e2c3a01cb8789",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/port-25-smtp-rate-limit-policy.mdx",
+      "target": "ru/faq/port-25-smtp-rate-limit-policy.mdx",
+      "source_sha": "15129d3bf8455352617f3890a3befb2b90844909",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/windows-rdp-service-available.mdx",
+      "target": "ru/faq/windows-rdp-service-available.mdx",
+      "source_sha": "be8424bce17030fc913b52c84fe1e7ca4b6564c7",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/desktop-acceleration.mdx",
+      "target": "ru/faq/desktop-acceleration.mdx",
+      "source_sha": "640df86ec0d5ab7a506dba029cb9521d5d6add31",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/hourly-plans-available.mdx",
+      "target": "ru/faq/hourly-plans-available.mdx",
+      "source_sha": "1b503e52060c4589a820051759baa9cd82d9b19d",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/ping-test-ip.mdx",
+      "target": "ru/faq/ip-addresses/ping-test-ip.mdx",
+      "source_sha": "1aace376082cb5d64681ded5d2b54980c4f15c87",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/free-latency-test-guide.mdx",
+      "target": "ru/faq/ip-addresses/free-latency-test-guide.mdx",
+      "source_sha": "87b4661e0e071682e85c45f68e2f69803b720322",
+      "headings": 20,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/change-ip-address.mdx",
+      "target": "ru/faq/ip-addresses/change-ip-address.mdx",
+      "source_sha": "f37574a5629981506b3954c5b992755a499835b5",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/order-additional-ip-address.mdx",
+      "target": "ru/faq/ip-addresses/order-additional-ip-address.mdx",
+      "source_sha": "4cc9f4f3632e0b2de1307412ac10bc3e55b225a6",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/order-bespoke-ip-address.mdx",
+      "target": "ru/faq/ip-addresses/order-bespoke-ip-address.mdx",
+      "source_sha": "0b0825dfecc22563095b43182f295fac5e80d9bd",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/configuring-additional-ip-address-linux.mdx",
+      "target": "ru/faq/ip-addresses/configuring-additional-ip-address-linux.mdx",
+      "source_sha": "031d2aa7c5189fd3a4ed383dca006deca6c89f34",
+      "headings": 9,
       "mdx_checked": true
     },
     {
@@ -508,20 +606,6 @@
     }
   ],
   "pending": [
-    "faq/data-processing-agreement.mdx",
-    "faq/what-is-a-virtual-private-server.mdx",
-    "faq/what-is-a-kvm-vps.mdx",
-    "faq/free-trials-available.mdx",
-    "faq/port-25-smtp-rate-limit-policy.mdx",
-    "faq/windows-rdp-service-available.mdx",
-    "faq/desktop-acceleration.mdx",
-    "faq/hourly-plans-available.mdx",
-    "faq/ip-addresses/ping-test-ip.mdx",
-    "faq/ip-addresses/free-latency-test-guide.mdx",
-    "faq/ip-addresses/change-ip-address.mdx",
-    "faq/ip-addresses/order-additional-ip-address.mdx",
-    "faq/ip-addresses/order-bespoke-ip-address.mdx",
-    "faq/ip-addresses/configuring-additional-ip-address-linux.mdx",
     "faq/ip-addresses/setting-up-reverse-pointers.mdx",
     "faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall.mdx",
     "faq/ip-addresses/ip-can-not-be-reached-from-my-country.mdx",

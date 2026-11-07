@@ -569,6 +569,26 @@
               {
                 "group": "Вопросы и ответы",
                 "pages": [
+                  "ru/faq/data-processing-agreement",
+                  "ru/faq/what-is-a-virtual-private-server",
+                  "ru/faq/what-is-a-kvm-vps",
+                  "ru/faq/free-trials-available",
+                  "ru/faq/port-25-smtp-rate-limit-policy",
+                  "ru/faq/windows-rdp-service-available",
+                  "ru/faq/desktop-acceleration",
+                  "ru/faq/hourly-plans-available",
+                  {
+                    "group": "IP-адреса",
+                    "icon": "chart-network",
+                    "pages": [
+                      "ru/faq/ip-addresses/ping-test-ip",
+                      "ru/faq/ip-addresses/free-latency-test-guide",
+                      "ru/faq/ip-addresses/change-ip-address",
+                      "ru/faq/ip-addresses/order-additional-ip-address",
+                      "ru/faq/ip-addresses/order-bespoke-ip-address",
+                      "ru/faq/ip-addresses/configuring-additional-ip-address-linux"
+                    ]
+                  },
                   {
                     "group": "Оплата и управление услугами",
                     "icon": "money-bill-1-wave",
