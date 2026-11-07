@@ -3,7 +3,7 @@
 ## Scope
 Translate the 183 source pages listed in `ru-sources.json` into Russian. Include all three changelogs, including the prose in API changelogs. Leave the 62 API-reference pages and both OpenAPI specifications in English.
 
-Use the existing `preview/russian-card-reservation` branch and draft PR #242. Preserve the completed Russian card-reservation translation, removing its single-article-only notice once the full Russian documentation is ready. Do not create other languages.
+Use the existing `preview/russian-card-reservation` branch and draft PR #242. Preserve the completed Russian card-reservation translation; its temporary translation-in-progress notice has been removed. Do not create other languages.
 
 ## Content requirements
 - Preserve the original English files and their URLs.
@@ -26,13 +26,18 @@ Use the existing `preview/russian-card-reservation` branch and draft PR #242. Pr
 - Publish only after the full Russian set is complete and checks pass.
 
 ## Current state
-- Russian translation is being written directly through ChatGPT and GitHub; Mintlify AI has not been used.
-- 160 of 183 pages are translated: Getting Started, VPS Management, all FAQ sections, partner and reseller guides, abuse guidance, recruitment pages, 27 advanced setup guides, and all three changelogs.
-- 23 source pages remain: 12 advanced setup guides and 11 miscellaneous guides. See ru-progress.json for the exact completed and pending lists.
-- English documentation, API references, specifications, and original URLs are preserved.
-- Russian navigation lists only existing translations. The API links and the complete English documentation remain accessible.
-- Internal links use Russian when the target is translated; otherwise they retain the working English target until that translation is available.
+- All 183 source pages are translated directly through ChatGPT and GitHub; Mintlify AI has not been used. This includes all documentation and all three changelogs.
+- No pages remain untranslated within the agreed scope. See ru-progress.json for the complete source-to-Russian mapping and validation results.
+- The 62 English API-reference pages, both OpenAPI specifications, English documentation and original URLs are preserved. English remains the default language.
+- Russian navigation mirrors the complete documentation and changelog sections. Clearly labelled English links expose all three API references.
+- Internal documentation links point to their Russian equivalents, including source redirect aliases. API and external links retain their English targets.
 - Translated headings use Mintlify's explicit {#original-english-id} syntax. For IDs containing an ampersand, which Mintlify strips from Markdown custom IDs, an explicit ID is set directly on the heading element instead. IDs were extracted from all 183 published English pages and matched against all 1,286 source headings. Existing legacy aliases already present in the English source are preserved.
-- Local checks passed for all 160 pages: MDX syntax, frontmatter, heading counts, protected executable code, Russian routes, redirect-aware internal links, self-links and linked section anchors. The preceding 133-page preview passed HTTP and exact rendered heading-ID checks for all 966 expected headings.
-- Full-site translation is not complete. This draft is not ready to merge into production.
+- Local checks passed for all 183 pages: MDX syntax, frontmatter, heading counts, protected executable code, Russian routes, redirect-aware internal links, self-links and linked section anchors. Image paths and source links are preserved. Numeric differences were reviewed for translated formatting, spelled-out numbers and repeated context; no policy amounts or deadlines were changed.
+- English sentences remaining in the Russian prose are actual interface labels, error messages, product names or technical identifiers. Existing English screenshots and command output are reused.
+- The complete preview is undergoing final rendered-page and navigation verification. Production is unchanged; this PR is for review before merging.
 
+## Existing source issues for a separate editorial review
+These are present in the original English documentation and are faithfully retained in this translation, rather than silently changing the English source or policy:
+- misc/extending-180-day-trial-version-of-windows.mdx gives conflicting general rearm counts in its introductory and licensing sections (five versus two). The relevant Microsoft licence should determine the final wording.
+- faq/upgrades-downgrades/backup-restore-data-linux.mdx explains a 64K block size while the command uses bs=4M.
+- advanced-setup-guides/install-openclaw-edislobal-vps.mdx recommends KVM Basic Plus in the plan section and KVM Basic in its summary.

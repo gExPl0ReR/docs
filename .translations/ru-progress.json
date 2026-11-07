@@ -1,5 +1,5 @@
 {
-  "translated": 160,
+  "translated": 183,
   "total": 183,
   "pages": [
     {
@@ -1102,6 +1102,167 @@
       "mdx_checked": true
     },
     {
+      "source": "advanced-setup-guides/how-to-install-google-chrome-on-windows-server.mdx",
+      "target": "ru/advanced-setup-guides/how-to-install-google-chrome-on-windows-server.mdx",
+      "source_sha": "aa2b5b1f387382485c87579845956936b0c4c095",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/forgot-administrator-password-on-windows-server.mdx",
+      "target": "ru/advanced-setup-guides/forgot-administrator-password-on-windows-server.mdx",
+      "source_sha": "5b51643eff32cd774e8748e76c8ae66a4b4f5d46",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode.mdx",
+      "target": "ru/advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode.mdx",
+      "source_sha": "5e28c42eb2e1124efb09a537182b344e9a0a8edd",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps.mdx",
+      "target": "ru/advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps.mdx",
+      "source_sha": "36ff9727fac389359b38a77b16282dea440ef590",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/gui-versions-of-ubuntu-debian.mdx",
+      "target": "ru/advanced-setup-guides/gui-versions-of-ubuntu-debian.mdx",
+      "source_sha": "11281d7ad49489fb8449c50384d075d319302e58",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-jitsi-on-your-vps.mdx",
+      "target": "ru/advanced-setup-guides/install-jitsi-on-your-vps.mdx",
+      "source_sha": "538e604b1dd2976095e95af77631ca6ae9459c32",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/how-to-setup-wireguard-vpn.mdx",
+      "target": "ru/advanced-setup-guides/how-to-setup-wireguard-vpn.mdx",
+      "source_sha": "215db663bdda9267931121e57023020601a0dfb9",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-cockpit-on-vps.mdx",
+      "target": "ru/advanced-setup-guides/install-cockpit-on-vps.mdx",
+      "source_sha": "70e29b85d5c246c95e99a8b068ec4f3b2fe88f02",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/installing-openvpn-with-turnkey.mdx",
+      "target": "ru/advanced-setup-guides/installing-openvpn-with-turnkey.mdx",
+      "source_sha": "d864844eec74f3b070907e13367489d8d74a8ddd",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/ufw-uncomplicated-firewall-howto.mdx",
+      "target": "ru/advanced-setup-guides/ufw-uncomplicated-firewall-howto.mdx",
+      "source_sha": "2336508accf69eada26f50ecc01023b6d55c7cc0",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/nftables-firewall-howto.mdx",
+      "target": "ru/advanced-setup-guides/nftables-firewall-howto.mdx",
+      "source_sha": "c7ab4748f8bce30c3319f74c97ce13621b436ec8",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-openclaw-edislobal-vps.mdx",
+      "target": "ru/advanced-setup-guides/install-openclaw-edislobal-vps.mdx",
+      "source_sha": "145fb1b8e789ebebc0fae47bc1562144777063d2",
+      "headings": 12,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/extending-180-day-trial-version-of-windows.mdx",
+      "target": "ru/misc/extending-180-day-trial-version-of-windows.mdx",
+      "source_sha": "2aa9e146cd489afe2485edd3458534f5465da966",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/fix-openssh-vm-delays-low-entropy.mdx",
+      "target": "ru/misc/fix-openssh-vm-delays-low-entropy.mdx",
+      "source_sha": "6974adc5113c7ba87ba29e1225258ce085ab4a9b",
+      "headings": 11,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/security-compliance.mdx",
+      "target": "ru/misc/security-compliance.mdx",
+      "source_sha": "c588e32f45cc72d708a471b36ac482aecf9932c6",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/fix-black-screen-windows-server.mdx",
+      "target": "ru/misc/fix-black-screen-windows-server.mdx",
+      "source_sha": "af6d55a8d52feda439fb92888fd12cee52b42285",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/why-has-windows-server-slowed-down.mdx",
+      "target": "ru/misc/why-has-windows-server-slowed-down.mdx",
+      "source_sha": "fa43504bb435dfd05ba6df357aba605c171ec4ec",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/fix-for-realvnc-closing-connection.mdx",
+      "target": "ru/misc/fix-for-realvnc-closing-connection.mdx",
+      "source_sha": "a0e19d0deade9074e3745b4606089211844a8b55",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/manual-windows-server-installation-on-kvm.mdx",
+      "target": "ru/misc/manual-windows-server-installation-on-kvm.mdx",
+      "source_sha": "bfcdba76ef9bd3c7b6372606ab3c8a35adfff79b",
+      "headings": 2,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error.mdx",
+      "target": "ru/misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error.mdx",
+      "source_sha": "97633bff78435ece835523b6686ae66e93dd3944",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/what-is-seabios.mdx",
+      "target": "ru/misc/what-is-seabios.mdx",
+      "source_sha": "155aa22356e81bd8800cc69eed8f2582caf7ea7b",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/disable-serial-getty-ttys0-debian-13.mdx",
+      "target": "ru/misc/disable-serial-getty-ttys0-debian-13.mdx",
+      "source_sha": "ebefab8670bb5417273823c716b500897b8ffdbd",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/portal-buttons-not-loading.mdx",
+      "target": "ru/misc/portal-buttons-not-loading.mdx",
+      "source_sha": "86fd6975a2dc3b3da5e7611108a7e4c15205464c",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
       "source": "changelog/product.mdx",
       "target": "ru/changelog/product.mdx",
       "source_sha": "a661848d6d6692c05c39ded64f4bfe5ceb11eb3e",
@@ -1123,30 +1284,6 @@
       "mdx_checked": true
     }
   ],
-  "pending": [
-    "advanced-setup-guides/how-to-install-google-chrome-on-windows-server.mdx",
-    "advanced-setup-guides/forgot-administrator-password-on-windows-server.mdx",
-    "advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode.mdx",
-    "advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps.mdx",
-    "advanced-setup-guides/gui-versions-of-ubuntu-debian.mdx",
-    "advanced-setup-guides/install-jitsi-on-your-vps.mdx",
-    "advanced-setup-guides/how-to-setup-wireguard-vpn.mdx",
-    "advanced-setup-guides/install-cockpit-on-vps.mdx",
-    "advanced-setup-guides/installing-openvpn-with-turnkey.mdx",
-    "advanced-setup-guides/ufw-uncomplicated-firewall-howto.mdx",
-    "advanced-setup-guides/nftables-firewall-howto.mdx",
-    "advanced-setup-guides/install-openclaw-edislobal-vps.mdx",
-    "misc/extending-180-day-trial-version-of-windows.mdx",
-    "misc/fix-openssh-vm-delays-low-entropy.mdx",
-    "misc/security-compliance.mdx",
-    "misc/fix-black-screen-windows-server.mdx",
-    "misc/why-has-windows-server-slowed-down.mdx",
-    "misc/fix-for-realvnc-closing-connection.mdx",
-    "misc/manual-windows-server-installation-on-kvm.mdx",
-    "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error.mdx",
-    "misc/what-is-seabios.mdx",
-    "misc/disable-serial-getty-ttys0-debian-13.mdx",
-    "misc/portal-buttons-not-loading.mdx"
-  ],
+  "pending": [],
   "errors": []
 }

@@ -1,0 +1,113 @@
+---
+title: "Межсетевой экран nftables"
+description: "Настройка nftables на VPS с Debian или Ubuntu: файл /etc/nftables.conf, проверка и применение правил, ограничение доступа и восстановление соединения."
+---
+
+nftables — система фильтрации пакетов в современных ядрах Linux. В Debian она используется как стандартная основа межсетевого экрана. Это руководство описывает базовую настройку сервера Debian/Ubuntu, управляемого по SSH.
+
+<Warning>
+  Неправильный набор правил может прервать SSH-соединение. Разрешите в правилах фактический порт SSH и держите [консоль VNC](/ru/vps-management/enable-vnc-server) доступной, пока не проверите новое подключение.
+</Warning>
+
+## Перед началом {#before-you-start}
+
+- Используйте только один менеджер межсетевого экрана. Не управляйте правилами напрямую через nftables, пока работает UFW или firewalld. Если предпочитаете более простой инструмент, см. [UFW (Uncomplicated Firewall)](/ru/advanced-setup-guides/ufw-uncomplicated-firewall-howto).
+- Docker, WireGuard, панели VPN и другое ПО могут добавлять собственные правила. Пример ниже начинается с `flush ruleset`: эта команда удалит такие правила, пока соответствующее ПО не добавит их снова.
+
+## Установка и проверка nftables {#install-and-inspect-nftables}
+
+```bash
+sudo apt update
+sudo apt install nftables
+sudo nft list ruleset
+```
+
+Изучите существующие правила, прежде чем заменять их.
+
+## Создание базового набора правил {#write-a-basic-ruleset}
+
+Сохраните резервную копию текущего файла конфигурации:
+
+```bash
+sudo cp /etc/nftables.conf /etc/nftables.conf.bak
+```
+
+Откройте `/etc/nftables.conf` для редактирования:
+
+```bash
+sudo nano /etc/nftables.conf
+```
+
+Следующий пример блокирует входящий трафик, кроме SSH, HTTP, HTTPS, ICMP и ответов на соединения, инициированные VPS. Таблица `inet` охватывает IPv4 и IPv6:
+
+```text
+#!/usr/sbin/nft -f
+
+flush ruleset
+
+table inet filter {
+  chain input {
+    type filter hook input priority filter; policy drop;
+
+    ct state established,related accept
+    ct state invalid drop
+    iif "lo" accept
+    meta l4proto { icmp, ipv6-icmp } accept
+
+    tcp dport 22 accept
+    tcp dport { 80, 443 } accept
+  }
+
+  chain forward {
+    type filter hook forward priority filter; policy drop;
+  }
+
+  chain output {
+    type filter hook output priority filter; policy accept;
+  }
+}
+```
+
+Замените `22` на фактический порт SSH. Добавьте или удалите порты служб по необходимости. Сохраните правило ICMP, поскольку для работы IPv6 необходим ICMPv6.
+
+<Note>
+  Цепочка `forward` блокирует маршрутизируемый трафик. Если VPS маршрутизирует трафик VPN или контейнеров, добавьте для него правила пересылки либо используйте правила из руководства по вашей VPN.
+</Note>
+
+## Проверка и применение правил {#check-and-apply-the-ruleset}
+
+Проверьте синтаксис без применения правил:
+
+```bash
+sudo nft -c -f /etc/nftables.conf
+```
+
+Примените правила и включите их загрузку при запуске системы:
+
+```bash
+sudo nft -f /etc/nftables.conf
+sudo systemctl enable --now nftables
+sudo nft list ruleset
+```
+
+Откройте **второе SSH-соединение** со своего компьютера и убедитесь, что оно работает, прежде чем закрывать исходный сеанс. Также проверьте разрешённые порты приложений.
+
+## Ограничение доступа к службе доверенным адресом {#restrict-a-service-to-a-trusted-address}
+
+Например, замените правило SSH правилом, разрешающим SSH только с известного адреса администратора:
+
+```text
+ip saddr 203.0.113.10 tcp dport 22 accept
+```
+
+Замените приведённые для примера адрес и порт своими. Для IPv6-адреса используйте `ip6 saddr`. Удаляйте более широкое правило `tcp dport 22 accept` только после проверки доступа с доверенного адреса.
+
+## Восстановление доступа при блокировке соединения {#recover-from-a-blocked-connection}
+
+1. Войдите через [консоль VNC](/ru/vps-management/enable-vnc-server).
+2. Исправьте `/etc/nftables.conf` или восстановите резервную копию командой `sudo cp /etc/nftables.conf.bak /etc/nftables.conf`.
+3. Загрузите правила заново: `sudo nft -f /etc/nftables.conf`.
+
+Если VPS не загружается или войти через VNC не получается, воспользуйтесь [руководством по аварийному диску Linux](/ru/vps-management/linux-rescue-guide-and-troubleshoot), чтобы смонтировать установленную систему и исправить настройки её межсетевого экрана.
+
+Полный синтаксис описан в [вики nftables](https://wiki.nftables.org/).

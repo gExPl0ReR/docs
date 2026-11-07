@@ -180,7 +180,7 @@ runuser -u monero -- test -r /etc/monero/monerod.conf
 Если вы уже управляете фильтрацией через nftables, iptables или другую систему, добавьте правило P2P в неё. **Не устанавливайте второй менеджер межсетевого экрана и не заменяйте существующий набор правил.** Также проверьте внешние межсетевые экраны.
 
 <Warning>
-  **До** включения UFW замените `22` ниже фактическим портом SSH. Сохраните текущий сеанс и проверьте второе SSH-подключение, прежде чем закрывать первый. Если на VPS есть другие службы, сначала добавьте необходимые им правила. См. [руководство по UFW](/advanced-setup-guides/ufw-uncomplicated-firewall-howto).
+  **До** включения UFW замените `22` ниже фактическим портом SSH. Сохраните текущий сеанс и проверьте второе SSH-подключение, прежде чем закрывать первый. Если на VPS есть другие службы, сначала добавьте необходимые им правила. См. [руководство по UFW](/ru/advanced-setup-guides/ufw-uncomplicated-firewall-howto).
 </Warning>
 
 Для нового VPS без существующей политики фильтрации этот пример UFW разрешает SSH и P2P:
@@ -367,7 +367,7 @@ curl --fail --silent --show-error http://127.0.0.1:18089/get_info
 
 - [Оплата счетов EDIS Global криптовалютой](/ru/faq/billing-lifecycle/cryptocurrency-payments)
 - [Статистика трафика VPS и пополнение](/ru/faq/traffic-bandwidth/traffic-stats-refill-explained)
-- [Настройка межсетевого экрана UFW](/advanced-setup-guides/ufw-uncomplicated-firewall-howto)
+- [Настройка межсетевого экрана UFW](/ru/advanced-setup-guides/ufw-uncomplicated-firewall-howto)
 - [Официальные загрузки Monero](https://www.getmonero.org/downloads/)
 - [Официальная инструкция проверки загрузок](https://www.getmonero.org/resources/user-guides/verification-allos-advanced.html)
 - [Объяснение pruning Monero](https://www.getmonero.org/resources/moneropedia/pruning.html)

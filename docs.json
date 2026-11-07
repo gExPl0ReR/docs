@@ -663,7 +663,7 @@
                       "ru/faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-network-usage",
                       "ru/faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global",
                       {
-                        "group": "DOS Attacks",
+                        "group": "DoS-атаки",
                         "pages": [
                           "ru/faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview",
                           "ru/faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients"
@@ -769,7 +769,35 @@
                       "ru/advanced-setup-guides/install-3x-ui-on-vps/v2rayng-vpn-client-on-android",
                       "ru/advanced-setup-guides/install-3x-ui-on-vps/v2raytun-vpn-client-on-ios"
                     ]
-                  }
+                  },
+                  "ru/advanced-setup-guides/how-to-install-google-chrome-on-windows-server",
+                  "ru/advanced-setup-guides/forgot-administrator-password-on-windows-server",
+                  "ru/advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode",
+                  "ru/advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps",
+                  "ru/advanced-setup-guides/gui-versions-of-ubuntu-debian",
+                  "ru/advanced-setup-guides/install-jitsi-on-your-vps",
+                  "ru/advanced-setup-guides/how-to-setup-wireguard-vpn",
+                  "ru/advanced-setup-guides/install-cockpit-on-vps",
+                  "ru/advanced-setup-guides/installing-openvpn-with-turnkey",
+                  "ru/advanced-setup-guides/ufw-uncomplicated-firewall-howto",
+                  "ru/advanced-setup-guides/nftables-firewall-howto",
+                  "ru/advanced-setup-guides/install-openclaw-edislobal-vps"
+                ]
+              },
+              {
+                "group": "Дополнительные материалы",
+                "pages": [
+                  "ru/misc/extending-180-day-trial-version-of-windows",
+                  "ru/misc/fix-openssh-vm-delays-low-entropy",
+                  "ru/misc/security-compliance",
+                  "ru/misc/fix-black-screen-windows-server",
+                  "ru/misc/why-has-windows-server-slowed-down",
+                  "ru/misc/fix-for-realvnc-closing-connection",
+                  "ru/misc/manual-windows-server-installation-on-kvm",
+                  "ru/misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error",
+                  "ru/misc/what-is-seabios",
+                  "ru/misc/disable-serial-getty-ttys0-debian-13",
+                  "ru/misc/portal-buttons-not-loading"
                 ]
               }
             ]
