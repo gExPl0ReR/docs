@@ -675,9 +675,49 @@
                     "group": "Изменение тарифа и ресурсов",
                     "icon": "gear",
                     "pages": [
-                      "ru/faq/upgrades-downgrades/upgrades"
+                      "ru/faq/upgrades-downgrades/upgrades",
+                      "ru/faq/upgrades-downgrades/upgrade-plan",
+                      "ru/faq/upgrades-downgrades/upgrade-resources",
+                      "ru/faq/upgrades-downgrades/upgrade-disk-drive-boost",
+                      "ru/faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade",
+                      "ru/faq/upgrades-downgrades/is-it-possible-to-downgrade",
+                      "ru/faq/upgrades-downgrades/backup-restore-data-linux",
+                      "ru/faq/upgrades-downgrades/requesting-qcow2-image-backup",
+                      "ru/faq/upgrades-downgrades/private-vlan-option",
+                      "ru/faq/upgrades-downgrades/get-additional-network-card",
+                      {
+                        "group": "Процессорные ресурсы VPS",
+                        "pages": [
+                          "ru/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps",
+                          "ru/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-linux-vps",
+                          "ru/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps"
+                        ]
+                      }
                     ]
                   }
+                ]
+              },
+              {
+                "group": "Провайдеры и реселлеры",
+                "pages": [
+                  "ru/partner-starter-pack",
+                  "ru/commercial-vpn-hosting",
+                  "ru/reselling-and-discounts"
+                ]
+              },
+              {
+                "group": "Нарушения и жалобы",
+                "pages": [
+                  "ru/reporting-abuse",
+                  "ru/responding-to-abuse-complaints"
+                ]
+              },
+              {
+                "group": "Работа в нашей команде",
+                "pages": [
+                  "ru/join-our-team/jobs-edisglobal-support-agent-non-voice",
+                  "ru/join-our-team/technical-procurement-and-server-operations-coordinator",
+                  "ru/join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert"
                 ]
               }
             ]

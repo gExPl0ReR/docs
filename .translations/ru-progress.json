@@ -1,5 +1,5 @@
 {
-  "translated": 113,
+  "translated": 133,
   "total": 183,
   "pages": [
     {
@@ -773,6 +773,146 @@
       "mdx_checked": true
     },
     {
+      "source": "faq/upgrades-downgrades/upgrade-plan.mdx",
+      "target": "ru/faq/upgrades-downgrades/upgrade-plan.mdx",
+      "source_sha": "18c4842a63d99cc78acc0d7a7d6abfe2b2ff5af5",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/upgrade-resources.mdx",
+      "target": "ru/faq/upgrades-downgrades/upgrade-resources.mdx",
+      "source_sha": "2a6bb7549940e0808bf61d5eef426b0dec75d3c0",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/upgrade-disk-drive-boost.mdx",
+      "target": "ru/faq/upgrades-downgrades/upgrade-disk-drive-boost.mdx",
+      "source_sha": "f910b1882bda4534c3084509b2113887843b7eff",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade.mdx",
+      "target": "ru/faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade.mdx",
+      "source_sha": "ff2910ba7754a44388e9bb0d477e0f7041a6beb4",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/is-it-possible-to-downgrade.mdx",
+      "target": "ru/faq/upgrades-downgrades/is-it-possible-to-downgrade.mdx",
+      "source_sha": "67bfe6f4e76aafe269ca7e394f1a2a1e5ba8cde3",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/backup-restore-data-linux.mdx",
+      "target": "ru/faq/upgrades-downgrades/backup-restore-data-linux.mdx",
+      "source_sha": "d35870da73c387adbdded4457e9d66f0cde5d7d2",
+      "headings": 16,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/requesting-qcow2-image-backup.mdx",
+      "target": "ru/faq/upgrades-downgrades/requesting-qcow2-image-backup.mdx",
+      "source_sha": "bbe1bb1ab9898e9dd7521a7269d7fb4f49e29853",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/private-vlan-option.mdx",
+      "target": "ru/faq/upgrades-downgrades/private-vlan-option.mdx",
+      "source_sha": "762fec11b22ae2e69a4724615bd712c95cc9b959",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/get-additional-network-card.mdx",
+      "target": "ru/faq/upgrades-downgrades/get-additional-network-card.mdx",
+      "source_sha": "0c8e1cf761ef74459a5fa19104021cfcae37a67c",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps.mdx",
+      "target": "ru/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps.mdx",
+      "source_sha": "d2991606208d69fd31e7f3619189ba36e4ba89f2",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-linux-vps.mdx",
+      "target": "ru/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-linux-vps.mdx",
+      "source_sha": "3e0d2bf9ce23e07e3e29e235607b0aa6b0e7c42f",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps.mdx",
+      "target": "ru/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps.mdx",
+      "source_sha": "7e1b42d56a312a6ccbff1479d627173d2842fe80",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "partner-starter-pack.mdx",
+      "target": "ru/partner-starter-pack.mdx",
+      "source_sha": "7e419cf93e385c3ed080b97a3c2f3504a5a17344",
+      "headings": 30,
+      "mdx_checked": true
+    },
+    {
+      "source": "commercial-vpn-hosting.mdx",
+      "target": "ru/commercial-vpn-hosting.mdx",
+      "source_sha": "01d23a2b38df3aac9c6a666dce982e1848fcafc3",
+      "headings": 19,
+      "mdx_checked": true
+    },
+    {
+      "source": "reselling-and-discounts.mdx",
+      "target": "ru/reselling-and-discounts.mdx",
+      "source_sha": "4d9f6591910415be7ae970e05a4bc7be55697b69",
+      "headings": 11,
+      "mdx_checked": true
+    },
+    {
+      "source": "reporting-abuse.mdx",
+      "target": "ru/reporting-abuse.mdx",
+      "source_sha": "cb91db2a824018c43af0fc733fcfbeb98b8a63c5",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "responding-to-abuse-complaints.mdx",
+      "target": "ru/responding-to-abuse-complaints.mdx",
+      "source_sha": "b8edf6dca49e85eda12678b6aa344faf4d9f272a",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "join-our-team/jobs-edisglobal-support-agent-non-voice.mdx",
+      "target": "ru/join-our-team/jobs-edisglobal-support-agent-non-voice.mdx",
+      "source_sha": "04419fb7c77628a6c0ae6e4df95abe34e7e5d0fd",
+      "headings": 0,
+      "mdx_checked": true
+    },
+    {
+      "source": "join-our-team/technical-procurement-and-server-operations-coordinator.mdx",
+      "target": "ru/join-our-team/technical-procurement-and-server-operations-coordinator.mdx",
+      "source_sha": "c26f4385ada364c653d3eb86c440521bc3ef6f37",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert.mdx",
+      "target": "ru/join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert.mdx",
+      "source_sha": "16b6db568be7aed1507aae6fd976249518c72184",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
       "source": "changelog/product.mdx",
       "target": "ru/changelog/product.mdx",
       "source_sha": "a661848d6d6692c05c39ded64f4bfe5ceb11eb3e",
@@ -795,26 +935,6 @@
     }
   ],
   "pending": [
-    "faq/upgrades-downgrades/upgrade-plan.mdx",
-    "faq/upgrades-downgrades/upgrade-resources.mdx",
-    "faq/upgrades-downgrades/upgrade-disk-drive-boost.mdx",
-    "faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade.mdx",
-    "faq/upgrades-downgrades/is-it-possible-to-downgrade.mdx",
-    "faq/upgrades-downgrades/backup-restore-data-linux.mdx",
-    "faq/upgrades-downgrades/requesting-qcow2-image-backup.mdx",
-    "faq/upgrades-downgrades/private-vlan-option.mdx",
-    "faq/upgrades-downgrades/get-additional-network-card.mdx",
-    "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps.mdx",
-    "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-linux-vps.mdx",
-    "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps.mdx",
-    "partner-starter-pack.mdx",
-    "commercial-vpn-hosting.mdx",
-    "reselling-and-discounts.mdx",
-    "reporting-abuse.mdx",
-    "responding-to-abuse-complaints.mdx",
-    "join-our-team/jobs-edisglobal-support-agent-non-voice.mdx",
-    "join-our-team/technical-procurement-and-server-operations-coordinator.mdx",
-    "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert.mdx",
     "advanced-setup-guides/run-monero-node-debian-vps.mdx",
     "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods.mdx",
     "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server.mdx",

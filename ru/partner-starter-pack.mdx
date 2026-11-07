@@ -1,0 +1,373 @@
+---
+title: "Стартовый пакет партнёра EDIS Global"
+description: "Всё необходимое партнёрам для оценки, интеграции и массовой закупки VPS EDIS Global: цены для реселлеров и техническая настройка."
+sidebarTitle: "Стартовый пакет партнёра"
+---
+
+## Стартовый пакет партнёра EDIS Global {#edis-global-partner-starter-pack}
+
+Этот документ содержит **полный технический и коммерческий обзор** EDIS Global для партнёров, реселлеров и интеграторов. Информация ниже описывает текущую работу действующей инфраструктуры EDIS Global.
+
+---
+
+<h2 id="company-&amp;-infrastructure-overview">Компания и инфраструктура</h2>
+
+**Тип компании:** поставщик инфраструктуры  
+**Модель инфраструктуры:** на 100% принадлежит EDIS Global и управляется компанией  
+**Перепродажа:** EDIS Global не перепродаёт стороннюю инфраструктуру
+
+EDIS Global эксплуатирует собственную инфраструктуру VPS в разных локациях по всему миру. Все услуги создаются и управляются напрямую EDIS Global.
+
+---
+
+<h2 id="locations-&amp;-availability">Локации и доступность</h2>
+
+Инфраструктура VPS EDIS Global доступна в **50\+ локациях по всему миру**.
+
+Для каждой локации доступен **машиночитаемый JSON-источник данных**, содержащий:
+
+- Страну и город.
+- Доступные тарифы.
+- Цены.
+- Тип CPU.
+- Технологию дисков.
+- Сетевые подключения.
+- Включённый трафик.
+- URL на нашем сайте.
+- Категорию: entry-level, standard-vps, high-performance plans, high traffic plans.
+- Адрес дата-центра.
+
+### Источники данных локаций {#location-data-feeds}
+
+Все источники используют одну схему:
+
+```text
+https://www.edisglobal.com/location-data/<location-slug>/data.json
+```
+
+### Примеры локаций {#example-locations}
+
+- [https://www.edisglobal.com/location-data/austria-graz/data.json](https://www.edisglobal.com/location-data/austria-graz/data.json)
+- [https://www.edisglobal.com/location-data/germany-frankfurt/data.json](https://www.edisglobal.com/location-data/germany-frankfurt/data.json)
+- [https://www.edisglobal.com/location-data/finland-helsinki/data.json](https://www.edisglobal.com/location-data/finland-helsinki/data.json)
+- [https://www.edisglobal.com/location-data/cyprus-limassol/data.json](https://www.edisglobal.com/location-data/cyprus-limassol/data.json)
+- [https://www.edisglobal.com/location-data/usa-new-york/data.json](https://www.edisglobal.com/location-data/usa-new-york/data.json)
+
+Полный список приведён в конце документа.
+
+---
+
+## Продукты {#products}
+
+### Только VPS {#vps-only}
+
+- ✅ Виртуальные частные серверы (KVM).
+- ❌ Выделенные физические серверы не предоставляются.
+
+### Операционные системы {#operating-systems}
+
+- Различные дистрибутивы Linux.
+- Windows Server: доступны образы с пробным периодом 180 дней.
+
+Доступные ОС: [https://docs.edisglobal.com/vps-management/os-availability](/ru/vps-management/os-availability)
+
+### Собственный ISO {#custom-iso}
+
+- ✅ Поддерживается.
+
+Документация: [https://docs.edisglobal.com/vps-management/bring-your-own-iso](/ru/vps-management/bring-your-own-iso)
+
+---
+
+<h2 id="network-&amp;-traffic-model">Сеть и модель учёта трафика</h2>
+
+### Включённый трафик на VPS {#included-bandwidth-per-vps}
+
+Каждый тариф VPS включает **определённый месячный объём трафика**, зависящий от:
+
+- Локации.
+- Уровня тарифа.
+
+Вы можете **повысить тариф в любое время**.
+
+В лимит входит **входящий плюс исходящий трафик**. Например, VPN, получивший и переславший 100 GB, использует примерно 200 GB лимита плюс служебные данные. См. [учёт трафика](/ru/faq/traffic-bandwidth/traffic-stats-refill-explained).
+
+Сетевое подключение разделяется между VPS. Скорость внешнего канала хоста не является гарантированной выделенной скоростью отдельного VPS. Выделенный доступ в Интернет и индивидуальные договорённости о гарантированной полосе для VPS недоступны; заранее согласуйте количество и сроки крупных развёртываний.
+
+---
+
+### Traffic Pool: дополнительный трафик {#traffic-pool-model-additional-bandwidth}
+
+Помимо трафика тарифа, EDIS Global предлагает **Traffic Pool**:
+
+- Общий пул трафика для всех услуг аккаунта.
+- Ручное или автоматическое назначение.
+- Подходит для большого расхода и пиковых нагрузок.
+- Единая цена во всех 50 локациях EDIS.
+- Неназначенный Pool Traffic не сгорает; неиспользованный трафик, уже назначенный VPS, сгорает при следующем месячном пополнении этого VPS.
+
+#### Режимы назначения трафика {#traffic-assignment-modes}
+
+**Manual Hydration — ручное назначение**
+
+- Кнопки портала: **+100 GB**, **+500 GB**, **+1 TB** и **+10 TB**.
+- Выбранный объём списывается из общего пула и добавляется к текущему лимиту VPS.
+
+**Auto-Hydration — автоматическое назначение**
+
+- Выбираемый шаг для каждого VPS: **100 GB**, **200 GB**, **300 GB** или **500 GB**.
+- Срабатывает при расходе **99%** текущего лимита VPS.
+- Использует имеющийся остаток пула, не покупая трафик автоматически.
+- Требует достаточного остатка для выбранного шага.
+
+Документация: [https://docs.edisglobal.com/faq/traffic-bandwidth/traffic-pool](/ru/faq/traffic-bandwidth/traffic-pool)
+
+---
+
+## Подготовка услуг {#provisioning}
+
+- **Создание VPS:** начинается практически сразу после подтверждения оплаты.
+- **Установка Linux:** обычно ещё 3–5 минут, включая обновления с зеркал дистрибутива. Настройка приложений и передача собственных образов требуют дополнительного времени.
+- **Переустановка:** самостоятельно и бесплатно.
+- **Расширение:** мгновенно ⚡️ — IP не меняется, переустановка не нужна.
+
+Подробнее о мгновенном ⚡️ предоставлении: [https://docs.edisglobal.com/faq/billing-lifecycle/how-fast-instant-delivery](/ru/faq/billing-lifecycle/how-fast-instant-delivery)
+
+---
+
+<h2 id="snapshots-&amp;-backups">Снимки и резервные копии</h2>
+
+- ❌ Самостоятельное создание недоступно.
+- ✅ Доступны по запросу: экспорт образа QCOW2.
+
+Документация:  
+[https://docs.edisglobal.com/faq/upgrades-downgrades/requesting-qcow2-image-backup](/ru/faq/upgrades-downgrades/requesting-qcow2-image-backup)
+
+---
+
+### Ответственность за резервные копии {#backup-responsibility}
+
+🛡 **Вы несёте полную ответственность за резервное копирование** серверов и всех хранящихся данных.
+
+EDIS Global настоятельно рекомендует **регулярное копирование по расписанию** для сохранности и возможности восстановления данных.
+
+Рекомендации:  
+[https://docs.edisglobal.com/getting-started/backups](/ru/getting-started/backups)
+
+---
+
+## IP-адреса {#ip-addresses}
+
+- Дополнительный IPv4: **5 € за IP**.
+- Случайная смена IP: **5 € разово (NRC)**.
+- Смена на выбранный IP: **10 € разово (NRC)**.
+
+Каждому VPS выделяется собственный **диапазон IPv6, эквивалентный /64**. Это не отдельно маршрутизируемая сеть `/64`: для доступа к шлюзу локации адреса используют длину префикса `/48`. Одновременно можно настроить до 20 постоянных IPv6-адресов.
+
+Смена IP: [https://docs.edisglobal.com/faq/ip-addresses/change-ip-address](/ru/faq/ip-addresses/change-ip-address)
+
+Настройка IPv6: [https://docs.edisglobal.com/vps-management/ipv6-configuration](/ru/vps-management/ipv6-configuration)
+
+---
+
+## Оплата {#billing}
+
+### Платёжные циклы {#billing-cycles}
+
+- Ежемесячно.
+- Ежеквартально.
+- Раз в полгода.
+- Ежегодно: один месяц бесплатно.
+
+Почасовая оплата **недоступна**.
+
+### Способы оплаты {#payment-methods}
+
+- Банковская карта.
+- PayPal.
+- Криптовалюта.
+- Apple Pay, Google Pay и Alipay.
+- Прямое списание SEPA / ACH — только по приглашению.
+- Банковский перевод SEPA / SWIFT — ручная обработка, пополнение баланса аккаунта от 250 EUR.
+
+<Warning>
+  Банковские переводы не подходят для регулярных ежемесячных платежей, срочных продлений или немедленной активации. Прямая оплата счёта переводом требует предварительного согласования и допускается в экстренных случаях, когда автоматические способы недоступны.
+
+  Отправка перевода не делает счёт оплаченным. Пока бухгалтерия не получит, не идентифицирует и не назначит платёж вручную, действует обычная процедура неоплаты, которая может привести к приостановке, прекращению услуги и безвозвратному удалению данных.
+</Warning>
+
+Способы оплаты: [https://docs.edisglobal.com/faq/billing-lifecycle/accepted-payment-methods](/ru/faq/billing-lifecycle/accepted-payment-methods)
+
+---
+
+<h2 id="automation-&amp;-apis">Автоматизация и API</h2>
+
+EDIS Global рассчитан на **интеграции с приоритетом автоматизации**.
+
+### Order API {#order-api}
+
+Программное создание, управление и получение списка услуг.
+
+[https://docs.edisglobal.com/order-api-reference/order-api-welcome](https://docs.edisglobal.com/order-api-reference/order-api-welcome)
+
+### Management API {#management-api}
+
+Операции жизненного цикла VPS и управление сервером.
+
+[https://docs.edisglobal.com/management-api-reference/authentication/create-auth-session](https://docs.edisglobal.com/management-api-reference/authentication/create-auth-session)
+
+Order API доступен после регистрации с обычной проверкой аккаунта и использует email и пароль клиентского портала. Для Management API нужен один VPS; доступ осуществляется через сеанс, созданный с email и паролем. Включённая 2FA панели не требует дополнительного кода для API-запросов.
+
+Собственные пользовательские данные Cloud-Init поддерживаются при переустановке, но не в первоначальном заказе. Предварительные условия, проверка наличия и готовности описаны в [Before you automate](/order-api-reference/order-api#before-you-automate). Для VPN-операторов доступно [развёртывание VPN-узла](/ru/commercial-vpn-hosting#deploying-a-vpn-endpoint).
+
+---
+
+## Поддержка {#support}
+
+### Каналы связи {#channels}
+
+- Онлайн-чат.
+- Email.
+- WhatsApp.
+- Telegram.
+
+❌ Поддержки по телефону нет.
+
+### Документация {#documentation}
+
+Подробная техническая документация: [https://docs.edisglobal.com/getting-started/everything-vps](/ru/getting-started/everything-vps)
+
+---
+
+<h2 id="reselling-&amp;-discounts">Перепродажа и скидки</h2>
+
+EDIS Global предлагает систему скидок для реселлеров.
+
+Документация: [https://docs.edisglobal.com/reselling-and-discounts](/ru/reselling-and-discounts)
+
+---
+
+## Автоматические процессы оплаты {#automated-billing-workflows}
+
+- Автоматические платежи.
+- Автоматические продления.
+- Автоматическое создание услуг.
+
+Документация:
+
+- [https://docs.edisglobal.com/faq/billing-lifecycle/automated-vps-billing-workflow](/ru/faq/billing-lifecycle/automated-vps-billing-workflow)
+- [https://docs.edisglobal.com/faq/billing-lifecycle/automated-payments](/ru/faq/billing-lifecycle/automated-payments)
+
+---
+
+## Итоги {#summary}
+
+EDIS Global подходит партнёрам, которым важны:
+
+- Предсказуемое поведение инфраструктуры.
+- Прозрачные цены.
+- Автоматизация через API.
+- Глобальный охват.
+- Предсказуемые рабочие процессы.
+
+По вопросам за пределами этого документа обратитесь к команде EDIS Global или к документации по ссылкам выше.
+
+### Источники данных локаций — полный список {#location-data-feeds-full-list}
+
+
+[https://www.edisglobal.com/location-data/austria-graz/data.json](https://www.edisglobal.com/location-data/austria-graz/data.json)
+
+[https://www.edisglobal.com/location-data/austria-vienna/data.json](https://www.edisglobal.com/location-data/austria-vienna/data.json)
+
+[https://www.edisglobal.com/location-data/austria-vienna-interxion/data.json](https://www.edisglobal.com/location-data/austria-vienna-interxion/data.json)
+
+[https://www.edisglobal.com/location-data/belgium-brussels/data.json](https://www.edisglobal.com/location-data/belgium-brussels/data.json)
+
+[https://www.edisglobal.com/location-data/bulgaria-sofia/data.json](https://www.edisglobal.com/location-data/bulgaria-sofia/data.json)
+
+[https://www.edisglobal.com/location-data/croatia-zagreb/data.json](https://www.edisglobal.com/location-data/croatia-zagreb/data.json)
+
+[https://www.edisglobal.com/location-data/czech-republic-prague/data.json](https://www.edisglobal.com/location-data/czech-republic-prague/data.json)
+
+[https://www.edisglobal.com/location-data/denmark-copenhagen/data.json](https://www.edisglobal.com/location-data/denmark-copenhagen/data.json)
+
+[https://www.edisglobal.com/location-data/estonia-tallinn/data.json](https://www.edisglobal.com/location-data/estonia-tallinn/data.json)
+
+[https://www.edisglobal.com/location-data/france-paris/data.json](https://www.edisglobal.com/location-data/france-paris/data.json)
+
+[https://www.edisglobal.com/location-data/germany-frankfurt/data.json](https://www.edisglobal.com/location-data/germany-frankfurt/data.json)
+
+[https://www.edisglobal.com/location-data/greece-thessaloniki/data.json](https://www.edisglobal.com/location-data/greece-thessaloniki/data.json)
+
+[https://www.edisglobal.com/location-data/hungary-budapest/data.json](https://www.edisglobal.com/location-data/hungary-budapest/data.json)
+
+[https://www.edisglobal.com/location-data/iceland-hafnarfjordur/data.json](https://www.edisglobal.com/location-data/iceland-hafnarfjordur/data.json)
+
+[https://www.edisglobal.com/location-data/italy-milan/data.json](https://www.edisglobal.com/location-data/italy-milan/data.json)
+
+[https://www.edisglobal.com/location-data/italy-palermo/data.json](https://www.edisglobal.com/location-data/italy-palermo/data.json)
+
+[https://www.edisglobal.com/location-data/latvia-riga/data.json](https://www.edisglobal.com/location-data/latvia-riga/data.json)
+
+[https://www.edisglobal.com/location-data/lithuania-vilnius/data.json](https://www.edisglobal.com/location-data/lithuania-vilnius/data.json)
+
+[https://www.edisglobal.com/location-data/moldova-chisinau/data.json](https://www.edisglobal.com/location-data/moldova-chisinau/data.json)
+
+[https://www.edisglobal.com/location-data/netherlands-amsterdam/data.json](https://www.edisglobal.com/location-data/netherlands-amsterdam/data.json)
+
+[https://www.edisglobal.com/location-data/north-macedonia-skopje/data.json](https://www.edisglobal.com/location-data/north-macedonia-skopje/data.json)
+
+[https://www.edisglobal.com/location-data/norway-oslo/data.json](https://www.edisglobal.com/location-data/norway-oslo/data.json)
+
+[https://www.edisglobal.com/location-data/poland-warsaw/data.json](https://www.edisglobal.com/location-data/poland-warsaw/data.json)
+
+[https://www.edisglobal.com/location-data/romania-bucharest/data.json](https://www.edisglobal.com/location-data/romania-bucharest/data.json)
+
+[https://www.edisglobal.com/location-data/russia-moscow/data.json](https://www.edisglobal.com/location-data/russia-moscow/data.json)
+
+[https://www.edisglobal.com/location-data/russia-st-petersburg/data.json](https://www.edisglobal.com/location-data/russia-st-petersburg/data.json)
+
+[https://www.edisglobal.com/location-data/serbia-belgrade/data.json](https://www.edisglobal.com/location-data/serbia-belgrade/data.json)
+
+[https://www.edisglobal.com/location-data/slovenia-ljubljana/data.json](https://www.edisglobal.com/location-data/slovenia-ljubljana/data.json)
+
+[https://www.edisglobal.com/location-data/spain-seville/data.json](https://www.edisglobal.com/location-data/spain-seville/data.json)
+
+[https://www.edisglobal.com/location-data/sweden-stockholm/data.json](https://www.edisglobal.com/location-data/sweden-stockholm/data.json)
+
+[https://www.edisglobal.com/location-data/switzerland-zurich/data.json](https://www.edisglobal.com/location-data/switzerland-zurich/data.json)
+
+[https://www.edisglobal.com/location-data/united-kingdom-london-city/data.json](https://www.edisglobal.com/location-data/united-kingdom-london-city/data.json)
+
+[https://www.edisglobal.com/location-data/unitedkingdom-london-docklands/data.json](https://www.edisglobal.com/location-data/unitedkingdom-london-docklands/data.json)
+
+[https://www.edisglobal.com/location-data/canada-montreal/data.json](https://www.edisglobal.com/location-data/canada-montreal/data.json)
+
+[https://www.edisglobal.com/location-data/chile-vina-del-mar/data.json](https://www.edisglobal.com/location-data/chile-vina-del-mar/data.json)
+
+[https://www.edisglobal.com/location-data/colombia-bogota/data.json](https://www.edisglobal.com/location-data/colombia-bogota/data.json)
+
+[https://www.edisglobal.com/location-data/usa-los-angeles/data.json](https://www.edisglobal.com/location-data/usa-los-angeles/data.json)
+
+[https://www.edisglobal.com/location-data/usa-miami/data.json](https://www.edisglobal.com/location-data/usa-miami/data.json)
+
+[https://www.edisglobal.com/location-data/usa-new-york/data.json](https://www.edisglobal.com/location-data/usa-new-york/data.json)
+
+[https://www.edisglobal.com/location-data/israel-tel-aviv/data.json](https://www.edisglobal.com/location-data/israel-tel-aviv/data.json)
+
+[https://www.edisglobal.com/location-data/united-arab-emirates-dubai/data.json](https://www.edisglobal.com/location-data/united-arab-emirates-dubai/data.json)
+
+[https://www.edisglobal.com/location-data/singapore-singapore/data.json](https://www.edisglobal.com/location-data/singapore-singapore/data.json)
+
+[https://www.edisglobal.com/location-data/hongkong-kwai-chung/data.json](https://www.edisglobal.com/location-data/hongkong-kwai-chung/data.json)
+
+[https://www.edisglobal.com/location-data/japan-tokyo/data.json](https://www.edisglobal.com/location-data/japan-tokyo/data.json)
+
+[https://www.edisglobal.com/location-data/australia-sydney/data.json](https://www.edisglobal.com/location-data/australia-sydney/data.json)
+
+[https://www.edisglobal.com/location-data/finland-helsinki/data.json](https://www.edisglobal.com/location-data/finland-helsinki/data.json)
+
+[https://www.edisglobal.com/location-data/sweden-stockholm-interxion/data.json](https://www.edisglobal.com/location-data/sweden-stockholm-interxion/data.json)
+
+[https://www.edisglobal.com/location-data/cyprus-limassol/data.json](https://www.edisglobal.com/location-data/cyprus-limassol/data.json)
+
