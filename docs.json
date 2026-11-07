@@ -36,20 +36,6 @@
     ]
   },
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Explore VPS Hosting Plans & Locations",
-          "icon": "server",
-          "href": "https://www.edisglobal.com/vps-hosting"
-        },
-        {
-          "anchor": "Why Our VPS Infrastructure Is Different",
-          "icon": "user",
-          "href": "https://www.edisglobal.com/why-edis-global"
-        }
-      ]
-    },
     "languages": [
       {
         "language": "en",
@@ -495,7 +481,21 @@
               }
             ]
           }
-        ]
+        ],
+        "global": {
+          "anchors": [
+            {
+              "anchor": "Explore VPS Hosting Plans & Locations",
+              "icon": "server",
+              "href": "https://www.edisglobal.com/vps-hosting"
+            },
+            {
+              "anchor": "Why Our VPS Infrastructure Is Different",
+              "icon": "user",
+              "href": "https://www.edisglobal.com/why-edis-global"
+            }
+          ]
+        }
       },
       {
         "language": "ru",
@@ -1504,9 +1504,6 @@
   ],
   "metadata": {
     "timestamp": true
-  },
-  "search": {
-    "prompt": "Search the docs"
   },
   "icons": {
     "library": "fontawesome"
