@@ -558,7 +558,12 @@
                   "ru/vps-management/enable-vnc-server",
                   "ru/vps-management/ip-address-information",
                   "ru/vps-management/ipv6-configuration",
-                  "ru/vps-management/basic-ipv6-troubleshooting"
+                  "ru/vps-management/basic-ipv6-troubleshooting",
+                  "ru/vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404",
+                  "ru/vps-management/how-to-change-ip-address-in-windows-server",
+                  "ru/vps-management/linux-rescue-guide-and-troubleshoot",
+                  "ru/vps-management/uefi-vs-bios-and-v-tpm",
+                  "ru/vps-management/your-support-pin"
                 ]
               },
               {
