@@ -17,6 +17,11 @@ Open **PowerShell as Administrator** and run:
 slmgr -dlv
 ```
 
+A Windows Script Host dialog opens with your license details. Note these two fields:
+
+- **Timebased activation expiration**: the time left in the current trial period.
+- **Remaining Windows rearm count**: how many extensions you have left. If this shows `0`, `slmgr -rearm` can't extend the trial.
+
 ### 2) Extend the trial (add 180 days)
 
 When you are close to expiry (or any time you like), run:
@@ -24,6 +29,8 @@ When you are close to expiry (or any time you like), run:
 ```powershell
 slmgr -rearm
 ```
+
+A dialog confirms that the command completed successfully and asks you to restart. The extension takes effect only after the restart.
 
 ### 3) Restart the server
 
@@ -34,6 +41,19 @@ Restart-Computer
 ```
 
 After the restart, your trial period is extended by another 180 days.
+
+### 4) Confirm the extension
+
+After the server restarts, open **PowerShell as Administrator** again and run:
+
+```powershell
+slmgr -dlv
+```
+
+Compare the output with what you noted in step 1. The extension worked if:
+
+- **Timebased activation expiration** shows about 180 days remaining.
+- **Remaining Windows rearm count** is one lower than before.
 
 ### Is it legal to extend a trial version of Windows?
 
