@@ -533,6 +533,26 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "Все статьи (EN)",
+            "href": "/getting-started/everything-vps"
+          },
+          {
+            "tab": "Order API (EN)",
+            "href": "/order-api-reference/order-api-welcome"
+          },
+          {
+            "tab": "Management API (EN)",
+            "href": "/management-api"
+          },
+          {
+            "tab": "Looking Glass API (EN)",
+            "href": "/looking-glass-api/overview"
+          },
+          {
+            "tab": "Changelog (EN)",
+            "href": "/changelog/product"
           }
         ]
       }
