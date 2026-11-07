@@ -1,0 +1,71 @@
+---
+title: "SFTP в Linux: подключение к Linux-серверу"
+sidebarTitle: "SFTP в Linux"
+description: "Передача файлов между Linux-серверами по SFTP через SSH: подключение, основные команды и варианты аутентификации."
+---
+
+## Безопасная передача файлов между Linux-системами {#secure-file-transfer-between-linux-and-linux-servers}
+
+SFTP (Secure File Transfer Protocol) — безопасный способ передачи файлов между вашим Linux-компьютером и Linux-сервером. Здесь описано безопасное копирование с помощью `sftp` в терминале Linux.
+
+***
+
+## Шаг 1. Убедитесь, что SSH включён на Linux-сервере {#step-1-ensure-ssh-is-enabled-on-your-linux-server}
+
+Служба SSH должна быть установлена и запущена. Выполните:
+
+```bash
+sudo apt-get install openssh-server
+```
+
+***
+
+## Шаг 2. Передавайте файлы командой `sftp` {#step-2-use-the-sftp-command-to-transfer-files}
+
+### Подключение к серверу {#connect-to-the-server}
+
+Для начала сеанса SFTP выполните:
+
+```bash
+sftp username@hostname_or_ip
+```
+
+* Замените `username` именем пользователя Linux-сервера.
+* Замените `hostname_or_ip` IP-адресом или доменным именем сервера.
+
+### Передача файлов командами SFTP {#transfer-files-using-sftp-commands}
+
+После подключения доступны следующие команды. Вводите их в приглашении `sftp>`:
+
+| Задача | Команда |
+| --- | --- |
+| Скачать удалённый файл | `get /remote/path/file.txt /local/path/` |
+| Загрузить локальный файл | `put /local/path/file.txt /remote/path/` |
+| Показать удалённые файлы | `ls` |
+| Сменить удалённый каталог | `cd /remote/path/` |
+| Показать удалённый каталог | `pwd` |
+| Сменить локальный каталог | `lcd /local/path/` |
+| Показать локальный каталог | `lpwd` |
+| Завершить сеанс | `bye` |
+
+Замените пути из примеров существующими доступными каталогами. Передача может перезаписать одноимённый файл назначения.
+
+Для нестандартного порта SSH подключайтесь из локального терминала командой `sftp -P 2222 username@hostname_or_ip`. Параметр порта — заглавная `-P`. См. [руководство OpenSSH SFTP](https://man.openbsd.org/sftp).
+
+***
+
+## Примеры команд {#example-commands}
+
+### Загрузка на сервер {#upload-example}
+
+```bash
+put ~/Documents/example.txt /home/user/uploads
+```
+
+### Скачивание с сервера {#download-example}
+
+```bash
+get /home/user/uploads/example.txt ~/Downloads
+```
+
+***

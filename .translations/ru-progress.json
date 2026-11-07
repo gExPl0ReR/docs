@@ -1,5 +1,5 @@
 {
-  "translated": 133,
+  "translated": 150,
   "total": 183,
   "pages": [
     {
@@ -913,6 +913,125 @@
       "mdx_checked": true
     },
     {
+      "source": "advanced-setup-guides/run-monero-node-debian-vps.mdx",
+      "target": "ru/advanced-setup-guides/run-monero-node-debian-vps.mdx",
+      "source_sha": "2709867e1984198e7ac2b5c33b5b5933bb7ce330",
+      "headings": 13,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods.mdx",
+      "target": "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods.mdx",
+      "source_sha": "2c9b4b232032a96a13007f80b07db5ed6576609a",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server.mdx",
+      "target": "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server.mdx",
+      "source_sha": "6f09ad2f320a127fbf1781b61440578e06e73660",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows.mdx",
+      "target": "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows.mdx",
+      "source_sha": "967f6eca2b17c05033e0c8494541110731eb1097",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows.mdx",
+      "target": "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows.mdx",
+      "source_sha": "a3e4f86164c17aa2c2d4f6626f372b93de3bbfc4",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux.mdx",
+      "target": "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux.mdx",
+      "source_sha": "8a6eca81c375bb26e1650e730daa29770be82fa2",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux.mdx",
+      "target": "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux.mdx",
+      "source_sha": "25aae190b0213ce6822fcf040e166a8b0a525c71",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox.mdx",
+      "target": "ru/advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox.mdx",
+      "source_sha": "bcfa0880d2e78b8846019095b6e3157648ce415b",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router.mdx",
+      "target": "ru/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router.mdx",
+      "source_sha": "49b3ec044c40573e197eb0a4192c9ebcc26b5ef6",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-mikrotik-routeros-on-edis-vps.mdx",
+      "target": "ru/advanced-setup-guides/install-mikrotik-routeros-on-edis-vps.mdx",
+      "source_sha": "63b75c066aa018a598a79a5346190b4d08991f37",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/installing-a-vps-using-cloud-init.mdx",
+      "target": "ru/advanced-setup-guides/installing-a-vps-using-cloud-init.mdx",
+      "source_sha": "404e4966187d144fa7a27cc45a966b95300e4c54",
+      "headings": 2,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems.mdx",
+      "target": "ru/advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems.mdx",
+      "source_sha": "94ef811ff579c0d12f3dc0a42b9f38fd420c006f",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/extend-hard-drive-windows-guide.mdx",
+      "target": "ru/advanced-setup-guides/extend-hard-drive-windows-guide.mdx",
+      "source_sha": "80ae8b7b8dfff646e556875ff5eaedb28cb14f28",
+      "headings": 11,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/security-advisories/regresshion-openssh-vulnerability.mdx",
+      "target": "ru/advanced-setup-guides/security-advisories/regresshion-openssh-vulnerability.mdx",
+      "source_sha": "82f4e47f842ab327c9d2c0d7b67dae578b9b598f",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/security-advisories/update-sshd-debian-ubuntu-redhat.mdx",
+      "target": "ru/advanced-setup-guides/security-advisories/update-sshd-debian-ubuntu-redhat.mdx",
+      "source_sha": "6f77adaef85f5150a5f2946c7c2a23d54a2f84c4",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/registering-and-assigning-a-domain-to-your-vps.mdx",
+      "target": "ru/advanced-setup-guides/registering-and-assigning-a-domain-to-your-vps.mdx",
+      "source_sha": "4be8862423af09fe342ad3fbf98edab1d65ea799",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps.mdx",
+      "target": "ru/advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps.mdx",
+      "source_sha": "1d64a2854f013ce027805756dc155c279358e2a0",
+      "headings": 0,
+      "mdx_checked": true
+    },
+    {
       "source": "changelog/product.mdx",
       "target": "ru/changelog/product.mdx",
       "source_sha": "a661848d6d6692c05c39ded64f4bfe5ceb11eb3e",
@@ -935,23 +1054,6 @@
     }
   ],
   "pending": [
-    "advanced-setup-guides/run-monero-node-debian-vps.mdx",
-    "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods.mdx",
-    "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server.mdx",
-    "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows.mdx",
-    "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows.mdx",
-    "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux.mdx",
-    "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux.mdx",
-    "advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox.mdx",
-    "advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router.mdx",
-    "advanced-setup-guides/install-mikrotik-routeros-on-edis-vps.mdx",
-    "advanced-setup-guides/installing-a-vps-using-cloud-init.mdx",
-    "advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems.mdx",
-    "advanced-setup-guides/extend-hard-drive-windows-guide.mdx",
-    "advanced-setup-guides/security-advisories/regresshion-openssh-vulnerability.mdx",
-    "advanced-setup-guides/security-advisories/update-sshd-debian-ubuntu-redhat.mdx",
-    "advanced-setup-guides/registering-and-assigning-a-domain-to-your-vps.mdx",
-    "advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps.mdx",
     "advanced-setup-guides/openvpn-over-stunnel.mdx",
     "advanced-setup-guides/l2tp-ipsec-and-ikev2-vpn.mdx",
     "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204.mdx",

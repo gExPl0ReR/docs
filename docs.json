@@ -719,6 +719,38 @@
                   "ru/join-our-team/technical-procurement-and-server-operations-coordinator",
                   "ru/join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert"
                 ]
+              },
+              {
+                "group": "Расширенные руководства по настройке",
+                "pages": [
+                  "ru/advanced-setup-guides/run-monero-node-debian-vps",
+                  {
+                    "group": "Способы передачи файлов",
+                    "pages": [
+                      "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods",
+                      "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server",
+                      "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows",
+                      "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows",
+                      "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux",
+                      "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux"
+                    ]
+                  },
+                  "ru/advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox",
+                  "ru/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router",
+                  "ru/advanced-setup-guides/install-mikrotik-routeros-on-edis-vps",
+                  "ru/advanced-setup-guides/installing-a-vps-using-cloud-init",
+                  "ru/advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems",
+                  "ru/advanced-setup-guides/extend-hard-drive-windows-guide",
+                  {
+                    "group": "Уведомления о безопасности",
+                    "pages": [
+                      "ru/advanced-setup-guides/security-advisories/regresshion-openssh-vulnerability",
+                      "ru/advanced-setup-guides/security-advisories/update-sshd-debian-ubuntu-redhat"
+                    ]
+                  },
+                  "ru/advanced-setup-guides/registering-and-assigning-a-domain-to-your-vps",
+                  "ru/advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps"
+                ]
               }
             ]
           },
