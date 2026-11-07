@@ -27,11 +27,11 @@ Use the existing `preview/russian-card-reservation` branch and draft PR #242. Pr
 
 ## Current state
 - Russian translation is being written directly through ChatGPT and GitHub; Mintlify AI has not been used.
-- 49 of 183 pages are translated: all 12 Getting Started pages, all 33 Billing & Lifecycle pages, all three changelogs, and the VNC guide.
-- 134 source pages remain. See ru-progress.json for the exact completed and pending lists.
+- 67 of 183 pages are translated: all 12 Getting Started pages, all 33 Billing & Lifecycle pages, all three changelogs, and 19 VPS Management guides.
+- 116 source pages remain. See ru-progress.json for the exact completed and pending lists.
 - English documentation, API references, specifications, and original URLs are preserved.
 - Russian navigation lists only existing translations. The API links and the complete English documentation remain accessible.
 - Internal links use Russian when the target is translated; otherwise they retain the working English target until that translation is available.
-- English heading anchors are preserved as aliases so section links continue to work.
-- Local checks passed for all 49 pages: MDX syntax, frontmatter, heading counts, protected executable code, Russian routes and linked section anchors.
+- Every translated heading uses Mintlify's explicit {#original-english-id} syntax. IDs were extracted from all 183 published English pages and matched against all 1,286 source headings. Existing legacy aliases already present in the English source are preserved.
+- Local checks passed for all 67 pages: MDX syntax, frontmatter, heading counts, protected executable code, Russian routes and linked section anchors.
 - Full-site translation is not complete. This draft is not ready to merge into production.

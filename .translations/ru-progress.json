@@ -1,5 +1,5 @@
 {
-  "translated": 49,
+  "translated": 67,
   "total": 183,
   "pages": [
     {
@@ -87,10 +87,136 @@
       "mdx_checked": true
     },
     {
+      "source": "vps-management/api-for-management-and-ordering.mdx",
+      "target": "ru/vps-management/api-for-management-and-ordering.mdx",
+      "source_sha": "c778f255abcfde27c301e5736d9f93f57dcc65ed",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/vps-management-portal.mdx",
+      "target": "ru/vps-management/vps-management-portal.mdx",
+      "source_sha": "dbc578ce3da322013e2e69548b11b8232aef5854",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/understanding-vps-status.mdx",
+      "target": "ru/vps-management/understanding-vps-status.mdx",
+      "source_sha": "27012cbeceab7c5cde5fb9f4ea1a1252894fdcd0",
+      "headings": 10,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/ai-assisted-vps-management.mdx",
+      "target": "ru/vps-management/ai-assisted-vps-management.mdx",
+      "source_sha": "b0cb17eb52e8c1781e2935113bb95810309aef6c",
+      "headings": 16,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/autoinstall-reinstall-install-vps-linux-windows.mdx",
+      "target": "ru/vps-management/autoinstall-reinstall-install-vps-linux-windows.mdx",
+      "source_sha": "f29dc5f0008f4361276ecdd8765af5a16ab926bc",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/os-availability.mdx",
+      "target": "ru/vps-management/os-availability.mdx",
+      "source_sha": "378254b156c9de0263b485a7300a60be4c870997",
+      "headings": 33,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/edis-cloud-init-vps-installation.mdx",
+      "target": "ru/vps-management/edis-cloud-init-vps-installation.mdx",
+      "source_sha": "7a5bb5b1df26d26c456441b8aa21ed160f5ce673",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/power-cycle-or-reboot-a-vps.mdx",
+      "target": "ru/vps-management/power-cycle-or-reboot-a-vps.mdx",
+      "source_sha": "7d1791e01a6879229bfdb9572cf13b419f342090",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/reset-root-password-linux.mdx",
+      "target": "ru/vps-management/reset-root-password-linux.mdx",
+      "source_sha": "ff3fe810330991fc0647bd81a9a84060cbe134b8",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/reset-windows-admin-password.mdx",
+      "target": "ru/vps-management/reset-windows-admin-password.mdx",
+      "source_sha": "199845502023ad6b8226e3d00c4f3c184b4b9dbb",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/rdp-error-0xd07-user-account-locked.mdx",
+      "target": "ru/vps-management/rdp-error-0xd07-user-account-locked.mdx",
+      "source_sha": "16722fde21be0edb0724ce0228435de9c7640331",
+      "headings": 12,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/mount-iso-image.mdx",
+      "target": "ru/vps-management/mount-iso-image.mdx",
+      "source_sha": "5531356047cc5100966f2959b73ce942edb8c5a9",
+      "headings": 2,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/post-install-scripts.mdx",
+      "target": "ru/vps-management/post-install-scripts.mdx",
+      "source_sha": "463091485c955a6613d18557ed392649e41a048c",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/system-configuration-dialog.mdx",
+      "target": "ru/vps-management/system-configuration-dialog.mdx",
+      "source_sha": "b5245900a557cd16c79de530ccfe7933af9a007b",
+      "headings": 16,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/bring-your-own-iso.mdx",
+      "target": "ru/vps-management/bring-your-own-iso.mdx",
+      "source_sha": "0d3e8589dcbecd1d875519a35273c5d3e2cc4330",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
       "source": "vps-management/enable-vnc-server.mdx",
       "target": "ru/vps-management/enable-vnc-server.mdx",
       "source_sha": "c024ccce5aea9feede23e36e3033ccfc196268af",
       "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/ip-address-information.mdx",
+      "target": "ru/vps-management/ip-address-information.mdx",
+      "source_sha": "f4aa6f10a137d4918237de5c2fc546996867e9a7",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/ipv6-configuration.mdx",
+      "target": "ru/vps-management/ipv6-configuration.mdx",
+      "source_sha": "a804179311226a6e5023a32407378deb810307f6",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/basic-ipv6-troubleshooting.mdx",
+      "target": "ru/vps-management/basic-ipv6-troubleshooting.mdx",
+      "source_sha": "35adffb5571e7bf31bac80fcc44ecc3622df8899",
+      "headings": 4,
       "mdx_checked": true
     },
     {
@@ -347,24 +473,6 @@
     }
   ],
   "pending": [
-    "vps-management/api-for-management-and-ordering.mdx",
-    "vps-management/vps-management-portal.mdx",
-    "vps-management/understanding-vps-status.mdx",
-    "vps-management/ai-assisted-vps-management.mdx",
-    "vps-management/autoinstall-reinstall-install-vps-linux-windows.mdx",
-    "vps-management/os-availability.mdx",
-    "vps-management/edis-cloud-init-vps-installation.mdx",
-    "vps-management/power-cycle-or-reboot-a-vps.mdx",
-    "vps-management/reset-root-password-linux.mdx",
-    "vps-management/reset-windows-admin-password.mdx",
-    "vps-management/rdp-error-0xd07-user-account-locked.mdx",
-    "vps-management/mount-iso-image.mdx",
-    "vps-management/post-install-scripts.mdx",
-    "vps-management/system-configuration-dialog.mdx",
-    "vps-management/bring-your-own-iso.mdx",
-    "vps-management/ip-address-information.mdx",
-    "vps-management/ipv6-configuration.mdx",
-    "vps-management/basic-ipv6-troubleshooting.mdx",
     "vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404.mdx",
     "vps-management/how-to-change-ip-address-in-windows-server.mdx",
     "vps-management/linux-rescue-guide-and-troubleshoot.mdx",

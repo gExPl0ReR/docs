@@ -4,15 +4,11 @@ sidebarTitle: "Удалённый рабочий стол (RDP)"
 description: "Подключение к Windows Server VPS по протоколу удалённого рабочего стола RDP. Пошаговые инструкции для Windows и macOS и советы по устранению неполадок."
 ---
 
-<span id="how-to-connect-to-a-remote-system-on-windows-and-macos" />
+## Как подключиться к удалённой системе из Windows и macOS {#how-to-connect-to-a-remote-system-on-windows-and-macos}
 
-## Как подключиться к удалённой системе из Windows и macOS
+Это руководство описывает подключение к серверу Windows по протоколу Remote Desktop Protocol (RDP). Основное внимание уделено Windows, но также приведены шаги для macOS. Убедитесь, что на VPS установлена Windows. Если вы заказали VPS с Linux, в любой момент можно [переустановить ОС](/ru/vps-management/autoinstall-reinstall-install-vps-linux-windows), выбрав Windows.
 
-Это руководство описывает подключение к серверу Windows по протоколу Remote Desktop Protocol (RDP). Основное внимание уделено Windows, но также приведены шаги для macOS. Убедитесь, что на VPS установлена Windows. Если вы заказали VPS с Linux, в любой момент можно [переустановить ОС](/vps-management/autoinstall-reinstall-install-vps-linux-windows), выбрав Windows.
-
-<span id="connection-details" />
-
-## Данные подключения
+## Данные подключения {#connection-details}
 
 - **Порт:** RDP на Windows VPS EDIS Global использует стандартный порт **3389**. Добавлять порт к адресу не требуется: RDP-клиенты используют 3389 по умолчанию. Чтобы указать его явно, добавьте к IP-адресу, например `192.168.10.1:3389`.
 - **Имя пользователя:** `Administrator`.
@@ -20,9 +16,7 @@ description: "Подключение к Windows Server VPS по протокол
 
 Если подключение не удаётся, проверьте доступность порта 3389 из вашей сети. Подробнее см. [Порты, межсетевые экраны и подключение](/faq/ip-addresses/ports-firewalls-and-connectivity).
 
-<span id="for-windows-users" />
-
-## Для пользователей Windows
+## Для пользователей Windows {#for-windows-users}
 
 **Откройте Remote Desktop Connection:**
 
@@ -74,9 +68,7 @@ description: "Подключение к Windows Server VPS по протокол
 
 ![Удалённый рабочий стол (RDP)](/assets/1sSq3fI0sZJj8Zc4RoSr4-I-qET7hMnYy7aStuDfr5A-20241202-114409.png)
 
-<span id="for-macos-users" />
-
-## Для пользователей macOS
+## Для пользователей macOS {#for-macos-users}
 
 **Установите Microsoft Windows App:**
 
@@ -114,8 +106,6 @@ macOS может запросить доступ к Связке ключей д
 
 ![Удалённый рабочий стол (RDP)](/assets/huaNpFAxK5PVCl_NLo3ID-W0EeJBw1Um2ua4QWM6--f-20241202-161319.png)
 
-<span id="troubleshooting" />
+## Устранение неполадок {#troubleshooting}
 
-## Устранение неполадок
-
-- [Ошибка RDP 0xd07: аккаунт пользователя заблокирован](/vps-management/rdp-error-0xd07-user-account-locked) объясняет, что делать, если Windows блокирует вход по RDP после слишком большого числа неудачных попыток.
+- [Ошибка RDP 0xd07: аккаунт пользователя заблокирован](/ru/vps-management/rdp-error-0xd07-user-account-locked) объясняет, что делать, если Windows блокирует вход по RDP после слишком большого числа неудачных попыток.

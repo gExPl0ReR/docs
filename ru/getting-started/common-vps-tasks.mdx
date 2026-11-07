@@ -12,9 +12,7 @@ description: "Повседневное управление VPS EDIS Global: п�
   <img src="/images/portal-services-navigation-anonymized.png" alt="Портал EDIS Global с открытым меню Services и выделенным My Services; данные клиента обезличены" />
 </Frame>
 
-<span id="find-the-task-you-need" />
-
-## Найдите нужную задачу
+## Найдите нужную задачу {#find-the-task-you-need}
 
 | Я хочу… | С чего начать |
 | --- | --- |
@@ -33,9 +31,7 @@ description: "Повседневное управление VPS EDIS Global: п�
   VPS EDIS Global предоставляется без администрирования: вы отвечаете за его ОС, приложения, безопасность и резервные копии. Поддержка помогает с инфраструктурой, аккаунтом и оплатой и направляет к подходящим руководствам по настройке.
 </Note>
 
-<span id="restart-reset-or-cold-boot" />
-
-## Перезапуск, сброс или холодная загрузка
+## Перезапуск, сброс или холодная загрузка {#restart-reset-or-cold-boot}
 
 **Для обычного перезапуска используйте средства ОС, если она отвечает.** Это позволяет приложениям закрыться и завершить ожидающие операции записи.
 
@@ -50,9 +46,7 @@ description: "Повседневное управление VPS EDIS Global: п�
 
 Сохранение доступности VNC при Reset VPS **не** означает корректное завершение работы ОС. По возможности предварительно сохраняйте работу. При перезапуске ОС соединения SSH, RDP и размещённые сервисы прерываются.
 
-<span id="activate-hardware-changes-with-a-cold-boot" />
-
-### Активация аппаратных изменений холодной загрузкой
+### Активация аппаратных изменений холодной загрузкой {#activate-hardware-changes-with-a-cold-boot}
 
 Если инструкции по расширению ресурсов или настройке требуют холодной загрузки:
 
@@ -78,11 +72,9 @@ shutdown /s /t 0
 
 **Reset VPS и перезагрузка средствами ОС не заменяют холодную загрузку, необходимую для этих аппаратных изменений.** Если вы использовали VNC/noVNC, после полной остановки и запуска снова включите VNC.
 
-[Подробное руководство по перезапуску и циклу выключения и включения](/vps-management/power-cycle-or-reboot-a-vps#which-option-should-i-use)
+[Подробное руководство по перезапуску и циклу выключения и включения](/ru/vps-management/power-cycle-or-reboot-a-vps#which-option-should-i-use)
 
-<span id="reinstall-or-change-operating-system" />
-
-## Переустановка или смена операционной системы
+## Переустановка или смена операционной системы {#reinstall-or-change-operating-system}
 
 **Reinstall OS** заменяет существующую установку чистой системой. Используйте эту функцию, чтобы начать заново или выбрать другой доступный образ Linux либо Windows.
 
@@ -90,7 +82,7 @@ shutdown /s /t 0
   Переустановка удаляет существующую систему и её данные. Перед началом скачайте и проверьте резервные копии. Не используйте переустановку как первое решение при забытом пароле или проблемах с SSH.
 </Warning>
 
-1. Проверьте [доступные ОС](/vps-management/os-availability) и требования выбранного образа.
+1. Проверьте [доступные ОС](/ru/vps-management/os-availability) и требования выбранного образа.
 2. Откройте VPS в портале и выберите **Reinstall OS**.
 3. Выберите ОС и задайте новый пароль root или Administrator.
 4. Безопасно сохраните пароль: после переустановки письмо с подтверждением не отправляется.
@@ -100,11 +92,9 @@ shutdown /s /t 0
 
 Сама по себе переустановка [не изменяет назначенные IP-адреса VPS](/faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall). Для замены адреса отдельно запросите смену IP.
 
-[Пошаговая переустановка](/vps-management/autoinstall-reinstall-install-vps-linux-windows) · [Установка или восстановление с ISO](/vps-management/mount-iso-image)
+[Пошаговая переустановка](/ru/vps-management/autoinstall-reinstall-install-vps-linux-windows) · [Установка или восстановление с ISO](/ru/vps-management/mount-iso-image)
 
-<span id="choose-a-standard-or-bespoke-ip-change" />
-
-## Стандартная смена IP или выбор адреса Bespoke
+## Стандартная смена IP или выбор адреса Bespoke {#choose-a-standard-or-bespoke-ip-change}
 
 Смена IP заменяет адрес, сохраняя VPS, локацию, тариф и период оплаты.
 
@@ -130,17 +120,13 @@ shutdown /s /t 0
 
 [Полная процедура смены IP](/faq/ip-addresses/change-ip-address) · [Добавление IP вместо замены](/faq/ip-addresses/order-additional-ip-address)
 
-<span id="manage-billing-and-renewals" />
-
-## Оплата и продления
+## Оплата и продления {#manage-billing-and-renewals}
 
 VPS продлевается автоматически, если вы его не отменили. **Автопродление и успешная оплата — разные вещи:** поддерживайте актуальный способ оплаты и проверяйте, оплачен ли счёт за продление.
 
 EDIS Global отправляет счёт-проформу за продление **за семь дней до срока оплаты**. После оплаты выдаётся налоговый счёт. Также можно открыть услугу и выбрать **Create Invoice / Renew**, чтобы создать счёт за продление раньше.
 
-<span id="when-invoices-and-reminders-are-sent" />
-
-### Когда отправляются счета и напоминания
+### Когда отправляются счета и напоминания {#when-invoices-and-reminders-are-sent}
 
 Ниже приведены **автоматические действия при неоплате**. День 0 — срок оплаты счёта за продление, а не дата заказа VPS.
 
@@ -159,9 +145,7 @@ EDIS Global отправляет счёт-проформу за продлени
 
 Этот график соответствует [порядку выставления счетов за VPS](/ru/faq/billing-lifecycle/automated-vps-billing-workflow). Он не продлевает срок оплаты.
 
-<span id="what-to-do-if-payment-is-late" />
-
-### Что делать при просрочке оплаты
+### Что делать при просрочке оплаты {#what-to-do-if-payment-is-late}
 
 **Если VPS приостановлен:** оплатите непогашенный счёт за продление. Описанный процесс автоматически активирует приостановленную услугу после оплаты.
 
@@ -177,9 +161,7 @@ EDIS Global отправляет счёт-проформу за продлени
 
 [Продления](/ru/faq/billing-lifecycle/how-vps-renewals-work) · [Автоматические платежи](/ru/faq/billing-lifecycle/automated-payments) · [Поиск и скачивание счетов](/ru/faq/billing-lifecycle/find-and-download-invoices) · [Хранение данных](/ru/faq/billing-lifecycle/data-retention-period)
 
-<span id="create-backups-you-can-restore" />
-
-## Создание пригодных для восстановления копий
+## Создание пригодных для восстановления копий {#create-backups-you-can-restore}
 
 **Вы отвечаете за резервное копирование VPS.** Не считайте, что EDIS Global автоматически хранит пригодную для восстановления копию файлов или приложений.
 
@@ -195,9 +177,7 @@ EDIS Global отправляет счёт-проформу за продлени
 
 Для скачивания данных используйте [SFTP и другие способы передачи файлов](/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods), а примеры команд ищите в [руководстве по резервному копированию и восстановлению Linux](/faq/upgrades-downgrades/backup-restore-data-linux). Безопасно храните конфиденциальные копии и держите данные доступа для восстановления там, где они доступны без VPS.
 
-<span id="can-edis-global-provide-a-complete-disk-image" />
-
-### Может ли EDIS Global предоставить полный образ диска?
+### Может ли EDIS Global предоставить полный образ диска? {#can-edis-global-provide-a-complete-disk-image}
 
 Через поддержку можно запросить скачиваемый **образ виртуального диска QCOW2**. Указанная стоимость — **EUR 25**, срок доступности скачивания — **30 дней**. Скачайте образ и сохраните собственную копию до истечения срока ссылки.
 
@@ -205,9 +185,7 @@ EDIS Global отправляет счёт-проформу за продлени
 
 [Ответственность за резервные копии](/ru/getting-started/backups) · [Запрос образа QCOW2](/faq/upgrades-downgrades/requesting-qcow2-image-backup)
 
-<span id="upgrade-your-vps" />
-
-## Расширение ресурсов VPS
+## Расширение ресурсов VPS {#upgrade-your-vps}
 
 Вы можете перейти на более высокий тариф или добавить отдельные ресурсы без переустановки ОС. Сейчас для одного VPS можно дополнительно настроить до **24 GB RAM**, **8 ядер vCPU**, **400 GB Drive Size Boost** и **10 дополнительных IPv4-адресов**.
 
@@ -223,9 +201,7 @@ EDIS Global увеличивает виртуальный диск, но не и
 
 [Выбор расширения](/faq/upgrades-downgrades/upgrades) · [Расширение хранилища Linux](/advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems) · [Расширение хранилища Windows](/advanced-setup-guides/extend-hard-drive-windows-guide)
 
-<span id="manage-traffic-and-monthly-refills" />
-
-## Трафик и ежемесячное пополнение
+## Трафик и ежемесячное пополнение {#manage-traffic-and-monthly-refills}
 
 Откройте **Traffic Information** для VPS, чтобы проверить расход, текущий лимит и дату следующего ежемесячного пополнения. Трафик включает входящие и исходящие данные.
 
@@ -241,9 +217,7 @@ EDIS Global увеличивает виртуальный диск, но не и
 
 [Traffic Pool и Auto-Hydration](/faq/traffic-bandwidth/traffic-pool) · [Ежемесячное пополнение трафика](/faq/traffic-bandwidth/traffic-stats-refill-explained) · [Восстановление полной скорости](/faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global)
 
-<span id="recover-access" />
-
-## Восстановление доступа
+## Восстановление доступа {#recover-access}
 
 Если SSH или RDP не работает, сначала убедитесь, что VPS запущен, и проверьте соответствующие инциденты на [странице статуса](https://status.edis.global).
 
@@ -251,16 +225,14 @@ EDIS Global увеличивает виртуальный диск, но не и
 
 Выберите руководство по вашей проблеме:
 
-- [Сброс пароля root в Linux](/vps-management/reset-root-password-linux).
-- [Сброс пароля Administrator в Windows](/vps-management/reset-windows-admin-password).
-- [Восстановление заблокированного аккаунта Windows: ошибка RDP 0xd07](/vps-management/rdp-error-0xd07-user-account-locked).
+- [Сброс пароля root в Linux](/ru/vps-management/reset-root-password-linux).
+- [Сброс пароля Administrator в Windows](/ru/vps-management/reset-windows-admin-password).
+- [Восстановление заблокированного аккаунта Windows: ошибка RDP 0xd07](/ru/vps-management/rdp-error-0xd07-user-account-locked).
 - [Средства восстановления Linux при проблемах загрузки, сети или SSH](/vps-management/linux-rescue-guide-and-troubleshoot).
 
 Переустанавливайте систему только если намерены заменить существующую установку и сохранили всё нужное в резервной копии.
 
-<span id="networking-and-location-changes" />
-
-## Сеть и смена локации
+## Сеть и смена локации {#networking-and-location-changes}
 
 **Частная сеть между VPS:** Private VLAN соединяет VPS в одной серверной локации. Назначьте её в **System Configuration → VLAN Settings**, примените настройки и выполните холодную загрузку. Затем настройте уникальные частные IP-адреса одной подсети на вторичных интерфейсах. Не изменяйте публичную сетевую конфигурацию первичных интерфейсов.
 
@@ -274,9 +246,7 @@ EDIS Global увеличивает виртуальный диск, но не и
 
 Перед запросом замены изучите [условия смены локации](/faq/server-locations/change-server-location), включая доступность и влияние на право на возврат.
 
-<span id="cancel-a-vps-correctly" />
-
-## Правильная отмена VPS
+## Правильная отмена VPS {#cancel-a-vps-correctly}
 
 **Остановка VPS не отменяет услугу и не прекращает выставление счетов за продление.**
 
@@ -295,9 +265,7 @@ EDIS Global увеличивает виртуальный диск, но не и
 
 [Инструкции по отмене](/ru/faq/billing-lifecycle/cancel-a-service) · [Правила хранения данных](/ru/faq/billing-lifecycle/data-retention-period)
 
-<span id="get-help-with-the-right-details" />
-
-## Передайте нужные сведения для помощи
+## Передайте нужные сведения для помощи {#get-help-with-the-right-details}
 
 Обратитесь в [поддержку EDIS Global](https://www.edisglobal.com/contact), указав идентификатор или IP-адрес VPS, краткое описание проблемы, время её появления и уже предпринятые действия. По вопросам оплаты укажите номер счёта.
 

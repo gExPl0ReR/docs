@@ -540,7 +540,25 @@
               {
                 "group": "Управление VPS",
                 "pages": [
-                  "ru/vps-management/enable-vnc-server"
+                  "ru/vps-management/api-for-management-and-ordering",
+                  "ru/vps-management/vps-management-portal",
+                  "ru/vps-management/understanding-vps-status",
+                  "ru/vps-management/ai-assisted-vps-management",
+                  "ru/vps-management/autoinstall-reinstall-install-vps-linux-windows",
+                  "ru/vps-management/os-availability",
+                  "ru/vps-management/edis-cloud-init-vps-installation",
+                  "ru/vps-management/power-cycle-or-reboot-a-vps",
+                  "ru/vps-management/reset-root-password-linux",
+                  "ru/vps-management/reset-windows-admin-password",
+                  "ru/vps-management/rdp-error-0xd07-user-account-locked",
+                  "ru/vps-management/mount-iso-image",
+                  "ru/vps-management/post-install-scripts",
+                  "ru/vps-management/system-configuration-dialog",
+                  "ru/vps-management/bring-your-own-iso",
+                  "ru/vps-management/enable-vnc-server",
+                  "ru/vps-management/ip-address-information",
+                  "ru/vps-management/ipv6-configuration",
+                  "ru/vps-management/basic-ipv6-troubleshooting"
                 ]
               },
               {
