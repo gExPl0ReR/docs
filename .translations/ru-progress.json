@@ -1,5 +1,5 @@
 {
-  "translated": 150,
+  "translated": 160,
   "total": 183,
   "pages": [
     {
@@ -1032,6 +1032,76 @@
       "mdx_checked": true
     },
     {
+      "source": "advanced-setup-guides/openvpn-over-stunnel.mdx",
+      "target": "ru/advanced-setup-guides/openvpn-over-stunnel.mdx",
+      "source_sha": "c088fdf36fe08be7bd2806c5eb62587c43ba7a47",
+      "headings": 29,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/l2tp-ipsec-and-ikev2-vpn.mdx",
+      "target": "ru/advanced-setup-guides/l2tp-ipsec-and-ikev2-vpn.mdx",
+      "source_sha": "f8277dddaa0079f31b2022407c8e6e3ceb109b8b",
+      "headings": 27,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204.mdx",
+      "target": "ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204.mdx",
+      "source_sha": "7d891d481097da29013c2d8026e28337879892ac",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router.mdx",
+      "target": "ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router.mdx",
+      "source_sha": "218bfe438e81524d1c6ba648f7b1ff62828718f4",
+      "headings": 0,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg.mdx",
+      "target": "ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg.mdx",
+      "source_sha": "3db6ee2bd164ed99ecf507bca0b653f918d4d63a",
+      "headings": 11,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows.mdx",
+      "target": "ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows.mdx",
+      "source_sha": "dcb2adc42509f9f2468885e5fba3bc403ac1e26c",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204.mdx",
+      "target": "ru/advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204.mdx",
+      "source_sha": "8a008fbf224bd3c7e815ede06e292f0c90edbd9c",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-3x-ui-on-vps/hiddify-client-for-windows.mdx",
+      "target": "ru/advanced-setup-guides/install-3x-ui-on-vps/hiddify-client-for-windows.mdx",
+      "source_sha": "1bfe06f6623b518e2e7a8c794bcf73ebade38efb",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-3x-ui-on-vps/v2rayng-vpn-client-on-android.mdx",
+      "target": "ru/advanced-setup-guides/install-3x-ui-on-vps/v2rayng-vpn-client-on-android.mdx",
+      "source_sha": "4fe9500b5924727368990b82e6d2fbdd68e6cf34",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-3x-ui-on-vps/v2raytun-vpn-client-on-ios.mdx",
+      "target": "ru/advanced-setup-guides/install-3x-ui-on-vps/v2raytun-vpn-client-on-ios.mdx",
+      "source_sha": "c47296d220820309e6f28aa2f1f04acca3d2a12b",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
       "source": "changelog/product.mdx",
       "target": "ru/changelog/product.mdx",
       "source_sha": "a661848d6d6692c05c39ded64f4bfe5ceb11eb3e",
@@ -1054,16 +1124,6 @@
     }
   ],
   "pending": [
-    "advanced-setup-guides/openvpn-over-stunnel.mdx",
-    "advanced-setup-guides/l2tp-ipsec-and-ikev2-vpn.mdx",
-    "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204.mdx",
-    "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router.mdx",
-    "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg.mdx",
-    "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows.mdx",
-    "advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204.mdx",
-    "advanced-setup-guides/install-3x-ui-on-vps/hiddify-client-for-windows.mdx",
-    "advanced-setup-guides/install-3x-ui-on-vps/v2rayng-vpn-client-on-android.mdx",
-    "advanced-setup-guides/install-3x-ui-on-vps/v2raytun-vpn-client-on-ios.mdx",
     "advanced-setup-guides/how-to-install-google-chrome-on-windows-server.mdx",
     "advanced-setup-guides/forgot-administrator-password-on-windows-server.mdx",
     "advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode.mdx",

@@ -749,7 +749,27 @@
                     ]
                   },
                   "ru/advanced-setup-guides/registering-and-assigning-a-domain-to-your-vps",
-                  "ru/advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps"
+                  "ru/advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps",
+                  "ru/advanced-setup-guides/openvpn-over-stunnel",
+                  "ru/advanced-setup-guides/l2tp-ipsec-and-ikev2-vpn",
+                  {
+                    "group": "Установка AmneziaWG на Ubuntu 22.04",
+                    "pages": [
+                      "ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204",
+                      "ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router",
+                      "ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg",
+                      "ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows"
+                    ]
+                  },
+                  {
+                    "group": "Установка 3x-ui на VPS",
+                    "pages": [
+                      "ru/advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204",
+                      "ru/advanced-setup-guides/install-3x-ui-on-vps/hiddify-client-for-windows",
+                      "ru/advanced-setup-guides/install-3x-ui-on-vps/v2rayng-vpn-client-on-android",
+                      "ru/advanced-setup-guides/install-3x-ui-on-vps/v2raytun-vpn-client-on-ios"
+                    ]
+                  }
                 ]
               }
             ]

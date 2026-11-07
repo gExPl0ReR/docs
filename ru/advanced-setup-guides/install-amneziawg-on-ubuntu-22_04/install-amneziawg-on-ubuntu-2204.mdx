@@ -1,0 +1,214 @@
+---
+title: "Установка AmneziaWG на Ubuntu 22.04"
+sidebarTitle: "AmneziaWG на Ubuntu"
+description: "Установите AmneziaWG на Ubuntu 22.04: пошаговая настройка VPN на базе WireGuard с маскировкой трафика для обхода DPI и ограничений доступа."
+---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+## Что такое Amnezia VPN? {#what-is-amnezia-vpn}
+
+Amnezia VPN — проект российских интернет-активистов, направленный на борьбу с государственной цензурой. Это бесплатное приложение с открытым исходным кодом для создания личного VPN на собственном сервере с WireGuard, OpenVPN и Shadowsocks. Обфускация трафика **затрудняет работу Deep Packet Inspection (DPI)**: системам сложнее обнаружить или заблокировать VPN. Amnezia эффективна даже в странах с жёсткими ограничениями, таких как Россия, Китай и Иран.
+
+**Amnezia WG VPN** (AmneziaWG) специально рассчитана на наиболее ограниченные интернет-среды, где обычные VPN могут не справляться.
+
+## Что такое AmneziaWG VPN? {#what-is-amneziawg-vpn}
+
+**AmneziaWG VPN** — реализация **протокола WireGuard** в Amnezia. **AmneziaWG** представляет собой улучшенный вариант WireGuard для самых строгих ограничений. Он оптимизирован для сильной цензуры и способен лучше обходить сложные блокировки, чем стандартная установка WireGuard.
+
+## Выберите VPS для AmneziaWG {#choose-a-vps-for-amneziawg}
+
+Для следующих шагов нужен KVM Linux VPS с root-доступом, публичным IPv4 и **Ubuntu 22.04**.
+
+Для небольшого личного VPN практичной отправной точкой будет **KVM Starter с 2 GB RAM**. Сравните vCPU, диск, месячный трафик и цену выбранной локации. Ёмкость зависит от активных устройств, трафика и нагрузки шифрования; один лишь объём RAM не гарантирует число пользователей или скорость.
+
+Выбирайте локацию после проверки маршрута из сетей, где будете пользоваться VPN. Можно сравнить [Таллин](https://www.edisglobal.com/vps-hosting/estonia-tallinn) и [Амстердам](https://www.edisglobal.com/vps-hosting/netherlands-amsterdam); перед заказом используйте Looking Glass на страницах локаций.
+
+<CardGroup cols={2}>
+  <Card title="Сравнить VPS с 2 GB RAM" icon="server" href="https://www.edisglobal.com/vps-hosting/2gb-vps?utm_source=edis-docs&utm_medium=referral&utm_campaign=vpn-guides&utm_content=amneziawg-prerequisites">
+    Выберите локацию и сравните текущую конфигурацию KVM Starter и месячную цену.
+  </Card>
+  <Card title="Все локации VPS" icon="globe" href="https://www.edisglobal.com/vps-hosting?utm_source=edis-docs&utm_medium=referral&utm_campaign=vpn-guides&utm_content=amneziawg-locations">
+    Сравните другие локации и более высокие тарифы под ожидаемый трафик.
+  </Card>
+</CardGroup>
+
+## Установка AmneziaWG VPN на VPS {#installing-amneziawg-vpn-on-a-vps}
+
+1. Установите Ubuntu 22.04 на выбранный VPS.
+2. Подключитесь к VPS по SSH:
+
+```bash
+ssh root@VPS_IP_address
+Enter root password:
+```
+
+3. Обновите список источников пакетов:
+
+```bash
+# Backup the current sources list
+cp -f /etc/apt/sources.list /etc/apt/sources.list.backup
+
+# Enable source repositories
+sed "s/# deb-src/deb-src/" /etc/apt/sources.list.backup > /etc/apt/sources.list
+
+# Update and upgrade packages
+apt update -y && apt upgrade -y
+```
+
+4. Включите маршрутизацию трафика для драйвера AWG:
+
+```bash
+echo "net.ipv4.ip_forward = 1" > /etc/sysctl.d/00-amnezia.conf
+```
+
+5. Перезагрузите систему:
+
+```bash
+reboot
+```
+
+6. Создайте каталог и перейдите в него:
+
+```bash
+mkdir -p ~/awg && cd ~/awg
+```
+
+7. Установите пакеты AmneziaWG:
+
+```bash
+# Add AmneziaWG repository
+add-apt-repository -y ppa:amnezia/ppa
+
+# Install AmneziaWG
+apt install -y amneziawg
+```
+
+8. Проверьте наличие нужных драйверов:
+
+```bash
+lsmod | grep amnezia
+```
+
+Ожидаемый вывод:
+
+```text
+amneziawg              98304  0
+curve25519_x86_64      36864  2 amneziawg,wireguard
+libchacha20poly1305    16384  2 amneziawg,wireguard
+libcurve25519_generic  49152  3 amneziawg,curve25519_x86_64,wireguard
+ip6_udp_tunnel         16384  2 amneziawg,wireguard
+udp_tunnel             20480  2 amneziawg,wireguard
+```
+
+Если вывода нет, попробуйте:
+
+```bash
+modprobe amneziawg && lsmod | grep amnezia
+```
+
+9. Установите необходимые утилиты:
+
+```bash
+# Install system utilities
+apt install curl wget python3 python3-pip
+
+# Install Python QR code generator
+pip3 install qrcode
+```
+
+10. Скачайте скрипт настройки:
+
+```bash
+cd ~/awg
+wget -O awgcfg.py https://gist.githubusercontent.com/remittor/8c3d9ff293b2ba4b13c367cc1a69f9eb/raw/awgcfg.py
+```
+
+11. Создайте основную конфигурацию AWG:
+
+```bash
+# You can customize the subnet (10.10.8.1) and UDP port (42666) as needed
+python3 awgcfg.py --make /etc/amnezia/amneziawg/awg0.conf -i 10.10.8.1/24 -p 42666
+```
+
+12. Создайте шаблон клиентских конфигураций и QR-кодов:
+
+```bash
+python3 awgcfg.py --create
+```
+
+13. Добавьте клиентов в основную конфигурацию:
+
+```bash
+# Add first client
+python3 awgcfg.py -a "my_amneziawg_client1"
+
+# Add second client
+python3 awgcfg.py -a "my_amneziawg_client2"
+```
+
+14. Создайте клиентские конфигурации:
+
+```bash
+python3 awgcfg.py -c -q
+```
+
+15. Настройте и запустите интерфейс туннеля AWG:
+
+```bash
+# Enable AmneziaWG at system startup
+systemctl enable --now awg-quick@awg0
+
+# Restart the service
+systemctl restart awg-quick@awg0.service
+
+# Check service status
+systemctl status awg-quick@awg0.service
+```
+
+При успешной настройке вывод будет похож на следующий:
+
+```text
+vps systemd[1]: awg-quick@awg0.service: Deactivated successfully.
+vps systemd[1]: Stopped WireGuard via wg-quick(8) for awg0.
+vps systemd[1]: Starting WireGuard via wg-quick(8) for awg0...
+vps awg-quick[8284]: [#] ip link add awg0 type amneziawg
+vps awg-quick[8284]: [#] awg setconf awg0 /dev/fd/63
+vps awg-quick[8284]: [#] ip -4 address add 10.10.8.1/24 dev awg0
+vps awg-quick[8284]: [#] ip link set mtu 1420 up dev awg0
+vps awg-quick[8284]: [#] iptables -A INPUT -p udp --dport 42666 -m con>
+vps systemd[1]: Finished WireGuard via wg-quick(8) for awg0.
+```
+
+16. Проверьте статус AWG:
+
+```bash
+awg show
+```
+
+Теперь можно скопировать конфигурации my\_amneziawg\_client1 и my\_amneziawg\_client2 на клиентские устройства. Выберите инструкцию для своей платформы:
+
+<div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+  <CtaButton label="AmneziaWG на роутере Keenetic" link="/ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router" openInNewTab={true} />
+  <CtaButton label="Подключение клиента Ubuntu" link="/ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg" openInNewTab={true} />
+  <CtaButton label="Клиент AmneziaWG для Windows" link="/ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows" openInNewTab={true} />
+</div>
+
+## Дополнительные материалы {#additional-resources}
+
+Официальная документация и руководства:
+
+- [Документация AmneziaWG](https://docs.amnezia.org/documentation/amnezia-wg/)
+- [Настройка Keenetic OS](https://docs.amnezia.org/documentation/instructions/keenetic-os-awg/)
+- [Установка OpenWRT](https://github.com/openwrt-xiaomi/awg-openwrt/wiki/AmneziaWG-installing)
+
+Руководства для платформ:
+
+- [Android](https://github.com/amnezia-vpn/awg-android)
+- [Windows](https://github.com/amnezia-vpn/awg-windows)
+- [macOS и iOS](https://github.com/amnezia-vpn/awg-apple)
+- [Инструменты WireGuard](https://github.com/amnezia-vpn/amnezia-wg-tools)
+
+## Планирование следующего развёртывания {#plan-your-next-deployment}
+
+[Выберите локацию и тариф VPS для AmneziaWG](https://www.edisglobal.com/vps-hosting/2gb-vps?utm_source=edis-docs&utm_medium=referral&utm_campaign=vpn-guides&utm_content=amneziawg-next-steps). Для сервиса с платящими абонентами прочитайте [руководство по коммерческому VPN](/ru/commercial-vpn-hosting) и подбирайте VPS по измеренной нагрузке CPU, активным соединениям и месячному трафику.
