@@ -50,443 +50,488 @@
         }
       ]
     },
-    "tabs": [
+    "languages": [
       {
-        "tab": "Documentation",
-        "groups": [
+        "language": "en",
+        "default": true,
+        "tabs": [
           {
-            "group": "Getting Started",
-            "pages": [
-              "getting-started/everything-vps",
-              "getting-started/common-vps-tasks",
-              "getting-started/check-your-inbox",
-              "getting-started/understanding-email-notifications",
-              "getting-started/no-email-received",
-              "getting-started/statuspage-subscribe",
-              "getting-started/how-our-support-team-helps-you",
-              "getting-started/linux-secure-shell-ssh",
-              "getting-started/ssh-security-hardening-guide",
-              "getting-started/windows-remote-desktop",
-              "getting-started/backups",
-              "getting-started/acceptable-use-policy"
-            ]
-          },
-          {
-            "group": "VPS Management",
-            "pages": [
-              "vps-management/api-for-management-and-ordering",
-              "vps-management/vps-management-portal",
-              "vps-management/understanding-vps-status",
-              "vps-management/ai-assisted-vps-management",
-              "vps-management/autoinstall-reinstall-install-vps-linux-windows",
-              "vps-management/os-availability",
-              "vps-management/edis-cloud-init-vps-installation",
-              "vps-management/power-cycle-or-reboot-a-vps",
-              "vps-management/reset-root-password-linux",
-              "vps-management/reset-windows-admin-password",
-              "vps-management/rdp-error-0xd07-user-account-locked",
-              "vps-management/mount-iso-image",
-              "vps-management/post-install-scripts",
-              "vps-management/system-configuration-dialog",
-              "vps-management/bring-your-own-iso",
-              "vps-management/enable-vnc-server",
-              "vps-management/ip-address-information",
-              "vps-management/ipv6-configuration",
-              "vps-management/basic-ipv6-troubleshooting",
-              "vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404",
-              "vps-management/how-to-change-ip-address-in-windows-server",
-              "vps-management/linux-rescue-guide-and-troubleshoot",
-              "vps-management/uefi-vs-bios-and-v-tpm",
-              "vps-management/your-support-pin"
-            ]
-          },
-          {
-            "group": "FAQ",
-            "pages": [
-              "faq/data-processing-agreement",
-              "faq/what-is-a-virtual-private-server",
-              "faq/what-is-a-kvm-vps",
-              "faq/free-trials-available",
-              "faq/port-25-smtp-rate-limit-policy",
-              "faq/windows-rdp-service-available",
-              "faq/desktop-acceleration",
-              "faq/hourly-plans-available",
+            "tab": "Documentation",
+            "groups": [
               {
-                "group": "IP Addresses",
-                "icon": "chart-network",
+                "group": "Getting Started",
                 "pages": [
-                  "faq/ip-addresses/ping-test-ip",
-                  "faq/ip-addresses/free-latency-test-guide",
-                  "faq/ip-addresses/change-ip-address",
-                  "faq/ip-addresses/order-additional-ip-address",
-                  "faq/ip-addresses/order-bespoke-ip-address",
-                  "faq/ip-addresses/configuring-additional-ip-address-linux",
-                  "faq/ip-addresses/setting-up-reverse-pointers",
-                  "faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall",
-                  "faq/ip-addresses/ip-can-not-be-reached-from-my-country",
-                  "faq/ip-addresses/geolocation-geoip-databases",
-                  "faq/ip-addresses/ip-location-incorrect-on-whatismyipaddresscom",
-                  "faq/ip-addresses/dns-leak-tests",
-                  "faq/ip-addresses/understanding-ip-address-location",
-                  "faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location",
-                  "faq/ip-addresses/static-ip-addresses",
-                  "faq/ip-addresses/bring-your-own-ipv4-prefix",
-                  "faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance",
-                  "faq/ip-addresses/network-is-down",
-                  "faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute",
-                  "faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows",
-                  "faq/ip-addresses/ping-pe-connectivity-check",
-                  "faq/ip-addresses/ports-firewalls-and-connectivity"
+                  "getting-started/everything-vps",
+                  "getting-started/common-vps-tasks",
+                  "getting-started/check-your-inbox",
+                  "getting-started/understanding-email-notifications",
+                  "getting-started/no-email-received",
+                  "getting-started/statuspage-subscribe",
+                  "getting-started/how-our-support-team-helps-you",
+                  "getting-started/linux-secure-shell-ssh",
+                  "getting-started/ssh-security-hardening-guide",
+                  "getting-started/windows-remote-desktop",
+                  "getting-started/backups",
+                  "getting-started/acceptable-use-policy"
                 ]
               },
               {
-                "group": "Server Locations",
-                "icon": "globe",
+                "group": "VPS Management",
                 "pages": [
-                  "faq/server-locations/list-of-edis-global-server-locations-by-continent-region",
-                  "faq/server-locations/change-server-location"
+                  "vps-management/api-for-management-and-ordering",
+                  "vps-management/vps-management-portal",
+                  "vps-management/understanding-vps-status",
+                  "vps-management/ai-assisted-vps-management",
+                  "vps-management/autoinstall-reinstall-install-vps-linux-windows",
+                  "vps-management/os-availability",
+                  "vps-management/edis-cloud-init-vps-installation",
+                  "vps-management/power-cycle-or-reboot-a-vps",
+                  "vps-management/reset-root-password-linux",
+                  "vps-management/reset-windows-admin-password",
+                  "vps-management/rdp-error-0xd07-user-account-locked",
+                  "vps-management/mount-iso-image",
+                  "vps-management/post-install-scripts",
+                  "vps-management/system-configuration-dialog",
+                  "vps-management/bring-your-own-iso",
+                  "vps-management/enable-vnc-server",
+                  "vps-management/ip-address-information",
+                  "vps-management/ipv6-configuration",
+                  "vps-management/basic-ipv6-troubleshooting",
+                  "vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404",
+                  "vps-management/how-to-change-ip-address-in-windows-server",
+                  "vps-management/linux-rescue-guide-and-troubleshoot",
+                  "vps-management/uefi-vs-bios-and-v-tpm",
+                  "vps-management/your-support-pin"
                 ]
               },
               {
-                "group": "Billing & Lifecycle",
-                "icon": "money-bill-1-wave",
+                "group": "FAQ",
                 "pages": [
-                  "faq/billing-lifecycle/automated-payments",
-                  "faq/billing-lifecycle/payments-transitions",
-                  "faq/billing-lifecycle/pay-invoices-from-credit-balance",
-                  "faq/billing-lifecycle/how-to-add-account-credit",
-                  "faq/billing-lifecycle/incoming-and-outgoing-payments",
-                  "faq/billing-lifecycle/top-up-credit-balance-by-bank-transfer",
-                  "faq/billing-lifecycle/no-upfront-deposits-required",
-                  "faq/billing-lifecycle/country-change-client-account",
-                  "faq/billing-lifecycle/moving-services-to-different-client-account",
-                  "faq/billing-lifecycle/how-vps-renewals-work",
-                  "faq/billing-lifecycle/accidental-renewal-convert-payment-to-credit",
-                  "faq/billing-lifecycle/accepted-payment-methods",
-                  "faq/billing-lifecycle/cryptocurrency-payments",
-                  "faq/billing-lifecycle/automatic-currency-conversion",
-                  "faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global",
-                  "faq/billing-lifecycle/how-fast-instant-delivery",
-                  "faq/billing-lifecycle/cancel-a-service",
-                  "faq/billing-lifecycle/manage-cancellation-requests",
-                  "faq/billing-lifecycle/data-retention-period",
-                  "faq/billing-lifecycle/cancellation-and-refund-policy",
-                  "faq/billing-lifecycle/can-i-get-a-refund",
-                  "faq/billing-lifecycle/credit-card-reservation-vs-payment",
-                  "faq/billing-lifecycle/automated-vps-billing-workflow",
-                  "faq/billing-lifecycle/scheduled-billing-window",
-                  "faq/billing-lifecycle/how-to-receive-monthly-consolidated-invoice",
-                  "faq/billing-lifecycle/eu-vat-explained-if-and-how-much",
-                  "faq/billing-lifecycle/can-i-pay-with-iban",
-                  "faq/billing-lifecycle/find-and-download-invoices",
-                  "faq/billing-lifecycle/how-to-pay-paypal-use-different-currency",
-                  "faq/billing-lifecycle/add-contact-receive-invoices-different-email",
-                  "faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account",
-                  "faq/billing-lifecycle/cryptocurrency-payment-help",
-                  "faq/billing-lifecycle/reset-2fa"
-                ]
-              },
-              {
-                "group": "Traffic (bandwidth)",
-                "icon": "display-chart-up",
-                "pages": [
-                  "faq/traffic-bandwidth/traffic-vs-bandwidth",
-                  "faq/traffic-bandwidth/traffic-stats-refill-explained",
-                  "faq/traffic-bandwidth/traffic-pool",
-                  "faq/traffic-bandwidth/speed-test",
-                  "faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-network-usage",
-                  "faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global",
+                  "faq/data-processing-agreement",
+                  "faq/what-is-a-virtual-private-server",
+                  "faq/what-is-a-kvm-vps",
+                  "faq/free-trials-available",
+                  "faq/port-25-smtp-rate-limit-policy",
+                  "faq/windows-rdp-service-available",
+                  "faq/desktop-acceleration",
+                  "faq/hourly-plans-available",
                   {
-                    "group": "DOS Attacks",
+                    "group": "IP Addresses",
+                    "icon": "chart-network",
                     "pages": [
-                      "faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview",
-                      "faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients"
+                      "faq/ip-addresses/ping-test-ip",
+                      "faq/ip-addresses/free-latency-test-guide",
+                      "faq/ip-addresses/change-ip-address",
+                      "faq/ip-addresses/order-additional-ip-address",
+                      "faq/ip-addresses/order-bespoke-ip-address",
+                      "faq/ip-addresses/configuring-additional-ip-address-linux",
+                      "faq/ip-addresses/setting-up-reverse-pointers",
+                      "faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall",
+                      "faq/ip-addresses/ip-can-not-be-reached-from-my-country",
+                      "faq/ip-addresses/geolocation-geoip-databases",
+                      "faq/ip-addresses/ip-location-incorrect-on-whatismyipaddresscom",
+                      "faq/ip-addresses/dns-leak-tests",
+                      "faq/ip-addresses/understanding-ip-address-location",
+                      "faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location",
+                      "faq/ip-addresses/static-ip-addresses",
+                      "faq/ip-addresses/bring-your-own-ipv4-prefix",
+                      "faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance",
+                      "faq/ip-addresses/network-is-down",
+                      "faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute",
+                      "faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows",
+                      "faq/ip-addresses/ping-pe-connectivity-check",
+                      "faq/ip-addresses/ports-firewalls-and-connectivity"
+                    ]
+                  },
+                  {
+                    "group": "Server Locations",
+                    "icon": "globe",
+                    "pages": [
+                      "faq/server-locations/list-of-edis-global-server-locations-by-continent-region",
+                      "faq/server-locations/change-server-location"
+                    ]
+                  },
+                  {
+                    "group": "Billing & Lifecycle",
+                    "icon": "money-bill-1-wave",
+                    "pages": [
+                      "faq/billing-lifecycle/automated-payments",
+                      "faq/billing-lifecycle/payments-transitions",
+                      "faq/billing-lifecycle/pay-invoices-from-credit-balance",
+                      "faq/billing-lifecycle/how-to-add-account-credit",
+                      "faq/billing-lifecycle/incoming-and-outgoing-payments",
+                      "faq/billing-lifecycle/top-up-credit-balance-by-bank-transfer",
+                      "faq/billing-lifecycle/no-upfront-deposits-required",
+                      "faq/billing-lifecycle/country-change-client-account",
+                      "faq/billing-lifecycle/moving-services-to-different-client-account",
+                      "faq/billing-lifecycle/how-vps-renewals-work",
+                      "faq/billing-lifecycle/accidental-renewal-convert-payment-to-credit",
+                      "faq/billing-lifecycle/accepted-payment-methods",
+                      "faq/billing-lifecycle/cryptocurrency-payments",
+                      "faq/billing-lifecycle/automatic-currency-conversion",
+                      "faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global",
+                      "faq/billing-lifecycle/how-fast-instant-delivery",
+                      "faq/billing-lifecycle/cancel-a-service",
+                      "faq/billing-lifecycle/manage-cancellation-requests",
+                      "faq/billing-lifecycle/data-retention-period",
+                      "faq/billing-lifecycle/cancellation-and-refund-policy",
+                      "faq/billing-lifecycle/can-i-get-a-refund",
+                      "faq/billing-lifecycle/credit-card-reservation-vs-payment",
+                      "faq/billing-lifecycle/automated-vps-billing-workflow",
+                      "faq/billing-lifecycle/scheduled-billing-window",
+                      "faq/billing-lifecycle/how-to-receive-monthly-consolidated-invoice",
+                      "faq/billing-lifecycle/eu-vat-explained-if-and-how-much",
+                      "faq/billing-lifecycle/can-i-pay-with-iban",
+                      "faq/billing-lifecycle/find-and-download-invoices",
+                      "faq/billing-lifecycle/how-to-pay-paypal-use-different-currency",
+                      "faq/billing-lifecycle/add-contact-receive-invoices-different-email",
+                      "faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account",
+                      "faq/billing-lifecycle/cryptocurrency-payment-help",
+                      "faq/billing-lifecycle/reset-2fa"
+                    ]
+                  },
+                  {
+                    "group": "Traffic (bandwidth)",
+                    "icon": "display-chart-up",
+                    "pages": [
+                      "faq/traffic-bandwidth/traffic-vs-bandwidth",
+                      "faq/traffic-bandwidth/traffic-stats-refill-explained",
+                      "faq/traffic-bandwidth/traffic-pool",
+                      "faq/traffic-bandwidth/speed-test",
+                      "faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-network-usage",
+                      "faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global",
+                      {
+                        "group": "DOS Attacks",
+                        "pages": [
+                          "faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview",
+                          "faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Upgrades, Downgrades",
+                    "icon": "gear",
+                    "pages": [
+                      "faq/upgrades-downgrades/upgrades",
+                      "faq/upgrades-downgrades/upgrade-plan",
+                      "faq/upgrades-downgrades/upgrade-resources",
+                      "faq/upgrades-downgrades/upgrade-disk-drive-boost",
+                      "faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade",
+                      "faq/upgrades-downgrades/is-it-possible-to-downgrade",
+                      "faq/upgrades-downgrades/backup-restore-data-linux",
+                      "faq/upgrades-downgrades/requesting-qcow2-image-backup",
+                      "faq/upgrades-downgrades/private-vlan-option",
+                      "faq/upgrades-downgrades/get-additional-network-card",
+                      {
+                        "group": "CPU Resources in VPS",
+                        "pages": [
+                          "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps",
+                          "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-linux-vps",
+                          "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps"
+                        ]
+                      }
                     ]
                   }
                 ]
               },
               {
-                "group": "Upgrades, Downgrades",
-                "icon": "gear",
+                "group": "Providers & Resellers",
                 "pages": [
-                  "faq/upgrades-downgrades/upgrades",
-                  "faq/upgrades-downgrades/upgrade-plan",
-                  "faq/upgrades-downgrades/upgrade-resources",
-                  "faq/upgrades-downgrades/upgrade-disk-drive-boost",
-                  "faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade",
-                  "faq/upgrades-downgrades/is-it-possible-to-downgrade",
-                  "faq/upgrades-downgrades/backup-restore-data-linux",
-                  "faq/upgrades-downgrades/requesting-qcow2-image-backup",
-                  "faq/upgrades-downgrades/private-vlan-option",
-                  "faq/upgrades-downgrades/get-additional-network-card",
+                  "partner-starter-pack",
+                  "commercial-vpn-hosting",
+                  "reselling-and-discounts"
+                ]
+              },
+              {
+                "group": "Abuse and Complaints",
+                "pages": [
+                  "reporting-abuse",
+                  "responding-to-abuse-complaints"
+                ]
+              },
+              {
+                "group": "Join Our Team",
+                "pages": [
+                  "join-our-team/jobs-edisglobal-support-agent-non-voice",
+                  "join-our-team/technical-procurement-and-server-operations-coordinator",
+                  "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert"
+                ]
+              },
+              {
+                "group": "Advanced Setup Guides",
+                "pages": [
+                  "advanced-setup-guides/run-monero-node-debian-vps",
                   {
-                    "group": "CPU Resources in VPS",
+                    "group": "File Transfer Methods",
                     "pages": [
-                      "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps",
-                      "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-linux-vps",
-                      "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps"
+                      "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods",
+                      "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server",
+                      "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows",
+                      "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows",
+                      "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux",
+                      "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux"
                     ]
-                  }
+                  },
+                  "advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox",
+                  "advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router",
+                  "advanced-setup-guides/install-mikrotik-routeros-on-edis-vps",
+                  "advanced-setup-guides/installing-a-vps-using-cloud-init",
+                  "advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems",
+                  "advanced-setup-guides/extend-hard-drive-windows-guide",
+                  {
+                    "group": "Security Advisories",
+                    "pages": [
+                      "advanced-setup-guides/security-advisories/regresshion-openssh-vulnerability",
+                      "advanced-setup-guides/security-advisories/update-sshd-debian-ubuntu-redhat"
+                    ]
+                  },
+                  "advanced-setup-guides/registering-and-assigning-a-domain-to-your-vps",
+                  "advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps",
+                  "advanced-setup-guides/openvpn-over-stunnel",
+                  "advanced-setup-guides/l2tp-ipsec-and-ikev2-vpn",
+                  {
+                    "group": "Install AmneziaWG on Ubuntu 22.04",
+                    "pages": [
+                      "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204",
+                      "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router",
+                      "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg",
+                      "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows"
+                    ]
+                  },
+                  {
+                    "group": "Install 3x-ui on VPS",
+                    "pages": [
+                      "advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204",
+                      "advanced-setup-guides/install-3x-ui-on-vps/hiddify-client-for-windows",
+                      "advanced-setup-guides/install-3x-ui-on-vps/v2rayng-vpn-client-on-android",
+                      "advanced-setup-guides/install-3x-ui-on-vps/v2raytun-vpn-client-on-ios"
+                    ]
+                  },
+                  "advanced-setup-guides/how-to-install-google-chrome-on-windows-server",
+                  "advanced-setup-guides/forgot-administrator-password-on-windows-server",
+                  "advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode",
+                  "advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps",
+                  "advanced-setup-guides/gui-versions-of-ubuntu-debian",
+                  "advanced-setup-guides/install-jitsi-on-your-vps",
+                  "advanced-setup-guides/how-to-setup-wireguard-vpn",
+                  "advanced-setup-guides/install-cockpit-on-vps",
+                  "advanced-setup-guides/installing-openvpn-with-turnkey",
+                  "advanced-setup-guides/ufw-uncomplicated-firewall-howto",
+                  "advanced-setup-guides/nftables-firewall-howto",
+                  "advanced-setup-guides/install-openclaw-edislobal-vps"
+                ]
+              },
+              {
+                "group": "Misc",
+                "pages": [
+                  "misc/extending-180-day-trial-version-of-windows",
+                  "misc/fix-openssh-vm-delays-low-entropy",
+                  "misc/security-compliance",
+                  "misc/fix-black-screen-windows-server",
+                  "misc/why-has-windows-server-slowed-down",
+                  "misc/fix-for-realvnc-closing-connection",
+                  "misc/manual-windows-server-installation-on-kvm",
+                  "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error",
+                  "misc/what-is-seabios",
+                  "misc/disable-serial-getty-ttys0-debian-13",
+                  "misc/portal-buttons-not-loading"
                 ]
               }
             ]
           },
           {
-            "group": "Providers & Resellers",
-            "pages": [
-              "partner-starter-pack",
-              "commercial-vpn-hosting",
-              "reselling-and-discounts"
+            "tab": "Order API Endpoints",
+            "groups": [
+              {
+                "group": "Order-API",
+                "pages": [
+                  "order-api-reference/order-api-welcome",
+                  "order-api-reference/order-api",
+                  "order-api-reference/order-vps",
+                  "order-api-reference/upgrade-vps",
+                  "order-api-reference/get-vps-plans",
+                  "order-api-reference/get-vps-locations",
+                  "order-api-reference/get-billing-cycles",
+                  "order-api-reference/get-services",
+                  "order-api-reference/get-payment-options",
+                  "order-api-reference/get-accountbalance",
+                  "order-api-reference/get-service-id",
+                  "order-api-reference/get-kvm-id",
+                  "order-api-reference/cancel-vps"
+                ]
+              }
             ]
           },
           {
-            "group": "Abuse and Complaints",
+            "tab": "Management API Endpoints",
             "pages": [
-              "reporting-abuse",
-              "responding-to-abuse-complaints"
+              "management-api",
+              {
+                "group": "Authentication",
+                "pages": [
+                  "management-api-reference/authentication/create-auth-session"
+                ]
+              },
+              {
+                "group": "Power Management",
+                "pages": [
+                  "management-api-reference/power-management/hard-reset",
+                  "management-api-reference/power-management/soft-reset",
+                  "management-api-reference/power-management/power-state",
+                  "management-api-reference/power-management/power-on",
+                  "management-api-reference/power-management/power-off"
+                ]
+              },
+              {
+                "group": "Installation",
+                "pages": [
+                  "management-api-reference/installation/iso-installation",
+                  "management-api-reference/installation/reinstall",
+                  "management-api-reference/installation/mount-iso",
+                  "management-api-reference/installation/unmount-iso",
+                  "management-api-reference/installation/download-custom-iso",
+                  "management-api-reference/installation/upload-and-replace-qcow2",
+                  "management-api-reference/installation/get-autoinstall-images"
+                ]
+              },
+              {
+                "group": "Traffic Pool",
+                "pages": [
+                  "management-api-reference/traffic-pool/enable-auto-hydration",
+                  "management-api-reference/traffic-pool/disable-auto-hydration",
+                  "management-api-reference/traffic-pool/get-auto-hydration-status",
+                  "management-api-reference/traffic-pool/get-global-traffic-pool-size",
+                  "management-api-reference/traffic-pool/get-hydration-log",
+                  "management-api-reference/traffic-pool/assign-traffic-resources-from-global-pool"
+                ]
+              },
+              {
+                "group": "Settings",
+                "pages": [
+                  "management-api-reference/settings/get-configuration",
+                  "management-api-reference/settings/configure-settings"
+                ]
+              },
+              {
+                "group": "Collect Information",
+                "pages": [
+                  "management-api-reference/collect-information/get-vps-screenshot",
+                  "management-api-reference/collect-information/get-all-vps-details",
+                  "management-api-reference/collect-information/get-traffic-usage",
+                  "management-api-reference/collect-information/get-cpu-usage",
+                  "management-api-reference/collect-information/get-basic-details",
+                  "management-api-reference/collect-information/get-mount-details"
+                ]
+              },
+              {
+                "group": "VNC Management",
+                "pages": [
+                  "management-api-reference/vnc-management/set-vnc-keyboard-language",
+                  "management-api-reference/vnc-management/get-vnc-status",
+                  "management-api-reference/vnc-management/enable-vnc-access",
+                  "management-api-reference/vnc-management/disable-vnc-access"
+                ]
+              },
+              {
+                "group": "PTR",
+                "pages": [
+                  "management-api-reference/ptr/get-ptr-records",
+                  "management-api-reference/ptr/delete-ptr-records",
+                  "management-api-reference/ptr/set-ptr-records"
+                ]
+              },
+              {
+                "group": "Hooks",
+                "pages": [
+                  "management-api-reference/hooks/get-all-webhooks",
+                  "management-api-reference/hooks/delete-a-webhook",
+                  "management-api-reference/hooks/set-webhook-for-traffic-monitoring",
+                  "management-api-reference/hooks/example-callback-triggered"
+                ]
+              }
             ]
           },
           {
-            "group": "Join Our Team",
-            "pages": [
-              "join-our-team/jobs-edisglobal-support-agent-non-voice",
-              "join-our-team/technical-procurement-and-server-operations-coordinator",
-              "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert"
+            "tab": "Looking Glass API",
+            "groups": [
+              {
+                "group": "Get started",
+                "pages": [
+                  "looking-glass-api/overview",
+                  "looking-glass-api/rate-limits"
+                ]
+              },
+              {
+                "group": "Regional endpoints",
+                "pages": [
+                  "looking-glass-api/ping",
+                  "looking-glass-api/port",
+                  "looking-glass-api/probes",
+                  "looking-glass-api/location",
+                  "looking-glass-api/locations",
+                  "looking-glass-api/client"
+                ]
+              },
+              {
+                "group": "Integration guides",
+                "pages": [
+                  "looking-glass-api/global-hub",
+                  "looking-glass-api/results"
+                ]
+              }
             ]
           },
           {
-            "group": "Advanced Setup Guides",
-            "pages": [
-              "advanced-setup-guides/run-monero-node-debian-vps",
+            "tab": "Changelog",
+            "groups": [
               {
-                "group": "File Transfer Methods",
+                "group": "Changelog",
                 "pages": [
-                  "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods",
-                  "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server",
-                  "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows",
-                  "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows",
-                  "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux",
-                  "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux"
+                  "changelog/product",
+                  "changelog/management-api",
+                  "changelog/order-api"
                 ]
-              },
-              "advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox",
-              "advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router",
-              "advanced-setup-guides/install-mikrotik-routeros-on-edis-vps",
-              "advanced-setup-guides/installing-a-vps-using-cloud-init",
-              "advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems",
-              "advanced-setup-guides/extend-hard-drive-windows-guide",
-              {
-                "group": "Security Advisories",
-                "pages": [
-                  "advanced-setup-guides/security-advisories/regresshion-openssh-vulnerability",
-                  "advanced-setup-guides/security-advisories/update-sshd-debian-ubuntu-redhat"
-                ]
-              },
-              "advanced-setup-guides/registering-and-assigning-a-domain-to-your-vps",
-              "advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps",
-              "advanced-setup-guides/openvpn-over-stunnel",
-              "advanced-setup-guides/l2tp-ipsec-and-ikev2-vpn",
-              {
-                "group": "Install AmneziaWG on Ubuntu 22.04",
-                "pages": [
-                  "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204",
-                  "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router",
-                  "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg",
-                  "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows"
-                ]
-              },
-              {
-                "group": "Install 3x-ui on VPS",
-                "pages": [
-                  "advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204",
-                  "advanced-setup-guides/install-3x-ui-on-vps/hiddify-client-for-windows",
-                  "advanced-setup-guides/install-3x-ui-on-vps/v2rayng-vpn-client-on-android",
-                  "advanced-setup-guides/install-3x-ui-on-vps/v2raytun-vpn-client-on-ios"
-                ]
-              },
-              "advanced-setup-guides/how-to-install-google-chrome-on-windows-server",
-              "advanced-setup-guides/forgot-administrator-password-on-windows-server",
-              "advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode",
-              "advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps",
-              "advanced-setup-guides/gui-versions-of-ubuntu-debian",
-              "advanced-setup-guides/install-jitsi-on-your-vps",
-              "advanced-setup-guides/how-to-setup-wireguard-vpn",
-              "advanced-setup-guides/install-cockpit-on-vps",
-              "advanced-setup-guides/installing-openvpn-with-turnkey",
-              "advanced-setup-guides/ufw-uncomplicated-firewall-howto",
-              "advanced-setup-guides/nftables-firewall-howto",
-              "advanced-setup-guides/install-openclaw-edislobal-vps"
-            ]
-          },
-          {
-            "group": "Misc",
-            "pages": [
-              "misc/extending-180-day-trial-version-of-windows",
-              "misc/fix-openssh-vm-delays-low-entropy",
-              "misc/security-compliance",
-              "misc/fix-black-screen-windows-server",
-              "misc/why-has-windows-server-slowed-down",
-              "misc/fix-for-realvnc-closing-connection",
-              "misc/manual-windows-server-installation-on-kvm",
-              "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error",
-              "misc/what-is-seabios",
-              "misc/disable-serial-getty-ttys0-debian-13",
-              "misc/portal-buttons-not-loading"
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Order API Endpoints",
-        "groups": [
-          {
-            "group": "Order-API",
-            "pages": [
-              "order-api-reference/order-api-welcome",
-              "order-api-reference/order-api",
-              "order-api-reference/order-vps",
-              "order-api-reference/upgrade-vps",
-              "order-api-reference/get-vps-plans",
-              "order-api-reference/get-vps-locations",
-              "order-api-reference/get-billing-cycles",
-              "order-api-reference/get-services",
-              "order-api-reference/get-payment-options",
-              "order-api-reference/get-accountbalance",
-              "order-api-reference/get-service-id",
-              "order-api-reference/get-kvm-id",
-              "order-api-reference/cancel-vps"
-            ]
+        "language": "ru",
+        "navbar": {
+          "links": [
+            {
+              "label": "Все статьи (English)",
+              "href": "/getting-started/everything-vps"
+            },
+            {
+              "label": "Поддержка",
+              "href": "https://www.edisglobal.com/contact"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Личный кабинет",
+            "href": "https://manage.edisglobal.com/clientarea.php"
           }
-        ]
-      },
-      {
-        "tab": "Management API Endpoints",
-        "pages": [
-          "management-api",
+        },
+        "tabs": [
           {
-            "group": "Authentication",
-            "pages": [
-              "management-api-reference/authentication/create-auth-session"
-            ]
-          },
-          {
-            "group": "Power Management",
-            "pages": [
-              "management-api-reference/power-management/hard-reset",
-              "management-api-reference/power-management/soft-reset",
-              "management-api-reference/power-management/power-state",
-              "management-api-reference/power-management/power-on",
-              "management-api-reference/power-management/power-off"
-            ]
-          },
-          {
-            "group": "Installation",
-            "pages": [
-              "management-api-reference/installation/iso-installation",
-              "management-api-reference/installation/reinstall",
-              "management-api-reference/installation/mount-iso",
-              "management-api-reference/installation/unmount-iso",
-              "management-api-reference/installation/download-custom-iso",
-              "management-api-reference/installation/upload-and-replace-qcow2",
-              "management-api-reference/installation/get-autoinstall-images"
-            ]
-          },
-          {
-            "group": "Traffic Pool",
-            "pages": [
-              "management-api-reference/traffic-pool/enable-auto-hydration",
-              "management-api-reference/traffic-pool/disable-auto-hydration",
-              "management-api-reference/traffic-pool/get-auto-hydration-status",
-              "management-api-reference/traffic-pool/get-global-traffic-pool-size",
-              "management-api-reference/traffic-pool/get-hydration-log",
-              "management-api-reference/traffic-pool/assign-traffic-resources-from-global-pool"
-            ]
-          },
-          {
-            "group": "Settings",
-            "pages": [
-              "management-api-reference/settings/get-configuration",
-              "management-api-reference/settings/configure-settings"
-            ]
-          },
-          {
-            "group": "Collect Information",
-            "pages": [
-              "management-api-reference/collect-information/get-vps-screenshot",
-              "management-api-reference/collect-information/get-all-vps-details",
-              "management-api-reference/collect-information/get-traffic-usage",
-              "management-api-reference/collect-information/get-cpu-usage",
-              "management-api-reference/collect-information/get-basic-details",
-              "management-api-reference/collect-information/get-mount-details"
-            ]
-          },
-          {
-            "group": "VNC Management",
-            "pages": [
-              "management-api-reference/vnc-management/set-vnc-keyboard-language",
-              "management-api-reference/vnc-management/get-vnc-status",
-              "management-api-reference/vnc-management/enable-vnc-access",
-              "management-api-reference/vnc-management/disable-vnc-access"
-            ]
-          },
-          {
-            "group": "PTR",
-            "pages": [
-              "management-api-reference/ptr/get-ptr-records",
-              "management-api-reference/ptr/delete-ptr-records",
-              "management-api-reference/ptr/set-ptr-records"
-            ]
-          },
-          {
-            "group": "Hooks",
-            "pages": [
-              "management-api-reference/hooks/get-all-webhooks",
-              "management-api-reference/hooks/delete-a-webhook",
-              "management-api-reference/hooks/set-webhook-for-traffic-monitoring",
-              "management-api-reference/hooks/example-callback-triggered"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Looking Glass API",
-        "groups": [
-          {
-            "group": "Get started",
-            "pages": [
-              "looking-glass-api/overview",
-              "looking-glass-api/rate-limits"
-            ]
-          },
-          {
-            "group": "Regional endpoints",
-            "pages": [
-              "looking-glass-api/ping",
-              "looking-glass-api/port",
-              "looking-glass-api/probes",
-              "looking-glass-api/location",
-              "looking-glass-api/locations",
-              "looking-glass-api/client"
-            ]
-          },
-          {
-            "group": "Integration guides",
-            "pages": [
-              "looking-glass-api/global-hub",
-              "looking-glass-api/results"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Changelog",
-        "groups": [
-          {
-            "group": "Changelog",
-            "pages": [
-              "changelog/product",
-              "changelog/management-api",
-              "changelog/order-api"
+            "tab": "Документация",
+            "groups": [
+              {
+                "group": "Частые вопросы",
+                "pages": [
+                  {
+                    "group": "Оплата и управление услугами",
+                    "icon": "money-bill-1-wave",
+                    "pages": [
+                      "ru/faq/billing-lifecycle/credit-card-reservation-vs-payment"
+                    ]
+                  }
+                ]
+              }
             ]
           }
         ]
