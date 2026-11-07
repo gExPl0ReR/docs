@@ -1,0 +1,97 @@
+---
+title: "Начало работы с VPS: настройка, управление и доступ"
+sidebarTitle: "Начало работы"
+description: "Настройка, защита, управление, мониторинг и масштабирование VPS EDIS Global: практические руководства по доступу, трафику, обновлениям, оплате и восстановлению."
+---
+
+<span id="welcome-to-edis-global-help-and-docs-" />
+
+## Добро пожаловать в справку и документацию EDIS Global 🚀
+
+Эти руководства помогут настроить, защитить, администрировать и масштабировать виртуальный частный сервер (VPS).
+
+Поддержка EDIS Global помогает с вопросами инфраструктуры, аккаунта, оплаты и расширения ресурсов. Для настройки внутри VPS мы предоставляем практическую документацию и рекомендации по устранению неполадок, при этом сервер остаётся полностью под вашим контролем.
+
+Нужна помощь прямо сейчас? Нажмите оранжевый **значок чата** внизу, чтобы связаться с нами.
+
+<span id="open-your-vps-in-the-portal" />
+
+## Откройте VPS в портале
+
+1. Войдите в [портал управления VPS](https://manage.edisglobal.com/clientarea.php).
+2. В главном меню откройте **Services → My Services**.
+3. Выберите VPS, которым хотите управлять. Перед изменениями проверьте его описание и IP-адрес.
+
+<Frame caption="Откройте Services → My Services, чтобы найти VPS. Данные клиента и платёжные сведения обезличены.">
+  <img src="/images/portal-services-navigation-anonymized.png" alt="Портал EDIS Global с открытым меню Services и выделенным My Services; данные клиента обезличены" />
+</Frame>
+
+На странице услуги раздел **Server Information** содержит управление питанием, установкой, сетью и консолью. В **Configurable Options** находится кнопка **Upgrade Resources**. Ссылки на каждое действие приведены в [обзоре портала](/vps-management/vps-management-portal).
+
+<span id="start-with-the-essentials" />
+
+## Начните с основ
+
+<Columns cols={4}>
+  <Card title="Проверьте почту" icon="envelope" href="/getting-started/check-your-inbox">
+    Найдите данные доступа к серверу, IP-адреса и ссылку на портал управления VPS.
+  </Card>
+
+  <Card title="Подключение по SSH" icon="terminal" href="/getting-started/linux-secure-shell-ssh">
+    Безопасно подключитесь к Linux VPS и настройте доступ по SSH.
+  </Card>
+
+  <Card title="Подключение по RDP" icon="desktop" href="/getting-started/windows-remote-desktop">
+    Подключитесь к Windows VPS через удалённый рабочий стол.
+  </Card>
+
+  <Card title="Защита VPS" icon="shield-alt" href="/getting-started/ssh-security-hardening-guide">
+    Повысьте безопасность SSH, аутентификации и управления доступом.
+  </Card>
+</Columns>
+
+<span id="manage-and-scale-your-vps" />
+
+## Управляйте VPS и расширяйте его возможности
+
+<Columns cols={4}>
+  <Card title="Управление VPS" icon="server" href="/vps-management/vps-management-portal">
+    Управляйте питанием, переустанавливайте, отслеживайте и настраивайте VPS в одном портале.
+  </Card>
+
+  <Card title="Трафик и ежемесячное пополнение" icon="chart-line" href="/faq/traffic-bandwidth/traffic-stats-refill-explained">
+    Разберитесь в расходе трафика, месячных лимитах, предупреждениях и датах пополнения.
+  </Card>
+
+  <Card title="Traffic Pool и Auto-Hydration" icon="tint" href="/faq/traffic-bandwidth/traffic-pool">
+    Создайте общий резерв трафика и защитите VPS от исчерпания лимита.
+  </Card>
+
+  <Card title="Расширение и масштабирование" icon="arrow-up" href="/faq/upgrades-downgrades/upgrades">
+    Добавляйте ресурсы или переходите на более высокий тариф VPS по мере роста потребностей.
+  </Card>
+</Columns>
+
+<span id="common-tasks" />
+
+## Частые задачи
+
+Практические инструкции по повседневным действиям приведены в руководстве [Частые задачи VPS: переустановка, смена IP, управление оплатой и защита данных](/getting-started/common-vps-tasks).
+
+<Columns cols={4}>
+  <Card title="Переустановка VPS" icon="redo" href="/vps-management/autoinstall-reinstall-install-vps-linux-windows">
+    Переустанавливайте Linux или Windows в любое время.
+  </Card>
+
+  <Card title="Смена IP-адреса" icon="exchange-alt" href="/faq/ip-addresses/change-ip-address">
+    Бесплатная смена основного IPv4 в течение 24 часов или платная стандартная смена либо выбор адреса Bespoke позднее.
+  </Card>
+
+  <Card title="Оплата и продления" icon="file-invoice" href="/ru/faq/billing-lifecycle/automated-vps-billing-workflow">
+    Узнайте, как работают счета, платежи, продления, приостановка и восстановление услуг.
+  </Card>
+
+  <Card title="Резервные копии" icon="save" href="/getting-started/backups">
+    Защитите важные данные и узнайте о доступных вариантах резервного копирования.
+  </Card>
+</Columns>

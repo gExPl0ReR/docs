@@ -1,0 +1,420 @@
+{
+  "translated": 38,
+  "total": 183,
+  "pages": [
+    {
+      "source": "getting-started/everything-vps.mdx",
+      "target": "ru/getting-started/everything-vps.mdx",
+      "source_sha": "54a2a77a8f08c25e6707426b7f46a8b8e02ae9b0",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/enable-vnc-server.mdx",
+      "target": "ru/vps-management/enable-vnc-server.mdx",
+      "source_sha": "c024ccce5aea9feede23e36e3033ccfc196268af",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/automated-payments.mdx",
+      "target": "ru/faq/billing-lifecycle/automated-payments.mdx",
+      "source_sha": "91e8fa6973e7a61c66372fa0a3e1a0275e9724fa",
+      "headings": 14,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/payments-transitions.mdx",
+      "target": "ru/faq/billing-lifecycle/payments-transitions.mdx",
+      "source_sha": "9fb550f84273f0a7b866cc2c5da647adc4396fa0",
+      "headings": 11,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/pay-invoices-from-credit-balance.mdx",
+      "target": "ru/faq/billing-lifecycle/pay-invoices-from-credit-balance.mdx",
+      "source_sha": "c24782e80a376fca4bcff669bcf8b3b69c09474f",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/how-to-add-account-credit.mdx",
+      "target": "ru/faq/billing-lifecycle/how-to-add-account-credit.mdx",
+      "source_sha": "d43728d4d9d836ab5d648b51732a6fa1d253a11a",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/incoming-and-outgoing-payments.mdx",
+      "target": "ru/faq/billing-lifecycle/incoming-and-outgoing-payments.mdx",
+      "source_sha": "9dae2b90824cf33767f45fee23345dc0511eff42",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/top-up-credit-balance-by-bank-transfer.mdx",
+      "target": "ru/faq/billing-lifecycle/top-up-credit-balance-by-bank-transfer.mdx",
+      "source_sha": "05156f0f3615a1cea6af105c296c8375f9712176",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/no-upfront-deposits-required.mdx",
+      "target": "ru/faq/billing-lifecycle/no-upfront-deposits-required.mdx",
+      "source_sha": "c7cd21376cb6e3b13c16f5a5245b1fd5ed7a6281",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/country-change-client-account.mdx",
+      "target": "ru/faq/billing-lifecycle/country-change-client-account.mdx",
+      "source_sha": "35a60ca8174b14c4f790cc2275efa60c017f0d7b",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/moving-services-to-different-client-account.mdx",
+      "target": "ru/faq/billing-lifecycle/moving-services-to-different-client-account.mdx",
+      "source_sha": "e2b64784143a8370ad286bfd4ec0b209b4f55978",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/how-vps-renewals-work.mdx",
+      "target": "ru/faq/billing-lifecycle/how-vps-renewals-work.mdx",
+      "source_sha": "b92e67c4aef694c46d3ea2c34ce6c6adac86dd0b",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/accidental-renewal-convert-payment-to-credit.mdx",
+      "target": "ru/faq/billing-lifecycle/accidental-renewal-convert-payment-to-credit.mdx",
+      "source_sha": "b704648a3465e8f1705627ef0da62fdeeb417793",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/accepted-payment-methods.mdx",
+      "target": "ru/faq/billing-lifecycle/accepted-payment-methods.mdx",
+      "source_sha": "b04b09f6ed1ff5e3c2f3e52186702c4cfd392282",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/cryptocurrency-payments.mdx",
+      "target": "ru/faq/billing-lifecycle/cryptocurrency-payments.mdx",
+      "source_sha": "dee82c3c8b89fbb4af73eb6b46898de8b0a9ede9",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/automatic-currency-conversion.mdx",
+      "target": "ru/faq/billing-lifecycle/automatic-currency-conversion.mdx",
+      "source_sha": "47f4b726cc2dc6e9280be673cc0f28b76ecc9b7c",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global.mdx",
+      "target": "ru/faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global.mdx",
+      "source_sha": "5675219f5e3c8099b655ab91d8ec524373db7921",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/how-fast-instant-delivery.mdx",
+      "target": "ru/faq/billing-lifecycle/how-fast-instant-delivery.mdx",
+      "source_sha": "5f6037a0a30629673b8c2987c6b702062180ebd1",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/cancel-a-service.mdx",
+      "target": "ru/faq/billing-lifecycle/cancel-a-service.mdx",
+      "source_sha": "7d984d696563df7cf5c32bc60fe2ea7e7936f6a3",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/manage-cancellation-requests.mdx",
+      "target": "ru/faq/billing-lifecycle/manage-cancellation-requests.mdx",
+      "source_sha": "bacfe2201f89b8fdc6c82cf1a11486d9ce6a50a1",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/data-retention-period.mdx",
+      "target": "ru/faq/billing-lifecycle/data-retention-period.mdx",
+      "source_sha": "e01ef3b70d3a0d852ef846a50409682f86d1f549",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/cancellation-and-refund-policy.mdx",
+      "target": "ru/faq/billing-lifecycle/cancellation-and-refund-policy.mdx",
+      "source_sha": "699d1288e0c66233cb8d2dbe0fe87a06920fbb68",
+      "headings": 10,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/can-i-get-a-refund.mdx",
+      "target": "ru/faq/billing-lifecycle/can-i-get-a-refund.mdx",
+      "source_sha": "0932affe65380b35c5e06cecc4d209e432d40333",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/credit-card-reservation-vs-payment.mdx",
+      "target": "ru/faq/billing-lifecycle/credit-card-reservation-vs-payment.mdx",
+      "source_sha": "2abf4e17de2bbe79409277cd5271c83beaf2665f",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/automated-vps-billing-workflow.mdx",
+      "target": "ru/faq/billing-lifecycle/automated-vps-billing-workflow.mdx",
+      "source_sha": "73bea2020e09e9c59f2e337578d6897c573d3552",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/scheduled-billing-window.mdx",
+      "target": "ru/faq/billing-lifecycle/scheduled-billing-window.mdx",
+      "source_sha": "19fbd7f33d47232858e6394b3b653c1e044128f1",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/how-to-receive-monthly-consolidated-invoice.mdx",
+      "target": "ru/faq/billing-lifecycle/how-to-receive-monthly-consolidated-invoice.mdx",
+      "source_sha": "cb46238e2904223d5ae47a150adba73e865d6246",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/eu-vat-explained-if-and-how-much.mdx",
+      "target": "ru/faq/billing-lifecycle/eu-vat-explained-if-and-how-much.mdx",
+      "source_sha": "5e58dba81984309dd36d4917d61103dee57ab524",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/can-i-pay-with-iban.mdx",
+      "target": "ru/faq/billing-lifecycle/can-i-pay-with-iban.mdx",
+      "source_sha": "2cf064846a0a880006229d21d9ffd7f95e5c5e37",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/find-and-download-invoices.mdx",
+      "target": "ru/faq/billing-lifecycle/find-and-download-invoices.mdx",
+      "source_sha": "6e4dfb13a13a699b39237a6bee9704e084815168",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/how-to-pay-paypal-use-different-currency.mdx",
+      "target": "ru/faq/billing-lifecycle/how-to-pay-paypal-use-different-currency.mdx",
+      "source_sha": "1c9bb026e6c533d19e779f715e4a4110e1716f65",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/add-contact-receive-invoices-different-email.mdx",
+      "target": "ru/faq/billing-lifecycle/add-contact-receive-invoices-different-email.mdx",
+      "source_sha": "843001a0443562caa0d6191351240bb4b7a51966",
+      "headings": 2,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account.mdx",
+      "target": "ru/faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account.mdx",
+      "source_sha": "8fe4c42859add5184fa1a798332441d9e9cf1951",
+      "headings": 10,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/cryptocurrency-payment-help.mdx",
+      "target": "ru/faq/billing-lifecycle/cryptocurrency-payment-help.mdx",
+      "source_sha": "bf6a500828b398abe219b6d65d153d30b1e218dc",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/reset-2fa.mdx",
+      "target": "ru/faq/billing-lifecycle/reset-2fa.mdx",
+      "source_sha": "488f750acbb53cfd0508e886609b8de49b943413",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "changelog/product.mdx",
+      "target": "ru/changelog/product.mdx",
+      "source_sha": "a661848d6d6692c05c39ded64f4bfe5ceb11eb3e",
+      "headings": 23,
+      "mdx_checked": true
+    },
+    {
+      "source": "changelog/management-api.mdx",
+      "target": "ru/changelog/management-api.mdx",
+      "source_sha": "3c8d464c503a09be81d76986ee2136b9796f6982",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "changelog/order-api.mdx",
+      "target": "ru/changelog/order-api.mdx",
+      "source_sha": "f37f249cc24176bb09557be109a6c1563e4a448f",
+      "headings": 4,
+      "mdx_checked": true
+    }
+  ],
+  "pending": [
+    "getting-started/common-vps-tasks.mdx",
+    "getting-started/check-your-inbox.mdx",
+    "getting-started/understanding-email-notifications.mdx",
+    "getting-started/no-email-received.mdx",
+    "getting-started/statuspage-subscribe.mdx",
+    "getting-started/how-our-support-team-helps-you.mdx",
+    "getting-started/linux-secure-shell-ssh.mdx",
+    "getting-started/ssh-security-hardening-guide.mdx",
+    "getting-started/windows-remote-desktop.mdx",
+    "getting-started/backups.mdx",
+    "getting-started/acceptable-use-policy.mdx",
+    "vps-management/api-for-management-and-ordering.mdx",
+    "vps-management/vps-management-portal.mdx",
+    "vps-management/understanding-vps-status.mdx",
+    "vps-management/ai-assisted-vps-management.mdx",
+    "vps-management/autoinstall-reinstall-install-vps-linux-windows.mdx",
+    "vps-management/os-availability.mdx",
+    "vps-management/edis-cloud-init-vps-installation.mdx",
+    "vps-management/power-cycle-or-reboot-a-vps.mdx",
+    "vps-management/reset-root-password-linux.mdx",
+    "vps-management/reset-windows-admin-password.mdx",
+    "vps-management/rdp-error-0xd07-user-account-locked.mdx",
+    "vps-management/mount-iso-image.mdx",
+    "vps-management/post-install-scripts.mdx",
+    "vps-management/system-configuration-dialog.mdx",
+    "vps-management/bring-your-own-iso.mdx",
+    "vps-management/ip-address-information.mdx",
+    "vps-management/ipv6-configuration.mdx",
+    "vps-management/basic-ipv6-troubleshooting.mdx",
+    "vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404.mdx",
+    "vps-management/how-to-change-ip-address-in-windows-server.mdx",
+    "vps-management/linux-rescue-guide-and-troubleshoot.mdx",
+    "vps-management/uefi-vs-bios-and-v-tpm.mdx",
+    "vps-management/your-support-pin.mdx",
+    "faq/data-processing-agreement.mdx",
+    "faq/what-is-a-virtual-private-server.mdx",
+    "faq/what-is-a-kvm-vps.mdx",
+    "faq/free-trials-available.mdx",
+    "faq/port-25-smtp-rate-limit-policy.mdx",
+    "faq/windows-rdp-service-available.mdx",
+    "faq/desktop-acceleration.mdx",
+    "faq/hourly-plans-available.mdx",
+    "faq/ip-addresses/ping-test-ip.mdx",
+    "faq/ip-addresses/free-latency-test-guide.mdx",
+    "faq/ip-addresses/change-ip-address.mdx",
+    "faq/ip-addresses/order-additional-ip-address.mdx",
+    "faq/ip-addresses/order-bespoke-ip-address.mdx",
+    "faq/ip-addresses/configuring-additional-ip-address-linux.mdx",
+    "faq/ip-addresses/setting-up-reverse-pointers.mdx",
+    "faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall.mdx",
+    "faq/ip-addresses/ip-can-not-be-reached-from-my-country.mdx",
+    "faq/ip-addresses/geolocation-geoip-databases.mdx",
+    "faq/ip-addresses/ip-location-incorrect-on-whatismyipaddresscom.mdx",
+    "faq/ip-addresses/dns-leak-tests.mdx",
+    "faq/ip-addresses/understanding-ip-address-location.mdx",
+    "faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location.mdx",
+    "faq/ip-addresses/static-ip-addresses.mdx",
+    "faq/ip-addresses/bring-your-own-ipv4-prefix.mdx",
+    "faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance.mdx",
+    "faq/ip-addresses/network-is-down.mdx",
+    "faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute.mdx",
+    "faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows.mdx",
+    "faq/ip-addresses/ping-pe-connectivity-check.mdx",
+    "faq/ip-addresses/ports-firewalls-and-connectivity.mdx",
+    "faq/server-locations/list-of-edis-global-server-locations-by-continent-region.mdx",
+    "faq/server-locations/change-server-location.mdx",
+    "faq/traffic-bandwidth/traffic-vs-bandwidth.mdx",
+    "faq/traffic-bandwidth/traffic-stats-refill-explained.mdx",
+    "faq/traffic-bandwidth/traffic-pool.mdx",
+    "faq/traffic-bandwidth/speed-test.mdx",
+    "faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-network-usage.mdx",
+    "faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global.mdx",
+    "faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview.mdx",
+    "faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients.mdx",
+    "faq/upgrades-downgrades/upgrades.mdx",
+    "faq/upgrades-downgrades/upgrade-plan.mdx",
+    "faq/upgrades-downgrades/upgrade-resources.mdx",
+    "faq/upgrades-downgrades/upgrade-disk-drive-boost.mdx",
+    "faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade.mdx",
+    "faq/upgrades-downgrades/is-it-possible-to-downgrade.mdx",
+    "faq/upgrades-downgrades/backup-restore-data-linux.mdx",
+    "faq/upgrades-downgrades/requesting-qcow2-image-backup.mdx",
+    "faq/upgrades-downgrades/private-vlan-option.mdx",
+    "faq/upgrades-downgrades/get-additional-network-card.mdx",
+    "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps.mdx",
+    "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-linux-vps.mdx",
+    "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps.mdx",
+    "partner-starter-pack.mdx",
+    "commercial-vpn-hosting.mdx",
+    "reselling-and-discounts.mdx",
+    "reporting-abuse.mdx",
+    "responding-to-abuse-complaints.mdx",
+    "join-our-team/jobs-edisglobal-support-agent-non-voice.mdx",
+    "join-our-team/technical-procurement-and-server-operations-coordinator.mdx",
+    "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert.mdx",
+    "advanced-setup-guides/run-monero-node-debian-vps.mdx",
+    "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods.mdx",
+    "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server.mdx",
+    "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows.mdx",
+    "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows.mdx",
+    "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux.mdx",
+    "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux.mdx",
+    "advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox.mdx",
+    "advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router.mdx",
+    "advanced-setup-guides/install-mikrotik-routeros-on-edis-vps.mdx",
+    "advanced-setup-guides/installing-a-vps-using-cloud-init.mdx",
+    "advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems.mdx",
+    "advanced-setup-guides/extend-hard-drive-windows-guide.mdx",
+    "advanced-setup-guides/security-advisories/regresshion-openssh-vulnerability.mdx",
+    "advanced-setup-guides/security-advisories/update-sshd-debian-ubuntu-redhat.mdx",
+    "advanced-setup-guides/registering-and-assigning-a-domain-to-your-vps.mdx",
+    "advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps.mdx",
+    "advanced-setup-guides/openvpn-over-stunnel.mdx",
+    "advanced-setup-guides/l2tp-ipsec-and-ikev2-vpn.mdx",
+    "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204.mdx",
+    "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router.mdx",
+    "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg.mdx",
+    "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows.mdx",
+    "advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204.mdx",
+    "advanced-setup-guides/install-3x-ui-on-vps/hiddify-client-for-windows.mdx",
+    "advanced-setup-guides/install-3x-ui-on-vps/v2rayng-vpn-client-on-android.mdx",
+    "advanced-setup-guides/install-3x-ui-on-vps/v2raytun-vpn-client-on-ios.mdx",
+    "advanced-setup-guides/how-to-install-google-chrome-on-windows-server.mdx",
+    "advanced-setup-guides/forgot-administrator-password-on-windows-server.mdx",
+    "advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode.mdx",
+    "advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps.mdx",
+    "advanced-setup-guides/gui-versions-of-ubuntu-debian.mdx",
+    "advanced-setup-guides/install-jitsi-on-your-vps.mdx",
+    "advanced-setup-guides/how-to-setup-wireguard-vpn.mdx",
+    "advanced-setup-guides/install-cockpit-on-vps.mdx",
+    "advanced-setup-guides/installing-openvpn-with-turnkey.mdx",
+    "advanced-setup-guides/ufw-uncomplicated-firewall-howto.mdx",
+    "advanced-setup-guides/nftables-firewall-howto.mdx",
+    "advanced-setup-guides/install-openclaw-edislobal-vps.mdx",
+    "misc/extending-180-day-trial-version-of-windows.mdx",
+    "misc/fix-openssh-vm-delays-low-entropy.mdx",
+    "misc/security-compliance.mdx",
+    "misc/fix-black-screen-windows-server.mdx",
+    "misc/why-has-windows-server-slowed-down.mdx",
+    "misc/fix-for-realvnc-closing-connection.mdx",
+    "misc/manual-windows-server-installation-on-kvm.mdx",
+    "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error.mdx",
+    "misc/what-is-seabios.mdx",
+    "misc/disable-serial-getty-ttys0-debian-13.mdx",
+    "misc/portal-buttons-not-loading.mdx"
+  ],
+  "errors": []
+}

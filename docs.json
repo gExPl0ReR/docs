@@ -521,13 +521,57 @@
             "tab": "Документация",
             "groups": [
               {
-                "group": "Частые вопросы",
+                "group": "Начало работы",
+                "pages": [
+                  "ru/getting-started/everything-vps"
+                ]
+              },
+              {
+                "group": "Управление VPS",
+                "pages": [
+                  "ru/vps-management/enable-vnc-server"
+                ]
+              },
+              {
+                "group": "Вопросы и ответы",
                 "pages": [
                   {
                     "group": "Оплата и управление услугами",
                     "icon": "money-bill-1-wave",
                     "pages": [
-                      "ru/faq/billing-lifecycle/credit-card-reservation-vs-payment"
+                      "ru/faq/billing-lifecycle/automated-payments",
+                      "ru/faq/billing-lifecycle/payments-transitions",
+                      "ru/faq/billing-lifecycle/pay-invoices-from-credit-balance",
+                      "ru/faq/billing-lifecycle/how-to-add-account-credit",
+                      "ru/faq/billing-lifecycle/incoming-and-outgoing-payments",
+                      "ru/faq/billing-lifecycle/top-up-credit-balance-by-bank-transfer",
+                      "ru/faq/billing-lifecycle/no-upfront-deposits-required",
+                      "ru/faq/billing-lifecycle/country-change-client-account",
+                      "ru/faq/billing-lifecycle/moving-services-to-different-client-account",
+                      "ru/faq/billing-lifecycle/how-vps-renewals-work",
+                      "ru/faq/billing-lifecycle/accidental-renewal-convert-payment-to-credit",
+                      "ru/faq/billing-lifecycle/accepted-payment-methods",
+                      "ru/faq/billing-lifecycle/cryptocurrency-payments",
+                      "ru/faq/billing-lifecycle/automatic-currency-conversion",
+                      "ru/faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global",
+                      "ru/faq/billing-lifecycle/how-fast-instant-delivery",
+                      "ru/faq/billing-lifecycle/cancel-a-service",
+                      "ru/faq/billing-lifecycle/manage-cancellation-requests",
+                      "ru/faq/billing-lifecycle/data-retention-period",
+                      "ru/faq/billing-lifecycle/cancellation-and-refund-policy",
+                      "ru/faq/billing-lifecycle/can-i-get-a-refund",
+                      "ru/faq/billing-lifecycle/credit-card-reservation-vs-payment",
+                      "ru/faq/billing-lifecycle/automated-vps-billing-workflow",
+                      "ru/faq/billing-lifecycle/scheduled-billing-window",
+                      "ru/faq/billing-lifecycle/how-to-receive-monthly-consolidated-invoice",
+                      "ru/faq/billing-lifecycle/eu-vat-explained-if-and-how-much",
+                      "ru/faq/billing-lifecycle/can-i-pay-with-iban",
+                      "ru/faq/billing-lifecycle/find-and-download-invoices",
+                      "ru/faq/billing-lifecycle/how-to-pay-paypal-use-different-currency",
+                      "ru/faq/billing-lifecycle/add-contact-receive-invoices-different-email",
+                      "ru/faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account",
+                      "ru/faq/billing-lifecycle/cryptocurrency-payment-help",
+                      "ru/faq/billing-lifecycle/reset-2fa"
                     ]
                   }
                 ]
@@ -551,8 +595,17 @@
             "href": "/looking-glass-api/overview"
           },
           {
-            "tab": "Changelog (EN)",
-            "href": "/changelog/product"
+            "tab": "История изменений",
+            "groups": [
+              {
+                "group": "История изменений",
+                "pages": [
+                  "ru/changelog/product",
+                  "ru/changelog/management-api",
+                  "ru/changelog/order-api"
+                ]
+              }
+            ]
           }
         ]
       }
