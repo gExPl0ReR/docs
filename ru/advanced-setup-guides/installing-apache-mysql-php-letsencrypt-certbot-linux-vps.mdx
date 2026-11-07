@@ -1,0 +1,115 @@
+---
+title: "Установка Apache, MySQL, PHP и SSL на Linux VPS"
+sidebarTitle: "Установка LAMP в Linux"
+description: "Настройте Apache, MySQL и PHP для своего домена на Linux VPS и защитите его сертификатом Let's Encrypt через Certbot для портов 80 и 443."
+---
+
+Подробное руководство по настройке Apache, MySQL и PHP для `mydomain.com` на Linux VPS с сертификатом Let's Encrypt SSL и доступом по HTTP (порт 80) и HTTPS (порт 443).
+
+**Предварительные требования:**
+
+- Linux VPS EDIS Global; рекомендуется Ubuntu 20.04.
+- Root-доступ к VPS по SSH.
+- Зарегистрированный домен, направленный на IP VPS.
+
+**Обновите VPS:**
+
+```shell
+sudo apt update && sudo apt upgrade -y
+```
+
+**Установите веб-сервер Apache:**
+
+```shell
+sudo apt install apache2 -y
+```
+
+**Настройте Apache для mydomain.com:**
+Создайте конфигурацию виртуального хоста для домена:
+
+```shell
+sudo nano /etc/apache2/sites-available/mydomain.com.conf
+```
+
+Добавьте:
+
+```powershell
+<VirtualHost *:80>
+    ServerName mydomain.com
+    ServerAlias www.mydomain.com
+    DocumentRoot /var/wwpw/mydomain.com/public_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+Сохраните файл и выйдите из редактора.
+
+Включите конфигурацию и перезапустите Apache:
+
+```shell
+sudo a2ensite mydomain.com.conf
+sudo systemctl restart apache2
+```
+
+**Установите сервер баз данных MySQL:**
+
+```shell
+sudo apt install mysql-server -y
+```
+
+**Защитите установку MySQL:**
+Запустите скрипт настройки безопасности:
+
+```shell
+sudo mysql_secure_installation
+```
+
+**Установите PHP:**
+
+```shell
+sudo apt install php libapache2-mod-php php-mysql -y
+```
+
+**Установите Certbot для SSL:**
+
+```shell
+sudo apt install certbot python3-certbot-apache -y
+```
+
+**Получите сертификат Let's Encrypt для mydomain.com:**
+
+```shell
+sudo certbot --apache -d mydomain.com -d www.mydomain.com
+```
+
+Certbot автоматически настроит виртуальный хост Apache для SSL на порту 443.
+
+**Проверьте настройку порта 443:**
+
+В конфигурации должен появиться блок `<VirtualHost _:443>` для SSL. Проверьте:
+
+```shell
+cat /etc/apache2/sites-available/mydomain.com-le-ssl.conf
+```
+
+**Автоматическое продление сертификата:**
+
+```shell
+sudo systemctl enable certbot.timer
+sudo systemctl start certbot.timer
+```
+
+Проверьте продление:
+
+```shell
+sudo certbot renew --dry-run
+```
+
+**Завершите настройку и перезапустите Apache:**
+
+```shell
+sudo systemctl restart apache2
+```
+
+Домен `mydomain.com` настроен в Apache с MySQL и PHP. Используются порты 80 (HTTP) и 443 (HTTPS/SSL) с защищённым сертификатом Let's Encrypt.

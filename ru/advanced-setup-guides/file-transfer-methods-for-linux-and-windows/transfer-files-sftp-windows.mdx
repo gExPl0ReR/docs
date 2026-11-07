@@ -1,0 +1,50 @@
+---
+title: "SFTP в Windows: подключение к Linux-серверу"
+sidebarTitle: "SFTP в Windows"
+description: "Передача файлов между Windows и Linux VPS через SFTP и WinSCP: настройка SSH, конфигурация WinSCP и безопасное копирование."
+---
+
+## Безопасная передача файлов между Windows и Linux {#secure-file-transfer-between-windows-and-linux-servers}
+
+SFTP (Secure File Transfer Protocol) — безопасный способ передачи файлов между Windows-компьютером и Linux-сервером. Здесь описано использование **WinSCP**, популярного инструмента Windows, для безопасной загрузки и скачивания по SFTP.
+
+***
+
+## Шаг 1. Включите SSH на Linux-сервере {#step-1-enable-ssh-on-your-linux-server}
+
+Убедитесь, что служба SSH установлена и запущена. На Linux-сервере выполните:
+
+```bash Bash
+sudo apt install openssh-server
+```
+
+***
+
+## Шаг 2. Установите WinSCP в Windows {#step-2-install-and-set-up-winscp-on-windows}
+
+1. Скачайте WinSCP с [winscp.net](https://winscp.net/).
+2. Следуйте инструкциям установки.
+3. Запустите приложение.
+
+***
+
+## Шаг 3. Подключитесь к Linux-серверу по SFTP {#step-3-connect-to-the-linux-server-using-sftp}
+
+1. Создайте новое подключение в WinSCP:
+   * **File Protocol:** выберите `SFTP`.
+   * **Hostname:** укажите IP-адрес или доменное имя Linux-сервера.
+   * **Port Number:** по умолчанию `22`.
+   * **Username:** имя пользователя Linux.
+   * **Password:** укажите пароль или настройте закрытый ключ для аутентификации.
+2. Нажмите **Login** для подключения.
+
+***
+
+## Шаг 4. Передавайте файлы {#step-4-transfer-files}
+
+После подключения используйте графический интерфейс:
+
+* Перетаскивайте файлы с Windows-компьютера на Linux-сервер.
+* Перетаскивайте файлы с Linux-сервера на локальный Windows-компьютер.
+
+WinSCP упрощает безопасное управление файлами и передачу по SFTP.

@@ -1,0 +1,63 @@
+---
+title: "SCP в Linux: подключение к Linux-серверу"
+sidebarTitle: "SCP в Linux"
+description: "Безопасное копирование файлов между Linux-серверами через SCP: SSH, аутентификация ключом и передача каталогов."
+---
+
+## Безопасное копирование файлов между Linux-системами {#secure-copy-files-between-linux-and-linux-servers}
+
+SCP (Secure Copy Protocol) — простой и безопасный способ передачи файлов между вашим Linux-компьютером и Linux-сервером. В статье описано использование команды `scp` в терминале для загрузки и скачивания файлов.
+
+***
+
+## Шаг 1. Убедитесь, что SSH включён на Linux-сервере {#step-1-ensure-ssh-is-enabled-on-the-linux-server}
+
+Служба SSH должна быть установлена и запущена. Для установки выполните:
+
+```bash
+sudo apt-get install openssh-server
+```
+
+***
+
+## Шаг 2. Передавайте файлы командой `scp` {#step-2-use-the-scp-command-to-transfer-files}
+
+### Копирование с локального компьютера на сервер {#copy-a-file-from-local-to-remote-server}
+
+Чтобы загрузить файл на Linux-сервер:
+
+```bash
+scp /path/to/local/file username@hostname_or_ip:/path/to/remote/directory
+```
+
+* Замените `/path/to/local/file` полным путём к локальному файлу.
+* Замените `username` именем пользователя Linux-сервера.
+* Замените `hostname_or_ip` IP-адресом или доменным именем сервера.
+* Замените `/path/to/remote/directory` каталогом назначения на сервере.
+
+### Копирование с сервера на локальный компьютер {#copy-a-file-from-remote-server-to-local-machine}
+
+Чтобы скачать файл с Linux-сервера:
+
+```bash
+scp username@hostname_or_ip:/path/to/remote/file /path/to/local/directory
+```
+
+* Замените `/path/to/remote/file` путём к файлу на сервере.
+* Замените `/path/to/local/directory` локальным каталогом назначения.
+
+***
+
+## Примеры команд {#example-commands}
+
+### Загрузка на сервер {#upload-example}
+
+```bash
+scp ~/Documents/example.txt user@192.168.1.10:/home/user/uploads
+```
+
+### Скачивание с сервера {#download-example}
+
+```bash
+scp user@192.168.1.10:/home/user/uploads/example.txt ~/Downloads
+```

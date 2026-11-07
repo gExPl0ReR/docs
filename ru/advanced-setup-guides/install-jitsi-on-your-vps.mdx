@@ -1,0 +1,75 @@
+---
+title: "Установка Jitsi на VPS"
+description: "Базовое руководство по установке Jitsi Meet — системы видеоконференций с открытым исходным кодом — на VPS с Ubuntu."
+---
+
+## Установка Jitsi Meet в Linux {#install-jitsi-meet-on-linux}
+
+Jitsi — программа видеоконференций с открытым исходным кодом: видеозвонки, демонстрация экрана и другие возможности. Ниже приведена базовая установка Jitsi Meet на VPS с Ubuntu.
+
+### 1. Подготовьте сервер {#1-prepare-your-server}
+
+Нужен сервер, например VPS, с Ubuntu и публичным IP-адресом.
+
+### 2. Обновите систему {#2-update-your-system}
+
+Перед началом обновите список пакетов и ПО:
+
+```shell
+sudo apt update
+sudo apt upgrade -y
+```
+
+### 3. Настройте домен {#3-set-up-a-domain}
+
+Для корректной защищённой работы Jitsi с SSL нужен домен. Направьте его на IP сервера в настройках DNS.
+
+### 4. Установите Jitsi {#4-install-jitsi}
+
+а. Добавьте репозиторий Jitsi:
+
+```shell
+echo 'deb https://download.jitsi.org stable/' | sudo tee -a /etc/apt/sources.list.d/jitsi-stable.list
+```
+
+б. Скачайте ключ подписи репозитория:
+
+```shell
+wget -qO - https://download.jitsi.org/jitsi-key.gpg.key | sudo apt-key add -
+```
+
+в. Обновите список пакетов:
+
+```shell
+sudo apt update
+```
+
+г. Установите Jitsi Meet:
+
+```shell
+sudo apt install jitsi-meet -y
+```
+
+Установщик запросит hostname — ваш домен. Введите подготовленное имя. Затем выберите создание нового SSL-сертификата или использование своего. Для простоты выберите **Generate a new self-signed certificate**.
+
+### 5. Защитите Jitsi доверенным SSL-сертификатом {#5-secure-jitsi-with-a-real-ssl-certificate}
+
+а. Установите `certbot` для сертификатов Let's Encrypt:
+
+```shell
+sudo apt install certbot -y
+```
+
+б. Получите и установите сертификат:
+
+```shell
+sudo /usr/share/jitsi-meet/scripts/install-letsencrypt-cert.sh
+```
+
+Следуйте подсказкам. Скрипт получит сертификат и выполнит настройку.
+
+### 6. Откройте Jitsi {#6-access-jitsi}
+
+Перейдите в браузере на `https://yourdomain.com`, заменив домен своим. Откроется интерфейс Jitsi Meet, где можно создать встречу или присоединиться к ней.
+
+Базовый сервер Jitsi Meet готов. При необходимости можно перейти к дополнительным параметрам, но этой установки достаточно для начала.

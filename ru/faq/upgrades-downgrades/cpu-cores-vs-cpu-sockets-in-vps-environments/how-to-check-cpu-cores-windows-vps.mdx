@@ -1,0 +1,41 @@
+---
+title: "Как проверить ядра CPU на Windows VPS"
+description: "Убедитесь, что Windows распознаёт все выделенные VPS ядра CPU: диспетчер задач, msinfo32 и PowerShell. Проверка количества ядер и настроек производительности."
+sidebarTitle: "Проверка ядер CPU в Windows"
+---
+
+import { CtaButton } from "/snippets/cta-button.mdx";
+
+## Как проверить количество ядер CPU, доступных Windows {#how-to-check-the-number-of-cpu-cores-available-to-windows}
+
+Если вы установили Windows на VPS EDIS Global, узнать количество доступных ОС ядер CPU можно несколькими способами. Ниже приведены распространённые варианты.
+
+**Проверка ядер CPU в Windows:**
+
+<Steps>
+  <Step title="Диспетчер задач" iconType="regular" stepNumber={1} titleSize="h2">
+    1. Нажмите правой кнопкой мыши на панель задач и выберите **Task Manager** (Диспетчер задач).
+    2. Откройте вкладку **Performance** (Производительность).
+    3. Выберите **CPU** слева.
+    4. Под графиком CPU показаны сведения о процессоре, включая количество ядер и логических процессоров.
+  </Step>
+</Steps>
+
+<Steps>
+  <Step title="Сведения о системе" iconType="regular" stepNumber={2} titleSize="h2">
+    1. Нажмите `Windows + R`, чтобы открыть окно «Выполнить».
+    2. Введите `msinfo32` и нажмите Enter. Откроется окно System Information.
+    3. В **System Summary** найдите **Processor**. Здесь указаны сведения о CPU, включая количество ядер.
+  </Step>
+</Steps>
+
+<Steps>
+  <Step title="Командная строка" iconType="regular" stepNumber={3} titleSize="h2">
+    1. Откройте Command Prompt: например, найдите `cmd` в поиске Windows и выберите соответствующий результат.
+    2. Введите `wmic cpu get NumberOfCores,NumberOfLogicalProcessors` и нажмите Enter.
+  </Step>
+</Steps>
+
+Любой из этих способов покажет информацию о количестве ядер CPU в системе.
+
+<CtaButton label="Ядра и сокеты CPU" link="/ru/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps" />

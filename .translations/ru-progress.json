@@ -1,0 +1,1289 @@
+{
+  "translated": 183,
+  "total": 183,
+  "pages": [
+    {
+      "source": "getting-started/everything-vps.mdx",
+      "target": "ru/getting-started/everything-vps.mdx",
+      "source_sha": "54a2a77a8f08c25e6707426b7f46a8b8e02ae9b0",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/common-vps-tasks.mdx",
+      "target": "ru/getting-started/common-vps-tasks.mdx",
+      "source_sha": "c17896075892f637d60322a9e161b5867a763102",
+      "headings": 16,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/check-your-inbox.mdx",
+      "target": "ru/getting-started/check-your-inbox.mdx",
+      "source_sha": "7f4198de783b092c619c86cc92597f7f15fe43de",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/understanding-email-notifications.mdx",
+      "target": "ru/getting-started/understanding-email-notifications.mdx",
+      "source_sha": "f8766b60c1fd23b456717b0a437c0176b68c0a51",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/no-email-received.mdx",
+      "target": "ru/getting-started/no-email-received.mdx",
+      "source_sha": "ff3dbbb5c7c869fe668f925bba10f9a37cdba74f",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/statuspage-subscribe.mdx",
+      "target": "ru/getting-started/statuspage-subscribe.mdx",
+      "source_sha": "9b09ac303282a44bc4c3cb33a59274a3e5b57b68",
+      "headings": 13,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/how-our-support-team-helps-you.mdx",
+      "target": "ru/getting-started/how-our-support-team-helps-you.mdx",
+      "source_sha": "9c92888b87cb0350d99badbbaa23b5fb988495a4",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/linux-secure-shell-ssh.mdx",
+      "target": "ru/getting-started/linux-secure-shell-ssh.mdx",
+      "source_sha": "6076b8c31f662daa155b36794ce0e3653eb4ac3e",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/ssh-security-hardening-guide.mdx",
+      "target": "ru/getting-started/ssh-security-hardening-guide.mdx",
+      "source_sha": "37051c0f65adcc84f91684367ece85879913dff9",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/windows-remote-desktop.mdx",
+      "target": "ru/getting-started/windows-remote-desktop.mdx",
+      "source_sha": "d9b21856880c0d41a72fb29586cf22b3af467bc2",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/backups.mdx",
+      "target": "ru/getting-started/backups.mdx",
+      "source_sha": "b2f7fd21bcf06e577e6835c23f2fbc37440f1fc6",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "getting-started/acceptable-use-policy.mdx",
+      "target": "ru/getting-started/acceptable-use-policy.mdx",
+      "source_sha": "098c9f5d74d23659129ba9a5c57f141c5ad5b7b9",
+      "headings": 19,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/api-for-management-and-ordering.mdx",
+      "target": "ru/vps-management/api-for-management-and-ordering.mdx",
+      "source_sha": "c778f255abcfde27c301e5736d9f93f57dcc65ed",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/vps-management-portal.mdx",
+      "target": "ru/vps-management/vps-management-portal.mdx",
+      "source_sha": "dbc578ce3da322013e2e69548b11b8232aef5854",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/understanding-vps-status.mdx",
+      "target": "ru/vps-management/understanding-vps-status.mdx",
+      "source_sha": "27012cbeceab7c5cde5fb9f4ea1a1252894fdcd0",
+      "headings": 10,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/ai-assisted-vps-management.mdx",
+      "target": "ru/vps-management/ai-assisted-vps-management.mdx",
+      "source_sha": "b0cb17eb52e8c1781e2935113bb95810309aef6c",
+      "headings": 16,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/autoinstall-reinstall-install-vps-linux-windows.mdx",
+      "target": "ru/vps-management/autoinstall-reinstall-install-vps-linux-windows.mdx",
+      "source_sha": "f29dc5f0008f4361276ecdd8765af5a16ab926bc",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/os-availability.mdx",
+      "target": "ru/vps-management/os-availability.mdx",
+      "source_sha": "378254b156c9de0263b485a7300a60be4c870997",
+      "headings": 33,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/edis-cloud-init-vps-installation.mdx",
+      "target": "ru/vps-management/edis-cloud-init-vps-installation.mdx",
+      "source_sha": "7a5bb5b1df26d26c456441b8aa21ed160f5ce673",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/power-cycle-or-reboot-a-vps.mdx",
+      "target": "ru/vps-management/power-cycle-or-reboot-a-vps.mdx",
+      "source_sha": "7d1791e01a6879229bfdb9572cf13b419f342090",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/reset-root-password-linux.mdx",
+      "target": "ru/vps-management/reset-root-password-linux.mdx",
+      "source_sha": "ff3fe810330991fc0647bd81a9a84060cbe134b8",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/reset-windows-admin-password.mdx",
+      "target": "ru/vps-management/reset-windows-admin-password.mdx",
+      "source_sha": "199845502023ad6b8226e3d00c4f3c184b4b9dbb",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/rdp-error-0xd07-user-account-locked.mdx",
+      "target": "ru/vps-management/rdp-error-0xd07-user-account-locked.mdx",
+      "source_sha": "16722fde21be0edb0724ce0228435de9c7640331",
+      "headings": 12,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/mount-iso-image.mdx",
+      "target": "ru/vps-management/mount-iso-image.mdx",
+      "source_sha": "5531356047cc5100966f2959b73ce942edb8c5a9",
+      "headings": 2,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/post-install-scripts.mdx",
+      "target": "ru/vps-management/post-install-scripts.mdx",
+      "source_sha": "463091485c955a6613d18557ed392649e41a048c",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/system-configuration-dialog.mdx",
+      "target": "ru/vps-management/system-configuration-dialog.mdx",
+      "source_sha": "b5245900a557cd16c79de530ccfe7933af9a007b",
+      "headings": 16,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/bring-your-own-iso.mdx",
+      "target": "ru/vps-management/bring-your-own-iso.mdx",
+      "source_sha": "0d3e8589dcbecd1d875519a35273c5d3e2cc4330",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/enable-vnc-server.mdx",
+      "target": "ru/vps-management/enable-vnc-server.mdx",
+      "source_sha": "c024ccce5aea9feede23e36e3033ccfc196268af",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/ip-address-information.mdx",
+      "target": "ru/vps-management/ip-address-information.mdx",
+      "source_sha": "f4aa6f10a137d4918237de5c2fc546996867e9a7",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/ipv6-configuration.mdx",
+      "target": "ru/vps-management/ipv6-configuration.mdx",
+      "source_sha": "a804179311226a6e5023a32407378deb810307f6",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/basic-ipv6-troubleshooting.mdx",
+      "target": "ru/vps-management/basic-ipv6-troubleshooting.mdx",
+      "source_sha": "35adffb5571e7bf31bac80fcc44ecc3622df8899",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404.mdx",
+      "target": "ru/vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404.mdx",
+      "source_sha": "d04aaf0ffc3200d7e8e40a853c5dd01ad7f20081",
+      "headings": 10,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/how-to-change-ip-address-in-windows-server.mdx",
+      "target": "ru/vps-management/how-to-change-ip-address-in-windows-server.mdx",
+      "source_sha": "5c49cfdb3356e6d9c98fcefd69749478bfde6758",
+      "headings": 12,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/linux-rescue-guide-and-troubleshoot.mdx",
+      "target": "ru/vps-management/linux-rescue-guide-and-troubleshoot.mdx",
+      "source_sha": "d866a49512cb59e24730716f3a88649841fafe2c",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/uefi-vs-bios-and-v-tpm.mdx",
+      "target": "ru/vps-management/uefi-vs-bios-and-v-tpm.mdx",
+      "source_sha": "9bf9ac2b8af739c84432b1471b41dc9e765cf456",
+      "headings": 18,
+      "mdx_checked": true
+    },
+    {
+      "source": "vps-management/your-support-pin.mdx",
+      "target": "ru/vps-management/your-support-pin.mdx",
+      "source_sha": "e05426ef95d75aac726a769937b8bef6c66c75a1",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/data-processing-agreement.mdx",
+      "target": "ru/faq/data-processing-agreement.mdx",
+      "source_sha": "57801a0a8dff76e3289aac090b6806e223de1592",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/what-is-a-virtual-private-server.mdx",
+      "target": "ru/faq/what-is-a-virtual-private-server.mdx",
+      "source_sha": "a4c1b5aea0b5e1f5360c4a26e5c8f8c29f2bf653",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/what-is-a-kvm-vps.mdx",
+      "target": "ru/faq/what-is-a-kvm-vps.mdx",
+      "source_sha": "bf5509f93ed46f708d406f520581d10909043926",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/free-trials-available.mdx",
+      "target": "ru/faq/free-trials-available.mdx",
+      "source_sha": "91b7f21efc9ebc243dd005431a3e2c3a01cb8789",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/port-25-smtp-rate-limit-policy.mdx",
+      "target": "ru/faq/port-25-smtp-rate-limit-policy.mdx",
+      "source_sha": "15129d3bf8455352617f3890a3befb2b90844909",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/windows-rdp-service-available.mdx",
+      "target": "ru/faq/windows-rdp-service-available.mdx",
+      "source_sha": "be8424bce17030fc913b52c84fe1e7ca4b6564c7",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/desktop-acceleration.mdx",
+      "target": "ru/faq/desktop-acceleration.mdx",
+      "source_sha": "640df86ec0d5ab7a506dba029cb9521d5d6add31",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/hourly-plans-available.mdx",
+      "target": "ru/faq/hourly-plans-available.mdx",
+      "source_sha": "1b503e52060c4589a820051759baa9cd82d9b19d",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/ping-test-ip.mdx",
+      "target": "ru/faq/ip-addresses/ping-test-ip.mdx",
+      "source_sha": "1aace376082cb5d64681ded5d2b54980c4f15c87",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/free-latency-test-guide.mdx",
+      "target": "ru/faq/ip-addresses/free-latency-test-guide.mdx",
+      "source_sha": "87b4661e0e071682e85c45f68e2f69803b720322",
+      "headings": 20,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/change-ip-address.mdx",
+      "target": "ru/faq/ip-addresses/change-ip-address.mdx",
+      "source_sha": "f37574a5629981506b3954c5b992755a499835b5",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/order-additional-ip-address.mdx",
+      "target": "ru/faq/ip-addresses/order-additional-ip-address.mdx",
+      "source_sha": "4cc9f4f3632e0b2de1307412ac10bc3e55b225a6",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/order-bespoke-ip-address.mdx",
+      "target": "ru/faq/ip-addresses/order-bespoke-ip-address.mdx",
+      "source_sha": "0b0825dfecc22563095b43182f295fac5e80d9bd",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/configuring-additional-ip-address-linux.mdx",
+      "target": "ru/faq/ip-addresses/configuring-additional-ip-address-linux.mdx",
+      "source_sha": "031d2aa7c5189fd3a4ed383dca006deca6c89f34",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/setting-up-reverse-pointers.mdx",
+      "target": "ru/faq/ip-addresses/setting-up-reverse-pointers.mdx",
+      "source_sha": "7b48f4e548e3b3f495102593dc702f42e65b8fab",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall.mdx",
+      "target": "ru/faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall.mdx",
+      "source_sha": "4c8e1dd01e41a3154b45187111409058bd228962",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/ip-can-not-be-reached-from-my-country.mdx",
+      "target": "ru/faq/ip-addresses/ip-can-not-be-reached-from-my-country.mdx",
+      "source_sha": "bb267e766772b1cb1a449eb7cda3e8eda4a07e4d",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/geolocation-geoip-databases.mdx",
+      "target": "ru/faq/ip-addresses/geolocation-geoip-databases.mdx",
+      "source_sha": "b18b0322bea90844b3a25ebecf0bb996dd417102",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/ip-location-incorrect-on-whatismyipaddresscom.mdx",
+      "target": "ru/faq/ip-addresses/ip-location-incorrect-on-whatismyipaddresscom.mdx",
+      "source_sha": "da2b854bce4bcc5c13ce9a16616b6bcffbb3ab4b",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/dns-leak-tests.mdx",
+      "target": "ru/faq/ip-addresses/dns-leak-tests.mdx",
+      "source_sha": "5103f6bc5aa4bdbfeb230a1353c7630b832a103f",
+      "headings": 14,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/understanding-ip-address-location.mdx",
+      "target": "ru/faq/ip-addresses/understanding-ip-address-location.mdx",
+      "source_sha": "59e42427455f8b87d42054f3bdd43eb3df985983",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location.mdx",
+      "target": "ru/faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location.mdx",
+      "source_sha": "b7273b3900a97048d3e6cc63e215c0ad616d0e5b",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/static-ip-addresses.mdx",
+      "target": "ru/faq/ip-addresses/static-ip-addresses.mdx",
+      "source_sha": "3c456782c684c2b74dd2c49f045dfea3dcfd9433",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/bring-your-own-ipv4-prefix.mdx",
+      "target": "ru/faq/ip-addresses/bring-your-own-ipv4-prefix.mdx",
+      "source_sha": "d64a2d38b763593ed774a26d848c2ca5b880ce7c",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance.mdx",
+      "target": "ru/faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance.mdx",
+      "source_sha": "ff05ec9dc09195a30e64f160352a0bd22e9a2652",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/network-is-down.mdx",
+      "target": "ru/faq/ip-addresses/network-is-down.mdx",
+      "source_sha": "91a5a7c03abe7d0062de2bf11689d63ef8aca7ea",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute.mdx",
+      "target": "ru/faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute.mdx",
+      "source_sha": "8618d76a9d9db54684ebe473e24a9370f37ef391",
+      "headings": 12,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows.mdx",
+      "target": "ru/faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows.mdx",
+      "source_sha": "2fda7248c5320e4168dce5404f57c223048c8454",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/ping-pe-connectivity-check.mdx",
+      "target": "ru/faq/ip-addresses/ping-pe-connectivity-check.mdx",
+      "source_sha": "b9e45c1ff8bc135906507326ab2bdb3c3b73b05c",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/ip-addresses/ports-firewalls-and-connectivity.mdx",
+      "target": "ru/faq/ip-addresses/ports-firewalls-and-connectivity.mdx",
+      "source_sha": "70035fa826255e2ec07b0e90b14910856c4b4434",
+      "headings": 11,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/server-locations/list-of-edis-global-server-locations-by-continent-region.mdx",
+      "target": "ru/faq/server-locations/list-of-edis-global-server-locations-by-continent-region.mdx",
+      "source_sha": "a142a9322da25c66ee27e28e2e5056502a13d266",
+      "headings": 18,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/server-locations/change-server-location.mdx",
+      "target": "ru/faq/server-locations/change-server-location.mdx",
+      "source_sha": "ca2e3b1c91ce69963f2985f1128ec0a503feb642",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/automated-payments.mdx",
+      "target": "ru/faq/billing-lifecycle/automated-payments.mdx",
+      "source_sha": "91e8fa6973e7a61c66372fa0a3e1a0275e9724fa",
+      "headings": 14,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/payments-transitions.mdx",
+      "target": "ru/faq/billing-lifecycle/payments-transitions.mdx",
+      "source_sha": "9fb550f84273f0a7b866cc2c5da647adc4396fa0",
+      "headings": 11,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/pay-invoices-from-credit-balance.mdx",
+      "target": "ru/faq/billing-lifecycle/pay-invoices-from-credit-balance.mdx",
+      "source_sha": "c24782e80a376fca4bcff669bcf8b3b69c09474f",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/how-to-add-account-credit.mdx",
+      "target": "ru/faq/billing-lifecycle/how-to-add-account-credit.mdx",
+      "source_sha": "d43728d4d9d836ab5d648b51732a6fa1d253a11a",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/incoming-and-outgoing-payments.mdx",
+      "target": "ru/faq/billing-lifecycle/incoming-and-outgoing-payments.mdx",
+      "source_sha": "9dae2b90824cf33767f45fee23345dc0511eff42",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/top-up-credit-balance-by-bank-transfer.mdx",
+      "target": "ru/faq/billing-lifecycle/top-up-credit-balance-by-bank-transfer.mdx",
+      "source_sha": "05156f0f3615a1cea6af105c296c8375f9712176",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/no-upfront-deposits-required.mdx",
+      "target": "ru/faq/billing-lifecycle/no-upfront-deposits-required.mdx",
+      "source_sha": "c7cd21376cb6e3b13c16f5a5245b1fd5ed7a6281",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/country-change-client-account.mdx",
+      "target": "ru/faq/billing-lifecycle/country-change-client-account.mdx",
+      "source_sha": "35a60ca8174b14c4f790cc2275efa60c017f0d7b",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/moving-services-to-different-client-account.mdx",
+      "target": "ru/faq/billing-lifecycle/moving-services-to-different-client-account.mdx",
+      "source_sha": "e2b64784143a8370ad286bfd4ec0b209b4f55978",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/how-vps-renewals-work.mdx",
+      "target": "ru/faq/billing-lifecycle/how-vps-renewals-work.mdx",
+      "source_sha": "b92e67c4aef694c46d3ea2c34ce6c6adac86dd0b",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/accidental-renewal-convert-payment-to-credit.mdx",
+      "target": "ru/faq/billing-lifecycle/accidental-renewal-convert-payment-to-credit.mdx",
+      "source_sha": "b704648a3465e8f1705627ef0da62fdeeb417793",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/accepted-payment-methods.mdx",
+      "target": "ru/faq/billing-lifecycle/accepted-payment-methods.mdx",
+      "source_sha": "b04b09f6ed1ff5e3c2f3e52186702c4cfd392282",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/cryptocurrency-payments.mdx",
+      "target": "ru/faq/billing-lifecycle/cryptocurrency-payments.mdx",
+      "source_sha": "dee82c3c8b89fbb4af73eb6b46898de8b0a9ede9",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/automatic-currency-conversion.mdx",
+      "target": "ru/faq/billing-lifecycle/automatic-currency-conversion.mdx",
+      "source_sha": "47f4b726cc2dc6e9280be673cc0f28b76ecc9b7c",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global.mdx",
+      "target": "ru/faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global.mdx",
+      "source_sha": "5675219f5e3c8099b655ab91d8ec524373db7921",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/how-fast-instant-delivery.mdx",
+      "target": "ru/faq/billing-lifecycle/how-fast-instant-delivery.mdx",
+      "source_sha": "5f6037a0a30629673b8c2987c6b702062180ebd1",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/cancel-a-service.mdx",
+      "target": "ru/faq/billing-lifecycle/cancel-a-service.mdx",
+      "source_sha": "7d984d696563df7cf5c32bc60fe2ea7e7936f6a3",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/manage-cancellation-requests.mdx",
+      "target": "ru/faq/billing-lifecycle/manage-cancellation-requests.mdx",
+      "source_sha": "bacfe2201f89b8fdc6c82cf1a11486d9ce6a50a1",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/data-retention-period.mdx",
+      "target": "ru/faq/billing-lifecycle/data-retention-period.mdx",
+      "source_sha": "e01ef3b70d3a0d852ef846a50409682f86d1f549",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/cancellation-and-refund-policy.mdx",
+      "target": "ru/faq/billing-lifecycle/cancellation-and-refund-policy.mdx",
+      "source_sha": "699d1288e0c66233cb8d2dbe0fe87a06920fbb68",
+      "headings": 10,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/can-i-get-a-refund.mdx",
+      "target": "ru/faq/billing-lifecycle/can-i-get-a-refund.mdx",
+      "source_sha": "0932affe65380b35c5e06cecc4d209e432d40333",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/credit-card-reservation-vs-payment.mdx",
+      "target": "ru/faq/billing-lifecycle/credit-card-reservation-vs-payment.mdx",
+      "source_sha": "2abf4e17de2bbe79409277cd5271c83beaf2665f",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/automated-vps-billing-workflow.mdx",
+      "target": "ru/faq/billing-lifecycle/automated-vps-billing-workflow.mdx",
+      "source_sha": "73bea2020e09e9c59f2e337578d6897c573d3552",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/scheduled-billing-window.mdx",
+      "target": "ru/faq/billing-lifecycle/scheduled-billing-window.mdx",
+      "source_sha": "19fbd7f33d47232858e6394b3b653c1e044128f1",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/how-to-receive-monthly-consolidated-invoice.mdx",
+      "target": "ru/faq/billing-lifecycle/how-to-receive-monthly-consolidated-invoice.mdx",
+      "source_sha": "cb46238e2904223d5ae47a150adba73e865d6246",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/eu-vat-explained-if-and-how-much.mdx",
+      "target": "ru/faq/billing-lifecycle/eu-vat-explained-if-and-how-much.mdx",
+      "source_sha": "5e58dba81984309dd36d4917d61103dee57ab524",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/can-i-pay-with-iban.mdx",
+      "target": "ru/faq/billing-lifecycle/can-i-pay-with-iban.mdx",
+      "source_sha": "2cf064846a0a880006229d21d9ffd7f95e5c5e37",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/find-and-download-invoices.mdx",
+      "target": "ru/faq/billing-lifecycle/find-and-download-invoices.mdx",
+      "source_sha": "6e4dfb13a13a699b39237a6bee9704e084815168",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/how-to-pay-paypal-use-different-currency.mdx",
+      "target": "ru/faq/billing-lifecycle/how-to-pay-paypal-use-different-currency.mdx",
+      "source_sha": "1c9bb026e6c533d19e779f715e4a4110e1716f65",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/add-contact-receive-invoices-different-email.mdx",
+      "target": "ru/faq/billing-lifecycle/add-contact-receive-invoices-different-email.mdx",
+      "source_sha": "843001a0443562caa0d6191351240bb4b7a51966",
+      "headings": 2,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account.mdx",
+      "target": "ru/faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account.mdx",
+      "source_sha": "8fe4c42859add5184fa1a798332441d9e9cf1951",
+      "headings": 10,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/cryptocurrency-payment-help.mdx",
+      "target": "ru/faq/billing-lifecycle/cryptocurrency-payment-help.mdx",
+      "source_sha": "bf6a500828b398abe219b6d65d153d30b1e218dc",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/billing-lifecycle/reset-2fa.mdx",
+      "target": "ru/faq/billing-lifecycle/reset-2fa.mdx",
+      "source_sha": "488f750acbb53cfd0508e886609b8de49b943413",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/traffic-vs-bandwidth.mdx",
+      "target": "ru/faq/traffic-bandwidth/traffic-vs-bandwidth.mdx",
+      "source_sha": "45c3c2c37bd5b6beba202cbe88b35e65d218d919",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/traffic-stats-refill-explained.mdx",
+      "target": "ru/faq/traffic-bandwidth/traffic-stats-refill-explained.mdx",
+      "source_sha": "a61fb2504d9d5eb5681cfa1b160e46ce81da5514",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/traffic-pool.mdx",
+      "target": "ru/faq/traffic-bandwidth/traffic-pool.mdx",
+      "source_sha": "79c366de954827ff64cf7cbad04482abe53428b7",
+      "headings": 16,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/speed-test.mdx",
+      "target": "ru/faq/traffic-bandwidth/speed-test.mdx",
+      "source_sha": "b42cfd3212b34c97cf65a2099ea465fd4081d8ae",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-network-usage.mdx",
+      "target": "ru/faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-network-usage.mdx",
+      "source_sha": "80c355a9bad9520e8a43c2b727bc6a9d9edae2d4",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global.mdx",
+      "target": "ru/faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global.mdx",
+      "source_sha": "bb073177fff76e53656662a9709a7182923966e8",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview.mdx",
+      "target": "ru/faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview.mdx",
+      "source_sha": "197be75e9e714800c7415ddbdbc7097b5a1eb463",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients.mdx",
+      "target": "ru/faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients.mdx",
+      "source_sha": "4682dabdca49811a9ee6cf0ee4bd0533ef55eba4",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/upgrades.mdx",
+      "target": "ru/faq/upgrades-downgrades/upgrades.mdx",
+      "source_sha": "f96a32ee69afa08ba4f5b0a9a47da867e5de032f",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/upgrade-plan.mdx",
+      "target": "ru/faq/upgrades-downgrades/upgrade-plan.mdx",
+      "source_sha": "18c4842a63d99cc78acc0d7a7d6abfe2b2ff5af5",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/upgrade-resources.mdx",
+      "target": "ru/faq/upgrades-downgrades/upgrade-resources.mdx",
+      "source_sha": "2a6bb7549940e0808bf61d5eef426b0dec75d3c0",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/upgrade-disk-drive-boost.mdx",
+      "target": "ru/faq/upgrades-downgrades/upgrade-disk-drive-boost.mdx",
+      "source_sha": "f910b1882bda4534c3084509b2113887843b7eff",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade.mdx",
+      "target": "ru/faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade.mdx",
+      "source_sha": "ff2910ba7754a44388e9bb0d477e0f7041a6beb4",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/is-it-possible-to-downgrade.mdx",
+      "target": "ru/faq/upgrades-downgrades/is-it-possible-to-downgrade.mdx",
+      "source_sha": "67bfe6f4e76aafe269ca7e394f1a2a1e5ba8cde3",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/backup-restore-data-linux.mdx",
+      "target": "ru/faq/upgrades-downgrades/backup-restore-data-linux.mdx",
+      "source_sha": "d35870da73c387adbdded4457e9d66f0cde5d7d2",
+      "headings": 16,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/requesting-qcow2-image-backup.mdx",
+      "target": "ru/faq/upgrades-downgrades/requesting-qcow2-image-backup.mdx",
+      "source_sha": "bbe1bb1ab9898e9dd7521a7269d7fb4f49e29853",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/private-vlan-option.mdx",
+      "target": "ru/faq/upgrades-downgrades/private-vlan-option.mdx",
+      "source_sha": "762fec11b22ae2e69a4724615bd712c95cc9b959",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/get-additional-network-card.mdx",
+      "target": "ru/faq/upgrades-downgrades/get-additional-network-card.mdx",
+      "source_sha": "0c8e1cf761ef74459a5fa19104021cfcae37a67c",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps.mdx",
+      "target": "ru/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps.mdx",
+      "source_sha": "d2991606208d69fd31e7f3619189ba36e4ba89f2",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-linux-vps.mdx",
+      "target": "ru/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-linux-vps.mdx",
+      "source_sha": "3e0d2bf9ce23e07e3e29e235607b0aa6b0e7c42f",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps.mdx",
+      "target": "ru/faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps.mdx",
+      "source_sha": "7e1b42d56a312a6ccbff1479d627173d2842fe80",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "partner-starter-pack.mdx",
+      "target": "ru/partner-starter-pack.mdx",
+      "source_sha": "7e419cf93e385c3ed080b97a3c2f3504a5a17344",
+      "headings": 30,
+      "mdx_checked": true
+    },
+    {
+      "source": "commercial-vpn-hosting.mdx",
+      "target": "ru/commercial-vpn-hosting.mdx",
+      "source_sha": "01d23a2b38df3aac9c6a666dce982e1848fcafc3",
+      "headings": 19,
+      "mdx_checked": true
+    },
+    {
+      "source": "reselling-and-discounts.mdx",
+      "target": "ru/reselling-and-discounts.mdx",
+      "source_sha": "4d9f6591910415be7ae970e05a4bc7be55697b69",
+      "headings": 11,
+      "mdx_checked": true
+    },
+    {
+      "source": "reporting-abuse.mdx",
+      "target": "ru/reporting-abuse.mdx",
+      "source_sha": "cb91db2a824018c43af0fc733fcfbeb98b8a63c5",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "responding-to-abuse-complaints.mdx",
+      "target": "ru/responding-to-abuse-complaints.mdx",
+      "source_sha": "b8edf6dca49e85eda12678b6aa344faf4d9f272a",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "join-our-team/jobs-edisglobal-support-agent-non-voice.mdx",
+      "target": "ru/join-our-team/jobs-edisglobal-support-agent-non-voice.mdx",
+      "source_sha": "04419fb7c77628a6c0ae6e4df95abe34e7e5d0fd",
+      "headings": 0,
+      "mdx_checked": true
+    },
+    {
+      "source": "join-our-team/technical-procurement-and-server-operations-coordinator.mdx",
+      "target": "ru/join-our-team/technical-procurement-and-server-operations-coordinator.mdx",
+      "source_sha": "c26f4385ada364c653d3eb86c440521bc3ef6f37",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert.mdx",
+      "target": "ru/join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert.mdx",
+      "source_sha": "16b6db568be7aed1507aae6fd976249518c72184",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/run-monero-node-debian-vps.mdx",
+      "target": "ru/advanced-setup-guides/run-monero-node-debian-vps.mdx",
+      "source_sha": "2709867e1984198e7ac2b5c33b5b5933bb7ce330",
+      "headings": 13,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods.mdx",
+      "target": "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods.mdx",
+      "source_sha": "2c9b4b232032a96a13007f80b07db5ed6576609a",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server.mdx",
+      "target": "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server.mdx",
+      "source_sha": "6f09ad2f320a127fbf1781b61440578e06e73660",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows.mdx",
+      "target": "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows.mdx",
+      "source_sha": "967f6eca2b17c05033e0c8494541110731eb1097",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows.mdx",
+      "target": "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows.mdx",
+      "source_sha": "a3e4f86164c17aa2c2d4f6626f372b93de3bbfc4",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux.mdx",
+      "target": "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux.mdx",
+      "source_sha": "8a6eca81c375bb26e1650e730daa29770be82fa2",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux.mdx",
+      "target": "ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux.mdx",
+      "source_sha": "25aae190b0213ce6822fcf040e166a8b0a525c71",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox.mdx",
+      "target": "ru/advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox.mdx",
+      "source_sha": "bcfa0880d2e78b8846019095b6e3157648ce415b",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router.mdx",
+      "target": "ru/advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router.mdx",
+      "source_sha": "49b3ec044c40573e197eb0a4192c9ebcc26b5ef6",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-mikrotik-routeros-on-edis-vps.mdx",
+      "target": "ru/advanced-setup-guides/install-mikrotik-routeros-on-edis-vps.mdx",
+      "source_sha": "63b75c066aa018a598a79a5346190b4d08991f37",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/installing-a-vps-using-cloud-init.mdx",
+      "target": "ru/advanced-setup-guides/installing-a-vps-using-cloud-init.mdx",
+      "source_sha": "404e4966187d144fa7a27cc45a966b95300e4c54",
+      "headings": 2,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems.mdx",
+      "target": "ru/advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems.mdx",
+      "source_sha": "94ef811ff579c0d12f3dc0a42b9f38fd420c006f",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/extend-hard-drive-windows-guide.mdx",
+      "target": "ru/advanced-setup-guides/extend-hard-drive-windows-guide.mdx",
+      "source_sha": "80ae8b7b8dfff646e556875ff5eaedb28cb14f28",
+      "headings": 11,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/security-advisories/regresshion-openssh-vulnerability.mdx",
+      "target": "ru/advanced-setup-guides/security-advisories/regresshion-openssh-vulnerability.mdx",
+      "source_sha": "82f4e47f842ab327c9d2c0d7b67dae578b9b598f",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/security-advisories/update-sshd-debian-ubuntu-redhat.mdx",
+      "target": "ru/advanced-setup-guides/security-advisories/update-sshd-debian-ubuntu-redhat.mdx",
+      "source_sha": "6f77adaef85f5150a5f2946c7c2a23d54a2f84c4",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/registering-and-assigning-a-domain-to-your-vps.mdx",
+      "target": "ru/advanced-setup-guides/registering-and-assigning-a-domain-to-your-vps.mdx",
+      "source_sha": "4be8862423af09fe342ad3fbf98edab1d65ea799",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps.mdx",
+      "target": "ru/advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps.mdx",
+      "source_sha": "1d64a2854f013ce027805756dc155c279358e2a0",
+      "headings": 0,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/openvpn-over-stunnel.mdx",
+      "target": "ru/advanced-setup-guides/openvpn-over-stunnel.mdx",
+      "source_sha": "c088fdf36fe08be7bd2806c5eb62587c43ba7a47",
+      "headings": 29,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/l2tp-ipsec-and-ikev2-vpn.mdx",
+      "target": "ru/advanced-setup-guides/l2tp-ipsec-and-ikev2-vpn.mdx",
+      "source_sha": "f8277dddaa0079f31b2022407c8e6e3ceb109b8b",
+      "headings": 27,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204.mdx",
+      "target": "ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204.mdx",
+      "source_sha": "7d891d481097da29013c2d8026e28337879892ac",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router.mdx",
+      "target": "ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router.mdx",
+      "source_sha": "218bfe438e81524d1c6ba648f7b1ff62828718f4",
+      "headings": 0,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg.mdx",
+      "target": "ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg.mdx",
+      "source_sha": "3db6ee2bd164ed99ecf507bca0b653f918d4d63a",
+      "headings": 11,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows.mdx",
+      "target": "ru/advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows.mdx",
+      "source_sha": "dcb2adc42509f9f2468885e5fba3bc403ac1e26c",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204.mdx",
+      "target": "ru/advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204.mdx",
+      "source_sha": "8a008fbf224bd3c7e815ede06e292f0c90edbd9c",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-3x-ui-on-vps/hiddify-client-for-windows.mdx",
+      "target": "ru/advanced-setup-guides/install-3x-ui-on-vps/hiddify-client-for-windows.mdx",
+      "source_sha": "1bfe06f6623b518e2e7a8c794bcf73ebade38efb",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-3x-ui-on-vps/v2rayng-vpn-client-on-android.mdx",
+      "target": "ru/advanced-setup-guides/install-3x-ui-on-vps/v2rayng-vpn-client-on-android.mdx",
+      "source_sha": "4fe9500b5924727368990b82e6d2fbdd68e6cf34",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-3x-ui-on-vps/v2raytun-vpn-client-on-ios.mdx",
+      "target": "ru/advanced-setup-guides/install-3x-ui-on-vps/v2raytun-vpn-client-on-ios.mdx",
+      "source_sha": "c47296d220820309e6f28aa2f1f04acca3d2a12b",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/how-to-install-google-chrome-on-windows-server.mdx",
+      "target": "ru/advanced-setup-guides/how-to-install-google-chrome-on-windows-server.mdx",
+      "source_sha": "aa2b5b1f387382485c87579845956936b0c4c095",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/forgot-administrator-password-on-windows-server.mdx",
+      "target": "ru/advanced-setup-guides/forgot-administrator-password-on-windows-server.mdx",
+      "source_sha": "5b51643eff32cd774e8748e76c8ae66a4b4f5d46",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode.mdx",
+      "target": "ru/advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode.mdx",
+      "source_sha": "5e28c42eb2e1124efb09a537182b344e9a0a8edd",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps.mdx",
+      "target": "ru/advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps.mdx",
+      "source_sha": "36ff9727fac389359b38a77b16282dea440ef590",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/gui-versions-of-ubuntu-debian.mdx",
+      "target": "ru/advanced-setup-guides/gui-versions-of-ubuntu-debian.mdx",
+      "source_sha": "11281d7ad49489fb8449c50384d075d319302e58",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-jitsi-on-your-vps.mdx",
+      "target": "ru/advanced-setup-guides/install-jitsi-on-your-vps.mdx",
+      "source_sha": "538e604b1dd2976095e95af77631ca6ae9459c32",
+      "headings": 7,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/how-to-setup-wireguard-vpn.mdx",
+      "target": "ru/advanced-setup-guides/how-to-setup-wireguard-vpn.mdx",
+      "source_sha": "215db663bdda9267931121e57023020601a0dfb9",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-cockpit-on-vps.mdx",
+      "target": "ru/advanced-setup-guides/install-cockpit-on-vps.mdx",
+      "source_sha": "70e29b85d5c246c95e99a8b068ec4f3b2fe88f02",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/installing-openvpn-with-turnkey.mdx",
+      "target": "ru/advanced-setup-guides/installing-openvpn-with-turnkey.mdx",
+      "source_sha": "d864844eec74f3b070907e13367489d8d74a8ddd",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/ufw-uncomplicated-firewall-howto.mdx",
+      "target": "ru/advanced-setup-guides/ufw-uncomplicated-firewall-howto.mdx",
+      "source_sha": "2336508accf69eada26f50ecc01023b6d55c7cc0",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/nftables-firewall-howto.mdx",
+      "target": "ru/advanced-setup-guides/nftables-firewall-howto.mdx",
+      "source_sha": "c7ab4748f8bce30c3319f74c97ce13621b436ec8",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "advanced-setup-guides/install-openclaw-edislobal-vps.mdx",
+      "target": "ru/advanced-setup-guides/install-openclaw-edislobal-vps.mdx",
+      "source_sha": "145fb1b8e789ebebc0fae47bc1562144777063d2",
+      "headings": 12,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/extending-180-day-trial-version-of-windows.mdx",
+      "target": "ru/misc/extending-180-day-trial-version-of-windows.mdx",
+      "source_sha": "2aa9e146cd489afe2485edd3458534f5465da966",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/fix-openssh-vm-delays-low-entropy.mdx",
+      "target": "ru/misc/fix-openssh-vm-delays-low-entropy.mdx",
+      "source_sha": "6974adc5113c7ba87ba29e1225258ce085ab4a9b",
+      "headings": 11,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/security-compliance.mdx",
+      "target": "ru/misc/security-compliance.mdx",
+      "source_sha": "c588e32f45cc72d708a471b36ac482aecf9932c6",
+      "headings": 9,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/fix-black-screen-windows-server.mdx",
+      "target": "ru/misc/fix-black-screen-windows-server.mdx",
+      "source_sha": "af6d55a8d52feda439fb92888fd12cee52b42285",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/why-has-windows-server-slowed-down.mdx",
+      "target": "ru/misc/why-has-windows-server-slowed-down.mdx",
+      "source_sha": "fa43504bb435dfd05ba6df357aba605c171ec4ec",
+      "headings": 8,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/fix-for-realvnc-closing-connection.mdx",
+      "target": "ru/misc/fix-for-realvnc-closing-connection.mdx",
+      "source_sha": "a0e19d0deade9074e3745b4606089211844a8b55",
+      "headings": 1,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/manual-windows-server-installation-on-kvm.mdx",
+      "target": "ru/misc/manual-windows-server-installation-on-kvm.mdx",
+      "source_sha": "bfcdba76ef9bd3c7b6372606ab3c8a35adfff79b",
+      "headings": 2,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error.mdx",
+      "target": "ru/misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error.mdx",
+      "source_sha": "97633bff78435ece835523b6686ae66e93dd3944",
+      "headings": 3,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/what-is-seabios.mdx",
+      "target": "ru/misc/what-is-seabios.mdx",
+      "source_sha": "155aa22356e81bd8800cc69eed8f2582caf7ea7b",
+      "headings": 6,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/disable-serial-getty-ttys0-debian-13.mdx",
+      "target": "ru/misc/disable-serial-getty-ttys0-debian-13.mdx",
+      "source_sha": "ebefab8670bb5417273823c716b500897b8ffdbd",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "misc/portal-buttons-not-loading.mdx",
+      "target": "ru/misc/portal-buttons-not-loading.mdx",
+      "source_sha": "86fd6975a2dc3b3da5e7611108a7e4c15205464c",
+      "headings": 5,
+      "mdx_checked": true
+    },
+    {
+      "source": "changelog/product.mdx",
+      "target": "ru/changelog/product.mdx",
+      "source_sha": "a661848d6d6692c05c39ded64f4bfe5ceb11eb3e",
+      "headings": 23,
+      "mdx_checked": true
+    },
+    {
+      "source": "changelog/management-api.mdx",
+      "target": "ru/changelog/management-api.mdx",
+      "source_sha": "3c8d464c503a09be81d76986ee2136b9796f6982",
+      "headings": 4,
+      "mdx_checked": true
+    },
+    {
+      "source": "changelog/order-api.mdx",
+      "target": "ru/changelog/order-api.mdx",
+      "source_sha": "f37f249cc24176bb09557be109a6c1563e4a448f",
+      "headings": 4,
+      "mdx_checked": true
+    }
+  ],
+  "pending": [],
+  "errors": []
+}

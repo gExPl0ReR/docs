@@ -1,0 +1,19 @@
+---
+title: "Настройки IP-адресов и сведения о сети VPS"
+description: "Панель VPS EDIS позволяет просматривать и управлять сетевыми параметрами VPS: адресами IPv4 и IPv6, шлюзом, подсетью и DNS-серверами."
+sidebarTitle: "IP-настройки VPS"
+---
+
+## Найдите сетевые настройки VPS {#find-your-vps-network-settings}
+
+1. Откройте [панель управления VPS](https://manage.edisglobal.com/clientarea.php).
+2. Перейдите в **Services → My Services** и выберите VPS.
+3. На вкладке **Server Information** нажмите **Network Info** в блоке **Server management**.
+
+<Frame caption="Адреса обезличены. Используйте значения, указанные для вашего VPS.">
+  <img src="/images/portal-network-info-dialog.png" alt="Окно Network Information с выделенными адресами IPv4 и IPv6, шлюзами и DNS-серверами" style={{ maxWidth: "520px", margin: "0 auto" }} />
+</Frame>
+
+В окне перечислены выделенный IPv4-адрес и маска сети, префикс IPv6, шлюзы и DNS-серверы. Используйте эти значения при настройке или восстановлении сети внутри ОС.
+
+Просмотр окна не меняет сетевую конфигурацию гостевой ОС. Дополнительные IP-адреса также необходимо настроить внутри VPS. Для управления именами хостов, возвращаемыми для ваших адресов, см. [настройку обратного DNS](/ru/faq/ip-addresses/setting-up-reverse-pointers).

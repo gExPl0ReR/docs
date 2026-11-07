@@ -1,0 +1,35 @@
+---
+title: "Клиент Hiddify для Windows"
+sidebarTitle: "Hiddify для Windows"
+description: "Подключение к VLESS VPN в Windows через Hiddify: установка, импорт конфигурации и рекомендации по обходу Deep Packet Inspection."
+---
+
+## Клиент Hiddify для Windows {#hiddify-client-for-windows}
+
+Для подключения к 3x-ui через Hiddify с компьютера:
+
+1. [Скачайте](https://github.com/hiddify/hiddify-app/releases/) выпуск с отметкой `Latest` и подходящий для вашей ОС пакет или файл.
+2. Запустите установщик и завершите установку.
+3. Откройте каталог Hiddify, обычно `C:\Program Files\Hiddify\`. Нажмите правой кнопкой на **Hiddify.exe**, выберите **Properties** и вкладку **Compatibility**. Отметьте **Run this program as administrator** и нажмите **OK**.
+   ![Запуск Hiddify от администратора](/assets/HiddifyAdminPermission.png)
+4. На главном экране нажмите значок настроек справа вверху:
+   ![Открытие настроек Hiddify](/assets/HiddifyOpenSettings.png)
+5. Выберите настройку VPN:
+   ![Выбор режима VPN](/assets/HiddifySetVPN.png)
+6. Вернитесь на главный экран и нажмите **Profiles** слева для управления профилями:
+   ![Управление профилями](/assets/HiddifyOpenSettings2.png)
+7. В **Config Options → Route Options** откройте **Region** и выберите **Other**, как на скриншоте:
+   ![Выбор региона Other](/assets/HiddifyOpenSettings2RegionOther.png)
+8. На главном экране нажмите **New Profile**:
+   ![Новый профиль Hiddify](/assets/HiddifyNewProfile.png)
+9. В окне нажмите **Add From Clipboard**, чтобы создать профиль из ссылки VLESS/подписки, ранее скопированной нажатием QR-кода в 3x-ui.
+   ![Импорт профиля из буфера обмена](/assets/HiddifyAddNewprofile.png)
+10. При успешном импорте вверху появится имя VPN-профиля. Для подключения и проверки нажмите **Tap to Connect**:
+    ![Подключение Hiddify](/assets/HiddifyTaptoconnect.png)
+11. При первом подключении появится **Experimental Features In Use**. При желании отметьте **Don’t Show Again**, затем нажмите **CONNECT**.
+    ![Подтверждение экспериментальных функций](/assets/HiddifyTaptoconnect_PopUP_window.png)
+12. Зелёная кнопка 🟢 со статусом **Connected** ✅ означает установленное VPN-соединение 🌐. Внизу появятся текущие показатели передачи и приёма трафика ⬇️↕️, подтверждающие использование VPN.
+    ![Успешное подключение к VPN](/assets/HiddifySuccefullyconectedtoVPNserver.png)
+13. Официальная документация Hiddify:
+    - https://hiddify.com/app/How-to-install-Hiddify-app/
+    - https://hiddify.com/app/How-to-use-Hiddify-app/

@@ -1,0 +1,1651 @@
+{
+  "getting-started/everything-vps.mdx": [
+    "welcome-to-edis-global-help-and-docs-",
+    "open-your-vps-in-the-portal",
+    "start-with-the-essentials",
+    "manage-and-scale-your-vps",
+    "common-tasks"
+  ],
+  "getting-started/common-vps-tasks.mdx": [
+    "find-the-task-you-need",
+    "restart-reset-or-cold-boot",
+    "activate-hardware-changes-with-a-cold-boot",
+    "reinstall-or-change-operating-system",
+    "choose-a-standard-or-bespoke-ip-change",
+    "manage-billing-and-renewals",
+    "when-invoices-and-reminders-are-sent",
+    "what-to-do-if-payment-is-late",
+    "create-backups-you-can-restore",
+    "can-edis-global-provide-a-complete-disk-image",
+    "upgrade-your-vps",
+    "manage-traffic-and-monthly-refills",
+    "recover-access",
+    "networking-and-location-changes",
+    "cancel-a-vps-correctly",
+    "get-help-with-the-right-details"
+  ],
+  "getting-started/check-your-inbox.mdx": [
+    "your-vps-deployment-email",
+    "what-the-email-contains",
+    "complete-your-initial-setup",
+    "included-traffic-pool-starter-credit",
+    "no-deployment-email-received",
+    "essential-links",
+    "need-assistance"
+  ],
+  "getting-started/understanding-email-notifications.mdx": [
+    "what-each-symbol-means",
+    "examples-of-email-subjects",
+    "traffic-emails-pool-balance-and-vps-allowance-are-different",
+    "upgrade-and-ip-emails-ready-does-not-always-mean-active",
+    "how-to-act-on-a-notification"
+  ],
+  "getting-started/no-email-received.mdx": [
+    "we-cannot-resend-emails",
+    "before-you-reinstall",
+    "choose-a-recovery-method",
+    "reinstall-an-empty-vps",
+    "why-the-original-password-cannot-be-recovered",
+    "still-need-help"
+  ],
+  "getting-started/statuspage-subscribe.mdx": [
+    "subscribe-to-status-updates",
+    "quick-overview",
+    "1-open-the-status-page",
+    "2-click-subscribe",
+    "3-enter-your-email-address",
+    "4-confirm-via-magic-link",
+    "5-select-regions",
+    "6-subscribe-to-individual-server-locations",
+    "icon-meaning",
+    "7-select-your-notification-method",
+    "8-save-your-changes",
+    "unsubscribe",
+    "status-api"
+  ],
+  "getting-started/how-our-support-team-helps-you.mdx": [
+    "how-edis-global-support-can-help-you",
+    "what-we-assist-with",
+    "support-boundaries-to-keep-your-data-secure-",
+    "get-the-help-you-need",
+    "thank-you-for-reaching-out"
+  ],
+  "getting-started/linux-secure-shell-ssh.mdx": [
+    "what-is-a-secure-shell-ssh",
+    "how-to-use-ssh-to-connect-to-your-remote-vps",
+    "remote-host-identification-has-changed",
+    "verify-the-new-key-first",
+    "remove-the-old-entry-on-your-computer"
+  ],
+  "getting-started/ssh-security-hardening-guide.mdx": [
+    "1-update-openssh",
+    "2-create-and-test-an-administrator-account",
+    "3-configure-ssh-key-authentication",
+    "4-restrict-login-methods",
+    "5-apply-firewall-rules-before-enabling-the-firewall",
+    "6-monitor-access-and-consider-additional-controls",
+    "if-a-new-login-fails"
+  ],
+  "getting-started/windows-remote-desktop.mdx": [
+    "how-to-connect-to-a-remote-system-on-windows-and-macos",
+    "connection-details",
+    "for-windows-users",
+    "for-macos-users",
+    "troubleshooting"
+  ],
+  "getting-started/backups.mdx": [
+    "backup-responsibility-for-your-vps",
+    "what-this-means-for-you",
+    "keep-a-recoverable-copy-outside-the-vps",
+    "why-regular-backups-are-essential-for-your-vps-data-protection",
+    "how-to-back-up-and-restore-your-data",
+    "requesting-a-downloadable-qcow2-image-backup"
+  ],
+  "getting-started/acceptable-use-policy.mdx": [
+    "-prohibited-applications-and-activities",
+    "-child-sexual-abuse-material-csam",
+    "-unsolicited-emails-spam",
+    "-network-infrastructure-interference",
+    "-malware-or-phishing-websites",
+    "-ddos-or-network-attacks",
+    "-tor-usage",
+    "-malicious-software",
+    "-cryptocurrency-mining",
+    "-counterfeit-websites",
+    "-illegal-content",
+    "-ipv6-address-usage",
+    "-irc-services",
+    "-prohibited-content-and-conduct",
+    "-intellectual-property-violations",
+    "-defamatory-content",
+    "-privacy-violations",
+    "-self-harm-content",
+    "-extremist-content"
+  ],
+  "vps-management/api-for-management-and-ordering.mdx": [
+    "vps-api-for-management-and-ordering",
+    "-vps-management-api",
+    "-vps-order-api",
+    "-authentication-&-integration"
+  ],
+  "vps-management/vps-management-portal.mdx": [
+    "complete-control-of-your-vps",
+    "find-your-vps",
+    "understand-your-vps-status",
+    "control-and-deploy-your-server",
+    "manage-ip-addresses-and-virtual-hardware",
+    "monitor-performance-and-manage-traffic",
+    "automate-your-infrastructure",
+    "upgrade-resources-plans-and-billing",
+    "ready-to-get-started"
+  ],
+  "vps-management/understanding-vps-status.mdx": [
+    "status-badges-at-a-glance",
+    "running",
+    "internet-throttled",
+    "internet-blocked",
+    "access-your-vps-through-novnc",
+    "option-1-resolve-the-issue-and-request-a-review",
+    "option-2-reinstall-your-vps",
+    "think-the-report-is-incorrect",
+    "stopped",
+    "installing-os"
+  ],
+  "vps-management/ai-assisted-vps-management.mdx": [
+    "what-ai-can-help-you-accomplish",
+    "choose-where-the-ai-works",
+    "prepare-the-vps-before-using-ai",
+    "install-an-ai-terminal-tool-on-your-computer",
+    "start-without-direct-server-access",
+    "give-an-ai-agent-restricted-ssh-access",
+    "set-rules-for-the-first-ai-session",
+    "build-monitoring-before-automation",
+    "analyse-logs-without-sharing-everything",
+    "let-ai-propose-changes-not-silently-apply-them",
+    "a-beginner-friendly-windows-workflow",
+    "what-not-to-automate-unattended",
+    "remove-access-when-the-task-is-finished",
+    "a-practical-ai-assisted-routine",
+    "final-responsibility-checklist",
+    "further-reading"
+  ],
+  "vps-management/autoinstall-reinstall-install-vps-linux-windows.mdx": [
+    "can-i-change-my-operating-system-later-free-of-charge",
+    "reinstall-your-vps-with-a-fresh-os",
+    "watch-linux-auto-install-video-guide",
+    "watch-windows-auto-install-video-guide",
+    "step-by-step-reinstallation",
+    "installation-time-and-port-behavior",
+    "installation-via-cloud-init"
+  ],
+  "vps-management/os-availability.mdx": [
+    "operating-system-availability",
+    "os-options-available-in-the-shopping-cart",
+    "available-os-in-the-shopping-cart",
+    "debian",
+    "almalinux",
+    "arch-linux",
+    "rocky-linux",
+    "centos-stream",
+    "ubuntu-lts",
+    "windows-server-trial-installers",
+    "custom-installation",
+    "os-options-available-in-the-control-panel-auto-install",
+    "full-os-list-in-dashboard-auto-install",
+    "debian-2",
+    "ubuntu-lts-2",
+    "almalinux-2",
+    "rocky-linux-2",
+    "centos-/-centos-stream",
+    "arch-linux-2",
+    "windows",
+    "custom-os",
+    "why-are-the-lists-different",
+    "shopping-cart-=-recommended-defaults",
+    "vps-control-panel-=-full-flexibility",
+    "installing-other-operating-systems",
+    "-cloud-init",
+    "-manual-vnc-/-iso-installation",
+    "iso-installation-and-recovery-media",
+    "installation-isos",
+    "recovery-tools",
+    "how-to-use-an-iso",
+    "summary",
+    "-related-articles"
+  ],
+  "vps-management/edis-cloud-init-vps-installation.mdx": [
+    "easy-vps-installation-with-cloud-init",
+    "what-is-cloud-init",
+    "benefits-of-cloud-init-vs-iso-based-os-installations",
+    "understanding-cloudinit_user_data",
+    "when-to-supply-custom-user-data"
+  ],
+  "vps-management/power-cycle-or-reboot-a-vps.mdx": [
+    "which-option-should-i-use",
+    "find-the-restart-menu",
+    "restart-vps",
+    "power-cycle-vps",
+    "restart-gracefully-from-linux-or-windows",
+    "linux",
+    "windows",
+    "start-or-stop-a-vps"
+  ],
+  "vps-management/reset-root-password-linux.mdx": [
+    "access-the-vps-management-portal",
+    "mount-password-reset-helper-image-and-boot",
+    "open-the-browser-console",
+    "unmount-the-iso",
+    "disable-vnc-access",
+    "credentials-updated-successfully-"
+  ],
+  "vps-management/reset-windows-admin-password.mdx": [
+    "access-the-vps-management-portal",
+    "mount-password-reset-helper-image-and-boot",
+    "open-the-browser-console",
+    "unmount-the-iso",
+    "reboot-and-test",
+    "disable-vnc-access",
+    "-congratulations"
+  ],
+  "vps-management/rdp-error-0xd07-user-account-locked.mdx": [
+    "why-this-happens",
+    "quick-solution",
+    "1-wait-and-try-again",
+    "2-verify-username-and-password",
+    "3-remove-saved-rdp-credentials",
+    "recommended-security-improvements",
+    "restrict-rdp-access-by-ip",
+    "change-the-default-rdp-port",
+    "enable-network-level-authentication-nla",
+    "use-a-vpn-instead-of-public-rdp",
+    "affected-windows-versions",
+    "still-need-help"
+  ],
+  "vps-management/mount-iso-image.mdx": [
+    "mount-an-iso-image-on-your-vps",
+    "attach-only-or-boot-immediately"
+  ],
+  "vps-management/post-install-scripts.mdx": [
+    "background",
+    "archived-examples",
+    "for-debian-based-os-debian/ubuntu",
+    "for-rpm-based-os-centos-rocky-linux-…",
+    "use-cases-for-post-install-scripts"
+  ],
+  "vps-management/system-configuration-dialog.mdx": [
+    "-system-configuration-dialog-in-the-vps-management-portal",
+    "open-the-dialog",
+    "-boot-menu-timeout",
+    "-boot-mode-and-tpm",
+    "default-behavior",
+    "important",
+    "how-settings-are-applied",
+    "-cpu-cores-vs-sockets",
+    "-cpu-model",
+    "-video-driver",
+    "-disk-driver",
+    "-network-driver",
+    "-vnc-keymap",
+    "-description",
+    "-vlan-settings",
+    "-important-notes"
+  ],
+  "vps-management/bring-your-own-iso.mdx": [
+    "upload-your-own-iso",
+    "option-1-download-from-a-url",
+    "option-2-upload-from-your-computer",
+    "mount-and-boot-the-uploaded-image"
+  ],
+  "vps-management/enable-vnc-server.mdx": [
+    "open-the-vps-console",
+    "can-i-copy-and-paste-text",
+    "log-in-through-the-browser-console",
+    "connect-with-a-desktop-vnc-client",
+    "stop-vnc-when-finished"
+  ],
+  "vps-management/ip-address-information.mdx": [
+    "find-your-vps-network-settings"
+  ],
+  "vps-management/ipv6-configuration.mdx": [
+    "understand-your-ipv6-allocation",
+    "configure-an-ipv6-address-on-linux",
+    "configure-the-ipv6-default-route",
+    "ipv6-usage-restrictions"
+  ],
+  "vps-management/basic-ipv6-troubleshooting.mdx": [
+    "basic-ipv6-troubleshooting",
+    "check-the-configured-address",
+    "check-the-default-route",
+    "test-external-connectivity"
+  ],
+  "vps-management/manually-change-the-ip-address-in-ubuntu-versions-1804-to-2404.mdx": [
+    "manual-ip-change-instructions",
+    "access-portal-and-launch-vnc",
+    "identify-your-network-interface",
+    "edit-the-netplan-configuration-file",
+    "change-the-ip-address",
+    "configure-multiple-ips-optional",
+    "save-configuration",
+    "apply-network-changes",
+    "verify-configuration",
+    "fast-ubuntu-vps-ready-in-minutes"
+  ],
+  "vps-management/how-to-change-ip-address-in-windows-server.mdx": [
+    "quick-guide-on-how-to-change-ip-address-on-windows-server-via-vnc",
+    "change-ip-address-on-windows-server",
+    "step-1-connect-to-your-windows-server-via-vnc",
+    "step-2-open-network-connections",
+    "step-3-access-properties-of-the-network-adapter",
+    "step-4-select-internet-protocol-version",
+    "step-5-change-the-ip-address",
+    "step-6-configure-dns-servers-optional",
+    "step-7-save-changes",
+    "step-8-verify-the-changes",
+    "important-notes",
+    "fast-windows-vps-ready-in-minutes"
+  ],
+  "vps-management/linux-rescue-guide-and-troubleshoot.mdx": [
+    "what-is-a-rescue-cd-and-why-use-it",
+    "mount-and-boot-the-systemrescuecd",
+    "configure-network-in-rescue-mode",
+    "using-the-graphical-interface",
+    "using-command-line-if-gui-not-available",
+    "check-the-firewall-from-rescue-mode",
+    "check-ssh-configuration-and-service"
+  ],
+  "vps-management/uefi-vs-bios-and-v-tpm.mdx": [
+    "-uefi-bios-&-vtpm-overview",
+    "find-boot-mode-and-tpm-settings",
+    "-bios-vs-uefi",
+    "-bios-default",
+    "-uefi",
+    "-what-is-vtpm",
+    "options",
+    "-default-configuration",
+    "-auto-installer-behavior",
+    "-when-manual-configuration-matters",
+    "-custom-cloud-init-images",
+    "-custom-iso-/-uploaded-images",
+    "-important-considerations",
+    "os-compatibility",
+    "changing-boot-mode",
+    "tpm-usage",
+    "-quick-recommendations",
+    "-summary"
+  ],
+  "vps-management/your-support-pin.mdx": [
+    "where-can-you-find-your-support-pin",
+    "support-pin-in-the-control-panel",
+    "steps",
+    "when-do-you-need-the-support-pin",
+    "security-recommendations",
+    "need-help"
+  ],
+  "faq/data-processing-agreement.mdx": [
+    "download-the-agreement",
+    "complete-and-sign-your-dpa",
+    "can-the-dpa-be-amended-for-my-organisation",
+    "related-guidance"
+  ],
+  "faq/what-is-a-virtual-private-server.mdx": [
+    "what-is-a-vps",
+    "common-vps-use-cases",
+    "why-choose-a-vps"
+  ],
+  "faq/what-is-a-kvm-vps.mdx": [
+    "why-kvm-virtual-private-servers-are-superior",
+    "key-features-that-differentiate-edis-global-kvm-from-a-standard-vps",
+    "unexpected-use-cases-for-a-kvm-vps",
+    "kvm-vps-faq"
+  ],
+  "faq/free-trials-available.mdx": [
+    "does-edis-global-offer-free-vps-trials",
+    "options-during-the-first-24-hours",
+    "change-your-primary-ipv4-address",
+    "change-the-server-location",
+    "how-to-test-before-buying",
+    "frequently-asked-questions",
+    "why-is-there-no-free-vps-trial",
+    "can-i-test-latency-before-purchasing",
+    "what-if-the-vps-does-not-meet-my-needs"
+  ],
+  "faq/port-25-smtp-rate-limit-policy.mdx": [
+    "is-port-25-available",
+    "why-outbound-port-25-is-rate-limited",
+    "can-the-outbound-rate-limit-be-removed",
+    "what-happens-if-spam-is-reported",
+    "recommendation-for-vpn-operators",
+    "need-higher-email-capacity"
+  ],
+  "faq/windows-rdp-service-available.mdx": [
+    "does-edis-global-offer-windows-rdp-service",
+    "windows-rdp-trial-and-licensing",
+    "windows-rdp-faq"
+  ],
+  "faq/desktop-acceleration.mdx": [
+    "what-to-expect-with-desktop-workloads"
+  ],
+  "faq/hourly-plans-available.mdx": [
+    "does-edis-global-provide-hourly-vps-plans",
+    "why-no-hourly-vps",
+    "alternative-short-term-vps"
+  ],
+  "faq/ip-addresses/ping-test-ip.mdx": [
+    "test-connectivity-to-edis-global-infrastructure",
+    "pingable-gateway-ip-addresses",
+    "free-latency-test",
+    "looking-glass-servers",
+    "vps-location-map",
+    "tip"
+  ],
+  "faq/ip-addresses/free-latency-test-guide.mdx": [
+    "use-free-edis-global-latency-test",
+    "what-is-latency",
+    "what-the-free-latency-test-measures",
+    "step-1-open-the-free-latency-test",
+    "step-2-start-the-free-latency-test",
+    "step-3-wait-for-the-test-to-complete",
+    "step-4-review-your-latency-results",
+    "step-5-the-ping-feel-indicator",
+    "step-6-filter-locations",
+    "step-7-choose-the-best-vps-location",
+    "when-latency-matters-most",
+    "vpn-servers",
+    "remote-desktop-rdp",
+    "ssh-access",
+    "trading-bots",
+    "gaming-servers",
+    "factors-that-influence-latency",
+    "tip-test-multiple-times",
+    "why-use-the-edis-global-latency-test",
+    "related-resources"
+  ],
+  "faq/ip-addresses/change-ip-address.mdx": [
+    "how-to-change-your-ip-address",
+    "free-ip-change-within-24-hours",
+    "ip-change-after-24-hours",
+    "standard-ip-change",
+    "bespoke-ip-change",
+    "can-i-test-a-candidate-ip-before-purchase",
+    "configure-the-new-ip-after-any-change",
+    "connectivity-and-repeated-changes",
+    "summary"
+  ],
+  "faq/ip-addresses/order-additional-ip-address.mdx": [
+    "add-ipv4-addresses-through-the-portal",
+    "ordering-an-additional-ipv4-address",
+    "find-your-assigned-network-settings",
+    "identify-the-primary-and-additional-ipv4-addresses",
+    "check-the-addresses-and-settings-in-network-info"
+  ],
+  "faq/ip-addresses/order-bespoke-ip-address.mdx": [
+    "bespoke-ip-address-service",
+    "ordering-a-bespoke-ipv4-address",
+    "what-to-send-support",
+    "availability-and-ip-expectations"
+  ],
+  "faq/ip-addresses/configuring-additional-ip-address-linux.mdx": [
+    "configure-a-secondary-ip-in-linux",
+    "debian/ubuntu",
+    "1-edit-the-network-configuration-file",
+    "2-restart-the-networking-service",
+    "centos",
+    "1-navigate-to-the-network-scripts-directory",
+    "2-create-a-clone-file-for-your-interface",
+    "3-edit-the-clone-configuration",
+    "4-restart-the-network-service"
+  ],
+  "faq/ip-addresses/setting-up-reverse-pointers.mdx": [
+    "configure-ptr-records-reverse-dns",
+    "open-reverse-dns",
+    "set-or-change-an-ipv4-ptr",
+    "add-an-ipv6-ptr",
+    "verify-the-ptr-from-a-terminal",
+    "automate-ptr-management",
+    "external-reverse-dns-delegation",
+    "does-a-vpn-endpoint-need-a-custom-ptr"
+  ],
+  "faq/ip-addresses/do-ip-addresses-change-during-upgrade-or-reinstall.mdx": [
+    "will-my-ip-address-change-during-reinstall-or-upgrade"
+  ],
+  "faq/ip-addresses/ip-can-not-be-reached-from-my-country.mdx": [
+    "check-where-and-how-the-connection-fails",
+    "ip-address-changes",
+    "what-support-can-review"
+  ],
+  "faq/ip-addresses/geolocation-geoip-databases.mdx": [
+    "edis-global-prioritizes-precise-geolocation-of-its-services",
+    "where-is-geoip-information-stored",
+    "whois-databases",
+    "what-is-geolocation",
+    "ever-more-ever-faster-ever-more-accurate",
+    "commercial-lookup-providers",
+    "the-whois-command-in-linux",
+    "edis-global-geoip-data-feeds"
+  ],
+  "faq/ip-addresses/ip-location-incorrect-on-whatismyipaddresscom.mdx": [
+    "why-is-my-ip-location-incorrect-on-whatismyipaddress-com",
+    "ip-address-geolocation-data-displayed-incorrectly-on-whatismyipaddress-com",
+    "why-do-ip-location-discrepancies-happen",
+    "how-ip-geolocation-is-maintained",
+    "common-reasons-for-incorrect-geolocation",
+    "steps-to-take-if-your-ip-shows-incorrectly",
+    "conclusion"
+  ],
+  "faq/ip-addresses/dns-leak-tests.mdx": [
+    "-understanding-dns-leak-tests-and-anycast-dns-on-edis-global-vps",
+    "-why-is-this-happening",
+    "-does-this-affect-my-vps-geo-location",
+    "-why-do-test-results-show-different-locations",
+    "-what-is-a-dns-leak-test",
+    "-how-does-a-dns-leak-test-work",
+    "-what-is-the-difference-between-standard-and-extended-tests",
+    "standard-test",
+    "extended-test",
+    "-can-i-change-the-dns-servers-on-my-vps",
+    "-but-remember",
+    "can-i-use-encrypted-dns",
+    "-summary",
+    "-need-assistance"
+  ],
+  "faq/ip-addresses/understanding-ip-address-location.mdx": [
+    "the-limitations-and-principles-of-ip-address-allocation-why-your-server’s-location-matters",
+    "the-geographic-link-of-ip-addresses",
+    "need-an-ip-from-another-country"
+  ],
+  "faq/ip-addresses/anycast-reverse-dns-nameserver-locations-vs-vps-location.mdx": [
+    "understanding-test-sites-for-vps",
+    "what-are-reverse-ptr-records",
+    "why-are-ptr-records-crucial",
+    "edis-global’s-anycast-dns-system",
+    "how-it-operates",
+    "dns-locations",
+    "benefits-of-our-anycast-dns-system",
+    "reverse-ptr-locations-vs-vps-location"
+  ],
+  "faq/ip-addresses/static-ip-addresses.mdx": [
+    "are-vps-ip-addresses-static-or-dynamic"
+  ],
+  "faq/ip-addresses/bring-your-own-ipv4-prefix.mdx": [
+    "integration-options",
+    "full-integration-recommended",
+    "partial-integration",
+    "setup-fee",
+    "examples",
+    "requirements",
+    "interested"
+  ],
+  "faq/ip-addresses/is-ip-spoofing-allowed-edis-global-stance.mdx": [
+    "is-ip-spoofing-allowed",
+    "what-is-ip-spoofing",
+    "dangers-and-concerns"
+  ],
+  "faq/ip-addresses/network-is-down.mdx": [
+    "open-the-console",
+    "check-the-interface-and-assigned-settings",
+    "separate-routing-from-dns-problems",
+    "check-the-affected-service-and-firewall",
+    "apply-the-right-network-fix",
+    "what-to-send-support"
+  ],
+  "faq/ip-addresses/understanding-packet-loss-in-mtr-traceroute.mdx": [
+    "quick-summary",
+    "how-packet-loss-measurements-actually-work",
+    "how-to-run-proper-tests",
+    "using-traceroute-and-mtr",
+    "using-ping-pe",
+    "how-to-interpret-mtr-output",
+    "scenario-1-loss-on-intermediate-hops-only",
+    "scenario-2-loss-continues-to-the-final-hop",
+    "scenario-3-high-latency-spikes-without-final-loss",
+    "packet-loss-in-virtualized-environments",
+    "when-to-contact-support",
+    "final-takeaway"
+  ],
+  "faq/ip-addresses/debugging-packet-loss-traceroute-mtr-windows.mdx": [
+    "traceroute-and-mtr-on-windows"
+  ],
+  "faq/ip-addresses/ping-pe-connectivity-check.mdx": [
+    "overview",
+    "running-a-ping-pe-test",
+    "reviewing-packet-loss-using-mtr",
+    "sharing-ping-pe-results",
+    "important-notes"
+  ],
+  "faq/ip-addresses/ports-firewalls-and-connectivity.mdx": [
+    "-does-edis-global-block-or-restrict-ports",
+    "-what-do-you-need-to-do",
+    "-operating-system-firewalls",
+    "linux",
+    "windows",
+    "-government-or-isp-restrictions",
+    "-how-to-verify-if-a-port-is-listening",
+    "linux-2",
+    "windows-2",
+    "-testing-connectivity",
+    "-important-note"
+  ],
+  "faq/server-locations/list-of-edis-global-server-locations-by-continent-region.mdx": [
+    "-edis-global-vps-server-locations",
+    "-find-the-best-vps-location-for-your-use-case",
+    "where-are-your-users-located",
+    "what-are-you-building",
+    "-understanding-vps-location-types",
+    "-oceania",
+    "-asia",
+    "-middle-east",
+    "-latin-america",
+    "-north-america",
+    "-europe",
+    "balkan-peninsula",
+    "nordic-countries",
+    "baltic-region",
+    "united-kingdom",
+    "central-europe-centrope",
+    "other-european-locations",
+    "-summary"
+  ],
+  "faq/server-locations/change-server-location.mdx": [
+    "how-a-vps-location-change-works",
+    "free-location-change-within-24-hours",
+    "what-you-receive",
+    "additional-free-primary-ipv4-change",
+    "refund-eligibility-after-a-location-change",
+    "before-requesting-the-location-change",
+    "changing-location-after-24-hours"
+  ],
+  "faq/billing-lifecycle/automated-payments.mdx": [
+    "build-a-reliable-low-maintenance-payment-workflow",
+    "recommended-payment-methods",
+    "credit-cards-recommended",
+    "benefits",
+    "account-credit-highly-recommended",
+    "important",
+    "how-to-fund-account-credit",
+    "sepa-and-ach-direct-debit-invitation-only",
+    "what-to-know",
+    "recommended-use",
+    "paypal-subscriptions",
+    "how-paypal-subscriptions-work",
+    "our-recommendation",
+    "need-help"
+  ],
+  "faq/billing-lifecycle/payments-transitions.mdx": [
+    "transition-from-chaotic-payments-to-automated-payments",
+    "a-typical-growth-path-what-usually-happens",
+    "what-this-looks-like-in-practice",
+    "first-check-review-your-account-credit-balance",
+    "the-most-important-step-cancel-paypal-subscriptions",
+    "understanding-account-credit-during-the-transition",
+    "you-are-already-halfway-there",
+    "the-transition-phase-what-to-watch-closely",
+    "moving-to-sepa-or-ach-direct-debit-invitation-only",
+    "optional-locking-account-credit-during-billing",
+    "we-are-happy-to-help"
+  ],
+  "faq/billing-lifecycle/pay-invoices-from-credit-balance.mdx": [
+    "pay-invoices-with-account-credit",
+    "important",
+    "can-i-disable-automatic-credit-application-to-renewal-invoices",
+    "how-to-apply-credit-to-an-invoice",
+    "need-more-credit"
+  ],
+  "faq/billing-lifecycle/how-to-add-account-credit.mdx": [
+    "how-to-top-up-your-account-credit",
+    "where-an-approved-service-refund-goes",
+    "steps-to-add-funds",
+    "how-payments-work",
+    "top-up-with-cryptocurrency",
+    "cancel-top-up-invoices"
+  ],
+  "faq/billing-lifecycle/incoming-and-outgoing-payments.mdx": [
+    "permitted-use-of-payments-and-account-credit",
+    "prohibited-deposits-and-onward-transfers",
+    "transaction-screening-and-aml-review",
+    "identity-and-source-of-funds-verification",
+    "review-outcomes-and-restrictions",
+    "approved-refunds-and-outgoing-payments",
+    "genuine-payment-problems-and-legal-rights",
+    "privacy-and-contact"
+  ],
+  "faq/billing-lifecycle/top-up-credit-balance-by-bank-transfer.mdx": [
+    "how-to-top-up-your-account-balance-through-bank-payment",
+    "step-1-generate-your-invoice",
+    "step-2-obtain-bank-details",
+    "step-3-make-the-bank-payment",
+    "step-4-currency-conversion-if-applicable",
+    "step-5-confirmation-of-funds-received",
+    "additional-information",
+    "edis-global-bank-account-details"
+  ],
+  "faq/billing-lifecycle/no-upfront-deposits-required.mdx": [
+    "guide-for-new-customers",
+    "do-i-need-to-deposit-funds-to-place-an-order",
+    "tips-for-easier-payments"
+  ],
+  "faq/billing-lifecycle/country-change-client-account.mdx": [
+    "country-changes-in-client-accounts",
+    "when-can-a-country-change-be-considered",
+    "when-country-changes-are-not-allowed",
+    "if-your-legal-country-has-changed",
+    "updating-other-account-details",
+    "requesting-a-non-eu-→-non-eu-country-update"
+  ],
+  "faq/billing-lifecycle/moving-services-to-different-client-account.mdx": [
+    "why-service-transfers-are-not-possible",
+    "security-and-functionality-at-the-core",
+    "frequently-asked-question-“why-can’t-you-just-move-it”",
+    "what-are-my-options"
+  ],
+  "faq/billing-lifecycle/how-vps-renewals-work.mdx": [
+    "automatic-renewal-and-cancellation",
+    "when-we-send-invoices",
+    "renew-instantly-from-the-portal",
+    "automatic-payments",
+    "for-resellers-opt-out-of-automatic-credit-application",
+    "accidentally-renewed-a-service"
+  ],
+  "faq/billing-lifecycle/accidental-renewal-convert-payment-to-credit.mdx": [
+    "accidentally-renewed-a-service-read-how-to-convert-your-payment-to-account-credit"
+  ],
+  "faq/billing-lifecycle/accepted-payment-methods.mdx": [
+    "which-payment-methods-are-supported",
+    "credit-cards",
+    "paypal",
+    "cryptocurrencies",
+    "digital-wallet-and-mobile-payment-services",
+    "sepa-and-ach-direct-debit",
+    "bank-transfers"
+  ],
+  "faq/billing-lifecycle/cryptocurrency-payments.mdx": [
+    "supported-currencies-and-blockchains",
+    "how-to-pay-with-monero-xmr",
+    "understanding-the-monero-checkout",
+    "how-to-pay-with-crypto-by-edis-global",
+    "fees-and-exchange-rates",
+    "account-credit-and-renewals",
+    "payment-problems-and-refunds"
+  ],
+  "faq/billing-lifecycle/automatic-currency-conversion.mdx": [
+    "automated-currency-conversion",
+    "credit-card-payments",
+    "paypal-payments",
+    "cryptocurrency-payments",
+    "accepted-payment-methods"
+  ],
+  "faq/billing-lifecycle/cryptocurrency-payments-confirmation-guide-edis-global.mdx": [
+    "monero-xmr--10-confirmations",
+    "confirmation-delays-for-crypto-by-edis-global",
+    "why-bitcoin-shows-3-confirmations",
+    "how-long-does-confirmation-take",
+    "check-your-payment",
+    "confirmed-transaction-but-the-invoice-is-still-unpaid"
+  ],
+  "faq/billing-lifecycle/how-fast-instant-delivery.mdx": [
+    "deployment-speed",
+    "payment-methods",
+    "delivery-process",
+    "when-delivery-may-take-longer"
+  ],
+  "faq/billing-lifecycle/cancel-a-service.mdx": [
+    "how-to-request-cancellation-for-your-edis-vps",
+    "video-guide-how-to-cancel-a-service",
+    "-vps-expiration-workflow",
+    "-immediate-termination-workflow",
+    "notes"
+  ],
+  "faq/billing-lifecycle/manage-cancellation-requests.mdx": [
+    "how-long-can-i-withdraw-a-cancellation",
+    "find-an-outstanding-cancellation-request",
+    "open-manage-cancellations",
+    "revoke-a-scheduled-end-of-term-cancellation",
+    "if-the-vps-has-already-been-terminated",
+    "check-your-re-issued-renewal-invoices",
+    "want-to-cancel-a-vps-instead"
+  ],
+  "faq/billing-lifecycle/data-retention-period.mdx": [
+    "what-is-your-data-retention-period",
+    "1-cancelled-services",
+    "2-backups",
+    "data-processing-agreement-dpa",
+    "summary"
+  ],
+  "faq/billing-lifecycle/cancellation-and-refund-policy.mdx": [
+    "vps-cancellation-and-24-hour-refund-policy",
+    "options-during-the-first-24-hours",
+    "free-primary-ipv4-change",
+    "free-location-change",
+    "eligibility-conditions",
+    "how-to-request-a-refund",
+    "review-and-processing",
+    "services-paid-with-account-credit",
+    "services-paid-directly",
+    "cryptocurrency-refunds"
+  ],
+  "faq/billing-lifecycle/can-i-get-a-refund.mdx": [
+    "check-your-refund-eligibility",
+    "alternatives-during-the-first-24-hours",
+    "free-primary-ipv4-change",
+    "free-location-change",
+    "refund-eligibility-checklist",
+    "what-to-do-next"
+  ],
+  "faq/billing-lifecycle/credit-card-reservation-vs-payment.mdx": [
+    "understanding-payment-reservations-vs-captured-payments",
+    "-what-is-a-reservation",
+    "-what-is-a-captured-payment",
+    "-comparison-table",
+    "-real-world-example"
+  ],
+  "faq/billing-lifecycle/automated-vps-billing-workflow.mdx": [
+    "-simplified-vps-billing-workflow",
+    "-service-recovery-options",
+    "-if-your-invoice-shows-unpaid",
+    "-if-your-invoice-is-cancelled",
+    "client-responsibility-notice"
+  ],
+  "faq/billing-lifecycle/scheduled-billing-window.mdx": [
+    "-scheduled-billing-window",
+    "-timeframe",
+    "optional-credit-handling-during-invoice-creation",
+    "important",
+    "-what-happens-during-the-billing-window",
+    "-service-suspension",
+    "-summary"
+  ],
+  "faq/billing-lifecycle/how-to-receive-monthly-consolidated-invoice.mdx": [
+    "simplify-your-accounting-with-a-single-monthly-invoice",
+    "how-it-works",
+    "how-to-get-started"
+  ],
+  "faq/billing-lifecycle/eu-vat-explained-if-and-how-much.mdx": [
+    "what-is-vat",
+    "do-i-need-to-pay-vat",
+    "business-customers-companies"
+  ],
+  "faq/billing-lifecycle/can-i-pay-with-iban.mdx": [
+    "is-it-possible-to-pay-via-bank-transfer",
+    "recommended-use-fund-account-credit",
+    "emergency-invoice-payments"
+  ],
+  "faq/billing-lifecycle/find-and-download-invoices.mdx": [
+    "how-to-find-and-download-your-invoices",
+    "where-to-find-your-invoices",
+    "how-to-download-invoices",
+    "additional-information",
+    "summary"
+  ],
+  "faq/billing-lifecycle/how-to-pay-paypal-use-different-currency.mdx": [
+    "pay-your-invoice-in-another-currency-with-paypal"
+  ],
+  "faq/billing-lifecycle/add-contact-receive-invoices-different-email.mdx": [
+    "how-to-receive-invoices-at-a-different-email-address",
+    "steps"
+  ],
+  "faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account.mdx": [
+    "how-to-locate-and-cancel-a-subscription-in-your-paypal-account",
+    "introduction",
+    "step-by-step-guide",
+    "1-log-in-to-paypal",
+    "2-access-account-settings",
+    "3-navigate-to-payments",
+    "4-manage-automatic-payments",
+    "5-select-the-subscription",
+    "6-cancel-the-subscription",
+    "conclusion"
+  ],
+  "faq/billing-lifecycle/cryptocurrency-payment-help.mdx": [
+    "payment-sent-but-the-invoice-is-unpaid",
+    "i-sent-less-than-the-requested-amount",
+    "i-sent-too-much-or-paid-twice",
+    "the-payment-window-expired",
+    "i-used-the-wrong-network-currency-or-address",
+    "refunds-and-recipient-details",
+    "payments-made-before-the-gateway-migration",
+    "contact-support"
+  ],
+  "faq/billing-lifecycle/reset-2fa.mdx": [
+    "lost-access-to-your-2fa-device",
+    "what-you-need-to-provide",
+    "additional-verification-for-security",
+    "what-happens-next",
+    "important",
+    "tip"
+  ],
+  "faq/traffic-bandwidth/traffic-vs-bandwidth.mdx": [
+    "what-is-the-difference-between-traffic-and-bandwidth",
+    "understanding-bandwidth",
+    "understanding-traffic",
+    "comparison-with-a-shared-water-system"
+  ],
+  "faq/traffic-bandwidth/traffic-stats-refill-explained.mdx": [
+    "all-about-vps-traffic-metering-and-refills",
+    "access-your-vps-traffic-information",
+    "total-traffic-used",
+    "total-traffic-available",
+    "monthly-traffic-reset/refill",
+    "how-edis-global-meters-traffic",
+    "what-happens-as-traffic-is-consumed",
+    "cumulative-and-daily-traffic-charts",
+    "compare-extra-traffic-with-a-plan-upgrade"
+  ],
+  "faq/traffic-bandwidth/traffic-pool.mdx": [
+    "one-traffic-pool-one-global-price",
+    "plan-traffic-and-pool-traffic-explained",
+    "why-use-the-traffic-pool",
+    "traffic-pool-starter-credit",
+    "how-to-use-the-edis-traffic-pool",
+    "1-purchase-traffic",
+    "2-assign-pool-traffic",
+    "3-enable-auto-hydration",
+    "traffic-pool-in-the-traffic-information-window",
+    "traffic-usage-and-monthly-refill",
+    "traffic-pool-assignment-controls",
+    "traffic-pool-accounting-balance-sheet",
+    "how-to-access-the-balance-sheet",
+    "how-to-read-the-balance-sheet",
+    "email-notification-when-20%-or-less-remains",
+    "which-option-should-you-choose"
+  ],
+  "faq/traffic-bandwidth/speed-test.mdx": [
+    "running-a-speed-test-on-linux-and-windows-10gbps-aware",
+    "-speed-test-on-linux",
+    "-installation",
+    "-running-a-basic-speed-test",
+    "-list-available-servers",
+    "-run-test-on-a-specific-server",
+    "-speed-test-on-windows",
+    "-download-the-app",
+    "-notes-on-10gbps-testing"
+  ],
+  "faq/traffic-bandwidth/how-to-investigate-and-stop-unusual-network-usage.mdx": [
+    "detecting-suspicious-network-spikes-in-linux-servers-",
+    "1-monitor-live-network-activity",
+    "2-identify-which-process-is-behind-the-network-usage",
+    "3-inspect-the-suspicious-process",
+    "4-record-evidence-then-stop-confirmed-unwanted-activity",
+    "5-check-cron-jobs-and-autostart-entries",
+    "6-use-nethogs-for-per-process-network-tracking",
+    "7-check-your-overall-network-usage",
+    "8-recover-and-prevent-recurrence"
+  ],
+  "faq/traffic-bandwidth/exceeding-monthly-traffic-limit-edis-global.mdx": [
+    "what-happens-when-the-traffic-allowance-is-exhausted",
+    "restore-full-speed",
+    "1-upgrade-to-a-larger-vps-plan",
+    "2-assign-or-purchase-pool-traffic",
+    "3-enable-auto-hydration-for-future-traffic-peaks",
+    "4-wait-for-the-monthly-refill",
+    "when-is-full-speed-restored",
+    "traffic-notifications"
+  ],
+  "faq/traffic-bandwidth/dos-attacks/edis-global-ddos-protection-overview.mdx": [
+    "edis-global’s-ddos-protection-overview",
+    "what-is-ddos-protection",
+    "scope-of-edis-global’s-ddos-protection",
+    "how-does-edis-global-respond-to-ddos-attacks"
+  ],
+  "faq/traffic-bandwidth/dos-attacks/advisory-for-high-risk-clients.mdx": [
+    "advisory-notice-for-potential-clients-at-high-risk-of-ddos-attacks",
+    "understanding-your-risk",
+    "edis-global’s-stance-on-high-risk-clients",
+    "why-this-advisory",
+    "conclusion"
+  ],
+  "faq/upgrades-downgrades/upgrades.mdx": [
+    "-how-to-upgrade-your-vps-plans-&-resources",
+    "a-upgrade-to-a-higher-vps-plan",
+    "b-upgrade-individual-resources"
+  ],
+  "faq/upgrades-downgrades/upgrade-plan.mdx": [
+    "-how-to-upgrade-your-vps-to-a-higher-tier",
+    "-what-is-a-vps-plan-upgrade",
+    "-how-is-it-billed",
+    "is-an-upgrade-cheaper-than-extra-traffic",
+    "-how-to-order-a-plan-upgrade",
+    "-what-happens-next",
+    "need-more-traffic-than-our-plans-offer"
+  ],
+  "faq/upgrades-downgrades/upgrade-resources.mdx": [
+    "-upgrade-vps-resources-ram-cpu-disk-ip-addresses",
+    "-what’s-the-difference",
+    "-how-is-it-billed",
+    "-how-to-order-a-resource-upgrade",
+    "option-a-–-order-via-support",
+    "option-b-–-order-via-portal",
+    "-what-happens-after-payment",
+    "need-more-traffic-than-our-plans-offer"
+  ],
+  "faq/upgrades-downgrades/upgrade-disk-drive-boost.mdx": [
+    "-how-to-upgrade-your-disk-space",
+    "-drive-size-boost-options",
+    "-add-drive-size-boost-to-an-existing-vps",
+    "we-never-touch-your-partition"
+  ],
+  "faq/upgrades-downgrades/will-i-lose-data-when-i-upgrade.mdx": [
+    "we-don’t-touch-your-partition-when-you-upgrade"
+  ],
+  "faq/upgrades-downgrades/is-it-possible-to-downgrade.mdx": [
+    "we-only-support-upgrades-on-our-vps-plans"
+  ],
+  "faq/upgrades-downgrades/backup-restore-data-linux.mdx": [
+    "backup-and-restore-data-on-linux",
+    "1-backup-using-tar",
+    "backup-steps",
+    "restore-using-tar",
+    "restore-steps",
+    "2-backup-using-rsync",
+    "backup-steps-2",
+    "restore-using-rsync",
+    "restore-steps-2",
+    "3-backup-using-dd",
+    "backup-steps-3",
+    "restore-using-dd",
+    "restore-steps-3",
+    "4-backup-using-cloud-services-with-rclone",
+    "backup-steps-4",
+    "restore-steps-4"
+  ],
+  "faq/upgrades-downgrades/requesting-qcow2-image-backup.mdx": [
+    "-what-you-need-to-know",
+    "-cost-and-delivery",
+    "-how-to-request-your-backup",
+    "-important-information"
+  ],
+  "faq/upgrades-downgrades/private-vlan-option.mdx": [
+    "add-a-private-network-to-your-vps-private-vlan-option",
+    "what-is-a-private-vlan",
+    "key-features",
+    "requirements",
+    "single-vps-use-case",
+    "multiple-vps-use-case",
+    "how-to-order-a-private-vlan",
+    "how-to-assign-your-vps-to-a-private-vlan",
+    "benefits-of-using-a-private-vlan"
+  ],
+  "faq/upgrades-downgrades/get-additional-network-card.mdx": [
+    "add-additional-nic-to-your-vps",
+    "what-is-a-secondary-network-interface",
+    "how-to-order-a-secondary-network-interface",
+    "how-to-configure-the-secondary-network-interface",
+    "for-linux",
+    "for-windows",
+    "final-notes"
+  ],
+  "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/understanding-cpu-cores-vs-sockets-in-vps.mdx": [
+    "understanding-cpu-cores-vs-cpu-sockets-in-vps-environments",
+    "1-cpu-cores-vs-cpu-sockets-what’s-the-difference",
+    "2-virtualization-capabilities",
+    "3-adjusting-cpu-settings-in-vps-management-portal",
+    "4-when-to-change-the-settings"
+  ],
+  "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-linux-vps.mdx": [
+    "introduction-to-cpu-cores",
+    "verifying-the-number-of-cores-available-to-linux",
+    "the-/proc/cpuinfo-file",
+    "the-lscpu-command",
+    "the-nproc-command",
+    "the-top-and-htop-commands",
+    "the-hwinfo-command",
+    "conclusion"
+  ],
+  "faq/upgrades-downgrades/cpu-cores-vs-cpu-sockets-in-vps-environments/how-to-check-cpu-cores-windows-vps.mdx": [
+    "how-to-check-the-number-of-cpu-cores-available-to-windows"
+  ],
+  "partner-starter-pack.mdx": [
+    "edis-global-partner-starter-pack",
+    "company-&-infrastructure-overview",
+    "locations-&-availability",
+    "location-data-feeds",
+    "example-locations",
+    "products",
+    "vps-only",
+    "operating-systems",
+    "custom-iso",
+    "network-&-traffic-model",
+    "included-bandwidth-per-vps",
+    "traffic-pool-model-additional-bandwidth",
+    "traffic-assignment-modes",
+    "provisioning",
+    "snapshots-&-backups",
+    "backup-responsibility",
+    "ip-addresses",
+    "billing",
+    "billing-cycles",
+    "payment-methods",
+    "automation-&-apis",
+    "order-api",
+    "management-api",
+    "support",
+    "channels",
+    "documentation",
+    "reselling-&-discounts",
+    "automated-billing-workflows",
+    "summary",
+    "location-data-feeds-full-list"
+  ],
+  "commercial-vpn-hosting.mdx": [
+    "are-commercial-vpn-services-allowed",
+    "operating-model",
+    "deploying-a-vpn-endpoint",
+    "protocols-and-capacity",
+    "shared-connectivity-and-bandwidth",
+    "ip-addresses-and-location-selection",
+    "connectivity-and-ip-expectations",
+    "reverse-dns-and-outbound-email",
+    "traffic-accounting-for-vpn-workloads",
+    "abuse-handling",
+    "registration-and-payment",
+    "frequently-asked-questions",
+    "can-multiple-paying-subscribers-share-one-vps",
+    "can-i-use-xray-vless-with-reality-marzban-or-3x-ui",
+    "do-different-locations-provide-different-asns-and-independent-networks",
+    "what-happens-if-my-vpn-server-is-attacked",
+    "what-backups-availability-and-recovery-arrangements-are-included",
+    "what-should-i-know-before-testing-paying-for-or-cancelling-several-vps-instances",
+    "plan-your-deployment"
+  ],
+  "reselling-and-discounts.mdx": [
+    "edis-global-vps-reselling-&-discount-structure",
+    "volume-based-discounts",
+    "api-access-for-enhanced-management",
+    "commercial-vpn-providers",
+    "becoming-a-reseller-application-&-eligibility",
+    "division-of-support-roles",
+    "loyalty-perks-&-discounts",
+    "reseller-responsibilities",
+    "payments-and-renewals",
+    "planning-large-deployments",
+    "start-growing-with-edis-global"
+  ],
+  "reporting-abuse.mdx": [
+    "how-to-correctly-report-abuse",
+    "where-to-submit-abuse-reports",
+    "how-to-create-an-abuse-report",
+    "evidence-by-incident-type",
+    "what-happens-after-a-report",
+    "if-you-receive-an-abuse-notice"
+  ],
+  "responding-to-abuse-complaints.mdx": [
+    "what-to-do",
+    "common-types-of-abuse-complaints",
+    "immediate-protective-action",
+    "vpn-providers-and-resellers"
+  ],
+  "join-our-team/jobs-edisglobal-support-agent-non-voice.mdx": [],
+  "join-our-team/technical-procurement-and-server-operations-coordinator.mdx": [
+    "about-edis-global",
+    "job-overview",
+    "key-responsibilities",
+    "requirements",
+    "work-environment",
+    "our-commitment",
+    "application-process"
+  ],
+  "join-our-team/senior-linux-systems-engineer-kvm-and-hosting-expert.mdx": [
+    "senior-linux-systems-engineer-kvm-&-hosting-expert",
+    "about-edis-global",
+    "job-overview",
+    "key-responsibilities",
+    "requirements",
+    "nice-to-have",
+    "work-environment",
+    "our-commitment",
+    "application-process"
+  ],
+  "advanced-setup-guides/run-monero-node-debian-vps.mdx": [
+    "what-you-will-set-up",
+    "before-you-begin",
+    "1-prepare-debian",
+    "2-download-and-verify-monero",
+    "3-create-the-service-account-and-configuration",
+    "4-configure-the-firewall",
+    "5-run-the-node-with-systemd",
+    "6-let-the-initial-synchronization-finish",
+    "7-connect-your-wallet-privately",
+    "public-p2p-versus-public-wallet-access",
+    "maintenance-and-troubleshooting",
+    "understanding-pruning-is-it-like-raid-5",
+    "related-documentation"
+  ],
+  "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/file-transfer-methods.mdx": [
+    "getting-started-with-file-transfers",
+    "have-a-windows-server-and-want-to-download-data",
+    "have-a-linux-server-and-want-to-exchange-files",
+    "windows-client-connects-to-linux-server",
+    "linux-client-connects-to-linux-server"
+  ],
+  "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server.mdx": [
+    "install-ftp-for-easy-file-uploads-and-downloads",
+    "prerequisites",
+    "installation-of-ftp-server",
+    "configuration-of-ftp-server"
+  ],
+  "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows.mdx": [
+    "secure-file-transfer-between-windows-and-linux-servers",
+    "step-1-enable-ssh-on-your-linux-server",
+    "step-2-install-and-set-up-winscp-on-windows",
+    "step-3-connect-to-the-linux-server-using-sftp",
+    "step-4-transfer-files"
+  ],
+  "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows.mdx": [
+    "secure-copy-files-between-windows-and-linux-servers",
+    "step-1-enable-ssh-on-the-linux-server",
+    "step-2-install-and-set-up-winscp-on-windows",
+    "step-3-connect-to-the-linux-server",
+    "step-4-transfer-files"
+  ],
+  "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux.mdx": [
+    "secure-file-transfer-between-linux-and-linux-servers",
+    "step-1-ensure-ssh-is-enabled-on-your-linux-server",
+    "step-2-use-the-sftp-command-to-transfer-files",
+    "connect-to-the-server",
+    "transfer-files-using-sftp-commands",
+    "example-commands",
+    "upload-example",
+    "download-example"
+  ],
+  "advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux.mdx": [
+    "secure-copy-files-between-linux-and-linux-servers",
+    "step-1-ensure-ssh-is-enabled-on-the-linux-server",
+    "step-2-use-the-scp-command-to-transfer-files",
+    "copy-a-file-from-local-to-remote-server",
+    "copy-a-file-from-remote-server-to-local-machine",
+    "example-commands",
+    "upload-example",
+    "download-example"
+  ],
+  "advanced-setup-guides/script-based-mikrotik-router-os-installation-guide-winbox.mdx": [
+    "introduction",
+    "getting-started-prerequisites-and-vps-preparation",
+    "set-script-permissions",
+    "run-the-script",
+    "install-settings-manually-in-routeros",
+    "connect-to-the-server-using-winbox"
+  ],
+  "advanced-setup-guides/mikrotik-6to4-tunnel-configuration-guide-router-to-router.mdx": [
+    "before-you-begin",
+    "example-address-plan",
+    "1-enable-ipv6",
+    "2-create-the-tunnel",
+    "3-assign-the-tunnel-and-lan-addresses",
+    "4-route-the-remote-lan",
+    "5-verify-both-routing-and-encryption"
+  ],
+  "advanced-setup-guides/install-mikrotik-routeros-on-edis-vps.mdx": [
+    "how-to-install-mikrotik-on-your-vps",
+    "mikrotik-chr-cloud-hosted-router",
+    "configure-static-ipv4-in-mikrotik",
+    "set-static-ipv4-address",
+    "verify-your-configuration",
+    "configure-ipv6-in-mikrotik",
+    "assign-the-ipv6-address",
+    "configure-the-ipv6-default-route",
+    "verify-the-configuration"
+  ],
+  "advanced-setup-guides/installing-a-vps-using-cloud-init.mdx": [
+    "step-by-step-guide-for-deploying-an-os-using-cloud-init",
+    "installing-oracle-linux-8-using-cloud-init"
+  ],
+  "advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems.mdx": [
+    "important-notice-risks-associated-with-resizing-disk-space",
+    "access-the-vps-management-portal",
+    "mount-system-rescue-cd-and-boot",
+    "open-the-browser-console",
+    "resize-partition",
+    "update-the-installed-system’s-swap-reference"
+  ],
+  "advanced-setup-guides/extend-hard-drive-windows-guide.mdx": [
+    "introduction",
+    "how-to-resize-a-hard-drive",
+    "step-1-access-server-manager",
+    "step-2-navigate-to-file-and-storage-services",
+    "step-3-select-the-target-volume",
+    "step-4-extend-a-volume",
+    "step-5-shrink-a-volume",
+    "step-6-verify-changes",
+    "important-notes",
+    "common-issues-and-solutions",
+    "alternative-tools"
+  ],
+  "advanced-setup-guides/security-advisories/regresshion-openssh-vulnerability.mdx": [
+    "regresshion-critical-openssh-vulnerability-allowing-root-access",
+    "what-is-regresshion",
+    "affected-versions",
+    "how-to-update-sshd",
+    "exploit-details",
+    "practical-implications",
+    "recommendations",
+    "summary"
+  ],
+  "advanced-setup-guides/security-advisories/update-sshd-debian-ubuntu-redhat.mdx": [
+    "how-to-update-sshd-on-debian-ubuntu-and-red-hat-linux",
+    "updating-sshd-on-debian",
+    "updating-sshd-on-ubuntu",
+    "updating-sshd-on-red-hat"
+  ],
+  "advanced-setup-guides/registering-and-assigning-a-domain-to-your-vps.mdx": [
+    "introduction",
+    "step-1-register-a-domain",
+    "step-2-link-the-domain-to-your-vps",
+    "additional-information"
+  ],
+  "advanced-setup-guides/installing-apache-mysql-php-letsencrypt-certbot-linux-vps.mdx": [],
+  "advanced-setup-guides/openvpn-over-stunnel.mdx": [
+    "guide-setting-up-openvpn-over-stunnel-on-ubuntu-22-04-on-your-vps",
+    "introduction",
+    "prerequisites",
+    "overview",
+    "steps-on-the-vps-server",
+    "1-update-and-upgrade-system-packages",
+    "2-install-stunnel",
+    "3-generate-ssl-certificates-for-stunnel",
+    "4-create-a-log-file-for-stunnel",
+    "5-configure-stunnel",
+    "6-enable-and-start-the-stunnel-service",
+    "7-install-openvpn",
+    "8-modify-openvpn-server-configuration",
+    "9-restart-openvpn-service",
+    "steps-on-the-client-machine",
+    "1-install-stunnel",
+    "2-configure-stunnel",
+    "3-enable-and-start-the-stunnel-service",
+    "4-copy-openvpn-client-configuration-file",
+    "5-modify-openvpn-client-configuration",
+    "6-create-a-routing-script",
+    "7-start-openvpn-client",
+    "verification",
+    "1-check-ip-address",
+    "2-verify-services",
+    "3-test-connectivity",
+    "troubleshooting",
+    "conclusion",
+    "references"
+  ],
+  "advanced-setup-guides/l2tp-ipsec-and-ikev2-vpn.mdx": [
+    "setting-up-l2tp/ipsec-and-ikev2-vpn-server-on-ubuntu-22-04",
+    "introduction",
+    "prerequisites",
+    "overview",
+    "steps-on-the-vps-server",
+    "1-update-and-upgrade-system-packages",
+    "2-install-required-packages",
+    "3-download-and-run-the-vpn-setup-script",
+    "4-managing-vpn-users",
+    "adding-a-new-vpn-user",
+    "removing-a-vpn-user",
+    "steps-on-the-client-machine",
+    "option-1-connect-using-l2tp/ipsec",
+    "1-install-l2tp-vpn-client",
+    "2-configure-the-vpn-connection",
+    "3-verify-the-vpn-connection",
+    "option-2-connect-using-ikev2",
+    "1-install-strongswan-network-manager-plugin",
+    "2-obtain-vpn-client-configuration-files",
+    "3-extract-certificates-and-private-key",
+    "4-secure-the-certificate-and-key-files",
+    "5-install-network-manager-plugins-if-not-already-installed",
+    "6-configure-the-vpn-connection",
+    "7-verify-the-vpn-connection",
+    "troubleshooting",
+    "conclusion",
+    "references"
+  ],
+  "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-ubuntu-2204.mdx": [
+    "what-is-amnezia-vpn",
+    "what-is-amneziawg-vpn",
+    "choose-a-vps-for-amneziawg",
+    "installing-amneziawg-vpn-on-a-vps",
+    "additional-resources",
+    "plan-your-next-deployment"
+  ],
+  "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-on-keenetic-router.mdx": [],
+  "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-wireguard-client-on-ubuntu-2204-and-connecting-to-the-server-using-amneziawg.mdx": [
+    "1-change-sources-list-on-the-client’s-operating-system",
+    "2-upgrade-the-system",
+    "3-install-amneziawg-on-ubuntu-22-04",
+    "4-copy-amneziawg-client-config-to-linux-ubuntu",
+    "5-get-your-amnezia-wireguard-configuration",
+    "6-move-configuration-to-amneziawg-directory",
+    "7-start-the-wireguard-vpn-connection",
+    "8-verify-the-connection",
+    "9-disconnect-from-the-vpn",
+    "10-optionally-enable-wireguard-on-boot",
+    "troubleshooting-tips"
+  ],
+  "advanced-setup-guides/install-amneziawg-on-ubuntu-22_04/install-amneziawg-client-on-windows.mdx": [
+    "prerequisites",
+    "step-1-install-amneziawg-on-windows",
+    "step-2-securely-copy-the-configuration-file-to-the-windows-client",
+    "step-3-import-the-configuration-into-amneziawg",
+    "step-4-connect-to-the-wireguard-server",
+    "step-5-verify-the-connection",
+    "conclusion"
+  ],
+  "advanced-setup-guides/install-3x-ui-on-vps/install-3x-ui-on-ubuntu-2204.mdx": [
+    "what-is-vless",
+    "what-is-3x-ui",
+    "choose-a-vps-for-3x-ui",
+    "install-3x-ui-on-a-vps",
+    "connect-to-the-3x-ui-panel",
+    "create-an-inbound-in-the-3x-ui-panel",
+    "how-to-connect-to-3x-ui-pc-android-ios",
+    "plan-your-next-deployment"
+  ],
+  "advanced-setup-guides/install-3x-ui-on-vps/hiddify-client-for-windows.mdx": [
+    "hiddify-client-for-windows"
+  ],
+  "advanced-setup-guides/install-3x-ui-on-vps/v2rayng-vpn-client-on-android.mdx": [
+    "connect-to-vless-vpn-in-android"
+  ],
+  "advanced-setup-guides/install-3x-ui-on-vps/v2raytun-vpn-client-on-ios.mdx": [
+    "connect-to-vless-vpn-on-ios-v2raytun"
+  ],
+  "advanced-setup-guides/how-to-install-google-chrome-on-windows-server.mdx": [
+    "how-to-get-going"
+  ],
+  "advanced-setup-guides/forgot-administrator-password-on-windows-server.mdx": [
+    "access-the-vps-management-portal",
+    "windows-installation-setup",
+    "load-the-virtio-driver",
+    "open-command-prompt-via-windows-setup",
+    "reset-the-administrator-password",
+    "revert-the-changes-to-ease-of-access"
+  ],
+  "advanced-setup-guides/forgot-root-password-set-pwd-in-single-user-mode.mdx": [
+    "set-a-new-password-by-booting-your-linux-vps-in-single-user-mode"
+  ],
+  "advanced-setup-guides/install-lamp-postgresql-postgis-edis-global-vps.mdx": [
+    "prerequisites",
+    "step-by-step-installation",
+    "1-system-update",
+    "2-apache-installation",
+    "3-php-installation",
+    "4-postgresql-and-postgis-installation",
+    "5-database-setup",
+    "6-securing-your-installation",
+    "conclusion"
+  ],
+  "advanced-setup-guides/gui-versions-of-ubuntu-debian.mdx": [
+    "os-images-with-graphical-desktop-enabled"
+  ],
+  "advanced-setup-guides/install-jitsi-on-your-vps.mdx": [
+    "install-jitsi-meet-on-linux",
+    "1-prepare-your-server",
+    "2-update-your-system",
+    "3-set-up-a-domain",
+    "4-install-jitsi",
+    "5-secure-jitsi-with-a-real-ssl-certificate",
+    "6-access-jitsi"
+  ],
+  "advanced-setup-guides/how-to-setup-wireguard-vpn.mdx": [
+    "automated-wireguard-vpn-setup",
+    "features",
+    "requirements",
+    "getting-started"
+  ],
+  "advanced-setup-guides/install-cockpit-on-vps.mdx": [
+    "what-is-cockpit",
+    "what-makes-the-cockpit-web-terminal-special",
+    "how-to-install-cockpit-web-terminal-on-debian-13",
+    "access-cockpit-web-terminal",
+    "security-notes",
+    "activate-administrator-privileges",
+    "cockpit-on-edis-global-vps",
+    "conclusion"
+  ],
+  "advanced-setup-guides/installing-openvpn-with-turnkey.mdx": [
+    "recommended-alternatives",
+    "auto-install-a-supported-os",
+    "bring-your-own-image-cloud-init",
+    "why-turnkey-was-removed"
+  ],
+  "advanced-setup-guides/ufw-uncomplicated-firewall-howto.mdx": [
+    "install-and-inspect-ufw",
+    "allow-ssh-before-enabling-ufw",
+    "restrict-a-service-to-a-trusted-address",
+    "review-and-remove-rules",
+    "recover-from-a-blocked-connection"
+  ],
+  "advanced-setup-guides/nftables-firewall-howto.mdx": [
+    "before-you-start",
+    "install-and-inspect-nftables",
+    "write-a-basic-ruleset",
+    "check-and-apply-the-ruleset",
+    "restrict-a-service-to-a-trusted-address",
+    "recover-from-a-blocked-connection"
+  ],
+  "advanced-setup-guides/install-openclaw-edislobal-vps.mdx": [
+    "install-openclaw-on-an-edis-global-vps",
+    "recommended-vps-plans",
+    "requirements",
+    "step-1-connect-to-your-vps",
+    "step-2-install-openclaw",
+    "step-3-run-onboarding",
+    "step-4-access-the-web-interface",
+    "security-recommendations",
+    "optional-add-swap-recommended-for-2-gb-plans",
+    "managing-the-service",
+    "troubleshooting",
+    "summary"
+  ],
+  "misc/extending-180-day-trial-version-of-windows.mdx": [
+    "how-to-extend-your-windows-trial",
+    "1-check-your-current-license-status",
+    "2-extend-the-trial-add-180-days",
+    "3-restart-the-server",
+    "is-it-legal-to-extend-a-trial-version-of-windows"
+  ],
+  "misc/fix-openssh-vm-delays-low-entropy.mdx": [
+    "check-the-cause-before-changing-anything",
+    "how-a-host-can-provide-an-entropy-device",
+    "problem-openssh-delays-system-startup",
+    "solution-overview",
+    "what-is-entropy",
+    "implementation-steps",
+    "1-use-virtio-rng-random-number-generator",
+    "2-install-a-prng-on-the-guest-optional",
+    "benefits-of-using-virtio-rng",
+    "considerations",
+    "conclusion"
+  ],
+  "misc/security-compliance.mdx": [
+    "-security-compliance-&-certifications",
+    "-compliance-standards",
+    "-alignment-with-additional-standards-&-frameworks",
+    "-security-practices",
+    "-organizational-measures",
+    "-transparency-&-verification",
+    "-certified-data-centers",
+    "-questionnaires-&-iso-27001",
+    "-code-of-ethics-&-conduct"
+  ],
+  "misc/fix-black-screen-windows-server.mdx": [
+    "fix-black-screen-when-connecting-to-windows-server",
+    "issue-black-screen-after-connecting-via-remote-desktop-rdp",
+    "solution-1-modify-the-windows-registry",
+    "modify-the-local-registry-on-your-pc-then-reboot-the-system",
+    "solution-2-use-alternative-rdp-clients"
+  ],
+  "misc/why-has-windows-server-slowed-down.mdx": [
+    "why-has-windows-server-slowed-down-how-to-optimize",
+    "1-checking-hardware-resources-cpu-and-ram",
+    "2-managing-unnecessary-services",
+    "3-checking-background-applications-and-startup-programs",
+    "4-impact-of-graphical-processing-and-heavy-software-on-server-performance",
+    "5-optimizing-network-settings-and-bandwidth-usage",
+    "6-updating-windows-server-and-fixing-system-issues",
+    "7-cleaning-up-temporary-files-and-optimizing-storage"
+  ],
+  "misc/fix-for-realvnc-closing-connection.mdx": [
+    "fix-for-realvnc-closing-connection-after-connection"
+  ],
+  "misc/manual-windows-server-installation-on-kvm.mdx": [
+    "for-illustration-purposes-only",
+    "installation"
+  ],
+  "misc/fix-remote-desktop-credssp-encryption-oracle-remediation-error.mdx": [
+    "recommended-fix",
+    "if-you-previously-applied-the-registry-workaround",
+    "still-unable-to-connect"
+  ],
+  "misc/what-is-seabios.mdx": [
+    "what-is-seabios-in-my-vps",
+    "understanding-seabios",
+    "why-does-seabios-appear-during-vps-boot",
+    "interacting-with-seabios",
+    "troubleshooting-tips",
+    "summary"
+  ],
+  "misc/disable-serial-getty-ttys0-debian-13.mdx": [
+    "overview",
+    "edis-global-handling",
+    "existing-systems",
+    "optional-verification",
+    "additional-information"
+  ],
+  "misc/portal-buttons-not-loading.mdx": [
+    "why-the-page-loads-but-some-buttons-do-not",
+    "restore-access-to-the-controls",
+    "emergency-workaround-disable-automatic-polling",
+    "if-only-open-console-is-greyed-out",
+    "if-the-problem-continues"
+  ],
+  "changelog/product.mdx": [
+    "product-updates",
+    "october-5-2026-—-more-useful-vps-access-after-traffic-is-exhausted-",
+    "september-30-2026-—-faster-invoice-and-service-lists-",
+    "september-29-2026-—-revoke-cancellation-requests-",
+    "september-21-2026-—-two-vps-restart-options-",
+    "august-20-2026-—-billing-self-service-",
+    "august-18-2026-—-credit-card-charge-timing-updated-",
+    "july-3-2026-—-bring-your-own-ipv4-/24-byoip-",
+    "july-1-2026-—-simplified-traffic-pool-",
+    "may-5-2026-—-uefi-bios-and-vtpm-settings-for-vps-",
+    "january-12-2026-—-smarter-90%-traffic-warnings-for-auto-hydration-",
+    "december-28-2025-—-due-date-reminders-for-partially-paid-invoices-",
+    "november-11-2025-—-global-database-cluster-upgrade--real-time",
+    "what’s-improved",
+    "september-25-2025-—-post-install-scripts-deprecated--cloud-init-only",
+    "august-21-2025-—-new-os-auto-installers-available-",
+    "-why-upgrade-or-deploy-with-these-os-images",
+    "july-16-2025-—-10-gbps-upgrades-in-sweden",
+    "june-26-2025-—-10-gbps-upgrades-in-slovenia",
+    "april-29-2025-—-new-vps-hosting-location-finland-",
+    "april-4-2025-—-prague-network-and-hostnode-upgrades",
+    "the-beginning",
+    "other-improvements"
+  ],
+  "changelog/management-api.mdx": [
+    "management-api-changelog",
+    "dns-api-domain-update",
+    "the-beginning",
+    "other-improvements"
+  ],
+  "changelog/order-api.mdx": [
+    "order-api-changelog",
+    "plan-description-field-in-order-api-now-uses-structured-object-format",
+    "the-beginning",
+    "other-improvements"
+  ]
+}

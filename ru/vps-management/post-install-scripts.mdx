@@ -1,0 +1,184 @@
+---
+title: "Скрипты после установки (устарели)"
+description: "Скрипты после установки удалены из автоматического установщика EDIS Global. Для надёжной автоматизации первого запуска VPS используйте Cloud-Init user_data."
+---
+
+> ⚠️ **Устаревшая функция**\
+> Скрипты после установки больше недоступны на VPS EDIS Global.\
+> С сентября 2025 года эта функция удалена с платформы.\
+> Для автоматизации всех новых установок VPS необходимо использовать [Cloud-Init](/ru/vps-management/edis-cloud-init-vps-installation).\
+> Информация ниже сохранена только для архива.
+
+---
+
+## О функции {#background}
+
+Скрипты после установки упрощали настройку VPS: можно было вставить или загрузить скрипт, который автоматически выполнялся после установки. Сейчас эту функцию заменил Cloud-Init — более стандартизированный и мощный способ автоматизации настройки при установке VPS.
+
+---
+
+## Архивные примеры {#archived-examples}
+
+Ниже приведены исторические примеры скриптов после установки. Они **больше не поддерживаются**, но помогают разобраться в старых конфигурациях или перейти на эквиваленты Cloud-Init.
+
+### Для ОС на основе Debian (Debian/Ubuntu) {#for-debian-based-os-debian/ubuntu}
+
+_(архивный пример)_
+
+Следующий скрипт успешно протестирован на Debian 12. 
+Он выполняет следующие операции в ОС на основе Debian (Debian, Ubuntu, Linux Mint, Kali Linux, Raspbian, Pop!\_OS, MX Linux, Deepin): 
+
+1. Отключает вход root по паролю, разрешая только аутентификацию по SSH-ключу.
+2. Меняет стандартный порт SSH с 22 на 10022 и перезапускает службу SSH для применения изменений.
+3. Обновляет сведения о системных пакетах и установленные пакеты, затем устанавливает компоненты LAMP (Linux, Apache, MySQL и PHP).
+4. Отправляет через сервис Pushover уведомление о завершении скрипта после установки и IP-адрес сервера.
+
+```shell
+#!/bin/bash
+
+# Disable root password access, restrict to SSH key authentication only
+sed -i '/#PermitRootLogin prohibit-password/c\PermitRootLogin prohibit-password' /etc/ssh/sshd_config
+
+# Change default SSH port from 22 to 10022
+sed -i '/#Port 22/c\Port 10022' /etc/ssh/sshd_config
+systemctl restart sshd
+
+# Start LAMP installer
+apt-get update
+apt-get upgrade -y
+apt-get install -y apache2
+apt-get install -y curl wget unzip
+apt-get install -y mariadb-server
+apt-get install -y php libapache2-mod-php php-mysql
+
+# Send Pushover notification (optional)
+token="token=your-pushover-token-goes-here"
+user="user=your-pushover-username-goes-here"
+IP=`hostname -I | awk '{print $1}'`
+curl -s --form-string $token --form-string $user --form-string 'message=Post installation script finished on server with IP: $IP. Have fun' https://api.pushover.net/1/messages.json
+```
+
+Следующий пример скрипта после установки устанавливает простой межсетевой экран.
+Он выполняет три основные задачи:
+
+1. Устанавливает инструмент межсетевого экрана UFW (uncomplicated firewall).
+2. Создаёт правила, разрешающие входящие подключения SSH на порт 22, веб-трафик на порт 80 и защищённый веб-трафик на порт 443.
+3. Включает межсетевой экран с этими правилами.
+
+```shell
+#!/bin/bash
+
+# Install UFW
+apt-get install -y ufw
+
+# Allow SSH and HTTP/HTTPS traffic
+ufw allow 22/tcp # Remember the SSH port was changed to 10022
+ufw allow 80/tcp
+ufw allow 443/tcp
+
+# Enable the firewall
+ufw enable
+```
+
+Длина скриптов после установки не ограничена. Их можно объединять и изменять для сложных процессов настройки и упрощения развёртывания.
+
+### Для ОС на основе RPM (CentOS, Rocky Linux и другие) {#for-rpm-based-os-centos-rocky-linux-…}
+
+_(архивный пример)_
+
+Следующий скрипт выполняет несколько действий в ОС на основе RPM (RHEL, Fedora, CentOS, openSUSE, SLES, Oracle Linux, Rocky Linux, AlmaLinux)
+
+1. **Настройка SSH**
+
+   Разрешает вход root только по SSH-ключу, отключая доступ по паролю. Затем перезапускает службу SSH для применения изменений.
+2. **Установка LAMP**:
+   Обновляет системные пакеты.
+   Устанавливает необходимые утилиты: curl, wget и unzip.
+   Устанавливает и запускает веб-сервер Apache и включает его запуск при загрузке.
+   Устанавливает и запускает сервер MariaDB и включает его запуск при загрузке.
+   Устанавливает PHP и дополнительные модули.
+3. **Уведомление (необязательно)**
+
+   Отправляет через Pushover уведомление о завершении скрипта после установки с IP-адресом сервера.
+
+```shell
+#!/bin/bash
+
+# Disable root password access, restrict to SSH key authentication only
+sed -i '/#PermitRootLogin prohibit-password/c\PermitRootLogin prohibit-password' /etc/ssh/sshd_config
+systemctl restart sshd
+
+# Start LAMP installer
+dnf -y update
+dnf -y install curl wget unzip
+dnf -y install httpd
+systemctl start httpd
+systemctl enable httpd
+dnf -y install mariadb-server
+systemctl start mariadb
+systemctl enable mariadb
+dnf -y install php php-cli php-common php-gd php-mysqlnd php-pdo
+
+# Send Pushover notification (optional)
+token="token=your-pushover-token-goes-here"
+user="user=your-pushover-username-goes-here"
+IP=`hostname -I | awk '{print $1}'`
+curl -s --form-string $token --form-string $user --form-string 'message=Post installation script finished on server with IP: $IP. Have fun' https://api.pushover.net/1/messages.json
+```
+
+### Сценарии использования скриптов после установки {#use-cases-for-post-install-scripts}
+
+Приведённые скрипты иллюстрируют возможности функции скриптов после установки. Потенциальные варианты применения не ограничены.
+
+Дополнительные примеры задач, которые можно автоматизировать скриптами после установки:
+
+**Настройка пользователей и безопасности**:
+
+- Создание учётных записей и назначение прав.
+- Настройка межсетевых экранов и групп безопасности.
+- Настройка SSH-ключей и отключение входа root.
+- Установка и настройка защитного ПО, например Fail2Ban.
+
+**Настройка сети**:
+
+- Настройка правил маршрутизации и сетевых интерфейсов.
+- Настройка VPN и других сетевых служб.
+
+**Установка и настройка ПО**:
+
+- Установка и настройка веб-серверов, например Nginx или Apache.
+- Настройка баз данных, например MySQL, PostgreSQL или MongoDB.
+- Установка и настройка серверов кеширования, например Redis или Memcached.
+- Развёртывание приложения и его зависимостей.
+
+**Мониторинг и журналирование**:
+
+- Установка и настройка мониторинга, например Zabbix, Prometheus или Nagios.
+- Настройка журналирования, например стека ELK (Elasticsearch, Logstash, Kibana).
+- Настройка уведомлений по событиям мониторинга и журналов.
+
+**Резервное копирование и восстановление**:
+
+- Настройка автоматических резервных копий системы и баз данных.
+- Настройка репликации баз данных.
+- Настройка средств аварийного восстановления.
+
+**Собственные скрипты**:
+
+- Запуск собственных скриптов для индивидуальных задач.
+- Автоматизация регулярного обслуживания.
+- Запуск скриптов обработки или анализа данных.
+
+**Интеграция с облачными сервисами**:
+
+- Настройка интеграции с облачными сервисами, например AWS, GCP или Azure.
+- Настройка облачного хранения.
+- Настройка облачного мониторинга и журналирования.
+
+**Оркестрация контейнеров**:
+
+- Установка и настройка Docker.
+- Настройка Kubernetes и других систем оркестрации контейнеров.
+- Развёртывание контейнеров и управление контейнерными приложениями.
+
+Эти примеры показывают разнообразие задач, автоматизируемых скриптами после установки EDIS Global для более эффективной настройки и управления сервером с меньшим количеством ошибок. Собственные скрипты позволяют значительно упростить развёртывание и рабочие процессы на нашем VPS-хостинге.

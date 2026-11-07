@@ -1,0 +1,39 @@
+---
+title: "Способы передачи файлов для Linux и Windows"
+sidebarTitle: "Обзор способов"
+description: "Сравнение SFTP, SCP и FTP для передачи файлов между Linux и Windows, со ссылками на пошаговые инструкции для каждого протокола."
+---
+
+## Начало работы с передачей файлов {#getting-started-with-file-transfers}
+
+***
+
+## У вас Windows Server и нужно скачать данные {#have-a-windows-server-and-want-to-download-data}
+
+<Card title="FTP на Windows: скачивание данных с сервера" icon="windows" color="orange" horizontal={true} href="/ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/setup-ftp-windows-server">
+  **Пример:** вы завершили проект на Windows Server и хотите скачать отчёты, журналы или другие данные на свой компьютер. Руководство поможет настроить FTP-сервер на сервере, доступном по RDP, и удобно скачивать файлы на локальный компьютер.
+</Card>
+
+***
+
+## У вас Linux-сервер и нужно обмениваться файлами {#have-a-linux-server-and-want-to-exchange-files}
+
+### Подключение клиента Windows к Linux-серверу {#windows-client-connects-to-linux-server}
+
+<Card title="SFTP в Windows: подключение к Linux-серверу" icon="windows" color="orange" horizontal="yes" href="/ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-windows">
+  **Пример:** вы начинаете проект на Linux-сервере и хотите загрузить файлы приложения, изображения или базы данных с Windows-компьютера. Руководство показывает безопасный обмен файлами через WinSCP и SFTP.
+</Card>
+
+<Card title="SCP в Windows: подключение к Linux-серверу" icon="windows" color="orange" horizontal="yes" href="/ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-windows">
+  **Пример:** вы заканчиваете веб-проект на Linux-сервере и хотите скачать его файлы на Windows-компьютер. Руководство поможет использовать WinSCP и SCP для безопасного копирования.
+</Card>
+
+### Подключение клиента Linux к Linux-серверу {#linux-client-connects-to-linux-server}
+
+<Card title="SFTP в Linux: подключение к Linux-серверу" icon="linux" color="orange" horizontal="yes" href="/ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/transfer-files-sftp-linux">
+  **Пример:** вы работаете в Linux и хотите загрузить исходный код или скачать журналы с Linux-сервера. Руководство объясняет команду `sftp` для безопасной и эффективной передачи между двумя Linux-системами.
+</Card>
+
+<Card title="SCP в Linux: подключение к Linux-серверу" icon="linux" color="orange" horizontal="yes" href="/ru/advanced-setup-guides/file-transfer-methods-for-linux-and-windows/copy-files-scp-linux">
+  **Пример:** вы развёртываете приложение на Linux-сервере и хотите загрузить его файлы с локального Linux-компьютера. Руководство объясняет прямое безопасное копирование командой `scp`.
+</Card>

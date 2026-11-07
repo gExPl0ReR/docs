@@ -1,0 +1,50 @@
+---
+title: "SCP в Windows: подключение к Linux-серверу"
+sidebarTitle: "SCP в Windows"
+description: "Передача файлов из Windows на Linux VPS через SCP и WinSCP: настройка SSH, аутентификация и копирование файлов."
+---
+
+## Безопасное копирование файлов между Windows и Linux {#secure-copy-files-between-windows-and-linux-servers}
+
+SCP (Secure Copy Protocol) — безопасный способ передачи файлов между Windows-компьютером и Linux-сервером. Здесь описано копирование на сервер и обратно через **WinSCP** — популярный и удобный инструмент для Windows.
+
+***
+
+## Шаг 1. Включите SSH на Linux-сервере {#step-1-enable-ssh-on-the-linux-server}
+
+Перед передачей убедитесь, что служба SSH установлена и запущена. На Linux-сервере выполните:
+
+```bash
+sudo apt install openssh-server
+```
+
+***
+
+## Шаг 2. Установите WinSCP в Windows {#step-2-install-and-set-up-winscp-on-windows}
+
+1. Скачайте WinSCP с [winscp.net](https://winscp.net/).
+2. Установите его, следуя инструкциям на экране.
+3. Запустите WinSCP.
+
+***
+
+## Шаг 3. Подключитесь к Linux-серверу {#step-3-connect-to-the-linux-server}
+
+1. Создайте новое подключение в WinSCP:
+   * **File Protocol:** выберите `SCP`.
+   * **Hostname:** укажите IP-адрес или доменное имя Linux-сервера.
+   * **Port Number:** по умолчанию `22`.
+   * **Username:** имя пользователя Linux.
+   * **Password:** укажите пароль или настройте закрытый ключ.
+2. Нажмите **Login** для подключения.
+
+***
+
+## Шаг 4. Передавайте файлы {#step-4-transfer-files}
+
+После подключения используйте графический интерфейс:
+
+* Перетаскивайте файлы с Windows-компьютера на Linux-сервер.
+* Перетаскивайте файлы с Linux-сервера на локальный Windows-компьютер.
+
+WinSCP предоставляет простой интерфейс для безопасного управления файлами.
