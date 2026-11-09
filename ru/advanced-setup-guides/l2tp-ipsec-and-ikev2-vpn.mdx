@@ -1,0 +1,313 @@
+---
+title: "VPN с L2TP/IPsec и IKEv2"
+sidebarTitle: "VPN L2TP/IPsec и IKEv2"
+description: "Создайте VPN-сервер L2TP/IPsec и IKEv2 на Ubuntu 22.04 с помощью hwdsl2/setup-ipsec-vpn для гибких зашифрованных соединений на VPS EDIS."
+---
+
+## Настройка VPN-сервера L2TP/IPsec и IKEv2 на Ubuntu 22.04 {#setting-up-l2tp/ipsec-and-ikev2-vpn-server-on-ubuntu-22-04}
+
+## Введение {#introduction}
+
+Руководство описывает настройку VPN-сервера Ubuntu 22.04 с поддержкой L2TP/IPsec и IKEv2. Скрипты [hwdsl2/setup-ipsec-vpn](https://github.com/hwdsl2/setup-ipsec-vpn) позволяют быстро развернуть защищённый сервер. Клиенты смогут выбирать L2TP/IPsec или IKEv2, получая гибкость и надёжное шифрование.
+
+## Предварительные требования {#prerequisites}
+
+* **VPS:** [EDIS Global VPS](https://www.edisglobal.com) с Ubuntu 22.04 и доступом root или sudo.
+* **Клиентский компьютер:** Ubuntu или другой Linux, совместимый с L2TP/IPsec и IKEv2; доступ root или sudo.
+
+## Обзор {#overview}
+
+Основные этапы:
+
+1. **На VPS:** обновление пакетов, установка зависимостей, запуск скрипта настройки L2TP/IPsec и IKEv2, добавление и удаление VPN-пользователей.
+2. **На клиенте:** установка VPN-клиента, настройка и подключение по L2TP/IPsec или IKEv2.
+
+***
+
+## Действия на VPS {#steps-on-the-vps-server}
+
+### 1. Обновите системные пакеты {#1-update-and-upgrade-system-packages}
+
+Обновите сервер:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+**Пояснение:** команда обновляет списки пакетов и установленные пакеты до последних версий, поддерживая актуальность и безопасность системы.
+
+### 2. Установите необходимые пакеты {#2-install-required-packages}
+
+Установите `curl` и `wget` для скачивания скриптов и файлов:
+
+```bash
+sudo apt install curl wget -y
+```
+
+### 3. Скачайте и запустите скрипт настройки VPN {#3-download-and-run-the-vpn-setup-script}
+
+Используйте скрипт [hwdsl2/setup-ipsec-vpn](https://github.com/hwdsl2/setup-ipsec-vpn):
+
+```bash
+wget https://get.vpnsetup.net -O vpn.sh
+```
+
+При желании запустите его со своими DNS-серверами:
+
+```bash
+sudo VPN_DNS_SRV1=1.1.1.1 VPN_DNS_SRV2=1.0.0.1 sh vpn.sh
+```
+
+**Пояснение:**
+
+* `VPN_DNS_SRV1` и `VPN_DNS_SRV2` задают DNS для VPN-клиентов.
+* Скрипт запросит данные VPN: IPsec PSK, имя пользователя и пароль. Если запрос не появляется, он создаст их автоматически.
+
+**Пример вывода:**
+
+```plaintext
+===============================================
+
+IPsec VPN server is now ready for use!
+
+Connect to your new VPN with these details:
+
+Server IP: x.x.x.x
+IPsec PSK: Your_IPsec_PSK
+Username: vpnuser
+Password: Your_VPN_Password
+
+Write these down. You'll need them to connect!
+
+VPN client setup: https://vpnsetup.net/clients
+
+===============================================
+
+===============================================
+
+IKEv2 setup successful. Details for IKEv2 mode:
+
+VPN server address: x.x.x.x
+VPN client name: vpnclient
+
+Client configuration is available at:
+/root/vpnclient.p12 (for Windows & Linux)
+/root/vpnclient.sswan (for Android)
+/root/vpnclient.mobileconfig (for iOS & macOS)
+
+Next steps: Configure IKEv2 clients. See:
+https://vpnsetup.net/clients
+
+===============================================
+```
+
+**Примечание:** замените `x.x.x.x` публичным IP сервера. Скрипт выводит важные реквизиты VPN — храните их безопасно.
+
+### 4. Управление пользователями VPN {#4-managing-vpn-users}
+
+### Добавление пользователя {#adding-a-new-vpn-user}
+
+Скачайте скрипт управления и добавьте пользователя:
+
+```bash
+sudo wget https://get.vpnsetup.net/adduser -O /opt/src/addvpnuser.sh
+sudo chmod +x /opt/src/addvpnuser.sh
+sudo ln -s /opt/src/addvpnuser.sh /usr/bin/addvpnuser.sh
+
+sudo addvpnuser.sh 'newusername' 'newpassword'
+```
+
+**Пояснение:** `addvpnuser.sh` добавляет VPN-пользователей с заданными именем и паролем. Замените `'newusername'` и `'newpassword'` нужными значениями.
+
+### Удаление пользователя {#removing-a-vpn-user}
+
+Скачайте скрипт удаления и удалите пользователя:
+
+```bash
+sudo wget https://get.vpnsetup.net/deluser -O /opt/src/delvpnuser.sh
+sudo chmod +x /opt/src/delvpnuser.sh
+sudo ln -s /opt/src/delvpnuser.sh /usr/bin/delvpnuser.sh
+
+sudo delvpnuser.sh 'username_to_remove'
+```
+
+**Пояснение:** `delvpnuser.sh` удаляет пользователя по имени. Замените `'username_to_remove'` нужным именем.
+
+***
+
+## Действия на клиентском компьютере {#steps-on-the-client-machine}
+
+### Вариант 1. Подключение по L2TP/IPsec {#option-1-connect-using-l2tp/ipsec}
+
+### 1. Установите клиент L2TP VPN {#1-install-l2tp-vpn-client}
+
+Установите плагин L2TP для Network Manager:
+
+```bash
+sudo apt install network-manager-l2tp-gnome -y
+```
+
+**Пояснение:** пакеты добавляют поддержку соединений L2TP/IPsec в GNOME Network Manager.
+
+### 2. Настройте VPN-соединение {#2-configure-the-vpn-connection}
+
+Выполните следующие действия:
+
+1. **Откройте настройки VPN:** перейдите в **Settings → Network → VPN** и нажмите **+**.
+2. **Выберите тип:** **Layer 2 Tunneling Protocol (L2TP)**.
+3. **Общие параметры:**
+   * **Name:** имя подключения, например `My L2TP VPN`.
+   * **Gateway:** IP VPN-сервера (`Your VPN Server IP`).
+   * **User name:** имя VPN-пользователя (`Your VPN Username`).
+   * **Password:** нажмите значок рядом с полем, выберите **Store the password only for this user**, затем введите пароль (`Your VPN Password`).
+   * **NT Domain:** оставьте пустым.
+4. **Настройки IPsec:**
+   * Нажмите **IPsec Settings...**.
+   * Отметьте **Enable IPsec tunnel to L2TP host**.
+   * **Pre-shared key:** укажите IPsec PSK (`Your VPN IPsec PSK`).
+   * Разверните **Advanced**. В **Phase1 Algorithms** введите `aes128-sha1-modp2048`, а в **Phase2 Algorithms** — `aes128-sha1`.
+5. **Сохраните и подключитесь:** закройте настройки IPsec кнопкой **OK**, сохраните соединение кнопкой **Add** и переведите переключатель **VPN** в **ON**.
+
+**Пояснение:** Phase1 и Phase2 Algorithms обеспечивают совместимость с настройками VPN-сервера.
+
+### 3. Проверьте VPN-соединение {#3-verify-the-vpn-connection}
+
+После подключения проверьте IP:
+
+```bash
+curl ifconfig.me
+```
+
+**Пояснение:** команда показывает публичный IP; при успешном соединении он должен совпадать с адресом VPN-сервера.
+
+### Вариант 2. Подключение по IKEv2 {#option-2-connect-using-ikev2}
+
+### 1. Установите плагин StrongSwan для Network Manager {#1-install-strongswan-network-manager-plugin}
+
+```bash
+sudo apt install network-manager-strongswan -y
+```
+
+**Пояснение:** плагин StrongSwan добавляет IKEv2-соединения в Network Manager.
+
+### 2. Получите клиентские файлы VPN {#2-obtain-vpn-client-configuration-files}
+
+С VPN-сервера нужны:
+
+* `vpnclient.p12` — клиентский сертификат и закрытый ключ.
+* `vpnclient.mobileconfig` — профиль macOS/iOS, для Linux не нужен.
+* `vpnclient.sswan` — конфигурация StrongSwan, необязательна.
+
+**Безопасно скопируйте файлы на клиент:**
+
+```bash
+scp root@Your_VPN_Server_IP:/root/vpnclient.p12 ~/
+```
+
+**Пояснение:** замените `Your_VPN_Server_IP` адресом VPN-сервера.
+
+### 3. Извлеките сертификаты и закрытый ключ {#3-extract-certificates-and-private-key}
+
+Создайте каталог и извлеките файлы из `.p12`:
+
+```bash
+mkdir ~/ikev2-vpn
+cd ~/ikev2-vpn
+
+openssl pkcs12 -in ~/vpnclient.p12 -cacerts -nokeys -out ca.cer
+openssl pkcs12 -in ~/vpnclient.p12 -clcerts -nokeys -out client.cer
+openssl pkcs12 -in ~/vpnclient.p12 -nocerts -nodes -out client.key
+
+rm ~/vpnclient.p12
+```
+
+**Пояснение:**
+
+* `ca.cer` — сертификат центра сертификации.
+* `client.cer` — клиентский сертификат.
+* `client.key` — закрытый ключ.
+
+**Примечание:** если при извлечении запрашивается пароль, просто нажмите **Enter**.
+
+### 4. Защитите файлы сертификатов и ключа {#4-secure-the-certificate-and-key-files}
+
+Эти конфиденциальные файлы нужно защитить:
+
+```bash
+sudo chown root:root ca.cer client.cer client.key
+sudo chmod 600 ca.cer client.cer client.key
+```
+
+**Пояснение:** владельцем становится root, а права ограничиваются для предотвращения несанкционированного доступа.
+
+### 5. Установите плагины Network Manager, если они ещё не установлены {#5-install-network-manager-plugins-if-not-already-installed}
+
+Установите пакеты для своего дистрибутива:
+
+```bash
+# Ubuntu and Debian
+sudo apt update
+sudo apt install network-manager-strongswan -y
+
+# Arch Linux
+sudo pacman -Syu  # Update package lists
+sudo pacman -S networkmanager-strongswan
+
+# Fedora
+sudo dnf install NetworkManager-strongswan-gnome
+
+# CentOS
+sudo yum install epel-release
+sudo yum --enablerepo=epel install NetworkManager-strongswan-gnome
+```
+
+### 6. Настройте VPN-соединение {#6-configure-the-vpn-connection}
+
+Настройка IKEv2:
+
+1. **Откройте VPN:** перейдите в **Settings → Network → VPN** и нажмите **+**.
+2. **Выберите тип:** **IPsec/IKEv2 (strongSwan)**.
+3. **Общие параметры:** в **Name** задайте имя, например `My IKEv2 VPN`.
+4. **Шлюз:** в **Address** введите IP или домен VPN-сервера (`Your VPN Server IP`); в **Certificate** выберите извлечённый `ca.cer`.
+5. **Аутентификация клиента:** в **Authentication** выберите **Certificate (/private key)**, в **Certificate (file)** — `client.cer`, в **Private key** — `client.key`.
+6. **Параметры:** отметьте **Request an inner IP address**.
+7. **Алгоритмы шифрования:** отметьте **Enable custom proposals**, оставьте **IKE** пустым, в **ESP** введите `aes128gcm16`.
+8. **Сохраните и подключитесь:** нажмите **Add**, затем переведите **VPN** в **ON**.
+
+**Пояснение:** клиентский сертификат и закрытый ключ аутентифицируют устройство на VPN-сервере. Собственные предложения алгоритмов обеспечивают совпадение шифрования с ожидаемым сервером.
+
+### 7. Проверьте VPN-соединение {#7-verify-the-vpn-connection}
+
+Проверьте публичный IP, чтобы подтвердить подключение через VPN:
+
+```bash
+curl ifconfig.me
+```
+
+***
+
+## Устранение неполадок {#troubleshooting}
+
+* **Соединение не устанавливается:** проверьте, что межсетевой экран сервера разрешает нужные VPN-порты, например UDP 500 и 4500 для IPsec, и службы VPN запущены.
+* **Ошибки аутентификации:** проверьте IPsec PSK, имя и пароль, правильность установки сертификатов и ключей и их права доступа.
+* **Проблемы DNS:** если после подключения не разрешаются домены, задайте DNS в клиенте или настройте передачу DNS-параметров клиентам на сервере.
+* **Ошибки StrongSwan:** изучите `/var/log/syslog` или `journalctl -xe`; убедитесь, что настройки IKEv2 согласованы на клиенте и сервере.
+
+***
+
+## Заключение {#conclusion}
+
+VPN-сервер Ubuntu 22.04 с поддержкой L2TP/IPsec и IKEv2 настроен. Конфигурация повышает безопасность сети за счёт шифрования интернет-трафика и предоставляет разные варианты подключения клиентов.
+
+***
+
+## Источники {#references}
+
+* [Репозиторий hwdsl2/setup-ipsec-vpn](https://github.com/hwdsl2/setup-ipsec-vpn)
+* [Управление VPN-пользователями](https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/manage-users.md)
+* [VPN-клиенты Linux](https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients.md#linux)
+* [Настройка IKEv2](https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/ikev2-howto.md#linux)
+
+***
+
+**Примечание:** соблюдайте местные законы и правила использования VPN. Надёжно храните реквизиты VPN и сертификаты, чтобы предотвратить несанкционированный доступ.

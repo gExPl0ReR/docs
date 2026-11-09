@@ -1,0 +1,52 @@
+---
+title: "Отключение serial-getty@ttyS0 в Debian 13 (устранение лишних записей в журнале)"
+sidebarTitle: "Отключение журналирования ttyS0"
+description: "Как остановить циклические перезапуски serial-getty@ttyS0.service и лишние записи в журнале на VPS с Debian 13 без последовательной консоли."
+---
+
+## Обзор {#overview}
+
+Некоторые установки Debian 13 постоянно пытаются запустить последовательную консоль (`ttyS0`), даже если в системе нет физического или виртуального последовательного устройства.
+
+Это может приводить к непрерывному появлению записей вроде:
+
+```text
+serial-getty@ttyS0.service: Failed with result 'exit-code'
+serial-getty@ttyS0.service: Scheduled restart job
+```
+
+Проблема обсуждалась публично в списке рассылки Debian по ядру.
+
+## Как это решено в EDIS Global {#edis-global-handling}
+
+EDIS Global автоматически отключает ненужную службу serial getty при новой установке Debian 13, чтобы избежать лишних записей в журнале и ненужных перезапусков службы.
+
+## Уже установленные системы {#existing-systems}
+
+Если в вашей Debian 13 повторяется эта ошибка и вы не используете последовательную консоль `ttyS0`, остановите службу и запретите её повторный запуск:
+
+```bash
+sudo systemctl disable --now serial-getty@ttyS0.service
+sudo systemctl mask serial-getty@ttyS0.service
+```
+
+## Дополнительная проверка {#optional-verification}
+
+Проверьте состояние службы командой:
+
+```bash
+systemctl status serial-getty@ttyS0.service
+```
+
+Ожидаемое состояние — **inactive** и **masked**. Если позже последовательная консоль понадобится, отмените изменения:
+
+```bash
+sudo systemctl unmask serial-getty@ttyS0.service
+sudo systemctl enable --now serial-getty@ttyS0.service
+```
+
+Браузерная консоль VNC работает отдельно от последовательной консоли `ttyS0`. Различия между остановкой, отключением автозапуска и маскированием службы описаны в [справочнике systemctl](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+
+## Дополнительная информация {#additional-information}
+
+Обсуждение Debian: [lists.debian.org/debian-kernel/2025/02/msg01161.html](https://lists.debian.org/debian-kernel/2025/02/msg01161.html)

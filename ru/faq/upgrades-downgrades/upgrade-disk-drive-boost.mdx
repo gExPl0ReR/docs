@@ -1,0 +1,45 @@
+---
+title: "Как увеличить диск VPS"
+sidebarTitle: "Увеличение диска"
+description: "Добавьте от 10 до 400 GB к диску любого VPS EDIS Global с Drive Size Boost — от 3,60 EUR в месяц."
+---
+
+## 🚀 Как увеличить дисковое пространство {#-how-to-upgrade-your-disk-space}
+
+Drive Size Boost добавляет пространство **сверх объёма, включённого в тариф VPS**. Опция доступна для любого тарифа при оформлении заказа; её также можно добавить к существующему VPS позже.
+
+Можно добавить до **400 GB на VPS**. Например, KVM Premium со 100 GB и Drive Size Boost на 400 GB дают **виртуальный диск на 500 GB**.
+
+## 💾 Варианты Drive Size Boost {#-drive-size-boost-options}
+
+| Дополнительное пространство | Цена в месяц |
+| ---: | ---: |
+| 10 GB | 3,60 EUR |
+| 20 GB | 6,90 EUR |
+| 30 GB | 9,90 EUR |
+| 40 GB | 13,50 EUR |
+| 50 GB | 16,60 EUR |
+| 100 GB | 29,00 EUR |
+| 200 GB | 58,00 EUR |
+| 300 GB | 87,00 EUR |
+| 400 GB | 116,00 EUR |
+
+---
+
+## ✅ Добавьте Drive Size Boost к существующему VPS {#-add-drive-size-boost-to-an-existing-vps}
+
+1. Войдите в [портал управления VPS](https://manage.edisglobal.com/clientarea.php).
+2. Откройте VPS в **Services**.
+3. Перейдите в **Configurable Options** и нажмите **Upgrade Resources**.
+4. В **Drive Size Boost** выберите объём от 10 до 400 GB.
+5. Подтвердите изменение и оплатите счёт с пропорциональным расчётом.
+
+Если для конкретной услуги самостоятельное расширение недоступно, обратитесь в поддержку и укажите IP-адрес VPS или KVM ID.
+
+## ❗️Мы не изменяем ваш раздел {#we-never-touch-your-partition}
+
+EDIS Global увеличивает виртуальный диск, но **не** меняет размер разделов или файловой системы. После активации выполните холодный запуск, затем расширьте существующий раздел и файловую систему либо создайте отдельный том в операционной системе.
+
+<Note>
+  Перед изменением разделов или файловых систем сделайте резервную копию данных. Используйте [руководство по изменению размера диска в Linux](/ru/advanced-setup-guides/manually-resize-disk-after-plan-upgrade-on-live-linux-systems) или [руководство по расширению диска в Windows](/ru/advanced-setup-guides/extend-hard-drive-windows-guide).
+</Note>

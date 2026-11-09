@@ -1,0 +1,71 @@
+---
+title: "Как обновить SSHD в Debian, Ubuntu и Red Hat Linux"
+description: "Обновление OpenSSH Server SSHD в Debian, Ubuntu и Red Hat Enterprise Linux: пошаговая установка последних исправлений SSH для защиты VPS."
+---
+
+### Как обновить SSHD в Debian, Ubuntu и Red Hat Linux {#how-to-update-sshd-on-debian-ubuntu-and-red-hat-linux}
+
+Актуальная версия SSHD (OpenSSH Server) важна для безопасности и стабильности серверов. Выполните следующие шаги для своей системы.
+
+### Обновление SSHD в Debian {#updating-sshd-on-debian}
+
+**Обновите списки пакетов:**
+
+```sh
+sudo apt-get update
+```
+
+**Обновите OpenSSH:**
+Установите последнюю версию серверного пакета:
+
+```sh
+sudo apt-get install --only-upgrade openssh-server
+```
+
+**Перезапустите службу SSH**, чтобы применить обновления:
+
+```sh
+sudo systemctl restart ssh
+```
+
+### Обновление SSHD в Ubuntu {#updating-sshd-on-ubuntu}
+
+**Обновите списки пакетов:**
+
+```sh
+sudo apt-get update
+```
+
+**Обновите OpenSSH:**
+Установите последнюю версию сервера:
+
+```sh
+sudo apt-get install --only-upgrade openssh-server
+```
+
+**Перезапустите службу SSH** для применения обновлений:
+
+```sh
+sudo systemctl restart ssh
+```
+
+### Обновление SSHD в Red Hat {#updating-sshd-on-red-hat}
+
+**Обновите сведения о пакетах:**
+Проверьте доступные обновления:
+
+```sh
+sudo yum check-update
+```
+
+**Обновите OpenSSH** до последней версии:
+
+```sh
+sudo yum update openssh-server
+```
+
+**Перезапустите службу SSH**, чтобы изменения вступили в силу:
+
+```sh
+sudo systemctl restart sshd
+```

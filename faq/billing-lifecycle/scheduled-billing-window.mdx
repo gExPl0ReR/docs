@@ -1,7 +1,7 @@
 ---
 title: "Scheduled billing window"
 sidebarTitle: "Scheduled billing window"
-description: "Nightly EDIS Global billing window explained, including credit handling, invoice generation, and service suspension times. When to avoid placing orders."
+description: "Nightly EDIS Global billing window explained, including credit handling, invoice generation, and service suspension times. Optional credit hold restrictions from 03:58 to 05:15 CET."
 slug: "faq/billing-lifecycle/scheduled-billing-window"
 ---
 
@@ -24,7 +24,7 @@ The billing window occurs **daily between midnight and 05:15 CET (Central Europe
 | Billrun – End               | ~05:00 CET | ~04:00 UTC |
 | Optional credit hold – End   | 05:15 CET  | 04:15 UTC  |
 
-⚠️ **Do not place new orders or modify services** between **00:00 CET and 05:15 CET**, as transactions may be delayed or temporarily locked during this period. If support has configured your account to disable automatic credit application during invoice creation, your **credit balance is temporarily unavailable** during the optional credit hold described below.
+⚠️ If support has configured your account to **disable automatic credit application during renewal invoice creation**, your **credit balance is temporarily unavailable from 03:58 to 05:15 CET** during the optional credit hold described below. In this case, **do not top up your account during this period**. Newly created orders will **not be automatically delivered**, because account credit is unavailable during this timeframe. You will need to **pay the invoice manually**, either with account credit once it has been restored or with another available payment method of your choice.
 
 ---
 
@@ -54,7 +54,7 @@ For most customers, we recommend keeping automatic credit application enabled an
 3. **Optional credit hold**: Account credit is temporarily set to zero before invoice creation and restored afterward, if support has configured this arrangement.
 4. **Service suspension**: Non-paid services are automatically suspended.
 5. **Service termination**: Terminations are processed.
-6. **Finalization**: After 05:15 CET, all billing operations resume as normal.
+6. **Finalization**: At 05:15 CET, the optional credit hold ends and account credit becomes available again for affected accounts.
 
 ---
 
@@ -77,11 +77,13 @@ See [Data Retention Periods](/faq/billing-lifecycle/data-retention-period) and t
 ## ✅ Summary
 
 - The billing window ensures accurate renewals and payment processing.
-- Do not place orders or top up your account between **00:00–05:15 CET**.
-- If support has configured the optional credit hold, account credit is temporarily set to zero during invoice creation and restored afterward.
+- **Only if support has configured the optional credit hold:** do not top up your account between **03:58–05:15 CET**. Account credit is temporarily unavailable, so newly created orders will not be automatically delivered during this period.
+- For orders created during this period, **pay the invoice manually**, either with account credit once it has been restored or with another available payment method of your choice.
+- For affected accounts, the full credit balance is restored at **05:15 CET**.
+- Accounts without this arrangement are not affected by the optional credit hold.
 - Automatic attempts to charge your saved payment method (via our payment provider).
 - Service suspensions and terminations are handled during the billrun.
 
 ---
 
-**Last updated:** September 2026
+**Last updated:** 9 November 2026

@@ -1,0 +1,18 @@
+---
+title: "VNC Viewer (RealVNC) закрывается после подключения к серверу VNC"
+description: "Как исправить закрытие RealVNC Viewer сразу после подключения из-за неподдерживаемого ColorLevel pal8: измените настройки глубины цвета."
+---
+
+## Устранение разрыва соединения RealVNC сразу после подключения {#fix-for-realvnc-closing-connection-after-connection}
+
+VNC Viewer от RealVNC использует значение «ColorLevel» pal8, которое большинство серверов VNC не поддерживает.
+
+Для успешного подключения выполните следующие действия:
+
+<Steps>
+  <Step title="Откройте меню настроек RealVNC" />
+  <Step title="Нажмите Advanced Options в нижней левой части окна приложения" />
+  <Step title="Откройте вкладку Expert и измените значение ColorLevel со стандартного на full, rgb332 или rgb565" />
+</Steps>
+
+Теперь подключение должно работать.

@@ -9,18 +9,71 @@ description: "How EDIS Global automated VPS billing works, from invoice generati
 
 Customer-requested cancellation follows a different timeline. See the [VPS cancellation guide](/faq/billing-lifecycle/cancel-a-service) for immediate and end-of-term cancellation.
 
-| Days  | Event                 | Action                                                                                              |
-| ----- | --------------------- | --------------------------------------------------------------------------------------------------- |
-| -7d   | 🟢 Invoice Created    | Renewal invoice is generated and sent                                                               |
-| -3d   | 🟢 Credit Card Charge | Automatic attempt to debit your card                                                                |
-| -2d   | 🟢 Friendly Reminder  | First unpaid reminder sent                                                                          |
-| 0     | 🟡 Due Date           | Payment is due                                                                                      |
-| \+1d  | 🟡 Overdue Reminder 1 | First overdue reminder                                                                              |
-| \+2d  | 🟡 Overdue Reminder 2 | Second overdue reminder                                                                             |
-| \+3d  | 🟡 Overdue Reminder 3 | Last overdue reminder                                                                               |
-| \+7d  | 🟠 Service Suspension | VPS service powers down                                                                             |
-| \+14d | 🔴 Termination        | VPS agreement ends <br />(service no longer active, data still present)                             |
-| \+20d | 🔴 Data Deletion      | Renewal invoice is cancelled.<br />VPS data is permanently deleted 6 days after termination.<br />Recovery no longer possible. |
+<div style={{ overflowX: "auto" }}>
+  <table style={{ width: "100%" }}>
+    <thead>
+      <tr>
+        <th scope="col">Days</th>
+        <th scope="col">Event</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>-7d</td>
+        <td>🟢 Invoice Created</td>
+        <td>Renewal invoice is generated and sent</td>
+      </tr>
+      <tr>
+        <td>-3d</td>
+        <td>🟢 Credit Card Charge</td>
+        <td>Automatic attempt to debit your card</td>
+      </tr>
+      <tr>
+        <td>-2d</td>
+        <td>🟢 Friendly Reminder</td>
+        <td>First unpaid reminder sent</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>🟡 Due Date</td>
+        <td>Payment is due</td>
+      </tr>
+      <tr>
+        <td>+1d</td>
+        <td>🟡 Overdue Reminder 1</td>
+        <td>First overdue reminder</td>
+      </tr>
+      <tr>
+        <td>+2d</td>
+        <td>🟡 Overdue Reminder 2</td>
+        <td>Second overdue reminder</td>
+      </tr>
+      <tr>
+        <td>+3d</td>
+        <td>🟡 Overdue Reminder 3</td>
+        <td>Last overdue reminder</td>
+      </tr>
+      <tr style={{ backgroundColor: "rgba(249, 115, 22, 0.12)" }}>
+        <td>+7d</td>
+        <td>🟠 Service Suspension</td>
+        <td>VPS service powers down</td>
+      </tr>
+      <tr style={{ backgroundColor: "rgba(239, 68, 68, 0.14)" }}>
+        <td>+14d</td>
+        <td>🔴 Termination</td>
+        <td>VPS agreement ends <br />(service no longer active, data still present)</td>
+      </tr>
+      <tr style={{ backgroundColor: "rgba(239, 68, 68, 0.23)" }}>
+        <td>+20d</td>
+        <td>🔴 Data Deletion</td>
+        <td>Renewal invoice is cancelled.<br />VPS data is permanently deleted 6 days after termination.<br /><strong>Recovery is no longer possible.</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+See our [data retention policy](/faq/billing-lifecycle/data-retention-period) for retention periods and our [Data Processing Agreement (DPA)](https://www.edisglobal.com/dpa) for the contractual data protection provisions. Our [DPA guide](/faq/data-processing-agreement) explains how to obtain a signed copy and our standard terms.
 
 ## 🛠 Service recovery options
 

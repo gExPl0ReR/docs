@@ -1,0 +1,111 @@
+---
+title: "Установка LAMP с PostgreSQL и PostGIS"
+description: "Настройте LAMP с PostgreSQL и PostGIS на VPS EDIS Global: веб-хостинг с поддержкой пространственных баз данных."
+---
+
+**Установка LAMP с PostgreSQL и PostGIS на Ubuntu**
+
+В этом руководстве EDIS Global настроим среду LAMP с отличием: вместо MySQL используем PostgreSQL и его пространственное расширение PostGIS.
+
+### Предварительные требования {#prerequisites}
+
+1. Активный аккаунт VPS-хостинга EDIS Global.
+2. VPS с Ubuntu 20.04 или новее.
+3. Базовые навыки работы в терминале.
+
+### Пошаговая установка {#step-by-step-installation}
+
+### 1. Обновление системы {#1-system-update}
+
+Убедитесь, что на сервере актуальные пакеты:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+### 2. Установка Apache {#2-apache-installation}
+
+Установите веб-сервер Apache:
+
+```bash
+sudo apt install apache2 -y
+```
+
+Проверьте его состояние:
+
+```bash
+sudo systemctl status apache2
+```
+
+### 3. Установка PHP {#3-php-installation}
+
+Установите PHP и нужные расширения:
+
+```bash
+sudo apt install php libapache2-mod-php php-pgsql -y
+```
+
+Проверьте установку:
+
+```bash
+php -v
+```
+
+### 4. Установка PostgreSQL и PostGIS {#4-postgresql-and-postgis-installation}
+
+Установите PostgreSQL с дополнительными пакетами contrib:
+
+```bash
+sudo apt install postgresql postgresql-contrib -y
+```
+
+Проверьте состояние PostgreSQL:
+
+```bash
+sudo systemctl status postgresql
+```
+
+Установите PostGIS:
+
+```bash
+sudo apt install postgis postgresql-<VERSION>-postgis-3 -y
+```
+
+_Примечание:_ замените `<VERSION>` версией PostgreSQL, например `13` для PostgreSQL 13.
+
+### 5. Настройка базы данных {#5-database-setup}
+
+Войдите в среду PostgreSQL от пользователя `postgres`:
+
+```bash
+sudo -u postgres psql
+```
+
+Создайте базу и включите PostGIS:
+
+```sql
+CREATE DATABASE your_database_name;
+\c your_database_name
+CREATE EXTENSION postgis;
+```
+
+При необходимости создайте пользователя:
+
+```sql
+CREATE USER your_user_name WITH ENCRYPTED PASSWORD 'your_password';
+GRANT ALL PRIVILEGES ON DATABASE your_database_name TO your_user_name;
+```
+
+### 6. Защита установки {#6-securing-your-installation}
+
+При настройке позаботьтесь о безопасности:
+
+- Apache: настройте межсетевой экран, отключите листинг каталогов и используйте SSL-сертификаты.
+- PostgreSQL: измените стандартные пароли пользователей, ограничьте удалённый доступ и регулярно копируйте базу.
+- Регулярно обновляйте все компоненты.
+
+### Заключение {#conclusion}
+
+LAMP с PostgreSQL и PostGIS установлен на VPS EDIS Global. Такая конфигурация объединяет обычный веб-хостинг с пространственными возможностями PostGIS. Для производительности и безопасности регулярно наблюдайте за сервером, обслуживайте его и создавайте резервные копии.
+
+EDIS Global готова помочь. Другие руководства доступны в базе знаний; за помощью обращайтесь в поддержку.

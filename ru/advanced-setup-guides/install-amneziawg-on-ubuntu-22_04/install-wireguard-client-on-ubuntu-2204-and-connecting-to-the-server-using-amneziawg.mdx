@@ -1,0 +1,217 @@
+---
+title: "Подключение клиента WireGuard на Ubuntu 22.04 к AmneziaWG"
+description: "Установите клиент WireGuard на Ubuntu 22.04 и подключитесь к AmneziaWG VPN: пошаговая настройка защищённого соединения с устойчивостью к DPI."
+---
+
+Чтобы подключить локальный компьютер к удалённому WireGuard VPN с ранее полученной серверной конфигурацией AmneziaWG, выполните следующие шаги. Руководство рассчитано на Ubuntu 22.04: установим ПО, настроим его и запустим VPN-соединение.
+
+### 1. Измените sources.list клиентской ОС {#1-change-sources-list-on-the-client’s-operating-system}
+
+Откройте терминал и сохраните копию sources.list:
+
+```shell
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+```
+
+Откройте файл:
+
+```shell
+nano /etc/apt/sources.list
+```
+
+**Раскомментируйте строки deb-src:** удалите `#` в начале тех строк `deb-src`, которые нужно включить.
+
+```shell
+#Example sources.list file for Ubuntu 22.04
+# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to
+# newer versions of the distribution.
+deb http://archive.ubuntu.com/ubuntu jammy main restricted
+deb-src http://archive.ubuntu.com/ubuntu jammy main restricted
+
+## Major bug fix updates produced after the final release of the
+## distribution.
+deb http://archive.ubuntu.com/ubuntu jammy-updates main restricted
+deb-src http://archive.ubuntu.com/ubuntu jammy-updates main restricted
+
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team. Also, please note that software in universe WILL NOT receive any
+## review or updates from the Ubuntu security team.
+deb http://archive.ubuntu.com/ubuntu jammy universe
+deb-src http://archive.ubuntu.com/ubuntu jammy universe
+deb http://archive.ubuntu.com/ubuntu jammy-updates universe
+deb-src http://archive.ubuntu.com/ubuntu jammy-updates universe
+
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team, and may not be under a free licence. Please satisfy yourself as to
+## your rights to use the software. Also, please note that software in
+## multiverse WILL NOT receive any review or updates from the Ubuntu
+## security team.
+deb http://archive.ubuntu.com/ubuntu jammy multiverse
+deb-src http://archive.ubuntu.com/ubuntu jammy multiverse
+deb http://archive.ubuntu.com/ubuntu jammy-updates multiverse
+deb-src http://archive.ubuntu.com/ubuntu jammy-updates multiverse
+
+## N.B. software from this repository may not have been tested as
+## extensively as that contained in the main release, although it includes
+## newer versions of some applications which may provide useful features.
+## Also, please note that software in backports WILL NOT receive any review
+## or updates from the Ubuntu security team.
+deb http://archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse
+
+deb http://security.ubuntu.com/ubuntu jammy-security main restricted
+deb-src http://security.ubuntu.com/ubuntu jammy-security main restricted
+deb http://security.ubuntu.com/ubuntu jammy-security universe
+deb-src http://security.ubuntu.com/ubuntu jammy-security universe
+deb http://security.ubuntu.com/ubuntu jammy-security multiverse
+deb-src http://security.ubuntu.com/ubuntu jammy-security multiverse
+```
+
+**Сохраните и выйдите.**
+
+### 2. Обновите систему {#2-upgrade-the-system}
+
+```bash
+apt update && apt upgrade && apt-get full-upgrade && apt install resolvconf
+```
+
+### 3. Установите AmneziaWG на Ubuntu 22.04 {#3-install-amneziawg-on-ubuntu-22-04}
+
+```bash
+apt install -y software-properties-common python3-launchpadlib gnupg2 linux-headers-$(uname -r)
+
+add-apt-repository ppa:amnezia/ppa
+
+apt-get install -y amneziawg
+```
+
+Проверьте наличие всех необходимых драйверов:
+
+```bash
+lsmod | grep amnezia
+```
+
+Если вывода нет, выполните:
+
+```bash
+modprobe amneziawg && lsmod | grep amnezia
+```
+
+### 4. Скопируйте клиентскую конфигурацию AmneziaWG в Linux Ubuntu {#4-copy-amneziawg-client-config-to-linux-ubuntu}
+
+Выполните команду:
+
+```shell
+scp [username]@[server-ip-address]:/root/awg/wg-client1.conf /etc/amnezia/amneziawg/
+```
+
+Здесь:
+
+* `username` — имя пользователя сервера.
+* `server-ip-address` — IP сервера.
+* `/root/awg/` — каталог клиентских конфигураций AmneziaWG.
+* `wg-client1.conf` — файл конфигурации amneziawg.
+* `/etc/amnezia/amneziawg/` — локальный каталог Linux-компьютера.
+
+### 5. Получите конфигурацию Amnezia WireGuard {#5-get-your-amnezia-wireguard-configuration}
+
+Скачайте файл конфигурации с VPS. Файл `.conf` обычно имеет такой формат:
+
+```shell
+[Interface]
+PrivateKey = kHcPwRvI3FRc4qcE+Fgrln1K1qxQNM3jl4CpPzaYx4o=
+#_PublicKey = 7vzU3tVk39Dj+XvjpX3e9yZzDZhfbTZUde2Elju3nRM=
+Address = 10.10.8.2/32
+DNS = 8.8.8.8
+Jc = 120
+Jmin = 60
+Jmax = 1266
+S1 = 11
+S2 = 54
+H1 = 563549684
+H2 = 1544213701
+H3 = 529241130
+H4 = 981267317
+
+[Peer]
+AllowedIPs = 0.0.0.0/5, 8.0.0.0/7, 11.0.0.0/8, 12.0.0.0/6, 16.0.0.0/4, 32.0.0.0/3, 64.0.0.0/2, 128.0.0.0/3, 160.0.0.0/5, 168.0.0.0/6, 172.0.0.0/12, 172.32.0.0/11, 172.64.0.0/10, 172.128.0.0/9, 173.0.0.0/8, 174.0.0.0/7, 176.0.0.0/4, 192.0.0.0/9, 192.128.0.0/11, 192.160.0.0/13, 192.169.0.0/16, 192.170.0.0/15, 192.172.0.0/14, 192.176.0.0/12, 192.192.0.0/10, 193.0.0.0/8, 194.0.0.0/7, 196.0.0.0/6, 200.0.0.0/5, 208.0.0.0/4, 8.8.8.8/32
+Endpoint = VPS_REMOTE_IP:54666
+PersistentKeepalive = 60
+PublicKey = 7gExcFjYZ6rR5nU7F3xzrDQchtGu4OCxEwGjSlRGwnE=
+```
+
+Сохраните его с расширением `.conf`, например `wg0.conf`.
+
+### 6. Переместите конфигурацию в каталог AmneziaWG {#6-move-configuration-to-amneziawg-directory}
+
+Поместите конфигурацию в каталог AmneziaWG. Здесь wg-client1.conf — ранее скачанный с сервера клиентский файл:
+
+```shell
+sudo mv /etc/amnezia/amneziawg/wg-client1.conf /etc/amnezia/amneziawg/wg0.conf
+```
+
+Ограничьте права, чтобы предотвратить посторонний доступ:
+
+```shell
+sudo chmod 600 /etc/amnezia/amneziawg/wg0.conf
+```
+
+### 7. Запустите VPN-соединение WireGuard {#7-start-the-wireguard-vpn-connection}
+
+Для запуска с этим файлом конфигурации выполните:
+
+```shell
+sudo awg-quick up wg0
+```
+
+При правильной настройке соединение WireGuard VPN будет установлено.
+
+### 8. Проверьте соединение {#8-verify-the-connection}
+
+Чтобы проверить активность:
+
+```shell
+awg show
+ip 
+```
+
+Команда показывает имя интерфейса, сведения о пирах и статистику передачи данных активного соединения WireGuard.
+
+### 9. Отключитесь от VPN {#9-disconnect-from-the-vpn}
+
+Для остановки соединения:
+
+```shell
+sudo awg-quick down wg0
+```
+
+### 10. При необходимости включите автозапуск WireGuard {#10-optionally-enable-wireguard-on-boot}
+
+Чтобы VPN запускался при загрузке:
+
+```shell
+sudo systemctl enable awg-quick@wg0
+```
+
+Чтобы отключить автозапуск:
+
+```shell
+sudo systemctl disable awg-quick@wg0
+```
+
+### Советы по диагностике {#troubleshooting-tips}
+
+* Проверьте закрытый и публичный ключи и данные конечной точки в конфигурации.
+* При проблемах соединения изучите подробные ошибки в системном журнале:
+
+```shell
+sudo journalctl -xe
+```
+
+После этих шагов вы сможете подключаться к AmneziaWG в Ubuntu.
+
+Ссылки:
+
+* [https://github.com/amnezia-vpn/amneziawg-linux-kernel-module](https://github.com/amnezia-vpn/amneziawg-linux-kernel-module)
+* [https://github.com/amnezia-vpn/amnezia-client](https://github.com/amnezia-vpn/amnezia-client)
+* [https://docs.amnezia.org/documentation/supported-platforms/](https://docs.amnezia.org/documentation/supported-platforms/)
