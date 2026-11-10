@@ -1,0 +1,81 @@
+---
+title: "How PayPal subscriptions work"
+sidebarTitle: "PayPal subscriptions explained"
+description: "Understand who sends your PayPal subscription payments, how to manage them, and what to check when a payment stops or arrives unexpectedly."
+---
+
+<Info>
+  **PayPal sends scheduled subscription payments automatically. EDIS Global does not actively charge your PayPal account for each recurring payment.**
+
+  You authorise the subscription in PayPal. PayPal then processes payments according to the schedule you approved.
+</Info>
+
+## What is a PayPal subscription? {#what-is-a-paypal-subscription}
+
+A PayPal subscription is an agreement you approve during checkout that allows PayPal to make recurring payments to a merchant.
+
+Think of it like a **standing order at a bank**: you give permission once, and payments are sent on an agreed schedule. You do not need to approve every payment separately.
+
+This page explains the **fixed, scheduled PayPal subscriptions used for EDIS Global services**. A one-off PayPal payment does not, by itself, create a subscription.
+
+## Who initiates each payment? {#who-initiates-each-payment}
+
+1. **You approve the subscription** in PayPal, including its amount and payment frequency.
+2. **PayPal runs the schedule** and processes the recurring payments using the funding source assigned to that subscription.
+3. **EDIS Global receives the payment** and records it in your customer account.
+
+For these subscriptions, **we do not send an individual charge request to PayPal for each recurring payment**. An invoice or payment reminder from EDIS Global does not trigger the scheduled PayPal transfer.
+
+**Example:** You approve a subscription for EUR 10 per month. PayPal sends EUR 10 each month according to that subscription. The payment is the result of your existing authorisation, rather than a new payment request from our team.
+
+## Why did PayPal pay after I changed or cancelled a service? {#why-did-paypal-pay-after-i-changed-or-cancelled-a-service}
+
+Your PayPal subscription and your EDIS Global service are managed separately. The subscription does not automatically follow changes to your services, invoices or account credit.
+
+An existing subscription may therefore continue sending the same amount after you:
+
+- Upgrade or downgrade a VPS.
+- Cancel a service.
+- Pay an invoice manually or with account credit.
+- Switch to another payment method.
+
+This can result in duplicate payments, excess account credit or an amount that no longer covers your invoice. Review your active PayPal subscriptions whenever your services or payment method change.
+
+If a payment looks unexpected, compare your PayPal activity with your [EDIS Global invoices](/faq/billing-lifecycle/find-and-download-invoices). [Contact support](https://www.edisglobal.com/contact) with the invoice number and PayPal transaction ID if you need help matching a payment.
+
+## How do I manage or stop a subscription? {#how-do-i-manage-or-stop-a-subscription}
+
+You can review and cancel your automatic payments in your own PayPal account:
+
+1. Log in to PayPal and open **Settings**.
+2. Choose **Payments**.
+3. Open **Subscriptions and saved businesses** or **Automatic Payments**.
+4. Select the relevant merchant or subscription.
+5. Review the agreement, change its payment method where available, or select **Cancel** to stop future payments.
+
+Menu names may vary by country and account interface. See our [step-by-step cancellation guide](/faq/billing-lifecycle/how-to-locate-and-cancel-a-subscription-in-your-paypal-account) or [PayPal's automatic payment help](https://www.paypal.com/us/cshelp/article/what-is-an-automatic-payment-and-how-do-i-update-or-cancel-one-help240).
+
+<Warning>
+  **Cancelling a PayPal subscription does not cancel your VPS or settle unpaid invoices.** To stop using a VPS, also [request service cancellation in the EDIS Global portal](/faq/billing-lifecycle/cancel-a-service). When cancelling a VPS, check PayPal separately and cancel the corresponding subscription.
+</Warning>
+
+## What if a payment stops or fails? {#what-if-a-payment-stops-or-fails}
+
+Start by checking your PayPal account:
+
+- Is the subscription still active?
+- Does PayPal show a failed, pending or completed payment?
+- Is the card or bank account assigned to this subscription still valid and able to fund the payment?
+- Has PayPal sent a notice about an account restriction or required action?
+
+A missed payment does not, by itself, mean that EDIS Global blocked it or forgot to charge you. Funding problems, the agreement's status or a PayPal processing issue may be involved. Depending on the subscription, PayPal may retry failed payments.
+
+If PayPal shows a completed payment but your EDIS Global invoice is still unpaid, **contact our support team with the PayPal transaction ID and invoice number**. If PayPal cannot complete the payment, follow its account notices or contact PayPal support.
+
+Check the payment status before paying manually, because an active subscription or retry may still send funds. If the invoice is approaching its due date, contact us promptly; a PayPal problem does not extend the invoice deadline.
+
+## Further reading {#further-reading}
+
+- [PayPal: manage or cancel automatic payments](https://www.paypal.com/us/cshelp/article/what-is-an-automatic-payment-and-how-do-i-update-or-cancel-one-help240).
+- [PayPal: failed subscription payments and retries](https://developer.paypal.com/docs/subscriptions/customize/payment-failure-retry/).
+- [Automated payment options at EDIS Global](/faq/billing-lifecycle/automated-payments).

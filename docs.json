@@ -142,6 +142,7 @@
                     "icon": "money-bill-1-wave",
                     "pages": [
                       "faq/billing-lifecycle/automated-payments",
+                      "faq/billing-lifecycle/paypal-subscriptions-explained",
                       "faq/billing-lifecycle/payments-transitions",
                       "faq/billing-lifecycle/pay-invoices-from-credit-balance",
                       "faq/billing-lifecycle/how-to-add-account-credit",
@@ -618,6 +619,7 @@
                     "icon": "money-bill-1-wave",
                     "pages": [
                       "ru/faq/billing-lifecycle/automated-payments",
+                      "ru/faq/billing-lifecycle/paypal-subscriptions-explained",
                       "ru/faq/billing-lifecycle/payments-transitions",
                       "ru/faq/billing-lifecycle/pay-invoices-from-credit-balance",
                       "ru/faq/billing-lifecycle/how-to-add-account-credit",
