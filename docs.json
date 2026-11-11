@@ -337,6 +337,7 @@
                   "order-api-reference/order-api",
                   "order-api-reference/order-vps",
                   "order-api-reference/upgrade-vps",
+                  "order-api-reference/standard-ip-change",
                   "order-api-reference/get-vps-plans",
                   "order-api-reference/get-vps-locations",
                   "order-api-reference/get-billing-cycles",
