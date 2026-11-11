@@ -12,6 +12,49 @@
     }
   ],
   "paths": {
+    "/kvm/v2/add/standard_ip_change": {
+      "post": {
+        "summary": "Standard IP Change",
+        "description": "Request a standard IP change for an existing VPS.\n\n> **Live operation — no test environment**\n>\n> This is a production operation. Submit a request only when you intend to order an IP change. Setting `\"applycredit\": false` does not make the request a test.\n\n- **serviceid**: See [Get Service ID](/order-api-reference/get-service-id) (`POST /kvm/v2/get/serviceid`).\n- **paymentmethod** (optional): See [Get Payment Methods](/order-api-reference/get-payment-options) (`POST /kvm/v2/get/paymentmethods`).\n\n**Example JSON:**\n\n```json\n{\n  \"oldip\": \"192.0.2.10\",\n  \"serviceid\": 209052,\n  \"paymentmethod\": \"paypal\",\n  \"applycredit\": false\n}\n```\n",
+        "operationId": "standardIPChange",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email",
+                  "pw",
+                  "order"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Your WHMCS account email address."
+                  },
+                  "pw": {
+                    "type": "string",
+                    "format": "password",
+                    "description": "Your WHMCS account password."
+                  },
+                  "order": {
+                    "type": "string",
+                    "description": "JSON-encoded object. Required: oldip (string, the current IP address) and serviceid (integer, the numeric service ID returned by POST /kvm/v2/get/serviceid). Optional: paymentmethod (string, an identifier returned by POST /kvm/v2/get/paymentmethods) and applycredit (boolean, whether to apply available account credit). Use a JSON boolean, not a quoted string. See the **Example JSON** section above for a formatted example."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "API response to the standard IP change request. A response schema and example are not specified."
+          }
+        }
+      }
+    },
     "/kvm/v2/get/paymentmethods": {
       "post": {
         "summary": "Get Payment Options.",
