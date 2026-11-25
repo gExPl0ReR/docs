@@ -12,9 +12,9 @@ description: "Existing EDIS Global VPS plans cannot be downgraded, even after hu
 
 Your KVM VPS has an allocated virtual disk. A smaller plan may provide less disk capacity than that existing disk. The larger disk cannot simply be placed into the smaller allocation, and EDIS Global does not provide an in-place disk-shrinking or downgrade operation. Deleting files or using only a small part of the disk does not make a downgrade available.
 
-![A large virtual drive fits inside the current VPS, but cannot fit into the smaller VPS storage allocation.](/images/vps-downgrade-not-supported.png)
+![Forcing a larger virtual disk into a smaller allocation is illustrated by cutting off both sides, destroying the files stored there.](/images/vps-downgrade-not-supported.png)
 
-_Conceptual illustration: the allocated virtual disk, not just the space occupied by your files, matters. It does not represent the physical size of a drive._
+_Cutting off parts of a virtual disk would destroy data. The severed sides illustrate that risk; we do not perform this operation. This is a metaphor for allocated storage capacity, not the physical size of a drive._
 
 ## How to move to a smaller plan
 
