@@ -1,83 +1,48 @@
 ---
-title: "VPS cancellation"
-description: "Cancel an EDIS Global VPS service step by step, including end-of-term and immediate cancellation workflows, video walkthrough, and data deletion timelines."
+title: "Cancel a VPS"
+description: "Cancel your EDIS Global VPS now or at the end of its billing period. Follow the portal steps and learn how to withdraw a cancellation before deletion."
 sidebarTitle: "Cancel a VPS"
+keywords:
+  - "cancel VPS"
+  - "request cancellation"
+  - "end of billing period"
+  - "revoke cancellation"
 ---
 
-<Tip>
-  **Already requested cancellation and want to keep your VPS?** You can withdraw an immediate or end-of-term cancellation before the server is deleted, for up to **six days after termination**. Open **Portal Home → VPS Cancellation Requests → Manage Cancellations → Revoke Cancellation**. See [Manage VPS cancellation requests](/faq/billing-lifecycle/manage-cancellation-requests) for screenshots and instructions.
-</Tip>
+Cancel your EDIS Global VPS in the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
 
-## How to request cancellation for your EDIS VPS
-
-You can cancel a VPS in the VPS Management Portal at any time.
+**Back up your data first.**
 
 <Steps>
-  <Step title="Log in to the VPS Management Portal">
-    Open the [VPS Management Portal](https://manage.edisglobal.com/clientarea.php).
+  <Step title="Open your VPS">
+    Go to **Services** and select your VPS. Check its hostname and IP address.
+
+    ![Select the VPS by its hostname and IP address.](/images/cancel-vps-select-service.jpg)
   </Step>
-  <Step title="Find your VPS">
-    Find your VPS in the **Services** tab.
+  <Step title="Request cancellation">
+    Click **Request Cancellation**.
+
+    ![Request Cancellation on the VPS details page.](/images/cancel-vps-request-cancellation.jpg)
   </Step>
-  <Step title="Click Request Cancellation">
-    Cancel **with immediate effect** or **by the end of the billing period**.
+  <Step title="Continue">
+    You may choose a reason, then click **Continue to cancellation**.
+
+    ![The optional reason and Continue to cancellation button.](/images/cancel-vps-continue.jpg)
+  </Step>
+  <Step title="Choose when to stop and confirm">
+    - **End of paid period:** keep using your VPS until the displayed date.
+    - **Immediate:** stop the VPS now.
+
+    Check the stop and deletion dates, then click the red **Request cancellation…** button.
+
+    ![Review the cancellation timing and deletion date before confirming.](/images/cancel-vps-review-timing.jpg)
   </Step>
 </Steps>
 
-Cancelling a service removes its line items from outstanding pro-forma invoices. If an invoice covers only this VPS, it is cancelled. If it covers multiple services, only this VPS's line items are removed; charges for the other services remain. This billing adjustment does not delete the VPS data.
+Your VPS data is permanently deleted **six days after termination**, not six days after an end-of-term request. Keep your own backup.
 
-If you withdraw the cancellation, **EDIS Global re-issues renewal invoices** to ensure correct renewal and continuation of the service. Check **Billing → My Invoices** and your invoices folder, or [ask support](https://www.edisglobal.com/contact) if in doubt.
+Cancellation removes this VPS's renewal charges from outstanding pro-forma invoices. Charges for other services remain. Unused time already paid for is not refunded.
 
-## Video guide: how to cancel a service
-
-<iframe width="100%" height="450" src="https://www.loom.com/embed/206825b87a894704af333b9fb57a5a2b?sid=7a6cf401-af9b-4494-b44d-8a95f12927ff" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
-
-<Note>
-  Our services use **monthly subscriptions**, not daily billing. You may need to
-  discontinue a service before the subscription period ends. In that case, **we
-  cannot refund** any portion of the subscription you have already paid. We
-  apologize for any inconvenience this may cause.
-</Note>
-
-## ⏳ VPS expiration workflow
-
-_Used when you request cancellation at the end of the billing cycle (on expiry)._
-
-| **Day**      | **Event**                              | **What happens**                              |
-| ------------ | -------------------------------------- | --------------------------------------------- |
-| 0            | Cancellation (on **expiry**) requested | VPS continues running **until the due date**  |
-| 0            | Invoice cancelled or adjusted          | This VPS's renewal charges are removed; charges for other services remain |
-| **Due Date** | 🚫 Service Terminated                  | VPS stops, contract ends                      |
-| 6 days after termination | 🗑️ Data Deleted              | VPS data permanently removed from our servers |
-
-For end-of-term cancellation, the six-day retention period starts when the service terminates on its due date, not when you submit the cancellation request.
-
----
-
-## ⚡ Immediate termination workflow
-
-_Used when you request cancellation right away._
-
-| **Day**  | **Event**                              | **What happens**                              |
-| -------- | -------------------------------------- | --------------------------------------------- |
-| 0        | Cancellation (**immediate**) requested | VPS stops working **immediately**             |
-| 0        | Invoice cancelled or adjusted          | This VPS's renewal charges are removed; charges for other services remain |
-| 0        | 🚫 Service Terminated                  | VPS contract ends right away                  |
-| 6 days after termination | 🗑️ Data Deleted          | VPS data permanently removed from our servers |
-
-<Info>
-  **Cancelled with immediate effect? Recovery is still possible before deletion.**
-
-  Immediate termination stops your VPS, but its data remains stored for another six days. Open **Manage Cancellations** in the portal to restore an eligible VPS before deletion. See [Manage VPS cancellation requests](/faq/billing-lifecycle/manage-cancellation-requests). If no suitable action is available, [contact support](https://www.edisglobal.com/contact) promptly.
-
-  The six-day period starts when the VPS is terminated, not when an invoice is cancelled. After permanent deletion, the data cannot be recovered.
-</Info>
-
----
-
-### Notes
-
-- **Data deletion** is permanent and takes place six days after service termination.
-- Please **back up your data** before requesting cancellation.
-- **Recovery or reactivation:** Check [Manage VPS cancellation requests](/faq/billing-lifecycle/manage-cancellation-requests) for the self-service options. If no suitable action is available, [contact support](https://www.edisglobal.com/contact) promptly, before permanent deletion.
-- See [Data Retention Periods](/faq/billing-lifecycle/data-retention-period) for the retention policy. The retention period is not a substitute for your own backups.
+<Tip>
+  **Already requested cancellation and want to keep your VPS?** You can withdraw an immediate or end-of-term cancellation before the server is deleted, for up to **six days after termination**. Open **Portal Home → VPS Cancellation Requests → Manage Cancellations → Revoke Cancellation**. See [**Manage VPS cancellation requests**](/faq/billing-lifecycle/manage-cancellation-requests) for screenshots and instructions.
+</Tip>
