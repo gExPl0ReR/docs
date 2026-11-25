@@ -1,24 +1,36 @@
 ---
-title: Is it possible to downgrade?
-sidebarTitle: Downgrades
-description: "Downgrades are not supported on EDIS Global KVM plans because shrinking partitions cannot be done without data loss. Learn the alternatives and workarounds."
+title: "Is it possible to downgrade?"
+sidebarTitle: "Downgrades"
+description: "Existing EDIS Global VPS plans cannot be downgraded, even after human review. A smaller plan requires a new VPS, data migration and a different randomly assigned IP."
 ---
 
-## We only support upgrades on our VPS plans
+## Downgrades are technically unavailable {#we-only-support-upgrades-on-our-vps-plans}
 
-Due to the nature of virtual drives, it is always possible to enlarge a partition. Reducing partitions in size is not possible without complete data loss. For that reason, EDIS does not offer any downgrade options on its KVM plans.&#x20;
+**You cannot downgrade an existing EDIS Global VPS to a smaller plan.** This is a technical limitation of our platform, not an approval decision. Human support cannot override it, including at renewal.
 
-If you want to downgrade to a smaller plan, do the following:
+## Why a larger virtual disk cannot fit into a smaller VPS
 
-1. Order a (smaller) product of your liking
+Your KVM VPS has an allocated virtual disk. A smaller plan may provide less disk capacity than that existing disk. The larger disk cannot simply be placed into the smaller allocation, and EDIS Global does not provide an in-place disk-shrinking or downgrade operation. Deleting files or using only a small part of the disk does not make a downgrade available.
 
-2. Migrate data and applications to the new server
+![Forcing a larger virtual disk into a smaller allocation is illustrated by cutting off both sides, destroying the files stored there.](/images/vps-downgrade-not-supported.png)
 
-3. Cancel the other product.
+_Cutting off parts of a virtual disk would destroy data. The severed sides illustrate that risk; we do not perform this operation. This is a metaphor for allocated storage capacity, not the physical size of a drive._
+
+## How to move to a smaller plan
+
+A smaller plan requires a **separate new VPS**, not a change to your existing VPS:
+
+1. Back up your data and check that your applications and files will fit the smaller plan.
+2. Order the smaller VPS you want.
+3. Set it up, migrate your applications and data, and update any configuration that uses the old IP address.
+4. Verify that the new VPS works before [cancelling the old service](/faq/billing-lifecycle/cancel-a-service).
+
+<Warning>
+  **The new VPS receives a different, randomly selected IP address.** Cancelling and re-ordering does not preserve or reassign your previous IP, even in the same location. Your data and applications are not transferred automatically.
+</Warning>
+
+If keeping your current IP address is essential, keep the existing VPS. Do not cancel it expecting to receive the same IP on a new order.
 
 <Note>
-  EDIS Global does not work with context based VPS which usually use
-  disk-quotas. EDIS Global provides fully virtualized KVM servers with virtual
-  disks (like real harddrives/SSD drives). Reducing a drive in size immediately
-  removes random parts of your drive where your valuable data is stored.
+  Requesting a downgrade does not change your current service, renewal price or invoice. A human can help explain cancellation and a separate new order, but cannot approve an in-place downgrade.
 </Note>

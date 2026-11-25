@@ -50,7 +50,48 @@
         },
         "responses": {
           "200": {
-            "description": "API response to the standard IP change request. A response schema and example are not specified."
+            "description": "Standard IP change order created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "Request status.",
+                      "example": "success"
+                    },
+                    "orderid": {
+                      "type": "integer",
+                      "description": "Order ID.",
+                      "example": 123456
+                    },
+                    "serviceids": {
+                      "type": "string",
+                      "description": "Service IDs returned by the API. Empty in this example.",
+                      "example": ""
+                    },
+                    "addonid": {
+                      "type": "string",
+                      "description": "Addon ID.",
+                      "example": "123"
+                    },
+                    "invoiceid": {
+                      "type": "integer",
+                      "description": "Invoice ID.",
+                      "example": 654321
+                    }
+                  }
+                },
+                "example": {
+                  "status": "success",
+                  "orderid": 123456,
+                  "serviceids": "",
+                  "addonid": "123",
+                  "invoiceid": 654321
+                }
+              }
+            }
           }
         }
       }

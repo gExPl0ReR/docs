@@ -1,0 +1,63 @@
+---
+title: "Residential IP addresses and VPS hosting"
+sidebarTitle: "Residential IP addresses"
+description: "Understand residential, mobile and datacentre IP addresses, what EDIS Global VPS provides, and why third-party platforms decide which connections to accept."
+keywords: ["residential IP", "native residential IP", "datacentre IP", "datacenter IP", "static IP", "dedicated IP"]
+---
+
+EDIS Global provides VPS hosting on infrastructure in data centres. The IP addresses assigned to your VPS are **static, dedicated datacentre addresses**. We do not provide residential or "native residential" IP addresses, including through bespoke IP selection.
+
+## What is a residential IP address?
+
+A residential IP address is a public IP address associated with an internet connection that an Internet Service Provider (ISP) supplies to a household or consumer broadband customer. Common examples include home fibre, cable and DSL connections.
+
+"Residential" describes the type of internet access behind an address. It does not automatically mean that the address is static, dedicated to one customer, or accepted by every website.
+
+Mobile broadband, such as 3G, 4G or 5G, is another form of consumer internet access. IP-intelligence providers may classify these addresses separately as **mobile** or **cellular**, rather than residential. EDIS Global VPS hosting does not provide a home broadband or mobile-carrier connection.
+
+## Static, dedicated and residential mean different things
+
+| Term | What it describes |
+| --- | --- |
+| **Static** | Whether the assigned address stays the same. Your EDIS Global VPS addresses remain assigned through upgrades and operating-system reinstalls. |
+| **Dedicated** | Whether the address is assigned exclusively to your VPS. We do not share your assigned VPS IP addresses with other customers while they are assigned to your service. |
+| **Residential** | An address associated with household or consumer internet access. |
+| **Datacentre** | An address used for servers and services on hosting or data-centre infrastructure, such as an EDIS Global VPS. |
+
+A static or dedicated IP address can be a datacentre address. Those properties do not make it residential. See [Static IP addresses](/faq/ip-addresses/static-ip-addresses).
+
+## Why VPS addresses are datacentre addresses
+
+Your VPS runs on server infrastructure in a data centre, rather than on a household broadband connection. Its IP addresses reflect that type of service.
+
+Choosing a VPS in a particular country does not make its address residential. Country or city geolocation and network classification answer different questions. A VPS located in Chile, for example, still uses a datacentre IP address.
+
+Reinstalling the operating system, using a remote desktop, or running a VPN on your VPS does not turn its assigned address into a residential IP. [Bespoke IP selection](/faq/ip-addresses/order-bespoke-ip-address) lets you choose from available VPS addresses; it does not change the type of connection we provide.
+
+## Third-party classification and access
+
+Websites, apps and IP-intelligence providers use their own data and rules to classify addresses, assess reputation and decide whether to accept connections. Different providers can classify the same address differently, and their decisions can change.
+
+EDIS Global cannot control or override those decisions. We cannot guarantee:
+
+- Acceptance by WhatsApp, streaming services, banking sites or any other particular platform.
+- A residential or "native residential" classification in a third-party database.
+- A particular reputation score or blocklist status.
+- Browsing without CAPTCHAs, account restrictions or other checks.
+
+A datacentre classification describes the network type; it does not by itself mean that an address has been used abusively. Equally, a residential address does not guarantee that a platform will accept a connection or approve an account.
+
+**Changing an IP address, prefix or VPS location cannot guarantee acceptance.** A successful connection today is not a promise of future access. See [Connectivity and IP expectations](/commercial-vpn-hosting#connectivity-and-ip-expectations).
+
+## Check your requirements before ordering
+
+If a service requires a residential or mobile connection, our VPS IP addresses do not fulfil that requirement. Check the platform's requirements and whether it permits connections from hosting networks before ordering a VPS, additional IP addresses or an IP change.
+
+For questions about an existing restriction, contact the platform that applies it. Our support team can explain our VPS and IP options, but cannot promise to remove another service's restrictions.
+
+## Related information
+
+- [Static IP addresses](/faq/ip-addresses/static-ip-addresses)
+- [Bespoke additional IP addresses](/faq/ip-addresses/order-bespoke-ip-address)
+- [Geolocation and GeoIP databases](/faq/ip-addresses/geolocation-geoip-databases)
+- [MaxMind: connection types and IP network data](https://support.maxmind.com/knowledge-base/articles/maxmind-ip-network-data)
