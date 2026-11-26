@@ -16,6 +16,10 @@ At EDIS Global, we take data security very seriously. **EDIS Global does not pro
 
 ### Keep a recoverable copy outside the VPS
 
+<Frame caption="Create and test a backup outside your VPS before data is lost. A copy on the same VPS is lost with it.">
+  <img src="/images/vps-independent-backup.png" alt="Create and test a backup outside your VPS before data is lost. A copy on the same VPS is lost with it." />
+</Frame>
+
 Store at least one backup on another system or storage provider. A copy on the same virtual disk is lost if that disk is erased or the VPS is deleted. Keep more than one dated version, protect access to the backup, and regularly test restoration into a separate directory or test system.
 
 For databases, use the database's supported backup or dump procedure. Copying live database files alone may produce an inconsistent backup.
