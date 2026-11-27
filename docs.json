@@ -488,6 +488,11 @@
         "global": {
           "anchors": [
             {
+              "anchor": "Configure a VPS",
+              "icon": "sliders",
+              "href": "https://www.edisglobal.com/vps-hosting/vps-configurator"
+            },
+            {
               "anchor": "Explore VPS Hosting Plans & Locations",
               "icon": "server",
               "href": "https://www.edisglobal.com/vps-hosting"
@@ -839,6 +844,11 @@
         ],
         "global": {
           "anchors": [
+            {
+              "anchor": "Конфигуратор VPS",
+              "icon": "sliders",
+              "href": "https://www.edisglobal.com/ru/vps-hosting/vps-configurator"
+            },
             {
               "anchor": "Тарифы VPS и локации",
               "icon": "server",
